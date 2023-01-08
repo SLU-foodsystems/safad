@@ -1,0 +1,36 @@
+@use "sass:math";
+/*
+ * Variables
+ * =========================================== */
+
+/*
+ * Colors
+ */
+
+$background: #fff;
+$gray: darken($background, 9%);
+$pink: #f8b8c9;
+$lightgray: darken($background, 4%);
+$yellow: #fd0;
+
+$type: #050505;
+
+/*
+ * Sizing
+ */
+
+$ratio: 1.5;
+$s0: 1rem;
+$s-1: math.div($s0, $ratio);
+$s-2: math.div($s-1, $ratio);
+$s-3: math.div($s-2, $ratio);
+$s-4: math.div($s-3, $ratio);
+$s-5: math.div($s-4, $ratio);
+$s1: $s0 * $ratio;
+$s2: $s1 * $ratio;
+$s3: $s2 * $ratio;
+$s4: $s3 * $ratio;
+$s5: $s4 * $ratio;
+
+$measure: 70ch;
+$measure--wide: 1400px;
