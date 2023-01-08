@@ -1,0 +1,68 @@
+@use "sass:math";
+@import "constants";
+
+/**
+ * Buttons
+ */
+
+.button {
+  display: inline-block;
+  padding: 0.75em 1em;
+  border: none;
+  box-shadow: 0 0.3em 0.75em -0.65em rgba(black, 0.5);
+
+  cursor: pointer;
+
+  background: $gray;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &:focus {
+    $x: 3px;
+    outline: 0;
+    box-shadow: 0 0 0 $x white, 0 0 0 (2 * $x) black;
+    background: $yellow;
+  }
+
+  &::selection {
+    color: white;
+  }
+}
+
+.button.button--slim {
+  padding: 0.25em 0.5em;
+  text-transform: none;
+  border: 1px solid rgba(black, 0.15);
+}
+
+.button.button--danger {
+  background: #ff3414;
+  color: #fff;
+}
+
+.button.button--accent {
+  background: #06f;
+  color: #fff;
+}
+
+.button--link {
+  border: 0;
+  background: transparent;
+  text-decoration: underline;
+  font-weight: bold;
+  padding: 0.75em 1em;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}

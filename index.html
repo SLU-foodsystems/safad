@@ -1,13 +1,47 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SLU Diet Benchmarking</title>
   </head>
   <body>
-    <div id="app"></div>
+    <header class="page-wrap stack">
+      <h1>Plan'eat</h1>
+    </header>
+    <section class="page-wrap stack case-selection">
+      <div class="cluster cluster--center">
+        <label>
+          <span>Select Country:</span>
+          <select>
+            <option disabled>Croatia</option>
+            <option disabled>Denmark</option>
+            <option disabled>France</option>
+            <option disabled>Germany</option>
+            <option disabled>Italy</option>
+            <option disabled>Norway</option>
+            <option disabled>Serbia</option>
+            <option default>Sweden</option>
+          </select>
+        </label>
+        <label>
+          <span>Select Diet:</span>
+          <select>
+            <option>EAT Lancet</option>
+            <option>Lancet Planetary Health</option>
+            <option default>Cambridge Planet Diet</option>
+          </select>
+        </label>
+      </div>
+      <div class="cluster cluster--center">
+        <button class="button button--accent">Display results</button>
+      </div>
+    </section>
+    <div class="page-wrap center">
+
+
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
