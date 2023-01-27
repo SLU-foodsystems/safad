@@ -148,7 +148,6 @@ p {
 
 @import "layout-primitives";
 
-
 /*
  * Button styles
  * =========================================== */
@@ -161,7 +160,6 @@ p {
 
 @import "form";
 
-
 /*
  * General
  * =========================================== */
@@ -170,7 +168,7 @@ p {
 
 header {
   width: 100%;
-  padding: 16vh 1em;
+  padding: 4em 1em;
   text-align: center;
 
   h1 {
@@ -199,17 +197,53 @@ header {
  * Specifics
  * =========================================== */
 
-.case-selection {
-  font-size: 1.5em;
+.foods-card {
+  width: 100%;
+}
 
-  label {
-    display: inline-block;
-    flex-basis: 16em;
+.foods-card__header {
+  width: 100%;
+  background: white;
+  border: 2px solid $gray;
+  padding: 1em;
+  box-shadow: 0 0.3em 0.75em -0.65em rgba(black, 0.5);
+  text-align: left;
+}
+
+.foods-card__body {
+  $min-col-size: 24em;
+  width: 100%;
+  padding: 1em;
+  background: $lightgray;
+
+  border: 2px solid $gray;
+  border-top: 0;
+
+  display: grid;
+  grid-gap: 1em;
+
+  @supports (width: min($min-col-size, 100%)) {
+    grid-template-columns: repeat(auto-fit, minmax(min($min-col-size, 100%), 1fr));
+  }
+}
+
+.foods-card__fbs {
+  h4 { font-weight: bold; }
+}
+
+.foods-card__sua {
+  flex-wrap: nowrap;
+
+  &:hover {
+    background: rgba(blue, 0.1);
   }
 
-  label span {
-    font-weight: bold;
-  }
+  span { flex-grow: 1; flex-shrink: 1; }
+
+input {
+  padding: 0.25em;
+  width: 4em;
+}
 }
 
 /*
