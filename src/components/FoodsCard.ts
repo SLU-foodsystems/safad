@@ -1,3 +1,5 @@
+import { average, sum, toPrecision } from "../lib/utils";
+
 function el<K extends keyof HTMLElementTagNameMap>(
   tagName: K,
   classList: string[] = [],
@@ -13,6 +15,9 @@ function el<K extends keyof HTMLElementTagNameMap>(
   return el;
 }
 
+/**
+ * Toggle the accordion-state on an element
+ */
 function switchState(el: Element) {
   const expanded = el.getAttribute("open") === "true" || false;
   const btn = el.querySelector("[data-accordion-toggle]");
@@ -39,7 +44,13 @@ function switchState(el: Element) {
   console.log("setting state to", expanded);
 }
 
-function attachMutationObserver(rootEl: Element) {
+/**
+ * Attach a callback to run every time attributes on element changes.
+ */
+function observeAttributeChanges(
+  rootEl: Element,
+  callback: (el: Element) => void
+) {
   // Options for the observer (which mutations to observe)
   const config = { attributes: true };
 
@@ -47,13 +58,64 @@ function attachMutationObserver(rootEl: Element) {
   const observer = new MutationObserver((mutationList) => {
     for (const mutation of mutationList) {
       if (mutation.type === "attributes") {
-        switchState(rootEl);
+        callback(rootEl);
       }
     }
   });
 
   // Start observing the target node for configured mutations
   observer.observe(rootEl, config);
+}
+
+function FbsBlock(fbs: FBS, mode: "sum" | "mean") {
+  const root = el("div", ["foods-card__fbs"]);
+
+  const header = el("div", ["cluster", "cluster--between"]);
+  const title = el("h4") as HTMLHeadingElement;
+  title.innerText = fbs.name;
+  const fbsValueLabel = el("span") as HTMLSpanElement;
+  title.appendChild(fbsValueLabel);
+  header.appendChild(title);
+
+  const unitLabel = el("span", [
+    "foods-card__unit",
+    "u-faded",
+  ]) as HTMLSpanElement;
+  unitLabel.innerText = "g / day"; // TODO
+
+  const onUpdate = () => {
+    const values = Object.values(inputs).map(x => x.value).map(val => {
+      if (!val) return 0;
+      const parseable = val.trim().replace(",", ".");
+      // TODO: Error handling.
+      const number = Number.parseFloat(parseable);
+      return Number.isNaN(number) ? 0 : number;
+    });
+
+    const value = mode === "sum" ? sum(values) : average(values);
+    fbsValueLabel.innerText = String(toPrecision(value));
+  };
+
+  const inputs: Record<string, HTMLInputElement> = {}
+
+  const suaRows = fbs.sua.map(({ name, id }) => {
+    const row = el("div", ["foods-card__sua", "cluster", "cluster--between"]);
+    const span = el("span") as HTMLSpanElement;
+    span.innerText = name;
+
+    const input = el("input", [], { type: "text" }) as HTMLInputElement;
+    input.addEventListener("change", onUpdate);
+
+    row.appendChild(span);
+    row.appendChild(input);
+
+    inputs[id] = input;
+    return row;
+  });
+
+  root.appendChild(header);
+  suaRows.forEach(row => root.appendChild(row));
+  return root;
 }
 
 export default function FoodsCard(eat: EAT) {
@@ -66,6 +128,7 @@ export default function FoodsCard(eat: EAT) {
   }) as HTMLButtonElement;
   header.append(headerButton);
 
+  // Toggle the 'open' attribute
   headerButton.onclick = () => {
     root.setAttribute(
       "open",
@@ -86,31 +149,12 @@ export default function FoodsCard(eat: EAT) {
   const body = el("div", ["foods-card__body"], {
     "data-accordion-body": "true",
   });
-  body.innerHTML = eat.fbs
-    .map(
-      (fbs: FBS) => ` 
-    <div class="foods-card__fbs">
-      <div class="cluster cluster--between">
-        <h4>${fbs.name}</h4>
-        <span class="foods-card__unit u-faded">g/day</span>
-      </div>
-      ${fbs.sua
-        .map(
-          (sua) => `
-        <div class="foods-card__sua cluster cluster--between">
-          <span>${sua.name}</span>
-          <input type="text" />
-        </div>
-        `
-        )
-        .join("")}`
-    )
-    .join("");
+  eat.fbs.forEach(fbs => body.appendChild(FbsBlock(fbs, "sum")));
 
   root.appendChild(header);
   root.appendChild(body);
 
-  attachMutationObserver(root);
+  observeAttributeChanges(root, switchState);
 
   return root;
 }
