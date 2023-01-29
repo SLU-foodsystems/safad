@@ -2,11 +2,11 @@ import { average, sum, toPrecision } from "../lib/utils";
 
 function el<K extends keyof HTMLElementTagNameMap>(
   tagName: K,
-  classList: string[] = [],
+  className: string = "",
   attributes: Record<string, string> = {}
-): Element {
+): HTMLElementTagNameMap[K] {
   const el = document.createElement(tagName);
-  el.classList.add(...classList);
+  el.className = className;
 
   Object.keys(attributes).forEach((attrName) =>
     el.setAttribute(attrName, attributes[attrName])
@@ -68,42 +68,41 @@ function observeAttributeChanges(
 }
 
 function FbsBlock(fbs: FBS, mode: "sum" | "mean") {
-  const root = el("div", ["foods-card__fbs"]);
+  const root = el("div", "foods-card__fbs");
 
-  const header = el("div", ["cluster", "cluster--between"]);
-  const title = el("h4") as HTMLHeadingElement;
+  const header = el("div", "cluster cluster--between");
+  const title = el("h4");
   title.innerText = fbs.name;
-  const fbsValueLabel = el("span") as HTMLSpanElement;
+  const fbsValueLabel = el("span");
   title.appendChild(fbsValueLabel);
   header.appendChild(title);
 
-  const unitLabel = el("span", [
-    "foods-card__unit",
-    "u-faded",
-  ]) as HTMLSpanElement;
+  const unitLabel = el("span", "foods-card__unit u-faded");
   unitLabel.innerText = "g / day"; // TODO
 
   const onUpdate = () => {
-    const values = Object.values(inputs).map(x => x.value).map(val => {
-      if (!val) return 0;
-      const parseable = val.trim().replace(",", ".");
-      // TODO: Error handling.
-      const number = Number.parseFloat(parseable);
-      return Number.isNaN(number) ? 0 : number;
-    });
+    const values = Object.values(inputs)
+      .map((x) => x.value)
+      .map((val) => {
+        if (!val) return 0;
+        const parseable = val.trim().replace(",", ".");
+        // TODO: Error handling.
+        const number = Number.parseFloat(parseable);
+        return Number.isNaN(number) ? 0 : number;
+      });
 
     const value = mode === "sum" ? sum(values) : average(values);
     fbsValueLabel.innerText = String(toPrecision(value));
   };
 
-  const inputs: Record<string, HTMLInputElement> = {}
+  const inputs: Record<string, HTMLInputElement> = {};
 
   const suaRows = fbs.sua.map(({ name, id }) => {
-    const row = el("div", ["foods-card__sua", "cluster", "cluster--between"]);
-    const span = el("span") as HTMLSpanElement;
+    const row = el("div", "foods-card__sua cluster cluster--between");
+    const span = el("span");
     span.innerText = name;
 
-    const input = el("input", [], { type: "text" }) as HTMLInputElement;
+    const input = el("input", "", { type: "text" });
     input.addEventListener("change", onUpdate);
 
     row.appendChild(span);
@@ -114,18 +113,18 @@ function FbsBlock(fbs: FBS, mode: "sum" | "mean") {
   });
 
   root.appendChild(header);
-  suaRows.forEach(row => root.appendChild(row));
+  suaRows.forEach((row) => root.appendChild(row));
   return root;
 }
 
 export default function FoodsCard(eat: EAT) {
-  const root = el("div", ["foods-card"], { role: "region", open: "true" });
+  const root = el("div", "foods-card", { role: "region", open: "true" });
 
-  const header = el("h3", ["foods-card__header"]);
-  const headerButton = el("button", ["cluster", "cluster--between"], {
+  const header = el("h3", "foods-card__header");
+  const headerButton = el("button", "cluster cluster--between", {
     "aria-expanded": "true",
     "data-accordion-toggle": "",
-  }) as HTMLButtonElement;
+  });
   header.append(headerButton);
 
   // Toggle the 'open' attribute
@@ -146,10 +145,10 @@ export default function FoodsCard(eat: EAT) {
     </svg>
   `;
 
-  const body = el("div", ["foods-card__body"], {
+  const body = el("div", "foods-card__body", {
     "data-accordion-body": "true",
   });
-  eat.fbs.forEach(fbs => body.appendChild(FbsBlock(fbs, "sum")));
+  eat.fbs.forEach((fbs) => body.appendChild(FbsBlock(fbs, "sum")));
 
   root.appendChild(header);
   root.appendChild(body);
