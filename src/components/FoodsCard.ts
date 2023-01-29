@@ -1,19 +1,4 @@
-import { average, sum, toPrecision } from "../lib/utils";
-
-function el<K extends keyof HTMLElementTagNameMap>(
-  tagName: K,
-  className: string = "",
-  attributes: Record<string, string> = {}
-): HTMLElementTagNameMap[K] {
-  const el = document.createElement(tagName);
-  el.className = className;
-
-  Object.keys(attributes).forEach((attrName) =>
-    el.setAttribute(attrName, attributes[attrName])
-  );
-
-  return el;
-}
+import { average, sum, toPrecision, el } from "../lib/utils";
 
 /**
  * Toggle the accordion-state on an element
