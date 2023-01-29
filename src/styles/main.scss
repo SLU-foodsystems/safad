@@ -202,12 +202,31 @@ header {
 }
 
 .foods-card__header {
-  width: 100%;
-  background: white;
-  border: 2px solid $gray;
-  padding: 1em;
-  box-shadow: 0 0.3em 0.75em -0.65em rgba(black, 0.5);
-  text-align: left;
+  margin: 0 auto;
+  display: block;
+
+  button {
+    width: 100%;
+    background: white;
+    border: 2px solid $gray;
+    padding: 1em;
+    box-shadow: 0 0.3em 0.75em -0.65em rgba(black, 0.5);
+    text-align: left;
+  }
+
+  svg {
+    width: 1em;
+    height: auto;
+  }
+
+  [aria-expanded="true"] .vert {
+    display: none;
+  }
+
+  // Respect high-contrast modes
+  [aria-expanded] rect {
+    fill: currentColor;
+  }
 }
 
 .foods-card__body {
@@ -221,7 +240,7 @@ header {
 
   display: grid;
   grid-gap: 1em;
-
+  
   @supports (width: min($min-col-size, 100%)) {
     grid-template-columns: repeat(auto-fit, minmax(min($min-col-size, 100%), 1fr));
   }
@@ -229,6 +248,11 @@ header {
 
 .foods-card__fbs {
   h4 { font-weight: bold; }
+}
+
+.foods-card__unit {
+  flex: 0 1 4em;
+  text-align: center;
 }
 
 .foods-card__sua {
@@ -240,15 +264,20 @@ header {
 
   span { flex-grow: 1; flex-shrink: 1; }
 
-input {
-  padding: 0.25em;
-  width: 4em;
-}
+  input {
+    padding: 0.25em;
+    width: 4em;
+    text-align: right;
+  }
 }
 
 /*
  * Helpers
  * =========================================== */
+
+[hidden] {
+  display: none;
+}
 
 .u-visually-hidden {
   position: absolute;
