@@ -1,6 +1,11 @@
 @use "sass:math";
 @import "constants";
 
+
+button:not([disabled]) {
+  cursor: pointer;
+}
+
 /**
  * Buttons
  */
@@ -10,8 +15,6 @@
   padding: 0.75em 1em;
   border: none;
   box-shadow: 0 0.3em 0.75em -0.65em rgba(black, 0.5);
-
-  cursor: pointer;
 
   background: $gray;
   color: black;
