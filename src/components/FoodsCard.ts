@@ -25,8 +25,6 @@ function switchState(el: Element) {
   } else {
     body.setAttribute("hidden", "true");
   }
-
-  console.log("setting state to", expanded);
 }
 
 /**
