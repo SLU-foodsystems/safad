@@ -5,7 +5,6 @@ import setupFoodsCardsMenuButtons from "./lib/setup-foods-cards-menu-buttons";
 
 const cards = FoodsCards(foodCodes.data);
 
-
 const parent = document.querySelector(".diet-configuration");
 cards.forEach(card => parent?.appendChild(card));
 

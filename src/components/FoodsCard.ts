@@ -145,8 +145,10 @@ export default function FoodsCard(eat: EAT) {
     </span>
   `;
 
-  const aggregateSpan = headerButton.querySelector('[data-fbs-aggregate]') as HTMLSpanElement | null;
-  if (!aggregateSpan) throw new Error("AggregateSpan not found.")
+  const aggregateSpan = headerButton.querySelector(
+    "[data-fbs-aggregate]"
+  ) as HTMLSpanElement | null;
+  if (!aggregateSpan) throw new Error("AggregateSpan not found.");
 
   const body = el("div", "foods-card__body", {
     "data-accordion-body": "true",
@@ -168,7 +170,6 @@ export default function FoodsCard(eat: EAT) {
 
     aggregateSpan.innerText = String(toPrecision(value, 2));
   };
-
 
   eat.fbs.forEach((fbs) =>
     body.appendChild(FbsBlock(fbs, "sum", updateFbsSum))
