@@ -1,5 +1,15 @@
 import { average, sum, toPrecision, el } from "../lib/utils";
 
+// Reformat so that the FoodsCard holds a state. Maybe it should even be a
+// class?
+//
+// The state can be:
+// - refs: <fbs_id, <sua_id, HTMLInputElement>>
+// - values: <fbs_id, <sua_id, HTMLInputElement>>
+//
+// First, it might be helpful to move the accordion functionality to a separate
+// file.
+
 /**
  * Toggle the accordion-state on an element
  */
