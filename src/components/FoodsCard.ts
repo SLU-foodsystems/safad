@@ -94,7 +94,13 @@ function FbsBlock(fbs: FBS, mode: "sum" | "mean", notifyChange: () => void) {
     const span = el("span");
     span.innerText = name;
 
-    const input = el("input", "", { type: "text", "data-sua-id": id });
+    const input = el("input", "", {
+      type: "text",
+      "data-sua-id": id,
+      placeholder: "0.0",
+      required: "false",
+      pattern: "^([0-9.,]*)$",
+    });
     input.addEventListener("input", onSuaUpdate);
     input.addEventListener("change", notifyChange);
 
