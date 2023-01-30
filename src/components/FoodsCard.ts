@@ -136,8 +136,8 @@ export default function FoodsCard(eat: EAT) {
 
   headerButton.innerHTML = `
     <span>${eat.name}</span>
-    <span>
-      <span data-fbs-aggregate>0</span> g
+    <span class="cluster">
+      <span><span data-fbs-aggregate>0</span> g</span>
       <svg viewBox="0 0 10 10" aria-hidden="true" focusable="false">
         <rect class="vert" height="8" width="2" y="1" x="4" />
         <rect height="2" width="8" y="4" x="1" />
