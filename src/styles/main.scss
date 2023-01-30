@@ -164,6 +164,8 @@ p {
  * General
  * =========================================== */
 
+main { padding-bottom: 2em; }
+
 // Page Header
 
 header {
@@ -221,7 +223,6 @@ header {
   svg {
     width: 1em;
     height: auto;
-    margin-left: 1em;
   }
 
   [aria-expanded="true"] .vert {
