@@ -50,7 +50,7 @@ function observeAttributeChanges(
   observer.observe(rootEl, config);
 }
 
-function FbsBlock(fbs: FBS, mode: "sum" | "mean", notifyChange) {
+function FbsBlock(fbs: FBS, mode: "sum" | "mean", notifyChange: () => void) {
   const root = el("div", "foods-card__fbs");
 
   const header = el("div", "cluster cluster--between");
