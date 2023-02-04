@@ -16,6 +16,7 @@ export default defineComponent({
   data() {
     return {
       rawValue: String(this.currentValue),
+      hasError: false,
     };
   },
 
@@ -27,19 +28,28 @@ export default defineComponent({
 
   methods: {
     onInput(event: Event) {
-      const { value } = event.target as HTMLInputElement;
-      const numericValue = inputValueToNumber(value);
+      const target = event.target as HTMLInputElement;
+      const numericValue = inputValueToNumber(target.value);
       if (!Number.isNaN(numericValue)) {
         this.$emit("update:sua", { id: this.sua.id, value: numericValue });
       }
+
+      this.hasError = target.validity.patternMismatch;
     },
   },
 });
 </script>
 
 <template>
-  <div class="foods-card__sua cluster cluster--between">
-    <span>{{ sua.name }} <span v-if="hasChanged">FOO</span></span>
-    <input type="text" placeholder="0.0" required="false" pattern="^([0-9.,]*)$" v-model="rawValue" @input="onInput" />
+  <div class="foods-card__sua cluster cluster--between" :class="{
+    'foods-card__sua--changed': hasChanged,
+    'foods-card__sua--error': hasError,
+  }">
+    <span class="foods-card__sua-name">{{ sua.name }}</span>
+
+    <span class="cluster">
+      <span class="u-faded" v-text="originalValue" v-if="hasChanged"/>
+      <input type="text" placeholder="0.0" required="false" pattern="^([0-9.,]*)$" v-model="rawValue" @input="onInput" />
+    </span>
   </div>
 </template>
