@@ -1,47 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SLU Diet Benchmarking</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLU Foods Benchmarking</title>
   </head>
   <body>
-    <header class="page-wrap stack">
-      <h1>Plan'eat</h1>
-      <nav class="cluster cluster--center">
-        <a href="#">About</a>
-        <a href="#">FAQ</a>
-        <a href="#">Help</a>
-      </nav>
-    </header>
-    <main class="page-wrap stack">
-      <div class="center u-tac">
-        <ul class="tablist" role="tablist">
-          <li role="presentation">
-            <a role="tab" href="#amount" id="tab1" aria-selected="true">Amount</a>
-          </li>
-          <li role="presentation">
-            <a role="tab" href="#tech-impr" id="tab2">Tech. Impr.</a>
-          </li>
-          <li role="presentation">
-            <a role="tab" href="#waste" id="tab3">Waste</a>
-          </li>
-          <li role="presentation">
-            <a role="tab" href="#origin" id="tab4">Origin</a>
-          </li>
-        </ul>
-      </div>
-      <div class="cluster cluster--between">
-        <div>
-        </div>
-        <div>
-          <button class="button" id="js-expand-all">Expand all</button>
-          <button class="button" id="js-collapse-all">Collapse all</button>
-        </div>
-      </div>
-      <section class="diet-configuration stack"></section>
-    </main>
+    <div id="app"></div>
     <script type="module" src="main.ts"></script>
   </body>
 </html>
