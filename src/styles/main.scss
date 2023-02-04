@@ -164,7 +164,9 @@ p {
  * General
  * =========================================== */
 
-main { padding-bottom: 2em; }
+main {
+  padding-bottom: 2em;
+}
 
 // Page Header
 
@@ -175,7 +177,6 @@ main { padding-bottom: 2em; }
   margin-bottom: 1em;
   text-align: center;
   border-bottom: 2px solid darken($green_forest, 20%);
-
 
   h1 {
     color: white;
@@ -204,9 +205,15 @@ main { padding-bottom: 2em; }
  * Specifics
  * =========================================== */
 
-/* Tablist
- * ------------------------------------------- */
-
+.tag {
+  display: inline-block;
+  color: $blue_seabay;
+  border: 1px solid currentColor;
+  background: rgba($blue_seabay, 0.125);
+  border-radius: 0.5em;
+  padding: 0.25em 0.5em;
+  font-size: 0.75em;
+}
 
 /* Foods Card
  * ------------------------------------------- */
@@ -250,7 +257,7 @@ main { padding-bottom: 2em; }
 .foods-card__body {
   $min-col-size: 24em;
   width: 100%;
-  padding: 1em;
+  padding: 1em 0.5em;
   background: $lightgray;
 
   border: 2px solid $gray;
@@ -260,12 +267,18 @@ main { padding-bottom: 2em; }
   grid-gap: 1em;
 
   @supports (width: min($min-col-size, 100%)) {
-    grid-template-columns: repeat(auto-fit, minmax(min($min-col-size, 100%), 1fr));
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min($min-col-size, 100%), 1fr)
+    );
   }
 }
 
 .foods-card__fbs {
-  h4 { font-weight: bold; }
+  h4 {
+    padding: 0 0.5em;
+    font-weight: bold;
+  }
 }
 
 .foods-card__unit {
@@ -275,12 +288,16 @@ main { padding-bottom: 2em; }
 
 .foods-card__sua {
   flex-wrap: nowrap;
+  padding: 0 0.5em;
 
   &:hover {
     background: rgba(blue, 0.1);
   }
 
-  span { flex-grow: 1; flex-shrink: 1; }
+  .foods-card__sua-name {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
 
   input {
     padding: 0.25em;
@@ -292,6 +309,14 @@ main { padding-bottom: 2em; }
       border-color: $yellow_corn;
       box-shadow: 0 0 0 3px rgba($yellow_corn, 0.2);
     }
+  }
+
+  &.foods-card__sua--changed {
+    box-shadow: -0.5em 0 0 $blue_cyan;
+  }
+
+  &.foods-card__sua--error {
+    box-shadow: -0.5em 0 0 $yellow_resin;
   }
 }
 
