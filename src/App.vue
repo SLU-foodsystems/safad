@@ -30,6 +30,12 @@ const tabs = [
   },
 ];
 
+const tabIds = tabs.map((t) => t.id);
+const DEFAULT_TAB = tabIds[0];
+
+const generateIdValueMap = <T>(ids: string[], defaultValue: () => T) =>
+  Object.fromEntries(ids.map((id) => [id, defaultValue()]));
+
 export default defineComponent({
   components: {
     FoodsCard,
@@ -43,12 +49,16 @@ export default defineComponent({
       baseValues,
       currentValues: structuredClone(baseValues),
 
-      hasChanges: Object.fromEntries(suaIds.map((id) => [id, false])),
-      hasError: Object.fromEntries(eatIds.map((id) => [id, false])),
+      hasChanges: generateIdValueMap(tabIds, () =>
+        generateIdValueMap(suaIds, () => false)
+      ),
+      hasError: generateIdValueMap(tabIds, () =>
+        generateIdValueMap(eatIds, () => false)
+      ),
 
-      isOpen: Object.fromEntries(eatIds.map((id) => [id, true])),
+      isOpen: generateIdValueMap(eatIds, () => true),
 
-      currentTab: "",
+      currentTab: DEFAULT_TAB,
       disabled: {}, // TODO
     };
   },
@@ -67,8 +77,12 @@ export default defineComponent({
       });
     },
     onSuaUpdate(data: { id: string; value: number; error: boolean }) {
-      this.currentValues = { ...this.currentValues, [data.id]: data.value };
-      this.hasError = { ...this.hasError, [data.id]: data.error };
+      const tabId = this.currentTab;
+      this.currentValues[tabId] = {
+        ...this.currentValues[tabId],
+        [data.id]: data.value,
+      };
+      this.hasError[tabId] = { ...this.hasError[tabId], [data.id]: data.error };
     },
   },
 });
@@ -96,9 +110,12 @@ export default defineComponent({
         :eat="eat"
         :open="isOpen[eat.id]"
         :mode="'percentage'"
-        :has-error="hasError"
-        :current-values="currentValues" :base-values="baseValues" @toggle-open="toggleOpen"
-        @update:sua="onSuaUpdate" />
+        :has-error="hasError[currentTab]"
+        :current-values="currentValues[currentTab]"
+        :base-values="baseValues[currentTab]"
+        @toggle-open="toggleOpen"
+        @update:sua="onSuaUpdate"
+      />
     </section>
   </main>
 </template>
