@@ -25,11 +25,6 @@ export default defineComponent({
       required: true,
     },
   },
-  data() {
-    return {
-      suas: [{ id: "2", name: "Foo" }],
-    };
-  },
   computed: {
     suaIds() {
       return this.eat.fbs.flatMap((fbs) => fbs.sua.map((sua) => sua.id));
