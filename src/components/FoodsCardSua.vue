@@ -17,6 +17,7 @@ export default defineComponent({
     return {
       rawValue: String(this.currentValue),
       hasError: false,
+      id: generateRandomId(),
     };
   },
 
@@ -59,13 +60,14 @@ export default defineComponent({
       'foods-card__sua--error': hasError,
     }"
   >
-    <span class="foods-card__sua-name">{{ sua.name }}</span>
+    <label class="foods-card__sua-name" :for="id">{{ sua.name }}</label>
 
     <span class="cluster" style="flex-shrink: 0">
       <span class="u-faded" v-text="baseValue" v-if="hasChanged" />
       <input
         type="text"
-        placeholder="0.0"
+        :id="id"
+        placeholder="0.00"
         required="false"
         pattern="^([0-9.,]*)$"
         v-model="rawValue"
