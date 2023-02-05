@@ -16,7 +16,7 @@ export default defineComponent({
       type: Object as PropType<{ [k: string]: number }>,
       required: true,
     },
-    originalValues: {
+    baseValues: {
       type: Object as PropType<{ [k: string]: number }>,
       required: true,
     },
@@ -42,7 +42,7 @@ export default defineComponent({
     },
     hasChanges(): boolean {
       return this.suaIds.some(
-        (id) => this.currentValues[id] !== this.originalValues[id]
+        (id) => this.currentValues[id] !== this.baseValues[id]
       );
     },
   },
@@ -86,7 +86,7 @@ export default defineComponent({
         :key="fbs.id"
         :fbs="fbs"
         :current-values="currentValues"
-        :original-values="originalValues"
+        :base-values="baseValues"
         @update:sua="$emit('update:sua', $event)"
       />
     </div>
