@@ -3,6 +3,7 @@ import { defineComponent } from "vue";
 import type { PropType } from "vue";
 import { inputValueToNumber } from "@/lib/utils";
 import * as ModeHelpers from "./mode-helpers";
+import type { Mode } from "./mode-helpers";
 
 const generateRandomId = () => "input-" + Math.floor(Math.random() * 1e8);
 
@@ -13,11 +14,17 @@ export default defineComponent({
       required: true,
     },
     mode: {
-      type: String,
+      type: String as PropType<Mode>,
       required: true,
     },
-    baseValue: Number,
-    currentValue: Number,
+    baseValue: {
+      type: Number,
+      required: true,
+    },
+    currentValue: {
+      type: Number,
+      required: true,
+    },
   },
 
   data() {
