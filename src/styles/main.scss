@@ -207,12 +207,19 @@ main {
 
 .tag {
   display: inline-block;
-  color: $blue_seabay;
-  border: 1px solid currentColor;
-  background: rgba($blue_seabay, 0.125);
-  border-radius: 0.5em;
   padding: 0.25em 0.5em;
-  font-size: 0.75em;
+  font-size: 0.675em;
+  margin-right: -1rem;
+}
+
+.tag--blue {
+  background: ($blue_seabay);
+  color: white;
+}
+
+.tag--yellow {
+  background: ($yellow_resin);
+  color: white;
 }
 
 /* Foods Card
