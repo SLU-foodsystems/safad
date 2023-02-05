@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
 import FoodsCardFbs from "./FoodsCardFbs.vue";
-import { average, sum, toPrecision } from "@/lib/utils";
+import * as ModeHelpers from "./mode-helpers";
 
 export default defineComponent({
   components: { FoodsCardFbs },
@@ -16,7 +16,7 @@ export default defineComponent({
       type: String,
       required: true,
       validator(value: any) {
-        return value === "amount" || value === "percentage";
+        return ModeHelpers.isMode(value);
       },
     },
     currentValues: {
@@ -45,10 +45,10 @@ export default defineComponent({
       return this.suaIds.some((id) => this.hasError[id]);
     },
     aggregate(): number {
-      if (this.mode === "percentage") {
-        return toPrecision(average(this.relevantValues));
-      }
-      return toPrecision(sum(this.relevantValues));
+      return ModeHelpers.aggregate(this.relevantValues, this.mode);
+    },
+    unit() {
+      return ModeHelpers.unit(this.mode);
     },
     hasChanges(): boolean {
       return this.suaIds.some(
@@ -81,7 +81,7 @@ export default defineComponent({
         <span class="cluster">
           <span
             ><span>{{ aggregate }}</span
-            >&nbsp;{{ mode === "amount" ? "g / day" : "%" }}</span
+            >&nbsp;{{ unit }}</span
           >
           <svg viewBox="0 0 10 10" aria-hidden="true" focusable="false">
             <rect class="vert" height="8" width="2" y="1" x="4" />

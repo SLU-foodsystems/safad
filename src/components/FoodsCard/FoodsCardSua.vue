@@ -2,6 +2,7 @@
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
 import { inputValueToNumber } from "@/lib/utils";
+import * as ModeHelpers from "./mode-helpers";
 
 const generateRandomId = () => "input-" + Math.floor(Math.random() * 1e8);
 
@@ -38,8 +39,7 @@ export default defineComponent({
       const target = event.target as HTMLInputElement;
       const numericValue = inputValueToNumber(target.value);
 
-      const min = 0;
-      const max = this.mode === "percentage" ? 100 : Number.POSITIVE_INFINITY;
+      const [min, max] = ModeHelpers.limits(this.mode);
 
       const cappedValue = Math.min(max, Math.max(min, numericValue));
       const hasError =

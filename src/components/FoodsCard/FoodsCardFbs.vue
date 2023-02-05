@@ -1,9 +1,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
-import { average, sum, toPrecision } from "@/lib/utils";
 
 import FoodsCardSua from "./FoodsCardSua.vue";
+import * as ModeHelpers from "./mode-helpers";
 
 export default defineComponent({
   components: { FoodsCardSua },
@@ -36,10 +36,10 @@ export default defineComponent({
         .filter((x: number) => !Number.isNaN(x));
     },
     aggregate(): number {
-      if (this.mode === "percentage") {
-        return toPrecision(average(this.relevantValues));
-      }
-      return toPrecision(sum(this.relevantValues));
+      return ModeHelpers.aggregate(this.relevantValues, this.mode);
+    },
+    unit() {
+      return ModeHelpers.unit(this.mode, true);
     },
   },
 });
@@ -52,7 +52,7 @@ export default defineComponent({
       <span class="u-faded">
         <span>{{ aggregate }}</span
         >&nbsp;
-        <span class="foods-card__unit" v-text="mode === 'amount' ? 'g' : '%' "/>
+        <span class="foods-card__unit" v-text="unit"/>
       </span>
     </header>
     <FoodsCardSua
