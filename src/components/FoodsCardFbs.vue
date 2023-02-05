@@ -43,11 +43,17 @@ export default defineComponent({
     <div class="cluster cluster--between">
       <h4>{{ fbs.name }}</h4>
       <span class="u-faded">
-        <span>{{ aggregate }}</span>&nbsp;
+        <span>{{ aggregate }}</span
+        >&nbsp;
         <span class="foods-card__unit">g / day</span>
       </span>
     </div>
-    <FoodsCardSua v-for="sua in fbs.sua" :sua="sua" :original-value="originalValues[sua.id]"
-      :current-value="currentValues[sua.id]" @update:sua="$emit('update:sua', $event)" />
+    <FoodsCardSua
+      v-for="sua in fbs.sua"
+      :sua="sua"
+      :original-value="originalValues[sua.id]"
+      :current-value="currentValues[sua.id]"
+      @update:sua="$emit('update:sua', $event)"
+    />
   </div>
 </template>

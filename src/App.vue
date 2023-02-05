@@ -21,8 +21,11 @@ export default defineComponent({
       eatGroups,
 
       originalValues,
-      hasChanges: Object.fromEntries(suaIds.map((id) => [id, false])),
       currentValues: structuredClone(originalValues),
+
+      hasChanges: Object.fromEntries(suaIds.map((id) => [id, false])),
+      hasError: Object.fromEntries(eatIds.map((id) => [id, false])),
+
       isOpen: Object.fromEntries(eatIds.map((id) => [id, true])),
 
       currentTab: "",
@@ -43,8 +46,9 @@ export default defineComponent({
         this.isOpen[eatId] = false;
       });
     },
-    onSuaUpdate(data: { id: string; value: number }) {
+    onSuaUpdate(data: { id: string; value: number; error: boolean }) {
       this.currentValues = { ...this.currentValues, [data.id]: data.value };
+      this.hasError = { ...this.hasError, [data.id]: data.error };
     },
   },
 });
@@ -67,6 +71,7 @@ export default defineComponent({
     </div>
     <section class="diet-configuration stack">
       <FoodsCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
+        :has-error="hasError"
         :current-values="currentValues" :original-values="originalValues" @toggle-open="toggleOpen"
         @update:sua="onSuaUpdate" />
     </section>

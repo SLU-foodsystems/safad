@@ -20,6 +20,10 @@ export default defineComponent({
       type: Object as PropType<{ [k: string]: number }>,
       required: true,
     },
+    hasError: {
+      type: Object as PropType<{ [k: string]: boolean }>,
+      required: true,
+    },
   },
   data() {
     return {
@@ -34,6 +38,9 @@ export default defineComponent({
       return this.suaIds
         .flatMap((id) => this.currentValues[id])
         .filter((x) => !Number.isNaN(x));
+    },
+    hasErrors(): boolean {
+      return this.suaIds.some((id) => this.hasError[id]);
     },
     aggregate(): number {
       return toPrecision(sum(this.relevantValues));
@@ -56,12 +63,21 @@ export default defineComponent({
 <template>
   <div class="foods-card" role="region" :data-open="open">
     <h3 class="foods-card__header">
-      <button class="cluster cluster--between" :aria-expanded="open" @click="toggleOpen">
-        <span class="cluster">{{ eat.name }}
+      <button
+        class="cluster cluster--between"
+        :aria-expanded="open"
+        @click="toggleOpen"
+      >
+        <span class="cluster"
+          >{{ eat.name }}
           <span v-if="hasChanges" class="tag tag--blue">Modified</span>
+          <span v-if="hasErrors" class="tag tag--yellow">Errors</span>
         </span>
         <span class="cluster">
-          <span><span>{{ aggregate }}</span>&nbsp;g</span>
+          <span
+            ><span>{{ aggregate }}</span
+            >&nbsp;g</span
+          >
           <svg viewBox="0 0 10 10" aria-hidden="true" focusable="false">
             <rect class="vert" height="8" width="2" y="1" x="4" />
             <rect height="2" width="8" y="4" x="1" />
@@ -70,8 +86,14 @@ export default defineComponent({
       </button>
     </h3>
     <div class="foods-card__body" v-show="open">
-      <FoodsCardFbs v-for="fbs in eat.fbs" :key="fbs.id" :fbs="fbs" :current-values="currentValues"
-        :original-values="originalValues" @update:sua="$emit('update:sua', $event)" />
+      <FoodsCardFbs
+        v-for="fbs in eat.fbs"
+        :key="fbs.id"
+        :fbs="fbs"
+        :current-values="currentValues"
+        :original-values="originalValues"
+        @update:sua="$emit('update:sua', $event)"
+      />
     </div>
   </div>
 </template>
