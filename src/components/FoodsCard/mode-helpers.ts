@@ -1,5 +1,5 @@
 import { average, sum, toPrecision } from "@/lib/utils";
-type Mode = "amount" | "percentage";
+export type Mode = "amount" | "percentage";
 
 export function isMode(value: any): value is Mode {
   switch (value) {
