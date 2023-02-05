@@ -39,15 +39,15 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="foods-card__fbs">
-    <div class="cluster cluster--between">
+  <section class="foods-card__fbs">
+    <header class="foods-card__fbs-header cluster cluster--between">
       <h4>{{ fbs.name }}</h4>
       <span class="u-faded">
         <span>{{ aggregate }}</span
         >&nbsp;
         <span class="foods-card__unit">g / day</span>
       </span>
-    </div>
+    </header>
     <FoodsCardSua
       v-for="sua in fbs.sua"
       :sua="sua"
@@ -55,5 +55,5 @@ export default defineComponent({
       :current-value="currentValues[sua.id]"
       @update:sua="$emit('update:sua', $event)"
     />
-  </div>
+  </section>
 </template>
