@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
 import FoodsCardFbs from "./FoodsCardFbs.vue";
-import { sum, toPrecision } from "../lib/utils";
+import { average, sum, toPrecision } from "../lib/utils";
 
 export default defineComponent({
   components: { FoodsCardFbs },
@@ -12,6 +12,13 @@ export default defineComponent({
       required: true,
     },
     open: { type: Boolean, required: true },
+    mode: {
+      type: String,
+      required: true,
+      validator(value: any) {
+        return value === "amount" || value === "percentage";
+      },
+    },
     currentValues: {
       type: Object as PropType<{ [k: string]: number }>,
       required: true,
@@ -38,6 +45,9 @@ export default defineComponent({
       return this.suaIds.some((id) => this.hasError[id]);
     },
     aggregate(): number {
+      if (this.mode === "percentage") {
+        return toPrecision(average(this.relevantValues));
+      }
       return toPrecision(sum(this.relevantValues));
     },
     hasChanges(): boolean {
@@ -71,7 +81,7 @@ export default defineComponent({
         <span class="cluster">
           <span
             ><span>{{ aggregate }}</span
-            >&nbsp;g</span
+            >&nbsp;{{ mode === "amount" ? "g / day" : "%" }}</span
           >
           <svg viewBox="0 0 10 10" aria-hidden="true" focusable="false">
             <rect class="vert" height="8" width="2" y="1" x="4" />
@@ -85,6 +95,7 @@ export default defineComponent({
         v-for="fbs in eat.fbs"
         :key="fbs.id"
         :fbs="fbs"
+        :mode="mode"
         :current-values="currentValues"
         :base-values="baseValues"
         @update:sua="$emit('update:sua', $event)"

@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
-import { sum, toPrecision } from "../lib/utils";
+import { average, sum, toPrecision } from "../lib/utils";
 
 import FoodsCardSua from "./FoodsCardSua.vue";
 
@@ -10,6 +10,10 @@ export default defineComponent({
   props: {
     fbs: {
       type: Object as PropType<FBS>,
+      required: true,
+    },
+    mode: {
+      type: String,
       required: true,
     },
     currentValues: {
@@ -32,6 +36,9 @@ export default defineComponent({
         .filter((x: number) => !Number.isNaN(x));
     },
     aggregate(): number {
+      if (this.mode === "percentage") {
+        return toPrecision(average(this.relevantValues));
+      }
       return toPrecision(sum(this.relevantValues));
     },
   },
@@ -45,12 +52,13 @@ export default defineComponent({
       <span class="u-faded">
         <span>{{ aggregate }}</span
         >&nbsp;
-        <span class="foods-card__unit">g / day</span>
+        <span class="foods-card__unit" v-text="mode === 'amount' ? 'g' : '%' "/>
       </span>
     </header>
     <FoodsCardSua
       v-for="sua in fbs.sua"
       :sua="sua"
+      :mode="mode"
       :base-value="baseValues[sua.id]"
       :current-value="currentValues[sua.id]"
       @update:sua="$emit('update:sua', $event)"

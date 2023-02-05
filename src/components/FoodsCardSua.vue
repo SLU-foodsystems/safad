@@ -3,10 +3,16 @@ import { defineComponent } from "vue";
 import type { PropType } from "vue";
 import { inputValueToNumber } from "../lib/utils";
 
+const generateRandomId = () => "input-" + Math.floor(Math.random() * 1e8);
+
 export default defineComponent({
   props: {
     sua: {
       type: Object as PropType<SUA>,
+      required: true,
+    },
+    mode: {
+      type: String,
       required: true,
     },
     baseValue: Number,
@@ -31,13 +37,19 @@ export default defineComponent({
     onInput(event: Event) {
       const target = event.target as HTMLInputElement;
       const numericValue = inputValueToNumber(target.value);
-      const hasError = target.validity.patternMismatch;
+
+      const min = 0;
+      const max = this.mode === "percentage" ? 100 : Number.POSITIVE_INFINITY;
+
+      const cappedValue = Math.min(max, Math.max(min, numericValue));
+      const hasError =
+        target.validity.patternMismatch || cappedValue !== numericValue;
       this.hasError = hasError;
 
       if (!Number.isNaN(numericValue)) {
         this.$emit("update:sua", {
           id: this.sua.id,
-          value: numericValue,
+          value: cappedValue,
           error: hasError,
         });
       } else {
@@ -70,6 +82,7 @@ export default defineComponent({
         placeholder="0.00"
         required="false"
         pattern="^([0-9.,]*)$"
+        :class="{ 'has-error': hasError }"
         v-model="rawValue"
         @input="onInput"
       />
