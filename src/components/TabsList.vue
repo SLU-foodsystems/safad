@@ -33,12 +33,12 @@ export default defineComponent({
 @import "../styles/constants";
 
 .tablist {
-  $accent: $green_forest;
+  $bg: white;
   margin: 0 auto;
   display: inline-flex;
 
   border-radius: 0.5rem;
-  border: 2px solid $accent;
+  border: 2px solid $bg;
   overflow: hidden;
 
   li {
@@ -52,16 +52,17 @@ export default defineComponent({
     padding: 0.5em 0.75em;
     text-decoration: none;
     cursor: pointer;
+    color: $bg;
 
     &:hover {
-      background: $gray_feather;
+      background: rgba(white, 0.25);
       opacity: 1;
     }
   }
 
   a[aria-selected="true"] {
-    background: $accent;
-    color: white;
+    background: $bg;
+    color: $green_forest;
   }
 }
 </style>
