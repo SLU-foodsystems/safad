@@ -71,6 +71,7 @@ export default defineComponent({
     </div>
     <section class="diet-configuration stack">
       <FoodsCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
+        :mode="'percentage'"
         :has-error="hasError"
         :current-values="currentValues" :base-values="baseValues" @toggle-open="toggleOpen"
         @update:sua="onSuaUpdate" />

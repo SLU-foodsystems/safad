@@ -312,6 +312,7 @@ main {
     text-align: right;
     margin: 2px 0;
 
+    &.has-error,
     &:not(:placeholder-shown):invalid {
       border-color: $yellow_corn;
       box-shadow: 0 0 0 3px rgba($yellow_corn, 0.2);
