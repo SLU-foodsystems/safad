@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
-import { average, sum, toPrecision } from "../lib/utils";
+import { average, sum, toPrecision } from "@/lib/utils";
 
 import FoodsCardSua from "./FoodsCardSua.vue";
 
