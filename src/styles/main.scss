@@ -178,6 +178,9 @@ main {
   text-align: center;
   border-bottom: 2px solid darken($green_forest, 20%);
 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
   h1 {
     color: white;
     font-weight: bold;
