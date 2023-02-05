@@ -1,46 +1,28 @@
 <script lang="ts">
-  import { defineComponent } from "vue";
+import { defineComponent } from "vue";
+import type { PropType } from "vue";
 
-  const tabs = [
-    {
-      label: "Amount",
-      id: "amount",
+export default defineComponent({
+  props: {
+    current: {
+      type: String,
+      required: true,
     },
-    {
-      label: "Tech. Impr.",
-      id: "technical-improvement",
+    tabs: {
+      type: Array as PropType<{ label: string; id: string }[]>,
+      required: true,
     },
-    {
-      label: "Waste",
-      id: "waste",
-    },
-    {
-      label: "Origin",
-      id: "origin",
-    },
-  ];
-
-  export default defineComponent({
-    /* props: { */
-    /*   current: String, */
-    /*   tabs: { */
-    /*     type: Array, */
-    /*   }, */
-    /* }, */
-    data() {
-      return {
-        selected: "amount",
-        tabs,
-      };
-    }
-  });
+  },
+});
 </script>
 
 <template>
   <div class="center u-tac">
     <ul class="tablist" role="tablist">
       <li v-for="tab in tabs" role="presentation">
-        <a role="tab" :id="tab.id" :aria-selected="selected === tab.id">{{ tab.label }}</a>
+        <a role="tab" :id="tab.id" :aria-selected="current === tab.id">{{
+          tab.label
+        }}</a>
       </li>
     </ul>
   </div>

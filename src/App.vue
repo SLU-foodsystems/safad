@@ -11,6 +11,25 @@ const suaIds = eatGroups.flatMap((x) =>
   x.fbs.flatMap((y) => y.sua.map((z) => z.id))
 );
 
+const tabs = [
+  {
+    label: "Amount",
+    id: "amount",
+  },
+  {
+    label: "Tech. Impr.",
+    id: "technical-improvement",
+  },
+  {
+    label: "Waste",
+    id: "waste",
+  },
+  {
+    label: "Origin",
+    id: "origin",
+  },
+];
+
 export default defineComponent({
   components: {
     FoodsCard,
@@ -18,6 +37,7 @@ export default defineComponent({
   },
   data() {
     return {
+      tabs,
       eatGroups,
 
       baseValues,
@@ -61,7 +81,7 @@ export default defineComponent({
   </header>
 
   <main class="page-wrap stack">
-    <TabsList />
+    <TabsList :tabs="tabs" :current="'amount'" />
     <div class="cluster cluster--between">
       <div></div>
       <div class="cluster">
@@ -70,7 +90,11 @@ export default defineComponent({
       </div>
     </div>
     <section class="diet-configuration stack">
-      <FoodsCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
+      <FoodsCard
+        v-for="eat in eatGroups"
+        :key="eat.id"
+        :eat="eat"
+        :open="isOpen[eat.id]"
         :mode="'percentage'"
         :has-error="hasError"
         :current-values="currentValues" :base-values="baseValues" @toggle-open="toggleOpen"
