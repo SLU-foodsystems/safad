@@ -16,7 +16,7 @@ export default defineComponent({
       type: Object as PropType<{ [k: string]: number }>,
       required: true,
     },
-    originalValues: {
+    baseValues: {
       type: Object as PropType<{ [k: string]: number }>,
       required: true,
     },
@@ -51,7 +51,7 @@ export default defineComponent({
     <FoodsCardSua
       v-for="sua in fbs.sua"
       :sua="sua"
-      :original-value="originalValues[sua.id]"
+      :base-value="baseValues[sua.id]"
       :current-value="currentValues[sua.id]"
       @update:sua="$emit('update:sua', $event)"
     />

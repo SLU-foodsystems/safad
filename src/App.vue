@@ -3,7 +3,7 @@ import { defineComponent } from "vue";
 import FoodsCard from "./components/FoodsCard.vue";
 import TabsList from "./components/TabsList.vue";
 import foodsData from "./data/foods.json";
-import originalValues from "./data/original-values";
+import baseValues from "./data/original-values";
 
 const eatGroups = foodsData.data as EAT[];
 const eatIds = eatGroups.map((eat) => eat.id);
@@ -20,8 +20,8 @@ export default defineComponent({
     return {
       eatGroups,
 
-      originalValues,
-      currentValues: structuredClone(originalValues),
+      baseValues,
+      currentValues: structuredClone(baseValues),
 
       hasChanges: Object.fromEntries(suaIds.map((id) => [id, false])),
       hasError: Object.fromEntries(eatIds.map((id) => [id, false])),
@@ -72,7 +72,7 @@ export default defineComponent({
     <section class="diet-configuration stack">
       <FoodsCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
         :has-error="hasError"
-        :current-values="currentValues" :original-values="originalValues" @toggle-open="toggleOpen"
+        :current-values="currentValues" :base-values="baseValues" @toggle-open="toggleOpen"
         @update:sua="onSuaUpdate" />
     </section>
   </main>

@@ -9,7 +9,7 @@ export default defineComponent({
       type: Object as PropType<SUA>,
       required: true,
     },
-    originalValue: Number,
+    baseValue: Number,
     currentValue: Number,
   },
 
@@ -22,7 +22,7 @@ export default defineComponent({
 
   computed: {
     hasChanged() {
-      return String(this.originalValue) != this.rawValue;
+      return String(this.baseValue) != this.rawValue;
     },
   },
 
@@ -62,7 +62,7 @@ export default defineComponent({
     <span class="foods-card__sua-name">{{ sua.name }}</span>
 
     <span class="cluster" style="flex-shrink: 0">
-      <span class="u-faded" v-text="originalValue" v-if="hasChanged" />
+      <span class="u-faded" v-text="baseValue" v-if="hasChanged" />
       <input
         type="text"
         placeholder="0.0"
