@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import FoodsCard from "./components/FoodsCard.vue";
+import FoodsCard from "./components/FoodsCard/FoodsCard.vue";
 import TabsList from "./components/TabsList.vue";
 import foodsData from "./data/foods.json";
 import baseValues from "./data/original-values";

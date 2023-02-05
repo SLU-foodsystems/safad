@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
 import FoodsCardFbs from "./FoodsCardFbs.vue";
-import { average, sum, toPrecision } from "../lib/utils";
+import { average, sum, toPrecision } from "@/lib/utils";
 
 export default defineComponent({
   components: { FoodsCardFbs },
