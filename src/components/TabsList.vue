@@ -20,7 +20,8 @@ export default defineComponent({
   <div class="center u-tac">
     <ul class="tablist" role="tablist">
       <li v-for="tab in tabs" role="presentation">
-        <a role="tab" :id="tab.id" :aria-selected="current === tab.id">{{
+        <a role="tab" :id="tab.id" :aria-selected="current === tab.id"
+        @click.prevent="$emit('click:tab', tab.id)">{{
           tab.label
         }}</a>
       </li>

@@ -47,14 +47,19 @@ export default defineComponent({
       eatGroups,
 
       baseValues,
-      currentValues: structuredClone(baseValues),
 
-      hasChanges: generateIdValueMap(tabIds, () =>
-        generateIdValueMap(suaIds, () => false)
-      ),
-      hasError: generateIdValueMap(tabIds, () =>
-        generateIdValueMap(eatIds, () => false)
-      ),
+      amountValues: structuredClone(baseValues.amount),
+      amountHasChanges: generateIdValueMap(suaIds, () => false),
+      amountHasError: generateIdValueMap(eatIds, () => false),
+
+      techImprValues: structuredClone(baseValues["technical-improvement"]),
+      techImprHasChanges: generateIdValueMap(suaIds, () => false),
+      techImprHasError: generateIdValueMap(eatIds, () => false),
+
+      wasteValues: structuredClone(baseValues.waste),
+      wasteHasChanges: generateIdValueMap(suaIds, () => false),
+      wasteHasError: generateIdValueMap(eatIds, () => false),
+
 
       isOpen: generateIdValueMap(eatIds, () => true),
 
@@ -76,13 +81,20 @@ export default defineComponent({
         this.isOpen[eatId] = false;
       });
     },
-    onSuaUpdate(data: { id: string; value: number; error: boolean }) {
-      const tabId = this.currentTab;
-      this.currentValues[tabId] = {
-        ...this.currentValues[tabId],
-        [data.id]: data.value,
-      };
-      this.hasError[tabId] = { ...this.hasError[tabId], [data.id]: data.error };
+    changeTab(tabId: string) {
+      this.currentTab = tabId;
+    },
+    onAmountUpdate(data: { id: string; value: number; error: boolean }) {
+      this.amountValues[data.id] = data.value;
+      this.amountHasError[data.id] = data.error;
+    },
+    onTechImprUpdate(data: { id: string; value: number; error: boolean }) {
+      this.techImprValues[data.id] = data.value;
+      this.techImprHasError[data.id] = data.error;
+    },
+    onWasteUpdate(data: { id: string; value: number; error: boolean }) {
+      this.wasteValues[data.id] = data.value;
+      this.wasteHasError[data.id] = data.error;
     },
   },
 });
@@ -95,7 +107,7 @@ export default defineComponent({
   </header>
 
   <main class="page-wrap stack">
-    <TabsList :tabs="tabs" :current="'amount'" />
+    <TabsList :tabs="tabs" :current="currentTab" @click:tab="changeTab" />
     <div class="cluster cluster--between">
       <div></div>
       <div class="cluster">
@@ -103,18 +115,46 @@ export default defineComponent({
         <button class="button" @click="closeAll">Collapse all</button>
       </div>
     </div>
-    <section class="diet-configuration stack">
+    <section class="diet-configuration stack" v-show="currentTab === 'amount'">
+      <FoodsCard
+        v-for="eat in eatGroups"
+        :key="eat.id"
+        :eat="eat"
+        :open="isOpen[eat.id]"
+        :mode="'amount'"
+        :has-error="amountHasError"
+        :current-values="amountValues"
+        :base-values="baseValues.amount"
+        @toggle-open="toggleOpen"
+        @update:sua="onAmountUpdate"
+      />
+    </section>
+    <section class="diet-configuration stack" v-show="currentTab === 'technical-improvement'">
       <FoodsCard
         v-for="eat in eatGroups"
         :key="eat.id"
         :eat="eat"
         :open="isOpen[eat.id]"
         :mode="'percentage'"
-        :has-error="hasError[currentTab]"
-        :current-values="currentValues[currentTab]"
-        :base-values="baseValues[currentTab]"
+        :has-error="techImprHasError"
+        :current-values="techImprValues"
+        :base-values="baseValues['technical-improvement']"
         @toggle-open="toggleOpen"
-        @update:sua="onSuaUpdate"
+        @update:sua="onTechImprUpdate"
+      />
+    </section>
+    <section class="diet-configuration stack" v-show="currentTab === 'waste'">
+      <FoodsCard
+        v-for="eat in eatGroups"
+        :key="eat.id"
+        :eat="eat"
+        :open="isOpen[eat.id]"
+        :mode="'percentage'"
+        :has-error="wasteHasError"
+        :current-values="wasteValues"
+        :base-values="baseValues.waste"
+        @toggle-open="toggleOpen"
+        @update:sua="onWasteUpdate"
       />
     </section>
   </main>
