@@ -42,6 +42,18 @@ export default defineComponent({
   },
 
   methods: {
+    emitUpdate(value: number, error: boolean) {
+      this.$emit("update:sua", {
+        id: this.sua.id,
+        value,
+        error,
+      });
+    },
+    reset() {
+      this.rawValue = String(this.baseValue);
+      this.hasError = false;
+      this.emitUpdate(this.baseValue, false);
+    },
     onInput(event: Event) {
       const target = event.target as HTMLInputElement;
       const numericValue = inputValueToNumber(target.value);
@@ -54,17 +66,9 @@ export default defineComponent({
       this.hasError = hasError;
 
       if (!Number.isNaN(numericValue)) {
-        this.$emit("update:sua", {
-          id: this.sua.id,
-          value: cappedValue,
-          error: hasError,
-        });
+        this.emitUpdate(cappedValue, hasError);
       } else {
-        this.$emit("update:sua", {
-          id: this.sua.id,
-          value: this.currentValue,
-          error: hasError,
-        });
+        this.emitUpdate(this.currentValue, hasError);
       }
     },
   },
@@ -82,7 +86,13 @@ export default defineComponent({
     <label class="foods-card__sua-name" :for="id">{{ sua.name }}</label>
 
     <span class="cluster" style="flex-shrink: 0">
-      <span class="u-faded" v-text="baseValue" v-if="hasChanged" />
+      <button
+        class="u-faded"
+        v-text="baseValue"
+        v-if="hasChanged"
+        @click="reset"
+        title="Reset to base value"
+      />
       <input
         type="text"
         :id="id"
