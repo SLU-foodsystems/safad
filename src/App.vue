@@ -1,5 +1,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import { downloadCsv, generateCsvData, generateIdValueMap } from "@/lib/utils";
 import FoodsCard from "./components/FoodsCard/FoodsCard.vue";
 import TabsList from "./components/TabsList.vue";
 import foodsData from "./data/foods.json";
@@ -32,9 +33,6 @@ const tabs = [
 
 const tabIds = tabs.map((t) => t.id);
 const DEFAULT_TAB = tabIds[0];
-
-const generateIdValueMap = <T>(ids: string[], defaultValue: () => T) =>
-  Object.fromEntries(ids.map((id) => [id, defaultValue()]));
 
 export default defineComponent({
   components: {
@@ -83,6 +81,26 @@ export default defineComponent({
     changeTab(tabId: string) {
       this.currentTab = tabId;
     },
+
+    exportCsv() {
+      const header = [
+        "SUA Id",
+        "Amount (g)",
+        "Technical Improvement (%)",
+        "Waste (%)",
+      ];
+      const rows = suaIds.map((id) => [
+        id,
+        this.amountValues[id],
+        this.techImprValues[id],
+        this.wasteValues[id],
+      ]);
+
+      const csv = generateCsvData(header, rows);
+
+      downloadCsv(csv, "slu-planeat");
+    },
+
     onAmountUpdate(data: { id: string; value: number; error: boolean }) {
       this.amountValues[data.id] = data.value;
       this.amountHasError[data.id] = data.error;
@@ -110,7 +128,10 @@ export default defineComponent({
 
   <main class="page-wrap stack">
     <div class="cluster cluster--between">
-      <div></div>
+      <div class="cluster">
+        <button class="button" @click="exportCsv">Export data</button>
+        <button class="button" disabled>Import data</button>
+      </div>
       <div class="cluster">
         <button class="button" @click="openAll">Expand all</button>
         <button class="button" @click="closeAll">Collapse all</button>
