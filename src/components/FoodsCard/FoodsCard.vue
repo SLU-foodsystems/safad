@@ -13,7 +13,7 @@ export default defineComponent({
     },
     open: { type: Boolean, required: true },
     mode: {
-      type: String,
+      type: String as PropType<ModeHelpers.Mode>,
       required: true,
       validator(value: any) {
         return ModeHelpers.isMode(value);
