@@ -17,16 +17,14 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="center u-tac">
-    <ul class="tablist" role="tablist">
-      <li v-for="tab in tabs" role="presentation">
-        <a role="tab" :id="tab.id" :aria-selected="current === tab.id"
-        @click.prevent="$emit('click:tab', tab.id)">{{
-          tab.label
-        }}</a>
-      </li>
-    </ul>
-  </div>
+  <ul class="tablist" role="tablist">
+    <li v-for="tab in tabs" role="presentation">
+      <a role="tab" :id="tab.id" :aria-selected="current === tab.id"
+      @click.prevent="$emit('click:tab', tab.id)">{{
+        tab.label
+      }}</a>
+    </li>
+  </ul>
 </template>
 
 <style scoped lang="scss">
@@ -40,6 +38,7 @@ export default defineComponent({
   border-radius: 0.5rem;
   border: 2px solid $bg;
   overflow: hidden;
+  align-items: stretch;
 
   li {
     list-style-type: none;
@@ -48,11 +47,13 @@ export default defineComponent({
   }
 
   a {
-    display: inline-block;
+    display: inline-flex;
     padding: 0.5em 0.75em;
     text-decoration: none;
     cursor: pointer;
     color: $bg;
+    height: 100%;
+    align-items: center;
 
     &:hover {
       background: rgba(white, 0.25);
