@@ -101,7 +101,7 @@ export default defineComponent({
         pattern="^([0-9.,]*)$"
         :class="{ 'has-error': hasError }"
         v-model="rawValue"
-        @input="onInput"
+        @change="onInput"
       />
     </span>
   </div>
