@@ -61,8 +61,39 @@ export default defineComponent({
       isOpen: generateIdValueMap(eatIds, () => true),
 
       currentTab: DEFAULT_TAB,
-      disabled: {}, // TODO
+      disabled: generateIdValueMap(eatIds, () => false),
     };
+  },
+
+  computed: {
+    title() {
+      switch (this.currentTab) {
+        case "amount":
+          return "Amount";
+        case "technical-improvement":
+          return "Technical Improvement factor";
+        case "waste":
+          return "Waste factor";
+        case "origin":
+          return "Origin of import";
+        default:
+          return "";
+      }
+    },
+    subtitle() {
+      switch (this.currentTab) {
+        case "amount":
+          return "Daily consumption per capita of each food category.";
+        case "technical-improvement":
+          return "Assumed annual technical improvement factor.";
+        case "waste":
+          return "Assumed percentage of food that goes to waste.";
+        case "origin":
+          return "Country of origin.";
+        default:
+          return "";
+      }
+    },
   },
   methods: {
     toggleOpen(eatId: string) {
@@ -126,7 +157,14 @@ export default defineComponent({
     <TabsList :tabs="tabs" :current="currentTab" @click:tab="changeTab" />
   </header>
 
+  <br />
+
   <main class="page-wrap stack">
+    <header class="stack">
+      <h1 v-text="title" />
+      <p v-text="subtitle" />
+      <br />
+    </header>
     <div class="cluster cluster--between">
       <div class="cluster">
         <button class="button" @click="exportCsv">Export data</button>
