@@ -176,7 +176,7 @@ main {
   padding: 1em;
   margin-bottom: 1em;
   text-align: center;
-  border-bottom: 2px solid darken($green_forest, 20%);
+  border-bottom: 4px solid darken($green_forest, 10%);
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
