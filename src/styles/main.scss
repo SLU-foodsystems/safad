@@ -232,9 +232,25 @@ main {
   width: 100%;
 }
 
+.foods-card__enabled-checkbox {
+  top: 50%;
+  right: 100%;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  margin-right: 1em;
+  position: absolute;
+}
+
 .foods-card__header {
   margin: 0 auto;
   display: block;
+  position: relative;
+
+  .foods-card--ignored & {
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
 
   button {
     width: 100%;
