@@ -24,6 +24,7 @@ button:not([disabled]) {
 
   transition: opacity 0.2s;
 
+  &[disabled],
   &:hover {
     opacity: 0.5;
   }
