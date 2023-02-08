@@ -83,9 +83,9 @@ export default defineComponent({
     subtitle() {
       switch (this.currentTab) {
         case "amount":
-          return "Daily consumption per capita of each food category.";
+          return "Daily consumption per capita of each food category (gram).";
         case "technical-improvement":
-          return "Assumed annual technical improvement factor.";
+          return "Assumed year-on-year technical improvement factor (%).";
         case "waste":
           return "Assumed percentage of food that goes to waste.";
         case "origin":
