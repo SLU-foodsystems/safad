@@ -171,12 +171,15 @@ main {
 // Page Header
 
 .top-bar {
-  background: $green_forest;
+  $bg: $gray_feather;
+  $fg: #000;
+  background: $bg;
+  color: $fg;
   width: 100%;
   padding: 1em;
   margin-bottom: 1em;
   text-align: center;
-  border-bottom: 4px solid darken($green_forest, 10%);
+  border-bottom: 4px solid darken($bg, 10%);
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -190,7 +193,7 @@ main {
   }
 
   h1 {
-    color: white;
+    color: $fg;
     font-weight: bold;
 
     font-size: 1.25em;

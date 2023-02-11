@@ -31,7 +31,7 @@ export default defineComponent({
 @import "../styles/constants";
 
 .tablist {
-  $bg: white;
+  $bg: black;
   margin: 0 auto;
   display: inline-flex;
 
@@ -63,7 +63,12 @@ export default defineComponent({
 
   a[aria-selected="true"] {
     background: $bg;
-    color: $green_forest;
+    color: white;
+
+    &::selection {
+      background: white;
+      color: black;
+    }
   }
 }
 </style>
