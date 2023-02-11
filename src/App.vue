@@ -151,7 +151,7 @@ export default defineComponent({
 <template>
   <header class="top-bar u-tac">
     <div class="top-bar__logo cluster">
-      <img src="./assets/slu-logo-bw.svg" />
+      <img src="./assets/slu-logo.svg" />
       <h1>Foods Benchmarker</h1>
     </div>
     <TabsList :tabs="tabs" :current="currentTab" @click:tab="changeTab" />
