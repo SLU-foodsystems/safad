@@ -1,11 +1,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
-import FoodsCardFbs from "./FoodsCardFbs.vue";
+import FoodsAmountInputs from "./FoodsAmountInputs.vue";
 import * as ModeHelpers from "./mode-helpers";
 
 export default defineComponent({
-  components: { FoodsCardFbs },
+  components: { FoodsAmountInputs },
   props: {
     eat: {
       type: Object as PropType<EAT>,
@@ -100,7 +100,7 @@ export default defineComponent({
       </button>
     </h3>
     <div class="foods-card__body" v-show="open">
-      <FoodsCardFbs
+      <FoodsAmountInputs
         v-for="fbs in eat.fbs"
         :key="fbs.id"
         :fbs="fbs"
