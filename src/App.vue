@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { downloadCsv, generateCsvData, generateIdValueMap } from "@/lib/utils";
-import FoodsCard from "./components/FoodsCard/FoodsCard.vue";
+import FoodsAmountCard from "./components/FoodsCard/FoodsAmountCard.vue";
 import TabsList from "./components/TabsList.vue";
 import foodsData from "./data/foods.json";
 import baseValues from "./data/original-values";
@@ -36,7 +36,7 @@ const DEFAULT_TAB = tabIds[0];
 
 export default defineComponent({
   components: {
-    FoodsCard,
+    FoodsAmountCard,
     TabsList,
   },
   data() {
@@ -176,7 +176,7 @@ export default defineComponent({
       </div>
     </div>
     <section class="diet-configuration stack" v-show="currentTab === 'amount'">
-      <FoodsCard
+      <FoodsAmountCard
         v-for="eat in eatGroups"
         :key="eat.id"
         :eat="eat"
@@ -193,7 +193,7 @@ export default defineComponent({
       class="diet-configuration stack"
       v-show="currentTab === 'technical-improvement'"
     >
-      <FoodsCard
+      <FoodsAmountCard
         v-for="eat in eatGroups"
         :key="eat.id"
         :eat="eat"
@@ -207,7 +207,7 @@ export default defineComponent({
       />
     </section>
     <section class="diet-configuration stack" v-show="currentTab === 'waste'">
-      <FoodsCard
+      <FoodsAmountCard
         v-for="eat in eatGroups"
         :key="eat.id"
         :eat="eat"

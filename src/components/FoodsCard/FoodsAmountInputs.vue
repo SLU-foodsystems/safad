@@ -2,18 +2,18 @@
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
 
-import FoodsCardSua from "./FoodsCardSua.vue";
+import FoodsAmountInputRow from "./FoodsAmountInputRow.vue";
 import * as ModeHelpers from "./mode-helpers";
 
 export default defineComponent({
-  components: { FoodsCardSua },
+  components: { FoodsCardSua: FoodsAmountInputRow },
   props: {
     fbs: {
       type: Object as PropType<FBS>,
       required: true,
     },
     mode: {
-      type: String,
+      type: String as PropType<ModeHelpers.Mode>,
       required: true,
     },
     currentValues: {
