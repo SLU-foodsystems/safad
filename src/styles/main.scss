@@ -212,6 +212,7 @@ main {
 .page-wrap {
   width: 95%;
   max-width: $measure--wide;
+  max-width: 800px; // Temporary
   margin: 0 auto;
 }
 
