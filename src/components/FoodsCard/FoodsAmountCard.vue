@@ -1,11 +1,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
-import FoodsAmountInputs from "./FoodsAmountInputs.vue";
 import { sum, toPrecision } from "@/lib/utils";
 
+import FoodsAmountInputs from "./FoodsAmountInputs.vue";
+import FoodsAccordion from "../FoodsAccordion.vue";
+
 export default defineComponent({
-  components: { FoodsAmountInputs },
+  components: { FoodsAccordion, FoodsAmountInputs },
   props: {
     eat: {
       type: Object as PropType<EAT>,
@@ -41,9 +43,6 @@ export default defineComponent({
     aggregate(): number {
       return toPrecision(sum(this.relevantValues));
     },
-    unit() {
-      return "g / day";
-    },
     hasChanges(): boolean {
       return this.suaIds.some(
         (id) => this.currentValues[id] !== this.baseValues[id]
@@ -60,31 +59,16 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="foods-card" role="region" :data-open="open">
-    <h3 class="foods-card__header">
-      <button
-        class="cluster cluster--between"
-        :aria-expanded="open"
-        @click="toggleOpen"
-      >
-        <span class="cluster"
-          >{{ eat.name }}
-          <span v-if="hasChanges" class="tag tag--blue">Modified</span>
-          <span v-if="hasErrors" class="tag tag--yellow">Errors</span>
-        </span>
-        <span class="cluster">
-          <span
-            ><span>{{ aggregate }}</span
-            >&nbsp;{{ unit }}</span
-          >
-          <svg viewBox="0 0 10 10" aria-hidden="true" focusable="false">
-            <rect class="vert" height="8" width="2" y="1" x="4" />
-            <rect height="2" width="8" y="4" x="1" />
-          </svg>
-        </span>
-      </button>
-    </h3>
-    <div class="foods-card__body" v-show="open">
+  <FoodsAccordion :open="open" @toggle-open="toggleOpen">
+    <template #summary>
+      {{ eat.name }}
+      <span v-if="hasChanges" class="tag tag--blue">Modified</span>
+      <span v-if="hasErrors" class="tag tag--yellow">Errors</span>
+    </template>
+    <template #aggregate
+      ><span>{{ aggregate }} g / day</span></template
+    >
+    <template #details>
       <FoodsAmountInputs
         v-for="fbs in eat.fbs"
         :key="fbs.id"
@@ -93,6 +77,6 @@ export default defineComponent({
         :base-values="baseValues"
         @update:sua="$emit('update:sua', $event)"
       />
-    </div>
-  </div>
+    </template>
+  </FoodsAccordion>
 </template>
