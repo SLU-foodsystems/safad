@@ -6,7 +6,7 @@ import FoodsAmountInputRow from "./FoodsAmountInputRow.vue";
 import { sum, toPrecision } from "@/lib/utils";
 
 export default defineComponent({
-  components: { FoodsCardSua: FoodsAmountInputRow },
+  components: { FoodsAmountInputRow },
   props: {
     fbs: {
       type: Object as PropType<FBS>,
@@ -39,16 +39,16 @@ export default defineComponent({
 </script>
 
 <template>
-  <section class="foods-card__fbs">
-    <header class="foods-card__fbs-header cluster cluster--between">
+  <section>
+    <header class="foods-accordion__sub-header cluster cluster--between">
       <h4>{{ fbs.name }}</h4>
       <span class="u-faded">
         <span>{{ aggregate }}</span
         >&nbsp;
-        <span class="foods-card__unit">g</span>
+        <span class="foods-accordion__sub-unit">g</span>
       </span>
     </header>
-    <FoodsCardSua
+    <FoodsAmountInputRow
       v-for="sua in fbs.sua"
       :sua="sua"
       :base-value="baseValues[sua.id]"

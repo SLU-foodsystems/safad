@@ -67,13 +67,13 @@ export default defineComponent({
 
 <template>
   <div
-    class="foods-card__sua cluster cluster--between"
+    class="foods-accordion__sua cluster cluster--between"
     :class="{
-      'foods-card__sua--changed': hasChanged,
-      'foods-card__sua--error': hasError,
+      'foods-accordion__sua--changed': hasChanged,
+      'foods-accordion__sua--error': hasError,
     }"
   >
-    <label class="foods-card__sua-name" :for="id">{{ sua.name }}</label>
+    <label class="foods-accordion__sua-name" :for="id">{{ sua.name }}</label>
 
     <span class="cluster" style="flex-shrink: 0">
       <button

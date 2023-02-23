@@ -240,11 +240,11 @@ main {
 /* Foods Card
  * ------------------------------------------- */
 
-.foods-card {
+.foods-accordion {
   width: 100%;
 }
 
-.foods-card__header {
+.foods-accordion__header {
   margin: 0 auto;
   display: block;
   position: relative;
@@ -277,7 +277,7 @@ main {
   }
 }
 
-.foods-card__body {
+.foods-accordion__body {
   $min-col-size: 24em;
   width: 100%;
   padding: 1em 0.5em;
@@ -286,30 +286,24 @@ main {
   border: 2px solid $gray;
   border-top: 0;
 
-  display: grid;
-  grid-gap: 1em;
-
-  @supports (width: min($min-col-size, 100%)) {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min($min-col-size, 100%), 1fr)
-    );
+  > * + * {
+    margin-top: 1em;
   }
 }
 
-.foods-card__fbs-header {
+.foods-accordion__sub-header {
   padding: 0 0.5em;
   h4 {
     font-weight: bold;
   }
 }
 
-.foods-card__unit {
+.foods-accordion__sub-unit {
   flex: 0 1 4em;
   text-align: center;
 }
 
-.foods-card__sua {
+.foods-accordion__sua {
   flex-wrap: nowrap;
   padding: 0 0.5em;
 
@@ -317,7 +311,7 @@ main {
     background: $blue_dove;
   }
 
-  .foods-card__sua-name {
+  .foods-accordion__sua-name {
     flex-grow: 1;
     flex-shrink: 1;
   }
@@ -344,11 +338,11 @@ main {
     }
   }
 
-  &.foods-card__sua--changed {
+  &.foods-accordion__sua--changed {
     box-shadow: -0.5em 0 0 $blue_seabay;
   }
 
-  &.foods-card__sua--error {
+  &.foods-accordion__sua--error {
     box-shadow: -0.5em 0 0 $yellow_resin;
   }
 }
