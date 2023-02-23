@@ -2,8 +2,6 @@
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
 import { inputValueToNumber } from "@/lib/utils";
-import * as ModeHelpers from "./mode-helpers";
-import type { Mode } from "./mode-helpers";
 
 const generateRandomId = () => "input-" + Math.floor(Math.random() * 1e8);
 
@@ -11,10 +9,6 @@ export default defineComponent({
   props: {
     sua: {
       type: Object as PropType<SUA>,
-      required: true,
-    },
-    mode: {
-      type: String as PropType<Mode>,
       required: true,
     },
     baseValue: {
@@ -56,17 +50,13 @@ export default defineComponent({
     },
     onInput(event: Event) {
       const target = event.target as HTMLInputElement;
-      const numericValue = inputValueToNumber(target.value);
+      const value = inputValueToNumber(target.value);
 
-      const [min, max] = ModeHelpers.limits(this.mode);
-
-      const cappedValue = Math.min(max, Math.max(min, numericValue));
-      const hasError =
-        target.validity.patternMismatch || cappedValue !== numericValue;
+      const hasError = value < 0 || target.validity.patternMismatch
       this.hasError = hasError;
 
-      if (!Number.isNaN(numericValue)) {
-        this.emitUpdate(cappedValue, hasError);
+      if (!Number.isNaN(value)) {
+        this.emitUpdate(value, hasError);
       } else {
         this.emitUpdate(this.currentValue, hasError);
       }
