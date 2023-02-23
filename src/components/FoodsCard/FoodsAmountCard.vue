@@ -26,12 +26,6 @@ export default defineComponent({
     },
   },
 
-  data() {
-    return {
-      enabled: true,
-    };
-  },
-
   computed: {
     suaIds() {
       return this.eat.fbs.flatMap((fbs) => fbs.sua.map((sua) => sua.id));
@@ -66,10 +60,8 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="foods-card" role="region" :data-open="open"
-  :class="{ 'foods-card--ignored': !enabled }">
+  <div class="foods-card" role="region" :data-open="open">
     <h3 class="foods-card__header">
-      <input class="foods-card__enabled-checkbox" type="checkbox" v-model="enabled"/>
       <button
         class="cluster cluster--between"
         :aria-expanded="open"
