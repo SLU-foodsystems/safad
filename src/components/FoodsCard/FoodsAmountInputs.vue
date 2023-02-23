@@ -3,17 +3,13 @@ import { defineComponent } from "vue";
 import type { PropType } from "vue";
 
 import FoodsAmountInputRow from "./FoodsAmountInputRow.vue";
-import * as ModeHelpers from "./mode-helpers";
+import { sum, toPrecision } from "@/lib/utils";
 
 export default defineComponent({
   components: { FoodsCardSua: FoodsAmountInputRow },
   props: {
     fbs: {
       type: Object as PropType<FBS>,
-      required: true,
-    },
-    mode: {
-      type: String as PropType<ModeHelpers.Mode>,
       required: true,
     },
     currentValues: {
@@ -36,10 +32,7 @@ export default defineComponent({
         .filter((x: number) => !Number.isNaN(x));
     },
     aggregate(): number {
-      return ModeHelpers.aggregate(this.relevantValues, this.mode);
-    },
-    unit() {
-      return ModeHelpers.unit(this.mode, true);
+      return toPrecision(sum(this.relevantValues));
     },
   },
 });
@@ -52,13 +45,12 @@ export default defineComponent({
       <span class="u-faded">
         <span>{{ aggregate }}</span
         >&nbsp;
-        <span class="foods-card__unit" v-text="unit"/>
+        <span class="foods-card__unit">g</span>
       </span>
     </header>
     <FoodsCardSua
       v-for="sua in fbs.sua"
       :sua="sua"
-      :mode="mode"
       :base-value="baseValues[sua.id]"
       :current-value="currentValues[sua.id]"
       @update:sua="$emit('update:sua', $event)"

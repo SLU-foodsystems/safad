@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
 import FoodsAmountInputs from "./FoodsAmountInputs.vue";
-import * as ModeHelpers from "./mode-helpers";
+import { sum, toPrecision } from "@/lib/utils";
 
 export default defineComponent({
   components: { FoodsAmountInputs },
@@ -12,13 +12,6 @@ export default defineComponent({
       required: true,
     },
     open: { type: Boolean, required: true },
-    mode: {
-      type: String as PropType<ModeHelpers.Mode>,
-      required: true,
-      validator(value: any) {
-        return ModeHelpers.isMode(value);
-      },
-    },
     currentValues: {
       type: Object as PropType<{ [k: string]: number }>,
       required: true,
@@ -52,10 +45,10 @@ export default defineComponent({
       return this.suaIds.some((id) => this.hasError[id]);
     },
     aggregate(): number {
-      return ModeHelpers.aggregate(this.relevantValues, this.mode);
+      return toPrecision(sum(this.relevantValues));
     },
     unit() {
-      return ModeHelpers.unit(this.mode);
+      return "g / day";
     },
     hasChanges(): boolean {
       return this.suaIds.some(
@@ -104,7 +97,6 @@ export default defineComponent({
         v-for="fbs in eat.fbs"
         :key="fbs.id"
         :fbs="fbs"
-        :mode="mode"
         :current-values="currentValues"
         :base-values="baseValues"
         @update:sua="$emit('update:sua', $event)"
