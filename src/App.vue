@@ -124,7 +124,10 @@ export default defineComponent({
 
       const csv = header + "\n" + "TODO,".repeat(6) + "TODO" ;
 
-      downloadCsv(csv, "slu-planeat");
+      const now = new Date();
+      const datetimeStamp =
+        `${now.getFullYear()}${now.getMonth()+1}${now.getDay()}`;
+      downloadCsv(csv, `slu-planeat-${datetimeStamp}`);
     },
 
     onAmountUpdate(data: { id: string; value: number; error: boolean }) {
