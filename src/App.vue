@@ -12,18 +12,16 @@ const suaIds = eatGroups.flatMap((x) =>
   x.fbs.flatMap((y) => y.sua.map((z) => z.id))
 );
 
-const tabs = [
+type TabId = "amount" | "factors" | "origin";
+
+const tabs: { label: string, id: TabId }[] = [
   {
     label: "Amount",
     id: "amount",
   },
   {
-    label: "Tech. Impr.",
-    id: "technical-improvement",
-  },
-  {
-    label: "Waste",
-    id: "waste",
+    label: "Waste & Improvement factors",
+    id: "factors",
   },
   {
     label: "Origin",
@@ -50,13 +48,9 @@ export default defineComponent({
       amountHasChanges: generateIdValueMap(suaIds, () => false),
       amountHasError: generateIdValueMap(eatIds, () => false),
 
-      techImprValues: structuredClone(baseValues["technical-improvement"]),
-      techImprHasChanges: generateIdValueMap(suaIds, () => false),
-      techImprHasError: generateIdValueMap(eatIds, () => false),
-
-      wasteValues: structuredClone(baseValues.waste),
-      wasteHasChanges: generateIdValueMap(suaIds, () => false),
-      wasteHasError: generateIdValueMap(eatIds, () => false),
+      factorsValues: structuredClone(baseValues["factors"]),
+      factorsHasChanges: generateIdValueMap(suaIds, () => false),
+      factorsHasError: generateIdValueMap(eatIds, () => false),
 
       isOpen: generateIdValueMap(eatIds, () => true),
 
@@ -70,10 +64,8 @@ export default defineComponent({
       switch (this.currentTab) {
         case "amount":
           return "Amount";
-        case "technical-improvement":
+        case "factors":
           return "Technical Improvement factor";
-        case "waste":
-          return "Waste factor";
         case "origin":
           return "Origin of import";
         default:
@@ -84,10 +76,8 @@ export default defineComponent({
       switch (this.currentTab) {
         case "amount":
           return "Daily consumption per capita of each food category (gram).";
-        case "technical-improvement":
-          return "Assumed year-on-year technical improvement factor (%).";
-        case "waste":
-          return "Assumed percentage of food that goes to waste.";
+        case "factors":
+          return "Assumed waste percentage and year-on-year technical improvement factor (%).";
         case "origin":
           return "Country of origin.";
         default:
@@ -109,7 +99,7 @@ export default defineComponent({
         this.isOpen[eatId] = false;
       });
     },
-    changeTab(tabId: string) {
+    changeTab(tabId: TabId) {
       this.currentTab = tabId;
     },
 
@@ -142,12 +132,8 @@ export default defineComponent({
       this.amountHasError[data.id] = data.error;
     },
     onTechImprUpdate(data: { id: string; value: number; error: boolean }) {
-      this.techImprValues[data.id] = data.value;
-      this.techImprHasError[data.id] = data.error;
-    },
-    onWasteUpdate(data: { id: string; value: number; error: boolean }) {
-      this.wasteValues[data.id] = data.value;
-      this.wasteHasError[data.id] = data.error;
+      this.factorsValues[data.id] = data.value;
+      this.factorsHasError[data.id] = data.error;
     },
   },
 });
@@ -196,34 +182,15 @@ export default defineComponent({
     </section>
     <section
       class="diet-configuration stack"
-      v-show="currentTab === 'technical-improvement'"
+      v-show="currentTab === 'factors'"
     >
-      <FoodsAmountCard
-        v-for="eat in eatGroups"
-        :key="eat.id"
-        :eat="eat"
-        :open="isOpen[eat.id]"
-        :mode="'percentage'"
-        :has-error="techImprHasError"
-        :current-values="techImprValues"
-        :base-values="baseValues['technical-improvement']"
-        @toggle-open="toggleOpen"
-        @update:sua="onTechImprUpdate"
-      />
+      <h2>Factors</h2>
     </section>
-    <section class="diet-configuration stack" v-show="currentTab === 'waste'">
-      <FoodsAmountCard
-        v-for="eat in eatGroups"
-        :key="eat.id"
-        :eat="eat"
-        :open="isOpen[eat.id]"
-        :mode="'percentage'"
-        :has-error="wasteHasError"
-        :current-values="wasteValues"
-        :base-values="baseValues.waste"
-        @toggle-open="toggleOpen"
-        @update:sua="onWasteUpdate"
-      />
+    <section
+      class="diet-configuration stack"
+      v-show="currentTab === 'origin'"
+    >
+      <h2>Origin</h2>
     </section>
   </main>
 </template>
