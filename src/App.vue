@@ -117,17 +117,22 @@ export default defineComponent({
       const header = [
         "SUA Id",
         "Amount (g)",
+        "Production Waste (%)",
+        "Retail Waste (%)",
+        "Consumer Waste (%)",
         "Technical Improvement (%)",
-        "Waste (%)",
+        "Origin (country1:amount1 country2:amount2 ...)",
       ];
-      const rows = suaIds.map((id) => [
-        id,
-        this.amountValues[id],
-        this.techImprValues[id],
-        this.wasteValues[id],
-      ]);
+      /* const rows = suaIds.map((id) => [ */
+      /*   id, */
+      /*   this.amountValues[id], */
+      /*   this.factorsValues[id], */
+      /*   this.wasteValues[id], */
+      /* ]); */
 
-      const csv = generateCsvData(header, rows);
+      /* const csv = generateCsvData(header, rows); */
+
+      const csv = header + "\n" + "TODO,".repeat(6) + "TODO" ;
 
       downloadCsv(csv, "slu-planeat");
     },
