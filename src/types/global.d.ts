@@ -17,4 +17,11 @@ declare global {
     id: string;
     fbs: FBS[];
   }
+
+  interface Factors {
+    productionWaste: number;
+    retailWaste: number;
+    consumerWaste: number;
+    technicalImprovement: number;
+  }
 }
