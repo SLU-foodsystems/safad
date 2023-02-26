@@ -303,7 +303,7 @@ main {
   text-align: center;
 }
 
-.foods-accordion__sua {
+.foods-accordion__input-row {
   flex-wrap: nowrap;
   padding: 0 0.5em;
 
@@ -311,18 +311,9 @@ main {
     background: $blue_dove;
   }
 
-  .foods-accordion__sua-name {
+  label {
     flex-grow: 1;
     flex-shrink: 1;
-  }
-
-  // Reset button
-  button {
-    background: none;
-    border: 1px solid rgba(black, 0.25);
-    &:focus {
-      outline: 2px solid black;
-    }
   }
 
   input {
@@ -338,13 +329,67 @@ main {
     }
   }
 
-  &.foods-accordion__sua--changed {
+  &.has-changed {
     box-shadow: -0.5em 0 0 $blue_seabay;
   }
 
-  &.foods-accordion__sua--error {
+  &.has-error {
     box-shadow: -0.5em 0 0 $yellow_resin;
   }
+}
+
+.factors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.foods-factors__container {
+  .foods-accordion__sua {
+    text-align: center;
+  }
+
+  input {
+    margin: 0 auto;
+  }
+}
+
+// Overrides
+
+.overrides {
+  padding: 1.5em 1em;
+  background: $lightgray;
+  box-shadow: inset 0 0 0 2px $gray;
+
+  label {
+    text-align: center;
+  }
+
+  input {
+    text-align: right;
+    width: 5em;
+    margin-left: 1.5em;
+    margin-right: 0.5em;
+  }
+}
+
+.overrides__inputs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.overrides__input-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::after {
+    content: "%";
+  }
+}
+
+.overrides__label {
+  font-weight: bold;
 }
 
 /*

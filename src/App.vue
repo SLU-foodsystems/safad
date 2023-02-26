@@ -1,8 +1,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { downloadCsv, generateCsvData, generateIdValueMap } from "@/lib/utils";
-import FoodsAmountCard from "./components/FoodsCard/FoodsAmountCard.vue";
+import FoodsAmountCard from "./components/FoodsAmountCard/FoodsAmountCard.vue";
+import FoodsFactorsCard from "./components/FoodsFactorsCard/FoodsFactorsCard.vue";
 import TabsList from "./components/TabsList.vue";
+import FactorsOverrides from "./components/FactorsOverrides.vue";
 import foodsData from "./data/foods.json";
 import baseValues from "./data/original-values";
 
@@ -14,7 +16,7 @@ const suaIds = eatGroups.flatMap((x) =>
 
 type TabId = "amount" | "factors" | "origin";
 
-const tabs: { label: string, id: TabId }[] = [
+const tabs: { label: string; id: TabId }[] = [
   {
     label: "Amount",
     id: "amount",
@@ -30,11 +32,13 @@ const tabs: { label: string, id: TabId }[] = [
 ];
 
 const tabIds = tabs.map((t) => t.id);
-const DEFAULT_TAB = tabIds[0];
+const DEFAULT_TAB = tabIds[1];
 
 export default defineComponent({
   components: {
+    FactorsOverrides,
     FoodsAmountCard,
+    FoodsFactorsCard,
     TabsList,
   },
   data() {
@@ -44,18 +48,22 @@ export default defineComponent({
 
       baseValues,
 
+      isOpen: generateIdValueMap(eatIds, () => true),
+      disabled: generateIdValueMap(eatIds, () => false),
+
       amountValues: structuredClone(baseValues.amount),
-      amountHasChanges: generateIdValueMap(suaIds, () => false),
       amountHasError: generateIdValueMap(eatIds, () => false),
 
-      factorsValues: structuredClone(baseValues["factors"]),
-      factorsHasChanges: generateIdValueMap(suaIds, () => false),
+      factorsValues: structuredClone(baseValues.factors),
       factorsHasError: generateIdValueMap(eatIds, () => false),
-
-      isOpen: generateIdValueMap(eatIds, () => true),
+      factorsOverrides: {
+        productionWaste: null as number | null,
+        retailWaste: null as number | null,
+        consumerWaste: null as number | null,
+        technicalImprovement: null as number | null,
+      },
 
       currentTab: DEFAULT_TAB,
-      disabled: generateIdValueMap(eatIds, () => false),
     };
   },
 
@@ -65,7 +73,7 @@ export default defineComponent({
         case "amount":
           return "Amount";
         case "factors":
-          return "Technical Improvement factor";
+          return "Waste and Improvement Factors";
         case "origin":
           return "Origin of import";
         default:
@@ -85,6 +93,7 @@ export default defineComponent({
       }
     },
   },
+
   methods: {
     toggleOpen(eatId: string) {
       this.isOpen[eatId] = !this.isOpen[eatId];
@@ -122,11 +131,11 @@ export default defineComponent({
 
       /* const csv = generateCsvData(header, rows); */
 
-      const csv = header + "\n" + "TODO,".repeat(6) + "TODO" ;
+      const csv = header + "\n" + "TODO,".repeat(6) + "TODO";
 
       const now = new Date();
-      const datetimeStamp =
-        `${now.getFullYear()}${now.getMonth()+1}${now.getDay()}`;
+      const datetimeStamp = `${now.getFullYear()}${now.getMonth() + 1
+        }${now.getDay()}`;
       downloadCsv(csv, `slu-planeat-${datetimeStamp}`);
     },
 
@@ -134,9 +143,18 @@ export default defineComponent({
       this.amountValues[data.id] = data.value;
       this.amountHasError[data.id] = data.error;
     },
-    onTechImprUpdate(data: { id: string; value: number; error: boolean }) {
-      this.factorsValues[data.id] = data.value;
+    onFactorsUpdate(data: {
+      id: string;
+      factor: keyof Factors;
+      value: number;
+      error: boolean;
+    }) {
+      this.factorsValues[data.id][data.factor] = data.value;
       this.factorsHasError[data.id] = data.error;
+    },
+
+    setFactorsOverride(data: { factor: keyof Factors; value: number | null }) {
+      this.factorsOverrides[data.factor] = data.value;
     },
   },
 });
@@ -170,29 +188,24 @@ export default defineComponent({
       </div>
     </div>
     <section class="diet-configuration stack" v-show="currentTab === 'amount'">
-      <FoodsAmountCard
-        v-for="eat in eatGroups"
-        :key="eat.id"
-        :eat="eat"
-        :open="isOpen[eat.id]"
-        :mode="'amount'"
-        :has-error="amountHasError"
-        :current-values="amountValues"
-        :base-values="baseValues.amount"
-        @toggle-open="toggleOpen"
-        @update:sua="onAmountUpdate"
-      />
+      <FoodsAmountCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
+        :has-error="amountHasError" :current-values="amountValues" :base-values="baseValues.amount"
+        @toggle-open="toggleOpen" @update:sua="onAmountUpdate" />
     </section>
-    <section
-      class="diet-configuration stack"
-      v-show="currentTab === 'factors'"
-    >
-      <h2>Factors</h2>
+    <section class="diet-configuration stack" v-show="currentTab === 'factors'" :class="{
+      'has-override--productionWaste':
+        factorsOverrides.productionWaste !== null,
+      'has-override--retailWaste': factorsOverrides.retailWaste !== null,
+      'has-override--consumerWaste': factorsOverrides.consumerWaste !== null,
+      'has-override--technicalImprovement':
+        factorsOverrides.technicalImprovement !== null,
+    }">
+      <FactorsOverrides @set-factors-override="setFactorsOverride" />
+      <FoodsFactorsCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
+        :has-error="factorsHasError" :current-values="factorsValues" :base-values="baseValues.factors"
+        @toggle-open="toggleOpen" @update:factor="onFactorsUpdate" />
     </section>
-    <section
-      class="diet-configuration stack"
-      v-show="currentTab === 'origin'"
-    >
+    <section class="diet-configuration stack" v-show="currentTab === 'origin'">
       <h2>Origin</h2>
     </section>
   </main>

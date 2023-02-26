@@ -25,7 +25,7 @@ export default defineComponent({
     return {
       rawValue: String(this.currentValue),
       hasError: false,
-      id: generateRandomId(),
+      uniqueId: generateRandomId(),
     };
   },
 
@@ -67,17 +67,17 @@ export default defineComponent({
 
 <template>
   <div
-    class="foods-accordion__sua cluster cluster--between"
+    class="foods-accordion__input-row cluster cluster--between"
     :class="{
       'foods-accordion__sua--changed': hasChanged,
       'foods-accordion__sua--error': hasError,
     }"
   >
-    <label class="foods-accordion__sua-name" :for="id">{{ sua.name }}</label>
+    <label class="foods-accordion__sua-name" :for="uniqueId">{{ sua.name }}</label>
 
     <span class="cluster" style="flex-shrink: 0">
       <button
-        class="u-faded"
+        class="u-faded button--subtle"
         v-text="baseValue"
         v-if="hasChanged"
         @click="reset"
@@ -85,7 +85,7 @@ export default defineComponent({
       />
       <input
         type="text"
-        :id="id"
+        :id="uniqueId"
         placeholder="0.00"
         required="false"
         pattern="^([0-9.,]*)$"
