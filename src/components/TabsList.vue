@@ -13,16 +13,53 @@ export default defineComponent({
       required: true,
     },
   },
+  methods: {
+    onKeyDown(event: KeyboardEvent) {
+      switch (event.key) {
+        case "ArrowRight":
+        case "ArrowLeft":
+        case "ArrowUp":
+        case "ArrowDown":
+          event.preventDefault();
+          // Work out which key the user is pressing and
+          const currentIndex = this.tabs
+            .map((tab) => tab.id)
+            .indexOf(this.current);
+          // Calculate the new tab's index where appropriate
+          const direction =
+            event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
+
+          const newIndex = Math.max(
+            0,
+            Math.min(this.tabs.length - 1, currentIndex + direction)
+          );
+
+          // Avoid unnecessary propagation if the same value
+          if (newIndex === currentIndex) return;
+
+          // Simulate click
+          this.$emit('click:tab', this.tabs[newIndex].id);
+          break;
+        default:
+          return;
+      }
+    },
+  },
 });
 </script>
 
 <template>
   <ul class="tablist" role="tablist">
     <li v-for="tab in tabs" role="presentation">
-      <a role="tab" :id="tab.id" :aria-selected="current === tab.id"
-      @click.prevent="$emit('click:tab', tab.id)">{{
-        tab.label
-      }}</a>
+      <a
+        role="tab"
+        :id="tab.id"
+        :aria-selected="current === tab.id"
+        :tabindex="current === tab.id ? 0 : -1"
+        v-text="tab.label"
+        @keydown="onKeyDown"
+        @click.prevent="$emit('click:tab', tab.id)"
+      />
     </li>
   </ul>
 </template>
@@ -64,6 +101,10 @@ export default defineComponent({
   a[aria-selected="true"] {
     background: $bg;
     color: white;
+
+    &:focus {
+      /* TODO: Focus indicator missing */
+    }
 
     &::selection {
       background: white;
