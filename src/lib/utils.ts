@@ -57,3 +57,5 @@ export function downloadCsv(csvData: string, filename: string) {
   link.click();
   document.body.removeChild(link);
 }
+
+export const generateRandomId = (prefix: string) => prefix + Math.floor(Math.random() * 1e8);

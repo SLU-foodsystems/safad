@@ -1,9 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
-import { inputValueToNumber } from "@/lib/utils";
-
-const generateRandomId = () => "input-" + Math.floor(Math.random() * 1e8);
+import { inputValueToNumber, generateRandomId } from "@/lib/utils";
 
 export default defineComponent({
   props: {
@@ -25,7 +23,7 @@ export default defineComponent({
     return {
       rawValue: String(this.currentValue),
       hasError: false,
-      uniqueId: generateRandomId(),
+      uniqueId: generateRandomId("input-"),
     };
   },
 
