@@ -316,7 +316,7 @@ main {
     flex-shrink: 1;
   }
 
-  input {
+  input[type="text"] {
     padding: 0.25em;
     width: 5em;
     text-align: right;
@@ -337,6 +337,26 @@ main {
     box-shadow: -0.5em 0 0 $yellow_resin;
   }
 }
+
+.foods-accordion__range-container {
+  display: flex;
+
+  .foods-origin__country {
+    $w: 6em;
+    width: $w;
+    flex: 0 0 $w;
+  }
+
+  input[type="range"] {
+    flex-grow: 1;
+    flex-basis: 8em;
+  }
+
+  input[type="text"] {
+    flex-grow: 0;
+  }
+}
+
 
 .factors-grid {
   display: grid;

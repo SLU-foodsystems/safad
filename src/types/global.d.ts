@@ -24,4 +24,8 @@ declare global {
     consumerWaste: number;
     technicalImprovement: number;
   }
+
+  interface OriginMap {
+    [k: string]: number;
+  }
 }
