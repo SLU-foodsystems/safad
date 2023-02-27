@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
-import { factors, labels } from "./constants"
+import { FACTORS, FACTOR_LABELS } from "./constants"
 
 import FoodsFactorsInputRow from "./FoodsFactorsInputRow.vue";
 
@@ -24,8 +24,8 @@ export default defineComponent({
 
   data() {
     return {
-      labels,
-      factors,
+      labels: FACTOR_LABELS,
+      factors: FACTORS,
     };
   },
 });
