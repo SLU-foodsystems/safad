@@ -1,526 +1,525 @@
-const values:
-  {
-    amount: Record<string, number>;
-    factors: Record<string, Factors>;
-  }
-  = {
+const values: {
+  amount: Record<string, number>;
+  factors: Record<string, Factors>;
+  origin: Record<string, OriginMap>;
+} = {
   factors: {
     "2511": {
-      "productionWaste": 27.24,
-      "consumerWaste": 2.55,
-      "retailWaste": 41.78,
-      "technicalImprovement": 83
+      productionWaste: 27.24,
+      consumerWaste: 2.55,
+      retailWaste: 41.78,
+      technicalImprovement: 83,
     },
     "2513": {
-      "productionWaste": 85.01,
-      "consumerWaste": 15.97,
-      "retailWaste": 20.62,
-      "technicalImprovement": 60.6
+      productionWaste: 85.01,
+      consumerWaste: 15.97,
+      retailWaste: 20.62,
+      technicalImprovement: 60.6,
     },
     "2514": {
-      "productionWaste": 81.21,
-      "consumerWaste": 46.76,
-      "retailWaste": 15.27,
-      "technicalImprovement": 69.7
+      productionWaste: 81.21,
+      consumerWaste: 46.76,
+      retailWaste: 15.27,
+      technicalImprovement: 69.7,
     },
     "2515": {
-      "productionWaste": 60.76,
-      "consumerWaste": 97.56,
-      "retailWaste": 55.37,
-      "technicalImprovement": 63.49
+      productionWaste: 60.76,
+      consumerWaste: 97.56,
+      retailWaste: 55.37,
+      technicalImprovement: 63.49,
     },
     "2516": {
-      "productionWaste": 50.1,
-      "consumerWaste": 66.63,
-      "retailWaste": 68.3,
-      "technicalImprovement": 91.61
+      productionWaste: 50.1,
+      consumerWaste: 66.63,
+      retailWaste: 68.3,
+      technicalImprovement: 91.61,
     },
     "2517": {
-      "productionWaste": 20,
-      "consumerWaste": 80.81,
-      "retailWaste": 69.19,
-      "technicalImprovement": 62.64
+      productionWaste: 20,
+      consumerWaste: 80.81,
+      retailWaste: 69.19,
+      technicalImprovement: 62.64,
     },
     "2518": {
-      "productionWaste": 15.28,
-      "consumerWaste": 51.67,
-      "retailWaste": 92.06,
-      "technicalImprovement": 49.14
+      productionWaste: 15.28,
+      consumerWaste: 51.67,
+      retailWaste: 92.06,
+      technicalImprovement: 49.14,
     },
     "2520": {
-      "productionWaste": 5.58,
-      "consumerWaste": 66.46,
-      "retailWaste": 26.69,
-      "technicalImprovement": 55.18
+      productionWaste: 5.58,
+      consumerWaste: 66.46,
+      retailWaste: 26.69,
+      technicalImprovement: 55.18,
     },
     "2531": {
-      "productionWaste": 78.09,
-      "consumerWaste": 41.09,
-      "retailWaste": 94.1,
-      "technicalImprovement": 49.29
+      productionWaste: 78.09,
+      consumerWaste: 41.09,
+      retailWaste: 94.1,
+      technicalImprovement: 49.29,
     },
     "2532": {
-      "productionWaste": 64.35,
-      "consumerWaste": 96.02,
-      "retailWaste": 7.26,
-      "technicalImprovement": 10.3
+      productionWaste: 64.35,
+      consumerWaste: 96.02,
+      retailWaste: 7.26,
+      technicalImprovement: 10.3,
     },
     "2533": {
-      "productionWaste": 65.38,
-      "consumerWaste": 4.18,
-      "retailWaste": 50.14,
-      "technicalImprovement": 15.98
+      productionWaste: 65.38,
+      consumerWaste: 4.18,
+      retailWaste: 50.14,
+      technicalImprovement: 15.98,
     },
     "2534": {
-      "productionWaste": 72.2,
-      "consumerWaste": 44.77,
-      "retailWaste": 71.52,
-      "technicalImprovement": 35.2
+      productionWaste: 72.2,
+      consumerWaste: 44.77,
+      retailWaste: 71.52,
+      technicalImprovement: 35.2,
     },
     "2535": {
-      "productionWaste": 58.03,
-      "consumerWaste": 32.96,
-      "retailWaste": 67.83,
-      "technicalImprovement": 3.16
+      productionWaste: 58.03,
+      consumerWaste: 32.96,
+      retailWaste: 67.83,
+      technicalImprovement: 3.16,
     },
     "2536": {
-      "productionWaste": 46.43,
-      "consumerWaste": 53.48,
-      "retailWaste": 49.11,
-      "technicalImprovement": 43.35
+      productionWaste: 46.43,
+      consumerWaste: 53.48,
+      retailWaste: 49.11,
+      technicalImprovement: 43.35,
     },
     "2537": {
-      "productionWaste": 8.34,
-      "consumerWaste": 70.89,
-      "retailWaste": 91.6,
-      "technicalImprovement": 82.39
+      productionWaste: 8.34,
+      consumerWaste: 70.89,
+      retailWaste: 91.6,
+      technicalImprovement: 82.39,
     },
     "2541": {
-      "productionWaste": 86.58,
-      "consumerWaste": 3.68,
-      "retailWaste": 22.72,
-      "technicalImprovement": 7.22
+      productionWaste: 86.58,
+      consumerWaste: 3.68,
+      retailWaste: 22.72,
+      technicalImprovement: 7.22,
     },
     "2542": {
-      "productionWaste": 99.13,
-      "consumerWaste": 50.73,
-      "retailWaste": 88.36,
-      "technicalImprovement": 44.25
+      productionWaste: 99.13,
+      consumerWaste: 50.73,
+      retailWaste: 88.36,
+      technicalImprovement: 44.25,
     },
     "2543": {
-      "productionWaste": 74.55,
-      "consumerWaste": 64.93,
-      "retailWaste": 64.89,
-      "technicalImprovement": 5.23
+      productionWaste: 74.55,
+      consumerWaste: 64.93,
+      retailWaste: 64.89,
+      technicalImprovement: 5.23,
     },
     "2546": {
-      "productionWaste": 95.27,
-      "consumerWaste": 48.17,
-      "retailWaste": 33.42,
-      "technicalImprovement": 94.8
+      productionWaste: 95.27,
+      consumerWaste: 48.17,
+      retailWaste: 33.42,
+      technicalImprovement: 94.8,
     },
     "2547": {
-      "productionWaste": 13.52,
-      "consumerWaste": 28.49,
-      "retailWaste": 85.65,
-      "technicalImprovement": 27.7
+      productionWaste: 13.52,
+      consumerWaste: 28.49,
+      retailWaste: 85.65,
+      technicalImprovement: 27.7,
     },
     "2549": {
-      "productionWaste": 3.4,
-      "consumerWaste": 28.01,
-      "retailWaste": 25,
-      "technicalImprovement": 39.35
+      productionWaste: 3.4,
+      consumerWaste: 28.01,
+      retailWaste: 25,
+      technicalImprovement: 39.35,
     },
     "2551": {
-      "productionWaste": 39.23,
-      "consumerWaste": 45.01,
-      "retailWaste": 21.2,
-      "technicalImprovement": 62.22
+      productionWaste: 39.23,
+      consumerWaste: 45.01,
+      retailWaste: 21.2,
+      technicalImprovement: 62.22,
     },
     "2555": {
-      "productionWaste": 22.64,
-      "consumerWaste": 19.81,
-      "retailWaste": 46.56,
-      "technicalImprovement": 15.7
+      productionWaste: 22.64,
+      consumerWaste: 19.81,
+      retailWaste: 46.56,
+      technicalImprovement: 15.7,
     },
     "2556": {
-      "productionWaste": 21.88,
-      "consumerWaste": 79.89,
-      "retailWaste": 61.66,
-      "technicalImprovement": 43.38
+      productionWaste: 21.88,
+      consumerWaste: 79.89,
+      retailWaste: 61.66,
+      technicalImprovement: 43.38,
     },
     "2557": {
-      "productionWaste": 60.88,
-      "consumerWaste": 65.56,
-      "retailWaste": 58.45,
-      "technicalImprovement": 81.33
+      productionWaste: 60.88,
+      consumerWaste: 65.56,
+      retailWaste: 58.45,
+      technicalImprovement: 81.33,
     },
     "2558": {
-      "productionWaste": 23.12,
-      "consumerWaste": 60.21,
-      "retailWaste": 96.65,
-      "technicalImprovement": 79.07
+      productionWaste: 23.12,
+      consumerWaste: 60.21,
+      retailWaste: 96.65,
+      technicalImprovement: 79.07,
     },
     "2559": {
-      "productionWaste": 91.71,
-      "consumerWaste": 69.1,
-      "retailWaste": 91.12,
-      "technicalImprovement": 84.54
+      productionWaste: 91.71,
+      consumerWaste: 69.1,
+      retailWaste: 91.12,
+      technicalImprovement: 84.54,
     },
     "2560": {
-      "productionWaste": 34.43,
-      "consumerWaste": 50.15,
-      "retailWaste": 24.02,
-      "technicalImprovement": 60.92
+      productionWaste: 34.43,
+      consumerWaste: 50.15,
+      retailWaste: 24.02,
+      technicalImprovement: 60.92,
     },
     "2561": {
-      "productionWaste": 91.18,
-      "consumerWaste": 8.7,
-      "retailWaste": 28.42,
-      "technicalImprovement": 27.37
+      productionWaste: 91.18,
+      consumerWaste: 8.7,
+      retailWaste: 28.42,
+      technicalImprovement: 27.37,
     },
     "2562": {
-      "productionWaste": 39.38,
-      "consumerWaste": 52.03,
-      "retailWaste": 89.44,
-      "technicalImprovement": 68.75
+      productionWaste: 39.38,
+      consumerWaste: 52.03,
+      retailWaste: 89.44,
+      technicalImprovement: 68.75,
     },
     "2563": {
-      "productionWaste": 51.7,
-      "consumerWaste": 13.27,
-      "retailWaste": 63.01,
-      "technicalImprovement": 23.67
+      productionWaste: 51.7,
+      consumerWaste: 13.27,
+      retailWaste: 63.01,
+      technicalImprovement: 23.67,
     },
     "2570": {
-      "productionWaste": 96.42,
-      "consumerWaste": 38.28,
-      "retailWaste": 48.03,
-      "technicalImprovement": 80.41
+      productionWaste: 96.42,
+      consumerWaste: 38.28,
+      retailWaste: 48.03,
+      technicalImprovement: 80.41,
     },
     "2571": {
-      "productionWaste": 60.1,
-      "consumerWaste": 13.7,
-      "retailWaste": 82.01,
-      "technicalImprovement": 52.06
+      productionWaste: 60.1,
+      consumerWaste: 13.7,
+      retailWaste: 82.01,
+      technicalImprovement: 52.06,
     },
     "2572": {
-      "productionWaste": 42.26,
-      "consumerWaste": 85.89,
-      "retailWaste": 19.87,
-      "technicalImprovement": 26.29
+      productionWaste: 42.26,
+      consumerWaste: 85.89,
+      retailWaste: 19.87,
+      technicalImprovement: 26.29,
     },
     "2573": {
-      "productionWaste": 72.64,
-      "consumerWaste": 59.6,
-      "retailWaste": 55.42,
-      "technicalImprovement": 27.59
+      productionWaste: 72.64,
+      consumerWaste: 59.6,
+      retailWaste: 55.42,
+      technicalImprovement: 27.59,
     },
     "2574": {
-      "productionWaste": 54.71,
-      "consumerWaste": 2.66,
-      "retailWaste": 10.85,
-      "technicalImprovement": 67.68
+      productionWaste: 54.71,
+      consumerWaste: 2.66,
+      retailWaste: 10.85,
+      technicalImprovement: 67.68,
     },
     "2575": {
-      "productionWaste": 35.21,
-      "consumerWaste": 71.22,
-      "retailWaste": 94.17,
-      "technicalImprovement": 69.84
+      productionWaste: 35.21,
+      consumerWaste: 71.22,
+      retailWaste: 94.17,
+      technicalImprovement: 69.84,
     },
     "2576": {
-      "productionWaste": 99.86,
-      "consumerWaste": 53.57,
-      "retailWaste": 25.39,
-      "technicalImprovement": 15.89
+      productionWaste: 99.86,
+      consumerWaste: 53.57,
+      retailWaste: 25.39,
+      technicalImprovement: 15.89,
     },
     "2577": {
-      "productionWaste": 93.2,
-      "consumerWaste": 40.87,
-      "retailWaste": 11.33,
-      "technicalImprovement": 46.68
+      productionWaste: 93.2,
+      consumerWaste: 40.87,
+      retailWaste: 11.33,
+      technicalImprovement: 46.68,
     },
     "2578": {
-      "productionWaste": 19.59,
-      "consumerWaste": 7.19,
-      "retailWaste": 30.63,
-      "technicalImprovement": 15.54
+      productionWaste: 19.59,
+      consumerWaste: 7.19,
+      retailWaste: 30.63,
+      technicalImprovement: 15.54,
     },
     "2579": {
-      "productionWaste": 18.42,
-      "consumerWaste": 77.04,
-      "retailWaste": 46.58,
-      "technicalImprovement": 0
+      productionWaste: 18.42,
+      consumerWaste: 77.04,
+      retailWaste: 46.58,
+      technicalImprovement: 0,
     },
     "2580": {
-      "productionWaste": 38.16,
-      "consumerWaste": 63.63,
-      "retailWaste": 58.24,
-      "technicalImprovement": 16.34
+      productionWaste: 38.16,
+      consumerWaste: 63.63,
+      retailWaste: 58.24,
+      technicalImprovement: 16.34,
     },
     "2581": {
-      "productionWaste": 61.37,
-      "consumerWaste": 88.69,
-      "retailWaste": 37.78,
-      "technicalImprovement": 45.49
+      productionWaste: 61.37,
+      consumerWaste: 88.69,
+      retailWaste: 37.78,
+      technicalImprovement: 45.49,
     },
     "2582": {
-      "productionWaste": 94.73,
-      "consumerWaste": 68.84,
-      "retailWaste": 62.88,
-      "technicalImprovement": 87.1
+      productionWaste: 94.73,
+      consumerWaste: 68.84,
+      retailWaste: 62.88,
+      technicalImprovement: 87.1,
     },
     "2586": {
-      "productionWaste": 39.76,
-      "consumerWaste": 35.93,
-      "retailWaste": 2.15,
-      "technicalImprovement": 59.61
+      productionWaste: 39.76,
+      consumerWaste: 35.93,
+      retailWaste: 2.15,
+      technicalImprovement: 59.61,
     },
     "2601": {
-      "productionWaste": 0.48,
-      "consumerWaste": 84.39,
-      "retailWaste": 28.39,
-      "technicalImprovement": 91.9
+      productionWaste: 0.48,
+      consumerWaste: 84.39,
+      retailWaste: 28.39,
+      technicalImprovement: 91.9,
     },
     "2602": {
-      "productionWaste": 48.87,
-      "consumerWaste": 79.3,
-      "retailWaste": 36.36,
-      "technicalImprovement": 86.42
+      productionWaste: 48.87,
+      consumerWaste: 79.3,
+      retailWaste: 36.36,
+      technicalImprovement: 86.42,
     },
     "2605": {
-      "productionWaste": 88.57,
-      "consumerWaste": 13.54,
-      "retailWaste": 68.05,
-      "technicalImprovement": 27.16
+      productionWaste: 88.57,
+      consumerWaste: 13.54,
+      retailWaste: 68.05,
+      technicalImprovement: 27.16,
     },
     "2611": {
-      "productionWaste": 25.82,
-      "consumerWaste": 34.26,
-      "retailWaste": 44,
-      "technicalImprovement": 18.92
+      productionWaste: 25.82,
+      consumerWaste: 34.26,
+      retailWaste: 44,
+      technicalImprovement: 18.92,
     },
     "2612": {
-      "productionWaste": 38.82,
-      "consumerWaste": 75.59,
-      "retailWaste": 54.06,
-      "technicalImprovement": 39.38
+      productionWaste: 38.82,
+      consumerWaste: 75.59,
+      retailWaste: 54.06,
+      technicalImprovement: 39.38,
     },
     "2613": {
-      "productionWaste": 56.45,
-      "consumerWaste": 32.41,
-      "retailWaste": 59.36,
-      "technicalImprovement": 33.04
+      productionWaste: 56.45,
+      consumerWaste: 32.41,
+      retailWaste: 59.36,
+      technicalImprovement: 33.04,
     },
     "2614": {
-      "productionWaste": 19.81,
-      "consumerWaste": 96.15,
-      "retailWaste": 18.61,
-      "technicalImprovement": 89.45
+      productionWaste: 19.81,
+      consumerWaste: 96.15,
+      retailWaste: 18.61,
+      technicalImprovement: 89.45,
     },
     "2615": {
-      "productionWaste": 34.43,
-      "consumerWaste": 79.13,
-      "retailWaste": 15.11,
-      "technicalImprovement": 71.15
+      productionWaste: 34.43,
+      consumerWaste: 79.13,
+      retailWaste: 15.11,
+      technicalImprovement: 71.15,
     },
     "2616": {
-      "productionWaste": 64.14,
-      "consumerWaste": 55.49,
-      "retailWaste": 32.11,
-      "technicalImprovement": 15.78
+      productionWaste: 64.14,
+      consumerWaste: 55.49,
+      retailWaste: 32.11,
+      technicalImprovement: 15.78,
     },
     "2617": {
-      "productionWaste": 74.63,
-      "consumerWaste": 6.62,
-      "retailWaste": 75.64,
-      "technicalImprovement": 23.95
+      productionWaste: 74.63,
+      consumerWaste: 6.62,
+      retailWaste: 75.64,
+      technicalImprovement: 23.95,
     },
     "2618": {
-      "productionWaste": 14.97,
-      "consumerWaste": 33.57,
-      "retailWaste": 67.28,
-      "technicalImprovement": 17.13
+      productionWaste: 14.97,
+      consumerWaste: 33.57,
+      retailWaste: 67.28,
+      technicalImprovement: 17.13,
     },
     "2619": {
-      "productionWaste": 71.35,
-      "consumerWaste": 70.98,
-      "retailWaste": 70.3,
-      "technicalImprovement": 11.82
+      productionWaste: 71.35,
+      consumerWaste: 70.98,
+      retailWaste: 70.3,
+      technicalImprovement: 11.82,
     },
     "2620": {
-      "productionWaste": 87.53,
-      "consumerWaste": 56.54,
-      "retailWaste": 89.44,
-      "technicalImprovement": 89.05
+      productionWaste: 87.53,
+      consumerWaste: 56.54,
+      retailWaste: 89.44,
+      technicalImprovement: 89.05,
     },
     "2625": {
-      "productionWaste": 31.36,
-      "consumerWaste": 24.6,
-      "retailWaste": 8.66,
-      "technicalImprovement": 49.7
+      productionWaste: 31.36,
+      consumerWaste: 24.6,
+      retailWaste: 8.66,
+      technicalImprovement: 49.7,
     },
     "2630": {
-      "productionWaste": 64.27,
-      "consumerWaste": 61.23,
-      "retailWaste": 31.18,
-      "technicalImprovement": 3.22
+      productionWaste: 64.27,
+      consumerWaste: 61.23,
+      retailWaste: 31.18,
+      technicalImprovement: 3.22,
     },
     "2633": {
-      "productionWaste": 19.39,
-      "consumerWaste": 64,
-      "retailWaste": 3.78,
-      "technicalImprovement": 47.04
+      productionWaste: 19.39,
+      consumerWaste: 64,
+      retailWaste: 3.78,
+      technicalImprovement: 47.04,
     },
     "2635": {
-      "productionWaste": 4.66,
-      "consumerWaste": 7.15,
-      "retailWaste": 36.26,
-      "technicalImprovement": 46.68
+      productionWaste: 4.66,
+      consumerWaste: 7.15,
+      retailWaste: 36.26,
+      technicalImprovement: 46.68,
     },
     "2640": {
-      "productionWaste": 32.27,
-      "consumerWaste": 90.32,
-      "retailWaste": 66.05,
-      "technicalImprovement": 81.45
+      productionWaste: 32.27,
+      consumerWaste: 90.32,
+      retailWaste: 66.05,
+      technicalImprovement: 81.45,
     },
     "2641": {
-      "productionWaste": 21.15,
-      "consumerWaste": 40.57,
-      "retailWaste": 15.91,
-      "technicalImprovement": 5.94
+      productionWaste: 21.15,
+      consumerWaste: 40.57,
+      retailWaste: 15.91,
+      technicalImprovement: 5.94,
     },
     "2642": {
-      "productionWaste": 23,
-      "consumerWaste": 88.9,
-      "retailWaste": 43.62,
-      "technicalImprovement": 12.58
+      productionWaste: 23,
+      consumerWaste: 88.9,
+      retailWaste: 43.62,
+      technicalImprovement: 12.58,
     },
     "2645": {
-      "productionWaste": 77.36,
-      "consumerWaste": 47.35,
-      "retailWaste": 42.72,
-      "technicalImprovement": 64.42
+      productionWaste: 77.36,
+      consumerWaste: 47.35,
+      retailWaste: 42.72,
+      technicalImprovement: 64.42,
     },
     "2655": {
-      "productionWaste": 92.5,
-      "consumerWaste": 79.89,
-      "retailWaste": 22.27,
-      "technicalImprovement": 57.82
+      productionWaste: 92.5,
+      consumerWaste: 79.89,
+      retailWaste: 22.27,
+      technicalImprovement: 57.82,
     },
     "2656": {
-      "productionWaste": 57.26,
-      "consumerWaste": 27.95,
-      "retailWaste": 73.43,
-      "technicalImprovement": 58.15
+      productionWaste: 57.26,
+      consumerWaste: 27.95,
+      retailWaste: 73.43,
+      technicalImprovement: 58.15,
     },
     "2657": {
-      "productionWaste": 59.73,
-      "consumerWaste": 67.22,
-      "retailWaste": 35.57,
-      "technicalImprovement": 95.51
+      productionWaste: 59.73,
+      consumerWaste: 67.22,
+      retailWaste: 35.57,
+      technicalImprovement: 95.51,
     },
     "2658": {
-      "productionWaste": 46.35,
-      "consumerWaste": 15.35,
-      "retailWaste": 14.82,
-      "technicalImprovement": 34.97
+      productionWaste: 46.35,
+      consumerWaste: 15.35,
+      retailWaste: 14.82,
+      technicalImprovement: 34.97,
     },
     "2659": {
-      "productionWaste": 19.74,
-      "consumerWaste": 85.12,
-      "retailWaste": 85.87,
-      "technicalImprovement": 12.76
+      productionWaste: 19.74,
+      consumerWaste: 85.12,
+      retailWaste: 85.87,
+      technicalImprovement: 12.76,
     },
     "2680": {
-      "productionWaste": 91.76,
-      "consumerWaste": 73.24,
-      "retailWaste": 54.94,
-      "technicalImprovement": 65.7
+      productionWaste: 91.76,
+      consumerWaste: 73.24,
+      retailWaste: 54.94,
+      technicalImprovement: 65.7,
     },
     "2731": {
-      "productionWaste": 42.63,
-      "consumerWaste": 25.33,
-      "retailWaste": 7.38,
-      "technicalImprovement": 78.88
+      productionWaste: 42.63,
+      consumerWaste: 25.33,
+      retailWaste: 7.38,
+      technicalImprovement: 78.88,
     },
     "2732": {
-      "productionWaste": 2.56,
-      "consumerWaste": 20.7,
-      "retailWaste": 18.08,
-      "technicalImprovement": 31.75
+      productionWaste: 2.56,
+      consumerWaste: 20.7,
+      retailWaste: 18.08,
+      technicalImprovement: 31.75,
     },
     "2733": {
-      "productionWaste": 55.71,
-      "consumerWaste": 76.55,
-      "retailWaste": 46.17,
-      "technicalImprovement": 66.41
+      productionWaste: 55.71,
+      consumerWaste: 76.55,
+      retailWaste: 46.17,
+      technicalImprovement: 66.41,
     },
     "2734": {
-      "productionWaste": 12.87,
-      "consumerWaste": 25.85,
-      "retailWaste": 61.7,
-      "technicalImprovement": 49.82
+      productionWaste: 12.87,
+      consumerWaste: 25.85,
+      retailWaste: 61.7,
+      technicalImprovement: 49.82,
     },
     "2735": {
-      "productionWaste": 54.39,
-      "consumerWaste": 22.94,
-      "retailWaste": 60.87,
-      "technicalImprovement": 86.37
+      productionWaste: 54.39,
+      consumerWaste: 22.94,
+      retailWaste: 60.87,
+      technicalImprovement: 86.37,
     },
     "2736": {
-      "productionWaste": 64.28,
-      "consumerWaste": 84.44,
-      "retailWaste": 0.42,
-      "technicalImprovement": 56.11
+      productionWaste: 64.28,
+      consumerWaste: 84.44,
+      retailWaste: 0.42,
+      technicalImprovement: 56.11,
     },
     "2737": {
-      "productionWaste": 34.79,
-      "consumerWaste": 4.68,
-      "retailWaste": 18.01,
-      "technicalImprovement": 88.12
+      productionWaste: 34.79,
+      consumerWaste: 4.68,
+      retailWaste: 18.01,
+      technicalImprovement: 88.12,
     },
     "2740": {
-      "productionWaste": 78.04,
-      "consumerWaste": 1.07,
-      "retailWaste": 17.63,
-      "technicalImprovement": 18.68
+      productionWaste: 78.04,
+      consumerWaste: 1.07,
+      retailWaste: 17.63,
+      technicalImprovement: 18.68,
     },
     "2743": {
-      "productionWaste": 22.27,
-      "consumerWaste": 72.57,
-      "retailWaste": 41,
-      "technicalImprovement": 76.35
+      productionWaste: 22.27,
+      consumerWaste: 72.57,
+      retailWaste: 41,
+      technicalImprovement: 76.35,
     },
     "2744": {
-      "productionWaste": 96.88,
-      "consumerWaste": 9.17,
-      "retailWaste": 56.97,
-      "technicalImprovement": 23.18
+      productionWaste: 96.88,
+      consumerWaste: 9.17,
+      retailWaste: 56.97,
+      technicalImprovement: 23.18,
     },
     "2745": {
-      "productionWaste": 52.77,
-      "consumerWaste": 94.38,
-      "retailWaste": 42.71,
-      "technicalImprovement": 89.98
+      productionWaste: 52.77,
+      consumerWaste: 94.38,
+      retailWaste: 42.71,
+      technicalImprovement: 89.98,
     },
     "2805": {
-      "productionWaste": 19.23,
-      "consumerWaste": 21.85,
-      "retailWaste": 18.39,
-      "technicalImprovement": 8.09
+      productionWaste: 19.23,
+      consumerWaste: 21.85,
+      retailWaste: 18.39,
+      technicalImprovement: 8.09,
     },
     "2848": {
-      "productionWaste": 78,
-      "consumerWaste": 77.92,
-      "retailWaste": 30.65,
-      "technicalImprovement": 6.84
+      productionWaste: 78,
+      consumerWaste: 77.92,
+      retailWaste: 30.65,
+      technicalImprovement: 6.84,
     },
     "2899": {
-      "productionWaste": 97.86,
-      "consumerWaste": 14.12,
-      "retailWaste": 66.14,
-      "technicalImprovement": 15.06
-    }
+      productionWaste: 97.86,
+      consumerWaste: 14.12,
+      retailWaste: 66.14,
+      technicalImprovement: 15.06,
+    },
   },
   amount: {
     "2161": 117.92,
