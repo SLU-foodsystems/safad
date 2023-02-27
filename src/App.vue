@@ -89,6 +89,7 @@ export default defineComponent({
         case "origin":
           return "Country of origin.";
         default:
+          console.error(`Invalid value for tab (${this.currentTab}) registered.`)
           return "";
       }
     },
