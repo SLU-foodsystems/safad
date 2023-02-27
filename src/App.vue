@@ -1,8 +1,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { downloadCsv, generateCsvData, generateIdValueMap } from "@/lib/utils";
+
 import FoodsAmountCard from "./components/FoodsAmountCard/FoodsAmountCard.vue";
 import FoodsFactorsCard from "./components/FoodsFactorsCard/FoodsFactorsCard.vue";
+import FoodsOriginCard from "./components/FoodsOriginCard/FoodsOriginCard.vue";
+
 import TabsList from "./components/TabsList.vue";
 import FactorsOverrides from "./components/FactorsOverrides.vue";
 import foodsData from "./data/foods.json";
@@ -32,13 +35,14 @@ const tabs: { label: string; id: TabId }[] = [
 ];
 
 const tabIds = tabs.map((t) => t.id);
-const DEFAULT_TAB = tabIds[1];
+const DEFAULT_TAB = tabIds[2];
 
 export default defineComponent({
   components: {
     FactorsOverrides,
     FoodsAmountCard,
     FoodsFactorsCard,
+    FoodsOriginCard,
     TabsList,
   },
   data() {
@@ -62,6 +66,9 @@ export default defineComponent({
         consumerWaste: null as number | null,
         technicalImprovement: null as number | null,
       },
+
+      originValues: structuredClone(baseValues.origin),
+      originHasError: generateIdValueMap(eatIds, () => false),
 
       currentTab: DEFAULT_TAB,
     };
@@ -153,10 +160,20 @@ export default defineComponent({
       this.factorsValues[data.id][data.factor] = data.value;
       this.factorsHasError[data.id] = data.error;
     },
-
     setFactorsOverride(data: { factor: keyof Factors; value: number | null }) {
       this.factorsOverrides[data.factor] = data.value;
     },
+
+    onOriginUpdate(data: {
+      id: string;
+      country: string;
+      value: number;
+      error: boolean;
+    }) {
+      console.log("originUpdate", data)
+      this.originValues[data.id][data.country] = data.value;
+      this.originHasError[data.id] = data.error;
+    }
   },
 });
 </script>
@@ -207,7 +224,9 @@ export default defineComponent({
         @toggle-open="toggleOpen" @update:factor="onFactorsUpdate" />
     </section>
     <section class="diet-configuration stack" v-show="currentTab === 'origin'">
-      <h2>Origin</h2>
+      <FoodsOriginCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
+        :has-error="originHasError" :current-values="originValues" :base-values="baseValues.origin"
+        @toggle-open="toggleOpen" @update:origin="onOriginUpdate" />
     </section>
   </main>
 </template>
