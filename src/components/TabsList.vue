@@ -9,7 +9,7 @@ export default defineComponent({
       required: true,
     },
     tabs: {
-      type: Array as PropType<{ label: string; id: string }[]>,
+      type: Array as PropType<{ label: string; id: string; caption: string; }[]>,
       required: true,
     },
   },
@@ -50,16 +50,18 @@ export default defineComponent({
 
 <template>
   <ul class="tablist" role="tablist">
-    <li v-for="tab in tabs" role="presentation">
+    <li v-for="tab in tabs" role="presentation" class="stack">
       <a
         role="tab"
         :id="tab.id"
         :aria-selected="current === tab.id"
         :tabindex="current === tab.id ? 0 : -1"
-        v-text="tab.label"
         @keydown="onKeyDown"
         @click.prevent="$emit('click:tab', tab.id)"
-      />
+      >
+        <span class="tablist__title" v-text="tab.label" />
+        <span class="tablist__caption" v-text="tab.caption" />
+      </a>
     </li>
   </ul>
 </template>
@@ -70,12 +72,6 @@ export default defineComponent({
 .tablist {
   $bg: black;
   margin: 0 auto;
-  display: inline-flex;
-
-  border-radius: 0.5rem;
-  border: 2px solid $bg;
-  overflow: hidden;
-  align-items: stretch;
 
   li {
     list-style-type: none;
@@ -84,32 +80,53 @@ export default defineComponent({
   }
 
   a {
-    display: inline-flex;
-    padding: 0.5em 0.75em;
-    text-decoration: none;
-    cursor: pointer;
+    display: block;
+    padding: 1em;
     color: $bg;
+
+    font-weight: normal;
+    text-decoration: none;
+
+    cursor: pointer;
     height: 100%;
-    align-items: center;
 
     &:hover {
       background: rgba(white, 0.25);
       opacity: 1;
     }
+
+    &:focus {
+      box-shadow: none;
+      background: transparent;
+      outline: 1px dashed rgba(black, 0.5);
+      /* TODO: Focus indicator missing */
+    }
+
+    span {
+      display: block;
+    }
   }
 
   a[aria-selected="true"] {
-    background: $bg;
-    color: white;
-
-    &:focus {
-      /* TODO: Focus indicator missing */
-    }
+    box-shadow: inset 0.5em 0 0 $blue_seabay;
 
     &::selection {
       background: white;
       color: black;
     }
   }
+}
+
+.tablist__title {
+  margin-bottom: 0.25em;
+
+  a[aria-selected="true"] & {
+    font-weight: bold;
+  }
+}
+
+.tablist__caption {
+  font-size: 0.875em;
+  opacity: 0.75;
 }
 </style>

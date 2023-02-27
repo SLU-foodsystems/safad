@@ -19,18 +19,21 @@ const suaIds = eatGroups.flatMap((x) =>
 
 type TabId = "amount" | "factors" | "origin";
 
-const tabs: { label: string; id: TabId }[] = [
+const tabs: { label: string; id: TabId, caption: string; }[] = [
   {
     label: "Amount",
     id: "amount",
+    caption: "Daily, per capita consumption of foods.",
   },
   {
     label: "Waste & Improvement factors",
     id: "factors",
+    caption: "Assumed waste and year-on-year technical improvement.",
   },
   {
     label: "Origin",
     id: "origin",
+    caption: "Distribution of import countries for foods.",
   },
 ];
 
@@ -179,32 +182,35 @@ export default defineComponent({
 </script>
 
 <template>
-  <header class="top-bar u-tac">
-    <div class="top-bar__logo cluster">
+  <aside class="side-bar stack">
+    <header class="cluster">
       <img src="./assets/slu-logo.svg" />
       <h1>Foods Benchmarker</h1>
-    </div>
+    </header>
     <TabsList :tabs="tabs" :current="currentTab" @click:tab="changeTab" />
-  </header>
+    <footer class="cluster">
+      <button class="button">&lt; Go Back</button>
+      <button class="button button--accent">Save</button>
+    </footer>
+  </aside>
 
   <br />
 
-  <main class="page-wrap stack">
+  <main>
+    <div class="page-wrap stack">
     <header class="stack">
       <h1 v-text="title" />
       <p v-text="subtitle" />
       <br />
     </header>
     <div class="cluster cluster--between">
-      <div class="cluster">
-        <button class="button" @click="exportCsv">Export data</button>
-        <button class="button" disabled>Import data</button>
-      </div>
+      <div class="cluster" />
       <div class="cluster">
         <button class="button" @click="openAll">Expand all</button>
         <button class="button" @click="closeAll">Collapse all</button>
       </div>
     </div>
+
     <section class="diet-configuration stack" v-show="currentTab === 'amount'">
       <FoodsAmountCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
         :has-error="amountHasError" :current-values="amountValues" :base-values="baseValues.amount"
@@ -228,5 +234,6 @@ export default defineComponent({
         :has-error="originHasError" :current-values="originValues" :base-values="baseValues.origin"
         @toggle-open="toggleOpen" @update:origin="onOriginUpdate" />
     </section>
+    </div>
   </main>
 </template>
