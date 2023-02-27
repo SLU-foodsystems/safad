@@ -57,7 +57,7 @@ export default defineComponent({
       this.hasError = false;
       this.emitUpdate(this.baseValue, false);
     },
-    onInput(event: Event) {
+    onChange(event: Event) {
       const target = event.target as HTMLInputElement;
       const value = inputValueToNumber(target.value);
 
@@ -99,7 +99,7 @@ export default defineComponent({
         :id="uniqueId"
         :class="{ 'has-error': hasError }"
         v-model="rawValue"
-        @change="onInput"
+        @change="onChange"
       />
     </span>
   </div>
