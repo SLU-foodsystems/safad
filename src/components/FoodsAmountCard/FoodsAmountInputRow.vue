@@ -71,13 +71,13 @@ export default defineComponent({
       'foods-accordion__sua--error': hasError,
     }"
   >
-    <label class="foods-accordion__sua-name" :for="uniqueId">{{ sua.name }}</label>
+    <label :for="uniqueId" v-text="sua.name" />
 
     <span class="cluster" style="flex-shrink: 0">
       <button
+        v-if="hasChanged"
         class="u-faded button--subtle"
         v-text="baseValue"
-        v-if="hasChanged"
         @click="reset"
         title="Reset to base value"
       />

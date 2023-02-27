@@ -52,13 +52,11 @@ export default defineComponent({
         error,
       });
     },
-
     reset() {
       this.rawValue = String(this.baseValue);
       this.hasError = false;
       this.emitUpdate(this.baseValue, false);
     },
-
     onInput(event: Event) {
       const target = event.target as HTMLInputElement;
       const value = inputValueToNumber(target.value);
@@ -83,12 +81,26 @@ export default defineComponent({
     'has-changed': hasChanged,
     'has-error': hasError,
   }">
-    <label class="foods-accordion__sua-name u-visually-hidden" :for="uniqueId">{{ label }}</label>
+    <label class="u-visually-hidden" :for="uniqueId" v-text="label" />
 
     <span class="cluster" style="flex-shrink: 0">
-      <button class="u-faded button--subtle" v-text="baseValue" v-if="hasChanged" @click="reset" title="Reset to base value" />
-      <input type="text" :id="uniqueId" placeholder="0.00" required="false" pattern="^([0-9.,]*)$"
-        :class="{ 'has-error': hasError }" v-model="rawValue" @change="onInput" />
+      <button
+        v-if="hasChanged"
+        class="u-faded button--subtle"
+        title="Reset to base value"
+        @click="reset"
+        v-text="baseValue"
+      />
+      <input
+        type="text"
+        placeholder="0.00"
+        required="false"
+        pattern="^([0-9.,]*)$"
+        :id="uniqueId"
+        :class="{ 'has-error': hasError }"
+        v-model="rawValue"
+        @change="onInput"
+      />
     </span>
   </div>
 </template>
