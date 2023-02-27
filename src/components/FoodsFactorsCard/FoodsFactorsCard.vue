@@ -5,12 +5,7 @@ import type { PropType } from "vue";
 import FoodsFactorsInputs from "./FoodsFactorsInputs.vue";
 import FoodsAccordion from "../FoodsAccordion.vue";
 
-const factors: (keyof Factors)[] = [
-  "productionWaste",
-  "retailWaste",
-  "consumerWaste",
-  "technicalImprovement",
-];
+import { FACTORS } from "./constants";
 
 export default defineComponent({
   components: { FoodsAccordion, FoodsFactorsInputs },
@@ -43,7 +38,7 @@ export default defineComponent({
     },
     hasChanges(): boolean {
       return this.fbsIds.some((id) =>
-        factors.some(
+        FACTORS.some(
           (factor) =>
             this.currentValues[id][factor] !== this.baseValues[id][factor]
         )
