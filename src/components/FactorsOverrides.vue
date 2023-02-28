@@ -32,7 +32,7 @@ export default defineComponent({
     <h3>Overrides</h3>
     <p>Set a factor to the same value for all foods, regardless of what's typed
     into the detail inputs below. Empty fields have no effect.</p>
-    <div class="factors-grid cluster">
+    <div class="overrides__container cluster">
       <label class="">
         <span class="overrides__label">Production Waste</span>
         <span class="overrides__input-wrap">
@@ -97,6 +97,12 @@ export default defineComponent({
   }
 }
 
+.overrides__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+
 .overrides__input-wrap {
   position: relative;
   display: flex;
@@ -111,5 +117,6 @@ export default defineComponent({
 .overrides__label {
   font-weight: bold;
 }
+
 
 </style>

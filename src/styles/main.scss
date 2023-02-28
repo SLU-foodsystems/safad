@@ -202,7 +202,8 @@ main {
     flex-grow: 1;
   }
 
-  header, footer {
+  header,
+  footer {
     padding: 1em 1em;
   }
 
@@ -258,11 +259,6 @@ main {
 /* Foods Accordion
  * ------------------------------------------- */
 
-.factors-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
 .foods-factors__container {
   .foods-accordion__sua {
     text-align: center;
@@ -273,45 +269,13 @@ main {
   }
 }
 
-// Overrides
-
-.overrides {
-  padding: 1.5em 1em;
+.has-override--productionWaste [data-factor="productionWaste"],
+.has-override--retailWaste [data-factor="retailWaste"],
+.has-override--consumerWaste [data-factor="consumerWaste"],
+.has-override--technicalImprovement [data-factor="technicalImprovement"] {
   background: $lightgray;
-  box-shadow: inset 0 0 0 2px $gray;
-
-  label {
-    text-align: center;
-  }
-
-  input {
-    text-align: right;
-    width: 5em;
-    margin-left: 1.5em;
-    margin-right: 0.5em;
-  }
+  opacity: 0.6;
 }
-
-.overrides__inputs {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.overrides__input-wrap {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &::after {
-    content: "%";
-  }
-}
-
-.overrides__label {
-  font-weight: bold;
-}
-
 /*
  * Helpers
  * =========================================== */

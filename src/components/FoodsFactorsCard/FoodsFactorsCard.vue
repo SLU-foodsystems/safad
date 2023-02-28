@@ -56,12 +56,6 @@ export default defineComponent({
       <span v-if="hasErrors" class="tag tag--yellow">Errors</span>
     </template>
     <template #details>
-      <div class="factors-grid">
-        <span>Production Waste</span>
-        <span>Retail Waste</span>
-        <span>Consumer Waste</span>
-        <span>Technical improvement</span>
-      </div>
       <FoodsFactorsInputs
         v-for="fbs in eat.fbs"
         :key="fbs.id"
