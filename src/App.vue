@@ -217,10 +217,10 @@ export default defineComponent({
       value: number;
       error: boolean;
     }) {
-      console.log("originUpdate", data)
+      console.log("originUpdate", data);
       this.originValues[data.id][data.country] = data.value;
       this.originHasError[data.id] = data.error;
-    }
+    },
   },
 });
 </script>
@@ -242,42 +242,43 @@ export default defineComponent({
 
   <main>
     <div class="page-wrap stack">
-    <header class="stack">
-      <h1 v-text="title" />
-      <p v-text="subtitle" />
-      <br />
-    </header>
-    <div class="cluster cluster--between">
-      <div class="cluster" />
-      <div class="cluster">
-        <button class="button" @click="openAll">Expand all</button>
-        <button class="button" @click="closeAll">Collapse all</button>
+      <header class="stack">
+        <h1 v-text="title" />
+        <p v-text="subtitle" />
+        <br />
+      </header>
+      <div class="cluster cluster--between">
+        <div class="cluster" />
+        <div class="cluster">
+          <button class="button" @click="openAll">Expand all</button>
+          <button class="button" @click="closeAll">Collapse all</button>
+        </div>
       </div>
-    </div>
 
-    <section v-show="currentTab === 'amount'">
-      <FoodsAmountCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
-        :has-error="amountHasError" :current-values="amountValues" :base-values="baseValues.amount"
-        @toggle-open="toggleOpen" @update:sua="onAmountUpdate" />
-    </section>
-    <section v-show="currentTab === 'factors'" :class="{
-      'has-override--productionWaste':
-        factorsOverrides.productionWaste !== null,
-      'has-override--retailWaste': factorsOverrides.retailWaste !== null,
-      'has-override--consumerWaste': factorsOverrides.consumerWaste !== null,
-      'has-override--technicalImprovement':
-        factorsOverrides.technicalImprovement !== null,
-    }">
-      <FactorsOverrides @set-factors-override="setFactorsOverride" />
-      <FoodsFactorsCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
-        :has-error="factorsHasError" :current-values="factorsValues" :base-values="baseValues.factors"
-        @toggle-open="toggleOpen" @update:factor="onFactorsUpdate" />
-    </section>
-    <section v-show="currentTab === 'origin'">
-      <FoodsOriginCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
-        :has-error="originHasError" :current-values="originValues" :base-values="baseValues.origin"
-        @toggle-open="toggleOpen" @update:origin="onOriginUpdate" />
-    </section>
+      <section v-show="currentTab === 'amount'">
+        <FoodsAmountCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
+          :has-error="amountHasError" :current-values="amountValues" :base-values="baseValues.amount"
+          @toggle-open="toggleOpen" @update:sua="onAmountUpdate" />
+      </section>
+      <section v-show="currentTab === 'factors'" :class="{
+        'has-override--productionWaste':
+          factorsOverrides.productionWaste !== null,
+        'has-override--retailWaste': factorsOverrides.retailWaste !== null,
+        'has-override--consumerWaste':
+          factorsOverrides.consumerWaste !== null,
+        'has-override--technicalImprovement':
+          factorsOverrides.technicalImprovement !== null,
+      }">
+        <FactorsOverrides @set-factors-override="setFactorsOverride" />
+        <FoodsFactorsCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
+          :has-error="factorsHasError" :current-values="factorsValues" :base-values="baseValues.factors"
+          @toggle-open="toggleOpen" @update:factor="onFactorsUpdate" />
+      </section>
+      <section v-show="currentTab === 'origin'">
+        <FoodsOriginCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
+          :has-error="originHasError" :current-values="originValues" :base-values="baseValues.origin"
+          @toggle-open="toggleOpen" @update:origin="onOriginUpdate" />
+      </section>
     </div>
   </main>
 </template>

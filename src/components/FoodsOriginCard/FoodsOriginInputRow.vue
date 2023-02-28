@@ -27,7 +27,7 @@ export default defineComponent({
   },
 
   emits: ["update:origin"],
-  expose: ['reset'],
+  expose: ["reset"],
 
   data() {
     return {
@@ -43,15 +43,24 @@ export default defineComponent({
     },
     countryName() {
       switch (this.country) {
-        case "de": return "🇩🇪 Germany";
-        case "dk": return "🇩🇰 Denmark";
-        case "es": return "🇪🇸 Spain";
-        case "fr": return "🇫🇷 France";
-        case "gb": return "🇬🇧 Great Britain";
-        case "in": return "🇮🇳 India";
-        case "ir": return "🇮🇪 Ireland";
-        case "se": return "🇸🇪 Sweden";
-        case "us": return "🇺🇸 USA";
+        case "de":
+          return "🇩🇪 Germany";
+        case "dk":
+          return "🇩🇰 Denmark";
+        case "es":
+          return "🇪🇸 Spain";
+        case "fr":
+          return "🇫🇷 France";
+        case "gb":
+          return "🇬🇧 Great Britain";
+        case "in":
+          return "🇮🇳 India";
+        case "ir":
+          return "🇮🇪 Ireland";
+        case "se":
+          return "🇸🇪 Sweden";
+        case "us":
+          return "🇺🇸 USA";
         default:
           return `Unknown (${this.country})`;
       }
