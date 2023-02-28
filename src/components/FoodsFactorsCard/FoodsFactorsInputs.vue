@@ -36,7 +36,7 @@ export default defineComponent({
     <header class="foods-accordion__sub-header cluster cluster--between">
       <h4>{{ fbs.name }}</h4>
     </header>
-    <div class="foods-factors__container factors-grid">
+    <div class="foods-factors__container">
       <FoodsFactorsInputRow
         v-for="factor in factors"
         :id="fbs.id" :factor="factor" :label="labels[factor]"

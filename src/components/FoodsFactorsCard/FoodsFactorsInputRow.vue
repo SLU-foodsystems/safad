@@ -77,11 +77,13 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="foods-accordion__row" :class="{
+  <div class="foods-accordion__row cluster cluster--between"
+  :data-factor="factor"
+  :class="{
     'has-changed': hasChanged,
     'has-error': hasError,
   }">
-    <label class="u-visually-hidden" :for="uniqueId" v-text="label" />
+    <label :for="uniqueId" v-text="label" />
 
     <span class="cluster" style="flex-shrink: 0">
       <button
@@ -91,6 +93,7 @@ export default defineComponent({
         @click="reset"
         v-text="baseValue"
       />
+      <span class="cluster cluster--s-gap">
       <input
         type="text"
         placeholder="0.00"
@@ -101,6 +104,8 @@ export default defineComponent({
         v-model="rawValue"
         @change="onChange"
       />
+      %
+      </span>
     </span>
   </div>
 </template>
