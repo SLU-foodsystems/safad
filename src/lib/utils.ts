@@ -30,32 +30,4 @@ export function inputValueToNumber(value: string): number {
 export const generateIdValueMap = <T>(ids: string[], defaultValue: () => T) =>
   Object.fromEntries(ids.map((id) => [id, defaultValue()]));
 
-export const generateCsvData = (header: string[], body: string[][]): string =>
-  [header, ...body]
-    // Escape any comma with
-    // .map((row) => row.map((cell) => (cell.includes(",") ? `"${cell}"` : cell)))
-    .map((row) => row.join(","))
-    .join("\n");
-
-export function downloadCsv(csvData: string, filename: string) {
-  const blob = new Blob(["\ufeff" + csvData], {
-    type: "text/csv;charset=utf-8;",
-  });
-  const link = document.createElement("a");
-  const url = URL.createObjectURL(blob);
-  const isSafariBrowser =
-    navigator.userAgent.indexOf("Safari") !== -1 &&
-    navigator.userAgent.indexOf("Chrome") === -1;
-
-  //if Safari open in new window to save file with random filename.
-  if (isSafariBrowser) link.setAttribute("target", "_blank");
-
-  link.setAttribute("href", url);
-  link.setAttribute("download", filename + ".csv");
-  link.style.visibility = "hidden";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
-
 export const generateRandomId = (prefix: string) => prefix + Math.floor(Math.random() * 1e8);

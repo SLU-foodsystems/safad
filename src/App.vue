@@ -1,11 +1,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import {
-  downloadCsv,
-  generateCsvData,
-  generateIdValueMap,
-  toPrecision,
-} from "@/lib/utils";
+import { generateIdValueMap } from "@/lib/utils";
+
+import { eatIds } from "./lib/foods-constants";
 
 import FoodsAmountCard from "./components/FoodsAmountCard/FoodsAmountCard.vue";
 import FoodsFactorsCard from "./components/FoodsFactorsCard/FoodsFactorsCard.vue";
@@ -15,21 +12,9 @@ import TabsList from "./components/TabsList.vue";
 import FactorsOverrides from "./components/FactorsOverrides.vue";
 import foodsData from "./data/foods.json";
 import baseValues from "./data/original-values";
+import { exportCsv } from "./lib/csv-io";
 
 const eatGroups = foodsData.data as EAT[];
-const eatIds = eatGroups.map((eat) => eat.id);
-const suaIds = eatGroups.flatMap((x) =>
-  x.fbs.flatMap((y) => y.sua.map((z) => z.id))
-);
-
-const suaToFbsMap = new Map();
-eatGroups.forEach((eat) => {
-  eat.fbs.forEach((fbs) => {
-    fbs.sua.forEach((sua) => {
-      suaToFbsMap.set(sua.id, fbs.id);
-    });
-  });
-});
 
 type TabId = "amount" | "factors" | "origin";
 
@@ -140,56 +125,12 @@ export default defineComponent({
     },
 
     exportCsv() {
-      const header = [
-        "SUA Id",
-        "Amount (g)",
-        "Production Waste (%)",
-        "Retail Waste (%)",
-        "Consumer Waste (%)",
-        "Technical Improvement (%)",
-        "Origin (country1:amount1 country2:amount2 ...)",
-      ];
-
-      const fbsTreated = new Set();
-
-      const rows = suaIds.map((id) => {
-        const fbsId = suaToFbsMap.get(id);
-        if (fbsTreated.has(fbsId)) {
-          return [id, toPrecision(this.amountValues[id]), "", "", "", "", ""];
-        }
-
-        fbsTreated.add(fbsId);
-
-        const originString = Object.entries(
-          this.originValues[fbsId] as OriginMap
-        )
-          .map(([country, value]) => `${country}:${toPrecision(value)}`)
-          .join(" ");
-
-        const getFactor = (factor: keyof Factors) =>
-          this.factorsOverrides[factor] || this.factorsValues[fbsId][factor];
-
-        return [
-          id,
-          this.amountValues[id],
-          getFactor("productionWaste"),
-          getFactor("retailWaste"),
-          getFactor("consumerWaste"),
-          getFactor("technicalImprovement"),
-          originString,
-        ].map((x) =>
-          x instanceof Number ? String(toPrecision(x as number)) : x
-        );
+      exportCsv({
+        amountValues: this.amountValues,
+        factorsValues: this.factorsValues,
+        factorsOverrides: this.factorsOverrides,
+        originValues: this.originValues,
       });
-
-      const csv = generateCsvData(header, rows);
-
-      const now = new Date();
-      const twoDigit = (x: number) => (x > 9 ? "" : "0") + x;
-      const datetimeStamp = `${now.getFullYear()}${twoDigit(
-        now.getMonth() + 1
-      )}${twoDigit(now.getDate())}`;
-      downloadCsv(csv, `slu-planeat-${datetimeStamp}`);
     },
 
     onAmountUpdate(data: { id: string; value: number; error: boolean }) {
