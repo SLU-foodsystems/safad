@@ -43,9 +43,7 @@ export default defineComponent({
     <header class="foods-accordion__sub-header cluster cluster--between">
       <h4>{{ fbs.name }}</h4>
       <span class="u-faded">
-        <span>{{ aggregate }}</span
-        >&nbsp;
-        <span class="foods-accordion__sub-unit">g</span>
+        <span>{{ aggregate }}</span>&nbsp;&nbsp;g
       </span>
     </header>
     <FoodsAmountInputRow

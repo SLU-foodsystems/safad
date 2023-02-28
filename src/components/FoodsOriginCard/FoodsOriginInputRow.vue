@@ -43,14 +43,14 @@ export default defineComponent({
     },
     countryName() {
       switch (this.country) {
-        case "de": return " 🇩🇪 Germany";
-        case "dk": return "Denmark";
+        case "de": return "🇩🇪 Germany";
+        case "dk": return "🇩🇰 Denmark";
         case "es": return "🇪🇸 Spain";
         case "fr": return "🇫🇷 France";
         case "gb": return "🇬🇧 Great Britain";
-        case "in": return "India";
-        case "ir": return "Ireland";
-        case "se": return "Sweden";
+        case "in": return "🇮🇳 India";
+        case "ir": return "🇮🇪 Ireland";
+        case "se": return "🇸🇪 Sweden";
         case "us": return "🇺🇸 USA";
         default:
           return `Unknown (${this.country})`;
@@ -88,36 +88,51 @@ export default defineComponent({
         this.emitUpdate(this.currentValue, hasError);
       }
     },
-    onRangeInput(event: Event){
+    onRangeInput(event: Event) {
       const stringValue = this.rawValue;
       const numericValue = inputValueToNumber(stringValue);
       if (numericValue > this.max) {
         this.rawValue = String(toPrecision(this.max));
         event.preventDefault();
-      } 
+      }
     },
   },
 });
 </script>
 
 <template>
-  <div class="foods-accordion__input-row cluster foods-accordion__range-container" :class="{
+  <div class="foods-accordion__row cluster foods__range-container" :class="{
     'has-changed': hasChanged,
     'has-error': hasError,
   }">
     <label class="foods-origin__country" :for="uniqueId" v-text="countryName" />
-    <input type="range" :id="uniqueId" min="0" step="0.01" max="100"
-      v-model="rawValue"
-      @input="onRangeInput"
-      @change="onChange"
-      />
+    <input type="range" :id="uniqueId" min="0" step="0.01" max="100" v-model="rawValue" @input="onRangeInput"
+      @change="onChange" />
     <div class="cluster cluster--s-gap">
-    <input type="text" placeholder="0.00" required="false" pattern="^([0-9.,]*)$" :id="uniqueId"
-      v-model="rawValue"
-      @change="onChange"
-      :class="{ 'has-error': hasError }"
-      />
+      <input type="text" placeholder="0.00" required="false" pattern="^([0-9.,]*)$" :id="uniqueId" v-model="rawValue"
+        @change="onChange" :class="{ 'has-error': hasError }" />
       %
     </div>
   </div>
 </template>
+
+<style lang="scss">
+.foods__range-container {
+  display: flex;
+
+  .foods-origin__country {
+    $w: 6em;
+    width: $w;
+    flex: 0 0 $w;
+  }
+
+  input[type="range"] {
+    flex-grow: 1;
+    flex-basis: 8em;
+  }
+
+  input[type="text"] {
+    flex-grow: 0;
+  }
+}
+</style>
