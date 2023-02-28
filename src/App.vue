@@ -174,15 +174,20 @@ export default defineComponent({
           .map(([country, value]) => `${country}:${toPrecision(value)}`)
           .join(" ");
 
+        const getFactor = (factor: keyof Factors) =>
+          this.factorsOverrides[factor] || this.factorsValues[fbsId][factor];
+
         return [
           id,
           this.amountValues[id],
-          this.factorsValues[fbsId].productionWaste,
-          this.factorsValues[fbsId].retailWaste,
-          this.factorsValues[fbsId].consumerWaste,
-          this.factorsValues[fbsId].technicalImprovement,
-          originString
-        ].map((x) => x instanceof Number ? String(toPrecision(x as number)) : x);
+          getFactor("productionWaste"),
+          getFactor("retailWaste"),
+          getFactor("consumerWaste"),
+          getFactor("technicalImprovement"),
+          originString,
+        ].map((x) =>
+          x instanceof Number ? String(toPrecision(x as number)) : x
+        );
       });
 
       const csv = generateCsvData(header, rows);
