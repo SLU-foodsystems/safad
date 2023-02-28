@@ -100,6 +100,7 @@ export default defineComponent({
 .overrides__container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  align-items: end;
 }
 
 
