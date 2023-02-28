@@ -1,6 +1,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import { downloadCsv, generateCsvData, generateIdValueMap } from "@/lib/utils";
+import {
+  downloadCsv,
+  generateCsvData,
+  generateIdValueMap,
+  toPrecision,
+} from "@/lib/utils";
 
 import FoodsAmountCard from "./components/FoodsAmountCard/FoodsAmountCard.vue";
 import FoodsFactorsCard from "./components/FoodsFactorsCard/FoodsFactorsCard.vue";
@@ -17,9 +22,18 @@ const suaIds = eatGroups.flatMap((x) =>
   x.fbs.flatMap((y) => y.sua.map((z) => z.id))
 );
 
+const suaToFbsMap = new Map();
+eatGroups.forEach((eat) => {
+  eat.fbs.forEach((fbs) => {
+    fbs.sua.forEach((sua) => {
+      suaToFbsMap.set(sua.id, fbs.id);
+    });
+  });
+});
+
 type TabId = "amount" | "factors" | "origin";
 
-const tabs: { label: string; id: TabId, caption: string; }[] = [
+const tabs: { label: string; id: TabId; caption: string }[] = [
   {
     label: "Amount",
     id: "amount",
@@ -99,7 +113,9 @@ export default defineComponent({
         case "origin":
           return "Country of origin.";
         default:
-          console.error(`Invalid value for tab (${this.currentTab}) registered.`)
+          console.error(
+            `Invalid value for tab (${this.currentTab}) registered.`
+          );
           return "";
       }
     },
@@ -133,20 +149,48 @@ export default defineComponent({
         "Technical Improvement (%)",
         "Origin (country1:amount1 country2:amount2 ...)",
       ];
-      /* const rows = suaIds.map((id) => [ */
-      /*   id, */
-      /*   this.amountValues[id], */
-      /*   this.factorsValues[id], */
-      /*   this.wasteValues[id], */
-      /* ]); */
 
-      /* const csv = generateCsvData(header, rows); */
+      const fbsTreated = new Set();
 
-      const csv = header + "\n" + "TODO,".repeat(6) + "TODO";
+      const rows = suaIds.map((id) => {
+        const fbsId = suaToFbsMap.get(id);
+        if (fbsTreated.has(fbsId)) {
+          return [
+            id,
+            toPrecision(this.amountValues[id]),
+            "",
+            "",
+            "",
+            "",
+            ""
+          ];
+        }
+
+        fbsTreated.add(fbsId);
+
+        const originString = Object.entries(
+          this.originValues[fbsId] as OriginMap
+        )
+          .map(([country, value]) => `${country}:${toPrecision(value)}`)
+          .join(" ");
+
+        return [
+          id,
+          this.amountValues[id],
+          this.factorsValues[fbsId].productionWaste,
+          this.factorsValues[fbsId].retailWaste,
+          this.factorsValues[fbsId].consumerWaste,
+          this.factorsValues[fbsId].technicalImprovement,
+          originString
+        ].map((x) => x instanceof Number ? String(toPrecision(x as number)) : x);
+      });
+
+      const csv = generateCsvData(header, rows);
 
       const now = new Date();
-      const datetimeStamp = `${now.getFullYear()}${now.getMonth() + 1
-        }${now.getDay()}`;
+      const twoDigit = (x: number) => (x > 9 ? "" : "0") + x;
+      const datetimeStamp =
+      `${now.getFullYear()}${twoDigit(now.getMonth() + 1)}${twoDigit(now.getDate())}`;
       downloadCsv(csv, `slu-planeat-${datetimeStamp}`);
     },
 
@@ -190,7 +234,7 @@ export default defineComponent({
     <TabsList :tabs="tabs" :current="currentTab" @click:tab="changeTab" />
     <footer class="cluster">
       <button class="button">&lt; Go Back</button>
-      <button class="button button--accent">Save</button>
+      <button class="button button--accent" @click="exportCsv">Save</button>
     </footer>
   </aside>
 
