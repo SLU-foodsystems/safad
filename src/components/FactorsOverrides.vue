@@ -33,7 +33,7 @@ export default defineComponent({
     <p>Set a factor to the same value for all foods, regardless of what's typed
     into the detail inputs below. Empty fields have no effect.</p>
     <div class="overrides__container cluster">
-      <label class="">
+      <label>
         <span class="overrides__label">Production Waste</span>
         <span class="overrides__input-wrap">
           <input
@@ -43,7 +43,7 @@ export default defineComponent({
           />
         </span>
       </label>
-      <label class="">
+      <label>
         <span class="overrides__label">Retail Waste</span>
         <span class="overrides__input-wrap">
           <input
@@ -53,7 +53,7 @@ export default defineComponent({
           />
         </span>
       </label>
-      <label class="">
+      <label>
         <span class="overrides__label">Consumer Waste</span>
         <span class="overrides__input-wrap">
           <input
@@ -63,7 +63,7 @@ export default defineComponent({
           />
         </span>
       </label>
-      <label class="">
+      <label>
         <span class="overrides__label">Technical Improvement</span>
         <span class="overrides__input-wrap">
           <input
