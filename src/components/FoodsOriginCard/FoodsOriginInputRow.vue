@@ -16,6 +16,10 @@ export default defineComponent({
       type: Number,
       required: true,
     },
+    disabled: {
+      type: Boolean,
+      required: true,
+    },
     baseValue: {
       type: Number,
       required: true,
@@ -116,10 +120,10 @@ export default defineComponent({
   }">
     <label class="foods-origin__country" :for="uniqueId" v-text="countryName" />
     <input type="range" :id="uniqueId" min="0" step="0.01" max="100" v-model="rawValue" @input="onRangeInput"
-      @change="onChange" />
+      @change="onChange" :disabled="disabled" />
     <div class="cluster cluster--s-gap">
       <input type="text" placeholder="0.00" required="false" pattern="^([0-9.,]*)$" :id="uniqueId" v-model="rawValue"
-        @change="onChange" :class="{ 'has-error': hasError }" />
+        @change="onChange" :class="{ 'has-error': hasError }" :disabled="disabled" />
       %
     </div>
   </div>

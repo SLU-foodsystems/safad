@@ -56,6 +56,7 @@ export default defineComponent({
     </header>
     <div class="foods-factors__container">
       <FoodsOriginInputRow v-for="country in countries" :id="fbs.id" :country="country" :max="maxValues[country]"
+        :disabled="countries.length === 1"
         ref="inputRows" :base-value="baseValues[country]" :current-value="currentValues[country]"
         @update:origin="$emit('update:origin', $event)" />
     </div>
