@@ -155,15 +155,7 @@ export default defineComponent({
       const rows = suaIds.map((id) => {
         const fbsId = suaToFbsMap.get(id);
         if (fbsTreated.has(fbsId)) {
-          return [
-            id,
-            toPrecision(this.amountValues[id]),
-            "",
-            "",
-            "",
-            "",
-            ""
-          ];
+          return [id, toPrecision(this.amountValues[id]), "", "", "", "", ""];
         }
 
         fbsTreated.add(fbsId);
@@ -194,8 +186,9 @@ export default defineComponent({
 
       const now = new Date();
       const twoDigit = (x: number) => (x > 9 ? "" : "0") + x;
-      const datetimeStamp =
-      `${now.getFullYear()}${twoDigit(now.getMonth() + 1)}${twoDigit(now.getDate())}`;
+      const datetimeStamp = `${now.getFullYear()}${twoDigit(
+        now.getMonth() + 1
+      )}${twoDigit(now.getDate())}`;
       downloadCsv(csv, `slu-planeat-${datetimeStamp}`);
     },
 
