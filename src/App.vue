@@ -211,12 +211,12 @@ export default defineComponent({
       </div>
     </div>
 
-    <section class="diet-configuration stack" v-show="currentTab === 'amount'">
+    <section v-show="currentTab === 'amount'">
       <FoodsAmountCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
         :has-error="amountHasError" :current-values="amountValues" :base-values="baseValues.amount"
         @toggle-open="toggleOpen" @update:sua="onAmountUpdate" />
     </section>
-    <section class="diet-configuration stack" v-show="currentTab === 'factors'" :class="{
+    <section v-show="currentTab === 'factors'" :class="{
       'has-override--productionWaste':
         factorsOverrides.productionWaste !== null,
       'has-override--retailWaste': factorsOverrides.retailWaste !== null,
@@ -229,7 +229,7 @@ export default defineComponent({
         :has-error="factorsHasError" :current-values="factorsValues" :base-values="baseValues.factors"
         @toggle-open="toggleOpen" @update:factor="onFactorsUpdate" />
     </section>
-    <section class="diet-configuration stack" v-show="currentTab === 'origin'">
+    <section v-show="currentTab === 'origin'">
       <FoodsOriginCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
         :has-error="originHasError" :current-values="originValues" :base-values="baseValues.origin"
         @toggle-open="toggleOpen" @update:origin="onOriginUpdate" />

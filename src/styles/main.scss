@@ -180,6 +180,7 @@ main {
 
 .side-bar {
   $bg: $gray_feather;
+  // $bg: $gray;
   $fg: #000;
 
   grid-area: sidebar;
@@ -256,125 +257,6 @@ main {
 
 /* Foods Accordion
  * ------------------------------------------- */
-
-.foods-accordion {
-  width: 100%;
-  font-size: 0.875em;
-}
-
-.foods-accordion__header {
-  margin: 0 auto;
-  display: block;
-  position: relative;
-
-  button {
-    width: 100%;
-    background: white;
-    border: 2px solid $gray;
-    padding: 1em;
-    box-shadow: 0 0.3em 0.75em -0.65em rgba(black, 0.5);
-    text-align: left;
-
-    &:focus {
-      border-color: $type;
-    }
-  }
-
-  svg {
-    width: 1em;
-    height: auto;
-  }
-
-  [aria-expanded="true"] .vert {
-    display: none;
-  }
-
-  // Respect high-contrast modes
-  [aria-expanded] rect {
-    fill: currentColor;
-  }
-}
-
-.foods-accordion__body {
-  $min-col-size: 24em;
-  width: 100%;
-  padding: 1em 0.5em;
-  background: $lightgray;
-
-  border: 2px solid $gray;
-  border-top: 0;
-
-  > * + * {
-    margin-top: 1em;
-  }
-}
-
-.foods-accordion__sub-header {
-  padding: 0 0.5em;
-  h4 {
-    font-weight: bold;
-  }
-}
-
-.foods-accordion__sub-unit {
-  flex: 0 1 4em;
-  text-align: center;
-}
-
-.foods-accordion__input-row {
-  flex-wrap: nowrap;
-  padding: 0 0.5em;
-
-  &:hover {
-    background: $blue_dove;
-  }
-
-  label {
-    flex-grow: 1;
-    flex-shrink: 1;
-  }
-
-  input[type="text"] {
-    padding: 0.25em;
-    width: 5em;
-    text-align: right;
-    margin: 2px 0;
-
-    &.has-error,
-    &:not(:placeholder-shown):invalid {
-      border-color: $yellow_corn;
-      box-shadow: 0 0 0 3px rgba($yellow_corn, 0.2);
-    }
-  }
-
-  &.has-changed {
-    box-shadow: -0.5em 0 0 $blue_seabay;
-  }
-
-  &.has-error {
-    box-shadow: -0.5em 0 0 $yellow_resin;
-  }
-}
-
-.foods-accordion__range-container {
-  display: flex;
-
-  .foods-origin__country {
-    $w: 6em;
-    width: $w;
-    flex: 0 0 $w;
-  }
-
-  input[type="range"] {
-    flex-grow: 1;
-    flex-basis: 8em;
-  }
-
-  input[type="text"] {
-    flex-grow: 0;
-  }
-}
-
 
 .factors-grid {
   display: grid;

@@ -77,7 +77,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="foods-accordion__input-row" :class="{
+  <div class="foods-accordion__row" :class="{
     'has-changed': hasChanged,
     'has-error': hasError,
   }">
