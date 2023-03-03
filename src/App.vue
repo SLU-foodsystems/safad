@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, nextTick } from "vue";
+import { defineComponent } from "vue";
 import StartPage from "./components/StartPage.vue";
 import FoodsConfigurator from "./components/FoodsConfigurator.vue";
 
