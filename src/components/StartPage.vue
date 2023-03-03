@@ -52,11 +52,10 @@ export default defineComponent({
       // Validate that the 'country' value is a valid one.
       // Fetch file depending on country
 
-      import("../data/original-values")
-        .then(module => {
-          // csv to json - or maybe that's a build step?
-          this.$emit("submit", module.default);
-        });
+      import("../data/original-values").then((module) => {
+        // csv to json - or maybe that's a build step?
+        this.$emit("submit", module.default);
+      });
     },
     onFileSubmit() {
       if (this.fileState !== "loaded") {
@@ -67,7 +66,7 @@ export default defineComponent({
         return;
       }
 
-      // csv to json 
+      // csv to json
       this.$emit("submit", this.fileData);
       // this.fileData = null? i.e. clean up ram.
     },
@@ -78,34 +77,40 @@ export default defineComponent({
 <template>
   <section class="start-page">
     <div class="stack">
-      <h2>Pick a baseline</h2>
-      <h3>Select a country average</h3>
+      <div class="cluster cluster--center">
+        <img src="../assets/slu-logo.svg" class="start-page__logo" />
+      </div>
+      <h2>Pick a baseline diet</h2>
+      <h3>Use a country average:</h3>
       <div class="cluster">
-        <div>
-          <select ref="select">
-            <option value="se">Sweden</option>
-            <option value="dk">Denmark</option>
-            <option value="de">Germany</option>
-            <option value="uk">United Kingdom</option>
-          </select>
-        </div>
+        <select ref="select">
+          <option value="se">Sweden</option>
+          <option value="dk">Denmark</option>
+          <option value="de">Germany</option>
+          <option value="uk">United Kingdom</option>
+        </select>
         <button class="button button--accent" @click="onSelectSubmit">
           Go&nbsp;&gt;
         </button>
       </div>
       <div class="divider" data-label="or" />
       <h3>Upload your own file {{ fileState }}</h3>
-      <div v-show="fileState === 'initial'">
-        <input
-          type="file"
-          @change="onFileChange"
-          accept=".csv"
-          ref="fileInput"
-        />
-      </div>
-      <div v-show="fileState === 'loaded'" class="stack">
-        {{ fileName }}
-        <button class="button--link" @click="resetFileInput">Reset</button>
+      <div class="file-input-container">
+        <div v-show="fileState === 'initial'">
+          <input
+            type="file"
+            @change="onFileChange"
+            accept=".csv"
+            ref="fileInput"
+          />
+        </div>
+        <div v-show="fileState === 'loaded'" class="cluster cluster--between">
+          <span class="cluster cluster--s-gap">
+            <img src="../assets/file.svg" width="45" height="58" />
+            {{ fileName }}
+          </span>
+          <button class="button--link" @click="resetFileInput">Reset</button>
+        </div>
       </div>
       <button
         class="button button--accent"
@@ -140,6 +145,31 @@ export default defineComponent({
 
   select {
     width: 20em;
+    flex-grow: 1;
+  }
+}
+
+.start-page__logo {
+  width: auto;
+  height: 4em;
+  margin: 0 auto;
+}
+
+.file-input-container {
+  background: $gray;
+  padding: 1em;
+  border-radius: 0.25em;
+
+  button {
+    padding: 0 1em;
+  }
+
+  img {
+    height: 1em;
+    width: auto;
+    opacity: 0.5;
+    margin-right: 1ch;
+    user-select: none;
   }
 }
 
