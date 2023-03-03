@@ -8,7 +8,7 @@ import FoodsAccordion from "../FoodsAccordion.vue";
 export default defineComponent({
   components: { FoodsAccordion, FoodsOriginInputs },
 
-  emits: ['update:origin'],
+  emits: ['update:origin', 'toggle-open'],
 
   props: {
     eat: {

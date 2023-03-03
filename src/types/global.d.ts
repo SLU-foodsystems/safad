@@ -28,4 +28,10 @@ declare global {
   interface OriginMap {
     [k: string]: number;
   }
+
+  interface BaseValues {
+    amount: Record<string, number>;
+    factors: Record<string, Factors>;
+    origin: Record<string, OriginMap>;
+  }
 }
