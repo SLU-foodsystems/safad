@@ -1,4 +1,5 @@
 <script lang="ts">
+import { csvToStructuredJson } from "@/lib/csv-io";
 import { defineComponent } from "vue";
 type FileState = "initial" | "loading" | "loaded" | "error";
 
@@ -32,12 +33,22 @@ export default defineComponent({
         console.error(...args);
       });
       reader.addEventListener("load", () => {
-        // TODO: Validate it.
-        this.fileName = fileName;
-        this.fileData = reader.result as string | null;
-        this.fileState = "loaded";
+        this.attemptSetFileData(fileName, reader.result as string | null);
       });
       reader.readAsText(file);
+    },
+    attemptSetFileData(fileName: string, rawCsvText: string | null) {
+      try {
+        if (rawCsvText === null) throw new Error("reader result was null");
+
+        const structuredData = csvToStructuredJson(rawCsvText as string);
+        this.fileData = JSON.stringify(structuredData);
+        this.fileName = fileName;
+        this.fileState = "loaded";
+      } catch (err) {
+        console.error(err);
+        alert("Failed parsing file!");
+      }
     },
     resetFileInput() {
       this.fileData = null;
@@ -67,7 +78,10 @@ export default defineComponent({
       }
 
       // csv to json
-      this.$emit("submit", this.fileData);
+      if (typeof this.fileData !== "string") {
+        return;
+      }
+      this.$emit("submit", JSON.parse(this.fileData));
       // this.fileData = null? i.e. clean up ram.
     },
   },
@@ -87,6 +101,8 @@ export default defineComponent({
           <option value="se">Sweden</option>
           <option value="dk">Denmark</option>
           <option value="de">Germany</option>
+          <option value="fr">France</option>
+          <option value="es">Spain</option>
           <option value="uk">United Kingdom</option>
         </select>
         <button class="button button--accent" @click="onSelectSubmit">
@@ -97,12 +113,7 @@ export default defineComponent({
       <h3>Upload your own file {{ fileState }}</h3>
       <div class="file-input-container">
         <div v-show="fileState === 'initial'">
-          <input
-            type="file"
-            @change="onFileChange"
-            accept=".csv"
-            ref="fileInput"
-          />
+          <input type="file" @change="onFileChange" accept=".csv" ref="fileInput" />
         </div>
         <div v-show="fileState === 'loaded'" class="cluster cluster--between">
           <span class="cluster cluster--s-gap">
@@ -112,11 +123,7 @@ export default defineComponent({
           <button class="button--link" @click="resetFileInput">Reset</button>
         </div>
       </div>
-      <button
-        class="button button--accent"
-        :disabled="fileState !== 'loaded'"
-        @click="onFileSubmit"
-      >
+      <button class="button button--accent" :disabled="fileState !== 'loaded'" @click="onFileSubmit">
         Use selected file
       </button>
     </div>
@@ -139,7 +146,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
 
-  > div {
+  >div {
     flex-basis: 30em;
   }
 
@@ -153,6 +160,7 @@ export default defineComponent({
   width: auto;
   height: 4em;
   margin: 0 auto;
+  margin-bottom: 2em;
 }
 
 .file-input-container {
