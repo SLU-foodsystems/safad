@@ -11,6 +11,7 @@ export default defineComponent({
       fileState: "initial" as FileState,
       fileName: null as string | null,
       fileData: null as string | null,
+      useCustomFile: false,
     };
   },
 
@@ -84,6 +85,13 @@ export default defineComponent({
       this.$emit("submit", JSON.parse(this.fileData));
       // this.fileData = null? i.e. clean up ram.
     },
+    onSubmit() {
+      if (this.useCustomFile) {
+        this.onFileSubmit();
+      } else {
+        this.onSelectSubmit();
+      }
+    },
   },
 });
 </script>
@@ -94,8 +102,7 @@ export default defineComponent({
       <div class="cluster cluster--center">
         <img src="../assets/slu-logo.svg" class="start-page__logo" />
       </div>
-      <h2>Pick a baseline diet</h2>
-      <h3>Use a country average:</h3>
+      <h2>Pick a baseline country</h2>
       <div class="cluster">
         <select ref="select">
           <option value="se">Sweden</option>
@@ -105,27 +112,31 @@ export default defineComponent({
           <option value="es">Spain</option>
           <option value="uk">United Kingdom</option>
         </select>
-        <button class="button button--accent" @click="onSelectSubmit">
-          Go&nbsp;&gt;
+      </div>
+      <label class="cluster">
+        <input type="checkbox" v-model="useCustomFile" />
+        Use custom base diet
+      </label>
+      <div v-show="useCustomFile">
+        <!-- <p>Upload your own csv-file with base data. [get template here] </p> -->
+        <div class="file-input-container" v-show="useCustomFile">
+          <div v-show="fileState === 'initial'">
+            <input type="file" @change="onFileChange" accept=".csv" ref="fileInput" />
+          </div>
+          <div v-show="fileState === 'loaded'" class="cluster cluster--between">
+            <span class="cluster cluster--s-gap">
+              <img src="../assets/file.svg" width="45" height="58" />
+              {{ fileName }}
+            </span>
+            <button class="button--link" @click="resetFileInput">Reset</button>
+          </div>
+        </div>
+      </div>
+      <div class="cluster cluster--end">
+        <button class="button button--accent" :disabled="useCustomFile && fileState !== 'loaded'" @click="onSubmit">
+          Continue
         </button>
       </div>
-      <div class="divider" data-label="or" />
-      <h3>Upload your own file {{ fileState }}</h3>
-      <div class="file-input-container">
-        <div v-show="fileState === 'initial'">
-          <input type="file" @change="onFileChange" accept=".csv" ref="fileInput" />
-        </div>
-        <div v-show="fileState === 'loaded'" class="cluster cluster--between">
-          <span class="cluster cluster--s-gap">
-            <img src="../assets/file.svg" width="45" height="58" />
-            {{ fileName }}
-          </span>
-          <button class="button--link" @click="resetFileInput">Reset</button>
-        </div>
-      </div>
-      <button class="button button--accent" :disabled="fileState !== 'loaded'" @click="onFileSubmit">
-        Use selected file
-      </button>
     </div>
   </section>
 </template>
