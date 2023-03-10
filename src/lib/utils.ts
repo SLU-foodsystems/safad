@@ -30,14 +30,18 @@ export function inputValueToNumber(value: string): number {
 export const generateIdValueMap = <T>(ids: string[], defaultValue: () => T) =>
   Object.fromEntries(ids.map((id) => [id, defaultValue()]));
 
-export const generateRandomId = (prefix: string) => prefix + Math.floor(Math.random() * 1e8);
+export const generateRandomId = (prefix: string) =>
+  prefix + Math.floor(Math.random() * 1e8);
 
 export const partition = <T>(array: T[], predicate: (el: T) => boolean) =>
-  array.reduce((lists: [T[], T[]], element: T) => {
-    if (predicate(element) === true) {
-      lists[0].push(element)
-    } else {
-      lists[1].push(element)
-    }
-    return lists;
-  }, [[], []]);
+  array.reduce(
+    (lists: [T[], T[]], element: T) => {
+      if (predicate(element) === true) {
+        lists[0].push(element);
+      } else {
+        lists[1].push(element);
+      }
+      return lists;
+    },
+    [[], []]
+  );
