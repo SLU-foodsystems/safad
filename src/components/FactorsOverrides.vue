@@ -3,7 +3,7 @@ import { inputValueToNumber } from "@/lib/utils";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  emits: ["change:values", 'change:mode'],
+  emits: ["change:values", "change:mode"],
 
   data() {
     return {
@@ -26,8 +26,8 @@ export default defineComponent({
       this.$emit("change:values", { factor, value });
     },
     onModeChange() {
-      this.$emit('change:mode', this.relativeMode ? 'relative' : 'absolute');
-    }
+      this.$emit("change:mode", this.relativeMode ? "relative" : "absolute");
+    },
   },
 });
 </script>
@@ -123,7 +123,6 @@ export default defineComponent({
   align-items: end;
 }
 
-
 .overrides__input-wrap {
   position: relative;
   display: flex;
@@ -131,13 +130,13 @@ export default defineComponent({
   align-items: center;
 
   &::before {
-    content: '×';
+    content: "×";
     opacity: 0.5;
     font-size: 0.875em;
     width: 2ch;
 
     .is-absolute & {
-      content: '=';
+      content: "=";
       font-weight: bold;
     }
   }
@@ -150,6 +149,4 @@ export default defineComponent({
 .overrides__label {
   font-weight: bold;
 }
-
-
 </style>
