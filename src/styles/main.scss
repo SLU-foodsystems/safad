@@ -256,6 +256,67 @@ main {
   color: white;
 }
 
+.toggle {
+  font-size: 0.75em;
+  font-weight: bold;
+
+  input:checked {
+    ~ .toggle__label--off {
+      opacity: 0.5;
+    }
+
+    ~ .toggle__label--on {
+      opacity: 1;
+    }
+  }
+}
+
+.toggle__label--off,
+.toggle__label--on {
+  opacity: 0.75;
+  transition: 0.2s opacity ease;
+}
+
+.toggle__label--on {
+  opacity: 0.35;
+}
+
+.toggle__knob {
+  $track-width: 3rem;
+  $height: 1.5rem;
+  $pad: 0.125rem;
+
+  box-sizing: content-box;
+  position: relative;
+  border-radius: $height;
+  height: $height;
+  width: $track-width;
+  background: white;
+  border: 2px solid $type;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+
+    top: $pad;
+    left: $pad;
+    width: ($height - 2*$pad);
+    height: ($height - 2*$pad);
+    border-radius: $height;
+    background: $blue_cyan;
+    transition: transform 0.3s ease;
+    box-shadow: inset 0 0 0 2px rgba(black, 0.25);
+  }
+
+  input:checked ~ & {
+    &::before {
+      transform: translateX($track-width - $height - $pad);
+    }
+  }
+}
+
 /* Foods Accordion
  * ------------------------------------------- */
 
