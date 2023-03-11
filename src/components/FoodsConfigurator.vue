@@ -73,6 +73,7 @@ export default defineComponent({
         consumerWaste: null as number | null,
         technicalImprovement: null as number | null,
       },
+      factorsOverridesMode: 'relative',
 
       originValues : JSON.parse(JSON.stringify(this.baseValues.origin)),
       originHasError: generateIdValueMap(eatIds, () => false),
@@ -151,8 +152,11 @@ export default defineComponent({
       this.factorsValues[data.id][data.factor] = data.value;
       this.factorsHasError[data.id] = data.error;
     },
-    setFactorsOverride(data: { factor: keyof Factors; value: number | null }) {
+    setFactorsOverridesValues(data: { factor: keyof Factors; value: number | null }) {
       this.factorsOverrides[data.factor] = data.value;
+    },
+    setFactorsOverridesMode(mode: 'relative' | 'absolute') {
+      this.factorsOverridesMode = mode;
     },
 
     onOriginUpdate(data: {
@@ -223,7 +227,10 @@ export default defineComponent({
             factorsOverrides.technicalImprovement !== null,
         }"
       >
-        <FactorsOverrides @set-factors-override="setFactorsOverride" />
+        <FactorsOverrides
+          @change:values="setFactorsOverridesValues"
+          @change:mode="setFactorsOverridesMode"
+         />
         <FoodsFactorsCard
           v-for="eat in eatGroups"
           :key="eat.id"

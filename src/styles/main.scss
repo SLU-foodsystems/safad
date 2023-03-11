@@ -292,7 +292,7 @@ main {
   height: $height;
   width: $track-width;
   background: white;
-  border: 2px solid $type;
+  border: 2px solid #ddd;
   cursor: pointer;
 
   &::before {
