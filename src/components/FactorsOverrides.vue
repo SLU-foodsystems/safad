@@ -29,7 +29,15 @@ export default defineComponent({
 
 <template>
   <div class="overrides stack">
-    <h3>Overrides</h3>
+    <div class="cluster cluster--between">
+      <h3>Overrides</h3>
+      <label class="toggle cluster cluster--s-gap">
+        <input type="checkbox" class="u-visually-hidden">
+        <span class="toggle__label--off">Absolute values</span>
+        <span class="toggle__knob" />
+        <span class="toggle__label--on">Relative change</span>
+      </label>
+    </div>
     <p>Set a factor to the same value for all foods, regardless of what's typed
     into the detail inputs below. Empty fields have no effect.</p>
     <div class="overrides__container cluster">
