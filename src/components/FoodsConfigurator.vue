@@ -73,7 +73,7 @@ export default defineComponent({
         consumerWaste: null as number | null,
         technicalImprovement: null as number | null,
       },
-      factorsOverridesMode: 'relative',
+      factorsOverridesMode: 'absolute' as 'relative' | 'absolute',
 
       originValues : JSON.parse(JSON.stringify(this.baseValues.origin)),
       originHasError: generateIdValueMap(eatIds, () => false),
@@ -135,6 +135,7 @@ export default defineComponent({
         amountValues: this.amountValues,
         factorsValues: this.factorsValues,
         factorsOverrides: this.factorsOverrides,
+        factorsOverridesMode: this.factorsOverridesMode,
         originValues: this.originValues,
       });
     },
@@ -181,7 +182,7 @@ export default defineComponent({
     <TabsList :tabs="tabs" :current="currentTab" @click:tab="changeTab" />
     <footer class="cluster">
       <button class="button">&lt; Go Back</button>
-      <button class="button button--accent" @click="exportCsv">Save</button>
+      <button class="button button--accent" @click="exportCsv">Export</button>
     </footer>
   </aside>
 

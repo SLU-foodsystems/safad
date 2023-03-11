@@ -336,21 +336,41 @@ function downloadAsPlaintext(data: string, filename: string) {
   document.body.removeChild(link);
 }
 
+function factorsGetter(
+  factorsOverridesMode: "relative" | "absolute",
+  factorsOverrides: Record<keyof Factors, number | null>,
+  factorsValues: Record<string, Factors>
+) {
+  if (factorsOverridesMode === "absolute") {
+    return (fbsId: string, factor: keyof Factors) =>
+      factorsOverrides[factor] || factorsValues[fbsId][factor];
+  }
+
+  return (fbsId: string, factor: keyof Factors) =>
+    (factorsOverrides[factor] === null ? 1 : factorsOverrides[factor]! / 100) *
+    factorsValues[fbsId][factor];
+}
+
 export function exportCsv({
   amountValues,
   factorsValues,
   factorsOverrides,
+  factorsOverridesMode,
   originValues,
 }: {
   amountValues: Record<string, number>;
   factorsValues: Record<string, Factors>;
   factorsOverrides: Record<keyof Factors, number | null>;
+  factorsOverridesMode: "relative" | "absolute";
   originValues: Record<string, OriginMap>;
 }) {
   const fbsTreated = new Set();
 
-  const getFactor = (fbsId: string, factor: keyof Factors) =>
-    factorsOverrides[factor] || factorsValues[fbsId][factor];
+  const getFactor = factorsGetter(
+    factorsOverridesMode,
+    factorsOverrides,
+    factorsValues
+  );
 
   const rows = suaIds.map((id) => {
     const fbsId = suaToFbsId(id);
