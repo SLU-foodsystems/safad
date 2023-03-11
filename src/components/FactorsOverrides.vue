@@ -3,7 +3,7 @@ import { inputValueToNumber } from "@/lib/utils";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  emits: ["set-factors-override"],
+  emits: ["change:values", 'change:mode'],
 
   data() {
     return {
@@ -11,6 +11,8 @@ export default defineComponent({
       retailWaste: "",
       consumerWaste: "",
       technicalImprovement: "",
+
+      relativeMode: false,
     };
   },
 
@@ -21,24 +23,31 @@ export default defineComponent({
         Number.isNaN(numericValue) || numericValue < 0 || numericValue > 100;
       const value = isInvalid ? null : numericValue;
 
-      this.$emit("set-factors-override", { factor, value });
+      this.$emit("change:values", { factor, value });
     },
+    onModeChange() {
+      this.$emit('change:mode', this.relativeMode ? 'relative' : 'absolute');
+    }
   },
 });
 </script>
 
 <template>
-  <div class="overrides stack">
+  <div class="overrides stack" :class="{ 'is-absolute': !relativeMode }">
     <div class="cluster cluster--between">
       <h3>Overrides</h3>
       <label class="toggle cluster cluster--s-gap">
-        <input type="checkbox" class="u-visually-hidden">
+        <input type="checkbox" class="u-visually-hidden" v-model="relativeMode"
+        @change="onModeChange">
         <span class="toggle__label--off">Absolute values</span>
         <span class="toggle__knob" />
         <span class="toggle__label--on">Relative change</span>
       </label>
     </div>
-    <p>Set a factor to the same value for all foods, regardless of what's typed
+    <p v-if="relativeMode">Change a factor by a given amount for all foods,
+    regardless of what's typed into the detail inputs below. Empty fields have
+    no effect.</p>
+    <p v-if="!relativeMode">Set a factor to the same value for all foods, regardless of what's typed
     into the detail inputs below. Empty fields have no effect.</p>
     <div class="overrides__container cluster">
       <label>
@@ -47,6 +56,7 @@ export default defineComponent({
           <input
             type="text"
             v-model="productionWaste"
+            placeholder="None"
             @change="onFieldUpdate('productionWaste')"
           />
         </span>
@@ -56,6 +66,7 @@ export default defineComponent({
         <span class="overrides__input-wrap">
           <input
             type="text"
+            placeholder="None"
             v-model="retailWaste"
             @change="onFieldUpdate('retailWaste')"
           />
@@ -66,6 +77,7 @@ export default defineComponent({
         <span class="overrides__input-wrap">
           <input
             type="text"
+            placeholder="None"
             v-model="consumerWaste"
             @change="onFieldUpdate('consumerWaste')"
           />
@@ -76,6 +88,7 @@ export default defineComponent({
         <span class="overrides__input-wrap">
           <input
             type="text"
+            placeholder="None"
             v-model="technicalImprovement"
             @change="onFieldUpdate('technicalImprovement')"
           />
@@ -100,8 +113,7 @@ export default defineComponent({
   input {
     text-align: right;
     width: 5em;
-    margin-left: 1.5em;
-    margin-right: 0.5em;
+    margin: 0 0.5em;
   }
 }
 
@@ -117,6 +129,18 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &::before {
+    content: '×';
+    opacity: 0.5;
+    font-size: 0.875em;
+    width: 2ch;
+
+    .is-absolute & {
+      content: '=';
+      font-weight: bold;
+    }
+  }
 
   &::after {
     content: "%";
