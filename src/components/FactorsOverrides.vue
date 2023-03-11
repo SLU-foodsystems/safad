@@ -16,6 +16,12 @@ export default defineComponent({
     };
   },
 
+  computed: {
+    placeholder() {
+      return this.relativeMode ? "100" : "None";
+    },
+  },
+
   methods: {
     onFieldUpdate(factor: keyof Factors) {
       const numericValue = inputValueToNumber(this[factor]);
@@ -37,61 +43,44 @@ export default defineComponent({
     <div class="cluster cluster--between">
       <h3>Overrides</h3>
       <label class="toggle cluster cluster--s-gap">
-        <input type="checkbox" class="u-visually-hidden" v-model="relativeMode"
-        @change="onModeChange">
+        <input type="checkbox" class="u-visually-hidden" v-model="relativeMode" @change="onModeChange" />
         <span class="toggle__label--off">Absolute values</span>
         <span class="toggle__knob" />
         <span class="toggle__label--on">Relative change</span>
       </label>
     </div>
-    <p v-if="relativeMode">Change a factor by a given amount for all foods,
-    regardless of what's typed into the detail inputs below. Empty fields have
-    no effect.</p>
-    <p v-if="!relativeMode">Set a factor to the same value for all foods, regardless of what's typed
-    into the detail inputs below. Empty fields have no effect.</p>
+    <p v-if="relativeMode">
+      Set a factor to a value proportionate to the detail inputs below. Empty
+      fields have no effect.
+    </p>
+    <p v-if="!relativeMode">
+      Set a factor to the same value for all foods, regardless of what's typed
+      into the detail inputs below. Empty fields have no effect.
+    </p>
     <div class="overrides__container cluster">
       <label>
         <span class="overrides__label">Production Waste</span>
         <span class="overrides__input-wrap">
-          <input
-            type="text"
-            v-model="productionWaste"
-            placeholder="None"
-            @change="onFieldUpdate('productionWaste')"
-          />
+          <input type="text" v-model="productionWaste" :placeholder="placeholder" @change="onFieldUpdate('productionWaste')" />
         </span>
       </label>
       <label>
         <span class="overrides__label">Retail Waste</span>
         <span class="overrides__input-wrap">
-          <input
-            type="text"
-            placeholder="None"
-            v-model="retailWaste"
-            @change="onFieldUpdate('retailWaste')"
-          />
+          <input type="text" :placeholder="placeholder" v-model="retailWaste" @change="onFieldUpdate('retailWaste')" />
         </span>
       </label>
       <label>
         <span class="overrides__label">Consumer Waste</span>
         <span class="overrides__input-wrap">
-          <input
-            type="text"
-            placeholder="None"
-            v-model="consumerWaste"
-            @change="onFieldUpdate('consumerWaste')"
-          />
+          <input type="text" :placeholder="placeholder" v-model="consumerWaste" @change="onFieldUpdate('consumerWaste')" />
         </span>
       </label>
       <label>
         <span class="overrides__label">Technical Improvement</span>
         <span class="overrides__input-wrap">
-          <input
-            type="text"
-            placeholder="None"
-            v-model="technicalImprovement"
-            @change="onFieldUpdate('technicalImprovement')"
-          />
+          <input type="text" :placeholder="placeholder" v-model="technicalImprovement"
+            @change="onFieldUpdate('technicalImprovement')" />
         </span>
       </label>
     </div>
