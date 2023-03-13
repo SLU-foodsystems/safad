@@ -10,7 +10,7 @@ export default defineComponent({
       required: true,
     },
     factor: {
-      type: String as PropType<keyof Factor>,
+      type: String as PropType<keyof Factors>,
       required: true,
     },
     label: {
