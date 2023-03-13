@@ -5,7 +5,7 @@ export const FACTORS: (keyof Factors)[] = [
   "technicalImprovement",
 ];
 
-export const FACTOR_LABELS: Record<keyof Factor, string> = {
+export const FACTOR_LABELS: Record<keyof Factors, string> = {
   productionWaste: "Production Waste",
   consumerWaste: "Consumer Waste",
   retailWaste: "Retail Waste",
