@@ -62,10 +62,10 @@ export default defineComponent({
       isOpen: generateIdValueMap(eatIds, () => true),
       disabled: generateIdValueMap(eatIds, () => false),
 
-      amountValues : JSON.parse(JSON.stringify(this.baseValues.amount)),
+      amountValues: JSON.parse(JSON.stringify(this.baseValues.amount)),
       amountHasError: generateIdValueMap(eatIds, () => false),
 
-      factorsValues : JSON.parse(JSON.stringify(this.baseValues.factors)),
+      factorsValues: JSON.parse(JSON.stringify(this.baseValues.factors)),
       factorsHasError: generateIdValueMap(eatIds, () => false),
       factorsOverrides: {
         productionWaste: null as number | null,
@@ -73,9 +73,9 @@ export default defineComponent({
         consumerWaste: null as number | null,
         technicalImprovement: null as number | null,
       },
-      factorsOverridesMode: 'absolute' as 'relative' | 'absolute',
+      factorsOverridesMode: "absolute" as "relative" | "absolute",
 
-      originValues : JSON.parse(JSON.stringify(this.baseValues.origin)),
+      originValues: JSON.parse(JSON.stringify(this.baseValues.origin)),
       originHasError: generateIdValueMap(eatIds, () => false),
 
       currentTab: DEFAULT_TAB,
@@ -153,10 +153,13 @@ export default defineComponent({
       this.factorsValues[data.id][data.factor] = data.value;
       this.factorsHasError[data.id] = data.error;
     },
-    setFactorsOverridesValues(data: { factor: keyof Factors; value: number | null }) {
+    setFactorsOverridesValues(data: {
+      factor: keyof Factors;
+      value: number | null;
+    }) {
       this.factorsOverrides[data.factor] = data.value;
     },
-    setFactorsOverridesMode(mode: 'relative' | 'absolute') {
+    setFactorsOverridesMode(mode: "relative" | "absolute") {
       this.factorsOverridesMode = mode;
     },
 
@@ -204,58 +207,28 @@ export default defineComponent({
       </div>
 
       <section v-show="currentTab === 'amount'">
-        <FoodsAmountCard
-          v-for="eat in eatGroups"
-          :key="eat.id"
-          :eat="eat"
-          :open="isOpen[eat.id]"
-          :has-error="amountHasError"
-          :current-values="amountValues"
-          :base-values="baseValues.amount"
-          @toggle-open="toggleOpen"
-          @update:sua="onAmountUpdate"
-        />
+        <FoodsAmountCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
+          :has-error="amountHasError" :current-values="amountValues" :base-values="baseValues.amount"
+          @toggle-open="toggleOpen" @update:sua="onAmountUpdate" />
       </section>
-      <section
-        v-show="currentTab === 'factors'"
-        :class="{
-          'has-override--productionWaste':
-            factorsOverrides.productionWaste !== null,
-          'has-override--retailWaste': factorsOverrides.retailWaste !== null,
-          'has-override--consumerWaste':
-            factorsOverrides.consumerWaste !== null,
-          'has-override--technicalImprovement':
-            factorsOverrides.technicalImprovement !== null,
-        }"
-      >
-        <FactorsOverrides
-          @change:values="setFactorsOverridesValues"
-          @change:mode="setFactorsOverridesMode"
-         />
-        <FoodsFactorsCard
-          v-for="eat in eatGroups"
-          :key="eat.id"
-          :eat="eat"
-          :open="isOpen[eat.id]"
-          :has-error="factorsHasError"
-          :current-values="factorsValues"
-          :base-values="baseValues.factors"
-          @toggle-open="toggleOpen"
-          @update:factor="onFactorsUpdate"
-        />
+      <section v-show="currentTab === 'factors'" :class="{
+        'has-override--productionWaste':
+          factorsOverrides.productionWaste !== null,
+        'has-override--retailWaste': factorsOverrides.retailWaste !== null,
+        'has-override--consumerWaste':
+          factorsOverrides.consumerWaste !== null,
+        'has-override--technicalImprovement':
+          factorsOverrides.technicalImprovement !== null,
+      }">
+        <FactorsOverrides @change:values="setFactorsOverridesValues" @change:mode="setFactorsOverridesMode" />
+        <FoodsFactorsCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
+          :has-error="factorsHasError" :current-values="factorsValues" :base-values="baseValues.factors"
+          @toggle-open="toggleOpen" @update:factor="onFactorsUpdate" />
       </section>
       <section v-show="currentTab === 'origin'">
-        <FoodsOriginCard
-          v-for="eat in eatGroups"
-          :key="eat.id"
-          :eat="eat"
-          :open="isOpen[eat.id]"
-          :has-error="originHasError"
-          :current-values="originValues"
-          :base-values="baseValues.origin"
-          @toggle-open="toggleOpen"
-          @update:origin="onOriginUpdate"
-        />
+        <FoodsOriginCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
+          :has-error="originHasError" :current-values="originValues" :base-values="baseValues.origin"
+          @toggle-open="toggleOpen" @update:origin="onOriginUpdate" />
       </section>
     </div>
   </main>
