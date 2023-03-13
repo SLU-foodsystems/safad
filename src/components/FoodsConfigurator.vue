@@ -2,7 +2,7 @@
 import { defineComponent, type PropType } from "vue";
 import { generateIdValueMap } from "@/lib/utils";
 
-import { eatIds } from "../lib/foods-constants";
+import { eatIds, applyOverrides } from "../lib/foods-constants";
 
 import FoodsAmountCard from "./FoodsAmountCard/FoodsAmountCard.vue";
 import FoodsFactorsCard from "./FoodsFactorsCard/FoodsFactorsCard.vue";
@@ -131,11 +131,14 @@ export default defineComponent({
     },
 
     exportCsv() {
+      const factors = applyOverrides(
+        this.factorsOverridesMode,
+        this.factorsOverrides,
+        this.factorsValues
+      );
       exportCsv({
         amountValues: this.amountValues,
-        factorsValues: this.factorsValues,
-        factorsOverrides: this.factorsOverrides,
-        factorsOverridesMode: this.factorsOverridesMode,
+        factors,
         originValues: this.originValues,
       });
     },

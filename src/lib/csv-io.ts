@@ -343,34 +343,24 @@ function factorsGetter(
 ) {
   if (factorsOverridesMode === "absolute") {
     return (fbsId: string, factor: keyof Factors) =>
-      factorsOverrides[factor] || factorsValues[fbsId][factor];
+      toPrecision(factorsOverrides[factor] || factorsValues[fbsId][factor]);
   }
 
   return (fbsId: string, factor: keyof Factors) =>
-    (factorsOverrides[factor] === null ? 1 : factorsOverrides[factor]! / 100) *
-    factorsValues[fbsId][factor];
+    toPrecision((factorsOverrides[factor] === null ? 1 : factorsOverrides[factor]! / 100) *
+    factorsValues[fbsId][factor]);
 }
 
 export function exportCsv({
   amountValues,
-  factorsValues,
-  factorsOverrides,
-  factorsOverridesMode,
+  factors,
   originValues,
 }: {
   amountValues: Record<string, number>;
-  factorsValues: Record<string, Factors>;
-  factorsOverrides: Record<keyof Factors, number | null>;
-  factorsOverridesMode: "relative" | "absolute";
+  factors: Record<string, Factors>;
   originValues: Record<string, OriginMap>;
 }) {
   const fbsTreated = new Set();
-
-  const getFactor = factorsGetter(
-    factorsOverridesMode,
-    factorsOverrides,
-    factorsValues
-  );
 
   const rows = suaIds.map((id) => {
     const fbsId = suaToFbsId(id);
@@ -388,10 +378,10 @@ export function exportCsv({
       id,
       fbsId,
       amountValues[id],
-      getFactor(fbsId, "productionWaste"),
-      getFactor(fbsId, "retailWaste"),
-      getFactor(fbsId, "consumerWaste"),
-      getFactor(fbsId, "technicalImprovement"),
+      factors.productionWaste,
+      factors.retailWaste,
+      factors.consumerWaste,
+      factors.technicalImprovement,
       originString,
     ].map((x) => (x instanceof Number ? String(toPrecision(x as number)) : x));
   });
