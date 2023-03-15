@@ -33,5 +33,6 @@ declare global {
     amount: Record<string, number>;
     factors: Record<string, Factors>;
     origin: Record<string, OriginMap>;
+    organic: Record<string, number>;
   }
 }

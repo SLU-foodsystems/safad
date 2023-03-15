@@ -7,6 +7,7 @@ import { eatIds, applyOverrides } from "../lib/foods-constants";
 import FoodsAmountCard from "./FoodsAmountCard/FoodsAmountCard.vue";
 import FoodsFactorsCard from "./FoodsFactorsCard/FoodsFactorsCard.vue";
 import FoodsOriginCard from "./FoodsOriginCard/FoodsOriginCard.vue";
+import FoodsOrganicCard from "./FoodsOrganicCard/FoodsOrganicCard.vue";
 
 import TabsList from "./TabsList.vue";
 import FactorsOverrides from "./FactorsOverrides.vue";
@@ -15,7 +16,7 @@ import { exportCsv } from "../lib/csv-io";
 
 const eatGroups = foodsData.data as EAT[];
 
-type TabId = "amount" | "factors" | "origin";
+type TabId = "amount" | "factors" | "origin" | "organic";
 
 const tabs: { label: string; id: TabId; caption: string }[] = [
   {
@@ -33,6 +34,11 @@ const tabs: { label: string; id: TabId; caption: string }[] = [
     id: "origin",
     caption: "Distribution of import countries for foods.",
   },
+  {
+    label: "Share of organic produce",
+    id: "organic",
+    caption: "Share of organic produce for each category of foods.",
+  },
 ];
 
 const tabIds = tabs.map((t) => t.id);
@@ -44,6 +50,7 @@ export default defineComponent({
     FoodsAmountCard,
     FoodsFactorsCard,
     FoodsOriginCard,
+    FoodsOrganicCard,
     TabsList,
   },
 
@@ -78,7 +85,10 @@ export default defineComponent({
       originValues: JSON.parse(JSON.stringify(this.baseValues.origin)),
       originHasError: generateIdValueMap(eatIds, () => false),
 
-      currentTab: DEFAULT_TAB,
+      organicValues: JSON.parse(JSON.stringify(this.baseValues.organic)),
+      organicHasError: generateIdValueMap(eatIds, () => false),
+
+      currentTab: DEFAULT_TAB as TabId,
     };
   },
 
@@ -91,6 +101,8 @@ export default defineComponent({
           return "Waste and Improvement Factors";
         case "origin":
           return "Origin of import";
+        case "organic":
+          return "Share of organic produce";
         default:
           return "";
       }
@@ -103,6 +115,8 @@ export default defineComponent({
           return "Assumed waste percentage and year-on-year technical improvement factor (%).";
         case "origin":
           return "Country of origin.";
+        case "organic":
+          return "Share of each category of foods assumed to be produced using organic methods";
         default:
           console.error(
             `Invalid value for tab (${this.currentTab}) registered.`
@@ -147,6 +161,7 @@ export default defineComponent({
       this.amountValues[data.id] = data.value;
       this.amountHasError[data.id] = data.error;
     },
+
     onFactorsUpdate(data: {
       id: string;
       factor: keyof Factors;
@@ -174,6 +189,15 @@ export default defineComponent({
     }) {
       this.originValues[data.id][data.country] = data.value;
       this.originHasError[data.id] = data.error;
+    },
+
+    onOrganicUpdate(data: {
+      id: string;
+      value: number;
+      error: boolean;
+    }) {
+      this.organicValues[data.id] = data.value;
+      this.organicHasError[data.id] = data.error;
     },
   },
 });
@@ -232,6 +256,12 @@ export default defineComponent({
         <FoodsOriginCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
           :has-error="originHasError" :current-values="originValues" :base-values="baseValues.origin"
           @toggle-open="toggleOpen" @update:origin="onOriginUpdate" />
+      </section>
+      <section v-show="currentTab === 'organic'">
+        <FoodsOrganicCard v-for="eat in eatGroups" :key="eat.id" :eat="eat" :open="isOpen[eat.id]"
+          :has-error="organicHasError" :current-values="organicValues"
+          :base-values="baseValues.organic"
+          @toggle-open="toggleOpen" @update:organic="onOrganicUpdate" />
       </section>
     </div>
   </main>

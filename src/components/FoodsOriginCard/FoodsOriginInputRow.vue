@@ -118,7 +118,7 @@ export default defineComponent({
     'has-changed': hasChanged,
     'has-error': hasError,
   }">
-    <label class="foods-origin__country" :for="uniqueId" v-text="countryName" />
+    <label :for="uniqueId" v-text="countryName" />
     <input type="range" :id="uniqueId" min="0" step="0.01" max="100" v-model="rawValue" @input="onRangeInput"
       @change="onChange" :disabled="disabled" />
     <div class="cluster cluster--s-gap">
@@ -133,7 +133,7 @@ export default defineComponent({
 .foods__range-container {
   display: flex;
 
-  .foods-origin__country {
+  label {
     $w: 6em;
     width: $w;
     flex: 0 0 $w;
