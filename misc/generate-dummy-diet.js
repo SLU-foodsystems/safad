@@ -54,7 +54,7 @@ const csvData = suaIds.map((suaId) => {
   const fbsId = suaToFbs[suaId];
 
   if ( treatedFbsIds.has(fbsId) ) {
-    return [suaId, fbsId, r.amount(), "", "", "", "", ""];
+    return [suaId, fbsId, r.amount(), r.p(), "", "", "", "", ""];
   }
 
   treatedFbsIds.add(fbsId);
@@ -63,10 +63,11 @@ const csvData = suaIds.map((suaId) => {
     suaId,
     fbsId,
     r.amount(),
-    r.p(),
-    r.p(),
-    r.p(),
-    r.p(),
+    r.p(), // Organic
+    r.p(), // Waste 1
+    r.p(), // Waste 2
+    r.p(), // Waste 3
+    r.p(), // Tech impr.
     r.origin(),
   ].join(",");
 });
@@ -75,6 +76,7 @@ const HEADER = [
   "SUA ID",
   "FBS ID",
   "Amount (g)",
+  "Organic (%)",
   "Production waste (%)",
   "Retail waste (%)",
   "Consumer waste (%)",

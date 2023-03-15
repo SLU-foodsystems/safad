@@ -18,7 +18,9 @@
 import fs from "fs";
 
 const CSV_DELIM = ",";
-const EXPECTED_LENGTH = 8;
+const EXPECTED_LENGTH = 9;
+
+const toFixedFloat = (str) => Math.round(parseFloat(str) * 100) / 100;
 
 function main(args) {
   const csvPath = args[2];
@@ -26,23 +28,25 @@ function main(args) {
   // Drop the header
   const [_, ...rows] = fileContent.split("\n");
 
-  const matrix = rows.map((row) => row.split(CSV_DELIM)).filter(x => x.length > 1);
+  const matrix = rows
+    .map((row) => row.split(CSV_DELIM))
+    .filter((x) => x.length > 1);
 
   const firstInvalidLengthRow = matrix.findIndex(
     (row) => row.length !== EXPECTED_LENGTH
   );
   if (firstInvalidLengthRow !== -1) {
     const len = matrix[firstInvalidLengthRow].length;
-    console.log(matrix[firstInvalidLengthRow]);
     throw new Error(
-      `Invalid row length found, row ${firstInvalidLengthRow} (len=${len})`
+      `Invalid row length found, row ${firstInvalidLengthRow} (len=${len})\n\t${rows[firstInvalidLengthRow]}`
     );
   }
 
   const result = {
     amount: {},
-    origin: {},
     factors: {},
+    origin: {},
+    organic: {},
   };
 
   matrix.forEach((fields) => {
@@ -50,6 +54,7 @@ function main(args) {
       suaId,
       fbsId,
       amount,
+      organic,
       productionWaste,
       retailWaste,
       consumerWaste,
@@ -57,22 +62,23 @@ function main(args) {
       originStr,
     ] = fields;
 
-    result.amount[suaId] = amount;
+    result.amount[suaId] = toFixedFloat(amount);
+    result.organic[suaId] = toFixedFloat(organic);
 
     if (!productionWaste) return;
 
     result.factors[fbsId] = {
-      productionWaste: parseFloat(productionWaste),
-      retailWaste: parseFloat(retailWaste),
-      consumerWaste: parseFloat(consumerWaste),
-      technicalImprovement: parseFloat(technicalImprovement),
+      productionWaste: toFixedFloat(productionWaste),
+      retailWaste: toFixedFloat(retailWaste),
+      consumerWaste: toFixedFloat(consumerWaste),
+      technicalImprovement: toFixedFloat(technicalImprovement),
     };
 
     result.origin[fbsId] = Object.fromEntries(
       originStr
         .split(" ")
         .map((pair) => pair.split(":"))
-        .map(([country, valueStr]) => [country, parseFloat(valueStr)])
+        .map(([country, valueStr]) => [country, toFixedFloat(valueStr)])
     );
   });
 
