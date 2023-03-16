@@ -1,5 +1,28 @@
 import { suaToFbsId } from "./foods-constants";
 
+type Tuple<T, N extends number> = N extends N ? number extends N ? T[] : _TupleOf<T, N, []> : never;
+type _TupleOf<T, N extends number, R extends unknown[]> = R['length'] extends N ? R : _TupleOf<T, N, [T, ...R]>;
+
+type EnvFactors = Tuple<number, 9>;
+type NutrFactors = Tuple<number, 36>;// yikes
+
+// If we think of this as a web-worker, we want to expose two functionalities,
+// each with two modes.
+//
+// 'delta' / 'incremental': Send a delta-update, and use that + previous results
+//                          to compute a change.
+//                          - This could either work such that the worker holds
+//                          the previous state, and computes the entire change,
+//                          or that the callee sends "before" + "after" values.
+// 'complete' / 'full': Send the entire diet
+//
+// We also want to be able to either recieve back the detailed results, or
+// just the summary.
+//
+// Let's start with the 'complete' version, and see if we can implement the
+// 'incremntal' mode later. Maybe the computations are so fast it's not really
+// needed.
+
 const ENV_FACTORS_ZERO = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 function getWasteChangeFactor(factors: Factors) {
@@ -47,19 +70,6 @@ function getFbsLevelAmounts(amountValues: Record<string, number>) {
     }
  }
 */
-
-type EnvFactors = [
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number
-];
 
 function sumEnvFactors(
   grossFbsAmounts: Record<string, number>,
