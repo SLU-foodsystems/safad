@@ -81,7 +81,6 @@ export default defineComponent({
         title="Reset to base value"
       />
       <span class="cluster cluster--s-gap">
-        <input type="range" v-model="rawValue" @change="onChange" />
         <input
           type="text"
           :id="uniqueId"
@@ -97,9 +96,3 @@ export default defineComponent({
     </span>
   </div>
 </template>
-
-<style lang="scss" scoped>
-input[type="range"] {
-  width: 20em;
-}
-</style>
