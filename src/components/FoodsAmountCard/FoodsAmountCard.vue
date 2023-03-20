@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
-import { sum, toPrecision } from "@/lib/utils";
+import { sum } from "@/lib/utils";
 
 import FoodsAmountInputs from "./FoodsAmountInputs.vue";
 import FoodsAccordion from "../FoodsAccordion.vue";
@@ -40,8 +40,8 @@ export default defineComponent({
     hasErrors(): boolean {
       return this.suaIds.some((id) => this.hasError[id]);
     },
-    aggregate(): number {
-      return toPrecision(sum(this.relevantValues));
+    aggregate(): string {
+      return (sum(this.relevantValues)).toFixed(2);
     },
     hasChanges(): boolean {
       return this.suaIds.some(

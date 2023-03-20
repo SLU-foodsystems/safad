@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import { inputValueToNumber, generateRandomId, toPrecision } from "@/lib/utils";
+import { inputValueToNumber, generateRandomId } from "@/lib/utils";
 
 export default defineComponent({
   props: {
@@ -105,7 +105,7 @@ export default defineComponent({
       const stringValue = this.rawValue;
       const numericValue = inputValueToNumber(stringValue);
       if (numericValue > this.max) {
-        this.rawValue = String(toPrecision(this.max));
+        this.rawValue = this.max.toFixed(2);
         event.preventDefault();
       }
     },

@@ -7,11 +7,6 @@ export function average(numbers: number[]) {
   return sum(numbers) / numbers.length;
 }
 
-// Round a number to a given precision (= number of decimal points)
-export function toPrecision(number: number, precision: number = 2) {
-  return Math.round(number * 10 ** precision) / 10 ** precision;
-}
-
 export function inputValueToNumber(value: string): number {
   // Exit early if null or empty string
   if (!value) return NaN;

@@ -1,4 +1,3 @@
-import { toPrecision } from "./utils";
 import { fbsIds, suaIds, suaToFbsId } from "./foods-constants";
 
 /**
@@ -336,21 +335,6 @@ function downloadAsPlaintext(data: string, filename: string) {
   document.body.removeChild(link);
 }
 
-function factorsGetter(
-  factorsOverridesMode: "relative" | "absolute",
-  factorsOverrides: Record<keyof Factors, number | null>,
-  factorsValues: Record<string, Factors>
-) {
-  if (factorsOverridesMode === "absolute") {
-    return (fbsId: string, factor: keyof Factors) =>
-      toPrecision(factorsOverrides[factor] || factorsValues[fbsId][factor]);
-  }
-
-  return (fbsId: string, factor: keyof Factors) =>
-    toPrecision((factorsOverrides[factor] === null ? 1 : factorsOverrides[factor]! / 100) *
-    factorsValues[fbsId][factor]);
-}
-
 export function exportCsv({
   amountValues,
   factors,
@@ -365,13 +349,13 @@ export function exportCsv({
   const rows = suaIds.map((id) => {
     const fbsId = suaToFbsId(id);
     if (fbsTreated.has(fbsId)) {
-      return [id, fbsId, toPrecision(amountValues[id]), "", "", "", "", ""];
+      return [id, fbsId, amountValues[id].toFixed(2), "", "", "", "", ""];
     }
 
     fbsTreated.add(fbsId);
 
     const originString = Object.entries(originValues[fbsId] as OriginMap)
-      .map(([country, value]) => `${country}:${toPrecision(value)}`)
+      .map(([country, value]) => `${country}:${value.toFixed(2)}`)
       .join(" ");
 
     return [
@@ -383,7 +367,7 @@ export function exportCsv({
       factors.consumerWaste,
       factors.technicalImprovement,
       originString,
-    ].map((x) => (x instanceof Number ? String(toPrecision(x as number)) : x));
+    ].map((x) => (x instanceof Number ? (x as number).toFixed(2) : x));
   });
 
   const csvString = [HEADER, ...rows]
