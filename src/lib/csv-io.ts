@@ -270,8 +270,9 @@ export function csvToStructuredJson(csv: string): BaseValues {
 
   const result: BaseValues = {
     amount: {},
-    origin: {},
     factors: {},
+    origin: {},
+    organic: {},
   };
 
   // Skip the rows that are errornous
@@ -280,6 +281,7 @@ export function csvToStructuredJson(csv: string): BaseValues {
       suaId,
       fbsId,
       amount,
+      organic,
       productionWaste,
       retailWaste,
       consumerWaste,
@@ -287,8 +289,9 @@ export function csvToStructuredJson(csv: string): BaseValues {
       originStr,
     ] = fields;
 
-    const amountNumber = amount === "" ? 0 : Number.parseFloat(amount);
-    result.amount[suaId] = amountNumber;
+    const nbr = (x: string) => x === "" ? 0 : Number.parseFloat(amount);
+    result.amount[suaId] = nbr(amount);
+    result.organic[suaId] = nbr(organic);
 
     if (!productionWaste) return;
 
