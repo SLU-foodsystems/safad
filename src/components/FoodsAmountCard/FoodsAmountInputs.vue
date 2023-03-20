@@ -3,7 +3,7 @@ import { defineComponent } from "vue";
 import type { PropType } from "vue";
 
 import FoodsAmountInputRow from "./FoodsAmountInputRow.vue";
-import { sum, toPrecision } from "@/lib/utils";
+import { sum } from "@/lib/utils";
 
 export default defineComponent({
   components: { FoodsAmountInputRow },
@@ -31,8 +31,8 @@ export default defineComponent({
         .map((id: string) => this.currentValues[id])
         .filter((x: number) => !Number.isNaN(x));
     },
-    aggregate(): number {
-      return toPrecision(sum(this.relevantValues));
+    aggregate(): string {
+      return sum(this.relevantValues).toFixed(2);
     },
   },
 });
