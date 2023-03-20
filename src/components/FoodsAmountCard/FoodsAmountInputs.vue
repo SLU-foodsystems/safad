@@ -46,12 +46,7 @@ export default defineComponent({
         <span>{{ aggregate }}</span>&nbsp;&nbsp;g
       </span>
     </header>
-    <FoodsAmountInputRow
-      v-for="sua in fbs.sua"
-      :sua="sua"
-      :base-value="baseValues[sua.id]"
-      :current-value="currentValues[sua.id]"
-      @update:sua="$emit('update:sua', $event)"
-    />
+    <FoodsAmountInputRow v-for="sua in fbs.sua" :sua="sua" :base-value="baseValues[sua.id]"
+      :current-value="currentValues[sua.id]" @update:sua="$emit('update:sua', $event)" />
   </section>
 </template>
