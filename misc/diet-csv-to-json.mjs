@@ -20,7 +20,7 @@ import fs from "fs";
 const CSV_DELIM = ",";
 const EXPECTED_LENGTH = 9;
 
-const toFixedFloat = (str) => Math.round(parseFloat(str) * 100) / 100;
+const reducePrecision = (str) => Math.round(parseFloat(str) * 100) / 100;
 
 function main(args) {
   const csvPath = args[2];
@@ -62,23 +62,23 @@ function main(args) {
       originStr,
     ] = fields;
 
-    result.amount[suaId] = toFixedFloat(amount);
-    result.organic[suaId] = toFixedFloat(organic);
+    result.amount[suaId] = reducePrecision(amount);
+    result.organic[suaId] = reducePrecision(organic);
 
     if (!productionWaste) return;
 
     result.factors[fbsId] = {
-      productionWaste: toFixedFloat(productionWaste),
-      retailWaste: toFixedFloat(retailWaste),
-      consumerWaste: toFixedFloat(consumerWaste),
-      technicalImprovement: toFixedFloat(technicalImprovement),
+      productionWaste: reducePrecision(productionWaste),
+      retailWaste: reducePrecision(retailWaste),
+      consumerWaste: reducePrecision(consumerWaste),
+      technicalImprovement: reducePrecision(technicalImprovement),
     };
 
     result.origin[fbsId] = Object.fromEntries(
       originStr
         .split(" ")
         .map((pair) => pair.split(":"))
-        .map(([country, valueStr]) => [country, toFixedFloat(valueStr)])
+        .map(([country, valueStr]) => [country, reducePrecision(valueStr)])
     );
   });
 
