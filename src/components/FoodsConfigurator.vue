@@ -11,6 +11,8 @@ import FoodsOrganicCard from "./FoodsOrganicCard/FoodsOrganicCard.vue";
 
 import TabsList from "./TabsList.vue";
 import FactorsOverrides from "./FactorsOverrides.vue";
+import EnvironmentalResultsTable from "./EnvironmentalResultsTable.vue";
+
 import foodsData from "../data/foods.json";
 import { exportCsv } from "../lib/csv-io";
 
@@ -54,6 +56,7 @@ export default defineComponent({
     FoodsOriginCard,
     FoodsOrganicCard,
     TabsList,
+    EnvironmentalResultsTable,
   },
 
   props: {
@@ -132,7 +135,7 @@ export default defineComponent({
       return RM.compute(this.baseValues).envImpactsSum as EnvFactors;
     },
     envFactorChange() {
-      return this.envFactors.map((x, i) => x / this.baseEnvFactors[i] - 1);
+      return this.envFactors.map((x, i) => x / this.baseEnvFactors[i] - 1) as EnvFactors;
     },
   },
 
@@ -224,19 +227,6 @@ export default defineComponent({
       });
       this.envFactors = results.envImpactsSum as EnvFactors;
     },
-
-    toFixed(value: number) {
-      return value.toFixed(2);
-    },
-    toPercentage(value: number) {
-      return (value * 100).toFixed(2) + " %";
-    },
-    percentageDirection(value: number): "inc" | "dec" | "eq" {
-      const precision = 10 ** 4;
-      const rounded = Math.round(value * precision) / precision;
-      if (rounded === 0) return "eq";
-      return rounded > 0 ? "inc" : "dec";
-    },
   },
 
   beforeMount() {
@@ -312,126 +302,9 @@ export default defineComponent({
       <h1>Results</h1>
     </header>
     <div class="stack">
-      <table>
-        <thead>
-          <tr>
-            <th>Impact factor</th>
-            <th>Amount</th>
-            <th>Change</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Climate impact, kg CO2e</td>
-            <td v-text="toFixed(envFactors[0])" />
-            <td v-text="toPercentage(envFactorChange[0])" :data-percentage-direction="
-              percentageDirection(envFactorChange[0])
-            " />
-          </tr>
-          <tr>
-            <td>Carbon dioxide, kg CO2</td>
-            <td v-text="toFixed(envFactors[1])" />
-            <td v-text="toPercentage(envFactorChange[1])" :data-percentage-direction="
-              percentageDirection(envFactorChange[1])
-            " />
-          </tr>
-          <tr>
-            <td>Methane, kg CH4</td>
-            <td v-text="toFixed(envFactors[2])" />
-            <td v-text="toPercentage(envFactorChange[2])" :data-percentage-direction="
-              percentageDirection(envFactorChange[2])
-            " />
-          </tr>
-          <tr>
-            <td>Nitrous oxide, kg N2O</td>
-            <td v-text="toFixed(envFactors[3])" />
-            <td v-text="toPercentage(envFactorChange[3])" :data-percentage-direction="
-              percentageDirection(envFactorChange[3])
-            " />
-          </tr>
-          <tr>
-            <td>kg HCFs</td>
-            <td v-text="toFixed(envFactors[4])" />
-            <td v-text="toPercentage(envFactorChange[4])" :data-percentage-direction="
-              percentageDirection(envFactorChange[4])
-            " />
-          </tr>
-          <tr>
-            <td>Cropland use, m2</td>
-            <td v-text="toFixed(envFactors[5])" />
-            <td v-text="toPercentage(envFactorChange[5])" :data-percentage-direction="
-              percentageDirection(envFactorChange[5])
-            " />
-          </tr>
-          <tr>
-            <td>Nitrogen application, kg N</td>
-            <td v-text="toFixed(envFactors[6])" />
-            <td v-text="toPercentage(envFactorChange[6])" :data-percentage-direction="
-              percentageDirection(envFactorChange[6])
-            " />
-          </tr>
-          <tr>
-            <td>Phosphorus application, kg P</td>
-            <td v-text="toFixed(envFactors[7])" />
-            <td v-text="toPercentage(envFactorChange[7])" :data-percentage-direction="
-              percentageDirection(envFactorChange[7])
-            " />
-          </tr>
-          <tr>
-            <td>Freshwater use, m3</td>
-            <td v-text="toFixed(envFactors[8])" />
-            <td v-text="toPercentage(envFactorChange[8])" :data-percentage-direction="
-              percentageDirection(envFactorChange[8])
-            " />
-          </tr>
-          <tr>
-            <td>Extinction rate, E/MSY</td>
-            <td v-text="toFixed(envFactors[9])" />
-            <td v-text="toPercentage(envFactorChange[9])" :data-percentage-direction="
-              percentageDirection(envFactorChange[9])
-            " />
-          </tr>
-        </tbody>
-      </table>
+      <EnvironmentalResultsTable :absolute-values="envFactors"
+      :change-factors="envFactorChange" />
     </div>
   </aside>
 </template>
 
-<style lang="scss" scoped>
-@import "../styles/constants";
-
-.table {
-  table-layout: fixed;
-  border-collapse: collapse;
-  margin: 2em auto;
-  width: 100%;
-}
-
-th, td {
-  text-align: right;
-  padding: 0.5em 0.25em ;
-}
-
-th:first-child,
-td:first-child {
-  text-align: left;
-}
-
-[data-percentage-direction="inc"] {
-  &::before {
-    content: "+";
-  }
-
-  color: $red_plum;
-  font-weight: bold;
-}
-
-[data-percentage-direction="dec"] {
-  color: $green_olive;
-  font-weight: bold;
-}
-
-[data-percentage-direction="eq"] {
-  opacity: 0.5;
-}
-</style>
