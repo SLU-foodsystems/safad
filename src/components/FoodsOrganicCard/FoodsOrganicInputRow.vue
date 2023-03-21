@@ -76,7 +76,7 @@ export default defineComponent({
       <button
         v-if="hasChanged"
         class="u-faded button--subtle"
-        v-text="baseValue"
+        v-text="baseValue.toFixed(2)"
         @click="reset"
         title="Reset to base value"
       />
