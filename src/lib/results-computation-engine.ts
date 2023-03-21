@@ -1,11 +1,5 @@
 import { suaToFbsId } from "./foods-constants";
 
-type Tuple<T, N extends number> = N extends N ? number extends N ? T[] : _TupleOf<T, N, []> : never;
-type _TupleOf<T, N extends number, R extends unknown[]> = R['length'] extends N ? R : _TupleOf<T, N, [T, ...R]>;
-
-type EnvFactors = Tuple<number, 9>;
-type NutrFactors = Tuple<number, 36>;// yikes
-
 // If we think of this as a web-worker, we want to expose two functionalities,
 // each with two modes.
 //
@@ -23,7 +17,10 @@ type NutrFactors = Tuple<number, 36>;// yikes
 // 'incremntal' mode later. Maybe the computations are so fast it's not really
 // needed.
 
-const ENV_FACTORS_ZERO = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+const ENV_FACTORS_ZERO: EnvFactors = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+const NUTR_FACTORS_ZERO: NutrFactors = Array.from({ length: 36 }).map(
+  (_) => 0
+) as NutrFactors;
 
 function getWasteChangeFactor(factors: Factors) {
   return (
@@ -61,23 +58,31 @@ function getFbsLevelAmounts(amountValues: Record<string, number>) {
   return fbsAmounts;
 }
 
-/*
- {
-    [fbsId]: {
-      [country]: {
-        [...envFactors]: number,
-      }
-    }
- }
-*/
+function sumNutritionalFactors(
+  nutritionalFactors: Record<string, NutrFactors>,
+  amounts: Record<string, number>
+) {
+  const nutritionalImpacts = Object.fromEntries(
+    Object.keys(amounts).map((suaId) => [
+      suaId,
+      nutritionalFactors[suaId].map((val) => (val * amounts[suaId]) / 1e3),
+    ])
+  );
+
+  // (acc, suaId) => acc.map((sum, i) => sum + nutritionalFactors[suaId][i] * amounts[suaId] / 1e3),
+  const nutritionalImpactsSum = Object.values(nutritionalImpacts).reduce(
+    (acc, curr) => curr.map((x, i) => x + acc[i]),
+    NUTR_FACTORS_ZERO
+  );
+
+  return [nutritionalImpacts, nutritionalImpactsSum];
+}
 
 function sumEnvFactors(
+  envFactors: Record<string, Record<string, EnvFactors>>,
   grossFbsAmounts: Record<string, number>,
   originValues: Record<string, OriginMap>
 ) {
-  // Let's pretend we have values here
-  const envFactors = {} as Record<string, Record<string, EnvFactors>>;
-
   const envImpactByFbs = Object.entries(grossFbsAmounts).map(
     ([fbsId, amount]) => {
       const origins = Object.entries(originValues[fbsId]);
@@ -89,7 +94,7 @@ function sumEnvFactors(
           )
           // Join origins together
           .reduce(
-            (curr, prev) => prev.map((val, i) => val + curr[i]),
+            (acc, curr) => acc.map((val, i) => val + curr[i]),
             ENV_FACTORS_ZERO
           )
       );
@@ -104,32 +109,43 @@ function sumEnvFactors(
   return [envImpactByFbs, envImpactsSum];
 }
 
-// TODO: Continue from here
-export function main({
-  amountValues,
-  factors,
-  originValues,
-}: {
-  amountValues: Record<string, number>;
-  factors: Record<string, Factors>;
-  originValues: Record<string, OriginMap>;
-}) {
-  const grossAmounts = getGrossAmounts(amountValues, factors);
+// TODO: if performance turns out to be critical, we could
+// have a 'patch' function
+export default function main(
+  {
+    amount,
+    factors,
+    origin,
+  }: {
+    amount: Record<string, number>;
+    factors: Record<string, Factors>;
+    origin: Record<string, OriginMap>;
+  },
+  {
+    environmentalFactors,
+    nutritionalFactors,
+  }: {
+    environmentalFactors: Record<string, Record<string, EnvFactors>>;
+    nutritionalFactors: Record<string, NutrFactors>;
+  }
+) {
+  const grossAmounts = getGrossAmounts(amount, factors);
   const grossFbsAmounts = getFbsLevelAmounts(grossAmounts);
 
-  const netFbsAmounts = getFbsLevelAmounts(amountValues);
-
+  // Let's pretend we have values here
   const [envImpactByFbs, envImpactsSum] = sumEnvFactors(
+    environmentalFactors,
     grossFbsAmounts,
-    originValues
+    origin
   );
 
+  const [nutritionalImpactsBySua, nutritionalImpactsSum] =
+    sumNutritionalFactors(nutritionalFactors, amount);
 
-
-  // For now, just return the sum of the overall environmental impacts.
-
-  console.log(envImpactByFbs);
-  console.log(envImpactsSum);
-
-  // I need a json (from csv) with each <id, country, ....envFactors>
+  return {
+    envImpactByFbs,
+    envImpactsSum,
+    nutritionalImpactsBySua,
+    nutritionalImpactsSum,
+  };
 }
