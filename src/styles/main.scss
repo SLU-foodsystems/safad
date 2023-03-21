@@ -228,6 +228,41 @@ main {
   }
 }
 
+.results-pane {
+  $bg: $lightgray;
+  $fg: #000;
+
+  grid-area: results;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  background: $bg;
+  color: $fg;
+
+  box-shadow: -0.25em 0 1.5em -1em rgba(black, 0.5);
+
+  $border-radius: 0.5em;
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+
+  header,
+  footer {
+    padding: 1em 1em;
+  }
+
+  h1 {
+    color: $fg;
+    font-weight: bold;
+
+    font-size: 1.25em;
+    margin: 1em 0;
+    line-height: 1;
+    display: inline-block;
+  }
+}
+
 .page-wrap {
   width: 95%;
   max-width: $measure--wide;
