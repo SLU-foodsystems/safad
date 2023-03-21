@@ -91,7 +91,7 @@ export default defineComponent({
         class="u-faded button--subtle"
         title="Reset to base value"
         @click="reset"
-        v-text="baseValue"
+        v-text="baseValue.toFixed(2)"
       />
       <span class="cluster cluster--s-gap">
       <input
