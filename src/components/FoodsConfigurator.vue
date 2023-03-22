@@ -303,13 +303,16 @@ export default defineComponent({
 
   <aside class="results-pane stack">
     <header>
-      <h1>Results</h1>
+      <h1>Results Summary</h1>
     </header>
     <div class="stack">
       <EnvironmentalResultsTable :absolute-values="envFactors"
       :change-factors="envFactorChange" />
       <NutritionalResultsTable :absolute-values="nutrFactors" />
     </div>
+    <footer class="cluster">
+      <button class="button button--accent">Export Results</button>
+    </footer>
   </aside>
 </template>
 
