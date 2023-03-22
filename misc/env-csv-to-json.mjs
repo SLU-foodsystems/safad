@@ -38,7 +38,6 @@ const CSV_DELIM = ",";
 
 function main(args) {
   const csvPath = args[2];
-  console.log(csvPath);
   const fileContent = fs.readFileSync(csvPath, { encoding: "utf8" });
   // Drop the header
   const [_, ...rows] = fileContent.split("\n");
