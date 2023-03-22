@@ -12,6 +12,7 @@ import FoodsOrganicCard from "./FoodsOrganicCard/FoodsOrganicCard.vue";
 import TabsList from "./TabsList.vue";
 import FactorsOverrides from "./FactorsOverrides.vue";
 import EnvironmentalResultsTable from "./EnvironmentalResultsTable.vue";
+import NutritionalResultsTable from "./NutritionalResultsTable.vue";
 
 import foodsData from "../data/foods.json";
 import { exportCsv } from "../lib/csv-io";
@@ -57,6 +58,7 @@ export default defineComponent({
     FoodsOrganicCard,
     TabsList,
     EnvironmentalResultsTable,
+    NutritionalResultsTable,
   },
 
   props: {
@@ -75,6 +77,7 @@ export default defineComponent({
       disabled: generateIdValueMap(eatIds, () => false),
 
       envFactors: Array.from({ length: 10 }).map((_) => 0) as EnvFactors,
+      nutrFactors: Array.from({ length: 36 }).map((_) => 0) as NutrFactors,
 
       amountValues: JSON.parse(JSON.stringify(this.baseValues.amount)),
       amountHasError: generateIdValueMap(eatIds, () => false),
@@ -226,6 +229,7 @@ export default defineComponent({
         origin: this.originValues,
       });
       this.envFactors = results.envImpactsSum as EnvFactors;
+      this.nutrFactors = results.nutritionalImpactsSum as NutrFactors;
     },
   },
 
@@ -304,6 +308,7 @@ export default defineComponent({
     <div class="stack">
       <EnvironmentalResultsTable :absolute-values="envFactors"
       :change-factors="envFactorChange" />
+      <NutritionalResultsTable :absolute-values="nutrFactors" />
     </div>
   </aside>
 </template>
