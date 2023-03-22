@@ -30,84 +30,68 @@ export default defineComponent({
 </script>
 
 <template>
-  <table>
-    <thead>
-      <tr>
-        <th>Impact factor</th>
-        <th>Amount</th>
-        <th>Change</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Climate impact, kg CO2e</td>
-        <td v-text="toFixed(absoluteValues[0])" />
-        <td v-text="toPercentage(changeFactors[0])"
-          :data-percentage-direction="percentageDirection(changeFactors[0])" />
-      </tr>
-      <tr>
-        <td>Carbon dioxide, kg CO2</td>
-        <td v-text="toFixed(absoluteValues[1])" />
-        <td v-text="toPercentage(changeFactors[1])"
-          :data-percentage-direction="percentageDirection(changeFactors[1])" />
-      </tr>
-      <tr>
-        <td>Methane, kg CH4</td>
-        <td v-text="toFixed(absoluteValues[2])" />
-        <td v-text="toPercentage(changeFactors[2])"
-          :data-percentage-direction="percentageDirection(changeFactors[2])" />
-      </tr>
-      <tr>
-        <td>Nitrous oxide, kg N2O</td>
-        <td v-text="toFixed(absoluteValues[3])" />
-        <td v-text="toPercentage(changeFactors[3])"
-          :data-percentage-direction="percentageDirection(changeFactors[3])" />
-      </tr>
-      <tr>
-        <td>kg HCFs</td>
-        <td v-text="toFixed(absoluteValues[4])" />
-        <td v-text="toPercentage(changeFactors[4])"
-          :data-percentage-direction="percentageDirection(changeFactors[4])" />
-      </tr>
-      <tr>
-        <td>Cropland use, m2</td>
-        <td v-text="toFixed(absoluteValues[5])" />
-        <td v-text="toPercentage(changeFactors[5])"
-          :data-percentage-direction="percentageDirection(changeFactors[5])" />
-      </tr>
-      <tr>
-        <td>Nitrogen application, kg N</td>
-        <td v-text="toFixed(absoluteValues[6])" />
-        <td v-text="toPercentage(changeFactors[6])"
-          :data-percentage-direction="percentageDirection(changeFactors[6])" />
-      </tr>
-      <tr>
-        <td>Phosphorus application, kg P</td>
-        <td v-text="toFixed(absoluteValues[7])" />
-        <td v-text="toPercentage(changeFactors[7])"
-          :data-percentage-direction="percentageDirection(changeFactors[7])" />
-      </tr>
-      <tr>
-        <td>Freshwater use, m3</td>
-        <td v-text="toFixed(absoluteValues[8])" />
-        <td v-text="toPercentage(changeFactors[8])"
-          :data-percentage-direction="percentageDirection(changeFactors[8])" />
-      </tr>
-      <tr>
-        <td>Extinction rate, E/MSY</td>
-        <td v-text="toFixed(absoluteValues[9])" />
-        <td v-text="toPercentage(changeFactors[9])"
-          :data-percentage-direction="percentageDirection(changeFactors[9])" />
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <h2>Environmental Impact</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Impact factor</th>
+          <th>Amount</th>
+          <th>Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Climate impact, kg CO2e</th>
+          <td v-text="toFixed(absoluteValues[0])" />
+          <td v-text="toPercentage(changeFactors[0])"
+            :data-percentage-direction="percentageDirection(changeFactors[0])" />
+        </tr>
+        <tr>
+          <th scope="row">Cropland use, m2</th>
+          <td v-text="toFixed(absoluteValues[5])" />
+          <td v-text="toPercentage(changeFactors[5])"
+            :data-percentage-direction="percentageDirection(changeFactors[5])" />
+        </tr>
+        <tr>
+          <th scope="row">Nitrogen application, kg N</th>
+          <td v-text="toFixed(absoluteValues[6])" />
+          <td v-text="toPercentage(changeFactors[6])"
+            :data-percentage-direction="percentageDirection(changeFactors[6])" />
+        </tr>
+        <tr>
+          <th scope="row">Phosphorus application, kg P</th>
+          <td v-text="toFixed(absoluteValues[7])" />
+          <td v-text="toPercentage(changeFactors[7])"
+            :data-percentage-direction="percentageDirection(changeFactors[7])" />
+        </tr>
+        <tr>
+          <th scope="row">Freshwater use, m3</th>
+          <td v-text="toFixed(absoluteValues[8])" />
+          <td v-text="toPercentage(changeFactors[8])"
+            :data-percentage-direction="percentageDirection(changeFactors[8])" />
+        </tr>
+        <tr>
+          <th scope="row">Extinction rate, E/MSY</th>
+          <td v-text="toFixed(absoluteValues[9])" />
+          <td v-text="toPercentage(changeFactors[9])"
+            :data-percentage-direction="percentageDirection(changeFactors[9])" />
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 @import "../styles/constants";
 
+.table-container {
+  overflow-x: scroll;
+  padding: 0 1em;
+}
+
 table {
-  table-layout: fixed;
+  /* table-layout: fixed; */
   border-collapse: collapse;
   margin: 2em auto;
   width: 100%;
@@ -117,20 +101,25 @@ tr:hover {
   background: rgba(black, 0.1);
 }
 
-th {
+th,
+td {
+  text-align: right;
+}
+
+th:first-child {
   text-align: left;
+}
+
+td {
+  font-family: monospace;
+  font-size: 1.5em;
+  width: 10ch;
 }
 
 th,
 td {
   border: none;
   padding: 0.5rem 0.25rem;
-
-  &~& {
-    text-align: right;
-    font-family: monospace;
-    font-size: 1.5em;
-  }
 }
 
 [data-percentage-direction="inc"] {
