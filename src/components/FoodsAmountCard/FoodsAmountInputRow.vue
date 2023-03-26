@@ -67,7 +67,7 @@ export default defineComponent({
 <template>
   <div
     class="foods-accordion__row cluster cluster--between"
-    :class="{ 'has-changed': hasChanged, 'has-error': hasError, }"
+    :class="{ 'has-changed': hasChanged, 'has-error': hasError }"
   >
     <label :for="uniqueId" v-text="sua.name" />
 
@@ -80,17 +80,17 @@ export default defineComponent({
         title="Reset to base value"
       />
       <span class="cluster cluster--s-gap">
-      <input
-        type="text"
-        :id="uniqueId"
-        placeholder="0.00"
-        required="false"
-        pattern="^([0-9.,]*)$"
-        :class="{ 'has-error': hasError }"
-        v-model="rawValue"
-        @change="onChange"
-      />
-      <span class="u-faded">g</span>
+        <input
+          type="text"
+          :id="uniqueId"
+          placeholder="0.00"
+          required="false"
+          pattern="^([0-9.,]*)$"
+          :class="{ 'has-error': hasError }"
+          v-model="rawValue"
+          @change="onChange"
+        />
+        <span class="u-faded">g</span>
       </span>
     </span>
   </div>
