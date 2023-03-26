@@ -54,7 +54,7 @@ export default defineComponent({
 <template>
   <div class="table-container">
     <h2>Nutrition</h2>
-    <table class="table">
+    <table class="results-table">
       <thead>
         <tr>
           <th>Impact factor</th>
@@ -71,62 +71,3 @@ export default defineComponent({
     </table>
   </div>
 </template>
-
-<style lang="scss" scoped>
-@import "../styles/constants";
-
-.table-container {
-  overflow-x: scroll;
-  padding: 0 1em;
-}
-
-table {
-  /* table-layout: fixed; */
-  border-collapse: collapse;
-  margin: 2em auto;
-  width: 100%;
-}
-
-tr:hover {
-  background: rgba(black, 0.1);
-}
-
-th,
-td {
-  text-align: right;
-}
-
-th:first-child {
-  text-align: left;
-}
-
-td {
-  font-family: monospace;
-  font-size: 1.5em;
-  width: 10ch;
-}
-
-th,
-td {
-  border: none;
-  padding: 0.5rem 0.25rem;
-}
-
-[data-percentage-direction="inc"] {
-  color: $red_plum;
-  font-weight: bold;
-
-  &::before {
-    content: "+";
-  }
-}
-
-[data-percentage-direction="dec"] {
-  color: $green_olive;
-  font-weight: bold;
-}
-
-[data-percentage-direction="eq"] {
-  opacity: 0.5;
-}
-</style>
