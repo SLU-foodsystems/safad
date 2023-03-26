@@ -52,10 +52,11 @@ export default defineComponent({
       const target = event.target as HTMLInputElement;
       const value = inputValueToNumber(target.value);
 
-      const hasError = value < 0 || target.validity.patternMismatch;
+      const hasError =
+        Number.isNaN(value) || value < 0 || target.validity.patternMismatch;
       this.hasError = hasError;
 
-      if (!Number.isNaN(value)) {
+      if (!hasError) {
         this.emitUpdate(value, hasError);
       } else {
         this.emitUpdate(this.currentValue, hasError);

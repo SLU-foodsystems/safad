@@ -92,10 +92,12 @@ export default defineComponent({
 
       const clampedValue = Math.min(100, Math.max(0, value));
       const hasError =
-        value !== clampedValue || target.validity.patternMismatch;
+        Number.isNaN(value) ||
+        value !== clampedValue ||
+        target.validity.patternMismatch;
       this.hasError = hasError;
 
-      if (!Number.isNaN(value)) {
+      if (hasError) {
         this.emitUpdate(clampedValue, hasError);
       } else {
         this.emitUpdate(this.currentValue, hasError);
