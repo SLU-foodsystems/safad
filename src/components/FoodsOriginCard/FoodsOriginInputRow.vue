@@ -97,7 +97,7 @@ export default defineComponent({
         target.validity.patternMismatch;
       this.hasError = hasError;
 
-      if (hasError) {
+      if (!hasError) {
         this.emitUpdate(clampedValue, hasError);
       } else {
         this.emitUpdate(this.currentValue, hasError);
