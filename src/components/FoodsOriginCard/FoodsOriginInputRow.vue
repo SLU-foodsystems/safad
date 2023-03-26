@@ -116,16 +116,37 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="foods-accordion__row cluster foods__range-container" :class="{
-    'has-changed': hasChanged,
-    'has-error': hasError,
-  }">
+  <div
+    class="foods-accordion__row cluster foods__range-container"
+    :class="{
+      'has-changed': hasChanged,
+      'has-error': hasError,
+    }"
+  >
     <label :for="uniqueId" v-text="countryName" />
-    <input type="range" :id="uniqueId" min="0" step="0.01" max="100" v-model="rawValue" @input="onRangeInput"
-      @change="onChange" :disabled="disabled" />
+    <input
+      type="range"
+      :id="uniqueId"
+      min="0"
+      step="0.01"
+      max="100"
+      v-model="rawValue"
+      @input="onRangeInput"
+      @change="onChange"
+      :disabled="disabled"
+    />
     <div class="cluster cluster--s-gap">
-      <input type="text" placeholder="0.00" required="false" pattern="^([0-9.,]*)$" :id="uniqueId" v-model="rawValue"
-        @change="onChange" :class="{ 'has-error': hasError }" :disabled="disabled" />
+      <input
+        type="text"
+        placeholder="0.00"
+        required="false"
+        pattern="^([0-9.,]*)$"
+        :id="uniqueId"
+        v-model="rawValue"
+        @change="onChange"
+        :class="{ 'has-error': hasError }"
+        :disabled="disabled"
+      />
       %
     </div>
   </div>
