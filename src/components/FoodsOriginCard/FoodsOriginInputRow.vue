@@ -90,13 +90,9 @@ export default defineComponent({
       const target = event.target as HTMLInputElement;
       const value = inputValueToNumber(target.value);
 
-      // Check for errors: We report it as an error if it's invalid, or too
-      // large/small (outside of 0-100).
-      const clampedValue = Math.min(100, Math.max(0, value));
+      // Check for errors: We report it as an error if it's invalid or negative
       const hasError =
-        Number.isNaN(value) ||
-        value !== clampedValue ||
-        target.validity.patternMismatch;
+        Number.isNaN(value) || value < 0 || target.validity.patternMismatch;
       this.hasError = hasError;
 
       if (!hasError) {
@@ -104,13 +100,13 @@ export default defineComponent({
         // 'max', i.e. the allowed value for the sum of origins to add to a
         // 100%. We do this by 'simply' overwriting it, rather than flagging it
         // as an error, to mimic the behaviour of the range-slider.
-        let emittableValue = clampedValue;
-        if (clampedValue > this.max) {
-          emittableValue = this.max;
-          this.rawValue = emittableValue.toFixed(2);
+        let clampedValue = value;
+        if (value > this.max) {
+          clampedValue = this.max;
+          this.rawValue = clampedValue.toFixed(2);
         }
 
-        this.emitUpdate(emittableValue, hasError);
+        this.emitUpdate(clampedValue, hasError);
       } else {
         // Emit the last safe value
         this.emitUpdate(this.currentValue, hasError);
