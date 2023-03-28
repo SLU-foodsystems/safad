@@ -13,6 +13,7 @@ export default defineComponent({
       required: true,
     },
   },
+  emits: ["click:tab"],
   methods: {
     onKeyDown(event: KeyboardEvent) {
       switch (event.key) {

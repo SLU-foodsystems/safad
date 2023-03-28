@@ -61,7 +61,8 @@ export default defineComponent({
       <label>
         <span class="overrides__label">Production Waste</span>
         <span class="overrides__input-wrap">
-          <input type="text" v-model="productionWaste" :placeholder="placeholder" @change="onFieldUpdate('productionWaste')" />
+          <input type="text" v-model="productionWaste" :placeholder="placeholder"
+            @change="onFieldUpdate('productionWaste')" />
         </span>
       </label>
       <label>
@@ -73,7 +74,8 @@ export default defineComponent({
       <label>
         <span class="overrides__label">Consumer Waste</span>
         <span class="overrides__input-wrap">
-          <input type="text" :placeholder="placeholder" v-model="consumerWaste" @change="onFieldUpdate('consumerWaste')" />
+          <input type="text" :placeholder="placeholder" v-model="consumerWaste"
+            @change="onFieldUpdate('consumerWaste')" />
         </span>
       </label>
       <label>

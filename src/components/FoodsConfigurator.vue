@@ -1,27 +1,27 @@
 <script lang="ts">
 import { defineComponent, type PropType } from "vue";
-import { generateIdValueMap } from "@/lib/utils";
 
-import { eatIds, applyOverrides } from "../lib/foods-constants";
+import { exportCsv } from "@/lib/csv-io";
+import { eatIds } from "@/lib/foods-constants";
+import { applyFactorsOverrides, generateIdValueMap } from "@/lib/utils";
+import RM from "@/lib/ResultsManager";
 
 import FoodsAmountCard from "./FoodsAmountCard/FoodsAmountCard.vue";
 import FoodsFactorsCard from "./FoodsFactorsCard/FoodsFactorsCard.vue";
-import FoodsOriginCard from "./FoodsOriginCard/FoodsOriginCard.vue";
 import FoodsOrganicCard from "./FoodsOrganicCard/FoodsOrganicCard.vue";
+import FoodsOriginCard from "./FoodsOriginCard/FoodsOriginCard.vue";
 
-import TabsList from "./TabsList.vue";
-import FactorsOverrides from "./FactorsOverrides.vue";
 import EnvironmentalResultsTable from "./EnvironmentalResultsTable.vue";
+import FactorsOverrides from "./FactorsOverrides.vue";
 import NutritionalResultsTable from "./NutritionalResultsTable.vue";
+import TabsList from "./TabsList.vue";
 
 import foodsData from "../data/foods.json";
-import { exportCsv } from "../lib/csv-io";
-
-import RM from "../lib/ResultsManager";
-
-const eatGroups = foodsData.data as EAT[];
 
 type TabId = "amount" | "factors" | "origin" | "organic";
+type FactorsOverridesMode = "absolute" | "relative";
+
+const eatGroups = foodsData.data as EAT[];
 
 const tabs: { label: string; id: TabId; caption: string }[] = [
   {
@@ -90,7 +90,7 @@ export default defineComponent({
         consumerWaste: null as number | null,
         technicalImprovement: null as number | null,
       },
-      factorsOverridesMode: "absolute" as "relative" | "absolute",
+      factorsOverridesMode: "absolute" as FactorsOverridesMode,
 
       originValues: JSON.parse(JSON.stringify(this.baseValues.origin)),
       originHasError: generateIdValueMap(eatIds, () => false),
@@ -161,7 +161,7 @@ export default defineComponent({
     },
 
     exportCsv() {
-      const factors = applyOverrides(
+      const factors = applyFactorsOverrides(
         this.factorsOverridesMode,
         this.factorsOverrides,
         this.factorsValues
@@ -196,7 +196,7 @@ export default defineComponent({
       this.factorsOverrides[data.factor] = data.value;
       this.recomputeResults();
     },
-    setFactorsOverridesMode(mode: "relative" | "absolute") {
+    setFactorsOverridesMode(mode: FactorsOverridesMode) {
       this.factorsOverridesMode = mode;
       this.recomputeResults();
     },
@@ -221,7 +221,7 @@ export default defineComponent({
     recomputeResults() {
       const results = RM.compute({
         amount: this.amountValues,
-        factors: applyOverrides(
+        factors: applyFactorsOverrides(
           this.factorsOverridesMode,
           this.factorsOverrides,
           this.factorsValues
