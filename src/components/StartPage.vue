@@ -3,6 +3,15 @@ import { csvToStructuredJson } from "@/lib/csv-io";
 import { defineComponent } from "vue";
 type FileState = "initial" | "loading" | "loaded" | "error";
 
+const CountryBaseDietImports = import.meta.glob("../data/diets/*.json");
+
+const importCountryBaseDiet = (country: string) => {
+  const imprt = CountryBaseDietImports[`../data/diets/${country}.json`];
+  if (!imprt)
+    throw new Error("Could not find import for country-code " + country);
+  return imprt() as Promise<{ default: BaseValues }>;
+};
+
 export default defineComponent({
   emits: ["submit"],
 
@@ -57,17 +66,20 @@ export default defineComponent({
       this.fileState = "initial";
       (this.$refs.fileInput as HTMLInputElement).value = "";
     },
-    onSelectSubmit() {
+    async onSelectSubmit() {
       const country = (this.$refs.select as HTMLSelectElement).value;
+      try {
+        const { default: json } = await importCountryBaseDiet(country);
 
-      // Show loading indicator
-      // Validate that the 'country' value is a valid one.
-      // Fetch file depending on country
+        // Show loading indicator
+        // Validate that the 'country' value is a valid one.
+        // Fetch file depending on country
 
-      import("../data/original-values").then((module) => {
-        // csv to json - or maybe that's a build step?
-        this.$emit("submit", module.default);
-      });
+        this.$emit("submit", json);
+      } catch (err) {
+        console.error(err);
+        window.alert("Error occured when fetching country import");
+      }
     },
     onFileSubmit() {
       if (this.fileState !== "loaded") {
