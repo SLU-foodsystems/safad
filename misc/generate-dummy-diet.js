@@ -29,7 +29,7 @@ const r = {
       : 0
     ).toFixed(2),
   origin: (max = 5) => {
-    const n = 1 + Math.floor(Math.random() * (max));
+    const n = 1 + Math.floor(Math.random() * max);
 
     const res = {};
     let tot = 0;
@@ -53,7 +53,7 @@ const treatedFbsIds = new Set();
 const csvData = suaIds.map((suaId) => {
   const fbsId = suaToFbs[suaId];
 
-  if ( treatedFbsIds.has(fbsId) ) {
+  if (treatedFbsIds.has(fbsId)) {
     return [suaId, fbsId, r.amount(), r.p(), "", "", "", "", ""];
   }
 
@@ -81,7 +81,7 @@ const HEADER = [
   "Retail waste (%)",
   "Consumer waste (%)",
   "Technical Improvement (% y/y)",
-  "Origin"
-].join(",")
+  "Origin",
+].join(",");
 
 console.log(HEADER + "\n" + csvData.join("\n"));
