@@ -19,7 +19,7 @@ export default defineComponent({
       >
         <span class="cluster">
           <svg viewBox="0 0 8 10" aria-hidden="true" focusable="false">
-            <polygon points="0 0, 0 10, 8 5"/>
+            <polygon points="0 0, 0 10, 8 5" />
           </svg>
           <slot name="summary" />
         </span>
@@ -48,7 +48,6 @@ $pad-h: 0.5rem;
   margin: 0 auto;
   display: block;
 
-
   button {
     background: transparent;
     border: 0;
@@ -66,8 +65,9 @@ $pad-h: 0.5rem;
 
   [aria-expanded="true"] {
     border-bottom-color: transparent;
+
     svg {
-      transform: rotate(90deg)
+      transform: rotate(90deg);
     }
   }
 
@@ -126,5 +126,4 @@ $pad-h: 0.5rem;
     box-shadow: -0.5em 0 0 $yellow_resin;
   }
 }
-
 </style>
