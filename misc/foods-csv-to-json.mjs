@@ -26,8 +26,7 @@ import { splitCsvRow } from "./utils.mjs";
 function main(args) {
   const csvPath = args[2];
   const fileContent = fs.readFileSync(csvPath, { encoding: "utf8" });
-  const lines = fileContent.split("\n");
-  lines.pop();
+  const [header, ...lines] = fileContent.split("\n");
 
   const matrix = lines.map(row => splitCsvRow(row, CSV_DELIM));
 
