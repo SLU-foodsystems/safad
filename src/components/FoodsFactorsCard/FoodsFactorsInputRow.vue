@@ -1,6 +1,5 @@
 <script lang="ts">
-import { defineComponent } from "vue";
-import type { PropType } from "vue";
+import { defineComponent, type PropType } from "vue";
 import { inputValueToNumber, generateRandomId } from "@/lib/utils";
 
 export default defineComponent({
