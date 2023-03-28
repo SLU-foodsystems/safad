@@ -23,7 +23,7 @@ export default defineComponent({
     return {
       rawValue: String(this.currentValue),
       hasError: false,
-      uniqueId: generateRandomId("input-"),
+      uniqueId: "input-" + generateRandomId(),
     };
   },
 

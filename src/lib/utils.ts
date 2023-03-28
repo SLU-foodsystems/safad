@@ -25,8 +25,9 @@ export function inputValueToNumber(value: string): number {
 export const generateIdValueMap = <T>(ids: string[], defaultValue: () => T) =>
   Object.fromEntries(ids.map((id) => [id, defaultValue()]));
 
-export const generateRandomId = (prefix: string) =>
-  prefix + Math.floor(Math.random() * 1e8);
+// Generate a random sequence of alphanumeric characters
+export const generateRandomId = (): string =>
+  Math.random().toString(36).substring(2, 9);
 
 export const partition = <T>(array: T[], predicate: (el: T) => boolean) =>
   array.reduce(
