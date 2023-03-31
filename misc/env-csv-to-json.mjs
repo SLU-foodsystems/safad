@@ -50,7 +50,7 @@ function main(args) {
   // Populate results[fbsId][country] = [...envFactors]
   const result = {};
   matrix.forEach((fields) => {
-    const [_, fbs, country] = fields;
+    const [fbs, _, country] = fields;
     const N_FACTORS = 10;
     const envFactors = fields.slice(5, 5 + N_FACTORS);
 
