@@ -1,16 +1,25 @@
 <script lang="ts">
-import { csvToStructuredJson } from "@/lib/csv-io";
 import { defineComponent } from "vue";
+
+import { csvToStructuredJson } from "@/lib/csv-io";
+import FileInput from "./StartPageFileInput.vue";
+
 type FileState = "initial" | "loading" | "loaded" | "error";
 
 const CountryBaseDietImports = import.meta.glob("../data/diets/*.json");
 
 const importCountryBaseDiet = (country: string) => {
   const imprt = CountryBaseDietImports[`../data/diets/${country}.json`];
-  if (!imprt)
+  if (!imprt) {
     throw new Error("Could not find import for country-code " + country);
+  }
   return imprt() as Promise<{ default: BaseValues }>;
 };
+
+interface UserFile {
+  name: string;
+  data: string;
+}
 
 export default defineComponent({
   emits: ["submit"],
@@ -18,55 +27,48 @@ export default defineComponent({
   data() {
     return {
       fileState: "initial" as FileState,
-      fileName: null as string | null,
-      fileData: null as string | null,
-      useCustomFile: false,
+      baseDietFile: null as UserFile | null,
+      envFactorsFile: null as UserFile | null,
+      nutrFactorsFile: null as UserFile | null,
+      useCustomFiles: !false,
     };
   },
 
   methods: {
-    onFileChange(event: Event) {
-      const { files } = event.target as HTMLInputElement;
-      if (!files || files.length === 0) return;
-
-      const file = files[0];
-      if (!file) return;
-
-      this.fileState = "loading";
-
-      const fileName = file.name || "data.csv";
-      const reader = new FileReader();
-
-      // TODO: Handle errors
-      reader.addEventListener("error", (...args) => {
-        this.fileState = "error";
-        console.error(...args);
-      });
-      reader.addEventListener("load", () => {
-        this.attemptSetFileData(fileName, reader.result as string | null);
-      });
-      reader.readAsText(file);
-    },
-    attemptSetFileData(fileName: string, rawCsvText: string | null) {
+    parseBaseDietCsv(rawCsvText: string | null) {
       try {
-        if (rawCsvText === null) throw new Error("reader result was null");
-
         const structuredData = csvToStructuredJson(rawCsvText as string);
-        this.fileData = JSON.stringify(structuredData);
-        this.fileName = fileName;
-        this.fileState = "loaded";
+        return JSON.stringify(structuredData);
       } catch (err) {
         console.error(err);
-        alert("Failed parsing file!");
+        throw new Error("Failed parsing file!");
       }
     },
-    resetFileInput() {
-      this.fileData = null;
-      this.fileName = null;
-      this.fileState = "initial";
-      (this.$refs.fileInput as HTMLInputElement).value = "";
+
+    async submit() {
+      const country = (this.$refs.select as HTMLSelectElement).value;
+
+      const baseDietImport = this.baseDietFile
+        ? this.baseDietFile.data
+        : await importCountryBaseDiet(country);
+
+
+
+      // 1. Base Diet
+      // 2. Env
+      // 2. Env Org.
+      // 2. Nutr
+
+
+
+
+
+
     },
-    async onSelectSubmit() {
+
+
+
+    async onSimpleSubmit() {
       const country = (this.$refs.select as HTMLSelectElement).value;
       try {
         const { default: json } = await importCountryBaseDiet(country);
@@ -81,7 +83,7 @@ export default defineComponent({
         window.alert("Error occured when fetching country import");
       }
     },
-    onFileSubmit() {
+    onCustomSubmit() {
       if (this.fileState !== "loaded") {
         // TODO
         console.error(
@@ -98,10 +100,10 @@ export default defineComponent({
       // this.fileData = null? i.e. clean up ram.
     },
     onSubmit() {
-      if (this.useCustomFile) {
-        this.onFileSubmit();
+      if (this.useCustomFiles) {
+        this.onCustomSubmit();
       } else {
-        this.onSelectSubmit();
+        this.onSimpleSubmit();
       }
     },
   },
@@ -126,26 +128,25 @@ export default defineComponent({
         </select>
       </div>
       <label class="cluster">
-        <input type="checkbox" v-model="useCustomFile" />
-        Use custom base diet
+        <input type="checkbox" v-model="useCustomFiles" />
+        Upload custom diet and impact factors
       </label>
-      <div v-show="useCustomFile">
-        <!-- <p>Upload your own csv-file with base data. [get template here] </p> -->
-        <div class="file-input-container" v-show="useCustomFile">
-          <div v-show="fileState === 'initial'">
-            <input type="file" @change="onFileChange" accept=".csv" ref="fileInput" />
-          </div>
-          <div v-show="fileState === 'loaded'" class="cluster cluster--between">
-            <span class="cluster cluster--s-gap">
-              <img src="../assets/file.svg" width="45" height="58" />
-              {{ fileName }}
-            </span>
-            <button class="button--link" @click="resetFileInput">Reset</button>
-          </div>
-        </div>
+      <div v-show="useCustomFiles" class="stack">
+        <h3 class="u-visually-hidden">Custom files</h3>
+        <h4>Step 1: Base Diet</h4>
+        <p>Upload your own csv-file with assumed base diet. <a href="">Download example
+        file</a>.</p>
+        <FileInput file-name="baseDietFile.name"
+          @reset=""
+          :onload="onBaseDietFileLoad"
+        />
+        <h4>Step 2: Environmental and Nutritional Factors</h4>
+        <p>Upload your own csv-files with environmental impact factors and
+        nutritional values for each of the foods. <a>Download example
+        files</a>.</p>
       </div>
       <div class="cluster cluster--end">
-        <button class="button button--accent" :disabled="useCustomFile && fileState !== 'loaded'" @click="onSubmit">
+        <button class="button button--accent" :disabled="useCustomFiles && fileState !== 'loaded'" @click="onSubmit">
           Continue
         </button>
       </div>
@@ -184,58 +185,5 @@ export default defineComponent({
   height: 4em;
   margin: 0 auto;
   margin-bottom: 2em;
-}
-
-.file-input-container {
-  background: $gray;
-  padding: 1em;
-  border-radius: 0.25em;
-
-  button {
-    padding: 0 1em;
-  }
-
-  img {
-    height: 1em;
-    width: auto;
-    opacity: 0.5;
-    margin-right: 1ch;
-    user-select: none;
-  }
-}
-
-.divider {
-  position: relative;
-  width: 100%;
-  text-align: center;
-
-  &::before {
-    $h: 0.25em;
-    content: "";
-
-    position: absolute;
-    display: block;
-    z-index: -1;
-
-    top: 50%;
-    left: 0;
-    margin-top: ($h * -0.5);
-    width: 100%;
-    height: $h;
-
-    background: $gray;
-  }
-
-  &::after {
-    content: attr(data-label);
-    position: relative;
-    display: inline-block;
-    top: -0.125em;
-
-    margin: 0 auto;
-    padding: 0.25em 1em;
-
-    background: white;
-  }
 }
 </style>

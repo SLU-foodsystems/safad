@@ -5,13 +5,22 @@ import computeResults from "./results-computation-engine";
 type EnvFactorsMatrix = Record<string, Record<string, EnvFactors>>;
 type NutrFactorsMatrix = Record<string, NutrFactors>;
 
-class StatefulResultsManager {
+class ResultsManager {
   // Environmental factors by fbs and origin
-  envFactors: EnvFactorsMatrix;
-  nutrFactors: NutrFactorsMatrix;
+  envFactors: null | EnvFactorsMatrix;
+  nutrFactors: null | NutrFactorsMatrix;
 
-  constructor(envFactors: EnvFactorsMatrix, nutrFactors: NutrFactorsMatrix) {
+  constructor() {
+    this.envFactors = null;
+    this.nutrFactors = null;
+  }
+
+  // TODO: need some sort of check to make sure they match!
+  setEnvironmentalFactors(envFactors: EnvFactorsMatrix) {
     this.envFactors = envFactors;
+  }
+
+  setNutritionalFactors(nutrFactors: NutrFactorsMatrix) {
     this.nutrFactors = nutrFactors;
   }
 
@@ -21,31 +30,15 @@ class StatefulResultsManager {
     factors: Record<string, Factors>;
     origin: Record<string, OriginMap>;
   }) {
+    if (!this.envFactors || !this.nutrFactors) {
+      throw new Error("Env- or nutrient factors were unset");
+    }
+
     const environmentalFactors = this.envFactors;
     const nutritionalFactors = this.nutrFactors;
     return computeResults(values, { environmentalFactors, nutritionalFactors });
   }
 }
 
-const singleton = new StatefulResultsManager(
-  Object.fromEntries(
-    Object.entries(baseValues.origin).map(([fbsId, originMap]) => [
-      fbsId,
-      Object.fromEntries(
-        Object.keys(originMap as OriginMap).map((country) => [
-          country,
-          Array.from({ length: 10 }).map(
-            (_) => 0.5 + Math.random()
-          ) as EnvFactors,
-        ])
-      ),
-    ])
-  ),
-  Object.fromEntries(
-    Object.keys(baseValues.amount).map((suaId) => [
-      suaId,
-      Array.from({ length: 36 }).map((_) => 0.5 + Math.random()) as NutrFactors,
-    ])
-  )
-);
+const singleton = new ResultsManager();
 export default singleton;
