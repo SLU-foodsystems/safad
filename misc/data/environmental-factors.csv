@@ -1,0 +1,152 @@
+Item code (CPC),Food Balance Sheets (FBS) food categories  [2],Country of origin,Market share,Data source,"Climate impact, kg CO2e/kg","Carbon dioxide, kg CO2/kg","Methane, kg CH4/kg","Nitrous oxide, kg N2O/kg",kg HCFs/kg,"Cropland use, m2/kg","Nitrogen application, kg N/kg","Phosphorus application, kg P/kg","Freshwater use, m3/kg","Extinction rate, E/MSY/kg"
+2617,Apples and products,Sweden,0.16,Moberg et al. 2019 [5],0.13,0.10,4.36E-05,9.11E-05,0,0.63,0.003,4.00E-04,0.00E+00,4.43E-12
+2617,Apples and products,Italy,0.31,Moberg et al. 2019 [5],0.32,0.30,2.14E-05,4.57E-05,0,0.24,0.001,8.75E-04,4.20E-02,2.40E-10
+2617,Apples and products,Poland,0.1,Moberg et al. 2019 [5],0.42,0.40,4.30E-05,6.60E-05,0,0.58,0.002,1.20E-03,1.00E-03,2.30E-11
+2617,Apples and products,RoE,0.43,Moberg et al. 2019 [5],0.36,0.35,4.60E-05,4.80E-05,0,0.62,0.002,1.20E-03,2.10E-02,3.20E-10
+2615,Bananas,Costa Rica,0.22,Moberg et al. 2019 [5],0.50,0.41,7.70E-05,3.12E-04,0,0.19,0.008,1.90E-03,6.30E-02,1.20E-09
+2615,Bananas,Ecuador,0.21,Moberg et al. 2019 [5],0.50,0.41,7.62E-05,3.05E-04,0,0.27,0.008,5.50E-04,5.00E-02,1.40E-09
+2615,Bananas,Dominican Republic,0.19,Moberg et al. 2019 [5],0.42,0.39,2.50E-05,9.30E-05,0,0.25,0.003,1.50E-03,2.50E-02,3.90E-09
+2615,Bananas,RoW,0.38,Moberg et al. 2019 [5],0.50,0.49,2.01E-05,5.19E-05,0,0.48,0.002,0.00E+00,4.60E-02,4.30E-09
+2513,Barley and products,Sweden ,1,Moberg et al. 2019 [5],0.81,0.54,1.29E-04,9.43E-04,0,0.77,0.007,4.20E-04,4.60E-02,5.40E-12
+2656,Beer,Sweden,0.76,"Moberg et al. 2019 [5], average value used as separate values per countries not available",0.37,0.32,2.50E-05,1.80E-04,0,0.44,0.004,2.45E-04,8.27E-04,3.09E-12
+2656,Beer,Denmark,0.09,"Moberg et al. 2019 [5], average value used as separate values per countries not available",0.37,0.32,2.50E-05,1.80E-04,0,0.44,0.004,2.45E-04,8.27E-04,3.09E-12
+2656,Beer,RoE,0.15,"Moberg et al. 2019 [5], average value used as separate values per countries not available",0.37,0.32,2.50E-05,1.80E-04,0,0.44,0.004,2.45E-04,8.27E-04,3.09E-12
+2658,"Beverages, Alcoholic",,,Average beer and wine,,,,,,,,,,
+2657,"Beverages, Fermented",,,Approx. with beer (S2656),,,,,,,,,,
+2731,Bovine Meat,Sweden ,0.54,"Moberg et al. 2019 [5], carcass weight at farmgate + slaughter/packaging/transports",19.90,2.38,4.87E-01,1.56E-02,0,14.49,0.382,9.69E-03,5.09E-02,3.49E-10
+2731,Bovine Meat,"Ireland, suckler cows and offsprings",0.11,"Moberg et al. 2019 [5], carcass weight at farmgate + slaughter/packaging/transports",24.20,4.73,4.78E-01,2.37E-02,0,25.47,0.818,2.23E-02,9.41E-02,3.73E-09
+2731,Bovine Meat,"Ireland, culled dairy cows",0.01,"Moberg et al. 2019 [5], carcass weight at farmgate + slaughter/packaging/transports",10.53,1.53,2.30E-01,1.00E-02,0,9.39,0.326,1.27E-02,2.84E-02,2.03E-09
+2731,Bovine Meat,"Germany and Poland, culled dairy cows ",0.05,"Moberg et al. 2019 [5], carcass weight at farmgate + slaughter/packaging/transports",9.96,2.88,1.71E-01,8.89E-03,0,20.37,0.459,1.38E-02,3.76E-02,1.32E-09
+2731,Bovine Meat,"Germany and Poland, heifers",0.02,"Moberg et al. 2019 [5], carcass weight at farmgate + slaughter/packaging/transports",20.13,4.27,4.39E-01,1.44E-02,0,30.31,0.819,1.41E-02,1.20E-01,2.20E-09
+2731,Bovine Meat,"Germany and Poland, bulls ",0.07,"Moberg et al. 2019 [5], carcass weight at farmgate + slaughter/packaging/transports",15.90,5.80,2.45E-01,1.26E-02,0,26.51,0.532,1.58E-02,7.05E-02,9.68E-10
+2731,Bovine Meat,RoE,0.16,Moberg et al. 2019 [5],21.98,4.89,4.88E-01,1.39E-02,0,22.42,0.705,1.50E-02,9.95E-02,6.49E-10
+2731,Bovine Meat,RoW,0.04,Moberg et al. 2019 [5],24.81,2.34,5.99E-01,2.26E-02,0,0.00,0.902,2.23E-02,1.10E-01,2.33E-09
+2740,"Butter, Ghee",Sweden ,0.84,Moberg et al. 2019 [5],10.47,2.12,2.08E-01,9.84E-03,0,22.88,0.536,1.78E-02,5.17E-02,6.54E-10
+2740,"Butter, Ghee",RoE,0.16,Moberg et al. 2019 [5],11.76,3.41,2.08E-01,9.85E-03,0,22.88,0.536,1.78E-02,5.17E-02,6.54E-10
+2520,"Cereals, Other",,,Average of all cereals,,,,,,,,,,
+2614,"Citrus, Other",,,Average of all citrus fruits,,,,,,,,,,
+2633,Cocoa Beans and products,Ivory Coast,0.39,Moberg et al. 2019 [5],1.43,0.91,1.00E-03,1.80E-03,0,44.00,0.110,2.30E-02,0.00E+00,1.10E-08
+2633,Cocoa Beans and products,Ghana,0.17,Moberg et al. 2019 [5],0.65,0.44,0.00E+00,7.70E-04,0,45.00,0.000,2.70E-01,0.00E+00,8.30E-09
+2633,Cocoa Beans and products,Indonesia,0.12,Moberg et al. 2019 [5],4.60,2.80,5.00E-03,6.10E-03,0,59.00,0.560,3.30E-01,0.00E+00,9.60E-08
+2633,Cocoa Beans and products,RoW,0.32,Moberg et al. 2019 [5],1.72,1.12,1.23E-03,2.08E-03,0,52.00,0.140,1.90E-01,9.20E-03,3.60E-08
+2630,Coffee and products,Brazil,0.34,Moberg et al. 2019 [5],2.20,1.59,7.97E-04,2.18E-03,0,8.45,0.068,4.20E-02,2.20E-01,3.50E-09
+2630,Coffee and products,Peru,0.10,Moberg et al. 2019 [5],3.98,2.40,2.05E-03,5.59E-03,0,16.00,0.200,3.70E-02,0.00E+00,1.50E-08
+2630,Coffee and products,RoW,0.56,Moberg et al. 2019 [5],4.04,2.46,2.02E-03,5.58E-03,0,13.91,0.195,3.74E-02,1.39E-01,5.70E-09
+2743,Cream,Sweden,0.9,Moberg et al. 2019 [5],5.34,1.10,1.06E-01,5.00E-03,0,11.62,0.272,9.07E-03,2.62E-02,3.32E-10
+2743,Cream,RoE,0.1,Moberg et al. 2019 [5],6.08,1.83,1.06E-01,5.00E-03,0,11.62,0.272,9.07E-03,2.62E-02,3.32E-10
+2765,Crustaceans (Northern Prawn),Norway and Denmark,1,Moberg et al. 2019 [5],12.11,10.60,4.56E-03,2.77E-04,6.67E-04,,,,,
+2619,Dates,Iran,0.42,Moberg et al. 2019 [5],2.10,0.77,6.57E-04,4.81E-03,0,1.63,0.000,3.54E-02,2.28E+00,1.82E-10
+2619,Dates,Saudi Arabia,0.11,Moberg et al. 2019 [5],2.10,0.77,6.57E-04,4.81E-03,0,1.14,0.000,3.54E-02,3.04E+00,1.86E-11
+2619,Dates,RoW,0.47,Moberg et al. 2019 [5],2.10,0.77,6.57E-04,4.81E-03,0,1.38,0.000,3.54E-02,1.25E+00,8.79E-11
+2762,"Demersal Fish (Cod, saithe and European plaice)",Cod,0.66,Moberg et al. 2019 [5],2.48,1.97,8.72E-04,5.29E-05,2.40E-04,0.00,0.000,0.00E+00,0.00E+00,0.00E+00
+2762,"Demersal Fish (Cod, saithe and European plaice)",Saithe,0.24,Moberg et al. 2019 [5],1.78,1.28,5.67E-04,3.44E-05,2.40E-04,0.00,0.000,0.00E+00,0.00E+00,0.00E+00
+2762,"Demersal Fish (Cod, saithe and European plaice)",European Plaice,0.1,Moberg et al. 2019 [5],9.38,8.74,3.87E-03,2.35E-04,2.40E-04,0.00,0.000,0.00E+00,0.00E+00,0.00E+00
+2744,Eggs,Sweden,0.94,Moberg et al. 2019 [5],2.09,1.22,2.68E-03,2.93E-03,0,4.65,0.062,6.95E-03,2.15E-02,2.33E-10
+2744,Eggs,RoE,0.06,Moberg et al. 2019 [5],2.46,1.59,2.68E-03,2.93E-03,0,4.65,0.062,6.95E-03,2.15E-02,2.33E-10
+2737,"Fats, Animals, Raw",,,Average of red meat,,,,,,,,,,
+2761,Freshwater Fish (Salmon),Norway,1,Moberg et al. 2019 [5],2.76,1.65,2.72E-04,4.04E-03,0,2.83,0.042,5.57E-03,2.40E-02,2.92E-10
+2625,"Fruits, Other",,,Average of fruits,,,,,,,,,,
+2613,Grapefruit and products,Israel,0.17,Moberg et al. 2019 [5],0.61,0.58,1.19E-05,1.03E-04,0,17.56,0.032,1.53E-02,5.09E-01,2.75E-08
+2613,Grapefruit and products,South Africa,0.12,Moberg et al. 2019 [5],0.60,0.58,1.04E-05,9.05E-05,0,3.33,0.005,1.32E-02,4.66E-02,7.95E-10
+2613,Grapefruit and products,RoW,0.71,Moberg et al. 2019 [5],0.73,0.57,3.84E-04,5.59E-04,0,6.00,0.018,3.60E-02,1.80E-01,1.03E-09
+2620,Grapes and products (excl wine),Spain,0.1,Moberg et al. 2019 [5],0.44,0.41,4.54E-04,8.29E-05,0,1.51,0.002,1.33E-03,3.23E-02,1.54E-09
+2620,Grapes and products (excl wine),The Netherlands,0.19,Moberg et al. 2019 [5],0.29,0.26,4.54E-04,8.29E-05,0,1.79,0.002,1.33E-03,0.00E+00,3.97E-11
+2620,Grapes and products (excl wine),United States,0.13,Moberg et al. 2019 [5],0.54,0.51,4.54E-04,8.29E-05,0,0.58,0.002,1.33E-03,2.10E-01,9.95E-11
+2620,Grapes and products (excl wine),RoW,0.58,Moberg et al. 2019 [5],0.64,0.61,0.00,0.00,0.00,0.94,0.00,0.00,0.10,0.00
+2552,Groundnuts (Shelled Eq),USA,0.11,Moberg et al. 2019 [5],1.49,1.09,0.00,0.00,0.00,9.62,0.10,0.05,0.35,0.00
+2552,Groundnuts (Shelled Eq),RoW,0.89,Moberg et al. 2019 [5],1.59,1.19,0.00,0.00,0.00,8.25,0.10,0.01,0.21,0.00
+2745,Honey,Sweden,0.41,ecoinvent from Moberg et al. 2021 [6],1.66,1.66,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+2745,Honey,Danmark,0.21,ecoinvent from Moberg et al. 2021 [6],1.72,1.72,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+2745,Honey,Frankrike,0.14,ecoinvent from Moberg et al. 2021 [6],1.78,1.78,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+2745,Honey,Belgium,0.12,ecoinvent from Moberg et al. 2021 [6],1.78,1.78,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+2745,Honey,RoW,0.12,ecoinvent from Moberg et al. 2021 [6],2.46,2.46,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+2611,"Lemons, Limes and products",Spain,0.56,Moberg et al. 2019 [5],0.39,0.34,0.00,0.00,0.00,0.45,0.01,0.00,0.16,0.00
+2611,"Lemons, Limes and products",RoE,0.44,Moberg et al. 2019 [5],0.36,0.32,5.21E-05,1.61E-04,0,0.55,0.006,0.00E+00,1.59E-01,9.36E-10
+2514,Maize and products,Poland,0.3,Moberg et al. 2019 [5],0.72,0.57,6.94E-04,5.01E-04,0,1.55,0.013,4.36E-03,3.74E-03,6.07E-11
+2514,Maize and products,Russia,0.18,Moberg et al. 2019 [5],1.14,0.99,6.94E-04,5.01E-04,0,2.02,0.017,5.85E-03,5.72E-01,2.60E-11
+2514,Maize and products,Lithuania,0.16,Moberg et al. 2019 [5],0.67,0.52,6.94E-04,5.01E-04,0,1.62,0.003,9.69E-04,1.41E-03,1.86E-11
+2514,Maize and products,RoW,0.36,Moberg et al. 2019 [5],1.04,0.89,6.94E-04,5.01E-04,0,1.55,0.017,5.85E-03,8.12E-02,3.29E-11
+2732,"Meat, Other",,,Average of meat,0.00,,,,,,,,,
+2848,Milk - Excluding Butter,Sweden,1,Moberg et al. 2019 [5],1.16,0.31,2.11E-02,1.00E-03,0,2.32,0.054,1.81E-03,5.25E-03,6.65E-11
+2732,Mutton & Goat Meat,Sweden,0.33,Moberg et al. 2020 [7],19.90,2.38,4.87E-01,1.56E-02,0,33.00,0.210,3.70E-02,1.62E-01,1.09E-09
+2732,Mutton & Goat Meat,Ireland,0.18,Moberg et al. 2020 [7],24.20,4.73,4.78E-01,2.37E-02,0,4.56,0.210,3.70E-02,1.69E-01,3.16E-09
+2732,Mutton & Goat Meat,New Zealand,0.20,Moberg et al. 2020 [7],24.20,4.73,4.78E-01,2.37E-02,0,18.78,0.210,3.70E-02,1.97E-01,2.20E-07
+2732,Mutton & Goat Meat,RoW,0.29,Moberg et al. 2020 [7],24.20,4.73,4.78E-01,2.37E-02,0,18.78,0.210,3.70E-02,2.07E-01,7.49E-08
+2551,Nuts and products,China,0.43,"Moberg et al. 2019, data for almonds",3.29,2.25,6.27E-03,3.18E-03,0,5.56,0.179,0.00E+00,4.53E+00,9.54E-10
+2551,Nuts and products,RoW,0.57,"Moberg et al. 2019, data for almonds",3.69,2.59,9.01E-03,3.13E-03,0,15.49,0.177,0.00E+00,4.24E+00,1.44E-08
+2516,Oats,Sweden,1,Moberg et al. 2019 [5],0.78,0.55,1.24E-04,8.54E-04,0,2.91,0.018,2.14E-03,3.88E-04,2.06E-11
+2736,"Offals, Edible",,,Average of red meat,,,,,,,,,,
+2586,"Oilcrops Oil, Other",,,Average of vegetable oils,,,,,,,,,,
+2580,Olive Oil,Greece,0.1,Moberg et al. 2019 [5],2.08,1.45,9.71E-04,2.20E-03,0,15.68,0.060,6.03E-02,1.09E+00,2.24E-08
+2580,Olive Oil,Italy,0.56,Moberg et al. 2019 [5],2.82,1.77,1.33E-03,3.72E-03,0,23.37,0.094,3.14E-02,6.32E-01,2.38E-08
+2580,Olive Oil,Spain,0.28,Moberg et al. 2019 [5],1.78,1.46,1.02E-03,1.05E-03,0,18.64,0.060,6.00E-02,2.69E+00,3.16E-08
+2580,Olive Oil,RoE,0.06,Moberg et al. 2019 [5],1.96,1.50,1.04E-03,1.58E-03,0,19.63,0.060,6.04E-02,1.47E+00,2.71E-08
+2563,Olives (including preserved),Greece,0.32,Moberg et al. 2019 [5],0.92,0.79,1.94E-04,4.40E-04,0,3.12,0.012,1.20E-02,2.18E-01,4.46E-09
+2563,Olives (including preserved),Spain,0.54,Moberg et al. 2019 [5],0.78,0.72,2.04E-04,2.10E-04,0,3.73,0.012,1.20E-02,5.37E-01,6.31E-09
+2563,Olives (including preserved),RoE,0.14,Moberg et al. 2019 [5],0.79,0.72,2.04E-04,2.10E-04,0,3.90,0.012,1.20E-02,2.94E-01,5.39E-09
+2602,Onions,Sweden,0.68,Moberg et al. 2019 [5],0.22,0.19,1.60E-05,1.20E-04,0,0.21,0.003,9.40E-04,2.90E-02,1.50E-12
+2602,Onions,The Netherlands,0.17,Moberg et al. 2019 [5],0.31,0.27,2.70E-05,1.40E-04,0,0.21,0.003,1.70E-03,4.50E-03,4.70E-12
+2602,Onions,RoE,0.15,Moberg et al. 2019 [5],0.43,0.40,2.90E-05,1.20E-04,0,0.36,0.003,4.00E-03,1.70E-02,5.30E-12
+2611,"Oranges, Mandarines",Spain,0.44,Moberg et al. 2019 [5],0.39,0.34,9.24E-05,2.01E-04,0,0.45,0.012,3.41E-03,1.60E-01,7.71E-10
+2611,"Oranges, Mandarines",RoW,0.56,Moberg et al. 2019 [5],0.57,0.52,6.70E-05,1.70E-04,0,0.55,0.006,2.17E-03,1.10E-01,9.36E-10
+2577,Palm Oil,Malaysia,0.51,Moberg et al. 2019 [5],4.24,4.01,5.63E-04,8.14E-04,0,2.22,0.022,9.97E-03,0.00E+00,4.24E-09
+2577,Palm Oil,Indonesia,0.1,Moberg et al. 2019 [5],4.21,3.99,5.24E-04,7.74E-04,0,2.49,0.024,7.47E-03,0.00E+00,4.04E-09
+2577,Palm Oil,RoW,0.39,Moberg et al. 2019 [5],4.21,3.99,5.24E-04,7.74E-04,0,2.95,0.027,5.44E-03,9.92E-04,5.63E-09
+2547,Peas,Sweden,1,Moberg et al. 2019 [5],0.53,0.48,4.76E-05,2.06E-04,0,2.87,0.018,3.16E-03,5.50E-03,2.03E-11
+2763,Pelagic Fish (Herring and mackerel),Herring,0.68,Moberg et al. 2019 [5],0.32,0.27,1.21E-04,7.37E-06,2.30E-05,,,,,
+2763,Pelagic Fish (Herring and mackerel),Mackarel,0.32,Moberg et al. 2019 [5],0.19,0.14,6.40E-05,3.88E-06,2.30E-05,,,,,
+2733,Pigmeat,Sweden,0.7,"Moberg et al. 2019 [5], carcass weight at farmgate + slaughter/packaging/transports",3.57,1.86,1.55E-02,4.69E-03,0,7.52,0.091,8.76E-03,1.95E-01,1.19E-10
+2733,Pigmeat,Denmark,0.1,"Moberg et al. 2019 [5], carcass weight at farmgate + slaughter/packaging/transports",3.82,1.98,1.76E-02,5.00E-03,0,7.83,0.095,9.13E-03,2.14E-01,3.65E-10
+2733,Pigmeat,Germany,0.12,"Moberg et al. 2019 [5], carcass weight at farmgate + slaughter/packaging/transports",5.13,2.79,2.98E-02,5.58E-03,0,8.02,0.097,9.35E-03,1.88E-01,2.96E-10
+2733,Pigmeat,RoE,0.08,"Moberg et al. 2019 [5], carcass weight at farmgate + slaughter/packaging/transports",4.81,2.85,2.10E-02,5.09E-03,0,7.79,0.094,9.08E-03,1.99E-01,2.60E-10
+2641,Pimento,The Netherlands,0.6,"Moberg et al. 2019, data for peppar",2.71,2.41,9.89E-03,1.47E-04,0,0.04,0.002,0.00E+00,0.00E+00,8.11E-13
+2641,Pimento,"Spain, Greenhouse",0.11,"Moberg et al. 2019, data for peppar",0.37,0.35,3.23E-05,7.90E-05,0,0.14,0.005,0.00E+00,0.00E+00,2.34E-10
+2641,Pimento,"Spain, Open Field",0.13,"Moberg et al. 2019, data for peppar",0.42,0.39,3.43E-05,9.66E-05,0,0.18,0.005,0.00E+00,0.00E+00,2.97E-10
+2641,Pimento,"RoE, Greenhouse",0.04,"Moberg et al. 2019, data for peppar",1.58,1.42,4.95E-03,8.98E-05,0,0.24,0.002,0.00E+00,0.00E+00,2.76E-10
+2641,Pimento,"RoE, Open field",0.12,"Moberg et al. 2019, data for peppar",0.41,0.39,1.88E-05,9.29E-05,0,0.26,0.002,0.00E+00,0.00E+00,2.95E-10
+2618,Pineapples and products,Costa Rica,0.16,Moberg et al. 2019 [5],0.42,0.39,1.35E-04,1.09E-04,0,0.15,0.003,1.46E-03,5.50E-03,9.35E-10
+2618,Pineapples and products,RoW,0.84,Moberg et al. 2019 [5],0.52,0.49,1.35E-04,1.09E-04,0,0.40,0.003,1.40E-03,8.92E-03,2.56E-09
+2616,Plantains,Dominican Republic,0.1,"Approx. with bananas for climate, rest from Moberg et al. 2020",0.42,0.39,0.00,0.00,0,0.48,0.004,3.84E-03,1.25E-02,7.56E-09
+2616,Plantains,RoW,0.9,"Approx. with bananas for climate, rest from Moberg et al. 2020",0.50,0.49,0.00,0.00,0,1.44,0.011,1.15E-02,2.70E-02,2.26E-08
+2531,Potatoes and products,Sweden,0.84,Moberg et al. 2019 [5],0.23,0.19,1.62E-05,1.30E-04,0,0.29,0.003,1.06E-03,9.05E-03,2.07E-12
+2531,Potatoes and products,RoE,0.16,Moberg et al. 2019 [5],0.47,0.41,4.92E-05,1.97E-04,0,0.47,0.006,4.00E-03,1.25E-02,1.07E-11
+2734,Poultry Meat,Sweden,0.71,"Moberg et al. 2019 [5], carcass weight at farmgate + slaughter/packaging/transports",2.46,1.55,1.87E-03,3.14E-03,0,5.89,0.080,9.38E-03,3.28E-02,3.50E-10
+2734,Poultry Meat,Denmark,0.19,"Moberg et al. 2019 [5], carcass weight at farmgate + slaughter/packaging/transports",2.70,1.70,2.34E-03,3.42E-03,0,6.05,0.082,9.63E-03,3.24E-02,5.09E-10
+2734,Poultry Meat,RoE,0.1,"Moberg et al. 2019 [5], carcass weight at farmgate + slaughter/packaging/transports",3.18,2.22,2.12E-03,3.28E-03,0,5.97,0.081,9.51E-03,3.26E-02,4.29E-10
+2549,"Pulses, Other and products",,,Approx. with peas,,,,,,,,,,
+2574,Rape and Mustard Oil,Sweden,0.42,Moberg et al. 2019 [5],2.02,1.16,5.14E-04,3.08E-03,0,5.72,0.080,5.29E-03,0.00E+00,4.05E-11
+2574,Rape and Mustard Oil,Belgium,0.23,Moberg et al. 2019 [5],3.42,1.99,1.17E-03,5.13E-03,0,3.95,0.059,1.98E-02,0.00E+00,8.87E-11
+2574,Rape and Mustard Oil,Denmark,0.22,Moberg et al. 2019 [5],3.47,1.78,7.33E-04,6.15E-03,0,4.27,0.047,1.16E-02,0.00E+00,1.66E-10
+2574,Rape and Mustard Oil,RoE,0.13,Moberg et al. 2019 [5],3.88,2.45,1.61E-03,5.06E-03,0,5.92,0.088,3.60E-02,4.16E-01,1.35E-10
+2807,Rice (Milled Equivalent),Thailand,0.16,Moberg et al. 2019 [5],3.58,1.52,6.10E-02,1.44E-03,0,5.57,0.053,1.84E-02,6.30E-01,2.69E-09
+2807,Rice (Milled Equivalent),Italy,0.14,Moberg et al. 2019 [5],3.86,1.48,7.75E-02,1.02E-03,0,2.53,0.032,1.77E-02,7.42E-01,2.58E-09
+2807,Rice (Milled Equivalent),RoW,0.7,Moberg et al. 2019 [5],2.61,1.59,2.48E-02,1.26E-03,0,3.67,0.049,7.23E-03,5.72E-01,2.76E-09
+2515,Rye and products,Sweden,1,Moberg et al. 2019 [5],0.74,0.53,1.13E-04,7.82E-04,0,1.96,0.018,1.24E-03,0.00E+00,1.39E-11
+2571,Soyabean Oil,United States,0.32,Moberg et al. 2019 [5],2.18,1.79,4.74E-04,1.40E-03,0,6.00,0.142,3.60E-02,1.80E-01,1.03E-09
+2571,Soyabean Oil,Brazil,0.29,Moberg et al. 2019 [5],2.32,1.76,6.25E-04,1.99E-03,0,6.44,0.163,3.22E-02,1.62E-03,2.66E-09
+2571,Soyabean Oil,Argentina,0.17,Moberg et al. 2019 [5],1.99,1.66,3.89E-04,1.15E-03,0,6.63,0.062,3.31E-03,1.03E-02,5.89E-10
+2571,Soyabean Oil,RoW,0.22,Moberg et al. 2019 [5],2.13,1.71,3.49E-04,1.49E-03,0,7.26,0.119,1.61E-02,1.37E-01,1.63E-09
+2555,Soyabeans,United States,0.32,Moberg et al. 2019 [5],1.18,0.98,2.44E-04,7.22E-04,0,3.09,0.073,1.85E-02,9.24E-02,5.29E-10
+2555,Soyabeans,Brazil,0.29,Moberg et al. 2019 [5],1.25,0.96,3.22E-04,1.02E-03,0,3.31,0.084,1.65E-02,8.32E-04,1.37E-09
+2555,Soyabeans,Argentina,0.17,Moberg et al. 2019 [5],1.08,0.91,2.00E-04,5.92E-04,0,3.41,0.032,1.70E-03,5.31E-03,3.03E-10
+2555,Soyabeans,RoW,0.22,Moberg et al. 2019 [5],1.20,0.98,1.79E-04,7.68E-04,0,3.74,0.061,8.28E-03,7.03E-02,8.39E-10
+2645,"Spices, Other",,,"Approx. with vegetables, other",,,,,,,,,,
+2542,Sugar (Raw Equivalent),Sweden,1,Moberg et al. 2019 [5],1.07,0.89,2.39E-04,6.16E-04,0,1.17,0.011,1.95E-03,2.42E-02,8.27E-12
+2573,Sunflowerseed Oil,France,0.33,"Approx. with rapeseed oil for climate, rest from Moberg et al. 2020",3.88,2.45,0.00,0.01,0,9.08,0.118,7.27E-02,2.23E-02,2.62E-09
+2573,Sunflowerseed Oil,RoW,0.67,"Approx. with rapeseed oil for climate, rest from Moberg et al. 2020",3.88,2.45,0.00,0.01,0,11.69,0.152,9.35E-02,3.03E-01,3.37E-09
+2543,"Sweeteners, Other",,,Average honey and sugar,,,,,,,,,,
+2635,Tea (including mate),China,0.41,Moberg et al. 2019 [5],5.75,4.72,2.35E-02,1.40E-03,0,9.31,0.121,4.65E-02,7.98E-01,1.55E-09
+2635,Tea (including mate),India,0.22,Moberg et al. 2019 [5],5.27,4.54,1.09E-02,1.58E-03,0,4.71,0.038,6.49E-03,1.33E+00,2.66E-09
+2635,Tea (including mate),RoW,0.37,Moberg et al. 2019 [5],5.27,4.54,1.09E-02,1.58E-03,0,6.75,0.038,6.49E-03,8.98E-01,2.47E-09
+2601,Tomatoes and products,Sweden,0.08,Moberg et al. 2019 [5],0.76,0.69,1.27E-03,1.27E-04,0,0.03,0.003,8.25E-04,2.00E-03,1.79E-13
+2601,Tomatoes and products,The Netherlands,0.56,Moberg et al. 2019 [5],1.57,1.39,5.32E-03,1.12E-04,0,0.02,0.002,0.00E+00,0.00E+00,4.40E-13
+2601,Tomatoes and products,"Spain, greenhose",0.08,Moberg et al. 2019 [5],0.36,0.34,2.48E-05,6.07E-05,0,0.10,0.004,1.55E-03,2.30E-02,1.77E-10
+2601,Tomatoes and products,"Spain, open-field",0.13,Moberg et al. 2019 [5],0.41,0.39,2.73E-05,6.97E-05,0,0.12,0.004,1.29E-03,2.30E-02,2.05E-10
+2601,Tomatoes and products,"RoE, greenhouse",0.05,Moberg et al. 2019 [5],1.01,0.92,2.22E-03,1.41E-04,0,0.06,0.005,3.07E-03,1.20E-02,4.75E-11
+2601,Tomatoes and products,"RoE, open-field",0.1,Moberg et al. 2019 [5],0.40,0.38,1.45E-05,5.61E-05,0,0.21,0.002,9.79E-04,1.20E-02,1.79E-10
+2605,"Vegetables, Other",,,Average onion and tomatoes,,,,,,,,,,
+2511,Wheat and products,Sweden,1,Moberg et al. 2019 [5],0.85,0.55,1.45E-04,1.06E-03,0,2.16,0.03,1.73E-03,0.00E+00,1.50E-11
+2655,Wine,Italy,0.12,Moberg et al. 2020 [7],1.91,1.86,6.86E-04,1.25E-04,0,1.68,0.003,2.00E-03,1.30E-01,5.97E-10
+2655,Wine,South Africa,0.21,Moberg et al. 2020 [7],1.91,1.86,6.86E-04,1.25E-04,0,1.68,0.003,2.00E-03,1.30E-01,5.97E-10
+2655,Wine,Chile,0.11,Moberg et al. 2020 [7],1.91,1.86,6.86E-04,1.25E-04,0,1.68,0.003,2.00E-03,1.30E-01,5.97E-10
+2655,Wine,RoW,0.56,Moberg et al. 2020 [7],1.91,1.86,6.86E-04,1.25E-04,0,1.68,0.003,2.00E-03,1.30E-01,5.97E-10
