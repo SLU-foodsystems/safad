@@ -1,33 +1,59 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import StartPage from "./components/StartPage.vue";
-import FoodsConfigurator from "./components/FoodsConfigurator.vue";
-
-type Page = "start" | "configurator";
 
 export default defineComponent({
-  components: {
-    FoodsConfigurator,
-    StartPage,
-  },
-
   data() {
-    return {
-      page: "start" as Page,
-      baseValues: null as null | BaseValues,
-    };
+    return {};
   },
 
-  methods: {
-    onStartPageSubmit(data: BaseValues) {
-      this.baseValues = data;
-      this.page = "configurator";
-    },
-  },
+  methods: {},
 });
 </script>
 
 <template>
-  <StartPage v-if="page === 'start'" @submit="onStartPageSubmit" ref="startPage" />
-  <FoodsConfigurator v-if="page === 'configurator' && baseValues !== null" :baseValues="baseValues" />
+  <section class="start-page">
+    <div class="stack u-tac">
+      <div class="cluster cluster--center">
+        <img src="../assets/slu-logo.svg" class="start-page__logo" />
+      </div>
+      <h2>SLU Foods Benchmarker</h2>
+      <div class="cluster cluster--center">
+        <button class="button button--accent">Run &gt;</button>
+      </div>
+    </div>
+  </section>
 </template>
+
+<style lang="scss" scoped>
+@import "styles/constants";
+
+.start-page {
+  grid-row-start: sidebar-start;
+  grid-column-start: sidebar-start;
+  grid-row-end: results-end;
+  grid-column-end: results-end;
+
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > div {
+    flex-basis: 30em;
+  }
+
+  select {
+    width: 20em;
+    flex-grow: 1;
+  }
+}
+
+.start-page__logo {
+  width: auto;
+  height: 4em;
+  margin: 0 auto;
+  margin-bottom: 2em;
+}
+</style>
