@@ -52,9 +52,17 @@ export function splitCsvRow(str, delimitor) {
   });
 }
 
-export function readCsv(fpath, delim = ",") {
+export function readCsv(fpath, delim = ",", naiveSplit = false) {
   const fileContent = fs.readFileSync(fpath, { encoding: "utf8" });
 
   const rows = fileContent.split("\n");
+  if (naiveSplit) {
+    return rows.map((row) => row.split(delim)).filter((x) => x.length > 1);
+  }
   return rows.map((row) => splitCsvRow(row, delim)).filter((x) => x.length > 1);
+}
+
+export function roundToPrecision(number, decimalPoints = 2) {
+  const k = 10 ** decimalPoints;
+  return Math.round(number * k) / k;
 }
