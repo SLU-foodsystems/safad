@@ -1,8 +1,10 @@
+import fs from "fs";
+
 /**
  * Split a string into a vector of parts by the CSV_DELIM, while ignoring any
  * occurances inside double-quotes.
-*
-* NOTE: this assumes 
+ *
+ * NOTE: this assumes
  */
 export function splitCsvRow(str, delimitor) {
   if (!str.includes('"')) return str.split(delimitor);
@@ -17,7 +19,10 @@ export function splitCsvRow(str, delimitor) {
   // Repeat until we've iterated over all quotes
   while (posQuote > -1) {
     if (sanityCounter++ > 2000) {
-      throw new Error("The script seems to have got stuck in an endless loop. Input was:\n\t" + str)
+      throw new Error(
+        "The script seems to have got stuck in an endless loop. Input was:\n\t" +
+          str
+      );
     }
     // Add all commas up to the quote to the splitPoints.
     while (posDelim < posQuote) {
@@ -28,7 +33,6 @@ export function splitCsvRow(str, delimitor) {
     let posQuoteEnd = str.indexOf('"', posQuote + 1);
     posQuote = str.indexOf('"', posQuoteEnd + 1);
     posDelim = str.indexOf(delimitor, posQuoteEnd);
-
   }
 
   while (posDelim > -1) {
@@ -46,4 +50,11 @@ export function splitCsvRow(str, delimitor) {
     prev = idx + 1;
     return part;
   });
+}
+
+export function readCsv(fpath, delim = ",") {
+  const fileContent = fs.readFileSync(fpath, { encoding: "utf8" });
+
+  const rows = fileContent.split("\n");
+  return rows.map((row) => splitCsvRow(row, delim)).filter((x) => x.length > 1);
 }
