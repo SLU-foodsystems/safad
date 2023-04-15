@@ -36,8 +36,6 @@ const checkForLoops = (recipes, id) => {
   return new Set(recursedKeys);
 };
 
-
-
 function deleteEmptyValues(obj) {
   const idsToDelete = [];
   Object.entries(obj).forEach(([id, values]) => {
@@ -46,7 +44,7 @@ function deleteEmptyValues(obj) {
   });
 
   // Delete singles!
-  idsToDelete.forEach(id => {
+  idsToDelete.forEach((id) => {
     delete obj[id];
   });
 }
@@ -56,8 +54,6 @@ function removeSelfReferences(obj) {
     if (id in values) delete values[id];
   });
 }
-
-
 
 function main(args) {
   const csv = readCsv(args[0], ",", true).slice(1); // drop header

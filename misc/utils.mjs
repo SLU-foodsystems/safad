@@ -59,6 +59,7 @@ export function readCsv(fpath, delim = ",", naiveSplit = false) {
   if (naiveSplit) {
     return rows.map((row) => row.split(delim)).filter((x) => x.length > 1);
   }
+
   return rows.map((row) => splitCsvRow(row, delim)).filter((x) => x.length > 1);
 }
 
