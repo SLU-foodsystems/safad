@@ -36,7 +36,6 @@ export function splitCsvRow(str, delimitor) {
   }
 
   while (posDelim > -1) {
-    console.log("Outer loop 2");
     splitPoints.push(posDelim);
     posDelim = str.indexOf(delimitor, posDelim + 1);
   }
