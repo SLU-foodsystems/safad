@@ -1,15 +1,19 @@
-// Converts the full list of FoodEx recipes from csv to json.
+// Converts the full list of FoodEx recipes from csv to json,
+// including yields from processes.
+//
 // Input:
 //
-// Food code,Food name,Component code,Component name,Facet(s) code,Percentage,Probability
+// 1) path to recipes csv-file
+// 2) path to processes csv-file
 //
 // Output:
 //
-// { [code]: { [component]: ratio as number }}
+// { data: { [code]: { [component]: ratio as number }} } as JSON
 //
 // Modifications include:
 // - Remove any self-references.
 // - Remove any empty objects
+// - Check for loops.
 
 import { readCsv, roundToPrecision } from "./utils.mjs";
 
