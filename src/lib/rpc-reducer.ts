@@ -66,7 +66,7 @@ function reduceToRpcs(
   return mergedRpcs;
 }
 
-export default function main(diet: Diet, recipes: FoodsRecipes) {
+export default function reduceDietToRPCs(diet: Diet, recipes: FoodsRecipes) {
   const rpcs = diet
     // First, count up the waste factor
     .map((entry): [string, number] => {
