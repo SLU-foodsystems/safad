@@ -25,7 +25,8 @@ export default defineComponent({
 
       type FoodsRecipe = [string, string, number, number][];
       type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };
-      reduceDiet(diet, recipes as FoodsRecipes);
+      const rpcs = reduceDiet(diet, recipes as FoodsRecipes);
+      console.log(Object.fromEntries(rpcs));
     },
   },
 });
