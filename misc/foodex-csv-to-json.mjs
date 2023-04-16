@@ -153,7 +153,7 @@ function main(args) {
   // Ensure that there are no loops.
   Object.keys(recipes).forEach(id => checkForLoops(recipes, id))
 
-  console.log(JSON.stringify(recipes));
+  console.log(JSON.stringify({ data: recipes }));
 }
 
 main(process.argv.slice(2));
