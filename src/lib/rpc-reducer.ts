@@ -1,3 +1,9 @@
+/**
+ * Reduces a diet to a list of RPCs. The diet is a list of RPC derivatives, each
+ * with an amount, a % organic (ignored right now), and waste.
+ */
+
+// TODO: These types should maybe be global.
 interface DietComponent {
   code: string;
   amount: number;
@@ -12,10 +18,23 @@ type Diet = DietComponent[];
 type FoodsRecipe = [string, string, number, number][];
 type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };
 
+/**
+ * Recursive function to reduce one RPC (derivative) to a list of the RPC
+ * sub-components that constitute it, respecting the amount, yield, and waste.
+ *
+ * Ensures each RPC only occures once.
+ */
 function reduceToRpcs(
   recipes: FoodsRecipes,
   rpcDerivative: [string, number]
 ): [string, number][] {
+  // if (!(rpcDerivative[0] in recipes)) {
+  //   return [rpcDerivative];
+  // }
+
+  /**
+   * Auxiliary function that handles the recursion
+   */
   function aux(componentCode: string, amount: number): [string, number][] {
     const subcomponents = recipes[componentCode];
     if (!subcomponents) return [[componentCode, amount]];
@@ -31,6 +50,7 @@ function reduceToRpcs(
   }
 
   const rpcs = aux(rpcDerivative[0], rpcDerivative[1]);
+  // Merge all RPCs, to avoid duplicate entries
   const foundRpcs = new Set();
   const mergedRpcs: [string, number][] = [];
   rpcs.forEach(([code, amount]) => {
@@ -43,7 +63,7 @@ function reduceToRpcs(
     }
   });
 
-  return rpcs;
+  return mergedRpcs;
 }
 
 export default function main(diet: Diet, recipes: FoodsRecipes) {
@@ -61,5 +81,5 @@ export default function main(diet: Diet, recipes: FoodsRecipes) {
     .map((rpcDerivative) => reduceToRpcs(recipes, rpcDerivative))
     .flat(1);
 
-  console.log(rpcs);
+  return rpcs;
 }
