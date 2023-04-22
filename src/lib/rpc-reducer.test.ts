@@ -35,14 +35,14 @@ describe("RPC reducer", () => {
       },
     ];
 
-    const result = reduceDietToRPCs(diet, recipes);
-    expect(result).toHaveLength(2);
+    const [rpcs, _facets] = reduceDietToRPCs(diet, recipes);
+    expect(rpcs).toHaveLength(2);
     // First, no waste
-    expect(result[0]).toEqual(["no-waste", 100]);
+    expect(rpcs[0]).toEqual(["no-waste", 100]);
 
     // Second, correct waste factors
-    expect(result[1][0]).toEqual("with-waste");
-    expect(result[1][1]).toBeCloseTo(200 / (0.9 * 0.8));
+    expect(rpcs[1][0]).toEqual("with-waste");
+    expect(rpcs[1][1]).toBeCloseTo(200 / (0.9 * 0.8));
   });
 
   test("Handles nested RPCs", () => {
@@ -71,7 +71,7 @@ describe("RPC reducer", () => {
 
     const baseWasteAmount = 100 / (0.9 * 0.7);
 
-    const result = reduceDietToRPCs(diet, recipes);
+    const [result, _facets] = reduceDietToRPCs(diet, recipes);
     expect(result).toHaveLength(3);
     // RPC 1
     expect(result[0][0]).toEqual("rpc1");
