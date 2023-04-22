@@ -16,12 +16,12 @@ function main(args) {
   // Read csv files, and drop headers
   // Format: FoodEx,SuaId
   const suaFoodExCsv = readCsv(args[0]).slice(1);
-  // Format: SuaId,...factors
+  // Format: SuaId,FoodName,...factors
   const suaEnvCsv = readCsv(args[1]).slice(1);
 
   const suaFoodExMap = new Map(suaFoodExCsv);
   const results = Object.fromEntries(
-    suaEnvCsv.map((suaId, ...envFactors) => [
+    suaEnvCsv.map((suaId, _name, ...envFactors) => [
       suaFoodExMap.get(suaId),
       envFactors,
     ])
