@@ -54,34 +54,22 @@ function mergeRpcs(rpcs: [string, number][]) {
 function reduceToRpcs(
   processesMap: ProcessesMap,
   recipes: FoodsRecipes,
-  rpcDerivative: [string, number]
+  [componentCode, amount]: [string, number]
 ): [string, number][] {
-  // if (!(rpcDerivative[0] in recipes)) {
-  //   return [rpcDerivative];
-  // }
+  const subcomponents = recipes[componentCode];
+  if (!subcomponents) return [[componentCode, amount]];
 
-  /**
-   * Auxiliary function that handles the recursion.
-   *
-   */
-  function aux(componentCode: string, amount: number): [string, number][] {
-    const subcomponents = recipes[componentCode];
-    if (!subcomponents) return [[componentCode, amount]];
+  return subcomponents
+    .map(([subcomponentCode, facet, ratio, yieldFactor]) => {
+      // TODO: Are there any "null" processes? For example 'To be further ...'
+      // Will they be set ot e.g. an empty string, or even nul, in a
+      // pre-rpocessing step?
+      const netAmount = yieldFactor * (ratio / 100) * amount;
+      processesMap[facet] = (processesMap[facet] || 0) + netAmount;
 
-    return subcomponents
-      .map(([subcomponentCode, facet, ratio, yieldFactor]) => {
-        // TODO: Are there any "null" processes? For example 'To be further ...'
-        // Will they be set ot e.g. an empty string, or even nul, in a
-        // pre-rpocessing step?
-        const netAmount = yieldFactor * (ratio / 100) * amount;
-        processesMap[facet] = (processesMap[facet] || 0) + netAmount;
-
-        return aux(subcomponentCode, netAmount);
-      })
-      .flat(1);
-  }
-
-  return aux(rpcDerivative[0], rpcDerivative[1]);
+      return reduceToRpcs(processesMap, recipes, [subcomponentCode, netAmount]);
+    })
+    .flat(1);
 }
 
 export default function reduceDietToRPCs(diet: Diet, recipes: FoodsRecipes) {
