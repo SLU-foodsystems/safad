@@ -96,4 +96,40 @@ describe("RPC reducer", () => {
     // FacetC
     expect(facets.facetC).toBeCloseTo(baseWasteAmount * 0.8 * 1 * 0.5 * 3);
   });
+
+  test("Merges reappering RPCs", () => {
+    const recipes: FoodsRecipes = {
+      a: [
+        ["aa", "", 20, 10],
+        ["ab", "", 80, 1],
+      ],
+      aa: [["rpc1", "", 100, 1.7]],
+      ab: [
+        ["rpc2", "", 50, 2],
+        ["rpc1", "", 50, 3],
+      ],
+    };
+    const diet: Diet = [
+      {
+        code: "a",
+        amount: 100,
+        organic: 10,
+        retailWaste: 10,
+        consumerWaste: 30,
+      },
+    ];
+
+    const baseWasteAmount = 100 / (0.9 * 0.7);
+
+    const [rpcs, facets] = reduceDietToRPCs(diet, recipes);
+    expect(rpcs).toHaveLength(2);
+    // RPC 1
+    expect(rpcs[0][0]).toEqual("rpc1");
+    expect(rpcs[0][1]).toEqual(
+      baseWasteAmount * 0.8 * 1 * 0.5 * 3 + baseWasteAmount * 0.2 * 10 * 1 * 1.7
+    );
+    // RPC 2
+    expect(rpcs[1][0]).toEqual("rpc2");
+    expect(rpcs[1][1]).toBeCloseTo(baseWasteAmount * 0.8 * 1 * 0.5 * 2);
+  });
 });
