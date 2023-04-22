@@ -22,10 +22,6 @@ interface RPCFactors {
   };
 }
 
-type ResultingEnvImpactSheet = {
-  [rpcCode: string]: EnvFactors;
-};
-
 // TODO: This function could also take a diet and adapt it to that. It would be
 // more efficient to _only_ compute the factors for a subset, but I doubt it
 // makes any noticable performance difference in the end, we would have to
@@ -33,7 +29,7 @@ type ResultingEnvImpactSheet = {
 export default function aggregate(
   envImpactSheet: EnvImpacts,
   rpcFactors: RPCFactors
-) {
+): EnvImpacts {
   // Idea: Increase impact to account for waste.
   //    - Downside: we won't be able to say "environmental impact from waste"
   //    - (unless we outpt with and without waste fore very item?)
