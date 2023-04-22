@@ -18,38 +18,9 @@ type Diet = DietComponent[];
 type FoodsRecipe = [string, string, number, number][];
 type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };
 
-/**
- * Recursive function to reduce one RPC (derivative) to a list of the RPC
- * sub-components that constitute it, respecting the amount, yield, and waste.
- *
- * Ensures each RPC only occures once.
- */
-function reduceToRpcs(
-  recipes: FoodsRecipes,
-  rpcDerivative: [string, number]
-): [string, number][] {
-  // if (!(rpcDerivative[0] in recipes)) {
-  //   return [rpcDerivative];
-  // }
+type ProcessesMap = Record<string, number>;
 
-  /**
-   * Auxiliary function that handles the recursion
-   */
-  function aux(componentCode: string, amount: number): [string, number][] {
-    const subcomponents = recipes[componentCode];
-    if (!subcomponents) return [[componentCode, amount]];
-
-    // TODO: Here we're droppning the facet. That's clearly not ideal, maybe we
-    // should collect facet-amounts at the same time?
-    // Could merge the call to aux(...) below with [facet, amount*ratio*yield]
-    return subcomponents
-      .map(([subcomponentCode, facet, ratio, yieldFactor]) =>
-        aux(subcomponentCode, yieldFactor * (ratio / 100) * amount)
-      )
-      .flat(1);
-  }
-
-  const rpcs = aux(rpcDerivative[0], rpcDerivative[1]);
+function mergeRpcs(rpcs: [string, number][]) {
   // Merge all RPCs, to avoid duplicate entries
   const foundRpcs = new Set();
   const mergedRpcs: [string, number][] = [];
@@ -66,7 +37,55 @@ function reduceToRpcs(
   return mergedRpcs;
 }
 
+/**
+ * Recursive function to reduce one RPC (derivative) to a list of the RPC
+ * sub-components that constitute it, respecting the amount, yield, and waste.
+ * Ensures each RPC only occures once.
+ *
+ * It also MUTATES the outside argument "processesMap", adding the amount for
+ * each process it encounters along the way.
+ *
+ * Code-style, this is a bit criminal. It'd be 'prettier' to send along the
+ * facets object, but it
+ * also just introduces a lot of passing around for nothing - we're in a
+ * closed scope and aux function anyways.
+ *
+ */
+function reduceToRpcs(
+  processesMap: ProcessesMap,
+  recipes: FoodsRecipes,
+  rpcDerivative: [string, number]
+): [string, number][] {
+  // if (!(rpcDerivative[0] in recipes)) {
+  //   return [rpcDerivative];
+  // }
+
+  /**
+   * Auxiliary function that handles the recursion.
+   *
+   */
+  function aux(componentCode: string, amount: number): [string, number][] {
+    const subcomponents = recipes[componentCode];
+    if (!subcomponents) return [[componentCode, amount]];
+
+    return subcomponents
+      .map(([subcomponentCode, facet, ratio, yieldFactor]) => {
+        // TODO: Are there any "null" processes? For example 'To be further ...'
+        // Will they be set ot e.g. an empty string, or even nul, in a
+        // pre-rpocessing step?
+        const netAmount = yieldFactor * (ratio / 100) * amount;
+        processesMap[facet] = (processesMap[facet] || 0) + netAmount;
+
+        return aux(subcomponentCode, netAmount);
+      })
+      .flat(1);
+  }
+
+  return aux(rpcDerivative[0], rpcDerivative[1]);
+}
+
 export default function reduceDietToRPCs(diet: Diet, recipes: FoodsRecipes) {
+  const processesMap: ProcessesMap = {};
   const rpcs = diet
     // First, count up the waste factor
     .map((entry): [string, number] => {
@@ -78,8 +97,10 @@ export default function reduceDietToRPCs(diet: Diet, recipes: FoodsRecipes) {
       return [entry.code, entry.amount * wasteChangeFactor];
     })
     // Now, compine with the recipes to get RPCs!
-    .map((rpcDerivative) => reduceToRpcs(recipes, rpcDerivative))
+    .map((rpcDerivative) => reduceToRpcs(processesMap, recipes, rpcDerivative))
     .flat(1);
 
-  return rpcs;
+  const mergedRpcs = mergeRpcs(rpcs);
+
+  return [mergedRpcs, processesMap];
 }
