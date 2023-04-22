@@ -35,7 +35,7 @@ describe("RPC reducer", () => {
       },
     ];
 
-    const [rpcs, _facets] = reduceDietToRPCs(diet, recipes);
+    const [rpcs, facets] = reduceDietToRPCs(diet, recipes);
     expect(rpcs).toHaveLength(2);
     // First, no waste
     expect(rpcs[0]).toEqual(["no-waste", 100]);
@@ -43,21 +43,22 @@ describe("RPC reducer", () => {
     // Second, correct waste factors
     expect(rpcs[1][0]).toEqual("with-waste");
     expect(rpcs[1][1]).toBeCloseTo(200 / (0.9 * 0.8));
+
+    // No facets.
+    expect(Object.keys(facets)).toHaveLength(0);
   });
 
   test("Handles nested RPCs", () => {
     const recipes: FoodsRecipes = {
-      "a": [
-        ["aa", "facet1", 20, 10],
-        ["ab", "facet1", 80, 1],
+      a: [
+        ["aa", "facetA", 20, 10],
+        ["ab", "facetA", 80, 1],
       ],
-      "aa": [
-        ["rpc1", "facet2", 100, 1.7],
+      aa: [["rpc1", "facetB", 100, 1.7]],
+      ab: [
+        ["rpc2", "facetB", 50, 2],
+        ["rpc3", "facetC", 50, 3],
       ],
-      "ab": [
-        ["rpc2", "facet2", 50, 2],
-        ["rpc3", "facet2", 50, 3],
-      ]
     };
     const diet: Diet = [
       {
@@ -71,15 +72,28 @@ describe("RPC reducer", () => {
 
     const baseWasteAmount = 100 / (0.9 * 0.7);
 
-    const [result, _facets] = reduceDietToRPCs(diet, recipes);
-    expect(result).toHaveLength(3);
+    const [rpcs, facets] = reduceDietToRPCs(diet, recipes);
+    expect(rpcs).toHaveLength(3);
     // RPC 1
-    expect(result[0][0]).toEqual("rpc1");
+    expect(rpcs[0][0]).toEqual("rpc1");
+    expect(rpcs[0][1]).toEqual(baseWasteAmount * 0.2 * 10 * 1 * 1.7);
     // RPC 2
-    expect(result[1][0]).toEqual("rpc2");
-    expect(result[1][1]).toBeCloseTo(baseWasteAmount * 0.8 * 1 * 0.5 * 2);
+    expect(rpcs[1][0]).toEqual("rpc2");
+    expect(rpcs[1][1]).toBeCloseTo(baseWasteAmount * 0.8 * 1 * 0.5 * 2);
     // RPC 3
-    expect(result[2][0]).toEqual("rpc3");
-    expect(result[2][1]).toBeCloseTo(baseWasteAmount * 0.8 * 1 * 0.5 * 3);
+    expect(rpcs[2][0]).toEqual("rpc3");
+    expect(rpcs[2][1]).toBeCloseTo(baseWasteAmount * 0.8 * 1 * 0.5 * 3);
+
+    expect(Object.keys(facets)).toHaveLength(3);
+    // FacetA
+    expect(facets.facetA).toBeCloseTo(
+      baseWasteAmount * 0.2 * 10 + baseWasteAmount * 0.8 * 1
+    );
+    // FacetB
+    expect(facets.facetB).toBeCloseTo(
+      baseWasteAmount * 0.2 * 10 * 1.7 + baseWasteAmount * 0.8 * 1 * 0.5 * 2
+    );
+    // FacetC
+    expect(facets.facetC).toBeCloseTo(baseWasteAmount * 0.8 * 1 * 0.5 * 3);
   });
 });
