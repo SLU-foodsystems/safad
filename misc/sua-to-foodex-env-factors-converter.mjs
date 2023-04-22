@@ -29,7 +29,6 @@ function main(args) {
 
   const jsonString = JSON.stringify(results, null, 2);
   console.log(jsonString);
-  return 0;
 }
 
 main(process.argv.slice(2));
