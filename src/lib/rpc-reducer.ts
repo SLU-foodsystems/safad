@@ -61,11 +61,10 @@ function reduceToRpcs(
 
   return subcomponents
     .map(([subcomponentCode, facet, ratio, yieldFactor]) => {
-      // TODO: Are there any "null" processes? For example 'To be further ...'
-      // Will they be set ot e.g. an empty string, or even nul, in a
-      // pre-rpocessing step?
       const netAmount = yieldFactor * (ratio / 100) * amount;
-      processesMap[facet] = (processesMap[facet] || 0) + netAmount;
+      if (facet) { // Facets can be empty strings, for meaningless processes.
+        processesMap[facet] = (processesMap[facet] || 0) + netAmount;
+      }
 
       return reduceToRpcs(processesMap, recipes, [subcomponentCode, netAmount]);
     })
