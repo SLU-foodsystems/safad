@@ -22,10 +22,10 @@ interface RPCFactors {
   };
 }
 
-// TODO: This function could also take a diet and adapt it to that. It would be
-// more efficient to _only_ compute the factors for a subset, but I doubt it
-// makes any noticable performance difference in the end, we would have to
-// recompute this or keep track of when the set of RPCs change.
+// TODO: This function could also take a diet and compute the env impact
+// directly, i.e. only computing the factors for the RPCs that are actually
+// included in the diet, rather than for all of them. This would be more
+// efficient, but I doubt this is the bottleneck. We can see later.
 export default function aggregate(
   envImpactSheet: EnvImpacts,
   rpcFactors: RPCFactors

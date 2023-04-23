@@ -74,9 +74,10 @@ function reduceToRpcs(
     .flat(1);
 }
 
-export default function reduceDietToRPCs(diet: Diet, recipes: FoodsRecipes):
-  [[string, number][], ProcessesMap]
-{
+export default function reduceDietToRPCs(
+  diet: Diet,
+  recipes: FoodsRecipes
+): [[string, number][], ProcessesMap] {
   const processesMap: ProcessesMap = {};
   const rpcs = diet
     // First, count up the waste factor
