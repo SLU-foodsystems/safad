@@ -11,7 +11,7 @@
  * level, and as such, it's a lot more convenient.
  */
 
-type EnvImpactEntry = { [originCode: string]: EnvFactors };
+type EnvImpactEntry = { [originCode: string]: number[] };
 interface EnvImpacts {
   [rpcCode: string]: EnvImpactEntry;
 }
@@ -22,6 +22,8 @@ interface RPCFactors {
   };
 }
 
+type NormEnvInpacts = Record<string, number[]>;
+
 // TODO: This function could also take a diet and compute the env impact
 // directly, i.e. only computing the factors for the RPCs that are actually
 // included in the diet, rather than for all of them. This would be more
@@ -29,7 +31,7 @@ interface RPCFactors {
 export default function aggregate(
   envImpactSheet: EnvImpacts,
   rpcFactors: RPCFactors
-): EnvImpacts {
+): NormEnvInpacts {
   // Idea: Increase impact to account for waste.
   //    - Downside: we won't be able to say "environmental impact from waste"
   //    - (unless we outpt with and without waste fore very item?)
@@ -47,17 +49,17 @@ export default function aggregate(
     const envImpacts = envImpactSheet[rpcCode];
     const originFactors = rpcFactors[rpcCode];
 
-    const joinedEnvFactors: EnvFactors = Object.keys(originFactors)
+    const joinedEnvFactors = Object.keys(originFactors)
       .map((origin) => {
         const [percentage, waste] = originFactors[origin];
         const wasteChangeFactor = (100 - waste) / 100;
         const ratio = percentage / 100;
         return envImpacts[origin].map(
           (x) => (ratio * x) / wasteChangeFactor
-        ) as EnvFactors;
+        );
       })
       .reduce(
-        (a, b) => a.map((x, i) => x + b[i]) as EnvFactors,
+        (a, b) => a.map((x, i) => x + b[i]),
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       );
 
