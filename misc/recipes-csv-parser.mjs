@@ -29,12 +29,26 @@ const concatenateSets = (...sets) =>
  * as we then remove a process.
  */
 function removeSelfReferences(obj) {
+  const processes = new Set();
+  const nonFullYields = [];
   Object.entries(obj).forEach(([id, values]) => {
-    const hasSelfReference = values.find(tuple => tuple[0] === id);
+    const hasSelfReference = values.some((tuple) => tuple[0] === id);
     if (hasSelfReference) {
+      values.map((x) => x[1]).forEach((facet) => processes.add(facet));
+      values
+        .filter((x) => x[3] !== 1)
+        .forEach((value) => nonFullYields.push(id + "->" + value.join(",")));
+
+      if (values.some((x) => x[1] !== "F28.A07XD")) {
+        console.log(id, values);
+      }
+
       obj[id] = obj[id].filter((el) => el[0] !== id);
     }
   });
+
+  // console.log(processes)
+  // console.log(nonFullYields.join("\n"))
 }
 
 /**
@@ -159,7 +173,7 @@ function main(args) {
   // Ensure that there are no loops.
   Object.keys(recipes).forEach((id) => checkForLoops(recipes, id));
 
-  console.log(JSON.stringify({ data: recipes }));
+  // console.log(JSON.stringify({ data: recipes }));
 }
 
 main(process.argv.slice(2));

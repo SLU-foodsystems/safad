@@ -11,27 +11,14 @@
  * level, and as such, it's a lot more convenient.
  */
 
-type EnvImpactEntry = { [originCode: string]: number[] };
-interface EnvImpacts {
-  [rpcCode: string]: EnvImpactEntry;
-}
-
-interface RPCFactors {
-  [rpcCode: string]: {
-    [originCode: string]: [number, number];
-  };
-}
-
-type NormEnvInpacts = Record<string, number[]>;
-
 // TODO: This function could also take a diet and compute the env impact
 // directly, i.e. only computing the factors for the RPCs that are actually
 // included in the diet, rather than for all of them. This would be more
 // efficient, but I doubt this is the bottleneck. We can see later.
 export default function aggregate(
-  envImpactSheet: EnvImpacts,
-  rpcFactors: RPCFactors
-): NormEnvInpacts {
+  envImpactSheet: EnvOriginFactors,
+  rpcFactors: RpcFactors
+): EnvFootprints {
   // Idea: Increase impact to account for waste.
   //    - Downside: we won't be able to say "environmental impact from waste"
   //    - (unless we outpt with and without waste fore very item?)

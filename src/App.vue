@@ -37,24 +37,11 @@ export default defineComponent({
       }));
       const recipes = foodsRecipes.data as unknown;
 
-      type FoodsRecipe = [string, string, number, number][];
-      type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };
       const [rpcs, processes] = reduceDiet(diet, recipes as FoodsRecipes);
 
-      type EnvImpactEntry = { [originCode: string]: EnvFactors };
-      interface EnvImpacts {
-        [rpcCode: string]: EnvImpactEntry;
-      }
-
-      interface RPCFactors {
-        [rpcCode: string]: {
-          [originCode: string]: [number, number];
-        };
-      }
-
       const envSheet = aggregateEnvImpactsSheet(
-        envFactors.data as unknown as EnvImpacts,
-        rpcFactors.data as unknown as RPCFactors
+        envFactors.data as unknown as EnvOriginFactors,
+        rpcFactors.data as unknown as RpcFactors
       );
 
       const rpcImpact = Object.fromEntries(

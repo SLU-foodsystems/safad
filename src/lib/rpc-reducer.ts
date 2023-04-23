@@ -3,20 +3,8 @@
  * with an amount, a % organic (ignored right now), and waste.
  */
 
-// TODO: These types should maybe be global.
-interface DietComponent {
-  code: string;
-  amount: number;
-  organic: number;
-  retailWaste: number;
-  consumerWaste: number;
-}
-
-type Diet = DietComponent[];
 
 // Component, Facet, proportion ([0, 100]%), reverse yield
-type FoodsRecipe = [string, string, number, number][];
-type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };
 
 type ProcessesMap = Record<string, number>;
 
