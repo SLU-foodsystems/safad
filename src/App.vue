@@ -3,6 +3,11 @@ import { defineComponent } from "vue";
 import reduceDiet from "./lib/rpc-reducer";
 import foodsRecipes from "./data/foodex-recipes.json";
 
+import rpcFactors from "./data/rpc-factors.json";
+import envFactors from "./data/env-factors.json";
+import aggregateEnvImpactsSheet from "./lib/env-impact-aggregator";
+import computeProcessesFootprints from "./lib/process-env-impact";
+
 export default defineComponent({
   data() {
     return {};
@@ -10,7 +15,16 @@ export default defineComponent({
 
   methods: {
     run() {
+      // Input files are:
+      // - Diet
+      // - rpc factors (rpc, origin, origin-%, waste)
+      //
+      // Static files:
+      // - Env impacts
+      // - Recipes
+
       const diet = [
+        // food, amount, organic, consumerWaste, retailWaste
         ["A.01.06.001.004", 2000, 10, 10, 33],
         ["A.01.07.001.006", 1000, 50, 20, 0],
         ["I.14.07.001.002", 500, 0, 30, 0],
@@ -26,7 +40,34 @@ export default defineComponent({
       type FoodsRecipe = [string, string, number, number][];
       type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };
       const [rpcs, processes] = reduceDiet(diet, recipes as FoodsRecipes);
-      console.log(Object.fromEntries(rpcs), processes);
+
+      type EnvImpactEntry = { [originCode: string]: EnvFactors };
+      interface EnvImpacts {
+        [rpcCode: string]: EnvImpactEntry;
+      }
+
+      interface RPCFactors {
+        [rpcCode: string]: {
+          [originCode: string]: [number, number];
+        };
+      }
+
+      const envSheet = aggregateEnvImpactsSheet(
+        envFactors.data as unknown as EnvImpacts,
+        rpcFactors.data as unknown as RPCFactors
+      );
+
+      const rpcImpact = Object.fromEntries(
+        rpcs.map(([rpc, amount]) => [rpc, envSheet[rpc].map((k) => k * amount)])
+      );
+
+      const processesEnvImpact = computeProcessesFootprints(
+        processes,
+        [1, 1, 1, 1]
+      );
+
+      console.log(rpcs, rpcImpact);
+      console.log(processesEnvImpact);
     },
   },
 });
