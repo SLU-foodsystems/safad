@@ -25,8 +25,8 @@ export default defineComponent({
 
       type FoodsRecipe = [string, string, number, number][];
       type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };
-      const rpcs = reduceDiet(diet, recipes as FoodsRecipes);
-      console.log(Object.fromEntries(rpcs));
+      const [rpcs, processes] = reduceDiet(diet, recipes as FoodsRecipes);
+      console.log(Object.fromEntries(rpcs), processes);
     },
   },
 });
@@ -62,7 +62,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
 
-  >div {
+  > div {
     flex-basis: 30em;
   }
 
