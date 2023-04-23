@@ -60,10 +60,13 @@ function reduceToRpcs(
   if (!subcomponents) return [[componentCode, amount]];
 
   return subcomponents
-    .map(([subcomponentCode, facet, ratio, yieldFactor]) => {
+    .map(([subcomponentCode, facets, ratio, yieldFactor]) => {
       const netAmount = yieldFactor * (ratio / 100) * amount;
-      if (facet) { // Facets can be empty strings, for meaningless processes.
-        processesMap[facet] = (processesMap[facet] || 0) + netAmount;
+      // Facets can be empty strings, for meaningless processes.
+      if (facets) {
+        facets.split("$").map((facet) => {
+          processesMap[facet] = (processesMap[facet] || 0) + netAmount;
+        });
       }
 
       return reduceToRpcs(processesMap, recipes, [subcomponentCode, netAmount]);

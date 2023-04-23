@@ -132,4 +132,34 @@ describe("RPC reducer", () => {
     expect(rpcs[1][0]).toEqual("rpc2");
     expect(rpcs[1][1]).toBeCloseTo(baseWasteAmount * 0.8 * 1 * 0.5 * 2);
   });
+
+  test("Handles combined facets", () => {
+    const recipes: FoodsRecipes = {
+      a: [["b", "facetA$facetB$facetC", 80, 10]],
+    };
+    const diet: Diet = [
+      {
+        code: "a",
+        amount: 100,
+        organic: 10,
+        retailWaste: 10,
+        consumerWaste: 30,
+      },
+    ];
+
+    const baseWasteAmount = 100 / (0.9 * 0.7);
+    const netAmount = baseWasteAmount * 0.8 * 10;
+
+    const [rpcs, facets] = reduceDietToRPCs(diet, recipes);
+    expect(rpcs).toHaveLength(1);
+    // RPC 1
+    expect(rpcs[0][0]).toEqual("b");
+    expect(rpcs[0][1]).toEqual(netAmount);
+
+    // We should add netAmount for all three facets
+    expect(Object.keys(facets)).toHaveLength(3);
+    expect(facets.facetA).toBeCloseTo(netAmount);
+    expect(facets.facetB).toBeCloseTo(netAmount);
+    expect(facets.facetC).toBeCloseTo(netAmount);
+  });
 });
