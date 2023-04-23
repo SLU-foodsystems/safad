@@ -57,7 +57,7 @@ const checkForLoops = (recipes, id) => {
   }
 
   // Find the ids of all sub-components in the recipe
-  const keys = recipes[id].map(x => x[0]);
+  const keys = recipes[id].map((x) => x[0]);
   // If we have a self-reference, we can throw immediately.
   // Should never be the case, because of the above removeSelfReferences
   if (keys.includes(id)) {
@@ -101,8 +101,8 @@ function main(args) {
   if (args.length !== 2) {
     throw new Error(
       "Expected exactly two arguments:\n" +
-        "\t- Path to Recipes CSV\n" +
-        "\t- Path to Processes CSV\n"
+      "\t- Path to Recipes CSV\n" +
+      "\t- Path to Processes CSV\n"
     );
   }
 
@@ -157,7 +157,7 @@ function main(args) {
   // console.log(Object.entries(recipes).filter(([id]) => recipes[id].length === 1).map(x => x[1]))
 
   // Ensure that there are no loops.
-  Object.keys(recipes).forEach(id => checkForLoops(recipes, id))
+  Object.keys(recipes).forEach((id) => checkForLoops(recipes, id));
 
   console.log(JSON.stringify({ data: recipes }));
 }
