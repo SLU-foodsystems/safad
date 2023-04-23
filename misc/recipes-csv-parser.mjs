@@ -19,6 +19,8 @@ import { readCsv, roundToPrecision } from "./utils.mjs";
 
 const DEBUG_INVALID_SUMS = false;
 
+const NULL_PROCESSES = ["F28.A07XD", "To be further disaggregated (d)"];
+
 const concatenateSets = (...sets) =>
   new Set(sets.flatMap((set) => Array.from(set)));
 
@@ -125,7 +127,7 @@ function main(args) {
     // Note to self: I've checked that all missing values here are of the facet
     // "To be further disaggregated (d)", which is why we can just assume a 1
     const yieldFactor = yieldMap[component + "|" + facet] || 1;
-    if (facet === "To be further disaggregated (d)") {
+    if (NULL_PROCESSES.includes(facet)) {
       facet = "";
     }
     const entry = [component, facet, value, yieldFactor];
