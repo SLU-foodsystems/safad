@@ -25,15 +25,14 @@ export default defineComponent({
 
       const diet = [
         // food, amount, organic, consumerWaste, retailWaste
-        ["A.01.06.001.004", 2000, 10, 10, 33],
-        ["A.01.07.001.006", 1000, 50, 20, 0],
-        ["I.14.07.001.002", 500, 0, 30, 0],
+        ["A.01.06.001.004", 2000, 10, 33],
+        ["A.01.07.001.006", 1000, 20, 0],
+        ["I.14.07.001.002", 500, 30, 0],
       ].map((x) => ({
         code: x[0] as string,
         amount: x[1] as number,
-        organic: x[2] as number,
-        consumerWaste: x[3] as number,
-        retailWaste: x[4] as number,
+        consumerWaste: x[2] as number,
+        retailWaste: x[3] as number,
       }));
       const recipes = foodsRecipes.data as unknown;
 
