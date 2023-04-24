@@ -1,6 +1,6 @@
 /**
  * Reduces a diet to a list of RPCs. The diet is a list of RPC derivatives, each
- * with an amount, a % organic (ignored right now), and waste.
+ * with an amount, and waste.
  */
 
 
@@ -73,8 +73,6 @@ export default function reduceDietToRPCs(
       const wasteChangeFactor =
         1 / ((100 - entry.retailWaste) * (100 - entry.consumerWaste) * 1e-4);
 
-      // TODO: We completely drop the organic part now, but will need to go back
-      // and refactor this to pick ut up later in the project
       return [entry.code, entry.amount * wasteChangeFactor];
     })
     // Now, compine with the recipes to get RPCs!

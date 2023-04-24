@@ -14,7 +14,6 @@ declare global {
   interface DietElement {
     code: string;
     amount: number;
-    organic: number;
     retailWaste: number;
     consumerWaste: number;
   }
