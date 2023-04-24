@@ -36,9 +36,10 @@ export default function aggregate(
     const envImpacts = envImpactSheet[rpcCode];
     const originFactors = rpcFactors[rpcCode];
 
+    // TODO: Think about how to handle the organic %-age here.
     const joinedEnvFactors = Object.keys(originFactors)
       .map((origin) => {
-        const [percentage, waste] = originFactors[origin];
+        const [percentage, waste, organic] = originFactors[origin];
         const wasteChangeFactor = (100 - waste) / 100;
         const ratio = percentage / 100;
         return envImpacts[origin].map(

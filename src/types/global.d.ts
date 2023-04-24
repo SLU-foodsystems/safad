@@ -27,7 +27,6 @@ declare global {
   type FoodsRecipe = [string, string, number, number][];
   type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };
 
-
   type EnvFactors = number[];
   interface EnvOriginFactors {
     [rpcCode: string]: { [originCode: string]: EnvFactors };
@@ -39,7 +38,7 @@ declare global {
 
   interface RpcFactors {
     [rpcCode: string]: {
-      [originCode: string]: [number, number];
+      [originCode: string]: [number, number, number];
     };
   }
 }
