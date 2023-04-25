@@ -1,12 +1,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import reduceDiet from "./lib/rpc-reducer";
-import foodsRecipes from "./data/foodex-recipes.json";
 
 import rpcFactors from "./data/rpc-factors.json";
 import envFactors from "./data/env-factors.json";
-import aggregateEnvImpactsSheet from "./lib/env-impact-aggregator";
-import computeProcessesFootprints from "./lib/process-env-impact";
+
+import ResultsEngine from "./lib/ResultsEngine";
 
 export default defineComponent({
   data() {
@@ -15,13 +13,10 @@ export default defineComponent({
 
   methods: {
     run() {
-      // Input files are:
-      // - Diet
-      // - rpc factors (rpc, origin, origin-%, waste)
-      //
-      // Static files:
-      // - Env impacts
-      // - Recipes
+      ResultsEngine.setBaseEnvFactors(
+        envFactors.data as unknown as EnvOriginFactors
+      );
+      ResultsEngine.setRpcFactors(rpcFactors.data as unknown as RpcFactors);
 
       const diet = [
         // food, amount, organic, consumerWaste, retailWaste
@@ -34,26 +29,13 @@ export default defineComponent({
         consumerWaste: x[2] as number,
         retailWaste: x[3] as number,
       }));
-      const recipes = foodsRecipes.data as unknown;
 
-      const [rpcs, processes] = reduceDiet(diet, recipes as FoodsRecipes);
-
-      const envSheet = aggregateEnvImpactsSheet(
-        envFactors.data as unknown as EnvOriginFactors,
-        rpcFactors.data as unknown as RpcFactors
-      );
-
-      const rpcImpact = Object.fromEntries(
-        rpcs.map(([rpc, amount]) => [rpc, envSheet[rpc].map((k) => k * amount)])
-      );
-
-      const processesEnvImpact = computeProcessesFootprints(
-        processes,
-        [1, 1, 1, 1]
-      );
-
-      console.log(rpcs, rpcImpact);
-      console.log(processesEnvImpact);
+      const results = ResultsEngine.computeFootprints(diet);
+      if (results !== null) {
+        const [rpcImpact, processesEnvImpact] = results;
+        console.log(rpcImpact);
+        console.log(processesEnvImpact);
+      }
     },
   },
 });
