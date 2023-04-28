@@ -19,7 +19,7 @@ export default defineComponent({
       ResultsEngine.setRpcFactors(rpcFactors.data as unknown as RpcFactors);
 
       const diet = [
-        // food, amount, organic, consumerWaste, retailWaste
+        // food, amount, consumerWaste, retailWaste
         ["A.01.06.001.004", 2000, 10, 33],
         ["A.01.07.001.006", 1000, 20, 0],
         ["I.14.07.001.002", 500, 30, 0],
