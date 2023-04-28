@@ -65,8 +65,11 @@ class ResultsEngine {
 
     const processesEnvImpact = computeProcessesFootprints(
       processes,
-      [1, 1, 1, 1]
+      Array.from({ length: 7 }).map((_1) =>
+        Array.from({ length: 4 }).map((_2) => Math.random() * 10)
+      )
     );
+    console.log(processesEnvImpact)
 
     return [rpcImpact, processesEnvImpact];
   }

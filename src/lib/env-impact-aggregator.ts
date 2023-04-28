@@ -42,9 +42,7 @@ export default function aggregate(
         const [percentage, waste, organic] = originFactors[origin];
         const wasteChangeFactor = (100 - waste) / 100;
         const ratio = percentage / 100;
-        return envImpacts[origin].map(
-          (x) => (ratio * x) / wasteChangeFactor
-        );
+        return envImpacts[origin].map((x) => (ratio * x) / wasteChangeFactor);
       })
       .reduce(
         (a, b) => a.map((x, i) => x + b[i]),
