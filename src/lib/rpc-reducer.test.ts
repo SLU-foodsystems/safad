@@ -162,4 +162,36 @@ describe("RPC reducer", () => {
     expect(facets.facetB).toBeCloseTo(netAmount);
     expect(facets.facetC).toBeCloseTo(netAmount);
   });
+
+  test("Adds processes for self-referencing recipes", () => {
+    const recipes: FoodsRecipes = {
+      a: [
+        ["a", "facetA", 20, 10],
+        ["b", "facetB", 80, 1],
+      ],
+    };
+    const diet: Diet = [
+      {
+        code: "a",
+        amount: 100,
+        organic: 10,
+        retailWaste: 10,
+        consumerWaste: 30,
+      },
+    ];
+
+    const baseWasteAmount = 100 / (0.9 * 0.7);
+
+    const [rpcs, facets] = reduceDietToRPCs(diet, recipes);
+    expect(rpcs).toHaveLength(2);
+    // RPC 1
+    expect(rpcs[0][0]).toEqual("a");
+    expect(rpcs[0][1]).toEqual(baseWasteAmount * 0.2 * 10);
+    // RPC 2
+    expect(rpcs[1][0]).toEqual("b");
+    expect(rpcs[1][1]).toBeCloseTo(baseWasteAmount * 0.8 * 1);
+
+    expect(facets.facetA).toEqual(baseWasteAmount * 0.2 * 10);
+    expect(facets.facetB).toEqual(baseWasteAmount * 0.8 * 1);
+  });
 });

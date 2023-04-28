@@ -13,11 +13,11 @@
 // Modifications include:
 // - Remove any self-references.
 // - Remove any empty objects
-// - Check for loops.
 
 import { readCsv, roundToPrecision } from "./utils.mjs";
 
 const DEBUG_INVALID_SUMS = false;
+const DEBUG_REMOVED_ITEMS = false;
 
 const NULL_PROCESSES = ["F28.A07XD", "To be further disaggregated (d)"];
 
@@ -25,25 +25,30 @@ const concatenateSets = (...sets) =>
   new Set(sets.flatMap((set) => Array.from(set)));
 
 /**
- * Remove any self-references. I am, however, not entirely sure I can do this,
- * as we then remove a process.
+ * Remove any self-references with a null-process
  */
-function removeSelfReferences(obj) {
+function removeNullSelfReferences(obj) {
   const processes = new Set();
-  const nonFullYields = [];
   Object.entries(obj).forEach(([id, values]) => {
-    const hasSelfReference = values.some((tuple) => tuple[0] === id);
-    if (hasSelfReference) {
+    const _nBefore = obj[id].length;
+
+    obj[id] = obj[id].filter(
+      ([foodCode, process]) => foodCode !== id || process !== ""
+    );
+
+    const itemsWereRemoved = _nBefore !== obj[id].length;
+    if (DEBUG_REMOVED_ITEMS && itemsWereRemoved) {
       values.map((x) => x[1]).forEach((facet) => processes.add(facet));
-      values
-        .filter((x) => x[3] !== 1)
-        .forEach((value) => nonFullYields.push(id + "->" + value.join(",")));
 
-      if (values.some((x) => x[1] !== "F28.A07XD")) {
-        console.log(id, values);
-      }
+      const fixedWidth = (str, len) =>
+        str + (str.length >= len ? "" : " ".repeat(len - id.length));
+      console.log(
+        fixedWidth(id, 15),
+        "->",
+        values.map((t) => t.join("|")).join("\n")
+      );
 
-      obj[id] = obj[id].filter((el) => el[0] !== id);
+      obj[id] = obj[id].filter((el) => !isSelfReference(el));
     }
   });
 
@@ -60,33 +65,6 @@ function deleteEmptyValues(obj) {
     if (nSubComponents === 0) delete obj[id];
   });
 }
-
-/**
- * Check for loops using a recursive function that throws when a loop is found.
- */
-const checkForLoops = (recipes, id) => {
-  // Base case: No recipe found for the key. Return a unit-set with the id.
-  if (!(id in recipes)) {
-    return new Set([id]);
-  }
-
-  // Find the ids of all sub-components in the recipe
-  const keys = recipes[id].map((x) => x[0]);
-  // If we have a self-reference, we can throw immediately.
-  // Should never be the case, because of the above removeSelfReferences
-  if (keys.includes(id)) {
-    throw new Error("Key found in immediate child " + id);
-  }
-
-  // Recurse: Join all sub-sets, i.e. find all keys deeper in the hierarchy
-  const recursedKeys = concatenateSets(
-    keys.map((key) => checkForLoops(recipes, key))
-  );
-  if (recursedKeys.has(id)) {
-    throw new Error("Key found in deeper recursion");
-  }
-  return new Set(recursedKeys);
-};
 
 function buildYieldMap(processesCsv) {
   const yieldMap = {};
@@ -115,8 +93,8 @@ function main(args) {
   if (args.length !== 2) {
     throw new Error(
       "Expected exactly two arguments:\n" +
-      "\t- Path to Recipes CSV\n" +
-      "\t- Path to Processes CSV\n"
+        "\t- Path to Recipes CSV\n" +
+        "\t- Path to Processes CSV\n"
     );
   }
 
@@ -164,16 +142,15 @@ function main(args) {
     });
   }
 
-  removeSelfReferences(recipes);
+  removeNullSelfReferences(recipes);
   deleteEmptyValues(recipes);
 
   // Log aliases
   // console.log(Object.entries(recipes).filter(([id]) => recipes[id].length === 1).map(x => x[1]))
 
-  // Ensure that there are no loops.
-  Object.keys(recipes).forEach((id) => checkForLoops(recipes, id));
-
-  // console.log(JSON.stringify({ data: recipes }));
+  if (!DEBUG_REMOVED_ITEMS && !DEBUG_INVALID_SUMS) {
+    console.log(JSON.stringify({ data: recipes }));
+  }
 }
 
 main(process.argv.slice(2));

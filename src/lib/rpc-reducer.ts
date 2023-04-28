@@ -3,7 +3,6 @@
  * with an amount, and waste.
  */
 
-
 // Component, Facet, proportion ([0, 100]%), reverse yield
 
 type ProcessesMap = Record<string, number>;
@@ -48,17 +47,28 @@ function reduceToRpcs(
   if (!subcomponents) return [[componentCode, amount]];
 
   return subcomponents
-    .map(([subcomponentCode, facets, ratio, yieldFactor]) => {
-      const netAmount = yieldFactor * (ratio / 100) * amount;
-      // Facets can be empty strings, for meaningless processes.
-      if (facets) {
-        facets.split("$").map((facet) => {
-          processesMap[facet] = (processesMap[facet] || 0) + netAmount;
-        });
-      }
+    .map(
+      ([subcomponentCode, facets, ratio, yieldFactor]): [string, number][] => {
+        const netAmount = yieldFactor * (ratio / 100) * amount;
+        // Facets can be empty strings, for meaningless processes.
+        if (facets) {
+          facets.split("$").map((facet) => {
+            processesMap[facet] = (processesMap[facet] || 0) + netAmount;
+          });
+        }
 
-      return reduceToRpcs(processesMap, recipes, [subcomponentCode, netAmount]);
-    })
+        // Some recipes will include references back to themselves, in which
+        // case we do not want to recurse any further (otherwise: loop).
+        // additional process.
+        const isSelfReference = subcomponentCode === componentCode;
+        if (isSelfReference) return [[subcomponentCode, netAmount]];
+
+        return reduceToRpcs(processesMap, recipes, [
+          subcomponentCode,
+          netAmount,
+        ]);
+      }
+    )
     .flat(1);
 }
 
