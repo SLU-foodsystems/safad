@@ -44,8 +44,8 @@ function removeNullSelfReferences(obj) {
         str + (str.length >= len ? "" : " ".repeat(len - id.length));
       console.log(
         fixedWidth(id, 15),
-        "->",
-        values.map((t) => t.join("|")).join("\n")
+        "\t",
+        values.map((t) => t.slice(1).join("\t")).join("\n")
       );
 
       obj[id] = obj[id].filter((el) => !isSelfReference(el));

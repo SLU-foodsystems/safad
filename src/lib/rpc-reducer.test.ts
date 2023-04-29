@@ -121,7 +121,7 @@ describe("RPC reducer", () => {
 
     const baseWasteAmount = 100 / (0.9 * 0.7);
 
-    const [rpcs, facets] = reduceDietToRPCs(diet, recipes);
+    const [rpcs, _facets] = reduceDietToRPCs(diet, recipes);
     expect(rpcs).toHaveLength(2);
     // RPC 1
     expect(rpcs[0][0]).toEqual("rpc1");
