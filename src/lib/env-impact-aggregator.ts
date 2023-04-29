@@ -17,7 +17,8 @@
 // efficient, but I doubt this is the bottleneck. We can see later.
 export default function aggregate(
   envImpactSheet: EnvOriginFactors,
-  rpcFactors: RpcFactors
+  rpcFactors: RpcFactors,
+  mode: "organic" | "conventional"
 ): EnvFootprints {
   // Idea: Increase impact to account for waste.
   //    - Downside: we won't be able to say "environmental impact from waste"
@@ -40,9 +41,14 @@ export default function aggregate(
     const joinedEnvFactors = Object.keys(originFactors)
       .map((origin) => {
         const [percentage, waste, organic] = originFactors[origin];
-        const wasteChangeFactor = (100 - waste) / 100;
-        const ratio = percentage / 100;
-        return envImpacts[origin].map((x) => (ratio * x) / wasteChangeFactor);
+        const wasteChangeFactor = 1 / ((100 - waste) / 100);
+        const organicRatio = mode === "organic"
+          ? organic / 100
+          : (100 - organic) / 100;
+        const shareRatio = (percentage / 100);
+
+        const ratio = shareRatio * organicRatio * wasteChangeFactor;
+        return envImpacts[origin].map((x) => ratio * x);
       })
       .reduce(
         (a, b) => a.map((x, i) => x + b[i]),
