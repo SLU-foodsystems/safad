@@ -21,7 +21,10 @@ class ResultsEngine {
   organicEnvFactorsSheet: EnvFootprints | null = null;
 
   // Replace the conventional environmental factors with a new set.
-  public setEnvFactors(conventional: EnvOriginFactors, organic: EnvOriginFactors) {
+  public setEnvFactors(
+    conventional: EnvOriginFactors,
+    organic: EnvOriginFactors
+  ) {
     this.convEnvFactors = conventional;
     this.organicEnvFactors = organic;
     this.recomputeEnvSheets();
@@ -71,15 +74,14 @@ class ResultsEngine {
     }
 
     const [rpcs, processes] = reduceDiet(diet, recipes);
-    rpcs;
 
-    // TODO: Check if environmentalFactorsSheet is set.
     const rpcImpact = Object.fromEntries(
-      rpcs.map(([rpc, amount]) => [rpc,
+      rpcs.map(([rpc, amount]) => [
+        rpc,
         vectorSum(
           this.convEnvFactorsSheet![rpc].map((k) => k * amount),
           this.organicEnvFactorsSheet![rpc].map((k) => k * amount)
-        )
+        ),
       ])
     );
 
@@ -89,7 +91,6 @@ class ResultsEngine {
         Array.from({ length: 4 }).map((_2) => Math.random() * 10)
       )
     );
-    console.log(processesEnvImpact)
 
     return [rpcImpact, processesEnvImpact];
   }

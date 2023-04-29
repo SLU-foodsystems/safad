@@ -33,6 +33,7 @@ export default function aggregate(
 
   const rpcCodes = Object.keys(envImpactSheet);
 
+
   const entries = rpcCodes.map((rpcCode) => {
     const envImpacts = envImpactSheet[rpcCode];
     const originFactors = rpcFactors[rpcCode];
