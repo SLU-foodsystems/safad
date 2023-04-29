@@ -3,6 +3,7 @@ import reduceDiet from "./rpc-reducer";
 import foodsRecipes from "@/data/foodex-recipes.json";
 import computeProcessesFootprints from "./process-env-impact";
 import aggregateEnvImpacts from "./env-impact-aggregator";
+import { vectorSum } from "./utils";
 
 const recipes = foodsRecipes.data as unknown as FoodsRecipes;
 
@@ -12,43 +13,57 @@ const recipes = foodsRecipes.data as unknown as FoodsRecipes;
  *       with conventional and organic environmental factors.
  */
 class ResultsEngine {
-  envFactors: EnvOriginFactors | null = null;
+  organicEnvFactors: EnvOriginFactors | null = null;
+  convEnvFactors: EnvOriginFactors | null = null;
   rpcFactors: RpcFactors | null = null;
 
-  environmentalFactorsSheet: EnvFootprints | null = null;
+  convEnvFactorsSheet: EnvFootprints | null = null;
+  organicEnvFactorsSheet: EnvFootprints | null = null;
 
-  // Replace the base environmental factors with a new set.
-  public setBaseEnvFactors(envFactors: EnvOriginFactors) {
-    this.envFactors = envFactors;
-    this.recomputeEnvSheet();
+  // Replace the conventional environmental factors with a new set.
+  public setEnvFactors(conventional: EnvOriginFactors, organic: EnvOriginFactors) {
+    this.convEnvFactors = conventional;
+    this.organicEnvFactors = organic;
+    this.recomputeEnvSheets();
+  }
+
+  public setOrganicEnvFactors(envFactors: EnvOriginFactors) {
+    this.organicEnvFactors = envFactors;
+    this.recomputeEnvSheets();
   }
 
   // Set the rpc-factors, i.e. the origin of each rpc, its share, and its
   // production waste.
   public setRpcFactors(rpcFactors: RpcFactors) {
     this.rpcFactors = rpcFactors;
-    this.recomputeEnvSheet();
+    this.recomputeEnvSheets();
   }
 
-  public recomputeEnvSheet() {
-    if (!this.envFactors || !this.rpcFactors) {
+  public recomputeEnvSheets() {
+    if (!this.convEnvFactors || !this.organicEnvFactors || !this.rpcFactors) {
       return;
     }
 
-    this.environmentalFactorsSheet = aggregateEnvImpacts(
-      this.envFactors,
-      this.rpcFactors
+    this.convEnvFactorsSheet = aggregateEnvImpacts(
+      this.convEnvFactors,
+      this.rpcFactors,
+      "conventional"
+    );
+    this.organicEnvFactorsSheet = aggregateEnvImpacts(
+      this.convEnvFactors,
+      this.rpcFactors,
+      "organic"
     );
   }
 
   public isReady() {
-    return this.environmentalFactorsSheet !== null;
+    return this.convEnvFactorsSheet !== null;
   }
 
   public computeFootprints(
     diet: Diet
   ): [Record<string, number[]>, Record<string, number[]>] | null {
-    if (!this.environmentalFactorsSheet) {
+    if (!this.convEnvFactorsSheet || !this.organicEnvFactorsSheet) {
       console.error(
         "Compute called when no environmentalFactorsSheet was set."
       );
@@ -56,11 +71,16 @@ class ResultsEngine {
     }
 
     const [rpcs, processes] = reduceDiet(diet, recipes);
+    rpcs;
 
     // TODO: Check if environmentalFactorsSheet is set.
-    const envSheet = this.environmentalFactorsSheet!;
     const rpcImpact = Object.fromEntries(
-      rpcs.map(([rpc, amount]) => [rpc, envSheet[rpc].map((k) => k * amount)])
+      rpcs.map(([rpc, amount]) => [rpc,
+        vectorSum(
+          this.convEnvFactorsSheet![rpc].map((k) => k * amount),
+          this.organicEnvFactorsSheet![rpc].map((k) => k * amount)
+        )
+      ])
     );
 
     const processesEnvImpact = computeProcessesFootprints(
@@ -77,7 +97,8 @@ class ResultsEngine {
   // Necessary for testing.
   public reset() {
     this.rpcFactors = null;
-    this.envFactors = null;
+    this.convEnvFactors = null;
+    this.organicEnvFactors = null;
   }
 }
 

@@ -13,7 +13,8 @@ export default defineComponent({
 
   methods: {
     run() {
-      ResultsEngine.setBaseEnvFactors(
+      ResultsEngine.setEnvFactors(
+        envFactors.data as unknown as EnvOriginFactors,
         envFactors.data as unknown as EnvOriginFactors
       );
       ResultsEngine.setRpcFactors(rpcFactors.data as unknown as RpcFactors);

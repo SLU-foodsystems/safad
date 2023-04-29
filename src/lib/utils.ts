@@ -40,3 +40,11 @@ export const partition = <T>(array: T[], predicate: (el: T) => boolean) =>
     },
     [[], []]
   );
+
+export function vectorSum(xs: number[], ys: number[]) {
+  if (xs.length !== ys.length) {
+    throw new Error("Expected vectors to be of same length.");
+  }
+
+  return xs.map((x, i) => x + ys[i]);
+}
