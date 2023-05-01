@@ -1,12 +1,16 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+import ChartContainer from "./components/ChartContainer.vue";
+
 import rpcFactors from "./data/rpc-factors.json";
 import envFactors from "./data/env-factors.json";
 
 import ResultsEngine from "./lib/ResultsEngine";
 
 export default defineComponent({
+  components: { ChartContainer },
+
   data() {
     return {};
   },
@@ -52,6 +56,7 @@ export default defineComponent({
       <div class="cluster cluster--center">
         <button class="button button--accent" @click="run">Run &gt;</button>
       </div>
+      <ChartContainer />
     </div>
   </section>
 </template>

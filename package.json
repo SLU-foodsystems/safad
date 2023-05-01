@@ -13,11 +13,13 @@
     "test": "vitest"
   },
   "dependencies": {
+    "d3": "^7.8.4",
     "vue": "^3.2.47"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
     "@tsconfig/node18": "^2.0.0",
+    "@types/d3": "^7.4.0",
     "@types/node": "^18.16.0",
     "@vitejs/plugin-vue": "^4.1.0",
     "@vue/eslint-config-prettier": "^7.1.0",
