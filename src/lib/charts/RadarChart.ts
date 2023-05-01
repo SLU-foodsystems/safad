@@ -28,7 +28,7 @@ export default function RadarChart(
     {
       w: 600, // Width of the circle
       h: 600, // Height of the circle
-      margin: { top: 20, right: 20, bottom: 20, left: 20 }, // The margins of the SVG
+      margin: { top: 40, right: 40, bottom: 40, left: 40 }, // The margins of the SVG
       levels: 6, // How many levels or inner circles should there be drawn
       maxValue: 0, // What is the value that the biggest circle will represent
       labelFactor: 1.25, // How much farther than the radius of the outer circle should the labels be placed
@@ -51,8 +51,6 @@ export default function RadarChart(
     );
     cfg.maxValue = actualMax;
   }
-
-  const format = d3.format(".2%"); // Percentage formatting
 
   const allAxis = data[0].map((i) => i.axis); // Names of each axis
   const total = allAxis.length; // The number of different axes
@@ -165,26 +163,32 @@ export default function RadarChart(
     .style("stroke-width", "2px");
 
   // Append the labels at each axis
-  axis
+  const labels = axis
     .append("text")
-    .attr("class", "legend")
-    .style("font-size", "11px")
+    .attr("class", "legend");
+
+  const labelArc = d3
+    .arc()
+    .innerRadius(rScale(cfg.maxValue * 1.05))
+    .outerRadius(rScale(cfg.maxValue * 1.05))
+    .startAngle((_d, i) => angleSlice * (i + 0.5) + anglePad)
+    .endAngle((_d, i) => angleSlice * (i + 1.5) - anglePad);
+
+  labels
+    .append("path")
+    .attr("stroke", "#f0f")
+    .attr("stroke-width", "20px")
+    .attr("d", labelArc)
+    .attr("id", (_d, i) => `label-path-${i}`);
+
+  labels
+    .append("textPath")
+    .style("dominant-baseline", "central")
+    .style("font-size", "14px")
     .attr("text-anchor", "middle")
-    .attr("dy", "0.35em")
-    .attr(
-      "x",
-      (_d, i) =>
-        rScale(cfg.maxValue * cfg.labelFactor) *
-        Math.cos(angleSlice * i - Math.PI / 2)
-    )
-    .attr(
-      "y",
-      (_d, i) =>
-        rScale(cfg.maxValue * cfg.labelFactor) *
-        Math.sin(angleSlice * i - Math.PI / 2)
-    )
-    .text((d) => d)
-    .call(wrap, cfg.wrapWidth);
+    .attr("startOffset", "25.5%")
+    .attr("xlink:href", (_d, i)  => "#label-path-" + i) // map text to helper path
+    .text(d => d);
 
   /////////////////////////////////////////////////////////
   ///////////// Draw the radar chart blobs ////////////////
@@ -198,31 +202,12 @@ export default function RadarChart(
     .append("g")
     .attr("class", "radarWrapper");
 
-  // // Append the backgrounds
-  // blobWrapper
-  //   .append("path")
-  //   .attr("class", "radarArea")
-  //   .attr("d", (d, i) => radarLine(d))
-  //   .style("fill", (d, i) => cfg.color(i))
-  //   .style("fill-opacity", cfg.opacityArea);
-
-  // // Create the outlines
-  // blobWrapper
-  //   .append("path")
-  //   .attr("class", "radarStroke")
-  //   .attr("d", (d, i) => radarLine(d))
-  //   .style("stroke-width", cfg.strokeWidth + "px")
-  //   .style("stroke", (d, i) => cfg.color(i))
-  //   .style("fill", "none")
-  //   .style("filter", "url(#glow)");
-  //
-
   const arcGenerator = d3
     .arc()
     .innerRadius(0)
     .outerRadius((d) => rScale(d.value))
-    .startAngle((d, i) => angleSlice * (i + 0.5) + anglePad)
-    .endAngle((d, i) => angleSlice * (i + 1.5) - anglePad);
+    .startAngle((_d, i) => angleSlice * (i + 0.5) + anglePad)
+    .endAngle((_d, i) => angleSlice * (i + 1.5) - anglePad);
 
   // Append the circles
   blobWrapper
@@ -236,53 +221,4 @@ export default function RadarChart(
     .style("stroke-width", "2px")
     .style("fill", "url(#radial-gradient)")
     .style("fill-opacity", 0.8);
-
-  /////////////////////////////////////////////////////////
-  /////////////////// Helper Function /////////////////////
-  /////////////////////////////////////////////////////////
-
-  // Wraps SVG text, used for the axis labels
-  // Positions the axis labels.
-  function wrap(
-    text: d3.Selection<SVGTextElement, string, SVGElement, unknown>,
-    width: number
-  ) {
-    text.each(function () {
-      const text = d3.select(this);
-      const words = text.text().split(/\s+/).reverse();
-
-      let word;
-      let line: string[] = [];
-      let lineNumber = 0;
-
-      const lineHeight = 1.4; // em;
-      const y = text.attr("y");
-      const x = text.attr("x");
-      const dy = parseFloat(text.attr("dy"));
-      let tspan = text
-        .text(null)
-        .append("tspan")
-        .attr("x", x)
-        .attr("y", y)
-        .attr("dy", dy + "em");
-
-      while ((word = words.pop())) {
-        line.push(word);
-        tspan.text(line.join(" "));
-
-        const tspanNode = tspan ? tspan.node() : null;
-        if (tspanNode && tspanNode.getComputedTextLength() > width) {
-          line.pop();
-          tspan.text(line.join(" "));
-          line = [word];
-          tspan = text
-            .append("tspan")
-            .attr("x", x)
-            .attr("y", y)
-            .attr("dy", ++lineNumber * lineHeight + dy + "em")
-            .text(word);
-        }
-      }
-    });
-  }
 }
