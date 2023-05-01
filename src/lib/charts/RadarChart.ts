@@ -131,24 +131,9 @@ export default function RadarChart(
     .append("circle")
     .attr("class", "gridCircle")
     .attr("r", (d) => (radius / cfg.levels) * d)
-    .style("fill", "#CDCDCD")
-    .style("stroke", "#CDCDCD")
-    .style("fill-opacity", cfg.opacityCircles)
-    .style("filter", "url(#glow)");
-
-  // Text indicating at what % each level is
-  axisGrid
-    .selectAll(".axisLabel")
-    .data(d3.range(1, cfg.levels + 1).reverse())
-    .enter()
-    .append("text")
-    .attr("class", "axisLabel")
-    .attr("x", 4)
-    .attr("y", (d) => (-d * radius) / cfg.levels)
-    .attr("dy", "0.4em")
-    .style("font-size", "10px")
-    .attr("fill", "#737373")
-    .text((d) => format((cfg.maxValue * d) / cfg.levels));
+    .style("fill", "#cdcdcd")
+    .style("stroke", "#Cdcdcd")
+    .style("fill-opacity", cfg.opacityCircles);
 
   /////////////////////////////////////////////////////////
   //////////////////// Draw the axes //////////////////////
