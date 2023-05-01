@@ -90,20 +90,6 @@ export default function RadarChart(
     );
 
   /////////////////////////////////////////////////////////
-  ////////// Glow filter for some extra pizzazz ///////////
-  /////////////////////////////////////////////////////////
-
-  // Filter for the outside glow
-  const filter = root.append("defs").append("filter").attr("id", "glow");
-  filter
-    .append("feGaussianBlur")
-    .attr("stdDeviation", "2.5")
-    .attr("result", "coloredBlur");
-  const feMerge = filter.append("feMerge");
-  feMerge.append("feMergeNode").attr("in", "coloredBlur");
-  feMerge.append("feMergeNode").attr("in", "SourceGraphic");
-
-  /////////////////////////////////////////////////////////
   /////////////// Draw the Circular grid //////////////////
   /////////////////////////////////////////////////////////
 
