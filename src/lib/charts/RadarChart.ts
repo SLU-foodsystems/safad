@@ -184,7 +184,8 @@ export default function RadarChart(
   labels
     .append("textPath")
     .style("dominant-baseline", "central")
-    .style("font-size", "14px")
+    .style("font-size", "16px")
+    .style("font-weight", "bold")
     .attr("text-anchor", "middle")
     .attr("startOffset", "25.5%")
     .attr("xlink:href", (_d, i)  => "#label-path-" + i) // map text to helper path
