@@ -29,7 +29,7 @@ export default function RadarChart(
       w: 600, // Width of the circle
       h: 600, // Height of the circle
       margin: { top: 20, right: 20, bottom: 20, left: 20 }, // The margins of the SVG
-      levels: 3, // How many levels or inner circles should there be drawn
+      levels: 6, // How many levels or inner circles should there be drawn
       maxValue: 0, // What is the value that the biggest circle will represent
       labelFactor: 1.25, // How much farther than the radius of the outer circle should the labels be placed
       wrapWidth: 60, // The number of pixels after which a label needs to be given a new line
@@ -58,6 +58,7 @@ export default function RadarChart(
   const total = allAxis.length; // The number of different axes
   const radius = Math.min(cfg.w / 2, cfg.h / 2); // Radius of the outermost circle
   const angleSlice = (Math.PI * 2) / total; // The width in radians of each "slice"
+  const anglePad = 0.0125 * Math.PI * 2;
 
   // Scale for the radius
   const rScale = d3.scaleLinear().range([0, radius]).domain([0, cfg.maxValue]);
@@ -77,17 +78,43 @@ export default function RadarChart(
     .attr("height", cfg.h + cfg.margin.top + cfg.margin.bottom)
     .attr("class", "radar" + id);
 
+  const defs = svg.append("defs");
+
   // Append a g element
   const root = svg
     .append("g")
     .attr(
       "transform",
       "translate(" +
-      (cfg.w / 2 + cfg.margin.left) +
-      "," +
-      (cfg.h / 2 + cfg.margin.top) +
-      ")"
+        (cfg.w / 2 + cfg.margin.left) +
+        "," +
+        (cfg.h / 2 + cfg.margin.top) +
+        ")"
     );
+
+  /////////////////////////////////////////////////////////
+  ////////////////////// Gradients ////////////////////////
+  /////////////////////////////////////////////////////////
+
+  const radialGradient = defs
+    .append("radialGradient")
+    .attr("id", "radial-gradient")
+    .attr("cx", "0")
+    .attr("cy", "0")
+    .attr("gradientUnits", "userSpaceOnUse")
+    .attr("r", Math.max(cfg.w, cfg.h) / 2);
+
+  [
+    [15, "#3cc310"],
+    [17, "#3cc310"],
+    [25, "#ffff5a"],
+    [40, "#f22"],
+  ].forEach(([offset, color]) => {
+    radialGradient
+      .append("stop")
+      .attr("offset", `${offset}%`)
+      .attr("stop-color", color);
+  });
 
   /////////////////////////////////////////////////////////
   /////////////// Draw the Circular grid //////////////////
@@ -133,8 +160,8 @@ export default function RadarChart(
     .data(allAxis)
     .enter()
     .append("g")
-
     .attr("class", "axis");
+
   // Append the lines
   axis
     .append("line")
@@ -142,13 +169,11 @@ export default function RadarChart(
     .attr("y1", 0)
     .attr(
       "x2",
-      (_d, i) =>
-        rScale(cfg.maxValue * 1.1) * Math.cos(angleSlice * i - Math.PI / 2)
+      (_d, i) => rScale(cfg.maxValue * 1.1) * Math.cos(angleSlice * i)
     )
     .attr(
       "y2",
-      (_d, i) =>
-        rScale(cfg.maxValue * 1.1) * Math.sin(angleSlice * i - Math.PI / 2)
+      (_d, i) => rScale(cfg.maxValue * 1.1) * Math.sin(angleSlice * i)
     )
     .attr("class", "line")
     .style("stroke", "white")
@@ -180,16 +205,6 @@ export default function RadarChart(
   ///////////// Draw the radar chart blobs ////////////////
   /////////////////////////////////////////////////////////
 
-  // The radial line function
-  // radarLine.curve(d3.curveCardinalClosed);
-  // d3.svg.line radial().interpolate("linear-closed")
-  const curveStyle = cfg.roundStrokes ? d3.curveCardinalClosed : d3.curveLinearClosed;
-  var radarLine = d3
-    .lineRadial()
-    .curve(curveStyle)
-    .radius((d) => rScale((d as unknown as RadarDataPoint).value))
-    .angle((_d, i) => i * angleSlice);
-
   // Create a wrapper for the blobs
   const blobWrapper = root
     .selectAll(".radarWrapper")
@@ -198,105 +213,44 @@ export default function RadarChart(
     .append("g")
     .attr("class", "radarWrapper");
 
-  // Append the backgrounds
-  blobWrapper
-    .append("path")
-    .attr("class", "radarArea")
-    .attr("d", (d, i) => radarLine(d))
-    .style("fill", (d, i) => cfg.color(i))
-    .style("fill-opacity", cfg.opacityArea)
-    .on("mouseover", function(d, i) {
-      // Dim all blobs
-      d3.selectAll(".radarArea")
-        .transition()
-        .duration(200)
-        .style("fill-opacity", 0.1);
-      // Bring back the hovered over blob
-      d3.select(this).transition().duration(200).style("fill-opacity", 0.7);
-    })
-    .on("mouseout", function() {
-      // Bring back all blobs
-      d3.selectAll(".radarArea")
-        .transition()
-        .duration(200)
-        .style("fill-opacity", cfg.opacityArea);
-    });
+  // // Append the backgrounds
+  // blobWrapper
+  //   .append("path")
+  //   .attr("class", "radarArea")
+  //   .attr("d", (d, i) => radarLine(d))
+  //   .style("fill", (d, i) => cfg.color(i))
+  //   .style("fill-opacity", cfg.opacityArea);
 
-  // Create the outlines
-  blobWrapper
-    .append("path")
-    .attr("class", "radarStroke")
-    .attr("d", (d, i) => radarLine(d))
-    .style("stroke-width", cfg.strokeWidth + "px")
-    .style("stroke", (d, i) => cfg.color(i))
-    .style("fill", "none")
-    .style("filter", "url(#glow)");
+  // // Create the outlines
+  // blobWrapper
+  //   .append("path")
+  //   .attr("class", "radarStroke")
+  //   .attr("d", (d, i) => radarLine(d))
+  //   .style("stroke-width", cfg.strokeWidth + "px")
+  //   .style("stroke", (d, i) => cfg.color(i))
+  //   .style("fill", "none")
+  //   .style("filter", "url(#glow)");
+  //
+
+  const arcGenerator = d3
+    .arc()
+    .innerRadius(0)
+    .outerRadius((d) => rScale(d.value))
+    .startAngle((d, i) => angleSlice * (i + 0.5) + anglePad)
+    .endAngle((d, i) => angleSlice * (i + 1.5) - anglePad);
 
   // Append the circles
   blobWrapper
     .selectAll(".radarCircle")
     .data((d) => d)
     .enter()
-    .append("circle")
+    .append("path")
     .attr("class", "radarCircle")
-    .attr("r", cfg.dotRadius)
-    .attr(
-      "cx",
-      (d, i) => rScale(d.value) * Math.cos(angleSlice * i - Math.PI / 2)
-    )
-    .attr(
-      "cy",
-      (d, i) => rScale(d.value) * Math.sin(angleSlice * i - Math.PI / 2)
-    )
-    .style("fill", (d, i, j) => cfg.color(j))
+    .attr("d", arcGenerator)
+    .style("stroke", "black")
+    .style("stroke-width", "2px")
+    .style("fill", "url(#radial-gradient)")
     .style("fill-opacity", 0.8);
-
-  /////////////////////////////////////////////////////////
-  //////// Append invisible circles for tooltip ///////////
-  /////////////////////////////////////////////////////////
-
-  // Wrapper for the invisible circles on top
-  const blobCircleWrapper = root
-    .selectAll(".radarCircleWrapper")
-    .data(data)
-    .enter()
-    .append("g")
-    .attr("class", "radarCircleWrapper");
-
-  // Append a set of invisible circles on top for the mouseover pop-up
-  blobCircleWrapper
-    .selectAll(".radarInvisibleCircle")
-    .data((d, i) => d)
-    .enter()
-    .append("circle")
-    .attr("class", "radarInvisibleCircle")
-    .attr("r", cfg.dotRadius * 1.5)
-    .attr("cx", function(d, i) {
-      return rScale(d.value) * Math.cos(angleSlice * i - Math.PI / 2);
-    })
-    .attr("cy", function(d, i) {
-      return rScale(d.value) * Math.sin(angleSlice * i - Math.PI / 2);
-    })
-    .style("fill", "none")
-    .style("pointer-events", "all")
-    .on("mouseover", function(_event, d) {
-      const newX = parseFloat(d3.select(this).attr("cx")) - 10;
-      const newY = parseFloat(d3.select(this).attr("cy")) - 10;
-
-      tooltip
-        .attr("x", newX)
-        .attr("y", newY)
-        .text(format(d.value))
-        .transition()
-        .duration(200)
-        .style("opacity", 1);
-    })
-    .on("mouseout", function() {
-      tooltip.transition().duration(200).style("opacity", 0);
-    });
-
-  // Set up the small tooltip for when you hover over a circle
-  const tooltip = root.append("text").attr("class", "tooltip").style("opacity", 0);
 
   /////////////////////////////////////////////////////////
   /////////////////// Helper Function /////////////////////
@@ -308,7 +262,7 @@ export default function RadarChart(
     text: d3.Selection<SVGTextElement, string, SVGElement, unknown>,
     width: number
   ) {
-    text.each(function() {
+    text.each(function () {
       const text = d3.select(this);
       const words = text.text().split(/\s+/).reverse();
 
