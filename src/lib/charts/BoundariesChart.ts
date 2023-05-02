@@ -1,5 +1,5 @@
 import * as d3 from "d3";
-import downloadSvgAsImage from "../d3-exporter";
+import downloadSvgAsImage from "./d3-exporter";
 
 interface Config {
   w: number; // Width of the circle

@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import RadarChart from "../lib/charts/RadarChart";
+import BoundariesChart from "../lib/charts/BoundariesChart";
 
 export default defineComponent({
   data() {
@@ -21,7 +21,7 @@ export default defineComponent({
         { axis: "Extinction Rate", value: 0.92 },
       ],
     ];
-    const x = RadarChart(".chart-container", data, { maxValue: 1 });
+    const x = BoundariesChart(".chart-container", data, { maxValue: 1 });
     this.exportHandler = () => x.exportAsPng("radar-chart");
   },
 });
