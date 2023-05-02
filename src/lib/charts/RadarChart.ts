@@ -1,4 +1,5 @@
 import * as d3 from "d3";
+import downloadSvgAsImage from "../d3-exporter";
 
 interface Config {
   w: number; // Width of the circle
@@ -233,4 +234,8 @@ export default function RadarChart(
     .attr("fill", "none")
     .attr("stroke", "black")
     .attr("stroke-width", "2px");
+
+  return {
+    exportAsPng: (name: string) => downloadSvgAsImage(svg.node()!, name, {}),
+  };
 }

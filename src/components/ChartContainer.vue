@@ -4,7 +4,9 @@ import RadarChart from "../lib/charts/RadarChart";
 
 export default defineComponent({
   data() {
-    return {};
+    return {
+      exportHandler: () => {},
+    };
   },
 
   mounted() {
@@ -19,13 +21,14 @@ export default defineComponent({
         { axis: "Extinction Rate", value: 0.92 },
       ],
     ];
-    RadarChart(".chart-container", data, { maxValue: 1 });
+    const x = RadarChart(".chart-container", data, { maxValue: 1 });
+    this.exportHandler = () => x.exportAsPng("radar-chart");
   },
 });
 </script>
 
 <template>
-  <div class="chart-container"></div>
+  <div class="chart-container" @click="exportHandler"></div>
 </template>
 
 <style lang="scss" scoped>
