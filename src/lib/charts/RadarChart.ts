@@ -6,14 +6,9 @@ interface Config {
   margin: { top: number; right: number; bottom: number; left: number }; // The margins of the SVG
   levels: number; // How many levels or inner circles should there be drawn
   maxValue: number; // What is the value that the biggest circle will represent
-  labelFactor: number; // How much farther than the radius of the outer circle should the labels be placed
-  wrapWidth: number; // The number of pixels after which a label needs to be given a new line
-  opacityArea: number; // The opacity of the area of the blob
-  dotRadius: number; // The size of the colored circles of each blog
+  labelOffsetFactor: number; // How much farther than the radius of the outer circle should the labels be placed
   opacityCircles: number; // The opacity of the circles of each blob
-  strokeWidth: number; // The width of the stroke around each blob
-  roundStrokes: number; // If true the area and stroke will follow a round path (cardinal-closed)
-  color: d3.ScaleOrdinal<string, string, never>; // Color function
+  slicePadding: number; // The %-padding of the arc in each slice
 }
 
 type RadarDataPoint = { axis: string; value: number };
@@ -26,19 +21,14 @@ export default function RadarChart(
 ) {
   const cfg: Config = Object.assign(
     {
-      w: 600, // Width of the circle
-      h: 600, // Height of the circle
-      margin: { top: 40, right: 40, bottom: 40, left: 40 }, // The margins of the SVG
-      levels: 6, // How many levels or inner circles should there be drawn
-      maxValue: 0, // What is the value that the biggest circle will represent
-      labelFactor: 1.25, // How much farther than the radius of the outer circle should the labels be placed
-      wrapWidth: 60, // The number of pixels after which a label needs to be given a new line
-      opacityArea: 0.35, // The opacity of the area of the blob
-      dotRadius: 4, // The size of the colored circles of each blog
-      opacityCircles: 0.1, // The opacity of the circles of each blob
-      strokeWidth: 2, // The width of the stroke around each blob
-      roundStrokes: true, // If true the area and stroke will follow a round path (cardinal-closed)
-      color: d3.scaleOrdinal(d3.schemeCategory10), // Color function
+      w: 600,
+      h: 600,
+      margin: { top: 40, right: 40, bottom: 40, left: 40 },
+      levels: 8,
+      maxValue: 0,
+      labelOffsetFactor: 1.05,
+      opacityCircles: 0.1,
+      slicePadding: 0.015,
     },
     options
   );
@@ -56,7 +46,7 @@ export default function RadarChart(
   const total = axes.length; // The number of different axes
   const radius = Math.min(cfg.w / 2, cfg.h / 2); // Radius of the outermost circle
   const angleSlice = (Math.PI * 2) / total; // The width in radians of each "slice"
-  const anglePad = 0.015 * Math.PI * 2;
+  const anglePadding = cfg.slicePadding * Math.PI * 2;
 
   // Scale for the radius
   const rScale = d3.scaleLinear().range([0, radius]).domain([0, cfg.maxValue]);
@@ -114,7 +104,7 @@ export default function RadarChart(
   ).forEach(([offset, color]) => {
     radialGradient
       .append("stop")
-      .attr("offset", `${100 * offset / cfg.maxValue}%`)
+      .attr("offset", `${(100 * offset) / cfg.maxValue}%`)
       .attr("stop-color", color);
   });
 
@@ -134,7 +124,7 @@ export default function RadarChart(
     .attr("class", "gridCircle")
     .attr("r", (d) => (radius / cfg.levels) * d)
     .style("fill", "#cdcdcd")
-    .style("stroke", "#Cdcdcd")
+    .style("stroke", "#cdcdcd")
     .style("fill-opacity", cfg.opacityCircles);
 
   /////////////////////////////////////////////////////////
@@ -171,10 +161,10 @@ export default function RadarChart(
 
   const labelArc = d3
     .arc()
-    .innerRadius(rScale(cfg.maxValue * 1.05))
-    .outerRadius(rScale(cfg.maxValue * 1.05))
-    .startAngle((_d, i) => angleSlice * (i + 0.5) + anglePad)
-    .endAngle((_d, i) => angleSlice * (i + 1.5) - anglePad);
+    .innerRadius(rScale(cfg.maxValue * cfg.labelOffsetFactor))
+    .outerRadius(rScale(cfg.maxValue * cfg.labelOffsetFactor))
+    .startAngle((_d, i) => angleSlice * (i + 0.5) + anglePadding)
+    .endAngle((_d, i) => angleSlice * (i + 1.5) - anglePadding);
 
   labels
     .append("path")
@@ -187,7 +177,7 @@ export default function RadarChart(
     .style("font-size", "16px")
     .style("font-weight", "bold")
     .attr("text-anchor", "middle")
-    .attr("startOffset", "25.5%")
+    .attr("startOffset", "25%")
     .attr("xlink:href", (_d, i) => "#label-path-" + i) // map text to helper path
     .text((d) => d);
 
@@ -207,8 +197,8 @@ export default function RadarChart(
     .arc()
     .innerRadius(0)
     .outerRadius((d) => rScale(d.value))
-    .startAngle((_d, i) => angleSlice * (i + 0.5) + anglePad)
-    .endAngle((_d, i) => angleSlice * (i + 1.5) - anglePad);
+    .startAngle((_d, i) => angleSlice * (i + 0.5) + anglePadding)
+    .endAngle((_d, i) => angleSlice * (i + 1.5) - anglePadding);
 
   // Append the circles
   blobWrapper
