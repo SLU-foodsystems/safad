@@ -102,17 +102,19 @@ export default function RadarChart(
     .attr("gradientUnits", "userSpaceOnUse")
     .attr("r", Math.max(cfg.w, cfg.h) / 2);
 
-  [
-    [0, "#207320"],
-    [25, "#3cc310"],
-    [27, "#3cc310"],
-    [45, "#ffff5a"],
-    [55, "#f22"],
-    [100, "#e2002a"],
-  ].forEach(([offset, color]) => {
+  // scale the limit-circle to 1
+  (
+    [
+      [0, "#207320"],
+      [0.5, "#3cc310"],
+      [0.85, "#ffff5a"],
+      [1.1, "#f22"],
+      [2, "#e2002a"],
+    ] as [number, string][]
+  ).forEach(([offset, color]) => {
     radialGradient
       .append("stop")
-      .attr("offset", `${offset}%`)
+      .attr("offset", `${100 * offset / cfg.maxValue}%`)
       .attr("stop-color", color);
   });
 
