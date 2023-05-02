@@ -7,17 +7,15 @@ export default defineComponent({
     return {};
   },
 
-
-
   mounted() {
     const data = [
       [
         //iPhone
         { axis: "GHG Emissions", value: 1.22 },
-        { axis: "Cropland Use", value: 0.28 },
-        { axis: "N Application", value: 1.29 },
+        { axis: "Cropland Use", value: 2.28 },
+        { axis: "N Application", value: 2.29 },
         { axis: "P Application", value: 0.77 },
-        { axis: "Water Use", value: 0.22 },
+        { axis: "Water Use", value: 2.22 },
         { axis: "Extinction Rate", value: 0.92 },
       ],
     ];

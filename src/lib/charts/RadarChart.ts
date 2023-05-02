@@ -52,11 +52,11 @@ export default function RadarChart(
     cfg.maxValue = actualMax;
   }
 
-  const allAxis = data[0].map((i) => i.axis); // Names of each axis
-  const total = allAxis.length; // The number of different axes
+  const axes = data[0].map((i) => i.axis); // Names of each axis
+  const total = axes.length; // The number of different axes
   const radius = Math.min(cfg.w / 2, cfg.h / 2); // Radius of the outermost circle
   const angleSlice = (Math.PI * 2) / total; // The width in radians of each "slice"
-  const anglePad = 0.0125 * Math.PI * 2;
+  const anglePad = 0.015 * Math.PI * 2;
 
   // Scale for the radius
   const rScale = d3.scaleLinear().range([0, radius]).domain([0, cfg.maxValue]);
@@ -142,7 +142,7 @@ export default function RadarChart(
   // Create the straight lines radiating outward from the center
   const axis = axisGrid
     .selectAll(".axis")
-    .data(allAxis)
+    .data(axes)
     .enter()
     .append("g")
     .attr("class", "axis");
@@ -165,9 +165,7 @@ export default function RadarChart(
     .style("stroke-width", "2px");
 
   // Append the labels at each axis
-  const labels = axis
-    .append("text")
-    .attr("class", "legend");
+  const labels = axis.append("text").attr("class", "legend");
 
   const labelArc = d3
     .arc()
@@ -218,8 +216,21 @@ export default function RadarChart(
     .append("path")
     .attr("class", "radarCircle")
     .attr("d", arcGenerator)
-    .style("stroke", "black")
+    .style("stroke", "rgba(0, 0, 0, 0.5)")
     .style("stroke-width", "2px")
     .style("fill", "url(#radial-gradient)")
     .style("fill-opacity", 0.8);
+
+  /////////////////////////////////////////////////////////
+  //////////////// Draw a circle overlay //////////////////
+  /////////////////////////////////////////////////////////
+
+  root
+    .append("circle")
+    .attr("cx", 0)
+    .attr("cy", 0)
+    .attr("r", rScale(1))
+    .attr("fill", "none")
+    .attr("stroke", "black")
+    .attr("stroke-width", "2px");
 }
