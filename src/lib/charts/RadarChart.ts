@@ -63,8 +63,7 @@ export default function RadarChart(
     .select(id)
     .append("svg")
     .attr("width", cfg.w + cfg.margin.left + cfg.margin.right)
-    .attr("height", cfg.h + cfg.margin.top + cfg.margin.bottom)
-    .attr("class", "radar" + id);
+    .attr("height", cfg.h + cfg.margin.top + cfg.margin.bottom);
 
   const defs = svg.append("defs");
 
@@ -113,7 +112,7 @@ export default function RadarChart(
   /////////////////////////////////////////////////////////
 
   // Wrapper for the grid & axes
-  const axisGrid = root.append("g").attr("class", "axisWrapper");
+  const axisGrid = root.append("g");
 
   // Draw the background circles
   axisGrid
@@ -121,7 +120,6 @@ export default function RadarChart(
     .data(d3.range(1, cfg.levels + 1).reverse())
     .enter()
     .append("circle")
-    .attr("class", "gridCircle")
     .attr("r", (d) => (radius / cfg.levels) * d)
     .style("fill", "#cdcdcd")
     .style("stroke", "#cdcdcd")
@@ -132,12 +130,7 @@ export default function RadarChart(
   /////////////////////////////////////////////////////////
 
   // Create the straight lines radiating outward from the center
-  const axis = axisGrid
-    .selectAll(".axis")
-    .data(axes)
-    .enter()
-    .append("g")
-    .attr("class", "axis");
+  const axis = axisGrid.selectAll(".axis").data(axes).enter().append("g");
 
   // I do not understand this math, this is really trial-and-error.
   // Trig was too long ago, sorry.
@@ -162,18 +155,19 @@ export default function RadarChart(
     .attr("y1", 0)
     .attr(
       "x2",
-      (_d, i) => rScale(cfg.maxValue * 1.1) * Math.cos(angleSlice * i + axesOffset)
+      (_d, i) =>
+        rScale(cfg.maxValue * 1.1) * Math.cos(angleSlice * i + axesOffset)
     )
     .attr(
       "y2",
-      (_d, i) => rScale(cfg.maxValue * 1.1) * Math.sin(angleSlice * i + axesOffset)
+      (_d, i) =>
+        rScale(cfg.maxValue * 1.1) * Math.sin(angleSlice * i + axesOffset)
     )
-    .attr("class", "line")
     .style("stroke", "white")
     .style("stroke-width", "2px");
 
   // Append the labels at each axis
-  const labels = axis.append("text").attr("class", "legend");
+  const labels = axis.append("text");
 
   const labelArc = d3
     .arc()
@@ -206,8 +200,7 @@ export default function RadarChart(
     .selectAll(".radarWrapper")
     .data(data)
     .enter()
-    .append("g")
-    .attr("class", "radarWrapper");
+    .append("g");
 
   const arcGenerator = d3
     .arc()
@@ -222,7 +215,6 @@ export default function RadarChart(
     .data((d) => d)
     .enter()
     .append("path")
-    .attr("class", "radarCircle")
     .attr("d", arcGenerator)
     .style("stroke", "rgba(0, 0, 0, 0.5)")
     .style("stroke-width", "2px")
