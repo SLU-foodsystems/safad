@@ -103,10 +103,12 @@ export default function RadarChart(
     .attr("r", Math.max(cfg.w, cfg.h) / 2);
 
   [
-    [15, "#3cc310"],
-    [17, "#3cc310"],
-    [25, "#ffff5a"],
-    [40, "#f22"],
+    [0, "#207320"],
+    [25, "#3cc310"],
+    [27, "#3cc310"],
+    [45, "#ffff5a"],
+    [55, "#f22"],
+    [100, "#e2002a"],
   ].forEach(([offset, color]) => {
     radialGradient
       .append("stop")
@@ -176,8 +178,6 @@ export default function RadarChart(
 
   labels
     .append("path")
-    .attr("stroke", "#f0f")
-    .attr("stroke-width", "20px")
     .attr("d", labelArc)
     .attr("id", (_d, i) => `label-path-${i}`);
 
@@ -188,8 +188,8 @@ export default function RadarChart(
     .style("font-weight", "bold")
     .attr("text-anchor", "middle")
     .attr("startOffset", "25.5%")
-    .attr("xlink:href", (_d, i)  => "#label-path-" + i) // map text to helper path
-    .text(d => d);
+    .attr("xlink:href", (_d, i) => "#label-path-" + i) // map text to helper path
+    .text((d) => d);
 
   /////////////////////////////////////////////////////////
   ///////////// Draw the radar chart blobs ////////////////
