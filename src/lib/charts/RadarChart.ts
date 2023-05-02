@@ -139,6 +139,22 @@ export default function RadarChart(
     .append("g")
     .attr("class", "axis");
 
+  // I do not understand this math, this is really trial-and-error.
+  // Trig was too long ago, sorry.
+  let axesOffset = 0;
+  switch (total % 4) {
+    case 0:
+      axesOffset = angleSlice / 2;
+      break;
+    case 2:
+      axesOffset = 0;
+      break;
+    case 1:
+    case 3:
+      axesOffset = Math.PI / 2;
+      break;
+  }
+
   // Append the lines
   axis
     .append("line")
@@ -146,11 +162,11 @@ export default function RadarChart(
     .attr("y1", 0)
     .attr(
       "x2",
-      (_d, i) => rScale(cfg.maxValue * 1.1) * Math.cos(angleSlice * i)
+      (_d, i) => rScale(cfg.maxValue * 1.1) * Math.cos(angleSlice * i + axesOffset)
     )
     .attr(
       "y2",
-      (_d, i) => rScale(cfg.maxValue * 1.1) * Math.sin(angleSlice * i)
+      (_d, i) => rScale(cfg.maxValue * 1.1) * Math.sin(angleSlice * i + axesOffset)
     )
     .attr("class", "line")
     .style("stroke", "white")
