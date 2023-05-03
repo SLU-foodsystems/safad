@@ -15,6 +15,63 @@ type DataPoint = {
   [k: string]: number | string;
 };
 
+function drawLegend(
+  root: d3.Selection<any, unknown, HTMLElement, any>,
+  labels: string[],
+  color: d3.ScaleOrdinal<string, string, never>,
+  rect: { x: number; y: number }
+): { width: number; height: number } {
+  const legendContainer = root
+    .append("g")
+    .attr("class", "legend")
+    .style("transform", `translate(${rect.x}px, ${rect.y}px)`);
+
+  const cfg = {
+    padding: 10,
+    labelHeight: 25,
+    circleRadius: 8,
+  };
+
+  const height = cfg.padding * 2 + (labels.length - 1) * cfg.labelHeight;
+  const width = cfg.padding * 2 + Math.max(...labels.map((x) => x.length)) * 10;
+
+  legendContainer
+    .append("rect")
+    .style("fill", "white")
+    .attr("width", `${width}px`)
+    .attr("height", `${height}px`);
+
+  // create a list of keys
+  // Add one dot in the legend for each name.
+  legendContainer
+    .selectAll("dots")
+    .data(labels)
+    .enter()
+    .append("circle")
+    .attr("cx", cfg.padding + cfg.circleRadius)
+    .attr("cy", (_d, i) => cfg.padding + i * cfg.labelHeight)
+    .attr("r", cfg.circleRadius)
+    .style("fill", (d) => color(d));
+
+  // Add labels
+  legendContainer
+    .selectAll("labels")
+    .data(labels)
+    .enter()
+    .append("text")
+    .attr("x", cfg.padding + cfg.circleRadius * 2 + 10)
+    .attr(
+      "y",
+      (_d, i) => cfg.padding + cfg.circleRadius / 2 + i * cfg.labelHeight
+    )
+    .style("fill", "#111")
+    .text((d) => d)
+    .attr("text-anchor", "left")
+    .style("alignment-baseline", "middle");
+
+  return { width, height };
+}
+
 export default function StackedBarChart(
   containerSelector: string,
   data: DataPoint[],
@@ -26,10 +83,10 @@ export default function StackedBarChart(
       margin: {
         top: 20,
         left: 40,
-        right: 20,
+        right: 130,
         bottom: 20,
       },
-      width: 600,
+      width: 700,
       height: 400,
       maxValue: 1,
       minValue: 0,
@@ -74,11 +131,11 @@ export default function StackedBarChart(
     .attr("transform", `translate(0, ${innerHeight})`)
     .call(d3.axisBottom(xAxis).tickSizeOuter(0));
 
-  if (cfg.slantLabels){
-    xAxisG.selectAll("text")
-    .attr("transform", "translate(10,0)rotate(-45)")
-    .style("text-anchor", "end");
-
+  if (cfg.slantLabels) {
+    xAxisG
+      .selectAll("text")
+      .attr("transform", "translate(10,0) rotate(-45)")
+      .style("text-anchor", "end");
   }
 
   // Add Y axis
@@ -90,11 +147,13 @@ export default function StackedBarChart(
 
   // color palette = one color per subgroup
   const color = d3
-    .scaleOrdinal(cmc.subset("Davos", columns.length))
+    .scaleOrdinal(cmc.sample("Davos", columns.length))
     .domain(columns);
 
-  //stack the data? --> stack per subgroup
-  const stackedData = d3.stack().keys(columns)(data);
+  // Stack the data.
+  // TODO: Typecast is ugly, but I can't figure out to get it working anyway
+  // else right now.
+  const stackedData = d3.stack().keys(columns)(data as unknown as { [key: string]: number; }[]);
 
   // Show the bars
   svg
@@ -108,8 +167,13 @@ export default function StackedBarChart(
     // enter a second time = loop subgroup per subgroup to add all rectangles
     .data((d) => d)
     .join("rect")
-    .attr("x", (d) => xAxis(d.data.category as string))
+    .attr("x", (d) => xAxis(d.data.category as unknown as string))
     .attr("y", (d) => yAxis(d[1]))
     .attr("height", (d) => yAxis(d[0]) - yAxis(d[1]))
     .attr("width", xAxis.bandwidth());
+
+  drawLegend(svg, columns, color, {
+    x: innerWidth,
+    y: 0,
+  });
 }
