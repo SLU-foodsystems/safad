@@ -21,14 +21,10 @@ const DEBUG_REMOVED_ITEMS = false;
 
 const NULL_PROCESSES = ["F28.A07XD", "To be further disaggregated (d)"];
 
-const concatenateSets = (...sets) =>
-  new Set(sets.flatMap((set) => Array.from(set)));
-
 /**
  * Remove any self-references with a null-process
  */
 function removeNullSelfReferences(obj) {
-  const processes = new Set();
   Object.entries(obj).forEach(([id, values]) => {
     const _nBefore = obj[id].length;
 
@@ -38,8 +34,6 @@ function removeNullSelfReferences(obj) {
 
     const itemsWereRemoved = _nBefore !== obj[id].length;
     if (DEBUG_REMOVED_ITEMS && itemsWereRemoved) {
-      values.map((x) => x[1]).forEach((facet) => processes.add(facet));
-
       const fixedWidth = (str, len) =>
         str + (str.length >= len ? "" : " ".repeat(len - id.length));
       console.log(
@@ -52,7 +46,6 @@ function removeNullSelfReferences(obj) {
     }
   });
 
-  // console.log(processes)
   // console.log(nonFullYields.join("\n"))
 }
 
