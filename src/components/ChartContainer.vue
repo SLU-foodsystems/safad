@@ -2,14 +2,9 @@
 import { defineComponent } from "vue";
 import BoundariesChart from "../lib/charts/BoundariesChart";
 import StackedBarChart from "@/lib/charts/StackedBarChart";
+import downloadSvgAsImage from "@/lib/charts/d3-exporter";
 
 export default defineComponent({
-  data() {
-    return {
-      exportHandler: () => { },
-    };
-  },
-
   mounted() {
     const boundariesData = [
       [
@@ -21,8 +16,10 @@ export default defineComponent({
         { axis: "Extinction Rate", value: 0.92 },
       ],
     ];
-    const x = BoundariesChart(".boundaries-chart-container", boundariesData, { maxValue: 1 });
-    this.exportHandler = () => x.exportAsPng("radar-chart");
+
+    BoundariesChart(".boundaries-chart-container", boundariesData, {
+      maxValue: 1,
+    });
 
     const data = [
       {
@@ -41,7 +38,7 @@ export default defineComponent({
         fruitsVeg: 0.1,
         fishSeafood: 0,
         cereals: 0.35,
-        other: 0.10,
+        other: 0.1,
       },
       {
         category: "N Application",
@@ -85,15 +82,22 @@ export default defineComponent({
       )
     );
 
-    const columns = Object.keys(data[0]).filter(x => x !== "category")
+    const columns = Object.keys(data[0]).filter((x) => x !== "category");
     StackedBarChart(".bar-chart-container", data, columns, {});
+
+    const svgs = Array.from(this.$el.querySelectorAll("svg")) as HTMLElement[];
+    svgs.forEach((svg, i) => {
+      svg.addEventListener("click", () => {
+        downloadSvgAsImage(svg, "image-" + i, {});
+      });
+    });
   },
 });
 </script>
 
 <template>
   <div class="cluster">
-    <div class="boundaries-chart-container" @click="exportHandler" />
+    <div class="boundaries-chart-container" />
     <div class="bar-chart-container" />
   </div>
 </template>

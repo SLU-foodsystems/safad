@@ -1,5 +1,4 @@
 import * as d3 from "d3";
-import downloadSvgAsImage from "./d3-exporter";
 
 interface Config {
   w: number; // Width of the circle
@@ -45,6 +44,7 @@ export default function RadarChart(
 
   const axes = data[0].map((i) => i.axis); // Names of each axis
   const total = axes.length; // The number of different axes
+
   const radius = Math.min(cfg.w / 2, cfg.h / 2); // Radius of the outermost circle
   const angleSlice = (Math.PI * 2) / total; // The width in radians of each "slice"
   const anglePadding = cfg.slicePadding * Math.PI * 2;
@@ -234,8 +234,4 @@ export default function RadarChart(
     .attr("fill", "none")
     .attr("stroke", "black")
     .attr("stroke-width", "2px");
-
-  return {
-    exportAsPng: (name: string) => downloadSvgAsImage(svg.node()!, name, {}),
-  };
 }
