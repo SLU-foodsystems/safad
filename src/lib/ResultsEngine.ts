@@ -7,6 +7,13 @@ import { vectorSum } from "./utils";
 
 const recipes = foodsRecipes.data as unknown as FoodsRecipes;
 
+const ENV_IMPACT_ZERO = Array.from({ length: 9 }).map((_) => 0);
+
+const withWarn = <T>(message: string, val: T) => {
+  console.warn(message);
+  return val;
+};
+
 /**
  * Ties all parts of computing the results into a singleton.
  * TODO: Once tests are ready for this, we will want to extend
@@ -28,6 +35,22 @@ class ResultsEngine {
     this.convEnvFactors = conventional;
     this.organicEnvFactors = organic;
     this.recomputeEnvSheets();
+  }
+
+  private getEnvImpact(rpc: string, amountGram: number) {
+    if (!this.convEnvFactorsSheet || !this.organicEnvFactorsSheet) {
+      throw new Error("getEnvImpact called before sheets were assigned.");
+    }
+
+    const get = (sheet: EnvFootprints) =>
+      rpc in sheet
+        ? sheet[rpc].map((k) => (k * amountGram) / 1000)
+        : withWarn("Missing factors for " + rpc, ENV_IMPACT_ZERO);
+
+    return vectorSum(
+      get(this.convEnvFactorsSheet),
+      get(this.organicEnvFactorsSheet)
+    );
   }
 
   public setOrganicEnvFactors(envFactors: EnvOriginFactors) {
@@ -76,13 +99,7 @@ class ResultsEngine {
     const [rpcs, processes] = reduceDiet(diet, recipes);
 
     const rpcImpact = Object.fromEntries(
-      rpcs.map(([rpc, amountGram]) => [
-        rpc,
-        vectorSum(
-          this.convEnvFactorsSheet![rpc].map((k) => k * amountGram / 1000),
-          this.organicEnvFactorsSheet![rpc].map((k) => k * amountGram / 1000)
-        ),
-      ])
+      rpcs.map(([rpc, amountGram]) => [rpc, this.getEnvImpact(rpc, amountGram)])
     );
 
     const processesEnvImpact = computeProcessesFootprints(
