@@ -87,7 +87,7 @@ export default defineComponent({
 
     const svgs = Array.from(this.$el.querySelectorAll("svg")) as HTMLElement[];
     svgs.forEach((svg, i) => {
-      svg.addEventListener("click", () => {
+      svg.addEventListener("dblclick", () => {
         downloadSvgAsImage(svg, "image-" + i, {});
       });
     });
