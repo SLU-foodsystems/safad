@@ -40,11 +40,10 @@ export default function aggregate(
     const joinedEnvFactors = Object.keys(originFactors)
       .map((origin) => {
         const [percentage, waste, organic] = originFactors[origin];
-        const wasteChangeFactor = 1 / (1 - (waste / 100));
-        const organicRatio = mode === "organic"
-          ? organic / 100
-          : (100 - organic) / 100;
-        const shareRatio = (percentage / 100);
+        const wasteChangeFactor = 1 / (1 - waste / 100);
+        const organicRatio =
+          mode === "organic" ? organic / 100 : (100 - organic) / 100;
+        const shareRatio = percentage / 100;
 
         const ratio = shareRatio * organicRatio * wasteChangeFactor;
         return envImpacts[origin].map((x) => ratio * x);
