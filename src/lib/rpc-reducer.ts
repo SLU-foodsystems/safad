@@ -3,7 +3,8 @@
  * with an amount, and waste.
  */
 
-// Component, Facet, proportion ([0, 100]%), reverse yield
+// Component, Facet,   proportion, reverse yield
+// string   , string[], number   , number
 
 type ProcessesMap = Record<string, number>;
 
@@ -33,42 +34,36 @@ function mergeRpcs(rpcs: [string, number][]) {
  * each process it encounters along the way.
  *
  * Code-style, this is a bit criminal. It'd be 'prettier' to send along the
- * facets object, but it
- * also just introduces a lot of passing around for nothing - we're in a
- * closed scope and aux function anyways.
- *
+ * facets object, but it also just introduces a lot of passing around for
+ * nothing.
  */
+
+type RPC = [string, number]; // Code, Amount
+
 function reduceToRpcs(
   processesMap: ProcessesMap,
   recipes: FoodsRecipes,
-  [componentCode, amount]: [string, number]
-): [string, number][] {
+  [componentCode, amount]: RPC
+): RPC[] {
   const subcomponents = recipes[componentCode];
   if (!subcomponents) return [[componentCode, amount]];
 
   return subcomponents
-    .map(
-      ([subcomponentCode, facets, ratio, yieldFactor]): [string, number][] => {
-        const netAmount = yieldFactor * (ratio / 100) * amount;
-        // Facets can be empty strings, for meaningless processes.
-        if (facets) {
-          facets.split("$").map((facet) => {
-            processesMap[facet] = (processesMap[facet] || 0) + netAmount;
-          });
-        }
+    .map(([subcomponentCode, processes, ratio, yieldFactor]): RPC[] => {
+      const netAmount = yieldFactor * (ratio / 100) * amount;
+      // Facets can be empty strings, for meaningless processes.
+      processes.map((facet) => {
+        processesMap[facet] = (processesMap[facet] || 0) + netAmount;
+      });
 
-        // Some recipes will include references back to themselves, in which
-        // case we do not want to recurse any further (otherwise: loop).
-        // additional process.
-        const isSelfReference = subcomponentCode === componentCode;
-        if (isSelfReference) return [[subcomponentCode, netAmount]];
+      // Some recipes will include references back to themselves, in which
+      // case we do not want to recurse any further (otherwise: loop).
+      // additional process.
+      const isSelfReference = subcomponentCode === componentCode;
+      if (isSelfReference) return [[subcomponentCode, netAmount]];
 
-        return reduceToRpcs(processesMap, recipes, [
-          subcomponentCode,
-          netAmount,
-        ]);
-      }
-    )
+      return reduceToRpcs(processesMap, recipes, [subcomponentCode, netAmount]);
+    })
     .flat(1);
 }
 
@@ -79,7 +74,7 @@ export default function reduceDietToRPCs(
   const processesMap: ProcessesMap = {};
   const rpcs = diet
     // First, count up the waste factor
-    .map((entry): [string, number] => {
+    .map((entry): RPC => {
       const wasteChangeFactor =
         1 / ((100 - entry.retailWaste) * (100 - entry.consumerWaste) * 1e-4);
 

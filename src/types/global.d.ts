@@ -24,7 +24,7 @@ declare global {
   // FoodEx2.2 recipes
   // component, facet(s), % share, yield
   // TODO: More readable with named keys, but easier data management like this.
-  type FoodsRecipe = [string, string, number, number][];
+  type FoodsRecipe = [string, string[], number, number][];
   type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };
 
   type EnvFactors = number[];

@@ -12,7 +12,7 @@ interface DietComponent {
 type Diet = DietComponent[];
 
 // Component, Facet, proportion ([0, 100]%), reverse yield
-type FoodsRecipe = [string, string, number, number][];
+type FoodsRecipe = [string, string[], number, number][];
 type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };
 
 describe("RPC reducer", () => {
@@ -51,13 +51,13 @@ describe("RPC reducer", () => {
   test("Handles nested RPCs", () => {
     const recipes: FoodsRecipes = {
       a: [
-        ["aa", "facetA", 20, 10],
-        ["ab", "facetA", 80, 1],
+        ["aa", ["facetA"], 20, 10],
+        ["ab", ["facetA"], 80, 1],
       ],
-      aa: [["rpc1", "facetB", 100, 1.7]],
+      aa: [["rpc1", ["facetB"], 100, 1.7]],
       ab: [
-        ["rpc2", "facetB", 50, 2],
-        ["rpc3", "facetC", 50, 3],
+        ["rpc2", ["facetB"], 50, 2],
+        ["rpc3", ["facetC"], 50, 3],
       ],
     };
     const diet: Diet = [
@@ -100,13 +100,13 @@ describe("RPC reducer", () => {
   test("Merges reappering RPCs", () => {
     const recipes: FoodsRecipes = {
       a: [
-        ["aa", "", 20, 10],
-        ["ab", "", 80, 1],
+        ["aa", [], 20, 10],
+        ["ab", [], 80, 1],
       ],
-      aa: [["rpc1", "", 100, 1.7]],
+      aa: [["rpc1", [], 100, 1.7]],
       ab: [
-        ["rpc2", "", 50, 2],
-        ["rpc1", "", 50, 3],
+        ["rpc2", [], 50, 2],
+        ["rpc1", [], 50, 3],
       ],
     };
     const diet: Diet = [
@@ -135,7 +135,7 @@ describe("RPC reducer", () => {
 
   test("Handles combined facets", () => {
     const recipes: FoodsRecipes = {
-      a: [["b", "facetA$facetB$facetC", 80, 10]],
+      a: [["b", ["facetA", "facetB", "facetC"], 80, 10]],
     };
     const diet: Diet = [
       {
@@ -166,8 +166,8 @@ describe("RPC reducer", () => {
   test("Adds processes for self-referencing recipes", () => {
     const recipes: FoodsRecipes = {
       a: [
-        ["a", "facetA", 20, 10],
-        ["b", "facetB", 80, 1],
+        ["a", ["facetA"], 20, 10],
+        ["b", ["facetB"], 80, 1],
       ],
     };
     const diet: Diet = [
