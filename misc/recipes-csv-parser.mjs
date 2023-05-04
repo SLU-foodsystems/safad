@@ -102,7 +102,7 @@ function main(args) {
   const recipes = {};
 
   // TODO: Ignoring facet here.
-  recipesCsv.forEach(([code, component, facet, perc, prob]) => {
+  recipesCsv.forEach(([code, component, facetStr, perc, prob]) => {
     // TODO: may be a better / data-structure to store entries, rather than
     // the complete object (i.e. { code: [component, ratio][] })
     const value = roundToPrecision(parseFloat(perc) * parseFloat(prob), 3);
@@ -111,11 +111,14 @@ function main(args) {
 
     // Note to self: I've checked that all missing values here are of the facet
     // "To be further disaggregated (d)", which is why we can just assume a 1
-    const yieldFactor = yieldMap[component + "|" + facet] || 1;
-    if (NULL_PROCESSES.includes(facet)) {
-      facet = "";
-    }
-    const entry = [component, facet, value, yieldFactor];
+    const yieldFactor = yieldMap[component + "|" + facetStr] || 1;
+
+    const PROCESS_UNSPECIFIED = "F28.A07XD";
+    const processes = facetStr
+      .split("$")
+      .filter((f) => f.startsWith("F28.") && f !== PROCESS_UNSPECIFIED);
+
+    const entry = [component, processes, value, yieldFactor];
 
     if (code in recipes) {
       recipes[code].push(entry);
