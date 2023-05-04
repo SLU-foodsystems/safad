@@ -76,11 +76,11 @@ class ResultsEngine {
     const [rpcs, processes] = reduceDiet(diet, recipes);
 
     const rpcImpact = Object.fromEntries(
-      rpcs.map(([rpc, amount]) => [
+      rpcs.map(([rpc, amountGram]) => [
         rpc,
         vectorSum(
-          this.convEnvFactorsSheet![rpc].map((k) => k * amount),
-          this.organicEnvFactorsSheet![rpc].map((k) => k * amount)
+          this.convEnvFactorsSheet![rpc].map((k) => k * amountGram / 1000),
+          this.organicEnvFactorsSheet![rpc].map((k) => k * amountGram / 1000)
         ),
       ])
     );
