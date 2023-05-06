@@ -17,7 +17,7 @@ const processEnergyMap = _processEnergyMap as Record<string, number[]>;
 export default function computeProcessFootprints(
   processAmountMap: Record<string, number>,
   energiesFootprints: number[][]
-) {
+): Record<string, number[]> {
   return Object.fromEntries(
     Object.entries(processAmountMap).map(([processId, amount]) => {
       // TODO: maybe add a check if the process does not exist?
