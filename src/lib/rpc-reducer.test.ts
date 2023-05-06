@@ -150,17 +150,17 @@ describe("RPC reducer", () => {
     const baseWasteAmount = 100 / (0.9 * 0.7);
     const netAmount = baseWasteAmount * 0.8 * 10;
 
-    const [rpcs, facets] = reduceDietToRPCs(diet, recipes);
+    const [rpcs, processAmounts] = reduceDietToRPCs(diet, recipes);
     expect(rpcs).toHaveLength(1);
     // RPC 1
     expect(rpcs[0][0]).toEqual("b");
     expect(rpcs[0][1]).toEqual(netAmount);
 
     // We should add netAmount for all three facets
-    expect(Object.keys(facets)).toHaveLength(3);
-    expect(facets.facetA).toBeCloseTo(netAmount);
-    expect(facets.facetB).toBeCloseTo(netAmount);
-    expect(facets.facetC).toBeCloseTo(netAmount);
+    expect(Object.keys(processAmounts)).toHaveLength(3);
+    expect(processAmounts.facetA).toBeCloseTo(netAmount);
+    expect(processAmounts.facetB).toBeCloseTo(netAmount);
+    expect(processAmounts.facetC).toBeCloseTo(netAmount);
   });
 
   test("Adds processes for self-referencing recipes", () => {
