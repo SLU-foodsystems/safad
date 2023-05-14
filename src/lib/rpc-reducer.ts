@@ -6,7 +6,8 @@
 // Component, Facet,   proportion, reverse yield
 // string   , string[], number   , number
 
-type ProcessesMap = Record<string, number>;
+type FlatProcessesMap = Record<string, number>;
+type ProcessesMap = Record<string, Record<string, number>>;
 
 function mergeRpcs(rpcs: [string, number][]) {
   // Merge all RPCs, to avoid duplicate entries
@@ -41,7 +42,11 @@ function mergeRpcs(rpcs: [string, number][]) {
 type RPC = [string, number]; // Code, Amount
 
 function reduceToRpcs(
-  processesMap: ProcessesMap,
+  recordProcessContribution: (
+    code: string,
+    facet: string,
+    amount: number
+  ) => void,
   recipes: FoodsRecipes,
   [componentCode, amount]: RPC
 ): RPC[] {
@@ -53,7 +58,7 @@ function reduceToRpcs(
       const netAmount = yieldFactor * (ratio / 100) * amount;
       // Facets can be empty strings, for meaningless processes.
       processes.map((facet) => {
-        processesMap[facet] = (processesMap[facet] || 0) + netAmount;
+        recordProcessContribution(subcomponentCode, facet, netAmount);
       });
 
       // Some recipes will include references back to themselves, in which
@@ -62,7 +67,10 @@ function reduceToRpcs(
       const isSelfReference = subcomponentCode === componentCode;
       if (isSelfReference) return [[subcomponentCode, netAmount]];
 
-      return reduceToRpcs(processesMap, recipes, [subcomponentCode, netAmount]);
+      return reduceToRpcs(recordProcessContribution, recipes, [
+        subcomponentCode,
+        netAmount,
+      ]);
     })
     .flat(1);
 }
@@ -72,6 +80,21 @@ export default function reduceDietToRPCs(
   recipes: FoodsRecipes
 ): [[string, number][], ProcessesMap] {
   const processesMap: ProcessesMap = {};
+
+  const recordProcessContribution = (
+    code: string,
+    facet: string,
+    amount: number
+  ) => {
+    const level1Category = code.substring(0, 4);
+    if (!(level1Category in processesMap)) {
+      processesMap[level1Category] = {};
+    }
+
+    processesMap[level1Category][facet] =
+      (processesMap[level1Category][facet] || 0) + amount;
+  };
+
   const rpcs = diet
     // First, count up the waste factor
     .map((entry): RPC => {
@@ -81,7 +104,9 @@ export default function reduceDietToRPCs(
       return [entry.code, entry.amount * wasteChangeFactor];
     })
     // Now, compine with the recipes to get RPCs!
-    .map((rpcDerivative) => reduceToRpcs(processesMap, recipes, rpcDerivative))
+    .map((rpcDerivative) =>
+      reduceToRpcs(recordProcessContribution, recipes, rpcDerivative)
+    )
     .flat(1);
 
   const mergedRpcs = mergeRpcs(rpcs);
