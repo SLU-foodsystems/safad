@@ -97,13 +97,16 @@ export default function StackedBarChart(
   );
 
   if (cfg.slantLabels) {
-    // TODO: arbitrary offset
+    // TODO: this is an arbitrary offset
     cfg.margin.bottom += 100;
   }
 
   // set the dimensions and margins of the graph
   const innerWidth = cfg.width - cfg.margin.left - cfg.margin.right;
   const innerHeight = cfg.height - cfg.margin.top - cfg.margin.bottom;
+
+  // Remove any existing svg
+  d3.select(containerSelector).select("svg").remove();
 
   // append the svg object to the body of the page
   const svg = d3
