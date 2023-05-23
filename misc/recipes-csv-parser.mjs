@@ -99,7 +99,6 @@ function main(args) {
   const yieldMap = buildYieldMap(processesCsv);
   const recipes = {};
 
-  // TODO: Ignoring facet here.
   recipesCsv.forEach(([code, component, facetStr, perc, prob]) => {
     // TODO: may be a better / data-structure to store entries, rather than
     // the complete object (i.e. { code: [component, ratio][] })
