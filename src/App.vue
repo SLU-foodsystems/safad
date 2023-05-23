@@ -27,9 +27,9 @@ export default defineComponent({
 
       const diet = [
         // food, amount, consumerWaste, retailWaste
-        ["A.01.06.001.004", 2000, 10, 33],
-        ["A.01.07.001.006", 1000, 20, 0],
-        ["I.14.07.001.002", 500, 30, 0],
+        ["A.01.06.001.004", 2000, 0.10, 0.33],
+        ["A.01.07.001.006", 1000, 0.20, 0],
+        ["I.14.07.001.002", 500, 0.30, 0],
       ].map((x) => ({
         code: x[0] as string,
         amount: x[1] as number,
