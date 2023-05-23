@@ -22,7 +22,7 @@ export default function aggregate(
 ): EnvFootprints {
   // Idea: Increase impact to account for waste.
   //    - Downside: we won't be able to say "environmental impact from waste"
-  //    - (unless we outpt with and without waste fore very item?)
+  //    - (unless we outpt with and without waste for every item?)
   //
   // Input:
   //  - env impact sheet ((rpc, country) -> impacts)
@@ -39,11 +39,9 @@ export default function aggregate(
 
     const joinedEnvFactors = Object.keys(originFactors)
       .map((origin) => {
-        const [percentage, waste, organic] = originFactors[origin];
-        const wasteChangeFactor = 1 / (1 - waste / 100);
-        const organicRatio =
-          mode === "organic" ? organic / 100 : (100 - organic) / 100;
-        const shareRatio = percentage / 100;
+        const [shareRatio, waste, organic] = originFactors[origin];
+        const wasteChangeFactor = 1 / (1 - waste);
+        const organicRatio = mode === "organic" ? organic : (1 - organic);
 
         const ratio = shareRatio * organicRatio * wasteChangeFactor;
         return envImpacts[origin].map((x) => ratio * x);
