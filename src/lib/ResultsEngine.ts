@@ -3,7 +3,7 @@ import reduceDiet from "./rpc-reducer";
 import foodsRecipes from "@/data/foodex-recipes.json";
 import computeProcessesFootprints from "./process-env-impact";
 import aggregateEnvImpacts from "./env-impact-aggregator";
-import { vectorSum } from "./utils";
+import { mapValues, vectorSum } from "./utils";
 
 const recipes = foodsRecipes.data as unknown as FoodsRecipes;
 
@@ -102,14 +102,27 @@ class ResultsEngine {
       rpcs.map(([rpc, amountGram]) => [rpc, this.getEnvImpact(rpc, amountGram)])
     );
 
-    const processesEnvImpact = computeProcessesFootprints(
-      processes,
-      Array.from({ length: 7 }).map((_1) =>
-        Array.from({ length: 4 }).map((_2) => Math.random() * 10)
-      )
+    const processEnvSheet = Array.from({ length: 7 }).map((_1) =>
+      Array.from({ length: 4 }).map((_2) => Math.random() * 10)
     );
 
-    return [rpcImpact, processesEnvImpact];
+    // Per-process impacts
+    const processesEnvImpacts = mapValues(processes, (p) =>
+      computeProcessesFootprints(p, processEnvSheet)
+    );
+
+    const flatProcessAmounts: Record<string, number> = {};
+    Object.values(processes).forEach((obj) => {
+      Object.entries(obj).forEach(([k, v]) => {
+        flatProcessAmounts[k] = (flatProcessAmounts[k] || 0) + v;
+      });
+    });
+    const flatProcessImpacts = computeProcessesFootprints(
+      flatProcessAmounts,
+      processEnvSheet
+    );
+
+    return [rpcImpact, flatProcessImpacts];
   }
 
   // Necessary for testing.
