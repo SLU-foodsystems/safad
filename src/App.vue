@@ -3,12 +3,9 @@ import { defineComponent } from "vue";
 
 import ChartContainer from "./components/ChartContainer.vue";
 
-import { aggregateRpcCategories, vectorSums } from "./lib/utils";
+import envFactorsJson from "./data/env-factors.json";
 
-import rpcFactors from "./data/rpc-factors.json";
-import envFactors from "./data/env-factors.json";
-
-import ResultsEngine from "./lib/ResultsEngine";
+import getBenchmark from "./lib/diet-benchmarker";
 
 export default defineComponent({
   components: { ChartContainer },
@@ -19,44 +16,19 @@ export default defineComponent({
 
   methods: {
     run() {
-      ResultsEngine.setEnvFactors(
-        envFactors.data as unknown as EnvOriginFactors,
-        envFactors.data as unknown as EnvOriginFactors
-      );
-      ResultsEngine.setRpcFactors(rpcFactors.data as unknown as RpcFactors);
+      //const LL_COUNTRIES = [ "France", "Germany", "Greece", "Hungary", "Ireland", "Italy", "Poland", "Spain", "Sweden", ];
+      const LL_COUNTRIES = ["Sweden"]
 
-      const diet = [
-        // food, amount, consumerWaste, retailWaste
-        ["A.01.06.001.004", 2000, 0.10, 0.33],
-        ["A.01.07.001.006", 1000, 0.20, 0],
-        ["I.14.07.001.002", 500, 0.30, 0],
-      ].map((x) => ({
-        code: x[0] as string,
-        amount: x[1] as number,
-        consumerWaste: x[2] as number,
-        retailWaste: x[3] as number,
-      }));
+      LL_COUNTRIES.forEach((country) => {
+        const benchmark = getBenchmark(country);
+        console.log(benchmark);
+      });
 
-      const results = ResultsEngine.computeFootprints(diet);
-      if (results !== null) {
-        const [rpcImpacts, processesEnvImpacts] = results;
-        console.log(rpcImpacts);
-        console.log(processesEnvImpacts);
-
-        const totalRpcImpacts = vectorSums(Object.values(rpcImpacts));
-        const totalProcessesImpacts = vectorSums(
-          Object.values(processesEnvImpacts)
-        );
-        const totalImpacts = totalRpcImpacts.map((x, i) =>
-          i < totalProcessesImpacts.length ? x + totalProcessesImpacts[i] : x
-        );
-        console.log(totalImpacts);
-
-        const categoryImpacts = aggregateRpcCategories(rpcImpacts);
-        console.log(categoryImpacts)
-        // TODO: Plug these results into the graphs!
-      }
     },
+  },
+
+  mounted() {
+    this.run();
   },
 });
 </script>
