@@ -1,0 +1,302 @@
+FoodEx2 Code;Long Code ;FoodEx2 Name;SUA code;SUA name
+A001N;A.01.02.001;Common wheat grain;0111;wheat
+A001P;A.01.02.001.002;Durum wheat grain;0111;wheat
+A001N;A.01.02.001.003;Common wheat grain;0111;wheat
+A001P;A.01.02.001.004;Durum wheat grain;0111;wheat
+A000P;A.01.02.002.001;Barley grains;0115;barley
+A000T;A.01.02.003;Maize grain;0112;maize (corn)
+A001K;A.01.02.004;Rye grain;0116;rye
+A001R;A.01.02.005;Spelt grain;0111;wheat
+A000N;A.01.02.006;Buckwheat;01192;buckwheat
+A001B;A.01.02.007;Common millet grain;I.06.09.003.006;millet
+A000G;A.01.02.008;Oat grain;0117;oats
+A001D;A.01.02.009;Rice grain;0113;rice
+A001J;A.01.02.009.007;Indian rice grain;0113;rice
+A010G;A.02.01.001;Arrowroots;01599.10;edible roots and tubers with high starch or inulin content, n.e.c., fresh
+A00QG;A.02.01.002;Beetroots;01599.10;edible roots and tubers with high starch or inulin content, n.e.c., fresh
+A00QH;A.02.01.003;Carrots;01251;carrots and turnips
+A00QJ;A.02.01.004;Celeriacs;01599.10;edible roots and tubers with high starch or inulin content, n.e.c., fresh
+A00QK;A.02.01.005;Horseradish roots;01599.10;edible roots and tubers with high starch or inulin content, n.e.c., fresh
+A00QS;A.02.01.006;Parsley roots;01599.10;edible roots and tubers with high starch or inulin content, n.e.c., fresh
+A00QR;A.02.01.007;Parsnip roots;01599.10;edible roots and tubers with high starch or inulin content, n.e.c., fresh
+A00QV;A.02.01.008;Radishes;01212;cabbages
+A00RA;A.02.01.009;Salsifies;01445;sunflower seed
+A00RD;A.02.01.010;Swedes;01212;cabbages
+A00RE;A.02.01.012;Turnips;01251;carrots and turnips
+A00GZ;A.02.02.001;Garlic;01252;green garlic
+A00HC;A.02.02.002;Onions;01253.01;onions and shallots, green
+A00HF;A.02.02.003;Shallots;01253.01;onions and shallots, green
+A00HH;A.02.02.004;Spring onions;01253.01;onions and shallots, green
+A00XD;A.02.02.005;Chives;01253.01;onions and shallots, green
+A0DMX;A.02.03.001;Tomatoes;01234;tomatoes
+A00JA;A.02.03.002;Sweet peppers;01231;chillies and peppers, green (capsicum spp. and pimenta spp.)
+A00JB;A.02.03.003;Chili peppers;01231;chillies and peppers, green (capsicum spp. and pimenta spp.)
+A00JD;A.02.03.004;Aubergines;01233;eggplants (aubergines)
+A00JF;A.02.03.005;Okra;01359.9;Other fruits, n.e.c.
+A00JM;A.02.03.006;Cucumbers;01232;cucumbers and gherkins
+A00JP;A.02.03.007;Gherkins;01232;cucumbers and gherkins
+A00JR;A.02.03.008;Courgettes;01235;pumpkins, squash and gourds
+A00KF;A.02.03.009;Melons;01229;cantaloupes and other melons 
+A00KH;A.02.03.010;Pumpkins;01235;pumpkins, squash and gourds
+A00KJ;A.02.03.011;Watermelons;01221;watermelons
+A00KP;A.02.03.012;Sweet corn;01290.01;green corn (maize) 
+A00FN;A.02.04.001;Broccoli;01213;cauliflowers and broccoli
+A00FR;A.02.04.002;Cauliflowers;01213;cauliflowers and broccoli
+A00FV;A.02.04.003;Brussels sprouts;01212;cabbages
+A00FY;A.02.04.004;Head cabbages;01212;cabbages
+A00GG;A.02.04.005;Chinese cabbages;01212;cabbages
+A00GL;A.02.04.006;Kales and similar-;01212;cabbages
+A00GV;A.02.04.007;Kohlrabies;01212;cabbages
+A00KT;A.02.05.001;Lamb's lettuces;01214;lettuce and chicory
+A00KY;A.02.05.002;Head lettuces;01214;lettuce and chicory
+A00KZ;A.02.05.003;Crisp lettuces;01214;lettuce and chicory
+A00LE;A.02.05.004;Escaroles;01214;lettuce and chicory
+A00LK;A.02.05.005;Cresses;01212;cabbages
+A00LL;A.02.05.006;Land cresses;01212;cabbages
+A00LN;A.02.05.007;Roman rocket;01212;cabbages
+A00MJ;A.02.05.010;Spinaches;01215;spinach
+A00MP;A.02.05.012;Purslanes;01215;spinach
+A00MX;A.02.05.013;Chards;1801;sugar beet
+A00NB;A.02.05.014;Grape leaves;;
+A00ND;A.02.05.015;Watercresses;01212;cabbages
+A00NE;A.02.05.016;Witloofs;;lettuce and chicory
+A00MV;A.02.05.017;Oraches leaves;;
+A00MD;A.02.05.019;Dandelions;01445;sunflower seed
+A00PA;A.02.05.020;Common nettle;01215;spinach
+A00MT;A.02.05.021;Garden sorrel;01215;spinach
+A00SH;A.02.05.022;Alfalfa sprouts;01709.90;other pulses n.e.c.
+A00PC;A.02.06.001;Beans (with pods) and similar-;01701;beans, dry
+A00PX;A.02.06.002;Peas (with pods) and similar-;01705;peas, dry
+A00RT;A.02.07.001;Asparagus;01211;asparagus
+A00RX;A.02.07.002;Cardoons;01445;sunflower seed
+A00RY;A.02.07.003;Celeries;01251;carrots and turnips
+A00SA;A.02.07.004;Florence fennels;01251;carrots and turnips
+A00RS;A.02.07.005;Globe artichokes;01216;Artichokes
+A00SB;A.02.07.006;Leeks;01254;leeks and other alliaceous vegetables
+A00SD;A.02.07.007;Rhubarbs;1801;sugar beet
+A00RV;A.02.07.008;Bamboo shoots;;
+A00SC;A.02.07.009;Palm hearts;;
+A010Z;A.02.08.003;Chicory roots;01599.1;Edible roots and tubers with high starch or inulin content, n.e.c., fresh
+A00VG;A.02.09.001;Carrageen mosses;;
+A00VM;A.02.09.001.001;Kombu;;
+A00VH;A.02.09.001.002;Laver;;
+A00VC;A.02.09.001.003;Wakame;;
+A04KK;A.02.10.001;Teas  and similar-;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A00XZ;A.02.10.004;Mints;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A03JL;A.02.10.009;Strawberry infusion leaves;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A03JV;A.02.10.013;Ginseng infusion roots;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A03GK;A.02.12.001;Coffee beans, green;01610;Coffee, green
+A00TQ;A.02.15.001;Common mushrooms;01270;Mushrooms and truffles
+A00TS;A.02.15.003;Shiitake;01270;Mushrooms and truffles
+A00TL;A.02.16.002;Honey mushroom;01270;Mushrooms and truffles
+A00TG;A.02.16.003;Ceps;01270;Mushrooms and truffles
+A00TJ;A.02.16.004;Truffles;01270;Mushrooms and truffles
+A00TK;A.02.16.005;Morels;01270;Mushrooms and truffles
+A00TE;A.02.16.006;Chanterelles;01270;Mushrooms and truffles
+A00TH;A.02.16.007;Saffron milk cap;01270;Mushrooms and truffles
+A00ZV;A.03.01.001;New potatoes;01510;Potatoes
+A00ZX;A.03.01.002;Main-crop potatoes;01510;Potatoes
+A010C;A.03.02.001;Sweet potatoes;01530;Sweet potatoes
+A00ZZ;A.03.02.002;Cassava roots;01599.1;Edible roots and tubers with high starch or inulin content, n.e.c., fresh
+A010D;A.03.02.004;Yams;01599.1;Edible roots and tubers with high starch or inulin content, n.e.c., fresh
+A00QQ;A.03.02.005;Jerusalem artichokes;01599.1;Edible roots and tubers with high starch or inulin content, n.e.c., fresh
+A011Z;A.04.01.001;Beans (fresh seeds without pods) and similar-;01701;Beans, dry
+A012G;A.04.01.002;Peas (without pods) and similar-;01242;Peas, green
+A012S;A.04.02.001;Beans (dry) and similar-;01701;Beans, dry
+A0DCE;A.04.02.002;Lentils (dry) and similar-;01704;Lentils, dry
+A0DCD;A.04.02.003;Peas (dry) and similar-;01705;Peas, dry
+A013M;A.04.02.005;Chickpeas (dry);01703;Chick peas, dry
+A013H;A.04.02.007;Broad beans (dry);01702;Broad beans and horse beans, dry
+A013A;A.04.02.008;Lima beans (dry);01701;Beans, dry
+A013D;A.04.02.009;Mung beans (dry);01701;Beans, dry
+A00SR;A.04.02.009;Mung bean sprouts;01701;Beans, dry
+A013N;A.04.02.011;Black eyed peas (dry);01705;Peas, dry
+A015P;A.04.02.012;Soyabeans for oil;0141;Soya beans
+A01HY;A.04.02.014;Carobs;01709.9;Other pulses n.e.c.
+A010D;A.04.02.020;Yams;01599.1;Edible roots and tubers with high starch or inulin content, n.e.c., fresh
+A015H;A.04.02.021;Peanuts;0142;Groundnuts, excluding shelled
+A014F;A.04.03.001;Almonds sweet;01371;Almonds, in shell
+A014E;A.04.03.002;Bitter almonds;01371;Almonds, in shell
+A014G;A.04.03.003;Brazil nuts;01377;Brazil nuts, in shell
+A014H;A.04.03.004;Cashew nuts;;
+A014J;A.04.03.005;Chestnuts;01373;Chestnuts, in shell
+A014K;A.04.03.006;Coconuts;01460;Coconut, in shell
+A014L;A.04.03.007;Hazelnuts;01374;Hazelnuts, in shell
+A014M;A.04.03.008;Macadamias;;
+A014N;A.04.03.009;Pecans;;
+A01BV;A.04.03.010;Pine nut kernels;;
+A014Q;A.04.03.011;Pistachios;;
+A014R;A.04.03.012;Walnuts;01376;Walnuts, in shell
+A015G;A.04.04.001;Linseeds;01441;Linseed
+A015J;A.04.04.003;Poppy seeds;01448;Poppy seed
+A015K;A.04.04.004;Sesame seeds;01449.9;Other oil seeds, n.e.c.
+A015L;A.04.04.005;Sunflower seeds;01445;Sunflower seed
+A015S;A.04.04.007;Mustard seeds;01449.9;Other oil seeds, n.e.c.
+A015X;A.04.04.009;Pumpkin seeds;01449.9;Other oil seeds, n.e.c.
+A016B;A.04.04.013;Hemp seeds;01449.9;Other oil seeds, n.e.c.
+A016D;A.04.05;Other oilseeds (including elsewhere non-listed seeds);01449.9;Other oil seeds, n.e.c.
+A01CY;A.05.01.001;Grapefruits;01321;Pomelos and grapefruits
+A0DZB;A.05.01.002;Oranges;01323;Oranges
+A01BY;A.05.01.003;Lemons;01322;Lemons and limes
+A01CA;A.05.01.004;Limes;01322;Lemons and limes
+A01CB;A.05.01.005;Mandarins and similar-;01324;Tangerines, mandarins, clementines
+A01DJ;A.05.02.001;Apples;01341;Apples
+A01DP;A.05.02.002;Pears;01342.01;Pears
+A01DR;A.05.02.003;Quinces;01342.02;Quinces
+A01DM;A.05.02.004;Medlars;01359.9;Other fruits, n.e.c.
+A01DL;A.05.02.005;Loquats;01359.9;Other fruits, n.e.c.
+A01GD;A.05.02.007;Sorb fruits;01341;Apples
+A01DQ;A.05.02.009;Nashi pears;01342.01;Pears
+A01GF;A.05.03.001;Apricots;01343;Apricots
+A01GQ;A.05.03.002;Plums;01346;Plums and sloes
+A01GR;A.05.03.003;Damsons;01346;Plums and sloes
+A01GS;A.05.03.004;Mirabelles;01346;Plums and sloes
+A01GX;A.05.03.005;Gages;01346;Plums and sloes
+A01GK;A.05.03.006;Cherries (sweet);01344.02;Cherries
+A01GH;A.05.03.007;Sour cherries;01344.01;Sour cherries
+A01GL;A.05.03.011;Peaches and similar-;01345;Peaches and nectarines
+A01DX;A.05.04.001;Table grapes;01330;Grapes
+A01DY;A.05.04.002;Wine grapes;01330;Grapes
+A01EA;A.05.04.003;Strawberries;01354;Strawberries
+A01EE;A.05.04.004;Blackberries;01353.01;Raspberries
+A01EP;A.05.04.006;Raspberries (red and yellow);01353.01;Raspberries
+A01EY;A.05.04.008;Blueberries;01355.01;Blueberries
+A01FH;A.05.04.009;Cranberries;01355.01;Blueberries
+A01FM;A.05.04.010;Currants (black, red and white);01351.01;Currants
+A0CFN;A.05.04.011;Gooseberries (green, red and yellow);01351.02;Gooseberries
+A0CFR;A.05.04.012;Rose hips;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A01FS;A.05.04.013;Mulberries (black and white);01315;Figs
+A01FX;A.05.04.015;Elderberries;01351.01;Currants
+A01EM;A.05.04.016;Cloudberries;01353.01;Raspberries
+A01FE;A.05.04.022;Bilberries;01355.01;Blueberries
+A00JG;A.05.04.029;Ground cherries (physalis etc.);01234;Tomatoes
+A01FZ;A.05.04.030;Sea buckthorns;01351.01;Currants
+A016M;A.05.05.001;Olives for oil production;01450;Olives
+A01HF;A.05.06.001;Dates;01314;Dates
+A01HG;A.05.06.002;Figs;01315;Figs
+A01BP;A.05.06.003;Table olives;01450;Olives
+A0DRT;A.05.06.004;Kumquats;01322;Lemons and limes
+A01HM;A.05.06.005;Carambolas;01359.9;Other fruits, n.e.c.
+A01HQ;A.05.06.006;Kaki;01234;Tomatoes
+A01JT;A.05.06.008;Kiwi fruits (green, red, yellow);01352;Kiwi fruit
+A01JV;A.05.06.009;Litchis;01359.9;Other fruits, n.e.c.
+A01KC;A.05.06.010;Passionfruits;01359.9;Other fruits, n.e.c.
+A01KD;A.05.06.011;Prickly pears;01359.9;Other fruits, n.e.c.
+A01KF;A.05.06.013;American persimmons;01234;Tomatoes
+A01LB;A.05.06.014;Avocados;01311;Avocados
+A01LF;A.05.06.016;Mangoes;01316;Mangoes, guavas and mangosteens
+A01LG;A.05.06.017;Papayas;01317;Papayas
+A01LH;A.05.06.018;Granate apples;01359.9;Other fruits, n.e.c.
+A01LK;A.05.06.019;Wild sweetsops;01359.9;Other fruits, n.e.c.
+A0CGD;A.05.06.020;Guavas;01316;Mangoes, guavas and mangosteens
+A01LP;A.05.06.021;Pineapples;01318;Pineapples
+A01LG;A.05.06.029;Papayas;01317;Papayas
+A01KQ;A.05.06.034;Longans;01359.9;Other fruits, n.e.c.
+A03DK;A.15;Drinking water;;
+A03DL;A.15.01;Tap water;;
+A03DP;A.15.02;Well water;;
+A04PX;A.15.03;Bottled water;;
+A04PX;A.15.03.001;Bottled water;;
+A04PX;A.15.03.002;Bottled water;;
+A03DK;A.15.04;Drinking water;;
+A00XB;A.16.01.001;Chervil;01654;Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw
+A00XD;A.16.01.002;Chives;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A00XH;A.16.01.003;Dill leaves;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A00XA;A.16.01.004;Celery leaves;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A00YE;A.16.01.005;Parsley;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A00YH;A.16.01.006;Sage;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A00YF;A.16.01.007;Rosemary;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A00YQ;A.16.01.008;Thyme;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A00VV;A.16.01.009;Basil;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A00VX;A.16.01.010;Laurel;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A00YP;A.16.01.011;Tarragon;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A018R;A.16.02.004;Allspice fruit;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A017Y;A.16.02.006;Anise seed;01654;Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw
+A0CZD;A.16.02.008;Black caraway seed;01654;Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw
+A01AM;A.16.02.009;Capers buds;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A018T;A.16.02.010;Caraway fruit;01654;Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw
+A018V;A.16.02.011;Cardamom fruit;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A019V;A.16.02.014;Cinnamon bark;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A01AL;A.16.02.015;Cloves buds;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A018D;A.16.02.016;Coriander seed;01654;Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw
+A018E;A.16.02.017;Cumin seed;01654;Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw
+A018G;A.16.02.019;Fennel seed;01654;Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw
+A018H;A.16.02.020;Fenugreek seed;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A01AB;A.16.02.022;Ginger roots;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A018X;A.16.02.024;Juniper berry;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A01AV;A.16.02.025;Mace aril;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A018J;A.16.02.027;Nutmeg seed;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A018Z;A.16.02.028;Peppercorn (black, green and white);01699;Other stimulant, spice and aromatic crops, n.e.c.
+A01AR;A.16.02.029;Saffron;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A019J;A.16.02.030;Tamarind;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A01AC;A.16.02.031;Turmeric roots;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A042P;A.16.04.001;Salt;;
+A042Q;A.16.04.002;Salt, low sodium;;
+A042R;A.16.04.003;Salt, iodised;;
+A042T;A.16.04.005;Salt, iodised and fluoridated;;
+A042X;A.16.04.007;Sea salt;;
+A019H;A.16.09.003;Vanilla;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A048Z;A.16.10.001;Yeast cultures;;
+A000R;I.01.02.010.006;Quinoa grain;01194;Quinoa
+A00XX;I.16.01.012;Marjoram;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A00XV;I.16.01.013;Oregano;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A00XZ;I.16.01.014;Mints;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A00XF;I.16.01.015;Coriander leaves;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A00XS;I.16.01.016;Lovage leaves;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A00YK;I.16.01.017;Winter savory;01699;Other stimulant, spice and aromatic crops, n.e.c.
+A01QV;A.06.01.001;Bovine muscle;21111.01;meat of cattle with the bone, fresh or chilled
+A01TX;A.06.01.001;Bovine fat tissue;21512;cattle fat, unrendered
+A01XF;A.06.01.001;Bovine liver;21189.01;liver preparations
+A01YJ;A.06.01.001;Bovine kidney;21151;edible offal of cattle, fresh, chilled or frozen
+A01ZM;A.06.01.001;Bovine edible offals (other than liver and kidney);21151;edible offal of cattle, fresh, chilled or frozen
+A020R;A.06.01.001;Bovine other slaughtering products;21151;edible offal of cattle, fresh, chilled or frozen
+A01QY;A.06.01.002;Calf fresh meat;21111.01;meat of cattle with the bone, fresh or chilled
+A01TX;A.06.01.002;Bovine fat tissue;21512;cattle fat, unrendered
+A01XF;A.06.01.002;Bovine liver;21189.01;liver preparations
+A01YJ;A.06.01.002;Bovine kidney;21151;edible offal of cattle, fresh, chilled or frozen
+A01ZM;A.06.01.002;Bovine edible offals (other than liver and kidney);21151;edible offal of cattle, fresh, chilled or frozen
+A01RG;A.06.01.003;Pig muscle;21113.01;meat of pig with the bone, fresh or chilled
+A01VA;A.06.01.003;Pig fat tissue;21511.01;fat of pigs
+A01XJ;A.06.01.003;Pig liver;21153;edible offal of pigs, fresh, chilled or frozen
+A01YM;A.06.01.003;Pig kidney;21153;edible offal of pigs, fresh, chilled or frozen
+A021A;A.06.01.003;Pig other slaughtering products;;
+A01RH;A.06.01.004;Sheep muscle;21115;meat of sheep, fresh or chilled
+A01XK;A.06.01.004;Sheep liver;21155;edible offal of sheep, fresh, chilled or frozen
+A01YN;A.06.01.004;Sheep kidney;21155;edible offal of sheep, fresh, chilled or frozen
+A021H;A.06.01.004;Sheep other slaughtering products;21155;edible offal of sheep, fresh, chilled or frozen
+A01RL;A.06.01.005;Goat muscle;21116;meat of goat, fresh or chilled
+A01RM;A.06.01.006;Equine muscle;21118.01;horse meat, fresh or chilled
+A01RQ;A.06.01.007;Rabbit fresh meat;21114;meat of rabbits and hares, fresh or chilled
+A01SP;A.06.02.001;Chicken fresh meat;21121;meat of chickens, fresh or chilled
+A01VR;A.06.02.001;Chicken, fresh fat tissue;21160.01;edible offals and liver of chickens and guinea fowl, fresh, chilled or frozen
+A01XZ;A.06.02.001;Chicken liver;21189.02;fatty liver preparations
+A022B;A.06.02.001;Chicken, other slaughtering products;;
+A01SQ;A.06.02.002;Turkey fresh meat;21124;meat of turkeys, fresh or chilled
+A01SR;A.06.02.003;Duck fresh meat;21122;meat of ducks, fresh or chilled
+A01VT;A.06.02.003;Duck, fresh fat tissue;21511.03;fat of poultry
+A01YB;A.06.02.003;Duck liver;21160.03;edible offals and liver of ducks, fresh, chilled or frozen
+A01SS;A.06.02.004;Goose fresh meat;21123;meat of geese, fresh or chilled
+A01VV;A.06.02.004;Goose, fresh fat tissue;21511.03;fat of poultry
+A01YC;A.06.02.004;Goose liver;21160.02;edible offals and liver of geese, fresh, chilled or frozen
+A01TA;A.06.02.005;Pigeon fresh meat;21170.01;meat of pigeons and other birds n.e.c., fresh, chilled or frozen
+A01SX;A.06.02.006;Guinea-fowl fresh meat;21121;meat of chickens, fresh or chilled
+A01ST;A.06.02.007;Ratites fresh meat;21170.02;game meat, fresh, chilled or frozen
+A01SH;A.06.03.001;Wild boar fresh meat;21170.02;game meat, fresh, chilled or frozen
+A01SC;A.06.03.002;Deer, red fresh meat;21170.02;game meat, fresh, chilled or frozen
+A01SE;A.06.03.003;European moose meat;21170.02;game meat, fresh, chilled or frozen
+A01SF;A.06.03.004;Reindeer meat;21170.02;game meat, fresh, chilled or frozen
+A01XT;A.06.03.004;Deer liver;21170.02;game meat, fresh, chilled or frozen
+A01SJ;A.06.03.006;Hare fresh meat;21114;meat of rabbits and hares, fresh or chilled
+A01SZ;A.06.04.001;Pheasant fresh meat;21170.02;game meat, fresh, chilled or frozen
+A01TG;A.06.04.003;Mallard fresh meat;21170.02;game meat, fresh, chilled or frozen
+A01SY;A.06.04.004;Partridge fresh meat;21170.02;game meat, fresh, chilled or frozen
+A01TB;A.06.04.005;Quail fresh meat;21170.02;game meat, fresh, chilled or frozen
+A02LV;A.08.01.001.002;Cow milk;02211;raw milk of cattle
+A02MC;A.08.01.002;Sheep milk;02291;raw milk of sheep
+A02MD;A.08.01.003;Water buffalo milk;02212;raw milk of buffalo
+A02MB;A.08.01.005;Goat milk;02292;raw milk of goats
+A02MG;A.08.01.007;Ass milk;02211;raw milk of cattle
+A031G;A.09.01.001;Hen eggs;0231;hen eggs in shell, fresh
+A031H;A.09.01.005;Duck eggs;0232;eggs from other birds in shell, fresh, n.e.c.
+A031K;A.09.01.007;Quail eggs;0232;eggs from other birds in shell, fresh, n.e.c.
+A033J;A.10.07;Honey;02910;Honey
