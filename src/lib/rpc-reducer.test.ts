@@ -30,8 +30,8 @@ describe("RPC reducer", () => {
         code: "with-waste",
         amount: 200,
         organic: 10,
-        retailWaste: 10,
-        consumerWaste: 20,
+        retailWaste: 0.1,
+        consumerWaste: 0.2,
       },
     ];
 
@@ -65,8 +65,8 @@ describe("RPC reducer", () => {
         code: "A.01",
         amount: 100,
         organic: 10,
-        retailWaste: 10,
-        consumerWaste: 30,
+        retailWaste: 0.10,
+        consumerWaste: 0.30,
       },
     ];
 
@@ -116,8 +116,8 @@ describe("RPC reducer", () => {
         code: "a",
         amount: 100,
         organic: 10,
-        retailWaste: 10,
-        consumerWaste: 30,
+        retailWaste: 0.10,
+        consumerWaste: 0.30,
       },
     ];
 
@@ -144,8 +144,8 @@ describe("RPC reducer", () => {
         code: "A.01.123",
         amount: 100,
         organic: 10,
-        retailWaste: 10,
-        consumerWaste: 30,
+        retailWaste: 0.10,
+        consumerWaste: 0.30,
       },
     ];
 
@@ -177,8 +177,8 @@ describe("RPC reducer", () => {
         code: "A.01",
         amount: 100,
         organic: 10,
-        retailWaste: 10,
-        consumerWaste: 30,
+        retailWaste: 0.10,
+        consumerWaste: 0.30,
       },
     ];
 
