@@ -5,14 +5,14 @@ describe("env-impacts.ts", () => {
   test("basic functionality", () => {
     const rpcFactors: RpcFactors = {
       a: {
-        se: [20, 10, 0],
-        es: [50, 15, 0],
-        RoW: [30, 20, 0],
+        se: [0.20, 0.10, 0],
+        es: [0.50, 0.15, 0],
+        RoW: [0.30, 0.20, 0],
       },
       b: {
-        en: [50, 0, 0],
-        fr: [40, 15, 0],
-        RoW: [10, 20, 0],
+        en: [0.50, 0, 0],
+        fr: [0.40, 0.15, 0],
+        RoW: [0.10, 0.20, 0],
       },
     };
 
@@ -55,9 +55,9 @@ describe("env-impacts.ts", () => {
   describe("organic and conventional split", () => {
     const rpcFactors = (shareOrganic: number): RpcFactors => ({
       a: {
-        se: [20, 10, shareOrganic],
-        es: [50, 15, shareOrganic],
-        RoW: [30, 20, shareOrganic],
+        se: [0.20, 0.10, shareOrganic],
+        es: [0.50, 0.15, shareOrganic],
+        RoW: [0.30, 0.20, shareOrganic],
       },
     });
 
@@ -96,7 +96,7 @@ describe("env-impacts.ts", () => {
     test("Pure organic", () => {
       const result = joinEnvImpactSheet(
         envImpactSheet,
-        rpcFactors(100),
+        rpcFactors(1),
         "organic"
       );
       expect(result).toHaveProperty("a");
@@ -112,12 +112,12 @@ describe("env-impacts.ts", () => {
     test("Even split", () => {
       const resultC = joinEnvImpactSheet(
         envImpactSheet,
-        rpcFactors(50),
+        rpcFactors(0.50),
         "conventional"
       );
       const resultO = joinEnvImpactSheet(
         envImpactSheet,
-        rpcFactors(50),
+        rpcFactors(0.50),
         "organic"
       );
       expect(resultC).toHaveProperty("a");
@@ -131,7 +131,7 @@ describe("env-impacts.ts", () => {
     });
 
     test("Uneven split", () => {
-      const _rpcFactors = rpcFactors(30);
+      const _rpcFactors = rpcFactors(0.30);
       const resultC = joinEnvImpactSheet(
         envImpactSheet,
         _rpcFactors,
