@@ -15,7 +15,7 @@
 // The idea is that this file then is combined with the env impacts sheet to
 // create a net-env-impact sheet.
 
-import { readCsv, roundToPrecision } from "./utils.mjs";
+import { readCsv, roundToPrecision } from "../utils.mjs";
 
 const DEBUG_INVALID_SUMS = false;
 const DEBUG_PRETTY_PRINT = false;
@@ -26,17 +26,17 @@ function main(args) {
   }
 
   // Import CSV file. Slice(1) to drop header
-  const recipesCsv = readCsv(args[0], ",", true).slice(1);
+  const rpcCsv = readCsv(args[0], ",", true).slice(1);
 
   // The CSV has each entry as a line. Even though they're probably sorted and
   // grouped together, we're not going to use that structure in this algorithm,
-  // just to be sure.
+  // to avoid that assumption causing bugs.
   //
   // We will walk through each line, and successively build an object with the
   // desired shape (see header of this file).
   //
   // If we meet the same (code, origin) pair twice, we will simply overwrite it.
-  const structured = recipesCsv.reduce(
+  const structured = rpcCsv.reduce(
     (acc, [code, _name, origin, originShare, productionWaste, organic]) => {
       // First time we see this RPC code? add an empty object.
       if (!(code in acc)) {

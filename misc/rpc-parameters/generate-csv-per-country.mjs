@@ -23,12 +23,28 @@
 
 import * as fs from "fs";
 import * as path from "path";
-import { readCsv } from "./utils.mjs";
+import url from "url";
+import { readCsv } from "../utils.mjs";
 
 const ROW_THRESHOLD = 0.1;
 const RESULT_PRECISION = 3;
 
+// TODO: This could also be taken as a varg instead
+const LL_COUNTRIES = [
+  "France",
+  "Germany",
+  "Greece",
+  "Hungary",
+  "Ireland",
+  "Italy",
+  "Poland",
+  "Spain",
+  "Sweden",
+];
+
 const DEBUG_ITEM_NAMES = false;
+
+const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
 
 /**
  * @param {number} value
@@ -176,41 +192,40 @@ function createRenameMap(rows) {
  * @param {string[]} args
  */
 function main(args) {
-  const [
-    // Path to the complete trade matrix, as csv file
-    kastnerCsvPath,
-    // Path to the template of RPC parameters, as csv file, with columns:
-    // - sua code, sua name, category
-    rpcTemplateCsvPath,
-    // Path to the a csv column with category (as defined in rpc) and waste
-    wasteFactorsCsvPath, //
-    // A list of Sua Name, "match status", itemName, where
-    // - matchStatus is "Yes" (Sua name is exact same as itemName) or "No", in
-    //   which case
-    suaToItemNameMatchings,
-    outDir,
-    ...countries
-  ] = args;
+  const [outDir] = args;
 
+  // Template of RPC parameters, as csv file, with columns:
+  // - sua code, sua name, category
   /** @type {string[][]} */
-  const rpcTemplate = readCsv(rpcTemplateCsvPath, ";").slice(1);
+  const rpcTemplate = readCsv(
+    path.resolve(DIRNAME, "./rpc-parameters-template.csv"),
+    ";"
+  ).slice(1);
 
+  // Input file: csv of column with category (as defined in rpc) and waste
   // Create an object with { [category: string]: number }
   /** @type {Object.<string, number>} */
   const wasteFactorsMap = Object.fromEntries(
-    readCsv(wasteFactorsCsvPath, ";", true)
+    readCsv(path.resolve(DIRNAME, "./rpc-waste-factors.csv"), ";", true)
       .slice(1)
       .map(([k, v]) => [k, parseFloat(v)])
   );
 
+  // A list of Sua Name, "match status", itemName, where
+  // - matchStatus is "Yes" (Sua name is exact same as itemName) or "No", in
+  //   which case the best-matching name is provided in the 3rd col
   const suaItemNamesMatchings = readCsv(
-    suaToItemNameMatchings,
+    path.resolve(DIRNAME, "./sua-to-kastner-matchings.csv"),
     ";",
     true
   ).slice(1);
   const suaItemNamesMap = createRenameMap(suaItemNamesMatchings);
 
-  const matrix = readCsv(kastnerCsvPath, ";", true);
+  const matrix = readCsv(
+    path.resolve(DIRNAME, "./trade-matrix.csv"),
+    ";",
+    true
+  );
 
   if (DEBUG_ITEM_NAMES) {
     uniq(matrix.map((x) => x[8]))
@@ -221,12 +236,12 @@ function main(args) {
 
   /** @type {Object.<string, Object.<string, Object.<string, number>>>}*/
   const sharesPerCountryAndItem = Object.fromEntries(
-    countries.map((c) => [c, getFoodItemShares(matrix, c)])
+    LL_COUNTRIES.map((c) => [c, getFoodItemShares(matrix, c)])
   );
 
   /** @type Object.<string, (string | number)[][]> */
   const rpcParametersPerCountry = Object.fromEntries(
-    countries.map((c) => [c, []])
+    LL_COUNTRIES.map((c) => [c, []])
   );
 
   rpcTemplate.forEach((row, i) => {
@@ -240,7 +255,7 @@ function main(args) {
       return;
     }
 
-    countries.forEach((consumerCountry) => {
+    LL_COUNTRIES.forEach((consumerCountry) => {
       const shares = sharesPerCountryAndItem[consumerCountry][itemName] || {
         RoW: 1,
       };
@@ -273,7 +288,7 @@ function main(args) {
 
   const HEADER =
     "SUA Code;SUA Name;Category;Producer Country;Share;Organic;Waste";
-  countries.forEach((country) => {
+  LL_COUNTRIES.forEach((country) => {
     const data =
       HEADER +
       "\n" +
