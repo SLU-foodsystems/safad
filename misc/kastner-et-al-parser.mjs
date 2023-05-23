@@ -28,6 +28,8 @@ import { readCsv } from "./utils.mjs";
 const ROW_THRESHOLD = 0.1;
 const RESULT_PRECISION = 3;
 
+const DEBUG_ITEM_NAMES = false;
+
 /**
  * @param {number} value
  * @param {number} dp
@@ -158,12 +160,6 @@ function printItemCountries(maps) {
   console.log(JSON.stringify(maps, null, 2));
 }
 
-function printCategories(maps) {
-  uniq(maps.flatMap((x) => Object.keys(x)))
-    .sort()
-    .forEach((c) => console.log(c));
-}
-
 function createRenameMap(rows) {
   return Object.fromEntries(
     rows
@@ -216,6 +212,13 @@ function main(args) {
 
   const matrix = readCsv(kastnerCsvPath, ";", true);
 
+  if (DEBUG_ITEM_NAMES) {
+    uniq(matrix.map((x) => x[8]))
+      .sort()
+      .forEach((x) => console.log(x));
+    return;
+  }
+
   /** @type {Object.<string, Object.<string, Object.<string, number>>>}*/
   const sharesPerCountryAndItem = Object.fromEntries(
     countries.map((c) => [c, getFoodItemShares(matrix, c)])
@@ -238,7 +241,9 @@ function main(args) {
     }
 
     countries.forEach((consumerCountry) => {
-      const shares = sharesPerCountryAndItem[consumerCountry][itemName];
+      const shares = sharesPerCountryAndItem[consumerCountry][itemName] || {
+        RoW: 1,
+      };
       if (!shares) {
         console.warn(`WARN (${i}): No share found for item "${itemName}".`);
         return;
@@ -246,7 +251,9 @@ function main(args) {
 
       const waste = wasteFactorsMap[category];
       if (!waste) {
-        console.warn(`WARN (${i}): No waste found for category "${category}"`);
+        console.warn(
+          `WARN (${i}): No waste found for category "${category}" (item "${itemName}").`
+        );
         return;
       }
 
@@ -276,8 +283,6 @@ function main(args) {
 
   // printItemCountries(Object.values(results));
   // printCategories(Object.values(results));
-
-  console.log(JSON.stringify(rpcParametersPerCountry, null, 2));
 }
 
 main(process.argv.slice(2));
