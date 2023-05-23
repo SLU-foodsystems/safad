@@ -9,10 +9,8 @@
  *
  * Output:
  * {
- *   data: {
- *     Electricty: { [country]: [co2, ch4, n2o]}
- *     [carrier]: [co2, ch4, n2o],
- *   }
+ *   Electricty: { [country]: [co2, ch4, n2o]}
+ *   [carrier]: [co2, ch4, n2o],
  * } as JSON
  *
  * Usage:
@@ -39,7 +37,7 @@ function main(args) {
     }
   });
 
-  console.log(JSON.stringify({ data: results }, null, 0));
+  console.log(JSON.stringify( results, null, 0));
 }
 
 main(process.argv.slice(2));
