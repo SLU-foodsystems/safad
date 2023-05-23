@@ -102,7 +102,7 @@ function main(args) {
   recipesCsv.forEach(([code, component, facetStr, perc, prob]) => {
     // TODO: may be a better / data-structure to store entries, rather than
     // the complete object (i.e. { code: [component, ratio][] })
-    const value = roundToPrecision(parseFloat(perc) * parseFloat(prob), 3);
+    const value = roundToPrecision(parseFloat(perc) * parseFloat(prob) / 100, 3);
 
     if (value === 0) return;
 
@@ -131,7 +131,7 @@ function main(args) {
         .map((triplet) => triplet[2])
         .reduce((a, b) => a + b, 0);
 
-      if (Math.abs(100 - sum) > 0.2) console.log(code, sum);
+      if (Math.abs(1 - sum) > 0.002) console.log(code, sum);
     });
   }
 
