@@ -14,7 +14,7 @@
 // - Remove any self-references.
 // - Remove any empty objects
 
-import { readCsv, roundToPrecision } from "./utils.mjs";
+import { readCsv, roundToPrecision } from "../utils.mjs";
 
 const DEBUG_INVALID_SUMS = false;
 const DEBUG_REMOVED_ITEMS = false;
@@ -46,6 +46,7 @@ function removeNullSelfReferences(obj) {
 
   // console.log(nonFullYields.join("\n"))
 }
+
 
 /**
  * Precautionary: Delete any empty rulesets.

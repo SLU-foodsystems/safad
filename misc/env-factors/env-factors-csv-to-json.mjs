@@ -9,7 +9,7 @@
  *  node <path-to-this-file>.mjs ./data/env-impacts.csv > out.json
  */
 
-import { readCsv } from "./utils.mjs";
+import { readCsv } from "../utils.mjs";
 
 const DEBUG_PRETTY_PRINT = false;
 
@@ -24,7 +24,7 @@ function main(args) {
       }
 
       // TODO: Ensure correct length?
-      acc[code][origin] = impacts;
+      acc[code][origin] = impacts.map(x => parseFloat(x));
       return acc;
     },
     {}
