@@ -99,7 +99,7 @@ export default function reduceDietToRPCs(
     // First, count up the waste factor
     .map((entry): RPC => {
       const wasteChangeFactor =
-        1 / ((100 - entry.retailWaste) * (100 - entry.consumerWaste) * 1e-4);
+        1 / ((1 - entry.retailWaste) * (1 - entry.consumerWaste));
 
       return [entry.code, entry.amount * wasteChangeFactor];
     })
