@@ -3,6 +3,8 @@ import { defineComponent } from "vue";
 
 import ChartContainer from "./components/ChartContainer.vue";
 
+import { aggregateRpcCategories, vectorSums } from "./lib/utils";
+
 import rpcFactors from "./data/rpc-factors.json";
 import envFactors from "./data/env-factors.json";
 
@@ -37,9 +39,22 @@ export default defineComponent({
 
       const results = ResultsEngine.computeFootprints(diet);
       if (results !== null) {
-        const [rpcImpact, processesEnvImpact] = results;
-        console.log(rpcImpact);
-        console.log(processesEnvImpact);
+        const [rpcImpacts, processesEnvImpacts] = results;
+        console.log(rpcImpacts);
+        console.log(processesEnvImpacts);
+
+        const totalRpcImpacts = vectorSums(Object.values(rpcImpacts));
+        const totalProcessesImpacts = vectorSums(
+          Object.values(processesEnvImpacts)
+        );
+        const totalImpacts = totalRpcImpacts.map((x, i) =>
+          i < totalProcessesImpacts.length ? x + totalProcessesImpacts[i] : x
+        );
+        console.log(totalImpacts);
+
+        const categoryImpacts = aggregateRpcCategories(rpcImpacts);
+        console.log(categoryImpacts)
+        // TODO: Plug these results into the graphs!
       }
     },
   },

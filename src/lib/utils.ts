@@ -86,3 +86,15 @@ export function aggregateRpcCategories(rpcMap: Record<string, number[]>) {
     (a: number[], b: number[]) => a.map((x, i) => x + b[i])
   );
 }
+
+export const replaceKeys = <V>(
+  obj: Record<string, V>,
+  replacement: Record<string, string>
+): Record<string, V> =>
+  Object.fromEntries(Object.entries(obj).map(([k, v]) => [replacement[k], v]));
+
+export const mapValues = <V, T>(
+  object: Record<string, V>,
+  fn: (x: V) => T
+): Record<string, T> =>
+  Object.fromEntries(Object.entries(object).map(([k, v]) => [k, fn(v)]));
