@@ -14,7 +14,7 @@ Barley, spring;No;Barley
 Barley, winter;No;Barley
 Beans, dry;Yes;
 Blueberries;Yes;
-Brazil nuts, in shell;No;
+Brazil nuts, in shell;No;Almonds, with shell
 Broad beans and horse beans, dry;No;Broad beans, horse beans, dry
 Broad beans and horse beans, green;No;Broad beans, horse beans, dry
 Broccoli;No;Cauliflowers and broccoli
@@ -28,7 +28,7 @@ Cassava, fresh;No;Cassava
 Cauliflowers;No;Cauliflowers and broccoli
 Cauliflowers and broccoli;Yes;
 Cauliflowers and broccoli, average;No;Melons, other (inc.cantaloupes)
-Cereals n.e.c.;No;
+Cereals n.e.c.;No;Grain, mixed
 Cherries;Yes;
 Chestnuts, in shell;No;Chestnut
 Chick peas, dry;No;Chick peas
@@ -56,7 +56,7 @@ Gooseberries;Yes;
 Grapes;Yes;
 Green corn (maize);No;Maize, green
 Green garlic;No;Garlic
-Groundnuts, excluding shelled;No;
+Groundnuts, excluding shelled;No;Almonds, with shell
 Hazelnuts, in shell;No;Hazelnuts, with shell
 hen eggs in shell, fresh;No;Eggs, hen, in shell
 horse meat, fresh or chilled;No;Meat, horse
@@ -68,7 +68,7 @@ lentils, dry;No;Lentils
 Lentils, dry (organic);No;Lentils
 Lettuce and chicory;Yes;
 Linseed;Yes;
-Lupins;No;
+Lupins;No;Broad beans, horse beans, dry
 Maize (corn);No;Maize
 Mangoes, guavas and mangosteens;No;Mangoes, mangosteens, guavas
 mangoes, guavas, mangosteens;No;Mangoes, mangosteens, guavas
@@ -89,7 +89,7 @@ Mustard seed;Yes;
 natural honey;No;Honey, natural
 nutmeg, mace, cardamoms, raw;No;Nutmeg, mace and cardamoms
 Oats;Yes;
-Oil palm fruit;No;
+Oil palm fruit;No;Oilseeds nes
 Olives;Yes;
 Onions and shallots, dry (excluding dehydrated);No;Onions, dry
 Oranges;Yes;
@@ -98,7 +98,7 @@ Other fruits, n.e.c.;No;Fruit, fresh nes
 Other oil seeds, n.e.c.;No;Oilseeds nes
 Other pulses n.e.c.;No;
 Other stimulant, spice and aromatic crops, n.e.c.;No;Spices nes
-other stimulant, spice and aromatic crops, n.e.c. ;No;Spices nes
+other stimulant, spice and aromatic crops, n.e.c. ;No;Spices nes
 Other vegetables, fresh n.e.c.;No;Vegetables, fresh nes
 Papayas;Yes;
 Peaches and nectarines;Yes;
@@ -123,10 +123,10 @@ Rape or colza seed;No;Rapeseed
 Rape or colza seed, spring;No;Rapeseed
 Rape or colza seed, winter;No;Rapeseed
 rapeseed or colza seed;No;Rapeseed
-Raspberries;No;
+Raspberries;No;Blueberries
 raw milk of cattle;No;Milk, whole fresh cow
 raw milk of sheep;No;Milk, whole fresh sheep
-Rice;No;
+Rice;No;Grain, mixed
 Rye;Yes;
 Sesame seed;Yes;
 Sorghum;Yes;
@@ -135,7 +135,7 @@ Soya beans;No;Soybeans
 Spinach;Yes;
 Strawberries;Yes;
 Sugar beet;Yes;
-Sugar cane;No;
+Sugar cane;No;Sugar beet
 Sunflower seed;Yes;
 Sweet potatoes;Yes;
 Tangerines, mandarins, clementines;No;Tangerines, mandarins, clementines, satsumas
@@ -144,7 +144,7 @@ Tomatoes, average;No;Tomatoes
 Tomatoes, greenhouse;No;Tomatoes
 Tomatoes, openfield;No;Tomatoes
 Triticale;Yes;
-True hemp, raw or retted;No;
+True hemp, raw or retted;No;Grain, mixed
 Walnuts, in shell;No;Walnuts, with shell
 Watermelons;Yes;
 Vetches;Yes;
@@ -152,9 +152,3 @@ Wheat;Yes;
 Wheat, average;No;Wheat
 Wheat, spring;No;Wheat
 Wheat, winter;No;Wheat
-;;
-;;
-;;
-;;
-;;
-;;

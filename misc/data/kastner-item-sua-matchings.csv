@@ -1,6 +1,6 @@
-Kastner et al. group;Perfect match with SUA?;Sua alternative
-Almonds, with shell;No;Almonds, in shell
-Anise, badian, fennel, coriander;No;anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw
+Sua;Exact same spelling?;Kastner et al. Item name
+Almonds, in shell;No;Almonds, with shell
+Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw;No;Anise, badian, fennel, coriander
 Apples;Yes;
 Apricots;Yes;
 Areca nuts;Yes;
@@ -9,132 +9,146 @@ Asparagus;Yes;
 Avocados;Yes;
 Bananas;Yes;
 Barley;Yes;
+Barley, average;No;Barley
+Barley, spring;No;Barley
+Barley, winter;No;Barley
 Beans, dry;Yes;
-Beans, green;No;beans, dry
-;;
 Blueberries;Yes;
-Broad beans, horse beans, dry;No;broad beans and horse beans, dry
+Brazil nuts, in shell;No;Almonds, with shell
+Broad beans and horse beans, dry;No;Broad beans, horse beans, dry
+Broad beans and horse beans, green;No;Broad beans, horse beans, dry
+Broccoli;No;Cauliflowers and broccoli
 Buckwheat;Yes;
-Cabbages and other brassicas;No;Cabbages
+Cabbages;No;Cabbages and other brassicas
 Canary seed;Yes;
+Cantaloupes and other melons;No;Melons, other (inc.cantaloupes)
 Carrots and turnips;Yes;
-Cashew nuts, with shell;No;Cashew nuts, in shell
-Cassava;No;Cassava, fresh
+Cashew nuts, in shell;No;Cashew nuts, with shell
+Cassava, fresh;No;Cassava
+Cauliflowers;No;Cauliflowers and broccoli
 Cauliflowers and broccoli;Yes;
+Cauliflowers and broccoli, average;No;Melons, other (inc.cantaloupes)
+Cereals n.e.c.;No;Grain, mixed
 Cherries;Yes;
-Cherries, sour;No;sour cherries
-Chestnut;No;chestnuts, in shell
-Chick peas;No;chick peas, dry
-Chillies and peppers, dry;No;chillies and peppers, dry (capsicum spp. and pimenta spp.), raw
-Chillies and peppers, green;No;chillies and peppers, green (capsicum spp. and pimenta spp.)
-;;
-;;
-Cocoa, beans;No;cocoa beans
-Coconuts;No;coconuts, in shell
+Chestnuts, in shell;No;Chestnut
+Chick peas, dry;No;Chick peas
+chillies and peppers, dry (capsicum spp. and pimenta spp.), raw;No;Chillies and peppers, dry
+chillies and peppers, green (capsicum spp. and pimenta spp.);No;Chillies and peppers, green
+Chillies and peppers, green (Capsicum spp. and Pimenta spp.), raw;No;Chillies and peppers, green
+Cocoa beans;No;Cocoa, beans
+Coconut, in shell;No;Coconuts
+coconuts, in shell;No;Coconuts
 Coffee, green;Yes;
 Cranberries;Yes;
 Cucumbers and gherkins;Yes;
+Cucumbers and gherkins, averrage;No;Cucumbers and gherkins
+Cucumbers and gherkins, greenhouse;No;Cucumbers and gherkins
+Cucumbers and gherkins, openfield;No;Cucumbers and gherkins
 Currants;Yes;
 Dates;Yes;
+Edible roots and tubers with high starch or inulin content, n.e.c., fresh;No;Roots and tubers nes
 Eggplants (aubergines);Yes;
-Eggs, hen, in shell;No;hen eggs in shell, fresh
-Eggs, other bird, in shell;No;eggs from other birds in shell, fresh, n.e.c.
-;;
+eggs from other birds in shell, fresh, n.e.c.;No;Eggs, other bird, in shell
 Figs;Yes;
-;;
 Fonio;Yes;
-Fruit, fresh nes;No;Other fruits, n.e.c.
-;;
-Garlic;No;green garlic
-;;
+game meat, fresh, chilled or frozen;No;Meat, game
 Gooseberries;Yes;
-Grain, mixed;No;mixed grain
-Grapefruit (inc. pomelos);No;pomelos and grapefruits
 Grapes;Yes;
-Hazelnuts, with shell;No;hazelnuts, in shell
-Honey, natural;No;natural honey
-;;
-;;
+Green corn (maize);No;Maize, green
+Green garlic;No;Garlic
+Groundnuts, excluding shelled;No;Almonds, with shell
+Hazelnuts, in shell;No;Hazelnuts, with shell
+hen eggs in shell, fresh;No;Eggs, hen, in shell
+horse meat, fresh or chilled;No;Meat, horse
 Kiwi fruit;Yes;
 Kola nuts;Yes;
-Leeks, other alliaceous vegetables;No;leeks and other alliaceous vegetables
+Leeks and other alliaceous vegetables;No;Leeks, other alliaceous vegetables
 Lemons and limes;Yes;
-Lentils;No;lentils, dry
+lentils, dry;No;Lentils
+Lentils, dry (organic);No;Lentils
 Lettuce and chicory;Yes;
 Linseed;Yes;
-Maize;No;maize (corn)
-Maize, green;No;green corn (maize) 
-Mangoes, mangosteens, guavas;No;mangoes, guavas, mangosteens
-;;
-Maté;No;maté leaves
-;;
-Meat, ass;No;meat of asses, fresh or chilled
-Meat, cattle;No;meat of cattle with the bone, fresh or chilled
-Meat, chicken;No;meat of chickens, fresh or chilled
-Meat, duck;No;meat of ducks, fresh or chilled
-Meat, game;No;game meat, fresh, chilled or frozen
-Meat, goat;No;meat of goat, fresh or chilled
-Meat, goose and guinea fowl;No;meat of geese, fresh or chilled
-Meat, horse;No;horse meat, fresh or chilled
-Meat, pig;No;pig meat, cuts, salted, dried or smoked (bacon and ham)
-Meat, rabbit;No;meat of rabbits and hares, fresh or chilled
-Meat, sheep;No;meat of sheep, fresh or chilled
-Meat, turkey;No;meat of turkeys, fresh or chilled
-Melons, other (inc.cantaloupes);No;cantaloupes and other melons 
-Milk, whole fresh cow;No;raw milk of cattle
-Milk, whole fresh sheep;No;raw milk of sheep
+Lupins;No;Broad beans, horse beans, dry
+Maize (corn);No;Maize
+Mangoes, guavas and mangosteens;No;Mangoes, mangosteens, guavas
+mangoes, guavas, mangosteens;No;Mangoes, mangosteens, guavas
+maté leaves;No;Maté
+meat of asses, fresh or chilled;No;Meat, ass
+meat of cattle with the bone, fresh or chilled;No;Meat, cattle
+meat of chickens, fresh or chilled;No;Meat, chicken
+meat of ducks, fresh or chilled;No;Meat, duck
+meat of geese, fresh or chilled;No;Meat, goose and guinea fowl
+meat of goat, fresh or chilled;No;Meat, goat
+meat of rabbits and hares, fresh or chilled;No;Meat, rabbit
+meat of sheep, fresh or chilled;No;Meat, sheep
+meat of turkeys, fresh or chilled;No;Meat, turkey
 Millet;Yes;
+Mixed grain;No;Grain, mixed
 Mushrooms and truffles;Yes;
 Mustard seed;Yes;
-;;
-Nutmeg, mace and cardamoms;No;nutmeg, mace, cardamoms, raw
-;;
+natural honey;No;Honey, natural
+nutmeg, mace, cardamoms, raw;No;Nutmeg, mace and cardamoms
 Oats;Yes;
-Oilseeds nes;No;other oil seeds, n.e.c.
+Oil palm fruit;No;Oilseeds nes
 Olives;Yes;
-Onions, dry;No;onions and shallots, dry (excluding dehydrated)
-;;
+Onions and shallots, dry (excluding dehydrated);No;Onions, dry
 Oranges;Yes;
+Other beans, green;No;Beans, green
+Other fruits, n.e.c.;No;Fruit, fresh nes
+Other oil seeds, n.e.c.;No;Oilseeds nes
+Other pulses n.e.c.;No;
+Other stimulant, spice and aromatic crops, n.e.c.;No;Spices nes
+other stimulant, spice and aromatic crops, n.e.c. ;No;Spices nes
+Other vegetables, fresh n.e.c.;No;Vegetables, fresh nes
 Papayas;Yes;
 Peaches and nectarines;Yes;
 Pears;Yes;
 Peas, dry;Yes;
 Peas, green;Yes;
-Pepper (piper spp.);No;pepper (piper spp.), raw
-;;
+Pepper (Piper spp.), raw;No;Pepper (piper spp.)
 Persimmons;Yes;
+pig meat, cuts, salted, dried or smoked (bacon and ham);No;Meat, pig
 Pineapples;Yes;
-Pistachios;No;pistachios, in shell
+pistachios, in shell;No;Pistachios
+Plantains and cooking bananas;No;Plantains and others
 Plantains and others;Yes;
 Plums and sloes;Yes;
+Pomelos and grapefruits;No;Grapefruit (inc. pomelos)
 Poppy seed;Yes;
 Potatoes;Yes;
 Pumpkins, squash and gourds;Yes;
-;;
 Quinces;Yes;
 Quinoa;Yes;
-Rapeseed;No;rapeseed or colza seed
-Roots and tubers nes;No;edible roots and tubers with high starch or inulin content, n.e.c., fresh
-;;
+Rape or colza seed;No;Rapeseed
+Rape or colza seed, spring;No;Rapeseed
+Rape or colza seed, winter;No;Rapeseed
+rapeseed or colza seed;No;Rapeseed
+Raspberries;No;Blueberries
+raw milk of cattle;No;Milk, whole fresh cow
+raw milk of sheep;No;Milk, whole fresh sheep
+Rice;No;Grain, mixed
 Rye;Yes;
 Sesame seed;Yes;
-;;
 Sorghum;Yes;
-Soybeans;No;soya beans
-Spices nes;No;other stimulant, spice and aromatic crops, n.e.c. 
+Sour cherries;No;Cherries, sour
+Soya beans;No;Soybeans
 Spinach;Yes;
 Strawberries;Yes;
 Sugar beet;Yes;
+Sugar cane;No;Sugar beet
 Sunflower seed;Yes;
 Sweet potatoes;Yes;
-Tangerines, mandarins, clementines, satsumas;No;tangerines, mandarins, clementines
-;;
-;;
+Tangerines, mandarins, clementines;No;Tangerines, mandarins, clementines, satsumas
 Tomatoes;Yes;
+Tomatoes, average;No;Tomatoes
+Tomatoes, greenhouse;No;Tomatoes
+Tomatoes, openfield;No;Tomatoes
 Triticale;Yes;
-;;
-Vegetables, fresh nes;No;Other vegetables, fresh n.e.c.
-Vetches;Yes;
-Walnuts, with shell;No;walnuts, in shell
+True hemp, raw or retted;No;Grain, mixed
+Walnuts, in shell;No;Walnuts, with shell
 Watermelons;Yes;
+Vetches;Yes;
 Wheat;Yes;
+Wheat, average;No;Wheat
+Wheat, spring;No;Wheat
+Wheat, winter;No;Wheat
