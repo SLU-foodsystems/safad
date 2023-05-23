@@ -19,8 +19,6 @@ import { readCsv, roundToPrecision } from "./utils.mjs";
 const DEBUG_INVALID_SUMS = false;
 const DEBUG_REMOVED_ITEMS = false;
 
-const NULL_PROCESSES = ["F28.A07XD", "To be further disaggregated (d)"];
-
 /**
  * Remove any self-references with a null-process
  */
