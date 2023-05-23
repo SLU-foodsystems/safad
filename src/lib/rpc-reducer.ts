@@ -55,7 +55,7 @@ function reduceToRpcs(
 
   return subcomponents
     .map(([subcomponentCode, processes, ratio, yieldFactor]): RPC[] => {
-      const netAmount = yieldFactor * (ratio / 100) * amount;
+      const netAmount = yieldFactor * ratio * amount;
       // Facets can be empty strings, for meaningless processes.
       processes.map((facet) => {
         recordProcessContribution(subcomponentCode, facet, netAmount);

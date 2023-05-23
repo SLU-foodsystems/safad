@@ -11,7 +11,7 @@ interface DietComponent {
 
 type Diet = DietComponent[];
 
-// Component, Facet, proportion ([0, 100]%), reverse yield
+// Component, Facet, proportion ([0, 1]%), reverse yield
 type FoodsRecipe = [string, string[], number, number][];
 type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };
 
@@ -51,13 +51,13 @@ describe("RPC reducer", () => {
   test("Handles nested RPCs", () => {
     const recipes: FoodsRecipes = {
       "A.01": [
-        ["A.01.01", ["facetA"], 20, 10],
-        ["A.01.02", ["facetA"], 80, 1],
+        ["A.01.01", ["facetA"], 0.20, 10],
+        ["A.01.02", ["facetA"], 0.80, 1],
       ],
-      "A.01.01": [["A.01.123.01", ["facetB"], 100, 1.7]],
+      "A.01.01": [["A.01.123.01", ["facetB"], 1, 1.7]],
       "A.01.02": [
-        ["A.01.123.02", ["facetB"], 50, 2],
-        ["A.01.123.03", ["facetC"], 50, 3],
+        ["A.01.123.02", ["facetB"], 0.50, 2],
+        ["A.01.123.03", ["facetC"], 0.50, 3],
       ],
     };
     const diet: Diet = [
@@ -102,13 +102,13 @@ describe("RPC reducer", () => {
   test("Merges reappering RPCs", () => {
     const recipes: FoodsRecipes = {
       a: [
-        ["aa", [], 20, 10],
-        ["ab", [], 80, 1],
+        ["aa", [], 0.20, 10],
+        ["ab", [], 0.80, 1],
       ],
-      aa: [["rpc1", [], 100, 1.7]],
+      aa: [["rpc1", [], 1, 1.7]],
       ab: [
-        ["rpc2", [], 50, 2],
-        ["rpc1", [], 50, 3],
+        ["rpc2", [], 0.50, 2],
+        ["rpc1", [], 0.50, 3],
       ],
     };
     const diet: Diet = [
@@ -137,7 +137,7 @@ describe("RPC reducer", () => {
 
   test("Handles combined facets", () => {
     const recipes: FoodsRecipes = {
-      "A.01.123": [["A.01.123.423", ["facetA", "facetB", "facetC"], 80, 10]],
+      "A.01.123": [["A.01.123.423", ["facetA", "facetB", "facetC"], 0.80, 10]],
     };
     const diet: Diet = [
       {
@@ -168,8 +168,8 @@ describe("RPC reducer", () => {
   test("Adds processes for self-referencing recipes", () => {
     const recipes: FoodsRecipes = {
       "A.01": [
-        ["A.01", ["facetA"], 20, 10],
-        ["A.02", ["facetB"], 80, 1],
+        ["A.01", ["facetA"], 0.20, 10],
+        ["A.02", ["facetB"], 0.80, 1],
       ],
     };
     const diet: Diet = [
