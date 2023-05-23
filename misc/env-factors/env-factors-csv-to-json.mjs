@@ -14,17 +14,21 @@ import { readCsv } from "../utils.mjs";
 const DEBUG_PRETTY_PRINT = false;
 
 function main(args) {
+  const [envFactorsCsvPath] = args;
   // Read csv file and drop header
-  const csv = readCsv(args[0]).slice(1);
+  const envFactorsCsv = readCsv(envFactorsCsvPath, ";", true).slice(1);
 
-  const structured = csv.reduce(
-    (acc, [code, _name, _level, origin, _originShare, ...impacts]) => {
+  const structured = envFactorsCsv.reduce(
+    (acc, [code, _name, _category, originName, _originCode, ...impacts]) => {
       if (!(code in acc)) {
         acc[code] = {};
       }
 
       // TODO: Ensure correct length?
-      acc[code][origin] = impacts.map(x => parseFloat(x));
+      acc[code][originName] = impacts.map((x) => {
+        const val = parseFloat(x);
+        return Number.isNaN(val) ? 0 : val;
+      });
       return acc;
     },
     {}
