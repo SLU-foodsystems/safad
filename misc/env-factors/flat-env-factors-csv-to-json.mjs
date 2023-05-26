@@ -21,23 +21,23 @@ import { readCsv } from "../utils.mjs";
 function main(args) {
   const results = {};
 
-  readCsv(args[0], ";", true)
+  readCsv(args[0], ",")
     .slice(1)
-    .forEach(([_i, code, _name, _category, country, _countryCode, ...impactsStr]) => {
-      // Covnert from strings to numbers
-      const impacts = impactsStr.map((x) => {
-        const val = Number.parseFloat(x) || 0;
-        return Number.isNaN(x) ? 0 : val;
-      });
+    .forEach(
+      ([_i, code, _name, _category, country, _countryCode, ...impactsStr]) => {
+        // Covnert from strings to numbers
+        const impacts = impactsStr.map((x) => {
+          const val = Number.parseFloat(x) || 0;
+          return Number.isNaN(x) ? 0 : val;
+        });
 
-      // console.log(code);
+        if (!(code in results)) {
+          results[code] = {};
+        }
 
-      if (!(code in results)) {
-        results[code] = {};
+        results[code][country] = impacts;
       }
-
-      results[code][country] = impacts;
-    });
+    );
 
   console.log(JSON.stringify(results, null, 0));
 }
