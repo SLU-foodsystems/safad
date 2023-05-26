@@ -16,7 +16,7 @@ const DEBUG_PRETTY_PRINT = false;
 function main(args) {
   const [envFactorsCsvPath] = args;
   // Read csv file and drop header
-  const envFactorsCsv = readCsv(envFactorsCsvPath, ";", true).slice(1);
+  const envFactorsCsv = readCsv(envFactorsCsvPath, ",").slice(1);
 
   const structured = envFactorsCsv.reduce(
     (acc, [code, _name, _category, originName, _originCode, ...impacts]) => {
