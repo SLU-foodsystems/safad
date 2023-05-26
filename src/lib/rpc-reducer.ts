@@ -6,7 +6,6 @@
 // Component, Facet,   proportion, reverse yield
 // string   , string[], number   , number
 
-type FlatProcessesMap = Record<string, number>;
 type ProcessesMap = Record<string, Record<string, number>>;
 
 function mergeRpcs(rpcs: [string, number][]) {

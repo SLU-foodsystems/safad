@@ -20,6 +20,7 @@ function main(args) {
       map[foodExCode] = suaCode;
     }
   );
+
   console.log(JSON.stringify(map, null, 0));
 }
 

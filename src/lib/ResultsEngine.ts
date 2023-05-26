@@ -16,8 +16,6 @@ const withWarn = <T>(message: string, val: T) => {
 
 /**
  * Ties all parts of computing the results into a singleton.
- * TODO: Once tests are ready for this, we will want to extend
- *       with conventional and organic environmental factors.
  */
 class ResultsEngine {
   organicEnvFactors: EnvOriginFactors | null = null;
