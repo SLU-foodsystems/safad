@@ -7,7 +7,7 @@
 import { readCsv } from "../utils.mjs";
 
 function main(args) {
-  const csv = readCsv(args[0], ";").slice(1); // Slice to drop header
+  const csv = readCsv(args[0], ",").slice(1); // Slice to drop header
 
   const map = {};
   const handledFoodExCodes = new Set();
