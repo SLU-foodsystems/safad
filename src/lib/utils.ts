@@ -40,3 +40,61 @@ export const partition = <T>(array: T[], predicate: (el: T) => boolean) =>
     },
     [[], []]
   );
+
+export function vectorSum(xs: number[], ys: number[]) {
+  if (xs.length !== ys.length) {
+    throw new Error("Expected vectors to be of same length.");
+  }
+
+  return xs.map((x, i) => x + ys[i]);
+}
+
+export function vectorSums(lists: number[][]): number[] {
+  if (lists.length === 0) return [];
+  if (lists.length === 1) return lists[0];
+
+  const [head, ...tail] = lists;
+  return tail.reduce((acc, curr) => acc.map((x, i) => x + curr[i]), head);
+}
+
+function aggregateBy<T>(
+  map: Record<string, T>,
+  grouper: (k: string) => string,
+  aggregator: (v1: T, v2: T) => T
+): Record<string, T> {
+  const result: Record<string, T> = {};
+
+  Object.entries(map).forEach(([k, v]) => {
+    const newKey = grouper(k);
+    if (!(newKey in result)) {
+      result[newKey] = v;
+    } else {
+      result[newKey] = aggregator(result[newKey], v);
+    }
+  });
+
+  return result;
+}
+
+/**
+ * Aggergate or sum over rpc categories to the fist level (e.g. A01).
+ */
+export function aggregateRpcCategories(rpcMap: Record<string, number[]>) {
+  return aggregateBy<number[]>(
+    rpcMap,
+    (code) => code.substring(0, 4),
+    (a: number[], b: number[]) => a.map((x, i) => x + b[i])
+  );
+}
+
+export const replaceKeys = <V>(
+  obj: Record<string, V>,
+  replacement: Record<string, string>
+): Record<string, V> =>
+  Object.fromEntries(Object.entries(obj).map(([k, v]) => [replacement[k], v]));
+
+export const mapValues = <V, T>(
+  object: Record<string, V>,
+  fn: (x: V) => T
+): Record<string, T> =>
+  Object.fromEntries(Object.entries(object).map(([k, v]) => [k, fn(v)]));
