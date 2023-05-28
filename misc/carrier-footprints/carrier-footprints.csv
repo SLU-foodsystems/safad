@@ -1,0 +1,39 @@
+Energy carrier,Country,Country code,Carbon dioxide,Methane,Nitrous oxide
+Electricity,Austria,AT,0.0801433,0.0099627,0.0000040
+Electricity,Belgium,BE,0.0641554,0.0001080,0.0000029
+Electricity,Bulgaria,BG,0.1589004,0.0001339,0.0000033
+Electricity,Croatia,HR,0.1317718,0.0002546,0.0000048
+Electricity,Cyprus,CY,0.2682207,0.0006777,0.0000143
+Electricity,Czech Republic,CZ,0.1883801,0.0002115,0.0000036
+Electricity,Denmark,DK,0.1029256,0.0001420,0.0000053
+Electricity,Estonia,EE,0.2176160,0.0006870,0.0000112
+Electricity,Finland,FI,0.0825588,0.0001676,0.0000054
+Electricity,France,FR,0.0241980,0.0000750,0.0000023
+Electricity,Germany,DE,0.1287509,0.0002463,0.0000058
+Electricity,Greece,GR,0.1777675,0.0003529,0.0000061
+Electricity,Hungary,HU,0.1214311,0.0003066,0.0000043
+Electricity,Ireland,IE,0.1088533,0.0001173,0.0000040
+Electricity,Italy,IT,0.1049934,0.0004564,0.0000046
+Electricity,Latvia,LV,0.1731841,0.0005962,0.0000093
+Electricity,Lithuania,LT,0.1397166,0.0004249,0.0000095
+Electricity,Malta,MT,0.1109736,0.0005342,0.0000043
+Electricity,Netherlands,NL,0.1379811,0.0002732,0.0000055
+Electricity,Poland,PL,0.2709586,0.0005221,0.0000049
+Electricity,Portugal,PT,0.0963783,0.0003279,0.0000037
+Electricity,Romania,RO,0.1174363,0.0001144,0.0000030
+Electricity,Slovak Republic,SK,0.1184492,0.0002191,0.0000038
+Electricity,Slovenia,SI,0.1053851,0.0001300,0.0000037
+Electricity,Spain,ES,0.0744764,0.0002302,0.0000034
+Electricity,Sweden,SE,0.0245695,0.0000273,0.0000023
+Electricity,UK,GB,0.1094344,0.0001572,0.0000039
+Electricity,Brazil,BR,0.0747995,0.0002724,0.0000097
+Electricity,Thailand,TH,0.1979504,0.0005866,0.0000050
+Electricity,USA,US,0.1459709,0.0002265,0.0000041
+Heating oil,,,0.0805600,0.0000306,0.0000029
+Natural gas,,,0.0620000,0.0002800,0.0000020
+Other fossil energy sources,,,0.0710000,0.0001550,0.0000013
+Bark and chips,,,0.0017000,0.0000029,0.0000007
+Pellets and briquettes,,,0.0036500,0.0000175,0.0000078
+Other renewable energy sources,,,0.0026750,0.0000102,0.0000042
+Diesel fuel,,,0.0759200,0.0000336,0.0000020
+District heating,,,0.0246111,0.0000000,0.0000000
