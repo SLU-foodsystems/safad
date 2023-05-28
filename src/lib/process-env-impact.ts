@@ -45,6 +45,10 @@ export function getProcessFootprintsSheet(
           impacts = carrierEnergyDemands[carrier] as number[];
         }
 
+        if (!impacts) {
+          throw new Error(`Could not find process carrier impacts for (carrier, country) = (${carrier}, ${country}).`);
+        }
+
         impacts.forEach((factor, i) => {
           footprints[i] += factor * mjPerKg;
         });
