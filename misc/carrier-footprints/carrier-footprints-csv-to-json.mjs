@@ -22,22 +22,24 @@
 import { readCsv } from "../utils.mjs";
 
 function main(args) {
-  const csv = readCsv(args[0], ",", true).slice(1); // Drop Header
+  const csv = readCsv(args[0], ",").slice(1); // Drop Header
 
   const results = {
     Electricity: {},
   };
 
-  csv.forEach(([carrier, country, _countryCode, ...footprintsStr]) => {
-    const footprints = footprintsStr.map((x) => (x ? parseFloat(x) : 0));
-    if (carrier === "Electricity") {
-      results[carrier][country] = footprints;
-    } else {
-      results[carrier] = footprints;
-    }
-  });
+  csv
+    .map((row) => row.map((x) => x.trim()))
+    .forEach(([carrier, country, _countryCode, ...footprintsStr]) => {
+      const footprints = footprintsStr.map((x) => (x ? parseFloat(x) : 0));
+      if (carrier === "Electricity") {
+        results[carrier][country] = footprints;
+      } else {
+        results[carrier] = footprints;
+      }
+    });
 
-  console.log(JSON.stringify( results, null, 0));
+  console.log(JSON.stringify(results, null, 0));
 }
 
 main(process.argv.slice(2));
