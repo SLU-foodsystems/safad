@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // Converts the full list of FoodEx recipes from csv to json,
 // including yields from processes.
 //
@@ -91,7 +92,7 @@ function main(args) {
   }
 
   // imopprt CSVs. Slice(1) to drop header
-  const recipesCsv = readCsv(args[0], ",", true).slice(1);
+  const recipesCsv = readCsv(args[0], ",", false).slice(1);
   // For unknown reasons, the 'smart' split doesn't work for the recipes, but it
   // does for the processes. Conveniently, it's not needed for the recipes, but
   // it is for the processes.
@@ -100,7 +101,7 @@ function main(args) {
   const yieldMap = buildYieldMap(processesCsv);
   const recipes = {};
 
-  recipesCsv.forEach(([code, component, facetStr, perc, prob]) => {
+  recipesCsv.forEach(([code, _name, component, _componentName, facetStr, perc, prob]) => {
     // TODO: may be a better / data-structure to store entries, rather than
     // the complete object (i.e. { code: [component, ratio][] })
     const value = roundToPrecision(parseFloat(perc) * parseFloat(prob) / 100, 3);
