@@ -1,11 +1,34 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import ChartContainer from "./components/ChartContainer.vue";
+import namesJson from "@/data/rpc-names.json";
 
-import envFactorsJson from "./data/env-factors.json";
+import ChartContainer from "@/components/ChartContainer.vue";
+import getBenchmark from "@/lib/diet-benchmarker";
 
-import getBenchmark from "./lib/diet-benchmarker";
+import { downloadAsPlaintext } from "@/lib/csv-io";
+
+const ENV_HEADERS = [
+  "Carbon_Footprint",
+  "Carbon_Dioxide",
+  "Methane_fossil",
+  "Methane_bio",
+  "Nitrous_Oxide",
+  "HFC",
+  "Land",
+  "N_input",
+  "P_input",
+  "Water",
+  "Pesticides",
+  "Biodiversity",
+  "Ammonia",
+  "Labour",
+  "Animal_Welfare",
+  "Antibiotics",
+];
+
+const maybeQuoteValue = (str: string) =>
+  str && str.includes(",") ? `"${str}"` : str;
 
 export default defineComponent({
   components: { ChartContainer },
@@ -16,14 +39,60 @@ export default defineComponent({
 
   methods: {
     run() {
-      //const LL_COUNTRIES = [ "France", "Germany", "Greece", "Hungary", "Ireland", "Italy", "Poland", "Spain", "Sweden", ];
-      const LL_COUNTRIES = ["Sweden"]
+      let LL_COUNTRIES = [
+        "France",
+        "Germany",
+        "Greece",
+        "Hungary",
+        "Ireland",
+        "Italy",
+        "Poland",
+        "Spain",
+        "Sweden",
+        "RoW",
+      ];
+      LL_COUNTRIES = ["Spain"];
+      const names = namesJson as Record<string, string>;
 
       LL_COUNTRIES.forEach((country) => {
-        const benchmark = getBenchmark(country);
-        console.log(benchmark);
-      });
+        const [benchmark, failedRpcs] = getBenchmark(country);
+        const rpcs = Object.keys(benchmark);
 
+        const header = [
+          "Code",
+          "Name",
+          ...ENV_HEADERS,
+          "Process CO2",
+          "Process CH4",
+          "Process N2O",
+          "Processes",
+        ];
+        const impactsCsv = rpcs
+          .sort()
+          .sort((a, b) => b.length - a.length)
+          .map((rpc) =>
+            [
+              rpc,
+              maybeQuoteValue(names[rpc]) || "NAME NOT FOUND",
+              ...benchmark[rpc],
+            ].join(",")
+          )
+          .join("\n");
+
+        const failedCsv = [...failedRpcs]
+          .sort()
+          .sort((a, b) => a.length - b.length)
+          .map((rpc) => [rpc, maybeQuoteValue(names[rpc])].join(","))
+          .join("\n");
+
+        console.log(impactsCsv);
+
+        //downloadAsPlaintext(
+          //header.join(",") + "\n" + impactsCsv,
+          //country + ".csv"
+        //);
+        //downloadAsPlaintext("Code,Name\n" + failedCsv, country + "-failed.csv");
+      });
     },
   },
 

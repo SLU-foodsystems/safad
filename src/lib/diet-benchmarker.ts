@@ -4,9 +4,7 @@ import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 
 import allEnvImpactsJson from "@/data/env-factors-flat.json";
 import reduceDiet from "./rpc-reducer";
-import computeProcessFootprints, {
-  getProcessFootprintsSheet,
-} from "./process-env-impact";
+import { getProcessFootprintsSheet } from "./process-env-impact";
 
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
 
@@ -17,17 +15,7 @@ const allEnvImpacts = allEnvImpactsJson as Record<
   Record<string, number[]>
 >;
 
-const CARRIER_ORDER = [
-  "Electricity",
-  "Heating oil",
-  "Natural gas",
-  "Other fossil energy sources",
-  "Bark and chips",
-  "Pellets and briquettes",
-  "Other renewable energy sources",
-  "Diesel fuel",
-  "District heating",
-];
+const ENV_ZERO_IMPACT = Array.from({ length: 16 }).map((_) => 0);
 
 function getFlattenedRpcFootprints(country: string) {
   return Object.fromEntries(
@@ -47,6 +35,11 @@ function getRpcImpact(
   envFactors: Record<string, number[]>
 ): number[] | null {
   const suaCode = rpcToSuaMap[rpcCode];
+  if (suaCode === "0") {
+    console.log("SUA was 0 for", rpcCode)
+    return ENV_ZERO_IMPACT;
+  }
+
   if (!suaCode) {
     // console.warn(`No SUA code found for rpc ${rpcCode}`);
     return null;
@@ -74,7 +67,7 @@ function computeProcessFootprints(
   );
 }
 
-export default function getBenchmark(country: string) {
+export default function getBenchmark(country: string): [Record<string, (number | string)[]>, Set<string>] {
   // TODO: Figure out the process stuff - my new way of thinking (intuitive?) is
   // at odds with how I had constructed it before.
   // And I might have to convert to kg here somewhere.
@@ -89,7 +82,7 @@ export default function getBenchmark(country: string) {
   }));
 
   const aggregateResults: Record<string, (number | string)[]> = {};
-  const failedRpcs = new Set();
+  const failedRpcs = new Set<string>();
   diets.forEach((diet) => {
     const [rpcs, processes] = reduceDiet([diet], foodsRecipes);
 
@@ -99,15 +92,11 @@ export default function getBenchmark(country: string) {
     ]);
 
     if (impacts.some(([k, v]) => v === null)) {
-      console.warn(
-        `Diet for ${diet.code} failed for items: ${impacts
-          .filter((kv) => kv[1] === null)
-          .map((kv) => {
-            failedRpcs.add(kv[0]);
-            return kv[0];
-          })
-          .join(", ")}`
-      );
+      const missingItems = impacts.filter((kv) => kv[1] === null).map(kv => kv[0])
+      missingItems.forEach(rpc => failedRpcs.add(String(rpc)));
+      // console.warn(
+      //   `Diet for ${diet.code} failed for items: ${missingItems.join(", ")}`
+      // );
       return;
     }
 
@@ -137,7 +126,5 @@ export default function getBenchmark(country: string) {
     ];
   });
 
-  console.log([...failedRpcs].sort());
-
-  return aggregateResults;
+  return [aggregateResults, failedRpcs];
 }
