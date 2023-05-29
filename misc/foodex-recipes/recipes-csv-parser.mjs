@@ -73,11 +73,12 @@ function buildYieldMap(processesCsv) {
         _facetDesc,
         yieldFactorStr,
         allocationFactorStr,
-      ]) => [code, facets, parseFloat(yieldFactorStr) * parseFloat(allocationFactorStr)]
+      ]) => [code, facets, parseFloat(yieldFactorStr), parseFloat(allocationFactorStr)]
     )
-    .forEach(([code, facets, yieldFactor]) => {
+    .forEach(([code, facets, yieldFactor, allocationFactor]) => {
+      if (facets === "F28.A07XD") allocationFactor = 1;
       const key = code + "|" + facets;
-      yieldMap[key] = yieldFactor;
+      yieldMap[key] = yieldFactor * allocationFactor;
     });
 
   return yieldMap;
