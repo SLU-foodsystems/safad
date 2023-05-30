@@ -48,7 +48,6 @@ function removeNullSelfReferences(obj) {
   // console.log(nonFullYields.join("\n"))
 }
 
-
 /**
  * Precautionary: Delete any empty rulesets.
  */
@@ -88,8 +87,8 @@ function main(args) {
   if (args.length !== 2) {
     throw new Error(
       "Expected exactly two arguments:\n" +
-        "\t- Path to Recipes CSV\n" +
-        "\t- Path to Processes CSV\n"
+      "\t- Path to Recipes CSV\n" +
+      "\t- Path to Processes CSV\n"
     );
   }
 
