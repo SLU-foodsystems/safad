@@ -55,9 +55,10 @@ function reduceToRpcs(
   return subcomponents
     .map(([subcomponentCode, processes, ratio, yieldFactor]): RPC[] => {
       const netAmount = yieldFactor * ratio * amount;
-      // Facets can be empty strings, for meaningless processes.
+
+      // Recourd the output amount
       processes.map((facet) => {
-        recordProcessContribution(subcomponentCode, facet, netAmount);
+        recordProcessContribution(componentCode, facet, amount);
       });
 
       // Some recipes will include references back to themselves, in which
