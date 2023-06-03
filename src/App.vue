@@ -15,7 +15,12 @@ const getCategoryName = (code: string, level: number) => {
   return categoryNames[levelCode] || `NOT FOUND (${levelCode})`;
 }
 
-const ENV_HEADERS = [
+const BENCHMARK_HEADERS = [
+  "Total CO2e",
+  "Total CO2",
+  "Total CH4: Fossil",
+  "Total CH4: Biogenic",
+  "Total N2O",
   "Carbon_Footprint",
   "Carbon_Dioxide",
   "Methane_fossil",
@@ -32,6 +37,11 @@ const ENV_HEADERS = [
   "Labour",
   "Animal_Welfare",
   "Antibiotics",
+  "Process CO2e",
+  "Process CO2",
+  "Process CH4",
+  "Process N2O",
+  "Processes",
 ];
 
 const maybeQuoteValue = (str: string) =>
@@ -70,11 +80,7 @@ export default defineComponent({
           "Name",
           "L1 Category",
           "L2 Category",
-          ...ENV_HEADERS,
-          "Process CO2",
-          "Process CH4",
-          "Process N2O",
-          "Processes",
+          ...BENCHMARK_HEADERS,
         ];
         const impactsCsv = rpcs
           .sort()
