@@ -9,7 +9,11 @@ node ./processes-energy-demand/processes-energy-demand-csv-json.mjs ./processes-
 
 node ./env-factors/flat-env-factors-csv-to-json.mjs ./env-factors/env-factors.csv > ../src/data/env-factors-flat.json
 
-#rpc-parameters
+node ./rpc-parameters/generate-csv-per-country.mjs France Germany Greece Hungary Ireland Italy Poland Spain Sweden
+
+for country in France Germany Greece Hungary Ireland Italy Poland Spain Sweden; do
+  node ./rpc-parameters/rpc-parameters-csv-to-json.mjs "./rpc-parameters/csv-out/$country-rpc.csv" > "../src/data/rpc-parameters/$country-rpc.json"
+done
 
 node ./foodex-names/extract-category-names.mjs ./foodex-names/foodex-names.csv 2 > ../src/data/category-names.json
 
