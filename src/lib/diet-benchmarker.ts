@@ -108,6 +108,7 @@ export default function getBenchmark(country: string): [Record<string, (number |
       processes,
       processesEnvImpacts
     );
+
     const processList = Object.values(processFootprints)
       .map((obj) => Object.keys(obj))
       .flat(1);
@@ -119,8 +120,37 @@ export default function getBenchmark(country: string): [Record<string, (number |
       totalProcessesFootprints.push(0);
     }
 
+    const CO2E_CONF_FACTORS: Record<string, number> = {
+      CO2: 1,
+      BCH4: 27,
+      FCH4: 29.8,
+      N2O: 273,
+      HCFC: 1960,
+    };
+
+    const processCO2e = ["CO2", "FCH4", "N2O"]
+      .map((ghg, i) => totalProcessesFootprints[i] * CO2E_CONF_FACTORS[ghg])
+      .reduce((a, b) => a + b, 0);
+
+    const combinedGhgHeaders = [
+      "Total CO2e",
+      "Total CO2",
+      "Total CH4, Fossil",
+      "Total CH4, Biogenic",
+      "N2O",
+    ];
+    const combinedGhgFootprints = [
+      totalRpcFootprints[0] + processCO2e,
+      totalRpcFootprints[1] + totalProcessesFootprints[0],
+      totalRpcFootprints[2] + totalProcessesFootprints[1],
+      totalRpcFootprints[3],
+      totalRpcFootprints[4] + totalProcessesFootprints[2],
+    ];
+
     aggregateResults[diet.code] = [
+      ...combinedGhgFootprints,
       ...totalRpcFootprints,
+      processCO2e,
       ...totalProcessesFootprints,
       processList.join("$"),
     ];
