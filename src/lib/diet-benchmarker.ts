@@ -23,7 +23,7 @@ function getFlattenedRpcFootprints(country: string) {
       .map(([code, impactPerCountry]) => {
         return [code, impactPerCountry[country]];
       })
-      .filter(([k, v]) => v !== undefined)
+      .filter(([_k, v]) => v !== undefined)
   );
 }
 
@@ -36,7 +36,7 @@ function getRpcImpact(
 ): number[] | null {
   const suaCode = rpcToSuaMap[rpcCode];
   if (suaCode === "0") {
-    console.log("SUA was 0 for", rpcCode)
+    console.info("SUA was 0 for", rpcCode);
     return ENV_ZERO_IMPACT;
   }
 
@@ -46,7 +46,7 @@ function getRpcImpact(
   }
 
   if (!(suaCode in envFactors)) {
-    // console.warn(`No factors found for ${rpcCode}.`);
+    // console.warn(`No factors found for ${rpcCode} (SUA=${suaCode}).`);
     return null;
   }
 

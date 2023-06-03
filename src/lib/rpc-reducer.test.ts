@@ -85,6 +85,7 @@ describe("RPC reducer", () => {
     expect(rpcs[2][0]).toEqual("A.01.123.03");
     expect(rpcs[2][1]).toBeCloseTo(baseWasteAmount * 0.8 * 1 * 0.5 * 3);
 
+    // Facets
     const processIds = [...new Set(Object.values(processes).map(x => Object.keys(x)).flat(1))];
     expect(processIds).toHaveLength(3);
     // FacetA
