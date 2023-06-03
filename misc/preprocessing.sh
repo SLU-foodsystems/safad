@@ -11,7 +11,7 @@ node ./env-factors/flat-env-factors-csv-to-json.mjs ./env-factors/env-factors.cs
 
 #rpc-parameters
 
-node ./foodex-names/extract-category-names.mjs ./foodex-names/foodex-names.csv > ../src/data/category-names.json
+node ./foodex-names/extract-category-names.mjs ./foodex-names/foodex-names.csv 2 > ../src/data/category-names.json
 
 node ./rpc-sua-map/rpc-sua-csv-to-json.mjs ./rpc-sua-map/rpc-to-sua.csv > ../src/data/rpc-to-sua.json
 
