@@ -1,51 +1,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import namesJson from "@/data/rpc-names.json";
-import categoryNamesJson from "@/data/category-names.json";
-
 import ChartContainer from "@/components/ChartContainer.vue";
-import getBenchmark from "@/lib/diet-benchmarker";
+import getBenchmarks from "@/lib/diet-benchmarker";
 
 import { downloadAsPlaintext } from "@/lib/csv-io";
 
-const categoryNames = categoryNamesJson as Record<string, string>;
-const getCategoryName = (code: string, level: number) => {
-  const levelCode = code.substring(0, 4 + (level - 1) * 3);
-  return categoryNames[levelCode] || `NOT FOUND (${levelCode})`;
-};
 
-const BENCHMARK_HEADERS = [
-  "Total CO2e",
-  "Total CO2",
-  "Total CH4: Fossil",
-  "Total CH4: Biogenic",
-  "Total N2O",
-  "Carbon_Footprint",
-  "Carbon_Dioxide",
-  "Methane_fossil",
-  "Methane_bio",
-  "Nitrous_Oxide",
-  "HFC",
-  "Land",
-  "N_input",
-  "P_input",
-  "Water",
-  "Pesticides",
-  "Biodiversity",
-  "Ammonia",
-  "Labour",
-  "Animal_Welfare",
-  "Antibiotics",
-  "Process CO2e",
-  "Process CO2",
-  "Process CH4",
-  "Process N2O",
-  "Processes",
-];
-
-const maybeQuoteValue = (str: string) =>
-  str && str.includes(",") ? `"${str}"` : str;
 
 export default defineComponent({
   components: { ChartContainer },
@@ -68,53 +29,25 @@ export default defineComponent({
         "Sweden",
         "RoW",
       ];
-      LL_COUNTRIES = ["Spain"];
-      const names = namesJson as Record<string, string>;
+      //LL_COUNTRIES = ["Spain"];
 
+      const benchmarks = getBenchmarks(LL_COUNTRIES);
+      //const wantsToDownload = confirm("Do you want to download the files?");
+      const wantsToDownload = false;
       LL_COUNTRIES.forEach((country) => {
-        const [benchmark, failedRpcs] = getBenchmark(country);
-        const rpcs = Object.keys(benchmark);
-
-        const header = [
-          "Code",
-          "Name",
-          "L1 Category",
-          "L2 Category",
-          ...BENCHMARK_HEADERS,
-        ];
-        const impactsCsv = rpcs
-          .sort()
-          .sort((a, b) => b.length - a.length)
-          .map((rpc) =>
-            [
-              rpc,
-              maybeQuoteValue(names[rpc]) || "NAME NOT FOUND",
-              getCategoryName(rpc, 1),
-              getCategoryName(rpc, 2),
-              ...benchmark[rpc],
-            ].join(",")
-          )
-          .join("\n");
-
-        const failedCsv = [...Object.keys(failedRpcs)]
-          .sort()
-          .sort((a, b) => a.length - b.length)
-          .map((rpc) => [rpc, maybeQuoteValue(names[rpc]), failedRpcs[rpc].join(" ")].join(","))
-          .join("\n");
-
-        console.log(impactsCsv);
-
-        //downloadAsPlaintext(
-          //header.join(",") + "\n" + impactsCsv,
-          //country + ".csv"
-        //);
-        //downloadAsPlaintext("Code,Name\n" + failedCsv, country + "-failed.csv");
+        const [footprintsCsv, failedCsv] = benchmarks[country];
+        if (wantsToDownload) {
+          downloadAsPlaintext(footprintsCsv, country + ".csv");
+          downloadAsPlaintext(failedCsv, country + "-failed.csv");
+        } else {
+          console.log(country, footprintsCsv, failedCsv);
+        }
       });
     },
   },
 
   mounted() {
-    this.run();
+    //this.run();
   },
 });
 </script>

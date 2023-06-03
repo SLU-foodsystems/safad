@@ -1,10 +1,12 @@
 import { mapValues, vectorSums } from "@/lib/utils";
-import foodsRecipesJson from "@/data/foodex-recipes.json";
-import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
-
-import allEnvImpactsJson from "@/data/env-factors-flat.json";
 import reduceDiet from "./rpc-reducer";
 import { getProcessFootprintsSheet } from "./process-env-impact";
+
+import allEnvImpactsJson from "@/data/env-factors-flat.json";
+import categoryNamesJson from "@/data/category-names.json";
+import foodsRecipesJson from "@/data/foodex-recipes.json";
+import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
+import namesJson from "@/data/rpc-names.json";
 
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
 
@@ -17,6 +19,38 @@ const allEnvImpacts = allEnvImpactsJson as Record<
 
 const ENV_ZERO_IMPACT = Array.from({ length: 16 }).map((_) => 0);
 
+const BENCHMARK_HEADERS = [
+  "Total CO2e",
+  "Total CO2",
+  "Total CH4: Fossil",
+  "Total CH4: Biogenic",
+  "Total N2O",
+  "Carbon_Footprint",
+  "Carbon_Dioxide",
+  "Methane_fossil",
+  "Methane_bio",
+  "Nitrous_Oxide",
+  "HFC",
+  "Land",
+  "N_input",
+  "P_input",
+  "Water",
+  "Pesticides",
+  "Biodiversity",
+  "Ammonia",
+  "Labour",
+  "Animal_Welfare",
+  "Antibiotics",
+  "Process CO2e",
+  "Process CO2",
+  "Process CH4",
+  "Process N2O",
+  "Processes",
+];
+
+const maybeQuoteValue = (str: string) =>
+  str && str.includes(",") ? `"${str}"` : str;
+
 function getFlattenedRpcFootprints(country: string) {
   return Object.fromEntries(
     Object.entries(allEnvImpacts)
@@ -26,6 +60,12 @@ function getFlattenedRpcFootprints(country: string) {
       .filter(([_k, v]) => v !== undefined)
   );
 }
+
+const categoryNames = categoryNamesJson as Record<string, string>;
+const getCategoryName = (code: string, level: number) => {
+  const levelCode = code.substring(0, 4 + (level - 1) * 3);
+  return categoryNames[levelCode] || `NOT FOUND (${levelCode})`;
+};
 
 const codesInRecipes = Object.keys(foodsRecipes);
 
@@ -67,12 +107,9 @@ function computeProcessFootprints(
   );
 }
 
-export default function getBenchmark(
+function getCountryBenchmark(
   country: string
 ): [Record<string, (number | string)[]>, Record<string, string[]>] {
-  // TODO: Figure out the process stuff - my new way of thinking (intuitive?) is
-  // at odds with how I had constructed it before.
-  // And I might have to convert to kg here somewhere.
   const processesEnvImpacts = getProcessFootprintsSheet(country);
   const envImpacts = getFlattenedRpcFootprints(country);
 
@@ -93,11 +130,11 @@ export default function getBenchmark(
       getRpcImpact(rpc, amountGram, envImpacts),
     ]);
 
-    if (impacts.some(([k, v]) => v === null)) {
+    if (impacts.some(([_k, v]) => v === null)) {
       const missingItems = impacts
         .filter((kv) => kv[1] === null)
         .map((kv) => kv[0]);
-      failedRpcs[( diet.code as string)] = ( missingItems as string[] );
+      failedRpcs[diet.code as string] = missingItems as string[];
 
       // console.warn(
       //   `Diet for ${diet.code} failed for items: ${missingItems.join(", ")}`
@@ -107,7 +144,6 @@ export default function getBenchmark(
 
     const rpcFootprints = Object.fromEntries(impacts);
     const totalRpcFootprints = vectorSums(Object.values(rpcFootprints));
-    // console.log(totalRpcFootprints)
 
     const processFootprints = computeProcessFootprints(
       processes,
@@ -137,13 +173,6 @@ export default function getBenchmark(
       .map((ghg, i) => totalProcessesFootprints[i] * CO2E_CONF_FACTORS[ghg])
       .reduce((a, b) => a + b, 0);
 
-    const combinedGhgHeaders = [
-      "Total CO2e",
-      "Total CO2",
-      "Total CH4, Fossil",
-      "Total CH4, Biogenic",
-      "N2O",
-    ];
     const combinedGhgFootprints = [
       totalRpcFootprints[0] + processCO2e,
       totalRpcFootprints[1] + totalProcessesFootprints[0],
@@ -161,5 +190,55 @@ export default function getBenchmark(
     ];
   });
 
+  console.log(failedRpcs);
+
   return [aggregateResults, failedRpcs];
+}
+
+export default function getBenchmarks(countries: string[]) {
+  const results: Record<string, [string, string]> = {};
+
+  const header = [
+    "Code",
+    "Name",
+    "L1 Category",
+    "L2 Category",
+    ...BENCHMARK_HEADERS,
+  ];
+
+  const names = namesJson as Record<string, string>;
+
+  countries.forEach((country) => {
+    const [benchmark, failedRpcs] = getCountryBenchmark(country);
+    const rpcs = Object.keys(benchmark);
+
+    const impactsCsv = rpcs
+      .sort()
+      .sort((a, b) => b.length - a.length)
+      .map((rpc) =>
+        [
+          rpc,
+          maybeQuoteValue(names[rpc]) || "NAME NOT FOUND",
+          getCategoryName(rpc, 1),
+          getCategoryName(rpc, 2),
+          ...benchmark[rpc],
+        ].join(",")
+      )
+      .join("\n");
+
+    const failedCsv = [...Object.keys(failedRpcs)]
+      .sort()
+      .sort((a, b) => a.length - b.length)
+      .map((rpc) =>
+        [rpc, maybeQuoteValue(names[rpc]), failedRpcs[rpc].join(" ")].join(",")
+      )
+      .join("\n");
+
+    results[country] = [
+      header.join(",") + "\n" + impactsCsv,
+      "Code,Name\n" + failedCsv,
+    ];
+  });
+
+  return results;
 }
