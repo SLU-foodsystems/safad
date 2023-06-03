@@ -26,7 +26,7 @@ function main(args) {
   }
 
   // Import CSV file. Slice(1) to drop header
-  const rpcCsv = readCsv(args[0], ",", true).slice(1);
+  const rpcCsv = readCsv(args[0], ",").slice(1);
 
   // The CSV has each entry as a line. Even though they're probably sorted and
   // grouped together, we're not going to use that structure in this algorithm,

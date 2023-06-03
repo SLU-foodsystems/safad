@@ -4,21 +4,10 @@
 /**
  * Script for creating a sheets with RPC parameters for different countries.
  *
- * Inputs include:
- * - Trade matrix by Kastner et al., from which the share of each item is
- *   computed
- * - RPC Template, which lists all the food items that we want to look at, as
- *   well as their "category"
- * - Waste factors, which pairs a waste percentage with each category
- * - Sua to ItemName mappings, which connect each sua item to a "item name",
- *   which is what Kastner et al. use.
+ * Innstead of taking the list of files as arguments, this defines all paths in
+ * the function main() below.
  *
- * For example:
- *
- * node kastner-et-al-parser.mjs "data/trade-matrix.csv" \
- *    "data/rpc-parameters-template.csv" "data/rpc-waste-factors.csv" \
- *    "data/sua-to-kastner-matchings.csv" "./rpcs" \
- *    Sweden France Germany Ireland Spain Hungary Italy
+ * The only input it takes is the list of countries to use generate csvs for.
  */
 
 import * as fs from "fs";
@@ -29,26 +18,23 @@ import { readCsv } from "../utils.mjs";
 const ROW_THRESHOLD = 0.1;
 const RESULT_PRECISION = 3;
 
-// TODO: This could also be taken as a varg instead
-const LL_COUNTRIES = [
-  "France",
-  "Germany",
-  "Greece",
-  "Hungary",
-  "Ireland",
-  "Italy",
-  "Poland",
-  "Spain",
-  "Sweden",
-];
-
 const DEBUG_ITEM_NAMES = false;
 
 const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
 
 /**
+ * @param {string | number} value
+ * @returns {string | number}
+ */
+const maybeQuote = (value) =>
+  value && typeof value === "string" && value.includes(",")
+    ? `"${value}"`
+    : value;
+
+/**
  * @param {number} value
  * @param {number} dp
+ * @returns {number}
  */
 const roundToDp = (value, dp = 2) => Math.round(value * 10 ** dp) / 10 ** dp;
 
@@ -192,7 +178,7 @@ function createRenameMap(rows) {
  * @param {string[]} args
  */
 function main(args) {
-  const [outDir] = args;
+  const [...countries] = args;
 
   // Template of RPC parameters, as csv file, with columns:
   // - sua code, sua name, category
@@ -236,12 +222,12 @@ function main(args) {
 
   /** @type {Object.<string, Object.<string, Object.<string, number>>>}*/
   const sharesPerCountryAndItem = Object.fromEntries(
-    LL_COUNTRIES.map((c) => [c, getFoodItemShares(matrix, c)])
+    countries.map((c) => [c, getFoodItemShares(matrix, c)])
   );
 
   /** @type Object.<string, (string | number)[][]> */
   const rpcParametersPerCountry = Object.fromEntries(
-    LL_COUNTRIES.map((c) => [c, []])
+    countries.map((c) => [c, []])
   );
 
   rpcTemplate.forEach((row, i) => {
@@ -255,7 +241,7 @@ function main(args) {
       return;
     }
 
-    LL_COUNTRIES.forEach((consumerCountry) => {
+    countries.forEach((consumerCountry) => {
       const shares = sharesPerCountryAndItem[consumerCountry][itemName] || {
         RoW: 1,
       };
@@ -287,13 +273,16 @@ function main(args) {
   });
 
   const HEADER =
-    "SUA Code;SUA Name;Category;Producer Country;Share;Organic;Waste";
-  LL_COUNTRIES.forEach((country) => {
-    const data =
-      HEADER +
-      "\n" +
-      rpcParametersPerCountry[country].map((x) => x.join(";")).join("\n");
-    fs.writeFileSync(path.resolve(outDir, `${country}-rpc.csv`), data);
+    "SUA Code,SUA Name,Category,Producer Country,Share,Organic,Waste";
+
+  countries.forEach((country) => {
+    const body = rpcParametersPerCountry[country]
+      .map((x) => x.map((val) => maybeQuote(val)).join(","))
+      .join("\n");
+
+    const data = HEADER + "\n" + body;
+
+    fs.writeFileSync(path.resolve("./csv-out", `${country}-rpc.csv`), data);
   });
 
   // printItemCountries(Object.values(results));
