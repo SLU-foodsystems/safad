@@ -67,7 +67,9 @@ function computeProcessFootprints(
   );
 }
 
-export default function getBenchmark(country: string): [Record<string, (number | string)[]>, Set<string>] {
+export default function getBenchmark(
+  country: string
+): [Record<string, (number | string)[]>, Record<string, string[]>] {
   // TODO: Figure out the process stuff - my new way of thinking (intuitive?) is
   // at odds with how I had constructed it before.
   // And I might have to convert to kg here somewhere.
@@ -82,7 +84,7 @@ export default function getBenchmark(country: string): [Record<string, (number |
   }));
 
   const aggregateResults: Record<string, (number | string)[]> = {};
-  const failedRpcs = new Set<string>();
+  const failedRpcs: Record<string, string[]> = {};
   diets.forEach((diet) => {
     const [rpcs, processes] = reduceDiet([diet], foodsRecipes);
 
@@ -92,8 +94,11 @@ export default function getBenchmark(country: string): [Record<string, (number |
     ]);
 
     if (impacts.some(([k, v]) => v === null)) {
-      const missingItems = impacts.filter((kv) => kv[1] === null).map(kv => kv[0])
-      missingItems.forEach(rpc => failedRpcs.add(String(rpc)));
+      const missingItems = impacts
+        .filter((kv) => kv[1] === null)
+        .map((kv) => kv[0]);
+      failedRpcs[( diet.code as string)] = ( missingItems as string[] );
+
       // console.warn(
       //   `Diet for ${diet.code} failed for items: ${missingItems.join(", ")}`
       // );

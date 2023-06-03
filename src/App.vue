@@ -96,10 +96,10 @@ export default defineComponent({
           )
           .join("\n");
 
-        const failedCsv = [...failedRpcs]
+        const failedCsv = [...Object.keys(failedRpcs)]
           .sort()
           .sort((a, b) => a.length - b.length)
-          .map((rpc) => [rpc, maybeQuoteValue(names[rpc])].join(","))
+          .map((rpc) => [rpc, maybeQuoteValue(names[rpc]), failedRpcs[rpc].join(" ")].join(","))
           .join("\n");
 
         console.log(impactsCsv);
