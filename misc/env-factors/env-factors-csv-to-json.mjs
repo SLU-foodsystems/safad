@@ -15,17 +15,21 @@ const DEBUG_PRETTY_PRINT = false;
 
 function main(args) {
   const [envFactorsCsvPath] = args;
+  if (!envFactorsCsvPath) {
+    throw new Error("Missing path to env factors file.")
+  }
+
   // Read csv file and drop header
   const envFactorsCsv = readCsv(envFactorsCsvPath, ",").slice(1);
 
   const structured = envFactorsCsv.reduce(
-    (acc, [code, _name, _category, originName, _originCode, ...impacts]) => {
+    (acc, [_i, code, _name, _category, originName, _originCode, ...impactsStr]) => {
       if (!(code in acc)) {
         acc[code] = {};
       }
 
       // TODO: Ensure correct length?
-      acc[code][originName] = impacts.map((x) => {
+      acc[code][originName] = impactsStr.map((x) => {
         const val = parseFloat(x);
         return Number.isNaN(val) ? 0 : val;
       });
