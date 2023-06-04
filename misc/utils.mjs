@@ -50,7 +50,17 @@ export function readCsv(fpath, delim = ",", naiveSplit = false) {
   return csvToArr(fileContent, delim).filter(x => x.length > 1);
 }
 
+/**
+ * @param {number} value
+ * @param {number} dp
+ * @returns {number}
+ */
 export function roundToPrecision(number, decimalPoints = 2) {
   const k = 10 ** decimalPoints;
   return Math.round(number * k) / k;
 }
+
+/**
+ * @param {(string | number | Symbol)[]} xs
+ */
+export const uniq = (xs) => [...new Set(xs)];
