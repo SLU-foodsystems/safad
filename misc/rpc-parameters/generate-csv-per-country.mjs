@@ -167,7 +167,7 @@ function printItemCountries(maps) {
  * Create a rename-map of Record<from: string, to: string> from the
  * sua-to-kastner-matchings.csv file.
  *
- * @param {[string, string, string]} rows
+ * @param {string[][]} rows
  * @returns {Object.<string, string>}
  */
 function createRenameMap(rows) {
