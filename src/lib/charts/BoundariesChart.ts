@@ -92,7 +92,7 @@ export default function RadarChart(
     .attr("gradientUnits", "userSpaceOnUse")
     .attr("r", Math.max(cfg.w, cfg.h) / 2);
 
-  // scale the limit-circle to 1
+  // scale the gradient to 1
   (
     [
       [0, "#207320"],
