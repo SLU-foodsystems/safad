@@ -4,8 +4,8 @@
 /**
  * Script for creating a sheets with RPC parameters for different countries.
  *
- * Innstead of taking the list of files as arguments, this defines all paths in
- * the function main() below.
+ * Innstead of taking the list of files as arguments, as most other scripts in
+ * this project does, his defines all paths in the function main() below.
  *
  * The only input it takes is the list of countries to use generate csvs for.
  */
@@ -19,7 +19,7 @@ import { readCsv, roundToPrecision, uniq } from "../utils.mjs";
 const ROW_THRESHOLD = 0.1;
 const RESULT_PRECISION = 3;
 
-const DEBUG_ITEM_NAMES = false;
+const DEBUG_PRINT_ITEMNAMES = false;
 
 const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
 
@@ -32,20 +32,14 @@ const maybeQuote = (value) =>
     ? `"${value}"`
     : value;
 
-/**
- * @param {number} value
- * @param {number} dp
- * @returns {number}
- */
-const roundToDp = (value, dp = 2) => Math.round(value * 10 ** dp) / 10 ** dp;
-
-/**
- * @param {(string | number | Symbol)[]} xs
- */
-const uniq = (xs) => [...new Set(xs)];
-
 const _countries = new Set();
 /**
+ * Most complex logic in this file, where we extract the shares from the trade
+ * matrix for a specific country.
+ *
+ * We essentially, for every consumerCountry and food item, compute how large a
+ * portion (%) is produced in each producerCountry.
+ *
  * @param {string[][]} matrix
  * @param {string} country
  * @returns {Object.<string, Object.<string, number>>}
@@ -121,7 +115,13 @@ function getFoodItemShares(matrix, country) {
     // Step 3b: Round to precision to avoid ca 20 decimal points.
     simplifiedProportions[itemName] = Object.fromEntries(
       Object.entries(result)
-        .map(([k, v]) => [k, roundToDp(v, RESULT_PRECISION)])
+        .map(
+          ([k, v]) =>
+            /** @type {[string, number]} */ ([
+              k,
+              roundToPrecision(v, RESULT_PRECISION),
+            ])
+        )
         .filter(([_k, v]) => v > 0)
     );
   });
@@ -163,10 +163,17 @@ function printItemCountries(maps) {
   console.log(JSON.stringify(maps, null, 2));
 }
 
+/**
+ * Create a rename-map of Record<from: string, to: string> from the
+ * sua-to-kastner-matchings.csv file.
+ *
+ * @param {[string, string, string]} rows
+ * @returns {Object.<string, string>}
+ */
 function createRenameMap(rows) {
   return Object.fromEntries(
     rows
-      .filter((x) => x[0] !== "")
+      .filter((x) => x[0] !== "") // Remove any empty rows.
       .map(([itemName, isPerfectMatch, suaName]) => {
         return [itemName, isPerfectMatch === "Yes" ? itemName : suaName];
       })
@@ -206,15 +213,18 @@ function main(args) {
     ";",
     true
   ).slice(1);
+  // We create a map that can be used to translate between the item names used
+  // in the trade matrix below and the SUA names.
   const suaItemNamesMap = createRenameMap(suaItemNamesMatchings);
 
+  // NOTE that the trade matrix uses ; as delimiter
   const matrix = readCsv(
     path.resolve(DIRNAME, "./trade-matrix.csv"),
     ";",
     true
   );
 
-  if (DEBUG_ITEM_NAMES) {
+  if (DEBUG_PRINT_ITEMNAMES) {
     uniq(matrix.map((x) => x[8]))
       .sort()
       .forEach((x) => console.log(x));
@@ -231,6 +241,12 @@ function main(args) {
     countries.map((c) => [c, []])
   );
 
+  /**
+   * The part of script where we put all parts together.
+   *
+   * We iterate over the "rpc template", where each row is a food item (sua-code
+   * and name) to construct the final results.
+   */
   rpcTemplate.forEach((row, i) => {
     const [suaCode, suaName, category] = row;
 
@@ -242,6 +258,7 @@ function main(args) {
       return;
     }
 
+    // For each country, we extract the share and waste for this specific food
     countries.forEach((consumerCountry) => {
       const shares = sharesPerCountryAndItem[consumerCountry][itemName] || {
         RoW: 1,
@@ -259,6 +276,7 @@ function main(args) {
         return;
       }
 
+      // And we store in the final results as a list, to be made into a csv.
       Object.entries(shares).forEach(([prodCountry, share]) => {
         rpcParametersPerCountry[consumerCountry].push([
           suaCode,
