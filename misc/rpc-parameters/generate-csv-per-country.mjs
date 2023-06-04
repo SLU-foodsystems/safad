@@ -13,7 +13,8 @@
 import * as fs from "fs";
 import * as path from "path";
 import url from "url";
-import { readCsv } from "../utils.mjs";
+
+import { readCsv, roundToPrecision, uniq } from "../utils.mjs";
 
 const ROW_THRESHOLD = 0.1;
 const RESULT_PRECISION = 3;
