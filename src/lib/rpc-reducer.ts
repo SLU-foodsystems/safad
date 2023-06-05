@@ -58,7 +58,7 @@ function reduceToRpcs(
 
       // Recourd the output amount
       processes.map((facet) => {
-        recordProcessContribution(componentCode, facet, amount);
+        recordProcessContribution(componentCode, facet, ratio * amount);
       });
 
       // Some recipes will include references back to themselves, in which
