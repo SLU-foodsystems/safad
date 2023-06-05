@@ -25,7 +25,7 @@ export default function RadarChart(
       h: 600,
       margin: { top: 40, right: 40, bottom: 40, left: 40 },
       levels: 8,
-      maxValue: 0,
+      maxValue: 1,
       labelOffsetFactor: 1.05,
       opacityCircles: 0.1,
       slicePadding: 0.015,
