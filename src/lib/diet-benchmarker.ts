@@ -1,6 +1,9 @@
-import { mapValues, vectorSums } from "@/lib/utils";
+import { vectorSums } from "@/lib/utils";
 import reduceDiet from "./rpc-reducer";
-import { getProcessFootprintsSheet } from "./process-env-impact";
+import {
+  computeProcessFootprints,
+  getProcessFootprintsSheet,
+} from "./process-env-impact";
 
 import allEnvImpactsJson from "@/data/env-factors-flat.json";
 import categoryNamesJson from "@/data/category-names.json";
@@ -91,20 +94,6 @@ function getRpcImpact(
   }
 
   return envFactors[suaCode].map((k) => (k * amountGram) / 1000);
-}
-
-function computeProcessFootprints(
-  processAmountsMap: Record<string, Record<string, number>>,
-  processFootprints: Record<string, number[]>
-): Record<string, { [k: string]: number[] }> {
-  return mapValues(processAmountsMap, (processAmounts) =>
-    Object.fromEntries(
-      Object.entries(processAmounts).map(([processId, amountGram]) => [
-        processId,
-        processFootprints[processId].map((x) => (x * amountGram) / 1000),
-      ])
-    )
-  );
 }
 
 function getCountryBenchmark(

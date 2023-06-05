@@ -1,4 +1,6 @@
 // Import processes to energy map here.
+import { mapValues } from "./utils";
+
 import processEnergyDemandsJson from "@/data/processes-energy-demands.json";
 import carrierEnergyDemandsJson from "@/data/carrier-footprints.json";
 
@@ -71,15 +73,16 @@ export function getProcessFootprintsSheet(
  *
  * Output: { [process]: [CO2, N2O, CH4, ...] }
  */
-export default function computeProcessFootprints(
-  processAmountGramsMap: Record<string, number>,
-  country: string
-): Record<string, number[]> {
-  const footprints = getProcessFootprintsSheet(country);
-  return Object.fromEntries(
-    Object.entries(processAmountGramsMap).map(([processId, amountMj]) => [
-      processId,
-      footprints[processId].map((x) => x * amountMj),
-    ])
+export function computeProcessFootprints(
+  processAmountsMap: Record<string, Record<string, number>>,
+  processFootprints: Record<string, number[]>
+): Record<string, { [k: string]: number[] }> {
+  return mapValues(processAmountsMap, (processAmounts) =>
+    Object.fromEntries(
+      Object.entries(processAmounts).map(([processId, amountGram]) => [
+        processId,
+        processFootprints[processId].map((x) => (x * amountGram) / 1000),
+      ])
+    )
   );
 }
