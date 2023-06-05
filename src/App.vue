@@ -83,7 +83,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
 
-  >div {
+  > div {
     flex-basis: 30em;
   }
 
