@@ -50,7 +50,7 @@ describe("RPC reducer", () => {
 
   test("Handles direct RPCs (with facets)", () => {
     const recipes: FoodsRecipes = {
-      "A.01.example": [["A.01.example", ["facetA"], 1, 1]]
+      "A.01.example": [["A.01.example", ["facetA"], 1, 1]],
     };
     const diet: Diet = [
       {
@@ -70,9 +70,6 @@ describe("RPC reducer", () => {
     const process = processes["A.01"];
     expect(process.facetA).toEqual(100);
   });
-
-  // TODO: Check that the process ends up on the correct level (i.e. output and
-  // not input)
 
   test("Facet amounts based on output", () => {
     const recipes: FoodsRecipes = {
@@ -136,20 +133,20 @@ describe("RPC reducer", () => {
     expect(rpcs[1][1]).toBeCloseTo(1000 * 0.7 * 1);
 
     expect(processes).toHaveProperty("A.01");
-    expect(processes["A.01"]["Cooking"]).toEqual(1000);
-    expect(processes["A.01"]["Baking"]).toEqual(1000);
+    expect(processes["A.01"]["Cooking"]).toEqual(300);
+    expect(processes["A.01"]["Baking"]).toEqual(700);
   });
 
   test("Handles nested RPCs", () => {
     const recipes: FoodsRecipes = {
       "A.01.02.003": [
-        ["A.01.01", ["facetA"], 0.20, 10],
-        ["A.01.02", ["facetA"], 0.80, 1],
+        ["A.01.01", ["facetA"], 0.2, 10],
+        ["A.01.02", ["facetA"], 0.8, 1],
       ],
       "A.01.01": [["A.01.11", ["facetB"], 1, 1.7]],
       "A.01.02": [
-        ["A.01.12", ["facetB"], 0.50, 2],
-        ["A.01.13", ["facetC"], 0.50, 3],
+        ["A.01.12", ["facetB"], 0.5, 2],
+        ["A.01.13", ["facetC"], 0.5, 3],
       ],
     };
 
@@ -158,8 +155,8 @@ describe("RPC reducer", () => {
         code: "A.01.02.003",
         amount: 100,
         organic: 10,
-        retailWaste: 0.10,
-        consumerWaste: 0.30,
+        retailWaste: 0.1,
+        consumerWaste: 0.3,
       },
     ];
 
@@ -179,29 +176,35 @@ describe("RPC reducer", () => {
     expect(rpcs[2][1]).toBeCloseTo(baseWasteAmount * 0.8 * 1 * 0.5 * 3);
 
     // Facets
-    const processIds = [...new Set(Object.values(processes).map(x => Object.keys(x)).flat(1))];
+    const processIds = [
+      ...new Set(
+        Object.values(processes)
+          .map((x) => Object.keys(x))
+          .flat(1)
+      ),
+    ];
     expect(processIds).toHaveLength(3);
     // FacetA: Should be 2 * the amount of A.01
-    expect(processes["A.01"].facetA).toBeCloseTo(baseWasteAmount * 2);
+    expect(processes["A.01"].facetA).toBeCloseTo(baseWasteAmount);
     // FacetB
     expect(processes["A.01"].facetB).toBeCloseTo(
       baseWasteAmount * 0.2 * 10 + // A.01.0.1
-      baseWasteAmount * 0.8 * 1
+        baseWasteAmount * 0.8 * 1 * 0.5
     );
     // FacetC
-    expect(processes["A.01"].facetC).toBeCloseTo(baseWasteAmount * 0.8);
+    expect(processes["A.01"].facetC).toBeCloseTo(baseWasteAmount * 0.8 * 0.5);
   });
 
   test("Merges reappering RPCs", () => {
     const recipes: FoodsRecipes = {
       a: [
-        ["aa", [], 0.20, 10],
-        ["ab", [], 0.80, 1],
+        ["aa", [], 0.2, 10],
+        ["ab", [], 0.8, 1],
       ],
       aa: [["rpc1", [], 1, 1.7]],
       ab: [
-        ["rpc2", [], 0.50, 2],
-        ["rpc1", [], 0.50, 3],
+        ["rpc2", [], 0.5, 2],
+        ["rpc1", [], 0.5, 3],
       ],
     };
     const diet: Diet = [
@@ -209,8 +212,8 @@ describe("RPC reducer", () => {
         code: "a",
         amount: 100,
         organic: 10,
-        retailWaste: 0.10,
-        consumerWaste: 0.30,
+        retailWaste: 0.1,
+        consumerWaste: 0.3,
       },
     ];
 
@@ -230,17 +233,15 @@ describe("RPC reducer", () => {
 
   test("Handles combined facets", () => {
     const recipes: FoodsRecipes = {
-      "A.01.123.01": [
-        ["A.01.123", ["facetA", "facetB", "facetC"], 0.80, 10]
-      ],
+      "A.01.123.01": [["A.01.123", ["facetA", "facetB", "facetC"], 0.8, 10]],
     };
     const diet: Diet = [
       {
         code: "A.01.123.01",
         amount: 100,
         organic: 10,
-        retailWaste: 0.10,
-        consumerWaste: 0.30,
+        retailWaste: 0.1,
+        consumerWaste: 0.3,
       },
     ];
 
@@ -255,16 +256,16 @@ describe("RPC reducer", () => {
 
     // We should add netAmount for all three facets
     expect(Object.keys(processes["A.01"])).toHaveLength(3);
-    expect(processes["A.01"].facetA).toBeCloseTo(outputAmount);
-    expect(processes["A.01"].facetB).toBeCloseTo(outputAmount);
-    expect(processes["A.01"].facetC).toBeCloseTo(outputAmount);
+    expect(processes["A.01"].facetA).toBeCloseTo(outputAmount * 0.8);
+    expect(processes["A.01"].facetB).toBeCloseTo(outputAmount * 0.8);
+    expect(processes["A.01"].facetC).toBeCloseTo(outputAmount * 0.8);
   });
 
   test("Adds processes for self-referencing recipes", () => {
     const recipes: FoodsRecipes = {
       "A.01": [
-        ["A.01", ["facetA"], 0.20, 10],
-        ["A.02", ["facetB"], 0.80, 1],
+        ["A.01", ["facetA"], 0.2, 10],
+        ["A.02", ["facetB"], 0.8, 1],
       ],
     };
     const diet: Diet = [
@@ -272,8 +273,8 @@ describe("RPC reducer", () => {
         code: "A.01",
         amount: 100,
         organic: 0,
-        retailWaste: 0.10,
-        consumerWaste: 0.30,
+        retailWaste: 0.1,
+        consumerWaste: 0.3,
       },
     ];
 
@@ -288,7 +289,7 @@ describe("RPC reducer", () => {
     expect(rpcs[1][0]).toEqual("A.02");
     expect(rpcs[1][1]).toBeCloseTo(baseWasteAmount * 0.8 * 1);
 
-    expect(processes["A.01"].facetA).toEqual(baseWasteAmount);
-    expect(processes["A.01"].facetB).toEqual(baseWasteAmount);
+    expect(processes["A.01"].facetA).toEqual(baseWasteAmount * 0.2);
+    expect(processes["A.01"].facetB).toEqual(baseWasteAmount * 0.8);
   });
 });
