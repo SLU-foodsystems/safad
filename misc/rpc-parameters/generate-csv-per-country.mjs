@@ -178,7 +178,6 @@ function main(args) {
     countries.map((c) => [c, []])
   );
 
-
   /**
    * The part of script where we put all parts together.
    *
@@ -225,15 +224,15 @@ function main(args) {
           category,
           prodCountry,
           share,
-          0,
           waste,
+          0, // organic
         ]);
       });
     });
   });
 
   const HEADER =
-    "SUA Code,SUA Name,Category,Producer Country,Share,Organic,Waste";
+    "SUA Code,SUA Name,Category,Producer Country,Share,Waste,Organic";
 
   countries.forEach((country) => {
     const body = rpcParametersPerCountry[country]
