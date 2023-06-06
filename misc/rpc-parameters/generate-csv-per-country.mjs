@@ -241,7 +241,10 @@ function main(args) {
 
     const data = HEADER + "\n" + body;
 
-    fs.writeFileSync(path.resolve(DIRNAME, "./csv-out", `${country}-rpc.csv`), data);
+    fs.writeFileSync(
+      path.resolve(DIRNAME, "./csv-out", `${country}-rpc.csv`),
+      data
+    );
   });
 }
 
