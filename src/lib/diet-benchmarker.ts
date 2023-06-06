@@ -208,8 +208,8 @@ export default function getBenchmarks(countries: string[]) {
         [
           rpc,
           maybeQuoteValue(names[rpc]) || "NAME NOT FOUND",
-          getCategoryName(rpc, 1),
-          getCategoryName(rpc, 2),
+          maybeQuoteValue(getCategoryName(rpc, 1)),
+          maybeQuoteValue(getCategoryName(rpc, 2)),
           ...benchmark[rpc],
         ].join(",")
       )
