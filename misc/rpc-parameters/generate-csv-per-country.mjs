@@ -186,7 +186,8 @@ function main(args) {
    * , name, and category) to construct the final results.
    */
   suaKastnerList.forEach((row, i) => {
-    const [suaCode, suaName, category, isPerfectMatch, altItemName] = row;
+    const [suaCode, suaName, _category, isPerfectMatch, altItemName] = row;
+    let category = _category;
 
     const itemName = isPerfectMatch === "Yes" ? suaName : altItemName;
     if (!itemName) {
@@ -194,6 +195,15 @@ function main(args) {
         `WARN (${i}): No matching for sua item "${suaName}" (${suaCode}) found.`
       );
       return;
+    }
+
+    let waste = wasteFactorsMap[category];
+    if (!waste) {
+      console.warn(
+        `WARN (${i}): No waste found for category "${category}" (item "${itemName}").`
+      );
+      category = "Other";
+      waste = wasteFactorsMap[category];
     }
 
     // For each country, we extract the share and waste for this specific food
@@ -204,14 +214,6 @@ function main(args) {
 
       if (!shares) {
         console.warn(`WARN (${i}): No share found for item "${itemName}".`);
-        return;
-      }
-
-      const waste = wasteFactorsMap[category];
-      if (!waste) {
-        console.warn(
-          `WARN (${i}): No waste found for category "${category}" (item "${itemName}").`
-        );
         return;
       }
 
