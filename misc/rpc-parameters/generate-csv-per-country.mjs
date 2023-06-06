@@ -117,67 +117,16 @@ function getFoodItemShares(matrix, country) {
       Object.entries(result)
         .map(
           ([k, v]) =>
-            /** @type {[string, number]} */ ([
-              k,
-              roundToPrecision(v, RESULT_PRECISION),
-            ])
+            /** @type {[string, number]} */([
+            k,
+            roundToPrecision(v, RESULT_PRECISION),
+          ])
         )
         .filter(([_k, v]) => v > 0)
     );
   });
 
   return simplifiedProportions;
-}
-
-function printItemCountries(maps) {
-  const itemCountrySets = {};
-  maps.forEach((map) => {
-    Object.entries(map).forEach(([item, countries]) => {
-      if (!(item in itemCountrySets)) {
-        itemCountrySets[item] = new Set();
-      }
-
-      Object.keys(countries)
-        .filter((c) => c !== "RoW")
-        .forEach((c) => itemCountrySets[item].add(c));
-    });
-  });
-
-  let lists = Object.entries(itemCountrySets).map(([k, v]) => [
-    k,
-    [...v].sort(),
-  ]);
-
-  lists = lists.sort(([a], [b]) => (b < a ? 1 : b > a ? -1 : 0));
-
-  lists.forEach(([item, countries]) =>
-    countries.forEach((c, i) => {
-      if (i === 0) {
-        console.log(item, "\t", c, "\t", countries.length);
-      } else {
-        console.log(item, "\t", c, "\t");
-      }
-    })
-  );
-
-  console.log(JSON.stringify(maps, null, 2));
-}
-
-/**
- * Create a rename-map of Record<from: string, to: string> from the
- * sua-to-kastner-matchings.csv file.
- *
- * @param {string[][]} rows
- * @returns {Object.<string, string>}
- */
-function createRenameMap(rows) {
-  return Object.fromEntries(
-    rows
-      .filter((x) => x[0] !== "") // Remove any empty rows.
-      .map(([itemName, isPerfectMatch, suaName]) => {
-        return [itemName, isPerfectMatch === "Yes" ? itemName : suaName];
-      })
-  );
 }
 
 /**
@@ -187,14 +136,6 @@ function createRenameMap(rows) {
  */
 function main(args) {
   const [...countries] = args;
-
-  // Template of RPC parameters, as csv file, with columns:
-  // - sua code, sua name, category
-  /** @type {string[][]} */
-  const rpcTemplate = readCsv(
-    path.resolve(DIRNAME, "./rpc-parameters-template.csv"),
-    ";"
-  ).slice(1);
 
   // Input file: csv of column with category (as defined in rpc) and waste
   // Create an object with { [category: string]: number }
@@ -208,14 +149,10 @@ function main(args) {
   // A list of Sua Name, "match status", itemName, where
   // - matchStatus is "Yes" (Sua name is exact same as itemName) or "No", in
   //   which case the best-matching name is provided in the 3rd col
-  const suaItemNamesMatchings = readCsv(
-    path.resolve(DIRNAME, "./sua-to-kastner-matchings.csv"),
-    ";",
-    true
+  const suaKastnerList = readCsv(
+    path.resolve(DIRNAME, "./sua-kastner-list.csv"),
+    ","
   ).slice(1);
-  // We create a map that can be used to translate between the item names used
-  // in the trade matrix below and the SUA names.
-  const suaItemNamesMap = createRenameMap(suaItemNamesMatchings);
 
   // NOTE that the trade matrix uses ; as delimiter
   const matrix = readCsv(
@@ -241,16 +178,17 @@ function main(args) {
     countries.map((c) => [c, []])
   );
 
+
   /**
    * The part of script where we put all parts together.
    *
-   * We iterate over the "rpc template", where each row is a food item (sua-code
-   * and name) to construct the final results.
+   * We iterate over the "sua template", where each row is a food item (sua-code
+   * , name, and category) to construct the final results.
    */
-  rpcTemplate.forEach((row, i) => {
-    const [suaCode, suaName, category] = row;
+  suaKastnerList.forEach((row, i) => {
+    const [suaCode, suaName, category, isPerfectMatch, altItemName] = row;
 
-    const itemName = suaItemNamesMap[suaName];
+    const itemName = isPerfectMatch === "Yes" ? suaName : altItemName;
     if (!itemName) {
       console.warn(
         `WARN (${i}): No matching for sua item "${suaName}" (${suaCode}) found.`
@@ -263,6 +201,7 @@ function main(args) {
       const shares = sharesPerCountryAndItem[consumerCountry][itemName] || {
         RoW: 1,
       };
+
       if (!shares) {
         console.warn(`WARN (${i}): No share found for item "${itemName}".`);
         return;
@@ -303,9 +242,6 @@ function main(args) {
 
     fs.writeFileSync(path.resolve("./csv-out", `${country}-rpc.csv`), data);
   });
-
-  // printItemCountries(Object.values(results));
-  // printCategories(Object.values(results));
 }
 
 main(process.argv.slice(2));
