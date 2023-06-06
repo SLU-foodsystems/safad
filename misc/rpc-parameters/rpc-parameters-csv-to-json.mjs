@@ -37,13 +37,16 @@ function main(args) {
   //
   // If we meet the same (code, origin) pair twice, we will simply overwrite it.
   const structured = rpcCsv.reduce(
-    (acc, [code, _name, origin, originShare, productionWaste, organic]) => {
+    (
+      acc,
+      [suaCode, _name, _category, origin, originShare, productionWaste, organic]
+    ) => {
       // First time we see this RPC code? add an empty object.
-      if (!(code in acc)) {
-        acc[code] = {};
+      if (!(suaCode in acc)) {
+        acc[suaCode] = {};
       }
 
-      acc[code][origin] = [originShare, productionWaste, organic].map((x) =>
+      acc[suaCode][origin] = [originShare, productionWaste, organic].map((x) =>
         roundToPrecision(parseFloat(x))
       );
 
