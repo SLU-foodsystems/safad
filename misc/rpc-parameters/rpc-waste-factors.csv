@@ -1,20 +1,20 @@
-Category;Farm-to-retail_waste
-Berries;0.07
-Cereals;0.045
-Cereals, incl feed;0.045
-Fruits;0.07
-Mushrooms;0.07
-Nuts;0.06
-Oil crops;0.06
-Oil crops, tree;0.06
-Other;0.06
-Pulses;0.06
-Pulses, incl feed;0.06
-Roots;0.24
-Seeds;0.06
-Spices;0.07
-Stimulants;0.07
-Sugar crops;0.045
-Vegetables;0.07
-Meat;0.057
-Dairy;0.017
+Category,Farm-to-retail_waste
+Berries,0.07
+Cereals,0.045
+"Cereals, incl feed",0.045
+Fruits,0.07
+Mushrooms,0.07
+Nuts,0.06
+Oil crops,0.06
+"Oil crops, tree",0.06
+Other,0.06
+Pulses,0.06
+"Pulses, incl feed",0.06
+Roots,0.24
+Seeds,0.06
+Spices,0.07
+Stimulants,0.07
+Sugar crops,0.045
+Vegetables,0.07
+Meat,0.057
+Dairy,0.017

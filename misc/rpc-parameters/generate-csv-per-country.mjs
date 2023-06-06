@@ -141,7 +141,7 @@ function main(args) {
   // Create an object with { [category: string]: number }
   /** @type {Object.<string, number>} */
   const wasteFactorsMap = Object.fromEntries(
-    readCsv(path.resolve(DIRNAME, "./rpc-waste-factors.csv"), ";", true)
+    readCsv(path.resolve(DIRNAME, "./rpc-waste-factors.csv"), ",")
       .slice(1)
       .map(([k, v]) => [k, parseFloat(v)])
   );
