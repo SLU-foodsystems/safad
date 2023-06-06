@@ -26,7 +26,7 @@ function main(args) {
   }
 
   // Import CSV file. Slice(1) to drop header
-  const rpcCsv = readCsv(args[0], ",").slice(1);
+  const parametersCsv = readCsv(args[0], ",").slice(1);
 
   // The CSV has each entry as a line. Even though they're probably sorted and
   // grouped together, we're not going to use that structure in this algorithm,
@@ -36,7 +36,7 @@ function main(args) {
   // desired shape (see header of this file).
   //
   // If we meet the same (code, origin) pair twice, we will simply overwrite it.
-  const structured = rpcCsv.reduce(
+  const structured = parametersCsv.reduce(
     (
       acc,
       [suaCode, _name, _category, origin, originShare, productionWaste, organic]
