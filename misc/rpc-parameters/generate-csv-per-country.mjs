@@ -4,7 +4,7 @@
 /**
  * Script for creating a sheets with RPC parameters for different countries.
  *
- * Innstead of taking the list of files as arguments, as most other scripts in
+ * Instead of taking the list of files as arguments, as most other scripts in
  * this project does, his defines all paths in the function main() below.
  *
  * The only input it takes is the list of countries to use generate csvs for.
