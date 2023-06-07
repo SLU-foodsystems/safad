@@ -48,9 +48,9 @@
 "01314","Dates","Fruits","Yes",
 "01599.1","Edible roots and tubers with high starch or inulin content, n.e.c., fresh","Roots","No","Roots and tubers nes"
 "01233","Eggplants (aubergines)","Vegetables","Yes",
-"0232","eggs from other birds in shell, fresh, n.e.c.","NULL","No","Eggs, other bird, in shell"
+"0232","eggs from other birds in shell, fresh, n.e.c.","Dairy","No","Eggs, other bird, in shell"
 "01315","Figs","Fruits","Yes",
-"01193","Fonio","NULL","Yes",
+"01193","Fonio","Cereals","Yes",
 "21170.02","game meat, fresh, chilled or frozen","Meat","No","Meat, game"
 "01351.02","Gooseberries","Berries","Yes",
 "01330","Grapes","Fruits","Yes",
@@ -58,7 +58,7 @@
 "01252","Green garlic","Vegetables","No","Garlic"
 "0142","Groundnuts, excluding shelled","Nuts","No","Almonds, with shell"
 "01374","Hazelnuts, in shell","Nuts","No","Hazelnuts, with shell"
-"0231","hen eggs in shell, fresh","NULL","No","Eggs, hen, in shell"
+"0231","hen eggs in shell, fresh","Dairy","No","Eggs, hen, in shell"
 "21118.01","horse meat, fresh or chilled","Meat","No","Meat, horse"
 "01352","Kiwi fruit","Fruits","Yes",
 "01379.02","Kola nuts","Nuts","Yes",
@@ -71,7 +71,7 @@
 "0112","Maize (corn)","Cereals, incl feed","No","Maize"
 "01316","Mangoes, guavas and mangosteens","Fruits","No","Mangoes, mangosteens, guavas"
 "01316","mangoes, guavas, mangosteens","Fruits","No","Mangoes, mangosteens, guavas"
-"01630","maté leaves","NULL","No","Maté"
+"01630","maté leaves","Stimulants","No","Maté"
 "21118.02","meat of asses, fresh or chilled","Meat","No","Meat, ass"
 "21111.01","meat of cattle with the bone, fresh or chilled","Meat","No","Meat, cattle"
 "21121","meat of chickens, fresh or chilled","Meat","No","Meat, chicken"
@@ -85,8 +85,8 @@
 "01199.02","Mixed grain","Cereals","No","Grain, mixed"
 "01270","Mushrooms and truffles","Mushrooms","Yes",
 "01442","Mustard seed","Seeds","Yes",
-"02910","natural honey","NULL","No","Honey, natural"
-"01653","nutmeg, mace, cardamoms, raw","NULL","No","Nutmeg, mace and cardamoms"
+"02910","natural honey","Other","No","Honey, natural"
+"01653","nutmeg, mace, cardamoms, raw","Spices","No","Nutmeg, mace and cardamoms"
 "0117","Oats","Cereals, incl feed","Yes",
 "01491.01","Oil palm fruit","Oil crops, tree","No","Oilseeds nes"
 "01450","Olives","Oil crops, tree","Yes",
