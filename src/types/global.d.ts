@@ -10,6 +10,8 @@ type _TupleOf<T, N extends number, R extends unknown[]> = R["length"] extends N
   : _TupleOf<T, N, [T, ...R]>;
 
 declare global {
+  type ValueOf<T> = T[keyof T];
+
   // Holds the information for a specific diet, i.e. a list of foods.
   interface DietElement {
     code: string;
@@ -19,7 +21,7 @@ declare global {
   }
 
   // Collection type
-  type Diet = DietComponent[];
+  type Diet = DietElement[];
 
   // FoodEx2.2 recipes
   // component, facet(s), % share, yield
@@ -38,7 +40,16 @@ declare global {
 
   interface RpcFactors {
     [rpcCode: string]: {
+      // share, productionWaste, organic
       [originCode: string]: [number, number, number];
     };
+  }
+
+  interface FactorsOverrides {
+    mode: "absolute" | "relative";
+    productionWaste: number | null;
+    retailWaste: number | null;
+    consumerWaste: number | null;
+    techincalImprovement: number | null;
   }
 }
