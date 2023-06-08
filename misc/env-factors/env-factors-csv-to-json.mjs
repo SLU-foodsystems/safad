@@ -45,6 +45,19 @@ function main(args) {
     {}
   );
 
+  Object.keys(structured).forEach((suaCode) => {
+    const footprintsPerOrigin = structured[suaCode];
+    const numberOfOrigins = Object.values(footprintsPerOrigin).length;
+    const average = Object.values(footprintsPerOrigin)
+      .reduce((acc, footprints) => {
+        if (!acc) return footprints;
+        return acc.map((x, i) => x + footprints[i]);
+      }, null)
+      .map((x) => x / numberOfOrigins);
+
+    structured[suaCode].RoW = average;
+  });
+
   const indentation = DEBUG_PRETTY_PRINT ? 2 : 0;
   const jsonString = JSON.stringify({ data: structured }, null, indentation);
   console.log(jsonString);
