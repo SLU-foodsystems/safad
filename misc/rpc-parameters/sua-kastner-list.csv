@@ -8,7 +8,6 @@
 "01211","Asparagus","Vegetables","Yes",
 "01311","Avocados","Vegetables","Yes",
 "01312","Bananas","Fruits","Yes",
-"0115","Barley","Cereals, incl feed","Yes",
 "0115","Barley, average","Cereals, incl feed","No","Barley"
 "0115_s","Barley, spring","Cereals","No","Barley"
 "0115_w","Barley, winter","Cereals","No","Barley"
@@ -26,21 +25,17 @@
 "01372","Cashew nuts, in shell","Nuts","No","Cashew nuts, with shell"
 "01520.01","Cassava, fresh","Vegetables","No","Cassava"
 "01213_cf","Cauliflowers","Vegetables","No","Cauliflowers and broccoli"
-"01213","Cauliflowers and broccoli","Vegetables","Yes",
 "01213","Cauliflowers and broccoli, average","Vegetables","No","Melons, other (inc.cantaloupes)"
 "01199.9","Cereals n.e.c.","Cereals","No","Grain, mixed"
 "01344.02","Cherries","Berries","Yes",
 "01373","Chestnuts, in shell","Nuts","No","Chestnut"
 "01703","Chick peas, dry","Pulses","No","Chick peas"
-"01652","chillies and peppers, dry (capsicum spp. and pimenta spp.), raw","Spices","No","Chillies and peppers, dry"
 "01231","chillies and peppers, green (capsicum spp. and pimenta spp.)","Spices","No","Chillies and peppers, green"
 "01652","Chillies and peppers, green (Capsicum spp. and Pimenta spp.), raw","Spices","No","Chillies and peppers, green"
 "01640","Cocoa beans","Stimulants","No","Cocoa, beans"
 "01460","Coconut, in shell","Nuts","No","Coconuts"
-"01460","coconuts, in shell","Nuts","No","Coconuts"
 "01610","Coffee, green","Stimulants","Yes",
 "01355.02","Cranberries","Berries","Yes",
-"01232","Cucumbers and gherkins","Vegetables","Yes",
 "01232","Cucumbers and gherkins, averrage","Vegetables","No","Cucumbers and gherkins"
 "01232_gh","Cucumbers and gherkins, greenhouse","Vegetables","No","Cucumbers and gherkins"
 "01232_of","Cucumbers and gherkins, openfield","Vegetables","No","Cucumbers and gherkins"
@@ -70,8 +65,7 @@
 "01709.02","Lupins","Pulses","No","Broad beans, horse beans, dry"
 "0112","Maize (corn)","Cereals, incl feed","No","Maize"
 "01316","Mangoes, guavas and mangosteens","Fruits","No","Mangoes, mangosteens, guavas"
-"01316","mangoes, guavas, mangosteens","Fruits","No","Mangoes, mangosteens, guavas"
-"01630","maté leaves","Stimulants","No","Maté"
+"01630","Maté leaves","Stimulants","No","Maté"
 "21118.02","meat of asses, fresh or chilled","Meat","No","Meat, ass"
 "21111.01","meat of cattle with the bone, fresh or chilled","Meat","No","Meat, cattle"
 "21121","meat of chickens, fresh or chilled","Meat","No","Meat, chicken"
@@ -97,7 +91,6 @@
 "01449.9","Other oil seeds, n.e.c.","Oil crops","No","Oilseeds nes"
 "01709.9","Other pulses n.e.c.","Pulses","No","Beans, dry"
 "01699","Other stimulant, spice and aromatic crops, n.e.c.","Stimulants","No","Spices nes"
-"01699","other stimulant, spice and aromatic crops, n.e.c. ","Stimulants","No","Spices nes"
 "01290.9","Other vegetables, fresh n.e.c.","Vegetables","No","Vegetables, fresh nes"
 "01317","Papayas","Fruits","Yes",
 "01345","Peaches and nectarines","Fruits","Yes",
@@ -109,7 +102,6 @@
 "21181","pig meat, cuts, salted, dried or smoked (bacon and ham)","Meat","No","Meat, pig"
 "01318","Pineapples","Fruits","Yes",
 "01375","pistachios, in shell","Nuts","No","Pistachios"
-"01313","Plantains and cooking bananas","Fruits","No","Plantains and others"
 "01313","Plantains and others","Fruits","Yes",
 "01346","Plums and sloes","Fruits","Yes",
 "01321","Pomelos and grapefruits","Fruits","No","Grapefruit (inc. pomelos)"
@@ -118,7 +110,6 @@
 "01235","Pumpkins, squash and gourds","Vegetables","Yes",
 "01342.02","Quinces","Other","Yes",
 "01194","Quinoa","Seeds","Yes",
-"1443","Rape or colza seed","Oil crops","No","Rapeseed"
 "01443_s","Rape or colza seed, spring","Oil crops","No","Rapeseed"
 "01443_w","Rape or colza seed, winter","Oil crops","No","Rapeseed"
 "01443","rapeseed or colza seed","Seeds","No","Rapeseed"
@@ -138,16 +129,86 @@
 "01445","Sunflower seed","Oil crops","Yes",
 "01530","Sweet potatoes","Roots","Yes",
 "01324","Tangerines, mandarins, clementines","Fruits","No","Tangerines, mandarins, clementines, satsumas"
-"01234","Tomatoes","Vegetables","Yes",
 "01234","Tomatoes, average","Vegetables","No","Tomatoes"
 "01234_gh","Tomatoes, greenhouse","Vegetables","No","Tomatoes"
 "01234_of","Tomatoes, openfield","Vegetables","No","Tomatoes"
 "01191","Triticale","Cereals","Yes",
 "01929.02","True hemp, raw or retted","Other","No","Grain, mixed"
 "01376","Walnuts, in shell","Nuts","No","Walnuts, with shell"
+"01221_gh","Watermelons, greenhouse","Fruits","No","Watermelons"
+"01221_of","Watermelons, open field","Fruits","No","Watermelons"
 "01221","Watermelons","Fruits","Yes",
 "01709.01","Vetches","Other","Yes",
-"0111","Wheat","Cereals, incl feed","Yes",
 "0111","Wheat, average","Cereals, incl feed","No","Wheat"
 "0111_s","Wheat, spring","Cereals","No","Wheat"
 "0111_w","Wheat, winter","Cereals","No","Wheat"
+"01319","Other tropical fruits, n.e.c.","Fruits","No","Fruit, tropical fresh nes"
+"01379.90","Nuts nes","Nuts","No","Nuts nes"
+"01449.90","Other oil seeds, n.e.c.","Oil crops","No","Oilseeds nes"
+"01620","Tea leaves","Stimulants","No","Tea"
+"01655","Cinnamon and cinnamon-tree flowers, raw","Spices","No","Cinnamon (cannella)"
+"01656","Cloves (whole stems), raw","Other","No","Cloves"
+"01657","Ginger, raw","Other","No","Ginger"
+"01658","Water buffalo milk","Dairy","No","Milk, whole fresh cow"
+"02212","Vanilla, raw","Other","No","Vanilla"
+"02292","Goat milk","Dairy","No","Milk, whole fresh sheep"
+"21113.01","Pig meat","Meat","No","Meat, pig"
+"21170.01","Pigeon fresh meat","Meat","No","Meat nes"
+"21170.92","Other meat n.e.c, fresh, chilled or frozen","Meat","No","Meat nes"
+"A02DE","Herrings","Fish","No","Fish"
+"A02ES","Herring roe","Fish","No","Fish"
+"A02DH","Sprat","Fish","No","Fish"
+"A02DB","European sardine","Fish","No","Fish"
+"A02DD","Anchovies","Fish","No","Fish"
+"A029M","Char","Fish","No","Fish"
+"A029B","Smelt","Fish","No","Fish"
+"A029Q","Whitefishes or coregonus","Fish","No","Fish"
+"A027N","Perch","Fish","No","Fish"
+"A029T","Sea bass","Fish","No","Fish"
+"A02CT","Mackerel","Fish","No","Fish"
+"A02DR","Tuna and bonito (generic)","Fish","No","Fish"
+"A02AD","Mullets","Fish","No","Fish"
+"A02CB","Hakes","Fish","No","Fish"
+"A02AT","Flounders","Fish","No","Fish"
+"A02AY","Halibut","Fish","No","Fish"
+"A02BC","Plaice","Fish","No","Fish"
+"A02BF","Sole","Fish","No","Fish"
+"A027C","Carps","Fish","No","Fish"
+"A027B","Freshwater bream - Europe","Fish","No","Fish"
+"A028G","River eels","Fish","No","Fish"
+"A02BJ","Anglerfish and monkfish","Fish","No","Fish"
+"A02DJ","Sharks","Fish","No","Fish"
+"A02DQ","Rays","Fish","No","Fish"
+"A02FA","Sturgeon roe","Fish","No","Fish"
+"A02DS","Bonito","Fish","No","Fish"
+"A02DA","Sardines and sardine-type fishes","Fish","No","Fish"
+"A07Y0","Swordfish","Fish","No","Fish"
+"A02FF","Freshwater crabs","Fish","No","Fish"
+"A02FP","Lobsters","Fish","No","Fish"
+"A02FS","Lobster, norway","Fish","No","Fish"
+"A02FY","Prawn, giant tiger","Fish","No","Fish"
+"A02GA","White shrimp","Fish","No","Fish"
+"A02FV","Spiny and rock lobsters","Fish","No","Fish"
+"A02FG","Freshwater crayfishes","Fish","No","Fish"
+"A02JH","Squids","Fish","No","Fish"
+"A02JD","Octopuses","Fish","No","Fish"
+"A02JA","Cuttlefishes","Fish","No","Fish"
+"A02HA","Clams","Fish","No","Fish"
+"A02HE","Cockles","Fish","No","Fish"
+"A02HF","Mussels","Fish","No","Fish"
+"A02HG","Oysters","Fish","No","Fish"
+"A02HN","Scallops, pectens","Fish","No","Fish"
+"A02GX","Water snails, conches and whelks","Fish","No","Fish"
+"A02GX","Water snails, conches and whelks","Fish","No","Fish"
+"A02KR","Frogs (legs)","Fish","No","Fish"
+"A02LK","Snails","Fish","No","Fish"
+"A0C75","Salmons","Fish","No","Fish"
+"A029F","Trouts","Fish","No","Fish"
+"A027J","Catfishes (freshwater)","Fish","No","Fish"
+"A029Z","Wolffish","Fish","No","Fish"
+"A02BV","Cod","Fish","No","Fish"
+"A02EL","Cod liver","Fish","No","Fish"
+"A02EP","Cod roe","Fish","No","Fish"
+"A02CG","Whiting","Fish","No","Fish"
+"A02CA","Haddock","Fish","No","Fish"
+"A0F7F","Lumpfish roe","Fish","No","Fish"
