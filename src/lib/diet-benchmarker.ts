@@ -3,6 +3,7 @@ import {
   computeProcessFootprints,
   getProcessFootprintsSheet,
 } from "./process-env-impact";
+import { maybeQuoteValue } from "@/lib/utils";
 
 import allEnvImpactsJson from "@/data/env-factors-flat.json";
 import categoryNamesJson from "@/data/category-names.json";
@@ -21,9 +22,6 @@ const allEnvImpacts = allEnvImpactsJson as Record<
 >;
 
 const ENV_ZERO_IMPACT = Array.from({ length: 16 }).map((_) => 0);
-
-const maybeQuoteValue = (str: string) =>
-  str && str.includes(",") ? `"${str}"` : str;
 
 function getFlattenedRpcFootprints(country: string) {
   return Object.fromEntries(
