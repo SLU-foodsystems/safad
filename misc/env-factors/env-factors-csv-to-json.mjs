@@ -16,14 +16,17 @@ const DEBUG_PRETTY_PRINT = false;
 function main(args) {
   const [envFactorsCsvPath] = args;
   if (!envFactorsCsvPath) {
-    throw new Error("Missing path to env factors file.")
+    throw new Error("Missing path to env factors file.");
   }
 
   // Read csv file and drop header
   const envFactorsCsv = readCsv(envFactorsCsvPath, ",").slice(1);
 
   const structured = envFactorsCsv.reduce(
-    (acc, [_i, code, _name, _category, originName, _originCode, ...impactsStr]) => {
+    (
+      acc,
+      [_i, code, _name, _category, originName, _originCode, ...impactsStr]
+    ) => {
       if (!(code in acc)) {
         acc[code] = {};
       }
