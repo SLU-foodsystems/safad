@@ -28,6 +28,10 @@ function main(args) {
         acc[code] = {};
       }
 
+      if (originName.toLowerCase().trim() === "Rest of world") {
+        originName = "RoW";
+      }
+
       // TODO: Ensure correct length?
       acc[code][originName] = impactsStr.map((x) => {
         const val = parseFloat(x);
