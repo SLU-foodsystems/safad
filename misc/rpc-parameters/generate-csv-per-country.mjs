@@ -211,11 +211,6 @@ function main(args) {
         RoW: 1,
       };
 
-      if (!shares) {
-        console.warn(`WARN (${i}): No share found for item "${itemName}".`);
-        return;
-      }
-
       // And we store in the final results as a list, to be made into a csv.
       Object.entries(shares).forEach(([prodCountry, share]) => {
         rpcParametersPerCountry[consumerCountry].push([
