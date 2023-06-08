@@ -1,4 +1,3 @@
-import { vectorSums } from "@/lib/utils";
 import reduceDiet from "./rpc-reducer";
 import {
   computeProcessFootprints,
@@ -10,6 +9,7 @@ import categoryNamesJson from "@/data/category-names.json";
 import foodsRecipesJson from "@/data/foodex-recipes.json";
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import namesJson from "@/data/rpc-names.json";
+import aggregateFootprints, { AGGREGATE_HEADERS } from "./footprints-aggregator";
 
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
 
@@ -21,35 +21,6 @@ const allEnvImpacts = allEnvImpactsJson as Record<
 >;
 
 const ENV_ZERO_IMPACT = Array.from({ length: 16 }).map((_) => 0);
-
-const BENCHMARK_HEADERS = [
-  "Total CO2e",
-  "Total CO2",
-  "Total CH4: Fossil",
-  "Total CH4: Biogenic",
-  "Total N2O",
-  "Carbon_Footprint",
-  "Carbon_Dioxide",
-  "Methane_fossil",
-  "Methane_bio",
-  "Nitrous_Oxide",
-  "HFC",
-  "Land",
-  "N_input",
-  "P_input",
-  "Water",
-  "Pesticides",
-  "Biodiversity",
-  "Ammonia",
-  "Labour",
-  "Animal_Welfare",
-  "Antibiotics",
-  "Process CO2e",
-  "Process CO2",
-  "Process CH4",
-  "Process N2O",
-  "Processes",
-];
 
 const maybeQuoteValue = (str: string) =>
   str && str.includes(",") ? `"${str}"` : str;
@@ -79,7 +50,7 @@ function getRpcImpact(
 ): number[] | null {
   const suaCode = rpcToSuaMap[rpcCode];
   if (suaCode === "0") {
-    console.info("SUA was 0 for", rpcCode);
+    // console.info("SUA was 0 for", rpcCode);
     return ENV_ZERO_IMPACT;
   }
 
@@ -109,6 +80,13 @@ function getCountryBenchmark(
     retailWaste: 0,
   }));
 
+  // const diets = [{
+  //   code: "A.19.01.002.003",
+  //   amount: 1000,
+  //   consumerWaste: 0,
+  //   retailWaste: 0,
+  // }];
+
   const aggregateResults: Record<string, (number | string)[]> = {};
   const failedRpcs: Record<string, string[]> = {};
   diets.forEach((diet) => {
@@ -132,54 +110,17 @@ function getCountryBenchmark(
     }
 
     const rpcFootprints = Object.fromEntries(impacts);
-    const totalRpcFootprints = vectorSums(Object.values(rpcFootprints));
 
     const processFootprints = computeProcessFootprints(
       processes,
       processesEnvImpacts
     );
 
-    const processList = Object.values(processFootprints)
-      .map((obj) => Object.keys(obj))
-      .flat(1);
-    const processValues = Object.values(processFootprints)
-      .map((obj) => Object.values(obj))
-      .flat(1);
-    const totalProcessesFootprints = vectorSums(processValues);
-    while (totalProcessesFootprints.length < 3) {
-      totalProcessesFootprints.push(0);
-    }
-
-    const CO2E_CONF_FACTORS: Record<string, number> = {
-      CO2: 1,
-      BCH4: 27,
-      FCH4: 29.8,
-      N2O: 273,
-      HCFC: 1960,
-    };
-
-    const processCO2e = ["CO2", "FCH4", "N2O"]
-      .map((ghg, i) => totalProcessesFootprints[i] * CO2E_CONF_FACTORS[ghg])
-      .reduce((a, b) => a + b, 0);
-
-    const combinedGhgFootprints = [
-      totalRpcFootprints[0] + processCO2e,
-      totalRpcFootprints[1] + totalProcessesFootprints[0],
-      totalRpcFootprints[2] + totalProcessesFootprints[1],
-      totalRpcFootprints[3],
-      totalRpcFootprints[4] + totalProcessesFootprints[2],
-    ];
-
-    aggregateResults[diet.code] = [
-      ...combinedGhgFootprints,
-      ...totalRpcFootprints,
-      processCO2e,
-      ...totalProcessesFootprints,
-      processList.join("$"),
-    ];
+    aggregateResults[diet.code] = aggregateFootprints(
+      rpcFootprints,
+      processFootprints
+    );
   });
-
-  console.log(failedRpcs);
 
   return [aggregateResults, failedRpcs];
 }
@@ -192,7 +133,7 @@ export default function getBenchmarks(countries: string[]) {
     "Name",
     "L1 Category",
     "L2 Category",
-    ...BENCHMARK_HEADERS,
+    ...AGGREGATE_HEADERS,
   ];
 
   const names = namesJson as Record<string, string>;
