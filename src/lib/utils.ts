@@ -98,3 +98,10 @@ export const mapValues = <V, T>(
   fn: (x: V) => T
 ): Record<string, T> =>
   Object.fromEntries(Object.entries(object).map(([k, v]) => [k, fn(v)]));
+
+/**
+ * Wraps a string in double quotes if it contains a delimiter (default: comma).
+ * This is useful when printing CSV files, to avoid breaking the format.
+ */
+export const maybeQuoteValue = (str: string, delim = ",") =>
+  str && str.includes(delim) ? `"${str}"` : str;
