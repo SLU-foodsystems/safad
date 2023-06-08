@@ -49,7 +49,7 @@ export function vectorSum(xs: number[], ys: number[]) {
   return xs.map((x, i) => x + ys[i]);
 }
 
-export function vectorSums(lists: number[][]): number[] {
+export function vectorsSum(lists: number[][]): number[] {
   if (lists.length === 0) return [];
   if (lists.length === 1) return lists[0];
 
