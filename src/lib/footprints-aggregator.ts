@@ -1,13 +1,5 @@
 import { vectorsSum } from "@/lib/utils";
-import { ENV_FOOTPRINTS_ZERO } from "./constants";
-
-const CO2E_CONF_FACTORS: Record<string, number> = {
-  CO2: 1,
-  BCH4: 27,
-  FCH4: 29.8,
-  N2O: 273,
-  HCFC: 1960,
-};
+import { ENV_FOOTPRINTS_ZERO, CO2E_CONV_FACTORS } from "@/lib/constants";
 
 export const AGGREGATE_HEADERS = [
   "Total CO2e",
@@ -58,7 +50,7 @@ export default function aggregateFootprints(
   }
 
   const processCO2e = ["CO2", "FCH4", "N2O"]
-    .map((ghg, i) => totalProcessesFootprints[i] * CO2E_CONF_FACTORS[ghg])
+    .map((ghg, i) => totalProcessesFootprints[i] * CO2E_CONV_FACTORS[ghg])
     .reduce((a, b) => a + b, 0);
 
   const combinedGhgFootprints = [
