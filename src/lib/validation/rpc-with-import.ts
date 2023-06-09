@@ -101,9 +101,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
             return null;
           }
           const [rpcFootprints, processImpacts] = footprints;
-          if (!Object.keys(rpcFootprints).length) {
-            console.log(rpc, names[rpc])
-          }
+
           return [
             rpc,
             maybeQuoteValue(names[rpc] || "NAME NOT FOUND"),

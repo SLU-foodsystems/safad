@@ -12,7 +12,6 @@
  */
 
 import { ENV_FOOTPRINTS_ZERO } from "./constants";
-import { maybeQuoteValue } from "./utils";
 
 // TODO: This function could also take a diet and compute the env impact
 // directly, i.e. only computing the factors for the RPCs that are actually
