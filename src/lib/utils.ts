@@ -105,3 +105,14 @@ export const mapValues = <V, T>(
  */
 export const maybeQuoteValue = (str: string, delim = ",") =>
   str && str.includes(delim) ? `"${str}"` : str;
+
+export const uniq = <T>(xs: T[]) => [...new Set(xs)];
+
+export const listAllProcesses = (
+  data: Record<string, Record<string, number[]>>
+) =>
+  uniq(
+    Object.values(data)
+      .map((obj) => Object.keys(obj))
+      .flat(1)
+  );

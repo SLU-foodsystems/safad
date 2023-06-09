@@ -2,7 +2,7 @@
  * Computes the footprints of each rpc in the recipe.
  */
 
-import { maybeQuoteValue } from "@/lib/utils";
+import { listAllProcesses, maybeQuoteValue } from "@/lib/utils";
 import aggregateFootprints, {
   AGGREGATE_HEADERS,
 } from "@/lib/footprints-aggregator";
@@ -97,6 +97,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
             return null;
           }
           const [rpcFootprints, processImpacts] = footprints;
+          const processes = listAllProcesses(processImpacts).join("$")
 
           return [
             rpc,
@@ -104,6 +105,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
             maybeQuoteValue(getCategoryName(rpc, 1)),
             maybeQuoteValue(getCategoryName(rpc, 2)),
             ...aggregateFootprints(rpcFootprints, processImpacts),
+            processes,
           ];
         })
         .filter((x) => x !== null);
