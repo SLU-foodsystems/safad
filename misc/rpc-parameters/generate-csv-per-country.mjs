@@ -23,6 +23,17 @@ const DEBUG_PRINT_ITEMNAMES = false;
 
 const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
 
+// Avoid misspelling between our countries
+const COUNTRY_RENAME_MAP = {
+  "Bolivia (Plurinational State of)": "Bolivia",
+  "China, mainland": "China",
+  "Rest of the World": "RoW",
+  "Russian Federation": "Russia",
+  "United Kingdom": "UK",
+  "United States of America": "USA",
+  "Côte d'Ivoire": "Cote d'Ivoire",
+};
+
 /**
  * @param {string | number} value
  * @returns {string | number}
@@ -53,6 +64,12 @@ function getFoodItemShares(matrix, country) {
       producerCountry: x[7],
       itemName: x[8].trim(),
     }))
+    .map((x) => {
+      if (x.producerCountry in COUNTRY_RENAME_MAP) {
+        return { ...x, producerCountry: COUNTRY_RENAME_MAP[x.producerCountry] };
+      }
+      return x;
+    })
     .filter(
       (x) => x.producerCountry !== "NA" && x.itemName !== "NA" && x.amount > 0
     );
