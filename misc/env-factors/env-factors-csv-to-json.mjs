@@ -12,6 +12,7 @@
 import { readCsv } from "../utils.mjs";
 
 const DEBUG_PRETTY_PRINT = false;
+const EXPECTED_LENGTH = 16;
 
 function main(args) {
   const [envFactorsCsvPath] = args;
@@ -35,11 +36,15 @@ function main(args) {
         originName = "RoW";
       }
 
-      // TODO: Ensure correct length?
       acc[code][originName] = impactsStr.map((x) => {
         const val = parseFloat(x);
         return Number.isNaN(val) ? 0 : val;
       });
+
+      while (acc[code][originName].length < EXPECTED_LENGTH) {
+        acc[code][originName].push(0);
+      }
+
       return acc;
     },
     {}

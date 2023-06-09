@@ -1,4 +1,5 @@
 import { vectorsSum } from "@/lib/utils";
+import { ENV_FOOTPRINTS_ZERO } from "./constants";
 
 const CO2E_CONF_FACTORS: Record<string, number> = {
   CO2: 1,
@@ -41,7 +42,10 @@ export default function aggregateFootprints(
   rpcFootprints: Record<string, number[]>,
   processFootprints: Record<string, Record<string, number[]>>
 ) {
-  const totalRpcFootprints = vectorsSum(Object.values(rpcFootprints));
+  const totalRpcFootprints =
+    Object.values(rpcFootprints).length > 0
+      ? vectorsSum(Object.values(rpcFootprints))
+      : ENV_FOOTPRINTS_ZERO;
   const processList = Object.values(processFootprints)
     .map((obj) => Object.keys(obj))
     .flat(1);

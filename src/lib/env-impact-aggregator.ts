@@ -46,10 +46,7 @@ export default function aggregate(
         const ratio = shareRatio * organicRatio * wasteChangeFactor;
         return envImpacts[origin].map((x) => ratio * x);
       })
-      .reduce(
-        (a, b) => a.map((x, i) => x + b[i]),
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-      );
+      .reduce((a, b) => a.map((x, i) => x + b[i]), ENV_FOOTPRINTS_ZERO);
 
     return [rpcCode, joinedEnvFactors];
   });
