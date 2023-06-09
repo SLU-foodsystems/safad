@@ -55,8 +55,7 @@ function main(args) {
     const numberOfOrigins = Object.values(footprintsPerOrigin).length;
     const average = Object.values(footprintsPerOrigin)
       .reduce((acc, footprints) => {
-        if (!acc) return footprints;
-        return acc.map((x, i) => x + footprints[i]);
+        return acc ? acc.map((x, i) => x + footprints[i]) : footprints;
       }, null)
       .map((x) => x / numberOfOrigins);
 
