@@ -38,8 +38,6 @@ let LL_COUNTRIES: LlCountryName[] = [
   "Sweden",
 ];
 
-LL_COUNTRIES = ["Sweden"]
-
 const rpcFiles = {
   France: import("@/data/rpc-parameters/France-rpc.json"),
   Germany: import("@/data/rpc-parameters/Germany-rpc.json"),
@@ -88,8 +86,6 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
       const rpcParameters = (
         (await rpcFiles[country]) as unknown as { data: RpcFactors }
       ).data;
-
-
       ResultsEngine.setCountry(country);
       ResultsEngine.setRpcFactors(rpcParameters);
 
