@@ -137,10 +137,10 @@ function getFoodItemShares(matrix, country) {
       Object.entries(result)
         .map(
           ([k, v]) =>
-            /** @type {[string, number]} */([
-            k,
-            roundToPrecision(v, RESULT_PRECISION),
-          ])
+            /** @type {[string, number]} */ ([
+              k,
+              roundToPrecision(v, RESULT_PRECISION),
+            ])
         )
         .filter(([_k, v]) => v > 0)
     );
