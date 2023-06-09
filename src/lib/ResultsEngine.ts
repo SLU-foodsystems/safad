@@ -1,133 +1,169 @@
 import reduceDiet from "./rpc-reducer";
 
+import {
+  computeProcessFootprints,
+  getProcessFootprintsSheet,
+} from "./process-env-impact";
+import { mapValues, vectorSum, vectorsSum } from "./utils";
+
+import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import foodsRecipes from "@/data/foodex-recipes.json";
-import computeProcessesFootprints from "./process-env-impact";
-import aggregateEnvImpacts from "./env-impact-aggregator";
-import { mapValues, vectorSum } from "./utils";
+import flattenEnvironmentalFootprints from "./env-impact-aggregator";
+import aggregateFootprints from "./footprints-aggregator";
 
 const recipes = foodsRecipes.data as unknown as FoodsRecipes;
+const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
 
-const ENV_IMPACT_ZERO = Array.from({ length: 9 }).map((_) => 0);
-
-const withWarn = <T>(message: string, val: T) => {
-  console.warn(message);
-  return val;
-};
+const ENV_IMPACT_ZERO = Array.from({ length: 16 }).map((_) => 0);
 
 /**
  * Ties all parts of computing the results into a singleton.
  */
 class ResultsEngine {
-  organicEnvFactors: EnvOriginFactors | null = null;
-  convEnvFactors: EnvOriginFactors | null = null;
-  rpcFactors: RpcFactors | null = null;
+  envFootprintsPerOrigin: EnvOriginFactors | null = null;
+  flatEnvFootprints: EnvFootprints | null = null;
 
-  convEnvFactorsSheet: EnvFootprints | null = null;
-  organicEnvFactorsSheet: EnvFootprints | null = null;
+  rpcParameters: RpcFactors | null = null;
 
-  // Replace the conventional environmental factors with a new set.
-  public setEnvFactors(
-    conventional: EnvOriginFactors,
-    organic: EnvOriginFactors
-  ) {
-    this.convEnvFactors = conventional;
-    this.organicEnvFactors = organic;
-    this.recomputeEnvSheets();
-  }
+  country: string | null = null;
+  processEnvSheet: Record<string, number[]> | null = null;
 
-  private getEnvImpact(rpc: string, amountGram: number) {
-    if (!this.convEnvFactorsSheet || !this.organicEnvFactorsSheet) {
-      throw new Error("getEnvImpact called before sheets were assigned.");
+  factorsOverrides: FactorsOverrides = {
+    mode: "absolute",
+    productionWaste: null,
+    retailWaste: null,
+    consumerWaste: null,
+    techincalImprovement: null,
+  };
+
+  private recomputeEnvFootprints() {
+    if (!this.envFootprintsPerOrigin) {
+      console.info(
+        "Method recomputeEnvFootprints called before footprints file was set."
+      );
+      return;
     }
 
-    const get = (sheet: EnvFootprints) =>
-      rpc in sheet
-        ? sheet[rpc].map((k) => (k * amountGram) / 1000)
-        : withWarn("Missing factors for " + rpc, ENV_IMPACT_ZERO);
+    if (!this.rpcParameters) {
+      console.info(
+        "Method recomputeEnvFootprints called before rpcFactors were set."
+      );
+      return;
+    }
 
-    return vectorSum(
-      get(this.convEnvFactorsSheet),
-      get(this.organicEnvFactorsSheet)
+    this.flatEnvFootprints = flattenEnvironmentalFootprints(
+      this.envFootprintsPerOrigin,
+      this.rpcParameters,
+      "conventional"
     );
   }
 
-  public setOrganicEnvFactors(envFactors: EnvOriginFactors) {
-    this.organicEnvFactors = envFactors;
-    this.recomputeEnvSheets();
+  // Replace the conventional environmental factors with a new set.
+  public setEnvFactors(conventional: EnvOriginFactors) {
+    this.envFootprintsPerOrigin = conventional;
+    this.recomputeEnvFootprints();
+  }
+
+  private getRpcFootprints(
+    rpcCode: string,
+    amountGram: number
+  ): null | number[] {
+    if (!this.flatEnvFootprints) {
+      throw new Error("getEnvImpact called before sheets were assigned.");
+    }
+
+    if (!this.rpcParameters) {
+      throw new Error(
+        "getEnvImpact called before rpcParameters were assigned."
+      );
+    }
+
+    const suaCode = rpcToSuaMap[rpcCode];
+    if (suaCode === "0") {
+      return ENV_IMPACT_ZERO;
+    }
+
+    if (!suaCode) {
+      // console.warn(`No SUA code found for rpc ${rpcCode}`);
+      return null;
+    }
+
+    if (!this.flatEnvFootprints[suaCode]) {
+      console.warn("Missing factors for " + rpcCode);
+      return ENV_IMPACT_ZERO;
+    }
+
+    return this.flatEnvFootprints[suaCode].map(x => x * amountGram / 1000);
   }
 
   // Set the rpc-factors, i.e. the origin of each rpc, its share, and its
   // production waste.
   public setRpcFactors(rpcFactors: RpcFactors) {
-    this.rpcFactors = rpcFactors;
-    this.recomputeEnvSheets();
+    this.rpcParameters = rpcFactors;
+    return this.recomputeEnvFootprints();
   }
 
-  public recomputeEnvSheets() {
-    if (!this.convEnvFactors || !this.organicEnvFactors || !this.rpcFactors) {
-      return;
-    }
+  public setFactorsOverrides(overrides: FactorsOverrides) {
+    this.factorsOverrides = overrides;
+  }
 
-    this.convEnvFactorsSheet = aggregateEnvImpacts(
-      this.convEnvFactors,
-      this.rpcFactors,
-      "conventional"
-    );
-    this.organicEnvFactorsSheet = aggregateEnvImpacts(
-      this.convEnvFactors,
-      this.rpcFactors,
-      "organic"
-    );
+  public setCountry(country: string) {
+    this.country = country;
+    this.processEnvSheet = getProcessFootprintsSheet(country);
   }
 
   public isReady() {
-    return this.convEnvFactorsSheet !== null;
+    return (
+      this.processEnvSheet !== null && this.envFootprintsPerOrigin !== null
+    );
   }
 
   public computeFootprints(
     diet: Diet
-  ): [Record<string, number[]>, Record<string, number[]>] | null {
-    if (!this.convEnvFactorsSheet || !this.organicEnvFactorsSheet) {
+  ): ( number | string )[] | null {
+    if (!this.envFootprintsPerOrigin) {
       console.error(
         "Compute called when no environmentalFactorsSheet was set."
       );
       return null;
     }
 
+    if (!this.country || !this.processEnvSheet) {
+      console.error("Compute called when no country or process was set.");
+      return null;
+    }
+
     const [rpcs, processes] = reduceDiet(diet, recipes);
 
     const rpcImpact = Object.fromEntries(
-      rpcs.map(([rpc, amountGram]) => [rpc, this.getEnvImpact(rpc, amountGram)])
-    );
-
-    const processEnvSheet = Array.from({ length: 7 }).map((_1) =>
-      Array.from({ length: 4 }).map((_2) => Math.random() * 10)
+      rpcs.map(([rpc, amountGram]) => [
+        rpc,
+        this.getRpcFootprints(rpc, amountGram),
+      ]).filter(x => x[1] !== null)
     );
 
     // Per-process impacts
-    const processesEnvImpacts = mapValues(processes, (p) =>
-      computeProcessesFootprints(p, processEnvSheet)
+    const processesEnvImpacts = computeProcessFootprints(
+      processes,
+      this.processEnvSheet
     );
 
-    const flatProcessAmounts: Record<string, number> = {};
-    Object.values(processes).forEach((obj) => {
-      Object.entries(obj).forEach(([k, v]) => {
-        flatProcessAmounts[k] = (flatProcessAmounts[k] || 0) + v;
-      });
-    });
-    const flatProcessImpacts = computeProcessesFootprints(
-      flatProcessAmounts,
-      processEnvSheet
-    );
+    const aggregatedImpacts = aggregateFootprints(rpcImpact, processesEnvImpacts);
 
-    return [rpcImpact, flatProcessImpacts];
+
+    // const x = vectorsSum(
+    //   Object.values(processesEnvImpacts)
+    //     .map((o) => Object.values(o))
+    //     .flat(1)
+    // );
+
+    return aggregatedImpacts;
   }
 
   // Necessary for testing.
   public reset() {
-    this.rpcFactors = null;
-    this.convEnvFactors = null;
-    this.organicEnvFactors = null;
+    this.rpcParameters = null;
+    this.envFootprintsPerOrigin = null;
   }
 }
 
