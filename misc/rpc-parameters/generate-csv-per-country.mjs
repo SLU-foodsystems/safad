@@ -27,6 +27,9 @@ const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
 const COUNTRY_RENAME_MAP = {
   "Bolivia (Plurinational State of)": "Bolivia",
   "China, mainland": "China",
+  // Very problematic, but only concerns Arcea Nuts from Germany.
+  "China, Taiwan Province of": "China",
+  "Iran (Islamic Republic of)": "Iran",
   "Rest of the World": "RoW",
   "Russian Federation": "Russia",
   "United Kingdom": "UK",
