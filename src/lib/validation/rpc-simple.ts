@@ -1,3 +1,7 @@
+/**
+ * Computes the footprints of each rpc in the recipe.
+ */
+
 import reduceDiet from "./rpc-reducer";
 import {
   computeProcessFootprints,
