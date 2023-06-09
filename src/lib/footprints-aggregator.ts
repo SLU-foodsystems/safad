@@ -27,20 +27,19 @@ export const AGGREGATE_HEADERS = [
   "Process CO2",
   "Process CH4",
   "Process N2O",
-  "Processes",
 ];
 
+/**
+ * Join all footprints into a vector of (numeric) impacts.
+ */
 export default function aggregateFootprints(
   rpcFootprints: Record<string, number[]>,
   processFootprints: Record<string, Record<string, number[]>>
-) {
+): number[] {
   const totalRpcFootprints =
     Object.values(rpcFootprints).length > 0
       ? vectorsSum(Object.values(rpcFootprints))
       : ENV_FOOTPRINTS_ZERO;
-  const processList = Object.values(processFootprints)
-    .map((obj) => Object.keys(obj))
-    .flat(1);
   const processValues = Object.values(processFootprints)
     .map((obj) => Object.values(obj))
     .flat(1);
@@ -65,7 +64,6 @@ export default function aggregateFootprints(
     ...combinedGhgFootprints,
     ...totalRpcFootprints,
     processCO2e,
-    ...totalProcessesFootprints,
-    processList.join("$"),
+    ...totalProcessesFootprints
   ];
 }
