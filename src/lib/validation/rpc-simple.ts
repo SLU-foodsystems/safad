@@ -2,19 +2,19 @@
  * Computes the footprints of each rpc in the recipe.
  */
 
-import reduceDiet from "./rpc-reducer";
+import reduceDiet from "@/lib/rpc-reducer";
+import { maybeQuoteValue } from "@/lib/utils";
 import {
   computeProcessFootprints,
   getProcessFootprintsSheet,
-} from "./process-env-impact";
-import { maybeQuoteValue } from "@/lib/utils";
+} from "@/lib/process-env-impact";
+import aggregateFootprints, { AGGREGATE_HEADERS } from "@/lib/footprints-aggregator";
 
 import allEnvImpactsJson from "@/data/env-factors-flat.json";
 import categoryNamesJson from "@/data/category-names.json";
 import foodsRecipesJson from "@/data/foodex-recipes.json";
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import namesJson from "@/data/rpc-names.json";
-import aggregateFootprints, { AGGREGATE_HEADERS } from "./footprints-aggregator";
 
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
 
@@ -81,13 +81,6 @@ function getCountryBenchmark(
     consumerWaste: 0,
     retailWaste: 0,
   }));
-
-  // const diets = [{
-  //   code: "A.19.01.002.003",
-  //   amount: 1000,
-  //   consumerWaste: 0,
-  //   retailWaste: 0,
-  // }];
 
   const aggregateResults: Record<string, (number | string)[]> = {};
   const failedRpcs: Record<string, string[]> = {};
