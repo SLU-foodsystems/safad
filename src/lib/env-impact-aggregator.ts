@@ -11,11 +11,14 @@
  * level, and as such, it's a lot more convenient.
  */
 
+import { ENV_FOOTPRINTS_ZERO } from "./constants";
+import { maybeQuoteValue } from "./utils";
+
 // TODO: This function could also take a diet and compute the env impact
 // directly, i.e. only computing the factors for the RPCs that are actually
 // included in the diet, rather than for all of them. This would be more
 // efficient, but I doubt this is the bottleneck. We can see later.
-export default function aggregate(
+export default function flattenEnvironmentalFootprints(
   envImpactSheet: EnvOriginFactors,
   rpcFactors: RpcFactors,
   mode: "organic" | "conventional"
@@ -31,24 +34,27 @@ export default function aggregate(
   // Output:
   //  - (rpc -> env)
 
-  const rpcCodes = Object.keys(envImpactSheet);
+  const suaCodes = Object.keys(envImpactSheet);
 
-  const entries = rpcCodes.map((rpcCode) => {
-    const envImpacts = envImpactSheet[rpcCode];
-    const originFactors = rpcFactors[rpcCode];
+  const entries = suaCodes.map((suaCode) => {
+    const envImpacts = envImpactSheet[suaCode];
+    const originFactors = rpcFactors[suaCode];
 
     const joinedEnvFactors = Object.keys(originFactors)
       .map((origin) => {
         const [shareRatio, waste, organic] = originFactors[origin];
         const wasteChangeFactor = 1 / (1 - waste);
-        const organicRatio = mode === "organic" ? organic : (1 - organic);
+        const organicRatio = mode === "organic" ? organic : 1 - organic;
 
         const ratio = shareRatio * organicRatio * wasteChangeFactor;
+        if (!envImpacts[origin]) {
+          origin = "RoW";
+        }
         return envImpacts[origin].map((x) => ratio * x);
       })
       .reduce((a, b) => a.map((x, i) => x + b[i]), ENV_FOOTPRINTS_ZERO);
 
-    return [rpcCode, joinedEnvFactors];
+    return [suaCode, joinedEnvFactors];
   });
 
   return Object.fromEntries(entries);
