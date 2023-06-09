@@ -4,12 +4,10 @@ import {
   computeProcessFootprints,
   getProcessFootprintsSheet,
 } from "./process-env-impact";
-import { mapValues, vectorSum, vectorsSum } from "./utils";
 
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import foodsRecipes from "@/data/foodex-recipes.json";
 import flattenEnvironmentalFootprints from "./env-impact-aggregator";
-import aggregateFootprints from "./footprints-aggregator";
 
 const recipes = foodsRecipes.data as unknown as FoodsRecipes;
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
@@ -120,7 +118,7 @@ class ResultsEngine {
 
   public computeFootprints(
     diet: Diet
-  ): ( number | string )[] | null {
+  ): null | [Record<string, number[]>, Record<string, Record<string, number[]>>] {
     if (!this.envFootprintsPerOrigin) {
       console.error(
         "Compute called when no environmentalFactorsSheet was set."
@@ -148,16 +146,7 @@ class ResultsEngine {
       this.processEnvSheet
     );
 
-    const aggregatedImpacts = aggregateFootprints(rpcImpact, processesEnvImpacts);
-
-
-    // const x = vectorsSum(
-    //   Object.values(processesEnvImpacts)
-    //     .map((o) => Object.values(o))
-    //     .flat(1)
-    // );
-
-    return aggregatedImpacts;
+    return [rpcImpact, processesEnvImpacts];
   }
 
   // Necessary for testing.
