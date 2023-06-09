@@ -2,46 +2,18 @@
 import { defineComponent } from "vue";
 
 import ChartContainer from "@/components/ChartContainer.vue";
-import getBenchmarks from "@/lib/diet-benchmarker";
-
 import { downloadAsPlaintext } from "@/lib/csv-io";
-
+import generateValidationFiles from "@/lib/validation/rpc-with-import";
 
 
 export default defineComponent({
   components: { ChartContainer },
 
-  data() {
-    return {};
-  },
-
   methods: {
-    run() {
-      let LL_COUNTRIES = [
-        "France",
-        "Germany",
-        "Greece",
-        "Hungary",
-        "Ireland",
-        "Italy",
-        "Poland",
-        "Spain",
-        "Sweden",
-        "RoW",
-      ];
-      //LL_COUNTRIES = ["Spain"];
-
-      const benchmarks = getBenchmarks(LL_COUNTRIES);
-      //const wantsToDownload = confirm("Do you want to download the files?");
-      const wantsToDownload = false;
-      LL_COUNTRIES.forEach((country) => {
-        const [footprintsCsv, failedCsv] = benchmarks[country];
-        if (wantsToDownload) {
-          downloadAsPlaintext(footprintsCsv, country + ".csv");
-          downloadAsPlaintext(failedCsv, country + "-failed.csv");
-        } else {
-          console.log(country, footprintsCsv, failedCsv);
-        }
+    async run() {
+      const results = await generateValidationFiles();
+      results.forEach(([country, csv]) => {
+        downloadAsPlaintext(csv, country + ".csv");
       });
     },
   },
