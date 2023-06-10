@@ -1,302 +1,349 @@
-FoodEx2 Code,Long Code ,FoodEx2 Name,SUA code
-A001N,A.01.02.001,Common wheat grain,0111
-A001P,A.01.02.001.002,Durum wheat grain,0111
-A001N,A.01.02.001.003,Common wheat grain,0111
-A001P,A.01.02.001.004,Durum wheat grain,0111
-A000P,A.01.02.002.001,Barley grains,0115
-A000T,A.01.02.003,Maize grain,0112
-A001K,A.01.02.004,Rye grain,0116
-A001R,A.01.02.005,Spelt grain,0111
-A000N,A.01.02.006,Buckwheat,01192
-A001B,A.01.02.007,Common millet grain,0118
-A000G,A.01.02.008,Oat grain,0117
-A001D,A.01.02.009,Rice grain,0113
-A001J,A.01.02.009.007,Indian rice grain,0113
-A010G,A.02.01.001,Arrowroots,01599.10
-A00QG,A.02.01.002,Beetroots,01599.10
-A00QH,A.02.01.003,Carrots,01251
-A00QJ,A.02.01.004,Celeriacs,01599.10
-A00QK,A.02.01.005,Horseradish roots,01599.10
-A00QS,A.02.01.006,Parsley roots,01599.10
-A00QR,A.02.01.007,Parsnip roots,01599.10
-A00QV,A.02.01.008,Radishes,01212
-A00RA,A.02.01.009,Salsifies,01445
-A00RD,A.02.01.010,Swedes,01212
-A00RE,A.02.01.012,Turnips,01251
-A00GZ,A.02.02.001,Garlic,01252
-A00HC,A.02.02.002,Onions,01253.01
-A00HF,A.02.02.003,Shallots,01253.01
-A00HH,A.02.02.004,Spring onions,01253.01
-A00XD,A.02.02.005,Chives,01253.01
-A0DMX,A.02.03.001,Tomatoes,01234
-A00JA,A.02.03.002,Sweet peppers,01231
-A00JB,A.02.03.003,Chili peppers,01231
-A00JD,A.02.03.004,Aubergines,01233
-A00JF,A.02.03.005,Okra,01359.9
-A00JM,A.02.03.006,Cucumbers,01232
-A00JP,A.02.03.007,Gherkins,01232
-A00JR,A.02.03.008,Courgettes,01235
-A00KF,A.02.03.009,Melons,01229
-A00KH,A.02.03.010,Pumpkins,01235
-A00KJ,A.02.03.011,Watermelons,01221
-A00KP,A.02.03.012,Sweet corn,01290.01
-A00FN,A.02.04.001,Broccoli,01213
-A00FR,A.02.04.002,Cauliflowers,01213
-A00FV,A.02.04.003,Brussels sprouts,01212
-A00FY,A.02.04.004,Head cabbages,01212
-A00GG,A.02.04.005,Chinese cabbages,01212
-A00GL,A.02.04.006,Kales and similar-,01212
-A00GV,A.02.04.007,Kohlrabies,01212
-A00KT,A.02.05.001,Lamb's lettuces,01214
-A00KY,A.02.05.002,Head lettuces,01214
-A00KZ,A.02.05.003,Crisp lettuces,01214
-A00LE,A.02.05.004,Escaroles,01214
-A00LK,A.02.05.005,Cresses,01212
-A00LL,A.02.05.006,Land cresses,01212
-A00LN,A.02.05.007,Roman rocket,01212
-A00MJ,A.02.05.010,Spinaches,01215
-A00MP,A.02.05.012,Purslanes,01215
-A00MX,A.02.05.013,Chards,1801
-A00NB,A.02.05.014,Grape leaves,01359.9
-A00ND,A.02.05.015,Watercresses,01212
-A00NE,A.02.05.016,Witloofs,01214
-A00MV,A.02.05.017,Oraches leaves,01359.9
-A00MD,A.02.05.019,Dandelions,01445
-A00PA,A.02.05.020,Common nettle,01215
-A00MT,A.02.05.021,Garden sorrel,01215
-A00SH,A.02.05.022,Alfalfa sprouts,01709.90
-A00PC,A.02.06.001,Beans (with pods) and similar-,01701
-A00PX,A.02.06.002,Peas (with pods) and similar-,01705
-A00RT,A.02.07.001,Asparagus,01211
-A00RX,A.02.07.002,Cardoons,01445
-A00RY,A.02.07.003,Celeries,01251
-A00SA,A.02.07.004,Florence fennels,01251
-A00RS,A.02.07.005,Globe artichokes,01216
-A00SB,A.02.07.006,Leeks,01254
-A00SD,A.02.07.007,Rhubarbs,1801
-A00RV,A.02.07.008,Bamboo shoots,01359.9
-A00SC,A.02.07.009,Palm hearts,01359.9
-A010Z,A.02.08.003,Chicory roots,01599.1
-A00VG,A.02.09.001,Carrageen mosses,01699
-A00VM,A.02.09.001.001,Kombu,01699
-A00VH,A.02.09.001.002,Laver,01699
-A00VC,A.02.09.001.003,Wakame,01699
-A04KK,A.02.10.001,Teas  and similar-,01699
-A00XZ,A.02.10.004,Mints,01699
-A03JL,A.02.10.009,Strawberry infusion leaves,01699
-A03JV,A.02.10.013,Ginseng infusion roots,01699
-A03GK,A.02.12.001,"Coffee beans, green",01610
-A00TQ,A.02.15.001,Common mushrooms,01270
-A00TS,A.02.15.003,Shiitake,01270
-A00TL,A.02.16.002,Honey mushroom,01270
-A00TG,A.02.16.003,Ceps,01270
-A00TJ,A.02.16.004,Truffles,01270
-A00TK,A.02.16.005,Morels,01270
-A00TE,A.02.16.006,Chanterelles,01270
-A00TH,A.02.16.007,Saffron milk cap,01270
-A00ZV,A.03.01.001,New potatoes,01510
-A00ZX,A.03.01.002,Main-crop potatoes,01510
-A010C,A.03.02.001,Sweet potatoes,01530
-A00ZZ,A.03.02.002,Cassava roots,01599.1
-A010D,A.03.02.004,Yams,01599.1
-A00QQ,A.03.02.005,Jerusalem artichokes,01599.1
-A011Z,A.04.01.001,Beans (fresh seeds without pods) and similar-,01701
-A012G,A.04.01.002,Peas (without pods) and similar-,01242
-A012S,A.04.02.001,Beans (dry) and similar-,01701
-A0DCE,A.04.02.002,Lentils (dry) and similar-,01704
-A0DCD,A.04.02.003,Peas (dry) and similar-,01705
-A013M,A.04.02.005,Chickpeas (dry),01703
-A013H,A.04.02.007,Broad beans (dry),01702
-A013A,A.04.02.008,Lima beans (dry),01701
-A013D,A.04.02.009,Mung beans (dry),01701
-A00SR,A.04.02.009,Mung bean sprouts,01701
-A013N,A.04.02.011,Black eyed peas (dry),01705
-A015P,A.04.02.012,Soyabeans for oil,0141
-A01HY,A.04.02.014,Carobs,01709.9
-A010D,A.04.02.020,Yams,01599.1
-A015H,A.04.02.021,Peanuts,0142
-A014F,A.04.03.001,Almonds sweet,01371
-A014E,A.04.03.002,Bitter almonds,01371
-A014G,A.04.03.003,Brazil nuts,01377
-A014H,A.04.03.004,Cashew nuts,01372
-A014J,A.04.03.005,Chestnuts,01373
-A014K,A.04.03.006,Coconuts,01460
-A014L,A.04.03.007,Hazelnuts,01374
-A014M,A.04.03.008,Macadamias,01371
-A014N,A.04.03.009,Pecans,01371
-A01BV,A.04.03.010,Pine nut kernels,01371
-A014Q,A.04.03.011,Pistachios,01371
-A014R,A.04.03.012,Walnuts,01376
-A015G,A.04.04.001,Linseeds,01441
-A015J,A.04.04.003,Poppy seeds,01448
-A015K,A.04.04.004,Sesame seeds,01449.9
-A015L,A.04.04.005,Sunflower seeds,01445
-A015S,A.04.04.007,Mustard seeds,01449.9
-A015X,A.04.04.009,Pumpkin seeds,01449.9
-A016B,A.04.04.013,Hemp seeds,01449.9
-A016D,A.04.05,Other oilseeds (including elsewhere non-listed seeds),01449.9
-A01CY,A.05.01.001,Grapefruits,01321
-A0DZB,A.05.01.002,Oranges,01323
-A01BY,A.05.01.003,Lemons,01322
-A01CA,A.05.01.004,Limes,01322
-A01CB,A.05.01.005,Mandarins and similar-,01324
-A01DJ,A.05.02.001,Apples,01341
-A01DP,A.05.02.002,Pears,01342.01
-A01DR,A.05.02.003,Quinces,01342.02
-A01DM,A.05.02.004,Medlars,01359.9
-A01DL,A.05.02.005,Loquats,01359.9
-A01GD,A.05.02.007,Sorb fruits,01341
-A01DQ,A.05.02.009,Nashi pears,01342.01
-A01GF,A.05.03.001,Apricots,01343
-A01GQ,A.05.03.002,Plums,01346
-A01GR,A.05.03.003,Damsons,01346
-A01GS,A.05.03.004,Mirabelles,01346
-A01GX,A.05.03.005,Gages,01346
-A01GK,A.05.03.006,Cherries (sweet),01344.02
-A01GH,A.05.03.007,Sour cherries,01344.01
-A01GL,A.05.03.011,Peaches and similar-,01345
-A01DX,A.05.04.001,Table grapes,01330
-A01DY,A.05.04.002,Wine grapes,01330
-A01EA,A.05.04.003,Strawberries,01354
-A01EE,A.05.04.004,Blackberries,01353.01
-A01EP,A.05.04.006,Raspberries (red and yellow),01353.01
-A01EY,A.05.04.008,Blueberries,01355.01
-A01FH,A.05.04.009,Cranberries,01355.01
-A01FM,A.05.04.010,"Currants (black, red and white)",01351.01
-A0CFN,A.05.04.011,"Gooseberries (green, red and yellow)",01351.02
-A0CFR,A.05.04.012,Rose hips,01699
-A01FS,A.05.04.013,Mulberries (black and white),01315
-A01FX,A.05.04.015,Elderberries,01351.01
-A01EM,A.05.04.016,Cloudberries,01353.01
-A01FE,A.05.04.022,Bilberries,01355.01
-A00JG,A.05.04.029,Ground cherries (physalis etc.),01234
-A01FZ,A.05.04.030,Sea buckthorns,01351.01
-A016M,A.05.05.001,Olives for oil production,01450
-A01HF,A.05.06.001,Dates,01314
-A01HG,A.05.06.002,Figs,01315
-A01BP,A.05.06.003,Table olives,01450
-A0DRT,A.05.06.004,Kumquats,01322
-A01HM,A.05.06.005,Carambolas,01359.9
-A01HQ,A.05.06.006,Kaki,01234
-A01JT,A.05.06.008,"Kiwi fruits (green, red, yellow)",01352
-A01JV,A.05.06.009,Litchis,01359.9
-A01KC,A.05.06.010,Passionfruits,01359.9
-A01KD,A.05.06.011,Prickly pears,01359.9
-A01KF,A.05.06.013,American persimmons,01234
-A01LB,A.05.06.014,Avocados,01311
-A01LF,A.05.06.016,Mangoes,01316
-A01LG,A.05.06.017,Papayas,01317
-A01LH,A.05.06.018,Granate apples,01359.9
-A01LK,A.05.06.019,Wild sweetsops,01359.9
-A0CGD,A.05.06.020,Guavas,01316
-A01LP,A.05.06.021,Pineapples,01318
-A01LG,A.05.06.029,Papayas,01317
-A01KQ,A.05.06.034,Longans,01359.9
-A03DK,A.15,Drinking water,0
-A03DL,A.15.01,Tap water,0
-A03DP,A.15.02,Well water,0
-A04PX,A.15.03,Bottled water,0
-A04PX,A.15.03.001,Bottled water,0
-A04PX,A.15.03.002,Bottled water,0
-A03DK,A.15.04,Drinking water,0
-A00XB,A.16.01.001,Chervil,01654
-A00XD,A.16.01.002,Chives,01699
-A00XH,A.16.01.003,Dill leaves,01699
-A00XA,A.16.01.004,Celery leaves,01699
-A00YE,A.16.01.005,Parsley,01699
-A00YH,A.16.01.006,Sage,01699
-A00YF,A.16.01.007,Rosemary,01699
-A00YQ,A.16.01.008,Thyme,01699
-A00VV,A.16.01.009,Basil,01699
-A00VX,A.16.01.010,Laurel,01699
-A00YP,A.16.01.011,Tarragon,01699
-A018R,A.16.02.004,Allspice fruit,01699
-A017Y,A.16.02.006,Anise seed,01654
-A0CZD,A.16.02.008,Black caraway seed,01654
-A01AM,A.16.02.009,Capers buds,01699
-A018T,A.16.02.010,Caraway fruit,01654
-A018V,A.16.02.011,Cardamom fruit,01699
-A019V,A.16.02.014,Cinnamon bark,01699
-A01AL,A.16.02.015,Cloves buds,01699
-A018D,A.16.02.016,Coriander seed,01654
-A018E,A.16.02.017,Cumin seed,01654
-A018G,A.16.02.019,Fennel seed,01654
-A018H,A.16.02.020,Fenugreek seed,01699
-A01AB,A.16.02.022,Ginger roots,01699
-A018X,A.16.02.024,Juniper berry,01699
-A01AV,A.16.02.025,Mace aril,01699
-A018J,A.16.02.027,Nutmeg seed,01699
-A018Z,A.16.02.028,"Peppercorn (black, green and white)",01699
-A01AR,A.16.02.029,Saffron,01699
-A019J,A.16.02.030,Tamarind,01699
-A01AC,A.16.02.031,Turmeric roots,01699
-A042P,A.16.04.001,Salt,0
-A042Q,A.16.04.002,"Salt, low sodium",0
-A042R,A.16.04.003,"Salt, iodised",0
-A042T,A.16.04.005,"Salt, iodised and fluoridated",0
-A042X,A.16.04.007,Sea salt,0
-A019H,A.16.09.003,Vanilla,01699
-A048Z,A.16.10.001,Yeast cultures,0
-A000R,I.01.02.010.006,Quinoa grain,01194
-A00XX,I.16.01.012,Marjoram,01699
-A00XV,I.16.01.013,Oregano,01699
-A00XZ,I.16.01.014,Mints,01699
-A00XF,I.16.01.015,Coriander leaves,01699
-A00XS,I.16.01.016,Lovage leaves,01699
-A00YK,I.16.01.017,Winter savory,01699
-A01QV,A.06.01.001,Bovine muscle,21111.01
-A01TX,A.06.01.001,Bovine fat tissue,21512
-A01XF,A.06.01.001,Bovine liver,21189.01
-A01YJ,A.06.01.001,Bovine kidney,21151
-A01ZM,A.06.01.001,Bovine edible offals (other than liver and kidney),21151
-A020R,A.06.01.001,Bovine other slaughtering products,21151
-A01QY,A.06.01.002,Calf fresh meat,21111.01
-A01TX,A.06.01.002,Bovine fat tissue,21512
-A01XF,A.06.01.002,Bovine liver,21189.01
-A01YJ,A.06.01.002,Bovine kidney,21151
-A01ZM,A.06.01.002,Bovine edible offals (other than liver and kidney),21151
-A01RG,A.06.01.003,Pig muscle,21113.01
-A01VA,A.06.01.003,Pig fat tissue,21511.01
-A01XJ,A.06.01.003,Pig liver,21153
-A01YM,A.06.01.003,Pig kidney,21153
-A021A,A.06.01.003,Pig other slaughtering products,
-A01RH,A.06.01.004,Sheep muscle,21115
-A01XK,A.06.01.004,Sheep liver,21155
-A01YN,A.06.01.004,Sheep kidney,21155
-A021H,A.06.01.004,Sheep other slaughtering products,21155
-A01RL,A.06.01.005,Goat muscle,21116
-A01RM,A.06.01.006,Equine muscle,21118.01
-A01RQ,A.06.01.007,Rabbit fresh meat,21114
-A01SP,A.06.02.001,Chicken fresh meat,21121
-A01VR,A.06.02.001,"Chicken, fresh fat tissue",21160.01
-A01XZ,A.06.02.001,Chicken liver,21189.02
-A022B,A.06.02.001,"Chicken, other slaughtering products",
-A01SQ,A.06.02.002,Turkey fresh meat,21124
-A01SR,A.06.02.003,Duck fresh meat,21122
-A01VT,A.06.02.003,"Duck, fresh fat tissue",21511.03
-A01YB,A.06.02.003,Duck liver,21160.03
-A01SS,A.06.02.004,Goose fresh meat,21123
-A01VV,A.06.02.004,"Goose, fresh fat tissue",21511.03
-A01YC,A.06.02.004,Goose liver,21160.02
-A01TA,A.06.02.005,Pigeon fresh meat,21170.01
-A01SX,A.06.02.006,Guinea-fowl fresh meat,21121
-A01ST,A.06.02.007,Ratites fresh meat,21170.02
-A01SH,A.06.03.001,Wild boar fresh meat,21170.02
-A01SC,A.06.03.002,"Deer, red fresh meat",21170.02
-A01SE,A.06.03.003,European moose meat,21170.02
-A01SF,A.06.03.004,Reindeer meat,21170.02
-A01XT,A.06.03.004,Deer liver,21170.02
-A01SJ,A.06.03.006,Hare fresh meat,21114
-A01SZ,A.06.04.001,Pheasant fresh meat,21170.02
-A01TG,A.06.04.003,Mallard fresh meat,21170.02
-A01SY,A.06.04.004,Partridge fresh meat,21170.02
-A01TB,A.06.04.005,Quail fresh meat,21170.02
-A02LV,A.08.01.001.002,Cow milk,02211
-A02MC,A.08.01.002,Sheep milk,02291
-A02MD,A.08.01.003,Water buffalo milk,02212
-A02MB,A.08.01.005,Goat milk,02292
-A02MG,A.08.01.007,Ass milk,02211
-A031G,A.09.01.001,Hen eggs,0231
-A031H,A.09.01.005,Duck eggs,0232
-A031K,A.09.01.007,Quail eggs,0232
-A033J,A.10.07,Honey,02910
+"FoodEx2 Code","Long Code ","FoodEx2 Name","SUA code","SUA name","Type",,,,,
+"A001N","A.01.02.001","Common wheat grain","0111","wheat","Crop",,,,,
+"A001P","A.01.02.001.002","Durum wheat grain","0111","wheat","Crop",,,,,
+"A001N","A.01.02.001.003","Common wheat grain","0111","wheat","Crop",,,,,
+"A001P","A.01.02.001.004","Durum wheat grain","0111","wheat","Crop",,,,,
+"A000P","A.01.02.002.001","Barley grains","0115","barley","Crop",,,,,
+"A000T","A.01.02.003","Maize grain","0112","maize (corn)","Crop",,,,,
+"A001K","A.01.02.004","Rye grain","0116","rye","Crop",,,,,
+"A001R","A.01.02.005","Spelt grain","0111","wheat","Crop",,,,,
+"A000N","A.01.02.006","Buckwheat","01192","buckwheat","Crop",,,,,
+"A001B","A.01.02.007","Common millet grain","0118","millet","Crop",,,,,
+"A000G","A.01.02.008","Oat grain","0117","oats","Crop",,,,,
+"A001D","A.01.02.009","Rice grain","0113","rice","Crop",,,,,
+"A001J","A.01.02.009.007","Indian rice grain","0113","rice","Crop",,,,,
+"A010G","A.02.01.001","Arrowroots","01599.10","edible roots and tubers with high starch or inulin content, n.e.c., fresh","Crop",,,,,
+"A00QG","A.02.01.002","Beetroots","01599.10","edible roots and tubers with high starch or inulin content, n.e.c., fresh","Crop",,,,,
+"A00QH","A.02.01.003","Carrots","01251","carrots and turnips","Crop",,,,,
+"A00QJ","A.02.01.004","Celeriacs","01599.10","edible roots and tubers with high starch or inulin content, n.e.c., fresh","Crop",,,,,
+"A00QK","A.02.01.005","Horseradish roots","01599.10","edible roots and tubers with high starch or inulin content, n.e.c., fresh","Crop",,,,,
+"A00QS","A.02.01.006","Parsley roots","01599.10","edible roots and tubers with high starch or inulin content, n.e.c., fresh","Crop",,,,,
+"A00QR","A.02.01.007","Parsnip roots","01599.10","edible roots and tubers with high starch or inulin content, n.e.c., fresh","Crop",,,,,
+"A00QV","A.02.01.008","Radishes","01212","cabbages","Crop",,,,,
+"A00RA","A.02.01.009","Salsifies","01445","sunflower seed","Crop",,,,,
+"A00RD","A.02.01.010","Swedes","01212","cabbages","Crop",,,,,
+"A00RE","A.02.01.012","Turnips","01251","carrots and turnips","Crop",,,,,
+"A00GZ","A.02.02.001","Garlic","01252","green garlic","Crop",,,,,
+"A00HC","A.02.02.002","Onions","01253.01","onions and shallots, green","Crop",,,,,
+"A00HF","A.02.02.003","Shallots","01253.01","onions and shallots, green","Crop",,,,,
+"A00HH","A.02.02.004","Spring onions","01253.01","onions and shallots, green","Crop",,,,,
+"A00XD","A.02.02.005","Chives","01253.01","onions and shallots, green","Crop",,,,,
+"A0DMX","A.02.03.001","Tomatoes","01234","tomatoes","Crop",,,,,
+"A00JA","A.02.03.002","Sweet peppers","01231","chillies and peppers, green (capsicum spp. and pimenta spp.)","Crop",,,,,
+"A00JB","A.02.03.003","Chili peppers","01231","chillies and peppers, green (capsicum spp. and pimenta spp.)","Crop",,,,,
+"A00JD","A.02.03.004","Aubergines","01233","eggplants (aubergines)","Crop",,,,,
+"A00JF","A.02.03.005","Okra","01359.9","Other fruits, n.e.c.","Crop",,,,,
+"A00JM","A.02.03.006","Cucumbers","01232","cucumbers and gherkins","Crop",,,,,
+"A00JP","A.02.03.007","Gherkins","01232","cucumbers and gherkins","Crop",,,,,
+"A00JR","A.02.03.008","Courgettes","01235","pumpkins, squash and gourds","Crop",,,,,
+"A00KF","A.02.03.009","Melons","01229","cantaloupes and other melons ","Crop",,,,,
+"A00KH","A.02.03.010","Pumpkins","01235","pumpkins, squash and gourds","Crop",,,,,
+"A00KJ","A.02.03.011","Watermelons","01221","watermelons","Crop",,,,,
+"A00KP","A.02.03.012","Sweet corn","01290.01","green corn (maize) ","Crop",,,,,
+"A00FN","A.02.04.001","Broccoli","01213","cauliflowers and broccoli","Crop",,,,,
+"A00FR","A.02.04.002","Cauliflowers","01213","cauliflowers and broccoli","Crop",,,,,
+"A00FV","A.02.04.003","Brussels sprouts","01212","cabbages","Crop",,,,,
+"A00FY","A.02.04.004","Head cabbages","01212","cabbages","Crop",,,,,
+"A00GG","A.02.04.005","Chinese cabbages","01212","cabbages","Crop",,,,,
+"A00GL","A.02.04.006","Kales and similar-","01212","cabbages","Crop",,,,,
+"A00GV","A.02.04.007","Kohlrabies","01212","cabbages","Crop",,,,,
+"A00KT","A.02.05.001","Lamb's lettuces","01214","lettuce and chicory","Crop",,,,,
+"A00KY","A.02.05.002","Head lettuces","01214","lettuce and chicory","Crop",,,,,
+"A00KZ","A.02.05.003","Crisp lettuces","01214","lettuce and chicory","Crop",,,,,
+"A00LE","A.02.05.004","Escaroles","01214","lettuce and chicory","Crop",,,,,
+"A00LK","A.02.05.005","Cresses","01212","cabbages","Crop",,,,,
+"A00LL","A.02.05.006","Land cresses","01212","cabbages","Crop",,,,,
+"A00LN","A.02.05.007","Roman rocket","01212","cabbages","Crop",,,,,
+"A00MJ","A.02.05.010","Spinaches","01215","spinach","Crop",,,,,
+"A00MP","A.02.05.012","Purslanes","01215","spinach","Crop",,,,,
+"A00MX","A.02.05.013","Chards","1801","sugar beet","Crop",,,,,
+"A00NB","A.02.05.014","Grape leaves","01359.9","Other fruits, n.e.c.","Crop",,"?",,,
+"A00ND","A.02.05.015","Watercresses","01212","cabbages","Crop",,,,,
+"A00NE","A.02.05.016","Witloofs","01214","lettuce and chicory","Crop",,"?",,,
+"A00MV","A.02.05.017","Oraches leaves","01359.9","Other fruits, n.e.c.","Crop",,,,,
+"A00MD","A.02.05.019","Dandelions","01445","sunflower seed","Crop",,,,,
+"A00PA","A.02.05.020","Common nettle","01215","spinach","Crop",,,,,
+"A00MT","A.02.05.021","Garden sorrel","01215","spinach","Crop",,,,,
+"A00SH","A.02.05.022","Alfalfa sprouts","01709.90","other pulses n.e.c.","Crop",,,,,
+"A00PC","A.02.06.001","Beans (with pods) and similar-","01701","beans, dry","Crop",,,,,
+"A00PX","A.02.06.002","Peas (with pods) and similar-","01705","peas, dry","Crop",,,,,
+"A00RT","A.02.07.001","Asparagus","01211","asparagus","Crop",,,,,
+"A00RX","A.02.07.002","Cardoons","01445","sunflower seed","Crop",,,,,
+"A00RY","A.02.07.003","Celeries","01251","carrots and turnips","Crop",,,,,
+"A00SA","A.02.07.004","Florence fennels","01251","carrots and turnips","Crop",,,,,
+"A00RS","A.02.07.005","Globe artichokes","01216","Artichokes","Crop",,,,,
+"A00SB","A.02.07.006","Leeks","01254","leeks and other alliaceous vegetables","Crop",,,,,
+"A00SD","A.02.07.007","Rhubarbs","1801","sugar beet","Crop",,,,,
+"A00RV","A.02.07.008","Bamboo shoots","01359.9","Other fruits, n.e.c.","Crop",,,"?",,
+"A00SC","A.02.07.009","Palm hearts","01359.9","Other fruits, n.e.c.","Crop",,,"?",,
+"A010Z","A.02.08.003","Chicory roots","01599.1","Edible roots and tubers with high starch or inulin content, n.e.c., fresh","Crop",,,,,
+"A00VG","A.02.09.001","Carrageen mosses","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,"?","sjögräs",
+"A00VM","A.02.09.001.001","Kombu","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,"?",,
+"A00VH","A.02.09.001.002","Laver","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,"?",,
+"A00VC","A.02.09.001.003","Wakame","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,"?",,
+"A04KK","A.02.10.001","Teas  and similar-","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A00XZ","A.02.10.004","Mints","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A03JL","A.02.10.009","Strawberry infusion leaves","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A03JV","A.02.10.013","Ginseng infusion roots","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A03GK","A.02.12.001","Coffee beans, green","01610","Coffee, green","Crop",,,,,
+,"A.02.14.012","Hops (dried), including pellets and unconcentrated powder (Humulus lupulus)",,,"Crop",,,"Humle - dyker nog inte upp",,
+"A00TQ","A.02.15.001","Common mushrooms","01270","Mushrooms and truffles","Crop",,,,,
+,"A.02.15.002","Oyster mushroom (Pleurotus ostreatus)","01270","Mushrooms and truffles","Crop",,,,,
+"A00TS","A.02.15.003","Shiitake","01270","Mushrooms and truffles","Crop",,,,,
+"A00TL","A.02.16.002","Honey mushroom","01270","Mushrooms and truffles","Crop",,,,,
+"A00TG","A.02.16.003","Ceps","01270","Mushrooms and truffles","Crop",,,,,
+"A00TJ","A.02.16.004","Truffles","01270","Mushrooms and truffles","Crop",,,,,
+"A00TK","A.02.16.005","Morels","01270","Mushrooms and truffles","Crop",,,,,
+"A00TE","A.02.16.006","Chanterelles","01270","Mushrooms and truffles","Crop",,,,,
+"A00TH","A.02.16.007","Saffron milk cap","01270","Mushrooms and truffles","Crop",,,,,
+"A00ZV","A.03.01.001","New potatoes","01510","Potatoes","Crop",,,,,
+"A00ZX","A.03.01.002","Main-crop potatoes","01510","Potatoes","Crop",,,,,
+"A010C","A.03.02.001","Sweet potatoes","01530","Sweet potatoes","Crop",,,,,
+"A00ZZ","A.03.02.002","Cassava roots","01599.1","Edible roots and tubers with high starch or inulin content, n.e.c., fresh","Crop",,,,,
+"A010D","A.03.02.004","Yams","01599.1","Edible roots and tubers with high starch or inulin content, n.e.c., fresh","Crop",,,,,
+"A00QQ","A.03.02.005","Jerusalem artichokes","01599.1","Edible roots and tubers with high starch or inulin content, n.e.c., fresh","Crop",,,,,
+"A011Z","A.04.01.001","Beans (fresh seeds without pods) and similar-","01701","Beans, dry","Crop",,,,,
+"A012G","A.04.01.002","Peas (without pods) and similar-","01242","Peas, green","Crop",,,,,
+"A012S","A.04.02.001","Beans (dry) and similar-","01701","Beans, dry","Crop",,,,,
+"A0DCE","A.04.02.002","Lentils (dry) and similar-","01704","Lentils, dry","Crop",,,,,
+"A0DCD","A.04.02.003","Peas (dry) and similar-","01705","Peas, dry","Crop",,,,,
+"A013M","A.04.02.005","Chickpeas (dry)","01703","Chick peas, dry","Crop",,,,,
+"A013H","A.04.02.007","Broad beans (dry)","01702","Broad beans and horse beans, dry","Crop",,,,,
+"A013A","A.04.02.008","Lima beans (dry)","01701","Beans, dry","Crop",,,,,
+"A013D","A.04.02.009","Mung beans (dry)","01701","Beans, dry","Crop",,,,,
+"A00SR","A.04.02.009","Mung bean sprouts","01701","Beans, dry","Crop",,"?",,,
+"A013N","A.04.02.011","Black eyed peas (dry)","01705","Peas, dry","Crop",,,,,
+"A015P","A.04.02.012","Soyabeans for oil","0141","Soya beans","Crop",,,,,
+"A01HY","A.04.02.014","Carobs","01709.9","Other pulses n.e.c.","Crop",,,,,
+"A010D","A.04.02.020","Yams","01599.1","Edible roots and tubers with high starch or inulin content, n.e.c., fresh","Crop",,,,,
+"A015H","A.04.02.021","Peanuts","0142","Groundnuts, excluding shelled","Crop",,,,,
+"A014F","A.04.03.001","Almonds sweet","01371","Almonds, in shell","Crop",,,,,
+"A014E","A.04.03.002","Bitter almonds","01371","Almonds, in shell","Crop",,,,,
+"A014G","A.04.03.003","Brazil nuts","01377","Brazil nuts, in shell","Crop",,,,,
+"A014H","A.04.03.004","Cashew nuts","01372","Cashew nuts, in shell","Crop",,,,,
+"A014J","A.04.03.005","Chestnuts","01373","Chestnuts, in shell","Crop",,,,,
+"A014K","A.04.03.006","Coconuts","01460","Coconut, in shell","Crop",,,,,
+"A014L","A.04.03.007","Hazelnuts","01374","Hazelnuts, in shell","Crop",,,,,
+"A014M","A.04.03.008","Macadamias","01371","Almonds, in shell","Crop",,"?",,,
+"A014N","A.04.03.009","Pecans","01371","Almonds, in shell","Crop",,"?",,,
+"A01BV","A.04.03.010","Pine nut kernels","01371","Almonds, in shell","Crop",,"?",,,
+"A014Q","A.04.03.011","Pistachios","01371","Almonds, in shell","Crop",,"`?",,,
+"A014R","A.04.03.012","Walnuts","01376","Walnuts, in shell","Crop",,,,,
+"A015G","A.04.04.001","Linseeds","01441","Linseed","Crop",,,,,
+"A015J","A.04.04.003","Poppy seeds","01448","Poppy seed","Crop",,,,,
+"A015K","A.04.04.004","Sesame seeds","01449.9","Other oil seeds, n.e.c.","Crop",,,,,
+"A015L","A.04.04.005","Sunflower seeds","01445","Sunflower seed","Crop",,,,,
+,"A.04.04.006 ","Rape seed (Brassica napus)","01443","Rape and colza seed","Crop",,,,,
+"A015S","A.04.04.007","Mustard seeds","01449.9","Other oil seeds, n.e.c.","Crop",,,,,
+"A015X","A.04.04.009","Pumpkin seeds","01449.9","Other oil seeds, n.e.c.","Crop",,,,,
+,"A.04.04.010","Safflower (Carthamus tinctorius)","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+,"A.04.04.011","Borage (Borago officinalis)","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A016B","A.04.04.013","Hemp seeds","01449.9","Other oil seeds, n.e.c.","Crop",,,,,
+"A016D","A.04.05","Other oilseeds (including elsewhere non-listed seeds)","01449.9","Other oil seeds, n.e.c.","Crop",,,,,
+"A01CY","A.05.01.001","Grapefruits","01321","Pomelos and grapefruits","Crop",,,,,
+"A0DZB","A.05.01.002","Oranges","01323","Oranges","Crop",,,,,
+"A01BY","A.05.01.003","Lemons","01322","Lemons and limes","Crop",,,,,
+"A01CA","A.05.01.004","Limes","01322","Lemons and limes","Crop",,,,,
+"A01CB","A.05.01.005","Mandarins and similar-","01324","Tangerines, mandarins, clementines","Crop",,,,,
+,"A.05.01.006","Pomelo (Citrus grandis)","01321","Pomelos and grapefruits","Crop",,,,,
+"A01DJ","A.05.02.001","Apples","01341","Apples","Crop",,,,,
+"A01DP","A.05.02.002","Pears","01342.01","Pears","Crop",,,,,
+"A01DR","A.05.02.003","Quinces","01342.02","Quinces","Crop",,,,,
+"A01DM","A.05.02.004","Medlars","01359.9","Other fruits, n.e.c.","Crop",,,,,
+"A01DL","A.05.02.005","Loquats","01359.9","Other fruits, n.e.c.","Crop",,,,,
+"A01GD","A.05.02.007","Sorb fruits","01341","Apples","Crop",,,,,
+"A01DQ","A.05.02.009","Nashi pears","01342.01","Pears","Crop",,,,,
+"A01GF","A.05.03.001","Apricots","01343","Apricots","Crop",,,,,
+"A01GQ","A.05.03.002","Plums","01346","Plums and sloes","Crop",,,,,
+"A01GR","A.05.03.003","Damsons","01346","Plums and sloes","Crop",,,,,
+"A01GS","A.05.03.004","Mirabelles","01346","Plums and sloes","Crop",,,,,
+"A01GX","A.05.03.005","Gages","01346","Plums and sloes","Crop",,,,,
+"A01GK","A.05.03.006","Cherries (sweet)","01344.02","Cherries","Crop",,,,,
+"A01GH","A.05.03.007","Sour cherries","01344.01","Sour cherries","Crop",,,,,
+"A01GL","A.05.03.011","Peaches and similar-","01345","Peaches and nectarines","Crop",,,,,
+"A01DX","A.05.04.001","Table grapes","01330","Grapes","Crop",,,,,
+"A01DY","A.05.04.002","Wine grapes","01330","Grapes","Crop",,,,,
+"A01EA","A.05.04.003","Strawberries","01354","Strawberries","Crop",,,,,
+"A01EE","A.05.04.004","Blackberries","01353.01","Raspberries","Crop",,,,,
+"A01EP","A.05.04.006","Raspberries (red and yellow)","01353.01","Raspberries","Crop",,,,,
+"A01EY","A.05.04.008","Blueberries","01355.01","Blueberries","Crop",,,,,
+"A01FH","A.05.04.009","Cranberries","01355.01","Blueberries","Crop",,,,,
+"A01FM","A.05.04.010","Currants (black, red and white)","01351.01","Currants","Crop",,,,,
+"A0CFN","A.05.04.011","Gooseberries (green, red and yellow)","01351.02","Gooseberries","Crop",,,,,
+"A0CFR","A.05.04.012","Rose hips","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A01FS","A.05.04.013","Mulberries (black and white)","01315","Figs","Crop",,,,,
+,"A.05.04.014","Azarole (mediteranean medlar) (Crataegus azarolus)","01355.01","Blueberries","Crop",,,,,
+"A01FX","A.05.04.015","Elderberries","01351.01","Currants","Crop",,,,,
+"A01EM","A.05.04.016","Cloudberries","01353.01","Raspberries","Crop",,,,,
+,"A.05.04.017","Loganberry (Rubus loganobaccus)","01355.01","Blueberries","Crop",,,,,
+"A01FE","A.05.04.022","Bilberries","01355.01","Blueberries","Crop",,,,,
+,"A.05.04.026","Lingonberry (Vaccinium vitis-idaea)","01355.01","Blueberries","Crop",,,,,
+"A00JG","A.05.04.029","Ground cherries (physalis etc.)","01234","Tomatoes","Crop",,,,,
+"A01FZ","A.05.04.030","Sea buckthorns","01351.01","Currants","Crop",,,,,
+"A016M","A.05.05.001","Olives for oil production","01450","Olives","Crop",,,,,
+,"A.05.05.002","Palm nuts (palmoil kernels)","01491.02","palm kernels [only calories]","Crop",,,,,
+,"A.05.05.003","Palmfruit (Elaeis guineensis)","01491.01","oil palm fruit","Crop",,,,,
+"A01HF","A.05.06.001","Dates","01314","Dates","Crop",,,,,
+"A01HG","A.05.06.002","Figs","01315","Figs","Crop",,,,,
+"A01BP","A.05.06.003","Table olives","01450","Olives","Crop",,,,,
+"A0DRT","A.05.06.004","Kumquats","01322","Lemons and limes","Crop",,,,,
+"A01HM","A.05.06.005","Carambolas","01359.9","Other fruits, n.e.c.","Crop",,,,,
+"A01HQ","A.05.06.006","Kaki","01234","Tomatoes","Crop",,,,,
+"A01JT","A.05.06.008","Kiwi fruits (green, red, yellow)","01352","Kiwi fruit","Crop",,,,,
+"A01JV","A.05.06.009","Litchis","01359.9","Other fruits, n.e.c.","Crop",,,,,
+"A01KC","A.05.06.010","Passionfruits","01359.9","Other fruits, n.e.c.","Crop",,,,,
+"A01KD","A.05.06.011","Prickly pears","01359.9","Other fruits, n.e.c.","Crop",,,,,
+"A01KF","A.05.06.013","American persimmons","01234","Tomatoes","Crop",,,,,
+"A01LB","A.05.06.014","Avocados","01311","Avocados","Crop",,,,,
+,"A.05.06.015","Bananas (Musa × paradisica)","01312","bananas","Crop",,,,,
+"A01LF","A.05.06.016","Mangoes","01316","Mangoes, guavas and mangosteens","Crop",,,,,
+"A01LG","A.05.06.017","Papayas","01317","Papayas","Crop",,,,,
+"A01LH","A.05.06.018","Granate apples","01359.9","Other fruits, n.e.c.","Crop",,,,,
+"A01LK","A.05.06.019","Wild sweetsops","01359.9","Other fruits, n.e.c.","Crop",,,,,
+"A0CGD","A.05.06.020","Guavas","01316","Mangoes, guavas and mangosteens","Crop",,,,,
+"A01LP","A.05.06.021","Pineapples","01318","Pineapples","Crop",,,,,
+,"A.05.06.022","Bread fruit (jackfruit) (Artocarpus altilis)","01359.9","Other fruits, n.e.c.","Crop",,,,,
+"A01LG","A.05.06.029","Papayas","01317","Papayas","Crop",,,,,
+,"A.05.06.030","Chayote (Sechium edule)","01359.9","Other fruits, n.e.c.","Crop",,,,,
+"A01KQ","A.05.06.034","Longans","01359.9","Other fruits, n.e.c.","Crop",,,,,
+"A03DK","A.15","Drinking water","0",0,"Crop",,,,,
+"A03DL","A.15.01","Tap water","0",0,"Crop",,,,,
+"A03DP","A.15.02","Well water","0",0,"Crop",,,,,
+"A04PX","A.15.03","Bottled water","0",0,"Crop",,,,,
+"A04PX","A.15.03.001","Bottled water","0",0,"Crop",,,,,
+"A04PX","A.15.03.002","Bottled water","0",0,"Crop",,,,,
+"A03DK","A.15.04","Drinking water","0",0,"Crop",,,,,
+"A00XB","A.16.01.001","Chervil","01654","Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw","Crop",,,,,
+"A00XD","A.16.01.002","Chives","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A00XH","A.16.01.003","Dill leaves","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A00XA","A.16.01.004","Celery leaves","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A00YE","A.16.01.005","Parsley","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A00YH","A.16.01.006","Sage","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A00YF","A.16.01.007","Rosemary","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A00YQ","A.16.01.008","Thyme","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A00VV","A.16.01.009","Basil","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A00VX","A.16.01.010","Laurel","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A00YP","A.16.01.011","Tarragon","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A018R","A.16.02.004","Allspice fruit","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A017Y","A.16.02.006","Anise seed","01654","Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw","Crop",,,,,
+"A0CZD","A.16.02.008","Black caraway seed","01654","Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw","Crop",,,,,
+"A01AM","A.16.02.009","Capers buds","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A018T","A.16.02.010","Caraway fruit","01654","Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw","Crop",,,,,
+"A018V","A.16.02.011","Cardamom fruit","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A019V","A.16.02.014","Cinnamon bark","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A01AL","A.16.02.015","Cloves buds","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A018D","A.16.02.016","Coriander seed","01654","Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw","Crop",,,,,
+"A018E","A.16.02.017","Cumin seed","01654","Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw","Crop",,,,,
+,"A.16.02.018","Dill seed (Anethum graveolens)","01654","Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw","Crop",,,,,
+"A018G","A.16.02.019","Fennel seed","01654","Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw","Crop",,,,,
+"A018H","A.16.02.020","Fenugreek seed","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A01AB","A.16.02.022","Ginger roots","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A018X","A.16.02.024","Juniper berry","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A01AV","A.16.02.025","Mace aril","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A018J","A.16.02.027","Nutmeg seed","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A018Z","A.16.02.028","Peppercorn (black, green and white)","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A01AR","A.16.02.029","Saffron","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A019J","A.16.02.030","Tamarind","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A01AC","A.16.02.031","Turmeric roots","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A042P","A.16.04.001","Salt","0",0,"Crop",,,,,"?"
+"A042Q","A.16.04.002","Salt, low sodium","0",0,"Crop",,,,,"?"
+"A042R","A.16.04.003","Salt, iodised","0",0,"Crop",,,,,"?"
+"A042T","A.16.04.005","Salt, iodised and fluoridated","0",0,"Crop",,,,,"?"
+"A042X","A.16.04.007","Sea salt","0",0,"Crop",,,,,"?"
+"A019H","A.16.09.003","Vanilla","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A048Z","A.16.10.001","Yeast cultures","0",0,"Crop",,,,,
+"A000R","I.01.02.010.006","Quinoa grain","01194","Quinoa","Crop",,,,,
+"A00XX","I.16.01.012","Marjoram","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A00XV","I.16.01.013","Oregano","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A00XZ","I.16.01.014","Mints","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A00XF","I.16.01.015","Coriander leaves","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A00XS","I.16.01.016","Lovage leaves","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A00YK","I.16.01.017","Winter savory","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
+"A02DE","A.07.01.001","Herrings","A02DE","Herrings","Blue food",,,,,
+"A02ES","A.07.01.001","Herring roe","A02ES","Herring roe","Blue food",,,,,
+"A02DH","A.07.01.002","Sprat","A02DH","Sprat","Blue food",,,,,
+"A02DB","A.07.01.003","European sardine","A02DB","European sardine","Blue food",,,,,
+"A02DD","A.07.01.004","Anchovies","A02DD","Anchovies","Blue food",,,,,
+"A029M","A.07.01.007","Char","A029M","Char","Blue food",,,,,
+"A029B","A.07.01.008","Smelt","A029B","Smelt","Blue food",,,,,
+"A029Q","A.07.01.009","Whitefishes or coregonus","A029Q","Whitefishes or coregonus","Blue food",,,,,
+"A027N","A.07.01.010","Perch","A027N","Perch","Blue food",,,,,
+"A029T","A.07.01.011","Sea bass","A029T","Sea bass","Blue food",,,,,
+"A02CT","A.07.01.013","Mackerel","A02CT","Mackerel","Blue food",,,,,
+"A02DR","A.07.01.014","Tuna and bonito (generic)","A02DR","Tuna and bonito (generic)","Blue food",,,,,
+"A02AD","A.07.01.016","Mullets","A02AD","Mullets","Blue food",,,,,
+"A02CB","A.07.01.018","Hakes","A02CB","Hakes","Blue food",,,,,
+"A02AT","A.07.01.019","Flounders","A02AT","Flounders","Blue food",,,,,
+"A02AY","A.07.01.020","Halibut","A02AY","Halibut","Blue food",,,,,
+"A02BC","A.07.01.021","Plaice","A02BC","Plaice","Blue food",,,,,
+"A02BF","A.07.01.022","Sole","A02BF","Sole","Blue food",,,,,
+"A027C","A.07.01.024","Carps","A027C","Carps","Blue food",,,,,
+"A027B","A.07.01.026","Freshwater bream - Europe","A027B","Freshwater bream - Europe","Blue food",,,,,
+"A028G","A.07.01.027","River eels","A028G","River eels","Blue food",,,,,
+"A02BJ","A.07.01.029","Anglerfish and monkfish","A02BJ","Anglerfish and monkfish","Blue food",,,,,
+"A02DJ","A.07.01.030","Sharks","A02DJ","Sharks","Blue food",,,,,
+"A02DQ","A.07.01.031","Rays","A02DQ","Rays","Blue food",,,,,
+"A02FA","A.07.01.032","Sturgeon roe","A02FA","Sturgeon roe","Blue food",,,,,
+"A02DS","A.07.01.033","Bonito","A02DS","Bonito","Blue food",,,,,
+"A02DA","A.07.01.035","Sardines and sardine-type fishes","A02DA","Sardines and sardine-type fishes","Blue food",,,,,
+"A07Y0","A.07.01.036","Swordfish","A07Y0","Swordfish","Blue food",,,,,
+"A02FF","A.07.04.001","Freshwater crabs","A02FF","Freshwater crabs","Blue food",,,,,
+"A02FP","A.07.04.002","Lobsters","A02FP","Lobsters","Blue food",,,,,
+"A02FS","A.07.04.003","Lobster, norway","A02FS","Lobster, norway","Blue food",,,,,
+"A02FY","A.07.04.004","Prawn, giant tiger","A02FY","Prawn, giant tiger","Blue food",,,,,
+"A02GA","A.07.04.005","White shrimp","A02GA","White shrimp","Blue food",,,,,
+"A02FV","A.07.04.006","Spiny and rock lobsters","A02FV","Spiny and rock lobsters","Blue food",,,,,
+"A02FG","A.07.04.007","Freshwater crayfishes","A02FG","Freshwater crayfishes","Blue food",,,,,
+"A02JH","A.07.05.001","Squids","A02JH","Squids","Blue food",,,,,
+"A02JD","A.07.05.002","Octopuses","A02JD","Octopuses","Blue food",,,,,
+"A02JA","A.07.05.003","Cuttlefishes","A02JA","Cuttlefishes","Blue food",,,,,
+"A02HA","A.07.05.005","Clams","A02HA","Clams","Blue food",,,,,
+"A02HE","A.07.05.006","Cockles","A02HE","Cockles","Blue food",,,,,
+"A02HF","A.07.05.007","Mussels","A02HF","Mussels","Blue food",,,,,
+"A02HG","A.07.05.008","Oysters","A02HG","Oysters","Blue food",,,,,
+"A02HN","A.07.05.010","Scallops, pectens","A02HN","Scallops, pectens","Blue food",,,,,
+"A02GX","A.07.05.013","Water snails, conches and whelks","A02GX","Water snails, conches and whelks","Blue food",,,,,
+"A02GX","A.07.05.014","Water snails, conches and whelks","A02GX","Water snails, conches and whelks","Blue food",,,,,
+"A02KR","A.07.06.001","Frogs (legs)","A02KR","Frogs (legs)","Blue food",,,,,
+"A02LK","A.07.06.004","Snails","A02LK","Snails","Blue food",,,,,
+"A0C75","I.07.01.006.001","Salmons","A0C75","Salmons","Blue food",,,,,
+"A029F","I.07.01.006.002","Trouts","A029F","Trouts","Blue food",,,,,
+"A027J","I.07.01.015.001","Catfishes (freshwater)","A027J","Catfishes (freshwater)","Blue food",,,,,
+"A029Z","I.07.01.015.002","Wolffish","A029Z","Wolffish","Blue food",,,,,
+"A02BV","I.07.01.017.001","Cod","A02BV","Cod","Blue food",,,,,
+"A02EL","I.07.01.017.001","Cod liver","A02EL","Cod liver","Blue food",,,,,
+"A02EP","I.07.01.017.001","Cod roe","A02EP","Cod roe","Blue food",,,,,
+"A02CG","I.07.01.017.002","Whiting","A02CG","Whiting","Blue food",,,,,
+"A02CA","I.07.01.017.004","Haddock","A02CA","Haddock","Blue food",,,,,
+"A0F7F","I.07.03.001.003","Lumpfish roe","A0F7F","Lumpfish roe","Blue food",,,,,
+"A01QV","A.06.01.001","Bovine muscle","21111.01","meat of cattle with the bone, fresh or chilled","Animal product ",,,,,
+"A01QY","A.06.01.002","Calf fresh meat","21111.01","meat of cattle with the bone, fresh or chilled","Animal product ",,,,,
+"A01RG","A.06.01.003","Pig muscle","21113.01","meat of pig with the bone, fresh or chilled","Animal product ",,,,,
+"A01RH","A.06.01.004","Sheep muscle","21115","meat of sheep, fresh or chilled","Animal product ",,,,,
+"A01RL","A.06.01.005","Goat muscle","21116","meat of goat, fresh or chilled","Animal product ",,,,,
+"A01RM","A.06.01.006","Equine muscle","21118.01","horse meat, fresh or chilled","Animal product ",,,,,
+"A01RQ","A.06.01.007","Rabbit fresh meat","21114","meat of rabbits and hares, fresh or chilled","Animal product ",,,,,
+"A01SQ","A.06.02.002","Turkey fresh meat","21124","meat of turkeys, fresh or chilled","Animal product ",,,,,
+"A01SR","A.06.02.003","Duck fresh meat","21122","meat of ducks, fresh or chilled","Animal product ",,,,,
+"A01SS","A.06.02.004","Goose fresh meat","21123","meat of geese, fresh or chilled","Animal product ",,,,,
+"A01TA","A.06.02.005","Pigeon fresh meat","21170.01","meat of pigeons and other birds n.e.c., fresh, chilled or frozen","Animal product ",,,,,
+"A01SX","A.06.02.006","Guinea-fowl fresh meat","21121","meat of chickens, fresh or chilled","Animal product ",,,,,
+"A01ST","A.06.02.007","Ratites fresh meat","21170.02","game meat, fresh, chilled or frozen","Animal product ",,,,,
+"A01SH","A.06.03.001","Wild boar fresh meat","21170.02","game meat, fresh, chilled or frozen","Animal product ",,,,,
+"A01SC","A.06.03.002","Deer, red fresh meat","21170.02","game meat, fresh, chilled or frozen","Animal product ",,,,,
+"A01SE","A.06.03.003","European moose meat","21170.02","game meat, fresh, chilled or frozen","Animal product ",,,,,
+"A01SF","A.06.03.004","Reindeer meat","21170.02","game meat, fresh, chilled or frozen","Animal product ",,,,,
+"A01SJ","A.06.03.006","Hare fresh meat","21114","meat of rabbits and hares, fresh or chilled","Animal product ",,,,,
+"A01SZ","A.06.04.001","Pheasant fresh meat","21170.02","game meat, fresh, chilled or frozen","Animal product ",,,,,
+"A01TG","A.06.04.003","Mallard fresh meat","21170.02","game meat, fresh, chilled or frozen","Animal product ",,,,,
+"A01SY","A.06.04.004","Partridge fresh meat","21170.02","game meat, fresh, chilled or frozen","Animal product ",,,,,
+"A01TB","A.06.04.005","Quail fresh meat","21170.02","game meat, fresh, chilled or frozen","Animal product ",,,,,
+"A02LV","A.08.01.001.002","Cow milk","02211","raw milk of cattle","Animal product ",,,,,
+"A02MC","A.08.01.002","Sheep milk","02291","raw milk of sheep","Animal product ",,,,,
+"A02MD","A.08.01.003","Water buffalo milk","02212","raw milk of buffalo","Animal product ",,,,,
+"A02MB","A.08.01.005","Goat milk","02292","raw milk of goats","Animal product ",,,,,
+"A02MG","A.08.01.007","Ass milk","02211","raw milk of cattle","Animal product ",,,,,
+"A031G","A.09.01.001","Hen eggs","0231","hen eggs in shell, fresh","Animal product ",,,,,
+"A031H","A.09.01.005","Duck eggs","0232","eggs from other birds in shell, fresh, n.e.c.","Animal product ",,,,,
+"A031K","A.09.01.007","Quail eggs","0232","eggs from other birds in shell, fresh, n.e.c.","Animal product ",,,,,
+"A033J","A.10.07","Honey","02910","Honey","Animal product ",,,,,
