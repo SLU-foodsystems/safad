@@ -47,7 +47,7 @@ function main(args) {
       }
 
       acc[suaCode][origin] = [originShare, productionWaste, organic].map((x) =>
-        roundToPrecision(parseFloat(x))
+        parseFloat(x)
       );
 
       // Pass the acc along.
