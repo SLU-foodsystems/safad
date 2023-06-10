@@ -79,10 +79,13 @@ function aggregateBy<T>(
 /**
  * Aggergate or sum over rpc categories to the fist level (e.g. A01).
  */
-export function aggregateRpcCategories(rpcMap: Record<string, number[]>) {
+export function aggregateRpcCategories(
+  rpcMap: Record<string, number[]>,
+  level: number
+) {
   return aggregateBy<number[]>(
     rpcMap,
-    (code) => code.substring(0, 4),
+    (code) => code.substring(0, nthIndexOf(code, ".", level)),
     (a: number[], b: number[]) => a.map((x, i) => x + b[i])
   );
 }
@@ -116,3 +119,25 @@ export const listAllProcesses = (
       .map((obj) => Object.keys(obj))
       .flat(1)
   );
+
+/**
+ * Recursive function to find the nth index of a substring in a string.
+ */
+export const nthIndexOf = (
+  string: string,
+  searchString: string,
+  nth: number,
+  fromIndex = 0
+): number => {
+  const index = string.indexOf(searchString, fromIndex);
+
+  if (index === -1) {
+    return -1;
+  }
+
+  if (nth === 0) {
+    return index;
+  }
+
+  return nthIndexOf(string, searchString, nth - 1, index + 1);
+};
