@@ -51,7 +51,7 @@ const rpcFiles = {
 
 const categoryNames = categoryNamesJson as Record<string, string>;
 const getCategoryName = (code: string, level: number) => {
-  const levelCode = code.substring(0, 4 + (level - 1) * 3);
+  const levelCode = code.substring(0, 4 + (level - 1) * 3).replace("I", "A");
   return categoryNames[levelCode] || `NOT FOUND (${levelCode})`;
 };
 
