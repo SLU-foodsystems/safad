@@ -81,40 +81,46 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
 
   ResultsEngine.setEnvFactors(allEnvImpacts);
 
-  const results = await Promise.all(
-    LL_COUNTRIES.map(async (country) => {
-      const rpcParameters = (
-        (await rpcFiles[country]) as unknown as { data: RpcFactors }
-      ).data;
-      ResultsEngine.setCountry(country);
-      ResultsEngine.setRpcFactors(rpcParameters);
-
-      const impactsPerDiet = diets
-        .map((diet) => {
-          const rpc = diet[0].code;
-          const footprints = ResultsEngine.computeFootprints(diet);
-          if (footprints === null) {
-            return null;
-          }
-          const [rpcFootprints, processImpacts] = footprints;
-          const processes = listAllProcesses(processImpacts).join("$")
-
-          return [
-            rpc,
-            maybeQuoteValue(names[rpc] || "NAME NOT FOUND"),
-            maybeQuoteValue(getCategoryName(rpc, 1)),
-            maybeQuoteValue(getCategoryName(rpc, 2)),
-            ...aggregateFootprints(rpcFootprints, processImpacts),
-            processes,
-          ];
-        })
-        .filter((x) => x !== null);
-
-      const impactsCsv = impactsPerDiet.map((row) => row!.join(",")).join("\n");
-
-      return [country, header.join(",") + "\n" + impactsCsv];
-    })
+  const syncRpcFiles = await Promise.all(
+    LL_COUNTRIES.map(
+      async (country: LlCountryName): Promise<[string, RpcFactors]> => {
+        const rpcParameters = (
+          (await rpcFiles[country]) as unknown as { data: RpcFactors }
+        ).data;
+        return [country, rpcParameters];
+      }
+    )
   );
+
+  const results = syncRpcFiles.map(([country, rpcParameters]) => {
+    ResultsEngine.setCountry(country);
+    ResultsEngine.setRpcFactors(rpcParameters);
+
+    const impactsPerDiet = diets
+      .map((diet) => {
+        const rpc = diet[0].code;
+        const footprints = ResultsEngine.computeFootprints(diet);
+        if (footprints === null) {
+          return null;
+        }
+        const [rpcFootprints, processImpacts] = footprints;
+        const processes = listAllProcesses(processImpacts).join("$");
+
+        return [
+          rpc,
+          maybeQuoteValue(names[rpc] || "NAME NOT FOUND"),
+          maybeQuoteValue(getCategoryName(rpc, 1)),
+          maybeQuoteValue(getCategoryName(rpc, 2)),
+          ...aggregateFootprints(rpcFootprints, processImpacts),
+          processes,
+        ];
+      })
+      .filter((x) => x !== null);
+
+    const impactsCsv = impactsPerDiet.map((row) => row!.join(",")).join("\n");
+
+    return [country, header.join(",") + "\n" + impactsCsv];
+  });
 
   return results;
 }
