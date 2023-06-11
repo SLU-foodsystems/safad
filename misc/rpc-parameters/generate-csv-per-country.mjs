@@ -120,19 +120,19 @@ function getFoodItemShares(matrix, country) {
   Object.keys(allProportions).forEach((itemName) => {
     const result = {};
 
-    // Step 3a: Only transfer value if larger than threshold, else sum to RoW
+    // Step 3a: Only transfer value if larger than threshold
     Object.entries(allProportions[itemName]).forEach(([country, value]) => {
       if (value > ROW_THRESHOLD) {
         result[country] = value;
         _countries.add(country);
-      } else {
-        result.RoW = (result.RoW || 0) + value;
       }
     });
 
-    // TODO: Do we want to delete (and adjust for) ROW if it is too low?
+    // Steb 3b: Add whatever is left of 100% as RoW
+    const importsSum = Object.values(result).reduce((a, b) => a + b, 0);
+    result.RoW = Math.max(0, 1 - importsSum);
 
-    // Step 3b: Round to precision to avoid ca 20 decimal points.
+    // Step 3c: Round to precision to avoid too many decimal points
     simplifiedProportions[itemName] = Object.fromEntries(
       Object.entries(result)
         .map(
