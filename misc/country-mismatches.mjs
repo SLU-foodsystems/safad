@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-import fs from "fs";
-import * as utils from "./utils.mjs";
+import { readCsv } from "./utils.mjs";
 import envFactorsJson from "../src/data/env-factors.json" assert { type: "json" };
 
 import rpcFactorsFrance from "../src/data/rpc-parameters/France-rpc.json" assert { type: "json" };
@@ -43,6 +42,11 @@ const maybeQuote = (str) => (str && str.includes(",") ? `"${str}"` : str);
 async function main() {
   const envFactors = envFactorsJson.data;
   const suaCodes = Object.keys(envFactors);
+  const suaNames = Object.fromEntries(
+    readCsv("./rpc-sua-map/rpc-to-sua.csv", ",")
+      .slice(1)
+      .map((row) => [row[3], row[4]])
+  );
 
   const body = suaCodes
     .map((suaCode) => {
@@ -60,6 +64,7 @@ async function main() {
 
       return [
         suaCode,
+        suaNames[suaCode],
         envCountries.map((c) => maybeQuote(c)).join(", "),
         ...missing,
       ].join(";");
@@ -68,7 +73,8 @@ async function main() {
     .join("\n");
 
   const header = [
-    "SUA CODE",
+    "Sua code",
+    "Sua Name",
     "Länder i miljödatan",
     ...LL_COUNTRIES.map((x) => "Saknas för " + x),
   ].join(";");
