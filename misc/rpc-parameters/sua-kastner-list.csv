@@ -22,7 +22,7 @@
 "01372","Cashew nuts, in shell","Nuts","No","Cashew nuts, with shell"
 "01520.01","Cassava, fresh","Vegetables","No","Cassava"
 "01213","Cauliflowers and broccoli, average","Vegetables","No","Melons, other (inc.cantaloupes)"
-"01199.9","Cereals n.e.c.","Cereals","No","Grain, mixed"
+"01199.90","Cereals n.e.c.","Cereals","No","Grain, mixed"
 "01344.02","Cherries","Berries","Yes",
 "01373","Chestnuts, in shell","Nuts","No","Chestnut"
 "01703","Chick peas, dry","Pulses","No","Chick peas"
@@ -35,7 +35,7 @@
 "01232","Cucumbers and gherkins, averrage","Vegetables","No","Cucumbers and gherkins"
 "01351.01","Currants","Berries","Yes",
 "01314","Dates","Fruits","Yes",
-"01599.1","Edible roots and tubers with high starch or inulin content, n.e.c., fresh","Roots","No","Roots and tubers nes"
+"01599.10","Edible roots and tubers with high starch or inulin content, n.e.c., fresh","Roots","No","Roots and tubers nes"
 "01233","Eggplants (aubergines)","Vegetables","Yes",
 "0232","eggs from other birds in shell, fresh, n.e.c.","Dairy","No","Eggs, other bird, in shell"
 "01315","Figs","Fruits","Yes",
@@ -80,12 +80,12 @@
 "01450","Olives","Oil crops, tree","Yes",
 "01253.02","Onions and shallots, dry (excluding dehydrated)","Vegetables","No","Onions, dry"
 "01323","Oranges","Fruits","Yes",
-"01241.9","Other beans, green","Vegetables","No","Beans, green"
-"01359.9","Other fruits, n.e.c.","Fruits","No","Fruit, fresh nes"
-"01449.9","Other oil seeds, n.e.c.","Oil crops","No","Oilseeds nes"
-"01709.9","Other pulses n.e.c.","Pulses","No","Beans, dry"
+"01241.90","Other beans, green","Vegetables","No","Beans, green"
+"01359.90","Other fruits, n.e.c.","Fruits","No","Fruit, fresh nes"
+"01449.90","Other oil seeds, n.e.c.","Oil crops","No","Oilseeds nes"
+"01709.90","Other pulses n.e.c.","Pulses","No","Beans, dry"
 "01699","Other stimulant, spice and aromatic crops, n.e.c.","Stimulants","No","Spices nes"
-"01290.9","Other vegetables, fresh n.e.c.","Vegetables","No","Vegetables, fresh nes"
+"01290.90","Other vegetables, fresh n.e.c.","Vegetables","No","Vegetables, fresh nes"
 "01317","Papayas","Fruits","Yes",
 "01345","Peaches and nectarines","Fruits","Yes",
 "01342.01","Pears","Fruits","Yes",
@@ -129,7 +129,7 @@
 "01709.01","Vetches","Other","Yes",
 "0111","Wheat, average","Cereals, incl feed","No","Wheat"
 "01319","Other tropical fruits, n.e.c.","Fruits","No","Fruit, tropical fresh nes"
-"01379.9","Nuts nes","Nuts","No","Nuts nes"
+"01379.90","Nuts nes","Nuts","No","Nuts nes"
 "01620","Tea leaves","Stimulants","No","Tea"
 "01655","Cinnamon and cinnamon-tree flowers, raw","Spices","No","Cinnamon (cannella)"
 "01656","Cloves (whole stems), raw","Spices","No","Cloves"
