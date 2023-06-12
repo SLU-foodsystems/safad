@@ -86,7 +86,7 @@ export default function reduceDietToRPCs(
     facet: string,
     amount: number
   ) => {
-    const level1Category = code.substring(0, 4);
+    const level1Category = code.substring(0, 4).replace("I", "A");
     if (!(level1Category in processesMap)) {
       processesMap[level1Category] = {};
     }
