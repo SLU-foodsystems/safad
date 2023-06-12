@@ -154,6 +154,22 @@ class ResultsEngine {
     return [rpcImpact, processesEnvImpacts];
   }
 
+  public computeFootprintsWithCategory(diet: Diet) {
+    const impacts = this.computeFootprints(diet);
+    if (!impacts) return null;
+
+    const [rpcImpact, processImpacts] = impacts;
+
+    const rpcImpactsByCategory = aggregateRpcCategories(rpcImpact, 1);
+
+    const processImpactsByCategory = mapValues(
+      processImpacts,
+      (perCategoryProcesses) => vectorsSum(Object.values(perCategoryProcesses))
+    );
+
+    return [rpcImpactsByCategory, processImpactsByCategory];
+  }
+
   // Necessary for testing.
   public reset() {
     this.rpcParameters = null;
