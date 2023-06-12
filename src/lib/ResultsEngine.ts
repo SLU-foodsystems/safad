@@ -9,11 +9,10 @@ import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import foodsRecipes from "@/data/foodex-recipes.json";
 import flattenEnvironmentalFootprints from "./env-impact-aggregator";
 import { aggregateRpcCategories, mapValues, vectorsSum } from "./utils";
+import { ENV_FOOTPRINTS_ZERO } from "./constants";
 
 const recipes = foodsRecipes.data as unknown as FoodsRecipes;
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
-
-const ENV_IMPACT_ZERO = Array.from({ length: 16 }).map((_) => 0);
 
 /**
  * Ties all parts of computing the results into a singleton.
@@ -79,7 +78,7 @@ class ResultsEngine {
 
     const suaCode = rpcToSuaMap[rpcCode];
     if (suaCode === "0") {
-      return ENV_IMPACT_ZERO;
+      return ENV_FOOTPRINTS_ZERO;
     }
 
     if (!suaCode) {
@@ -88,8 +87,8 @@ class ResultsEngine {
     }
 
     if (!this.flatEnvFootprints[suaCode]) {
-      console.warn("Missing factors for " + rpcCode);
-      return ENV_IMPACT_ZERO;
+      // console.warn(`Missing factors for ${rpcCode} (${suaCode})`);
+      return ENV_FOOTPRINTS_ZERO;
     }
 
     return this.flatEnvFootprints[suaCode].map((x) => (x * amountGram) / 1000);
