@@ -79,7 +79,8 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
     },
   ]);
 
-  ResultsEngine.setEnvFactors(allEnvImpacts);
+  const RE = new ResultsEngine();
+  RE.setEnvFactors(allEnvImpacts);
 
   const syncRpcFiles = await Promise.all(
     LL_COUNTRIES.map(
@@ -93,13 +94,13 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
   );
 
   const results = syncRpcFiles.map(([country, rpcParameters]) => {
-    ResultsEngine.setCountry(country);
-    ResultsEngine.setRpcFactors(rpcParameters);
+    RE.setCountry(country);
+    RE.setRpcFactors(rpcParameters);
 
     const impactsPerDiet = diets
       .map((diet) => {
         const rpc = diet[0].code;
-        const footprints = ResultsEngine.computeFootprints(diet);
+        const footprints = RE.computeFootprints(diet);
         if (footprints === null) {
           return null;
         }
