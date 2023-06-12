@@ -63,8 +63,8 @@ async function main() {
       if (missing.every((x) => x.length === 0)) return null;
 
       return [
-        suaCode,
-        suaNames[suaCode],
+        `"${suaCode}"`,
+        maybeQuote(suaNames[suaCode]),
         envCountries.map((c) => maybeQuote(c)).join(", "),
         ...missing,
       ].join(";");
