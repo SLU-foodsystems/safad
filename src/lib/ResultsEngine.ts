@@ -177,5 +177,4 @@ class ResultsEngine {
   }
 }
 
-const singleton = new ResultsEngine();
-export default singleton;
+export default ResultsEngine;
