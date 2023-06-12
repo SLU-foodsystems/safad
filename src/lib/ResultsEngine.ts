@@ -8,6 +8,7 @@ import {
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import foodsRecipes from "@/data/foodex-recipes.json";
 import flattenEnvironmentalFootprints from "./env-impact-aggregator";
+import { aggregateRpcCategories, mapValues, vectorsSum } from "./utils";
 
 const recipes = foodsRecipes.data as unknown as FoodsRecipes;
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
@@ -91,14 +92,14 @@ class ResultsEngine {
       return ENV_IMPACT_ZERO;
     }
 
-    return this.flatEnvFootprints[suaCode].map(x => x * amountGram / 1000);
+    return this.flatEnvFootprints[suaCode].map((x) => (x * amountGram) / 1000);
   }
 
   // Set the rpc-factors, i.e. the origin of each rpc, its share, and its
   // production waste.
   public setRpcFactors(rpcFactors: RpcFactors) {
     this.rpcParameters = rpcFactors;
-    return this.recomputeEnvFootprints();
+    this.recomputeEnvFootprints();
   }
 
   public setFactorsOverrides(overrides: FactorsOverrides) {
@@ -118,7 +119,9 @@ class ResultsEngine {
 
   public computeFootprints(
     diet: Diet
-  ): null | [Record<string, number[]>, Record<string, Record<string, number[]>>] {
+  ):
+    | null
+    | [Record<string, number[]>, Record<string, Record<string, number[]>>] {
     if (!this.envFootprintsPerOrigin) {
       console.error(
         "Compute called when no environmentalFactorsSheet was set."
@@ -134,10 +137,12 @@ class ResultsEngine {
     const [rpcs, processes] = reduceDiet(diet, recipes);
 
     const rpcImpact = Object.fromEntries(
-      rpcs.map(([rpc, amountGram]) => [
-        rpc,
-        this.getRpcFootprints(rpc, amountGram),
-      ]).filter(x => x[1] !== null)
+      rpcs
+        .map(([rpc, amountGram]) => [
+          rpc,
+          this.getRpcFootprints(rpc, amountGram),
+        ])
+        .filter((x) => x[1] !== null)
     );
 
     // Per-process impacts
