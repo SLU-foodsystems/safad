@@ -19,7 +19,7 @@
 import { readCsv } from "../utils.mjs";
 
 function main(args) {
-  const csv = readCsv(args[0], ",", true).slice(1); // Drop Header
+  const csv = readCsv(args[0], ",").slice(1); // Drop Header
 
   const results = Object.fromEntries(
     csv.map(([code, _processName, _totalEnergy, _note, ...demandsStrs]) => {
