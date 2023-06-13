@@ -354,4 +354,66 @@ describe("RPC reducer", () => {
       expect(processes["A.19"]["F28.A07GY"]).toEqual(1000 * 0.5 * 3);
     });
   });
+
+  describe("Packaging", () => {
+    test("Direct: Adds packaging to diet on L2 level", () => {
+      const diet: Diet = [
+        {
+          code: "A.19.01",
+          amount: 1000,
+          organic: 0,
+          retailWaste: 0,
+          consumerWaste: 0,
+        },
+      ];
+      const preparationProcesses = {
+        "A.19.01": "P2",
+      };
+
+      const [_rpcs, _processes, packaging] = reduceDiet(diet, {}, preparationProcesses);
+
+      expect(packaging["A.19"]).toHaveProperty("P2");
+      expect(packaging["A.19"]["P2"]).toEqual(1000);
+    });
+    test("Direct: Adds processes to diet entered > L2 level", () => {
+      const diet: Diet = [
+        {
+          code: "A.19.01.002.003", // pizza derivative
+          amount: 1234,
+          organic: 0,
+          retailWaste: 0,
+          consumerWaste: 0,
+        },
+      ];
+      const preparationProcesses = { "A.19.01": "P1" };
+
+      const [_rpcs, _processes, packaging] = reduceDiet(diet, {}, preparationProcesses);
+
+      expect(packaging["A.19"]).toHaveProperty("P1");
+      expect(packaging["A.19"]["P1"]).toEqual(1234);
+    });
+
+    test("Indirect: Adds processes to diet entered > L2 level", () => {
+      const diet: Diet = [
+        {
+          code: "I.20.01.001.001", // Dummy product
+          amount: 1000,
+          organic: 0,
+          retailWaste: 0,
+          consumerWaste: 0,
+        },
+      ];
+
+      // Let's pretend this leads to a pizza
+      const recipes: FoodsRecipes = {
+        "I.20.01.001.001": [["A.19.01.002.003", [], 0.5, 3]],
+      };
+      const preparationProcesses = { "A.19.01": "P5" };
+
+      const [_rpcs, _processes, packaging] = reduceDiet(diet, recipes, preparationProcesses);
+
+      expect(packaging["A.19"]).toHaveProperty("P5");
+      expect(packaging["A.19"]["P5"]).toEqual(1000 * 0.5 * 3);
+    });
+  });
 });
