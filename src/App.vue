@@ -4,17 +4,79 @@ import { defineComponent } from "vue";
 import ChartContainer from "@/components/ChartContainer.vue";
 import { downloadAsPlaintext } from "@/lib/csv-io";
 import generateValidationFiles from "@/lib/validation/rpc-with-import";
+import ResultsEngine from "@/lib/ResultsEngine";
+import { expandedFootprints } from "@/lib/footprints-aggregator";
+import { maybeQuoteValue, uniq } from "./lib/utils";
+import { ENV_FOOTPRINTS_ZERO } from "./lib/constants";
 
+import namesJson from "@/data/category-names.json";
 
 export default defineComponent({
-  components: { ChartContainer },
+  //components: { ChartContainer },
 
   methods: {
     async run() {
-      const results = await generateValidationFiles();
-      results.forEach(([country, csv]) => {
-        downloadAsPlaintext(csv, country + ".csv");
-      });
+      if (false) {
+        const validationFilesPerCountry = await generateValidationFiles();
+        validationFilesPerCountry.forEach(([country, csv]) => {
+          downloadAsPlaintext(csv, country + ".csv");
+        });
+      }
+
+      const envFactors = (await import("@/data/env-factors.json")).data;
+      const rpcFactors = (await import("@/data/rpc-parameters/Sweden-rpc.json"))
+        .data as unknown as RpcFactors;
+      const swedishDiet = (await import("@/data/diets/Sweden.json")).default;
+
+      const RE = new ResultsEngine();
+      RE.setEnvFactors(envFactors);
+      RE.setRpcFactors(rpcFactors);
+      RE.setCountry("Sweden");
+
+      const diet = Object.entries(swedishDiet).map(([code, amount]) => ({
+        code,
+        amount,
+        retailWaste: 0,
+        consumerWaste: 0,
+      }));
+
+      const results = RE.computeFootprintsWithCategory(diet);
+      if (results === null) return;
+      const categories = uniq([
+        ...Object.keys(results[0]),
+        ...Object.keys(results[1]),
+      ]);
+
+      const names = namesJson as Record<string, string>;
+      console.log(names);
+
+      const totals = categories
+        .map((key) => {
+          const rpcFootprints = results[0][key];
+          const processFootprints = results[1][key];
+          return [
+            key,
+            expandedFootprints(
+              rpcFootprints || ENV_FOOTPRINTS_ZERO,
+              processFootprints || [0, 0, 0]
+            ),
+          ];
+        })
+        .map(([code, footprints]) => [code, maybeQuoteValue(names[code]),
+        ...footprints].join(",")).join("\n");
+
+      console.log({ totals });
+
+      // 1. Get the env impacts and the rpc factors.
+      // 2. Add them to the ResultsEngine
+      // 3. get results by category:
+      // - List every group, and aggregate over them
+      // - Add one row with "category = SUM"
+      // 4. Extract the 6 important metrics, and export plots
+      // - The PlotManager (or a vue component?) will recieve:
+      // - the six footprints as a total - for the boundary graph
+      // - the six footprints for each category (and total?) - for the categories
+      // - the amounts to extract in kilo
     },
   },
 
