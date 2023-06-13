@@ -76,6 +76,14 @@ function aggregateBy<T>(
   return result;
 }
 
+export function getRpcCodeSubset(code: string, level: number) {
+  if (!code) return "";
+  const idx = nthIndexOf(code, ".", level);
+  if (idx === -1) return code;
+  const subset = code.substring(0, idx);
+  return subset.replace("I", "A");
+}
+
 /**
  * Aggergate or sum over rpc categories to the fist level (e.g. A01).
  */
@@ -85,7 +93,7 @@ export function aggregateRpcCategories(
 ) {
   return aggregateBy<number[]>(
     rpcMap,
-    (code) => code.substring(0, nthIndexOf(code, ".", level)),
+    (code) => getRpcCodeSubset(code, level),
     (a: number[], b: number[]) => a.map((x, i) => x + b[i])
   );
 }
