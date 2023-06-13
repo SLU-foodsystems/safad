@@ -59,15 +59,23 @@ function reduceToRpcs(
   let newRecordedSpecials = recordedPProcesses;
   const componentCodeLevel = getLevel(componentCode);
   if (componentCodeLevel >= 3) {
-    const l3Code =
-      componentCodeLevel === 3
-        ? componentCode
-        : getRpcCodeSubset(componentCode, 3);
-
+    const l3Code = getRpcCodeSubset(componentCode, 3);
     const special = preparationProcesses[l3Code];
+
     if (special && !recordedPProcesses.includes(l3Code)) {
       newRecordedSpecials = [componentCode, ...recordedPProcesses];
       recordProcessContribution(l3Code, special, amount);
+    }
+  }
+
+  if (false && componentCodeLevel >= 2) {
+    const l2Code = getRpcCodeSubset(componentCode, 2);
+    const special = preparationProcesses[l2Code];
+
+    if (special && !recordedPProcesses.includes(l2Code)) {
+      newRecordedSpecials = [componentCode, ...recordedPProcesses];
+      // Here, I want to record a packaging thing
+      //recordProcessContribution(l2Code, special, amount);
     }
   }
 
