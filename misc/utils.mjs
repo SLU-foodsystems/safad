@@ -39,14 +39,8 @@ function csvToArr(str, delim = ",") {
   return ret;
 }
 
-export function readCsv(fpath, delim = ",", naiveSplit = false) {
+export function readCsv(fpath, delim = ",") {
   const fileContent = fs.readFileSync(fpath, { encoding: "utf8" });
-
-  const rows = fileContent.split("\n");
-  if (naiveSplit) {
-    return rows.map((row) => row.split(delim)).filter((x) => x.length > 1);
-  }
-
   return csvToArr(fileContent, delim).filter(x => x.length > 1);
 }
 
