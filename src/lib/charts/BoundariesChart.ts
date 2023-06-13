@@ -87,11 +87,13 @@ export default function BoundariesChart(
   // scale the gradient to 1
   (
     [
-      [0, "#207320"],
-      [0.5, "#3cc310"],
-      [0.85, "#ffff5a"],
-      [1.1, "#f22"],
-      [2, "#e2002a"],
+      [0, "#2ba05f"],
+      [0.95, "#2ba05f"],
+      [1.05, "#f9a933"],
+      [1.67, "rgba(255, 112, 68, 1)"],
+      [2, "rgba(255, 112, 68, 1)"],
+      [2.01, "rgba(255, 112, 68, 0.35)"],
+      [3, "rgba(226, 0, 42, 0)"],
     ] as [number, string][]
   ).forEach(([offset, color]) => {
     radialGradient
