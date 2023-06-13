@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { aggregateRpcCategories, nthIndexOf } from "./utils";
+import { aggregateRpcCategories, getRpcCodeSubset, nthIndexOf } from "./utils";
 
 describe("utils.ts", () => {
   test("groupRpcCategories", () => {
@@ -32,5 +32,15 @@ describe("utils.ts", () => {
     expect(nthIndexOf(str, ".", 4)).toEqual(16)
     expect(nthIndexOf(str, ".", 5)).toEqual(20)
     expect(nthIndexOf(str, ".", 6)).toEqual(-1)
+  });
+
+  test("getRpcCodeSubset", () => {
+    const str = "A.03.001.002.123";
+
+    expect(getRpcCodeSubset(str, 1)).toEqual("A.03");
+    expect(getRpcCodeSubset(str, 2)).toEqual("A.03.001");
+    expect(getRpcCodeSubset(str, 3)).toEqual("A.03.001.002");
+    expect(getRpcCodeSubset(str, 4)).toEqual("A.03.001.002.123");
+    expect(getRpcCodeSubset(str, 5)).toEqual("A.03.001.002.123");
   })
 });
