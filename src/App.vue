@@ -6,7 +6,7 @@ import { downloadAsPlaintext } from "@/lib/csv-io";
 import generateValidationFiles from "@/lib/validation/rpc-with-import";
 import ResultsEngine from "@/lib/ResultsEngine";
 import { expandedFootprints } from "@/lib/footprints-aggregator";
-import { maybeQuoteValue, uniq } from "./lib/utils";
+import { getRpcCodeSubset, maybeQuoteValue, uniq } from "./lib/utils";
 import { ENV_FOOTPRINTS_ZERO } from "./lib/constants";
 
 import namesJson from "@/data/category-names.json";
@@ -15,7 +15,13 @@ import wasteFactorsJson from "@/data/waste-factors.json";
 const wasteFactors = wasteFactorsJson.Sweden as Record<string, number[]>;
 
 export default defineComponent({
-  //components: { ChartContainer },
+  components: { ChartContainer },
+
+  data() {
+    return {
+      boundaryData: [] as [string, number][],
+    };
+  },
 
   methods: {
     async run() {
@@ -42,6 +48,7 @@ export default defineComponent({
           amount,
           retailWaste: 0,
           consumerWaste: 0,
+          organic: 0,
         }))
         .map((component) => {
           const L2Code = getRpcCodeSubset(component.code, 2);
@@ -62,25 +69,46 @@ export default defineComponent({
         ...Object.keys(results[1]),
       ]);
 
-      const names = namesJson as Record<string, string>;
-      console.log(names);
+      const categoryNames = namesJson as Record<string, string>;
+      console.log(categoryNames);
 
-      const totals = categories
-        .map((key) => {
-          const rpcFootprints = results[0][key];
-          const processFootprints = results[1][key];
-          return [
-            key,
-            expandedFootprints(
-              rpcFootprints || ENV_FOOTPRINTS_ZERO,
-              processFootprints || [0, 0, 0]
-            ),
-          ];
-        })
-        .map(([code, footprints]) => [code, maybeQuoteValue(names[code]),
-        ...footprints].join(",")).join("\n");
+      const totals = categories.map((key) => {
+        const rpcFootprints = results[0][key];
+        const processFootprints = results[1][key];
+        return [
+          key,
+          expandedFootprints(
+            rpcFootprints || ENV_FOOTPRINTS_ZERO,
+            processFootprints || [0, 0, 0]
+          ),
+        ];
+      });
 
-      console.log({ totals });
+      const footprints = totals.map(([key, footprints]) => {
+        return [
+          key,
+          {
+            co2e: footprints[0],
+            land: footprints[11],
+            n: footprints[12],
+            p: footprints[13],
+            h2o: footprints[14],
+            biodiversity: footprints[16],
+          },
+        ];
+      });
+
+      const totalFootprints = footprints
+        .map(([_key, footprints]) => Object.entries(footprints))
+        .reduce((acc, curr) => {
+          if (acc.length === 0) return curr;
+          return acc.map((entry, i) => [entry[0], entry[1] + curr[i][1]]);
+        }, []);
+
+      console.log(footprints);
+      console.log(totalFootprints);
+
+      this.boundaryData = totalFootprints as [string, number][];
 
       // 1. Get the env impacts and the rpc factors.
       // 2. Add them to the ResultsEngine
@@ -111,7 +139,7 @@ export default defineComponent({
       <div class="cluster cluster--center">
         <button class="button button--accent" @click="run">Run &gt;</button>
       </div>
-      <ChartContainer />
+      <ChartContainer :boundaryData="boundaryData" />
     </div>
   </section>
 </template>
