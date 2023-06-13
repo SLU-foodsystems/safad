@@ -134,7 +134,11 @@ class ResultsEngine {
       return null;
     }
 
-    const [rpcs, processes] = reduceDiet(diet, recipes, processesAndPackagingData);
+    const [rpcs, processes] = reduceDiet(
+      diet,
+      recipes,
+      processesAndPackagingData
+    );
 
     const rpcImpact = Object.fromEntries(
       rpcs
