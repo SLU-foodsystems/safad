@@ -92,7 +92,7 @@ export default defineComponent({
             land: footprints[11],
             n: footprints[12],
             p: footprints[13],
-            h2o: footprints[14],
+            h2o: (footprints[14] as number) * 365,
             biodiversity: footprints[16],
           },
         ];
