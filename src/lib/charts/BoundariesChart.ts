@@ -14,7 +14,7 @@ interface Config {
 type RadarDataPoint = { axis: string; value: number };
 type RadarData = RadarDataPoint[][];
 
-export default function RadarChart(
+export default function BoundariesChart(
   id: string,
   data: RadarData,
   options: Partial<Config>
