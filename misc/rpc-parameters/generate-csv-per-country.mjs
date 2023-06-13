@@ -37,6 +37,15 @@ const COUNTRY_RENAME_MAP = {
   "Côte d'Ivoire": "Cote d'Ivoire",
 };
 
+const ALL_COUNTRY_OVERRIDES = [
+  ["01802", "Sugar cane", "Sugar crops", "Spain", 1, 0.045, 0],
+  ["01491.01", "Oil palm fruit", "Oil crops, tree", "Malaysia", 0.3, 0.06, 0],
+  ["01491.01", "Oil palm fruit", "Oil crops, tree", "Indonesia", 0.7, 0.06, 0],
+];
+
+// Sua codes in the list above
+const OVERRIDE_CODES = new Set(ALL_COUNTRY_OVERRIDES.map((x) => x[0]));
+
 /**
  * @param {string | number} value
  * @returns {string | number}
@@ -222,6 +231,10 @@ function main(args) {
       waste = wasteFactorsMap[category];
     }
 
+    if (OVERRIDE_CODES.has(suaCode)) {
+      return;
+    }
+
     // For each country, we extract the share and waste for this specific food
     countries.forEach((consumerCountry) => {
       const shares = sharesPerCountryAndItem[consumerCountry][itemName] || {
@@ -240,6 +253,12 @@ function main(args) {
           0, // organic
         ]);
       });
+    });
+  });
+
+  countries.forEach((consumerCountry) => {
+    ALL_COUNTRY_OVERRIDES.forEach((row) => {
+      rpcParametersPerCountry[consumerCountry].push(row);
     });
   });
 
