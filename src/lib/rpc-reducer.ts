@@ -5,6 +5,7 @@
 
 // Component, Facet,   proportion, reverse yield
 // string   , string[], number   , number
+import { getRpcCodeSubset } from "@/lib/utils"
 
 type ProcessesMap = Record<string, Record<string, number>>;
 
@@ -86,7 +87,7 @@ export default function reduceDietToRPCs(
     facet: string,
     amount: number
   ) => {
-    const level1Category = code.substring(0, 4).replace("I", "A");
+    const level1Category = getRpcCodeSubset(code, 1);
     if (!(level1Category in processesMap)) {
       processesMap[level1Category] = {};
     }

@@ -2,7 +2,7 @@
  * Computes the footprints of each rpc in the recipe.
  */
 
-import { listAllProcesses, maybeQuoteValue } from "@/lib/utils";
+import { getRpcCodeSubset, listAllProcesses, maybeQuoteValue } from "@/lib/utils";
 import aggregateFootprints, {
   AGGREGATE_HEADERS,
 } from "@/lib/footprints-aggregator";
@@ -51,7 +51,7 @@ const rpcFiles = {
 
 const categoryNames = categoryNamesJson as Record<string, string>;
 const getCategoryName = (code: string, level: number) => {
-  const levelCode = code.substring(0, 4 + (level - 1) * 3).replace("I", "A");
+  const levelCode = getRpcCodeSubset(code, level);
   return categoryNames[levelCode] || `NOT FOUND (${levelCode})`;
 };
 
