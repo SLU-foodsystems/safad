@@ -13,7 +13,7 @@ describe("utils.ts", () => {
       "A.03.bar.bar.baz.A02.003": [1, 1, 1],
     };
 
-    const result = aggregateRpcCategories(diet, 2);
+    const result = aggregateRpcCategories(diet, 1);
 
     expect(Object.keys(result)).toHaveLength(2);
     expect(result).toHaveProperty("A.01");
@@ -23,7 +23,7 @@ describe("utils.ts", () => {
     expect(result["A.03"]).toEqual([4, 4, 3]);
   });
 
-  test.only("nthIndexOf", () => {
+  test("nthIndexOf", () => {
     const str = "A.03.bar.bar.baz.A02.003";
     expect(nthIndexOf(str, ".", 0)).toEqual(1)
     expect(nthIndexOf(str, ".", 1)).toEqual(4)
