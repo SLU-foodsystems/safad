@@ -39,6 +39,11 @@ export default function flattenEnvironmentalFootprints(
     const envImpacts = envImpactSheet[suaCode];
     const originFactors = rpcFactors[suaCode];
 
+    if (!originFactors) {
+      console.warn(`No origin factors found for SUA ${suaCode}`);
+      return null;
+    }
+
     const joinedEnvFactors = Object.keys(originFactors)
       .map((origin) => {
         const [shareRatio, waste, organic] = originFactors[origin];
@@ -54,7 +59,7 @@ export default function flattenEnvironmentalFootprints(
       .reduce((a, b) => a.map((x, i) => x + b[i]), ENV_FOOTPRINTS_ZERO);
 
     return [suaCode, joinedEnvFactors];
-  });
+  }).filter( x => x !== null).map(x => x!);
 
-  return Object.fromEntries(entries);
+  return Object.fromEntries(entries!);
 }
