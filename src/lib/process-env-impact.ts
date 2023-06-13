@@ -82,9 +82,7 @@ export const computeProcessFootprints = (
     Object.fromEntries(
       Object.entries(processAmounts).map(([processId, amountGram]) => [
         processId,
-        (!processFootprints[processId] &&
-          console.log(processId, processFootprints)) ||
-          processFootprints[processId].map((x) => (x * amountGram) / 1000),
+        processFootprints[processId].map((x) => (x * amountGram) / 1000),
       ])
     )
   );
