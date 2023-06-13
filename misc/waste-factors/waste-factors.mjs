@@ -23,7 +23,7 @@ function main(args) {
     results[countryName][foodCode] = wastes;
   });
 
-  console.log(JSON.stringify(results, null, 2));
+  console.log(JSON.stringify(results, null, 0));
 }
 
 main(process.argv.slice(2));
