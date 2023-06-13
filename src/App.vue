@@ -10,6 +10,9 @@ import { maybeQuoteValue, uniq } from "./lib/utils";
 import { ENV_FOOTPRINTS_ZERO } from "./lib/constants";
 
 import namesJson from "@/data/category-names.json";
+import wasteFactorsJson from "@/data/waste-factors.json";
+
+const wasteFactors = wasteFactorsJson.Sweden as Record<string, number[]>;
 
 export default defineComponent({
   //components: { ChartContainer },
@@ -33,12 +36,24 @@ export default defineComponent({
       RE.setRpcFactors(rpcFactors);
       RE.setCountry("Sweden");
 
-      const diet = Object.entries(swedishDiet).map(([code, amount]) => ({
-        code,
-        amount,
-        retailWaste: 0,
-        consumerWaste: 0,
-      }));
+      const diet = Object.entries(swedishDiet)
+        .map(([code, amount]) => ({
+          code,
+          amount,
+          retailWaste: 0,
+          consumerWaste: 0,
+        }))
+        .map((component) => {
+          const L2Code = getRpcCodeSubset(component.code, 2);
+          const waste = wasteFactors[L2Code];
+
+          const [retailWaste, consumerWaste] = waste;
+          return {
+            ...component,
+            retailWaste,
+            consumerWaste,
+          };
+        });
 
       const results = RE.computeFootprintsWithCategory(diet);
       if (results === null) return;
