@@ -1,4 +1,4 @@
-import { vectorsSum } from "@/lib/utils";
+import { sum, vectorsSum } from "@/lib/utils";
 import { ENV_FOOTPRINTS_ZERO, CO2E_CONV_FACTORS } from "@/lib/constants";
 
 export const AGGREGATE_HEADERS = [
@@ -29,6 +29,32 @@ export const AGGREGATE_HEADERS = [
   "Process N2O",
 ];
 
+export function expandedFootprints(
+  rpcFootprints: number[],
+  processFootprints: number[]
+) {
+  const processCO2e = sum(
+    ["CO2", "FCH4", "N2O"].map(
+      (ghg, i) => (processFootprints[i] || 0) * CO2E_CONV_FACTORS[ghg]
+    )
+  );
+
+  const combinedGhgFootprints = [
+    rpcFootprints[0] + processCO2e,
+    rpcFootprints[1] + processFootprints[0],
+    rpcFootprints[2] + processFootprints[1],
+    rpcFootprints[3], // biogenic CH4, which is not emitted from processes
+    rpcFootprints[4] + processFootprints[2],
+  ];
+
+  return [
+    ...combinedGhgFootprints,
+    ...rpcFootprints,
+    processCO2e,
+    ...processFootprints,
+  ];
+}
+
 /**
  * Join all footprints into a vector of (numeric) impacts.
  */
@@ -48,22 +74,5 @@ export default function aggregateFootprints(
     totalProcessesFootprints.push(0);
   }
 
-  const processCO2e = ["CO2", "FCH4", "N2O"]
-    .map((ghg, i) => totalProcessesFootprints[i] * CO2E_CONV_FACTORS[ghg])
-    .reduce((a, b) => a + b, 0);
-
-  const combinedGhgFootprints = [
-    totalRpcFootprints[0] + processCO2e,
-    totalRpcFootprints[1] + totalProcessesFootprints[0],
-    totalRpcFootprints[2] + totalProcessesFootprints[1],
-    totalRpcFootprints[3],
-    totalRpcFootprints[4] + totalProcessesFootprints[2],
-  ];
-
-  return [
-    ...combinedGhgFootprints,
-    ...totalRpcFootprints,
-    processCO2e,
-    ...totalProcessesFootprints
-  ];
+  return expandedFootprints(totalRpcFootprints, totalProcessesFootprints);
 }
