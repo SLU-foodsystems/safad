@@ -33,15 +33,6 @@ export default function BoundariesChart(
     options
   );
 
-  const actualMax = d3.max(data, (d) => d3.max(d.map((x) => x.value)))!;
-
-  if (cfg.maxValue < actualMax) {
-    console.warn(
-      `Max value in data (${actualMax}) exceeded the provided max value (${cfg.maxValue}). Updating config.`
-    );
-    cfg.maxValue = actualMax;
-  }
-
   const axes = data[0].map((i) => i.axis); // Names of each axis
   const total = axes.length; // The number of different axes
 
