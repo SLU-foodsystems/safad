@@ -7,6 +7,7 @@ import {
 
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import foodsRecipes from "@/data/foodex-recipes.json";
+import processesAndPackagingData from "@/data/processes-and-packaging.json";
 import flattenEnvironmentalFootprints from "./env-impact-aggregator";
 import { aggregateRpcCategories, mapValues, vectorsSum } from "./utils";
 import { ENV_FOOTPRINTS_ZERO } from "./constants";
@@ -133,7 +134,7 @@ class ResultsEngine {
       return null;
     }
 
-    const [rpcs, processes] = reduceDiet(diet, recipes);
+    const [rpcs, processes] = reduceDiet(diet, recipes, processesAndPackagingData);
 
     const rpcImpact = Object.fromEntries(
       rpcs

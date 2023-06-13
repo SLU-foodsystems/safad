@@ -34,3 +34,6 @@ node ./rpc-sua-map/rpc-sua-csv-to-json.mjs ./rpc-sua-map/rpc-to-sua.csv > ../src
 
 # Create a json representation of the csvs
 node ./foodex-recipes/recipes-csv-parser.mjs ./foodex-recipes/foodex-recipes.csv ./foodex-recipes/foods-and-processes.csv > ../src/data/foodex-recipes.json
+
+# Processes and Packaging file: Additional processes and packaing data
+node ./processes-and-packaging/processes-and-packaging.mjs ./processes-and-packaging/processes-and-packaging.csv > ../src/data/processes-and-packaging.json
