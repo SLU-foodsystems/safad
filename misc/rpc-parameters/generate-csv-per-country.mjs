@@ -81,15 +81,12 @@ function getFoodItemShares(matrix, country) {
     throw new Error("Country " + country + " not found.");
   }
 
-  const allItems = new Set();
-
   /**
    * STEP 1: Compute the total of each item.
    */
   const totalAmounts = {};
   filtered.forEach(({ amount, itemName }) => {
     totalAmounts[itemName] = (totalAmounts[itemName] || 0) + amount;
-    allItems.add(itemName);
   });
 
   /**
