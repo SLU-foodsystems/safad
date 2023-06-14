@@ -2,14 +2,16 @@
 import { defineComponent } from "vue";
 
 import ChartContainer from "@/components/ChartContainer.vue";
+import { ENV_FOOTPRINTS_ZERO } from "@/lib/constants";
+import { uniq } from "@/lib/utils";
 import { downloadAsPlaintext } from "@/lib/csv-io";
-import generateValidationFiles from "@/lib/validation/rpc-with-import";
+
 import ResultsEngine from "@/lib/ResultsEngine";
 import { expandedFootprints } from "@/lib/footprints-aggregator";
-import { uniq } from "./lib/utils";
-import { ENV_FOOTPRINTS_ZERO } from "./lib/constants";
 
-import namesJson from "@/data/category-names.json";
+import generateRpcValidationFiles from "@/lib/validation/rpc-with-import";
+import generateDietCategoryValidationFiles from "@/lib/validation/diet-verification";
+import generateDietDiagnosticsFiles from "@/lib/validation/diet-detailed-verification";
 
 export default defineComponent({
   components: { ChartContainer },
@@ -21,10 +23,25 @@ export default defineComponent({
   },
 
   methods: {
-    async downloadVerificationFiles() {
-      const validationFilesPerCountry = await generateValidationFiles();
+    async rpcImportVerification() {
+      const validationFilesPerCountry = await generateRpcValidationFiles();
       validationFilesPerCountry.forEach(([country, csv]) => {
-        downloadAsPlaintext(csv, country + ".csv");
+        downloadAsPlaintext(csv, country + "-rpc-impacts.csv");
+      });
+    },
+
+    async dietVerificationFiles() {
+      const validationFilesPerCountry =
+        await generateDietCategoryValidationFiles();
+      validationFilesPerCountry.forEach(([country, csv]) => {
+        downloadAsPlaintext(csv, country + "-category-impacts.csv");
+      });
+    },
+
+    async detailedDietVerificationFiles() {
+      const validationFilesPerCountry = await generateDietDiagnosticsFiles();
+      validationFilesPerCountry.forEach(([country, csv]) => {
+        downloadAsPlaintext(csv, country + "-diet-breakdown.csv");
       });
     },
 
@@ -32,7 +49,8 @@ export default defineComponent({
       const envFactors = (await import("@/data/env-factors.json")).data;
       const rpcFactors = (await import("@/data/rpc-parameters/Sweden-rpc.json"))
         .data as unknown as RpcFactors;
-      const swedishDiet = (await import("@/data/diets/Sweden.json")).default;
+      const swedishDiet = (await import("@/data/diets/Sweden.json"))
+        .default as unknown as Record<string, number[]>;
 
       const RE = new ResultsEngine();
       RE.setEnvFactors(envFactors);
@@ -49,17 +67,12 @@ export default defineComponent({
         })
       );
 
-      console.log(diet)
-
       const results = RE.computeFootprintsWithCategory(diet);
       if (results === null) return;
       const categories = uniq([
         ...Object.keys(results[0]),
         ...Object.keys(results[1]),
       ]);
-
-      const categoryNames = namesJson as Record<string, string>;
-      console.log(categoryNames);
 
       const totals = categories.map((key) => {
         const rpcFootprints = results[0][key];
@@ -122,11 +135,14 @@ export default defineComponent({
       </div>
       <h2>SLU Foods Benchmarker</h2>
       <div class="cluster cluster--center">
-        <button
-          class="button button--accent"
-          @click="downloadVerificationFiles"
-        >
-          Download Verification Files
+        <button class="button button--accent" @click="rpcImportVerification">
+          RPC Verification
+        </button>
+        <button class="button button--accent" @click="dietVerificationFiles">
+          Category Verification
+        </button>
+        <button class="button button--accent" @click="detailedDietVerificationFiles">
+          Diet Verification
         </button>
         <button class="button" @click="run">Run &gt;</button>
       </div>
