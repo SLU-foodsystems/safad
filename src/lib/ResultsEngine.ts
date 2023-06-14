@@ -8,12 +8,17 @@ import {
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import foodsRecipes from "@/data/foodex-recipes.json";
 import processesAndPackagingData from "@/data/processes-and-packaging.json";
+import packetingEmissionsFactorsJson from "@/data/packeting-emissions-factors.json";
 import flattenEnvironmentalFootprints from "./env-impact-aggregator";
 import { aggregateRpcCategories, mapValues, vectorsSum } from "./utils";
 import { ENV_FOOTPRINTS_ZERO } from "./constants";
 
 const recipes = foodsRecipes.data as unknown as FoodsRecipes;
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
+const packetingEmissionsFactors = packetingEmissionsFactorsJson as Record<
+  string,
+  number[]
+>;
 
 /**
  * Ties all parts of computing the results into a singleton.
@@ -121,7 +126,7 @@ class ResultsEngine {
     diet: Diet
   ):
     | null
-    | [Record<string, number[]>, Record<string, Record<string, number[]>>] {
+    | [Record<string, number[]>, Record<string, Record<string, number[]>>, Record<string, Record<string, number[]>>] {
     if (!this.envFootprintsPerOrigin) {
       console.error(
         "Compute called when no environmentalFactorsSheet was set."
@@ -134,7 +139,7 @@ class ResultsEngine {
       return null;
     }
 
-    const [rpcs, processes] = reduceDiet(
+    const [rpcs, processes, packeting] = reduceDiet(
       diet,
       recipes,
       processesAndPackagingData
@@ -155,7 +160,16 @@ class ResultsEngine {
       this.processEnvSheet
     );
 
-    return [rpcImpact, processesEnvImpacts];
+    const packagingEnvImpacts = mapValues(packeting, (amounts) =>
+      Object.fromEntries(
+        Object.entries(amounts).map(([packetingId, amount]) => [
+          packetingId,
+          packetingEmissionsFactors[packetingId].slice(0, 3).map(x => x * amount / 1000),
+        ])
+      )
+    );
+
+    return [rpcImpact, processesEnvImpacts, packagingEnvImpacts];
   }
 
   public computeFootprintsWithCategory(diet: Diet) {
