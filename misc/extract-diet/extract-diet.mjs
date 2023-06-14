@@ -73,13 +73,13 @@ function main(args) {
     _ageClass,
     exposureLevel,
     _groupLevel,
-    groupCode,
+    _groupCode,
     gender,
     _sample,
     _consumer,
     _surveyMean,
   ]) =>
-    exposureLevel === "L5" && gender === "Total" && !groupCode.startsWith("4.");
+    exposureLevel === "L5" && gender === "Total";
 
   const filtered = df.filter(generalDietFilter);
 
