@@ -11,18 +11,48 @@ const DIETS = {
   France: "The French national dietary survey (INCA3, 2014-2015)",
   Germany: "Eating Study as a KiGGS Module (EsKiMo)",
   Greece:
-    "The EFSA-funded collection of dietary and related data in the general population aged 10-74 years in Greece",
+    "The EFSA-funded collection of dietary and related data in the " +
+    "general population aged 10-74 years in Greece",
   Hungary: "Hungarian national food consumption survey",
   Ireland: "National Adult Nutrition Survey",
   Italy:
-    "Italian national dietary survey on adult population from 10 up to 74 years old",
+    "Italian national dietary survey on adult population from 10 up to " +
+    "74 years old",
   Spain:
     "Spanish National dietary survey in adults, elderly and pregnant women",
   Sweden: "Swedish National Dietary Survey - Riksmaten adults 2010-11",
 };
 
+function wasteGetter(wasteData) {
+  const wasteFactors = {};
+  wasteData.forEach(
+    ([
+      foodCode,
+      _foodName,
+      countryName,
+      _countryCode,
+      retailWaste,
+      consumerWaste,
+    ]) => {
+      if (!wasteFactors[countryName]) wasteFactors[countryName] = {};
+      const wastes = [retailWaste, consumerWaste].map((x) => {
+        const parsed = parseFloat(x);
+        const number = Number.isNaN(parsed) ? 0 : parsed;
+        return Math.max(0, number); // Ensure non-negative wastes
+      });
+      const safeCode = foodCode.replace("I", "A");
+      wasteFactors[countryName][safeCode] = wastes;
+    }
+  );
+
+  return (country, code) => {
+    const l2Code = code.split(".").slice(0, 3).join(".").replace("I", "A");
+    return wasteFactors[country][l2Code];
+  };
+}
+
 function main(args) {
-  const [dietCsvPath, creaToEfsaCsvPath] = args;
+  const [dietCsvPath, creaToEfsaCsvPath, wasteFactorsCsvPath] = args;
 
   const df = readCsv(dietCsvPath, ",").slice(1);
 
@@ -32,7 +62,7 @@ function main(args) {
       .map((row) => [row[3], row[5]])
   );
 
-  const groupCodes = new Set();
+  const getWaste = wasteGetter(readCsv(wasteFactorsCsvPath, ",").slice(1));
 
   const generalDietFilter = ([
     _id,
@@ -74,8 +104,6 @@ function main(args) {
         ] = row;
 
         const efsaCode = creaToEfsaCodes[creaCode];
-        groupCodes.add(creaCode);
-
         if (!efsaCode) {
           console.error("Could not find code", creaCode);
           return null;
@@ -95,8 +123,13 @@ function main(args) {
       }, {});
 
     // Round all values to a limited set of decimal points
-    Object.keys(amounts).forEach((key) => {
-      amounts[key] = roundToPrecision(amounts[key], 4);
+    Object.keys(amounts).forEach((efsaCode) => {
+      amounts[efsaCode] = roundToPrecision(amounts[efsaCode], 4);
+    });
+
+    // Add wastes
+    Object.keys(amounts).forEach((efsaCode) => {
+      amounts[efsaCode] = [amounts[efsaCode], ...getWaste(country, efsaCode)];
     });
 
     if (OUTPUT_AS_CSV) {
@@ -106,10 +139,16 @@ function main(args) {
         })
       );
 
-      const csvHeader = "Code,Name,Amount";
+      const csvHeader = "Code,Name,Amount,Retail Waste,Consumer Waste";
       const csvBody = Object.entries(amounts)
-        .map(([code, amount]) =>
-          [code, `"${namesMap[code]}"`, amount].join(",")
+        .map(([code, [amount, retailWaste, consumerWaste]]) =>
+          [
+            code,
+            `"${namesMap[code]}"`,
+            amount,
+            retailWaste,
+            consumerWaste,
+          ].join(",")
         )
         .join("\n");
       const csv = csvHeader + "\n" + csvBody;

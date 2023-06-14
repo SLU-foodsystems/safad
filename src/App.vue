@@ -6,13 +6,10 @@ import { downloadAsPlaintext } from "@/lib/csv-io";
 import generateValidationFiles from "@/lib/validation/rpc-with-import";
 import ResultsEngine from "@/lib/ResultsEngine";
 import { expandedFootprints } from "@/lib/footprints-aggregator";
-import { getRpcCodeSubset, maybeQuoteValue, uniq } from "./lib/utils";
+import { uniq } from "./lib/utils";
 import { ENV_FOOTPRINTS_ZERO } from "./lib/constants";
 
 import namesJson from "@/data/category-names.json";
-import wasteFactorsJson from "@/data/waste-factors.json";
-
-const wasteFactors = wasteFactorsJson.Sweden as Record<string, number[]>;
 
 export default defineComponent({
   components: { ChartContainer },
@@ -30,6 +27,7 @@ export default defineComponent({
         downloadAsPlaintext(csv, country + ".csv");
       });
     },
+
     async run() {
       const envFactors = (await import("@/data/env-factors.json")).data;
       const rpcFactors = (await import("@/data/rpc-parameters/Sweden-rpc.json"))
@@ -41,25 +39,17 @@ export default defineComponent({
       RE.setRpcFactors(rpcFactors);
       RE.setCountry("Sweden");
 
-      const diet = Object.entries(swedishDiet)
-        .map(([code, amount]) => ({
+      const diet = Object.entries(swedishDiet).map(
+        ([code, [amount, retailWaste, consumerWaste]]) => ({
           code,
           amount,
-          retailWaste: 0,
-          consumerWaste: 0,
+          retailWaste,
+          consumerWaste,
           organic: 0,
-        }))
-        .map((component) => {
-          const L2Code = getRpcCodeSubset(component.code, 2);
-          const waste = wasteFactors[L2Code];
+        })
+      );
 
-          const [retailWaste, consumerWaste] = waste;
-          return {
-            ...component,
-            retailWaste,
-            consumerWaste,
-          };
-        });
+      console.log(diet)
 
       const results = RE.computeFootprintsWithCategory(diet);
       if (results === null) return;
@@ -132,7 +122,12 @@ export default defineComponent({
       </div>
       <h2>SLU Foods Benchmarker</h2>
       <div class="cluster cluster--center">
-        <button class="button button--accent" @click="downloadVerificationFiles">Download Verification Files</button>
+        <button
+          class="button button--accent"
+          @click="downloadVerificationFiles"
+        >
+          Download Verification Files
+        </button>
         <button class="button" @click="run">Run &gt;</button>
       </div>
       <ChartContainer :boundaryData="boundaryData" />
