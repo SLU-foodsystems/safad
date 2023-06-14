@@ -28,7 +28,6 @@ export const AGGREGATE_HEADERS = [
   "Process CH4",
   "Process N2O",
   "Packaging CO2",
-  "Packaging CH4",
 ];
 
 export function expandedFootprints(
@@ -43,7 +42,7 @@ export function expandedFootprints(
   );
 
   const packagingCO2e = sum(
-    ["CO2", "FCH4"].map(
+    ["CO2"].map(
       (ghg, i) => (packagingFootprints[i] || 0) * CO2E_CONV_FACTORS[ghg]
     )
   );
@@ -61,7 +60,7 @@ export function expandedFootprints(
     ...rpcFootprints,
     processCO2e,
     ...processFootprints,
-    ...packagingFootprints.slice(0, 2),
+    ...packagingFootprints.slice(0, 1),
   ];
 }
 
