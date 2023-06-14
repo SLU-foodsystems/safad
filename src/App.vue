@@ -24,14 +24,13 @@ export default defineComponent({
   },
 
   methods: {
+    async downloadVerificationFiles() {
+      const validationFilesPerCountry = await generateValidationFiles();
+      validationFilesPerCountry.forEach(([country, csv]) => {
+        downloadAsPlaintext(csv, country + ".csv");
+      });
+    },
     async run() {
-      if (false) {
-        const validationFilesPerCountry = await generateValidationFiles();
-        validationFilesPerCountry.forEach(([country, csv]) => {
-          downloadAsPlaintext(csv, country + ".csv");
-        });
-      }
-
       const envFactors = (await import("@/data/env-factors.json")).data;
       const rpcFactors = (await import("@/data/rpc-parameters/Sweden-rpc.json"))
         .data as unknown as RpcFactors;
@@ -122,10 +121,6 @@ export default defineComponent({
       // - the amounts to extract in kilo
     },
   },
-
-  mounted() {
-    //this.run();
-  },
 });
 </script>
 
@@ -137,7 +132,8 @@ export default defineComponent({
       </div>
       <h2>SLU Foods Benchmarker</h2>
       <div class="cluster cluster--center">
-        <button class="button button--accent" @click="run">Run &gt;</button>
+        <button class="button button--accent" @click="downloadVerificationFiles">Download Verification Files</button>
+        <button class="button" @click="run">Run &gt;</button>
       </div>
       <ChartContainer :boundaryData="boundaryData" />
     </div>
