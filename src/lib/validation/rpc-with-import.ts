@@ -66,6 +66,8 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
     "L1 Category",
     "L2 Category",
     ...AGGREGATE_HEADERS,
+    "Processes",
+    "Packeting"
   ];
 
   const names = namesJson as Record<string, string>;
@@ -104,16 +106,18 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
         if (footprints === null) {
           return null;
         }
-        const [rpcFootprints, processImpacts] = footprints;
+        const [rpcFootprints, processImpacts, packagingImpacts] = footprints;
         const processes = listAllProcesses(processImpacts).join("$");
+        const packeting = listAllProcesses(packagingImpacts).join("$");
 
         return [
           rpc,
           maybeQuoteValue(names[rpc] || "NAME NOT FOUND"),
           maybeQuoteValue(getCategoryName(rpc, 1)),
           maybeQuoteValue(getCategoryName(rpc, 2)),
-          ...aggregateFootprints(rpcFootprints, processImpacts),
+          ...aggregateFootprints(rpcFootprints, processImpacts, packagingImpacts),
           processes,
+          packeting
         ];
       })
       .filter((x) => x !== null);
