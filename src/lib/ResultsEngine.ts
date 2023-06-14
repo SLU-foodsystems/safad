@@ -126,7 +126,11 @@ class ResultsEngine {
     diet: Diet
   ):
     | null
-    | [Record<string, number[]>, Record<string, Record<string, number[]>>, Record<string, Record<string, number[]>>] {
+    | [
+        Record<string, number[]>,
+        Record<string, Record<string, number[]>>,
+        Record<string, Record<string, number[]>>
+      ] {
     if (!this.envFootprintsPerOrigin) {
       console.error(
         "Compute called when no environmentalFactorsSheet was set."
@@ -178,16 +182,23 @@ class ResultsEngine {
     const impacts = this.computeFootprints(diet);
     if (!impacts) return null;
 
-    const [rpcImpact, processImpacts] = impacts;
+    const [rpcImpact, processImpacts, packagingImpacts] = impacts;
 
     const rpcImpactsByCategory = aggregateRpcCategories(rpcImpact, 1);
-
     const processImpactsByCategory = mapValues(
       processImpacts,
       (perCategoryProcesses) => vectorsSum(Object.values(perCategoryProcesses))
     );
+    const packagingImpactsByCategory = mapValues(
+      packagingImpacts,
+      (perCategoryPackaging) => vectorsSum(Object.values(perCategoryPackaging))
+    );
 
-    return [rpcImpactsByCategory, processImpactsByCategory];
+    return [
+      rpcImpactsByCategory,
+      processImpactsByCategory,
+      packagingImpactsByCategory,
+    ];
   }
 
   // Necessary for testing.
