@@ -43,7 +43,7 @@ function mergeRpcs(rpcs: [string, number][]) {
  * nothing.
  */
 function reduceToRpcs(
-  recordProcessContribution: (
+  recordProcessOrPacketingContribution: (
     code: string,
     facet: string,
     amount: number
@@ -63,19 +63,18 @@ function reduceToRpcs(
     const special = preparationProcesses[l3Code];
 
     if (special && !recordedPProcesses.includes(l3Code)) {
-      newRecordedSpecials = [componentCode, ...recordedPProcesses];
-      recordProcessContribution(l3Code, special, amount);
+      newRecordedSpecials = [l3Code, ...recordedPProcesses];
+      recordProcessOrPacketingContribution(l3Code, special, amount);
     }
   }
 
-  if (false && componentCodeLevel >= 2) {
+  if (componentCodeLevel >= 2) {
     const l2Code = getRpcCodeSubset(componentCode, 2);
     const special = preparationProcesses[l2Code];
 
     if (special && !recordedPProcesses.includes(l2Code)) {
-      newRecordedSpecials = [componentCode, ...recordedPProcesses];
-      // Here, I want to record a packaging thing
-      //recordProcessContribution(l2Code, special, amount);
+      newRecordedSpecials = [l2Code, ...recordedPProcesses];
+      recordProcessOrPacketingContribution(l2Code, special, amount);
     }
   }
 
@@ -88,7 +87,7 @@ function reduceToRpcs(
       // Recourd the output amount
       const processAmount = ratio * amount;
       processes.map((processId) => {
-        recordProcessContribution(componentCode, processId, processAmount);
+        recordProcessOrPacketingContribution(componentCode, processId, processAmount);
       });
 
       // Some recipes will include references back to themselves, in which
@@ -98,7 +97,7 @@ function reduceToRpcs(
       if (isSelfReference) return [[subcomponentCode, netAmount]];
 
       return reduceToRpcs(
-        recordProcessContribution,
+        recordProcessOrPacketingContribution,
         recipes,
         preparationProcesses,
         newRecordedSpecials,
@@ -112,21 +111,23 @@ export default function reduceDietToRPCs(
   diet: Diet,
   recipes: FoodsRecipes,
   preparationAndPackagingList: Record<string, string>
-): [[string, number][], ProcessesMap] {
+): [[string, number][], ProcessesMap, ProcessesMap] {
   const processesMap: ProcessesMap = {};
+  const packetingMap: ProcessesMap = {};
 
-  const recordProcessContribution = (
+  const recordProcessOrPacketingContribution = (
     code: string,
     facet: string,
     amount: number
   ) => {
     const level1Category = getRpcCodeSubset(code, 1);
-    if (!(level1Category in processesMap)) {
-      processesMap[level1Category] = {};
+    const map = facet.length === 2 ? packetingMap : processesMap;
+    if (!(level1Category in map)) {
+      map[level1Category] = {};
     }
 
-    processesMap[level1Category][facet] =
-      (processesMap[level1Category][facet] || 0) + amount;
+    map[level1Category][facet] =
+      (map[level1Category][facet] || 0) + amount;
   };
 
   const rpcs = diet
@@ -140,7 +141,7 @@ export default function reduceDietToRPCs(
     // Now, compine with the recipes to get RPCs!
     .map((rpcDerivative) =>
       reduceToRpcs(
-        recordProcessContribution,
+        recordProcessOrPacketingContribution,
         recipes,
         preparationAndPackagingList,
         [],
@@ -149,5 +150,5 @@ export default function reduceDietToRPCs(
     )
     .flat(1);
 
-  return [mergeRpcs(rpcs), processesMap];
+  return [mergeRpcs(rpcs), processesMap, packetingMap];
 }
