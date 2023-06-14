@@ -27,11 +27,14 @@ export const AGGREGATE_HEADERS = [
   "Process CO2",
   "Process CH4",
   "Process N2O",
+  "Packaging CO2",
+  "Packaging CH4",
 ];
 
 export function expandedFootprints(
   rpcFootprints: number[],
-  processFootprints: number[]
+  processFootprints: number[],
+  packagingFootprints: number[]
 ) {
   const processCO2e = sum(
     ["CO2", "FCH4", "N2O"].map(
@@ -39,8 +42,14 @@ export function expandedFootprints(
     )
   );
 
+  const packagingCO2e = sum(
+    ["CO2", "FCH4"].map(
+      (ghg, i) => (packagingFootprints[i] || 0) * CO2E_CONV_FACTORS[ghg]
+    )
+  );
+
   const combinedGhgFootprints = [
-    rpcFootprints[0] + processCO2e,
+    rpcFootprints[0] + processCO2e + packagingCO2e,
     rpcFootprints[1] + processFootprints[0],
     rpcFootprints[2] + processFootprints[1],
     rpcFootprints[3], // biogenic CH4, which is not emitted from processes
@@ -52,6 +61,7 @@ export function expandedFootprints(
     ...rpcFootprints,
     processCO2e,
     ...processFootprints,
+    ...packagingFootprints.slice(0, 2),
   ];
 }
 
@@ -60,7 +70,8 @@ export function expandedFootprints(
  */
 export default function aggregateFootprints(
   rpcFootprints: Record<string, number[]>,
-  processFootprints: Record<string, Record<string, number[]>>
+  processFootprints: Record<string, Record<string, number[]>>,
+  packagingFootprints: Record<string, Record<string, number[]>>
 ): number[] {
   const totalRpcFootprints =
     Object.values(rpcFootprints).length > 0
@@ -74,5 +85,17 @@ export default function aggregateFootprints(
     totalProcessesFootprints.push(0);
   }
 
-  return expandedFootprints(totalRpcFootprints, totalProcessesFootprints);
+  const packagingValues = Object.values(packagingFootprints)
+    .map((obj) => Object.values(obj))
+    .flat(1);
+  const totalPackagingFootprints = vectorsSum(packagingValues);
+  while (totalPackagingFootprints.length < 2) {
+    totalPackagingFootprints.push(0);
+  }
+
+  return expandedFootprints(
+    totalRpcFootprints,
+    totalProcessesFootprints,
+    totalPackagingFootprints
+  );
 }
