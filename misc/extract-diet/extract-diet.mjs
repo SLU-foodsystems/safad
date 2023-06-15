@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
-  * Script for extracting diets from a large CREA database csv.
-  *
-  * Takes three parameters:
-  * - path to CREA file
-  * - path to CREA-EFSA code conversion file
-  * - path to EFSA- waste factors conversion file
-  */
+ * Script for extracting diets from a large CREA database csv.
+ *
+ * Takes three parameters:
+ * - path to CREA file
+ * - path to CREA-EFSA code conversion file
+ * - path to EFSA- waste factors conversion file
+ */
 
 import * as fs from "fs";
 import * as path from "path";
