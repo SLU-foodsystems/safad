@@ -37,7 +37,6 @@ import swedenDiet from "@/data/diets/Sweden.json";
 import ResultsEngine from "@/lib/ResultsEngine";
 import { ENV_FOOTPRINTS_ZERO } from "../constants";
 
-const foodsRecipes = foodsRecipesJson.data as unknown as FoodsRecipes;
 const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvOriginFactors;
 
 type LlCountryName =
@@ -60,8 +59,6 @@ let LL_COUNTRIES: LlCountryName[] = [
   "Sweden",
 ];
 
-// LL_COUNTRIES = ["Sweden"]
-
 const rpcFiles = {
   France: franceRpcFactors.data,
   Germany: germanyRpcFactors.data,
@@ -83,10 +80,6 @@ const dietFiles = {
 } as unknown as Record<LlCountryName, Record<string, number[]>>;
 
 const categoryNames = categoryNamesJson as Record<string, string>;
-const getCategoryName = (code: string, level: number) => {
-  const levelCode = getRpcCodeSubset(code, level);
-  return categoryNames[levelCode] || `NOT FOUND (${levelCode})`;
-};
 
 export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
   string[][]
