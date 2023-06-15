@@ -60,7 +60,7 @@ export function expandedFootprints(
     ...rpcFootprints,
     processCO2e,
     ...processFootprints,
-    ...packagingFootprints.slice(0, 1),
+    packagingFootprints[0],
   ];
 }
 
