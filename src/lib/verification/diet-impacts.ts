@@ -2,21 +2,14 @@
  * Computes the footprints of each rpc in the recipe.
  */
 
+import { uniq } from "@/lib/utils";
 import {
-  getRpcCodeSubset,
-  listAllProcesses,
-  maybeQuoteValue,
-  uniq,
-} from "@/lib/utils";
-import aggregateFootprints, {
   expandedFootprints,
   AGGREGATE_HEADERS,
 } from "@/lib/footprints-aggregator";
 
 import allEnvImpactsJson from "@/data/env-factors.json";
 import categoryNamesJson from "@/data/category-names.json";
-import foodsRecipesJson from "@/data/foodex-recipes.json";
-import namesJson from "@/data/rpc-names.json";
 
 import franceRpcFactors from "@/data/rpc-parameters/France-rpc.json";
 import germanyRpcFactors from "@/data/rpc-parameters/Germany-rpc.json";
@@ -117,29 +110,38 @@ export async function computeFootprintsForDiets(): Promise<
       ...Object.keys(results[1]),
     ]).sort();
 
-    const csv = categories
-      .map((categoryId) => {
-        const [rpcFootprints, processFootprints, packagingFootprints] =
-          results.map((x) => x[categoryId]);
+    const data = categories.map((categoryId) => {
+      const [rpcFootprints, processFootprints, packagingFootprints] =
+        results.map((x) => x[categoryId]);
 
-        const footprints = expandedFootprints(
-          rpcFootprints || ENV_FOOTPRINTS_ZERO,
-          processFootprints || [0, 0, 0],
-          packagingFootprints || [0, 0]
-        );
+      const footprints = expandedFootprints(
+        rpcFootprints || ENV_FOOTPRINTS_ZERO,
+        processFootprints || [0, 0, 0],
+        packagingFootprints || [0, 0]
+      );
 
-        return [
-          categoryId,
-          `"${categoryNames[categoryId]}"`,
-          ...footprints,
-        ].join(",");
-      })
-      .join("\n");
+      return [
+        categoryId,
+        `"${categoryNames[categoryId]}"`,
+        ...footprints,
+      ];
+    });
 
-    return [country, HEADER + "\n" + csv];
+    return [country as string, data] as [string, string[][]];
   })
     .filter((x) => x !== null)
     .map((x) => x!);
 
   return allResults;
+}
+
+
+export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
+  string[][]
+> {
+  const HEADER = ["Category Code", "Category Name", ...AGGREGATE_HEADERS];
+  return (await computeFootprintsForDiets()).map(([country, data]) => [
+    country,
+    HEADER + "\n" + data.map((row) => row.join(",")).join("\n"),
+  ]);
 }
