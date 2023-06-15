@@ -58,9 +58,14 @@ const DIETS = [
     ageClass: "Adults",
   },
   {
-    country: "Sweden",
+    country: "SwedenBaseline",
     surveyName: "Swedish National Dietary Survey - Riksmaten adults 2010-11",
     ageClass: "Adults",
+  },
+  {
+    country: "Sweden",
+    surveyName: "National Food Administration",
+    ageClass: "Other children",
   },
 ];
 
@@ -87,6 +92,7 @@ function wasteGetter(wasteData) {
   );
 
   return (country, code) => {
+    if (country === "SwedenBaseline") country = "Sweden"; // LOL sorry.
     const l2Code = code.split(".").slice(0, 3).join(".").replace("I", "A");
     return wasteFactors[country][l2Code];
   };
@@ -127,7 +133,6 @@ function main(args) {
     const amounts = filtered
       .filter(
         (row) =>
-          row[1] === country &&
           row[3] === surveyName &&
           (!ageClass || row[5] === ageClass)
       )

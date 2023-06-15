@@ -31,7 +31,8 @@ type LlCountryName =
   | "Italy"
   | "Poland"
   | "Spain"
-  | "Sweden";
+  | "Sweden"
+  | "SwedenBaseline";
 
 let LL_COUNTRIES: LlCountryName[] = [
   "France",
@@ -41,6 +42,7 @@ let LL_COUNTRIES: LlCountryName[] = [
   "Italy",
   "Spain",
   "Sweden",
+  "SwedenBaseline",
 ];
 
 const dietFiles = {
@@ -51,6 +53,7 @@ const dietFiles = {
   Italy: italyDiet,
   Spain: spainDiet,
   Sweden: swedenDiet,
+  SwedenBaseline: swedenDiet,
 } as unknown as Record<LlCountryName, Record<string, number[]>>;
 
 export default async function computeFootprintsForEachRpcWithOrigin(): Promise<

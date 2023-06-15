@@ -33,6 +33,7 @@ import irelandDiet from "@/data/diets/Ireland.json";
 import italyDiet from "@/data/diets/Italy.json";
 import spainDiet from "@/data/diets/Spain.json";
 import swedenDiet from "@/data/diets/Sweden.json";
+import swedenBaselineDiet from "@/data/diets/SwedenBaseline.json";
 
 import ResultsEngine from "@/lib/ResultsEngine";
 import { ENV_FOOTPRINTS_ZERO } from "../constants";
@@ -47,9 +48,10 @@ type LlCountryName =
   | "Italy"
   | "Poland"
   | "Spain"
-  | "Sweden";
+  | "Sweden"
+  | "SwedenBaseline";
 
-let LL_COUNTRIES: LlCountryName[] = [
+const LL_COUNTRIES: LlCountryName[] = [
   "France",
   "Germany",
   "Greece",
@@ -57,6 +59,7 @@ let LL_COUNTRIES: LlCountryName[] = [
   "Italy",
   "Spain",
   "Sweden",
+  "SwedenBaseline",
 ];
 
 const rpcFiles = {
@@ -77,21 +80,26 @@ const dietFiles = {
   Italy: italyDiet,
   Spain: spainDiet,
   Sweden: swedenDiet,
+  SwedenBaseline: swedenBaselineDiet,
 } as unknown as Record<LlCountryName, Record<string, number[]>>;
 
 const categoryNames = categoryNamesJson as Record<string, string>;
 
-export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
-  string[][]
+export async function computeFootprintsForDiets(): Promise<
+  [string, string[][]][]
 > {
-  const HEADER = ["Category Code", "Category Name", ...AGGREGATE_HEADERS];
-
   const RE = new ResultsEngine();
   RE.setEnvFactors(allEnvImpacts);
 
   const allResults = LL_COUNTRIES.map((country) => {
-    RE.setCountry(country);
-    RE.setRpcFactors(rpcFiles[country]);
+    if (country === "SwedenBaseline") {
+      RE.setCountry("Sweden");
+      RE.setRpcFactors(rpcFiles.Sweden);
+    } else {
+      RE.setCountry(country);
+      RE.setRpcFactors(rpcFiles[country]);
+    }
+
     const diet = Object.entries(dietFiles[country]).map(
       ([code, [amount, retailWaste, consumerWaste]]) => ({
         code,
