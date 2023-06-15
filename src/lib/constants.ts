@@ -6,7 +6,7 @@ export const PLANETARY_BOUNDARY_LIMITS = {
   "land": 0.174,
   "n": 0.012,
   "p": 0.001,
-  "h2o": 334,
+  "h2o": 334 / 365,
   "biodiversity": 1.33E-09
 }
 
