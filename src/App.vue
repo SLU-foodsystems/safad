@@ -9,9 +9,9 @@ import { downloadAsPlaintext } from "@/lib/csv-io";
 import ResultsEngine from "@/lib/ResultsEngine";
 import { expandedFootprints } from "@/lib/footprints-aggregator";
 
-import generateRpcValidationFiles from "@/lib/validation/rpc-with-import";
-import generateDietCategoryValidationFiles from "@/lib/validation/diet-verification";
-import generateDietDiagnosticsFiles from "@/lib/validation/diet-detailed-verification";
+import getImpactsPerRpc from "@/lib/verification/rpc-impacts-with-import";
+import getImpactsPerDiet from "@/lib/verification/diet-impacts";
+import getRpcsInDiet from "@/lib/verification/diet-rpc-breakdowns";
 
 export default defineComponent({
   components: { ChartContainer },
@@ -23,23 +23,22 @@ export default defineComponent({
   },
 
   methods: {
-    async rpcImportVerification() {
-      const validationFilesPerCountry = await generateRpcValidationFiles();
+    async generateImpactsPerRpc() {
+      const validationFilesPerCountry = await getImpactsPerRpc();
       validationFilesPerCountry.forEach(([country, csv]) => {
         downloadAsPlaintext(csv, country + "-rpc-impacts.csv");
       });
     },
 
-    async dietVerificationFiles() {
-      const validationFilesPerCountry =
-        await generateDietCategoryValidationFiles();
+    async generateImpactsPerDiet() {
+      const validationFilesPerCountry = await getImpactsPerDiet();
       validationFilesPerCountry.forEach(([country, csv]) => {
         downloadAsPlaintext(csv, country + "-category-impacts.csv");
       });
     },
 
-    async detailedDietVerificationFiles() {
-      const validationFilesPerCountry = await generateDietDiagnosticsFiles();
+    async generateRpcsPerDiet() {
+      const validationFilesPerCountry = await getRpcsInDiet();
       validationFilesPerCountry.forEach(([country, csv]) => {
         downloadAsPlaintext(csv, country + "-diet-breakdown.csv");
       });
@@ -135,13 +134,13 @@ export default defineComponent({
       </div>
       <h2>SLU Foods Benchmarker</h2>
       <div class="cluster cluster--center">
-        <button class="button button--accent" @click="rpcImportVerification">
+        <button class="button button--accent" @click="generateImpactsPerRpc">
           RPC Verification
         </button>
-        <button class="button button--accent" @click="dietVerificationFiles">
+        <button class="button button--accent" @click="generateImpactsPerDiet">
           Category Verification
         </button>
-        <button class="button button--accent" @click="detailedDietVerificationFiles">
+        <button class="button button--accent" @click="generateRpcsPerDiet">
           Diet Verification
         </button>
         <button class="button" @click="run">Run &gt;</button>
