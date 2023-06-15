@@ -8,19 +8,42 @@ const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
 const OUTPUT_AS_CSV = false;
 
 const DIETS = {
-  France: "The French national dietary survey (INCA3, 2014-2015)",
-  Germany: "Eating Study as a KiGGS Module (EsKiMo)",
-  Greece:
-    "The EFSA-funded collection of dietary and related data in the " +
-    "general population aged 10-74 years in Greece",
-  Hungary: "Hungarian national food consumption survey",
-  Ireland: "National Adult Nutrition Survey",
-  Italy:
-    "Italian national dietary survey on adult population from 10 up to " +
-    "74 years old",
-  Spain:
-    "Spanish National dietary survey in adults, elderly and pregnant women",
-  Sweden: "Swedish National Dietary Survey - Riksmaten adults 2010-11",
+  France: {
+    surveyName: "The French national dietary survey (INCA3, 2014-2015)",
+    ageClass: "Adolescents",
+  },
+  Germany: {
+    surveyName: "Eating Study as a KiGGS Module (EsKiMo)",
+    ageClass: "Adolescents",
+  },
+  Greece: {
+    surveyName:
+      "The EFSA-funded collection of dietary and related data in the general population aged 10-74 years in Greece",
+    ageClass: "Elderly",
+  },
+  Hungary: {
+    surveyName: "Hungarian national food consumption survey",
+    ageClass: "Adults",
+  },
+  Ireland: {
+    surveyName: "National Adult Nutrition Survey",
+    ageClass: "Adults",
+  },
+  Italy: {
+    surveyName:
+      "Italian national dietary survey on adult population from 10 up to " +
+      "74 years old",
+    ageClass: "Adults",
+  },
+  Spain: {
+    surveyName:
+      "Spanish National dietary survey in adults, elderly and pregnant women",
+    ageClass: "Adults",
+  },
+  Sweden: {
+    surveyName: "Swedish National Dietary Survey - Riksmaten adults 2010-11",
+    ageClass: "Adults",
+  },
 };
 
 function wasteGetter(wasteData) {
@@ -78,14 +101,18 @@ function main(args) {
     _sample,
     _consumer,
     _surveyMean,
-  ]) =>
-    exposureLevel === "L5" && gender === "Total";
+  ]) => exposureLevel === "L5" && gender === "Total";
 
   const filtered = df.filter(generalDietFilter);
 
-  Object.entries(DIETS).forEach(([country, surveyName]) => {
+  Object.entries(DIETS).forEach(([country, { surveyName, ageClass }]) => {
     const amounts = filtered
-      .filter((row) => row[1] === country && row[3] === surveyName)
+      .filter(
+        (row) =>
+          row[1] === country &&
+          row[3] === surveyName &&
+          (!ageClass || row[5] === ageClass)
+      )
       .map((row) => {
         const [
           _id,
