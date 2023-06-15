@@ -8,8 +8,6 @@ import categoryNamesJson from "@/data/category-names.json";
 import { mapValues, vectorSum } from "@/lib/utils";
 import { PLANETARY_BOUNDARY_LIMITS } from "@/lib/constants";
 
-window._dl = downloadSvgAsImage;
-
 export default defineComponent({
   props: {
     boundaryData: {
