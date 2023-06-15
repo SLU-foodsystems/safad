@@ -17,44 +17,52 @@ import { readCsv, roundToPrecision } from "../utils.mjs";
 const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
 const OUTPUT_AS_CSV = false;
 
-const DIETS = {
-  France: {
+const DIETS = [
+  {
+    country: "France",
     surveyName: "The French national dietary survey (INCA3, 2014-2015)",
     ageClass: "Adolescents",
   },
-  Germany: {
+  {
+    country: "Germany",
     surveyName: "Eating Study as a KiGGS Module (EsKiMo)",
     ageClass: "Adolescents",
   },
-  Greece: {
+  {
+    country: "Greece",
     surveyName:
       "The EFSA-funded collection of dietary and related data in the general population aged 10-74 years in Greece",
     ageClass: "Elderly",
   },
-  Hungary: {
+  {
+    country: "Hungary",
     surveyName: "Hungarian national food consumption survey",
     ageClass: "Adults",
   },
-  Ireland: {
+  {
+    country: "Ireland",
     surveyName: "National Adult Nutrition Survey",
     ageClass: "Adults",
   },
-  Italy: {
+  {
+    country: "Italy",
     surveyName:
       "Italian national dietary survey on adult population from 10 up to " +
       "74 years old",
     ageClass: "Adults",
   },
-  Spain: {
+  {
+    country: "Spain",
     surveyName:
       "Spanish National dietary survey in adults, elderly and pregnant women",
     ageClass: "Adults",
   },
-  Sweden: {
+  {
+    country: "Sweden",
     surveyName: "Swedish National Dietary Survey - Riksmaten adults 2010-11",
     ageClass: "Adults",
   },
-};
+];
 
 function wasteGetter(wasteData) {
   const wasteFactors = {};
@@ -115,7 +123,7 @@ function main(args) {
 
   const filtered = df.filter(generalDietFilter);
 
-  Object.entries(DIETS).forEach(([country, { surveyName, ageClass }]) => {
+  DIETS.forEach(({ country, surveyName, ageClass }) => {
     const amounts = filtered
       .filter(
         (row) =>
