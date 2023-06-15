@@ -1,10 +1,8 @@
 <script lang="ts">
 import { defineComponent, type PropType } from "vue";
 import BoundariesChart from "@/lib/charts/BoundariesChart";
-import StackedBarChart from "@/lib/charts/StackedBarChart";
 import downloadSvgAsImage from "@/lib/charts/d3-exporter";
 
-import categoryNamesJson from "@/data/category-names.json";
 import { mapValues, vectorSum } from "@/lib/utils";
 import { PLANETARY_BOUNDARY_LIMITS } from "@/lib/constants";
 
