@@ -84,16 +84,16 @@ export default function BoundariesChart(
     .attr("gradientUnits", "userSpaceOnUse")
     .attr("r", GRADIENT_SCALEUP_FACTOR * Math.max(cfg.w, cfg.h) / 2);
 
-  // scale the gradient to 1
+  // scale the gradient, with
   (
     [
       [0, "#2ba05f"],
       [0.95, "#2ba05f"],
       [1.05, "#f9a933"],
-      [1.67, "rgba(255, 112, 68, 1)"],
-      [2, "rgba(255, 112, 68, 1)"],
-      [2.01, "rgba(255, 112, 68, 0.35)"],
-      [3, "rgba(226, 0, 42, 0)"],
+      [cfg.maxValue * 0.8, "rgba(255, 112, 68, 1)"],
+      [cfg.maxValue, "rgba(255, 112, 68, 1)"],
+      [cfg.maxValue + .01, "rgba(255, 112, 68, 0.35)"],
+      [cfg.maxValue * 1.5, "rgba(226, 0, 42, 0)"],
     ] as [number, string][]
   ).forEach(([offset, color]) => {
     radialGradient
