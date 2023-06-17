@@ -85,7 +85,7 @@ function getCountryBenchmark(
   const aggregateResults: Record<string, (number | string)[]> = {};
   const failedRpcs: Record<string, string[]> = {};
   diets.forEach((diet) => {
-    const [rpcs, processes] = reduceDiet([diet], foodsRecipes);
+    const [rpcs, processes] = reduceDiet([diet], foodsRecipes, {});
 
     const impacts = rpcs.map(([rpc, amountGram]) => [
       rpc,
