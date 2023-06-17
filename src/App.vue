@@ -94,7 +94,7 @@ export default defineComponent({
   <section class="start-page">
     <div class="stack u-tac">
       <div class="cluster cluster--center">
-        <img src="../assets/slu-logo.svg" class="start-page__logo" />
+        <img src="@/assets/slu-logo.svg" class="start-page__logo" />
       </div>
       <h2>SLU Plan'Eat Diet Tester</h2>
       <div class="env-factors-box stack">
