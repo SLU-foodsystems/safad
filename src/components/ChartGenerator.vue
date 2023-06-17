@@ -64,8 +64,6 @@ export default defineComponent({
             return acc.map((entry, i) => [entry[0], entry[1] + curr[i][1]]);
           }, []);
 
-        console.log(country, totalFootprints);
-
         const chartData = totalFootprints
           .map(([axis, absoluteValue]) => {
             const limitValue = limits[axis];
