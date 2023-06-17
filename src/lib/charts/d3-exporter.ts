@@ -1,7 +1,9 @@
 function inlineStyles(source: Element, target: Element) {
   // inline style from source element to the target (detached) one
   const computed = window.getComputedStyle(source);
+  //@ts-ignore-next-line
   for (const styleKey of computed) {
+    //@ts-ignore-next-line
     target.style[styleKey] = computed[styleKey];
   }
 
@@ -105,6 +107,8 @@ export default async function downloadSvgAsImage(
   // source element.
   const target = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   target.innerHTML = source.innerHTML;
+
+  //@ts-ignore-next-line
   for (const attr of source.attributes) {
     target.setAttribute(attr.name, attr.value);
   }

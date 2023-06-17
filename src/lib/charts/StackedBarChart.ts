@@ -1,3 +1,4 @@
+//@ts-disable
 import * as d3 from "d3";
 import cmc from "./cmc-colors";
 
@@ -170,7 +171,8 @@ export default function StackedBarChart(
     // enter a second time = loop subgroup per subgroup to add all rectangles
     .data((d) => d)
     .join("rect")
-    .attr("x", (d) => xAxis(d.data.category as unknown as string))
+    //@ts-ignore-next-line
+    .attr("x", (d) => xAxis(d.data.category))
     .attr("y", (d) => yAxis(d[1]))
     .attr("height", (d) => yAxis(d[0]) - yAxis(d[1]))
     .attr("width", xAxis.bandwidth());
