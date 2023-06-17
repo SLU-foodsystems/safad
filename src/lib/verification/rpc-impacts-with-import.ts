@@ -57,7 +57,7 @@ const getCategoryName = (code: string, level: number) => {
 
 const codesInRecipes = Object.keys(foodsRecipes);
 
-export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
+export default async function computeFootprintsForEachRpcWithOrigin(envFactors?: EnvOriginFactors): Promise<
   string[][]
 > {
   const header = [
@@ -82,7 +82,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
   ]);
 
   const RE = new ResultsEngine();
-  RE.setEnvFactors(allEnvImpacts);
+  RE.setEnvFactors(envFactors || allEnvImpacts);
 
   const syncRpcFiles = await Promise.all(
     LL_COUNTRIES.map(

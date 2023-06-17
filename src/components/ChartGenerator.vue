@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, type PropType } from "vue";
 import BoundariesChart from "@/lib/charts/BoundariesChart";
 import downloadSvgAsImage from "@/lib/charts/d3-exporter";
 import { computeFootprintsForDiets } from "@/lib/verification/diet-impacts";
@@ -21,14 +21,23 @@ const countries = [
 const SCALEUP_FACTOR = 1.2;
 
 export default defineComponent({
+  props: {
+    envFactors: Object as PropType<EnvOriginFactors>,
+  },
+
   data() {
     return {
       countries,
     };
   },
+
+  watch: {
+    envFactors: 'run',
+  },
+
   methods: {
     async run() {
-      const countriesAndDiets = await computeFootprintsForDiets();
+      const countriesAndDiets = await computeFootprintsForDiets(this.envFactors);
       const limits = PLANETARY_BOUNDARY_LIMITS as Record<string, number>;
       const names: Record<string, string> = {
         co2e: "Carbon Dioxide Equivalents",
