@@ -15,7 +15,9 @@ import categoryNamesJson from "@/data/category-names.json";
 import foodsRecipesJson from "@/data/foodex-recipes.json";
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import namesJson from "@/data/rpc-names.json";
-import processAndPackagingData from "@/data/processes-and-packaging.json"
+import processAndPackagingDataJson from "@/data/processes-and-packaging.json"
+
+const processAndPackagingData = processAndPackagingDataJson as unknown as Record<string, Record<string, number[]>>;
 
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
 
