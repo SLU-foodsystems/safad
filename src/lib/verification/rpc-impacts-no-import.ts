@@ -15,6 +15,7 @@ import categoryNamesJson from "@/data/category-names.json";
 import foodsRecipesJson from "@/data/foodex-recipes.json";
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import namesJson from "@/data/rpc-names.json";
+import processAndPackagingData from "@/data/processes-and-packaging.json"
 
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
 
@@ -113,7 +114,8 @@ function getCountryBenchmark(
 
     aggregateResults[diet.code] = aggregateFootprints(
       rpcFootprints,
-      processFootprints
+      processFootprints,
+      processAndPackagingData
     );
   });
 
