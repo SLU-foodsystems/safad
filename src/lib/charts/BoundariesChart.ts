@@ -165,7 +165,7 @@ export default function BoundariesChart(
   const labels = axis.append("text");
 
   const labelArc = d3
-    .arc()
+    .arc<string>()
     .innerRadius(rScale(cfg.maxValue * cfg.labelOffsetFactor))
     .outerRadius(rScale(cfg.maxValue * cfg.labelOffsetFactor))
     .startAngle((_d, i) => angleSlice * (i + 0.5) + anglePadding)
@@ -198,7 +198,7 @@ export default function BoundariesChart(
     .append("g");
 
   const arcGenerator = d3
-    .arc()
+    .arc<any, RadarDataPoint>()
     .innerRadius(0)
     .outerRadius((d) => rScale(d.value))
     .startAngle((_d, i) => angleSlice * (i + 0.5) + anglePadding)
