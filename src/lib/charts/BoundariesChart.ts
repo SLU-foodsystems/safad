@@ -211,7 +211,7 @@ export default function BoundariesChart(
     .enter()
     .append("path")
     .attr("d", arcGenerator)
-    .style("stroke", "rgba(0, 0, 0, 0.5)")
+    .style("stroke", "rgba(0, 0, 0, 0.15)")
     .style("stroke-width", "2px")
     .style("fill", "url(#radial-gradient)")
     .style("fill-opacity", 0.8);
