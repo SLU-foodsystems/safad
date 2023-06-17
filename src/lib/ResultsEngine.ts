@@ -168,9 +168,9 @@ class ResultsEngine {
       Object.fromEntries(
         Object.entries(amounts).map(([packetingId, amount]) => [
           packetingId,
-          packetingEmissionsFactors[packetingId]
-            .slice(0, 1) // TODO: TEMP: Force only first
-            .map((x) => (x * amount) / 1000),
+          packetingEmissionsFactors[packetingId].map(
+            (x) => (x * amount) / 1000
+          ),
         ])
       )
     );
