@@ -28,11 +28,13 @@ export default defineComponent({
   data() {
     return {
       countries,
+      maxValue: 2,
     };
   },
 
   watch: {
     envFactors: 'run',
+    maxValue: 'run',
   },
 
   methods: {
@@ -80,7 +82,8 @@ export default defineComponent({
           .map((x) => x!); // Fucking typescript
 
         const divSelector = `.boundaries-charts-container [data-country='${country}']`;
-        BoundariesChart(divSelector, [chartData], { maxValue: 8 });
+        let maxValue = this.maxValue && this.maxValue >= 1 ? this.maxValue : 2;
+        BoundariesChart(divSelector, [chartData], { maxValue });
       });
     },
 
@@ -105,6 +108,10 @@ export default defineComponent({
 <template>
   <div class="cluster">
     <div class="center">
+      <label class="max-value-input-container">
+        <span>Configure scaling</span>
+        <input type="number" v-model="maxValue">
+      </label>
       <button class="button" @click="downloadSvgs">Download Charts</button>
     </div>
     <div class="boundaries-charts-container">
@@ -115,6 +122,22 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @import "../styles/constants";
+
+.max-value-input-container {
+  display: inline-block;
+  margin-right: 1em;
+  span {
+    display: block;
+    font-weight: bold;
+  }
+  input {
+    width: 8em;
+    padding: 0.5em;
+
+  }
+}
+
+
 
 .boundaries-charts-container>div {
   &::before {
