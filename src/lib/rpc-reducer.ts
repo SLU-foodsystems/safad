@@ -53,7 +53,9 @@ function reduceToRpcs(
   recordedPProcesses: string[],
   [componentCode, amount]: RPC
 ): RPC[] {
+
   const subcomponents = recipes[componentCode];
+  if (!subcomponents) return [[componentCode, amount]];
 
   // Handle L3 preparation-processes
   let newRecordedSpecials = recordedPProcesses;
@@ -77,8 +79,6 @@ function reduceToRpcs(
       recordProcessOrPacketingContribution(l2Code, special, amount);
     }
   }
-
-  if (!subcomponents) return [[componentCode, amount]];
 
   return subcomponents
     .map(([subcomponentCode, processes, ratio, yieldFactor]): RPC[] => {
