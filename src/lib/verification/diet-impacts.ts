@@ -78,11 +78,11 @@ const dietFiles = {
 
 const categoryNames = categoryNamesJson as Record<string, string>;
 
-export async function computeFootprintsForDiets(): Promise<
+export async function computeFootprintsForDiets(envFactors?: EnvOriginFactors): Promise<
   [string, string[][]][]
 > {
   const RE = new ResultsEngine();
-  RE.setEnvFactors(allEnvImpacts);
+  RE.setEnvFactors(envFactors || allEnvImpacts);
 
   const allResults = LL_COUNTRIES.map((country) => {
     if (country === "SwedenBaseline") {
@@ -136,11 +136,11 @@ export async function computeFootprintsForDiets(): Promise<
 }
 
 
-export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
+export default async function computeFootprintsForEachRpcWithOrigin(envFactors?: EnvOriginFactors): Promise<
   string[][]
 > {
   const HEADER = ["Category Code", "Category Name", ...AGGREGATE_HEADERS];
-  return (await computeFootprintsForDiets()).map(([country, data]) => [
+  return (await computeFootprintsForDiets(envFactors)).map(([country, data]) => [
     country,
     HEADER + "\n" + data.map((row) => row.join(",")).join("\n"),
   ]);
