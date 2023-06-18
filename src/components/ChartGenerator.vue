@@ -10,6 +10,7 @@ const countries = [
   "France",
   "Germany",
   "Greece",
+  "Hungary",
   "Ireland",
   "Italy",
   "Spain",

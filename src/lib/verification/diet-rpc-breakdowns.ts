@@ -12,6 +12,7 @@ import rpcNamesJson from "@/data/rpc-names.json";
 import franceDiet from "@/data/diets/France.json";
 import germanyDiet from "@/data/diets/Germany.json";
 import greeceDiet from "@/data/diets/Greece.json";
+import hungaryDiet from "@/data/diets/Hungary.json";
 import irelandDiet from "@/data/diets/Ireland.json";
 import italyDiet from "@/data/diets/Italy.json";
 import spainDiet from "@/data/diets/Spain.json";
@@ -27,6 +28,7 @@ type LlCountryName =
   | "France"
   | "Germany"
   | "Greece"
+  | "Hungary"
   | "Ireland"
   | "Italy"
   | "Poland"
@@ -38,6 +40,7 @@ let LL_COUNTRIES: LlCountryName[] = [
   "France",
   "Germany",
   "Greece",
+  "Hungary",
   "Ireland",
   "Italy",
   "Spain",
@@ -49,6 +52,7 @@ const dietFiles = {
   France: franceDiet,
   Germany: germanyDiet,
   Greece: greeceDiet,
+  Hungary: hungaryDiet,
   Ireland: irelandDiet,
   Italy: italyDiet,
   Spain: spainDiet,
