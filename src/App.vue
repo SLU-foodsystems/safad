@@ -143,6 +143,7 @@ export default defineComponent({
 
   height: 100%;
   width: 100%;
+  padding: 2em 0;
 
   display: flex;
   justify-content: center;
