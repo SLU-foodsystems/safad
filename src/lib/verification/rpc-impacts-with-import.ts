@@ -30,7 +30,8 @@ type LlCountryName =
   | "Italy"
   | "Poland"
   | "Spain"
-  | "Sweden";
+  | "Sweden"
+  | "SwedenBaseline";
 
 let LL_COUNTRIES: LlCountryName[] = [
   "France",
@@ -42,6 +43,7 @@ let LL_COUNTRIES: LlCountryName[] = [
   "Poland",
   "Spain",
   "Sweden",
+  "SwedenBaseline",
 ];
 
 const rpcFiles = {
@@ -54,6 +56,7 @@ const rpcFiles = {
   Poland: import("@/data/rpc-parameters/Poland-rpc.json"),
   Spain: import("@/data/rpc-parameters/Spain-rpc.json"),
   Sweden: import("@/data/rpc-parameters/Sweden-rpc.json"),
+  SwedenBaseline: import("@/data/rpc-parameters/Sweden-rpc.json"),
 } as unknown as Record<LlCountryName, Promise<{ data: RpcFactors }>>;
 
 const categoryNames = categoryNamesJson as Record<string, string>;
@@ -103,7 +106,12 @@ export default async function computeFootprintsForEachRpcWithOrigin(
   );
 
   const results = syncRpcFiles.map(([country, rpcParameters]) => {
-    RE.setCountry(country);
+    if (country === "SwedenBaseline") {
+      RE.setCountry("Sweden");
+    } else {
+      RE.setCountry(country);
+    }
+
     RE.setRpcFactors(rpcParameters);
 
     const impactsPerDiet = diets
