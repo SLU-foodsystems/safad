@@ -2,7 +2,11 @@
  * Computes the footprints of each rpc in the recipe.
  */
 
-import { getRpcCodeSubset, listAllProcesses, maybeQuoteValue } from "@/lib/utils";
+import {
+  getRpcCodeSubset,
+  listAllProcesses,
+  maybeQuoteValue,
+} from "@/lib/utils";
 import aggregateFootprints, {
   AGGREGATE_HEADERS,
 } from "@/lib/footprints-aggregator";
@@ -67,7 +71,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(envFactors?:
     "L2 Category",
     ...AGGREGATE_HEADERS,
     "Processes",
-    "Packeting"
+    "Packeting",
   ];
 
   const names = namesJson as Record<string, string>;
@@ -115,9 +119,13 @@ export default async function computeFootprintsForEachRpcWithOrigin(envFactors?:
           maybeQuoteValue(names[rpc] || "NAME NOT FOUND"),
           maybeQuoteValue(getCategoryName(rpc, 1)),
           maybeQuoteValue(getCategoryName(rpc, 2)),
-          ...aggregateFootprints(rpcFootprints, processImpacts, packagingImpacts),
+          ...aggregateFootprints(
+            rpcFootprints,
+            processImpacts,
+            packagingImpacts
+          ),
           processes,
-          packeting
+          packeting,
         ];
       })
       .filter((x) => x !== null);
