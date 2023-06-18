@@ -14,6 +14,7 @@ import categoryNamesJson from "@/data/category-names.json";
 import franceRpcFactors from "@/data/rpc-parameters/France-rpc.json";
 import germanyRpcFactors from "@/data/rpc-parameters/Germany-rpc.json";
 import greeceRpcFactors from "@/data/rpc-parameters/Greece-rpc.json";
+import hungaryRpcFactors from "@/data/rpc-parameters/Hungary-rpc.json";
 import irelandRpcFactors from "@/data/rpc-parameters/Ireland-rpc.json";
 import italyRpcFactors from "@/data/rpc-parameters/Italy-rpc.json";
 import spainRpcFactors from "@/data/rpc-parameters/Spain-rpc.json";
@@ -22,6 +23,7 @@ import swedenRpcFactors from "@/data/rpc-parameters/Sweden-rpc.json";
 import franceDiet from "@/data/diets/France.json";
 import germanyDiet from "@/data/diets/Germany.json";
 import greeceDiet from "@/data/diets/Greece.json";
+import hungaryDiet from "@/data/diets/Hungary.json";
 import irelandDiet from "@/data/diets/Ireland.json";
 import italyDiet from "@/data/diets/Italy.json";
 import spainDiet from "@/data/diets/Spain.json";
@@ -37,6 +39,7 @@ type LlCountryName =
   | "France"
   | "Germany"
   | "Greece"
+  | "Hungary"
   | "Ireland"
   | "Italy"
   | "Poland"
@@ -48,6 +51,7 @@ const LL_COUNTRIES: LlCountryName[] = [
   "France",
   "Germany",
   "Greece",
+  "Hungary",
   "Ireland",
   "Italy",
   "Spain",
@@ -59,6 +63,7 @@ const rpcFiles = {
   France: franceRpcFactors.data,
   Germany: germanyRpcFactors.data,
   Greece: greeceRpcFactors.data,
+  Hungary: hungaryRpcFactors.data,
   Ireland: irelandRpcFactors.data,
   Italy: italyRpcFactors.data,
   Spain: spainRpcFactors.data,
@@ -69,6 +74,7 @@ const dietFiles = {
   France: franceDiet,
   Germany: germanyDiet,
   Greece: greeceDiet,
+  Hungary: hungaryDiet,
   Ireland: irelandDiet,
   Italy: italyDiet,
   Spain: spainDiet,

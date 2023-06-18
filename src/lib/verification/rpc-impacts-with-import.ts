@@ -25,6 +25,7 @@ type LlCountryName =
   | "France"
   | "Germany"
   | "Greece"
+  | "Hungary"
   | "Ireland"
   | "Italy"
   | "Poland"
@@ -35,6 +36,7 @@ let LL_COUNTRIES: LlCountryName[] = [
   "France",
   "Germany",
   "Greece",
+  "Hungary",
   "Ireland",
   "Italy",
   "Poland",
@@ -46,6 +48,7 @@ const rpcFiles = {
   France: import("@/data/rpc-parameters/France-rpc.json"),
   Germany: import("@/data/rpc-parameters/Germany-rpc.json"),
   Greece: import("@/data/rpc-parameters/Greece-rpc.json"),
+  Hungary: import("@/data/rpc-parameters/Hungary-rpc.json"),
   Ireland: import("@/data/rpc-parameters/Ireland-rpc.json"),
   Italy: import("@/data/rpc-parameters/Italy-rpc.json"),
   Poland: import("@/data/rpc-parameters/Poland-rpc.json"),
@@ -61,9 +64,9 @@ const getCategoryName = (code: string, level: number) => {
 
 const codesInRecipes = Object.keys(foodsRecipes);
 
-export default async function computeFootprintsForEachRpcWithOrigin(envFactors?: EnvOriginFactors): Promise<
-  string[][]
-> {
+export default async function computeFootprintsForEachRpcWithOrigin(
+  envFactors?: EnvOriginFactors
+): Promise<string[][]> {
   const header = [
     "Code",
     "Name",
