@@ -9,9 +9,9 @@ import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import foodsRecipes from "@/data/foodex-recipes.json";
 import processesAndPackagingData from "@/data/processes-and-packaging.json";
 import packetingEmissionsFactorsJson from "@/data/packeting-emissions-factors.json";
-import flattenEnvironmentalFootprints from "./env-impact-aggregator";
+import flattenEnvironmentalFactors from "./env-impact-aggregator";
 import { aggregateRpcCategories, mapValues, vectorsSum } from "./utils";
-import { ENV_FOOTPRINTS_ZERO } from "./constants";
+import { ENV_IMPACTS_ZERO } from "./constants";
 
 const recipes = foodsRecipes.data as unknown as FoodsRecipes;
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
@@ -24,13 +24,13 @@ const packetingEmissionsFactors = packetingEmissionsFactorsJson as Record<
  * Ties all parts of computing the results into a singleton.
  */
 class ResultsEngine {
-  envFootprintsPerOrigin: EnvOriginFactors | null = null;
-  flatEnvFootprints: EnvFootprints | null = null;
+  envFactorsPerOrigin: EnvFactors | null = null;
+  flatEnvImpacts: EnvImpacts | null = null;
 
   rpcParameters: RpcFactors | null = null;
 
   country: string | null = null;
-  processEnvSheet: Record<string, number[]> | null = null;
+  processEnvFactors: Record<string, number[]> | null = null;
 
   factorsOverrides: FactorsOverrides = {
     mode: "absolute",
@@ -41,7 +41,7 @@ class ResultsEngine {
   };
 
   private recomputeEnvFootprints() {
-    if (!this.envFootprintsPerOrigin) {
+    if (!this.envFactorsPerOrigin) {
       console.info(
         "Method recomputeEnvFootprints called before footprints file was set."
       );
@@ -55,16 +55,16 @@ class ResultsEngine {
       return;
     }
 
-    this.flatEnvFootprints = flattenEnvironmentalFootprints(
-      this.envFootprintsPerOrigin,
+    this.flatEnvImpacts = flattenEnvironmentalFactors(
+      this.envFactorsPerOrigin,
       this.rpcParameters,
       "conventional"
     );
   }
 
   // Replace the conventional environmental factors with a new set.
-  public setEnvFactors(conventional: EnvOriginFactors) {
-    this.envFootprintsPerOrigin = conventional;
+  public setEnvFactors(conventional: EnvFactors) {
+    this.envFactorsPerOrigin = conventional;
     this.recomputeEnvFootprints();
   }
 
@@ -72,7 +72,7 @@ class ResultsEngine {
     rpcCode: string,
     amountGram: number
   ): null | number[] {
-    if (!this.flatEnvFootprints) {
+    if (!this.flatEnvImpacts) {
       throw new Error("getEnvImpact called before sheets were assigned.");
     }
 
@@ -84,7 +84,7 @@ class ResultsEngine {
 
     const suaCode = rpcToSuaMap[rpcCode];
     if (suaCode === "0") {
-      return ENV_FOOTPRINTS_ZERO;
+      return ENV_IMPACTS_ZERO;
     }
 
     if (!suaCode) {
@@ -92,12 +92,12 @@ class ResultsEngine {
       return null;
     }
 
-    if (!this.flatEnvFootprints[suaCode]) {
+    if (!this.flatEnvImpacts[suaCode]) {
       // console.warn(`Missing factors for ${rpcCode} (${suaCode})`);
-      return ENV_FOOTPRINTS_ZERO;
+      return ENV_IMPACTS_ZERO;
     }
 
-    return this.flatEnvFootprints[suaCode].map((x) => (x * amountGram) / 1000);
+    return this.flatEnvImpacts[suaCode].map((x) => (x * amountGram) / 1000);
   }
 
   // Set the rpc-factors, i.e. the origin of each rpc, its share, and its
@@ -113,13 +113,11 @@ class ResultsEngine {
 
   public setCountry(country: string) {
     this.country = country;
-    this.processEnvSheet = getProcessFootprintsSheet(country);
+    this.processEnvFactors = getProcessFootprintsSheet(country);
   }
 
   public isReady() {
-    return (
-      this.processEnvSheet !== null && this.envFootprintsPerOrigin !== null
-    );
+    return this.processEnvFactors !== null && this.envFactorsPerOrigin !== null;
   }
 
   public computeFootprints(
@@ -131,14 +129,14 @@ class ResultsEngine {
         Record<string, Record<string, number[]>>,
         Record<string, Record<string, number[]>>
       ] {
-    if (!this.envFootprintsPerOrigin) {
+    if (!this.envFactorsPerOrigin) {
       console.error(
         "Compute called when no environmentalFactorsSheet was set."
       );
       return null;
     }
 
-    if (!this.country || !this.processEnvSheet) {
+    if (!this.country || !this.processEnvFactors) {
       console.error("Compute called when no country or process was set.");
       return null;
     }
@@ -161,7 +159,7 @@ class ResultsEngine {
     // Per-process impacts
     const processesEnvImpacts = computeProcessFootprints(
       processes,
-      this.processEnvSheet
+      this.processEnvFactors
     );
 
     const packagingEnvImpacts = mapValues(packeting, (amounts) =>
@@ -178,7 +176,7 @@ class ResultsEngine {
     return [rpcImpact, processesEnvImpacts, packagingEnvImpacts];
   }
 
-  public computeFootprintsWithCategory(diet: Diet) {
+  public computeImpactsByCategory(diet: Diet) {
     const impacts = this.computeFootprints(diet);
     if (!impacts) return null;
 
@@ -204,7 +202,7 @@ class ResultsEngine {
   // Necessary for testing.
   public reset() {
     this.rpcParameters = null;
-    this.envFootprintsPerOrigin = null;
+    this.envFactorsPerOrigin = null;
   }
 }
 

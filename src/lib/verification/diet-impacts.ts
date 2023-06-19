@@ -4,7 +4,7 @@
 
 import { uniq } from "@/lib/utils";
 import {
-  expandedFootprints,
+  expandedImpacts,
   AGGREGATE_HEADERS,
 } from "@/lib/footprints-aggregator";
 
@@ -31,9 +31,9 @@ import swedenDiet from "@/data/diets/Sweden.json";
 import swedenBaselineDiet from "@/data/diets/SwedenBaseline.json";
 
 import ResultsEngine from "@/lib/ResultsEngine";
-import { ENV_FOOTPRINTS_ZERO } from "../constants";
+import { ENV_IMPACTS_ZERO } from "../constants";
 
-const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvOriginFactors;
+const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
 
 type LlCountryName =
   | "France"
@@ -84,7 +84,7 @@ const dietFiles = {
 
 const categoryNames = categoryNamesJson as Record<string, string>;
 
-export async function computeFootprintsForDiets(envFactors?: EnvOriginFactors): Promise<
+export async function computeFootprintsForDiets(envFactors?: EnvFactors): Promise<
   [string, string[][]][]
 > {
   const RE = new ResultsEngine();
@@ -109,7 +109,7 @@ export async function computeFootprintsForDiets(envFactors?: EnvOriginFactors): 
       })
     );
 
-    const results = RE.computeFootprintsWithCategory(diet);
+    const results = RE.computeImpactsByCategory(diet);
     if (results === null) return null;
     const categories = uniq([
       ...Object.keys(results[0]),
@@ -117,13 +117,13 @@ export async function computeFootprintsForDiets(envFactors?: EnvOriginFactors): 
     ]).sort();
 
     const data = categories.map((categoryId) => {
-      const [rpcFootprints, processFootprints, packagingFootprints] =
+      const [rpcImpacts, processImpacts, packagingImpacts] =
         results.map((x) => x[categoryId]);
 
-      const footprints = expandedFootprints(
-        rpcFootprints || ENV_FOOTPRINTS_ZERO,
-        processFootprints || [0, 0, 0],
-        packagingFootprints || [0, 0]
+      const footprints = expandedImpacts(
+        rpcImpacts || ENV_IMPACTS_ZERO,
+        processImpacts || [0, 0, 0],
+        packagingImpacts || [0, 0]
       );
 
       return [
@@ -142,7 +142,7 @@ export async function computeFootprintsForDiets(envFactors?: EnvOriginFactors): 
 }
 
 
-export default async function computeFootprintsForEachRpcWithOrigin(envFactors?: EnvOriginFactors): Promise<
+export default async function computeFootprintsForEachRpcWithOrigin(envFactors?: EnvFactors): Promise<
   string[][]
 > {
   const HEADER = ["Category Code", "Category Name", ...AGGREGATE_HEADERS];

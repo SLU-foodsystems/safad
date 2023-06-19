@@ -1,5 +1,5 @@
 import { sum, vectorsSum } from "@/lib/utils";
-import { ENV_FOOTPRINTS_ZERO, CO2E_CONV_FACTORS } from "@/lib/constants";
+import { ENV_IMPACTS_ZERO, CO2E_CONV_FACTORS } from "@/lib/constants";
 
 export const AGGREGATE_HEADERS = [
   "Total CO2e",
@@ -33,7 +33,7 @@ export const AGGREGATE_HEADERS = [
   "Packaging N2O",
 ];
 
-export function expandedFootprints(
+export function expandedImpacts(
   rpcFootprints: number[],
   processFootprints: number[],
   packagingFootprints: number[]
@@ -79,7 +79,7 @@ export default function aggregateFootprints(
   const totalRpcFootprints =
     Object.values(rpcFootprints).length > 0
       ? vectorsSum(Object.values(rpcFootprints))
-      : ENV_FOOTPRINTS_ZERO;
+      : ENV_IMPACTS_ZERO;
   const processValues = Object.values(processFootprints)
     .map((obj) => Object.values(obj))
     .flat(1);
@@ -96,7 +96,7 @@ export default function aggregateFootprints(
     totalPackagingFootprints.push(0);
   }
 
-  return expandedFootprints(
+  return expandedImpacts(
     totalRpcFootprints,
     totalProcessesFootprints,
     totalPackagingFootprints

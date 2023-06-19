@@ -29,15 +29,17 @@ declare global {
   type FoodsRecipe = [string, string[], number, number][];
   type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };
 
-  type EnvFactors = number[];
-  interface EnvOriginFactors {
-    [rpcCode: string]: { [originCode: string]: EnvFactors };
+  // Factors are multiples of impact per kg of food per day.
+  interface EnvFactors {
+    [rpcCode: string]: { [originCode: string]: number[] };
   }
 
-  interface EnvFootprints {
-    [rpcCode: string]: EnvFactors;
+  // Impacts are the factors multiplied by an amount (kg)
+  interface EnvImpacts {
+    [rpcCode: string]: number[];
   }
 
+  // RPC factors -
   interface RpcFactors {
     [rpcCode: string]: {
       // share, productionWaste, organic
