@@ -17,7 +17,7 @@ export default defineComponent({
 
   data() {
     return {
-      envFactors: undefined as EnvOriginFactors | undefined,
+      envFactors: undefined as EnvFactors | undefined,
       envFactorsFileName: "",
       fileState: "initial" as FileState,
     };
