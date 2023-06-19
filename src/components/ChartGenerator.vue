@@ -43,12 +43,12 @@ export default defineComponent({
       const countriesAndDiets = await computeFootprintsForDiets(this.envFactors);
       const limits = PLANETARY_BOUNDARY_LIMITS as Record<string, number>;
       const names: Record<string, string> = {
-        co2e: "Carbon Dioxide Equivalents",
-        p: "P Application",
-        n: "N Application",
-        land: "Land Use",
-        h2o: "Water",
-        biodiversity: "Extinction Rate",
+        co2e: "Carbon Footprint",
+        p: "New P Input",
+        n: "New N Input",
+        land: "Cropland Use",
+        h2o: "Blue Water Use",
+        biodiversity: "Biodiversity impact",
       };
 
       countriesAndDiets.forEach(async ([country, dataByCategory]) => {
