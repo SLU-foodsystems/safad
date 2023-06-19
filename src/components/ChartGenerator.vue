@@ -23,7 +23,7 @@ const SCALEUP_FACTOR = 1.2;
 
 export default defineComponent({
   props: {
-    envFactors: Object as PropType<EnvOriginFactors>,
+    envFactors: Object as PropType<EnvFactors>,
   },
 
   data() {
