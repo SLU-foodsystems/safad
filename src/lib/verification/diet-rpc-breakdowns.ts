@@ -21,7 +21,7 @@ import swedenDiet from "@/data/diets/Sweden.json";
 import processesAndPackagingData from "@/data/processes-and-packaging.json";
 
 const recipes = foodsRecipesJson.data as unknown as FoodsRecipes;
-const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvOriginFactors;
+const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
 const rpcNames = rpcNamesJson as Record<string, string>;
 
 type LlCountryName =
@@ -82,7 +82,6 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
         amount,
         retailWaste: 0,
         consumerWaste: 0,
-        organic: 0,
       }))
       .map((d) => [
         d.code,

@@ -1,12 +1,12 @@
 /**
- * Computes the footprints of each rpc in the recipe.
+ * Computes the envrionmental impacts of each rpc in the recipe.
  */
 
 import reduceDiet from "@/lib/rpc-reducer";
 import { maybeQuoteValue } from "@/lib/utils";
 import {
   computeProcessFootprints,
-  getProcessFootprintsSheet,
+  getProcessFootprintsSheet as getProcessEnvImpactsSheet,
 } from "@/lib/process-env-impact";
 import aggregateFootprints, { AGGREGATE_HEADERS } from "@/lib/footprints-aggregator";
 
@@ -27,7 +27,7 @@ const allEnvImpacts = allEnvImpactsJson as Record<
 
 const ENV_ZERO_IMPACT = Array.from({ length: 16 }).map((_) => 0);
 
-function getFlattenedRpcFootprints(country: string) {
+function getFlattenedRpcImpacts(country: string) {
   return Object.fromEntries(
     Object.entries(allEnvImpacts)
       .map(([code, impactPerCountry]) => {
@@ -72,8 +72,8 @@ function getRpcImpact(
 function getCountryBenchmark(
   country: string
 ): [Record<string, (number | string)[]>, Record<string, string[]>] {
-  const processesEnvImpacts = getProcessFootprintsSheet(country);
-  const envImpacts = getFlattenedRpcFootprints(country);
+  const processesEnvImpacts = getProcessEnvImpactsSheet(country);
+  const envImpacts = getFlattenedRpcImpacts(country);
 
   const diets = codesInRecipes.map((code) => ({
     code,
@@ -104,16 +104,16 @@ function getCountryBenchmark(
       return;
     }
 
-    const rpcFootprints = Object.fromEntries(impacts);
+    const rpcImpacts = Object.fromEntries(impacts);
 
-    const processFootprints = computeProcessFootprints(
+    const processImpacts = computeProcessFootprints(
       processes,
       processesEnvImpacts
     );
 
     aggregateResults[diet.code] = aggregateFootprints(
-      rpcFootprints,
-      processFootprints,
+      rpcImpacts,
+      processImpacts,
       {}
     );
   });

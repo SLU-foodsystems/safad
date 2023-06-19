@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import joinEnvImpactSheet from "./env-impact-aggregator";
+import flattenEnvFactorsSheet from "./env-impact-aggregator";
 import { N_ENV_FOOTPRINTS } from "./constants";
 
 const constEnvFactors = (x: number) =>
@@ -22,18 +22,18 @@ describe("env-impacts.ts", () => {
 
     const envImpactSheet = {
       a: {
-        se: constEnvFactors(1) as EnvFactors,
-        es: constEnvFactors(3) as EnvFactors,
-        RoW: constEnvFactors(8) as EnvFactors,
+        se: constEnvFactors(1) as number[],
+        es: constEnvFactors(3) as number[],
+        RoW: constEnvFactors(8) as number[],
       },
       b: {
-        en: constEnvFactors(1) as EnvFactors,
-        fr: constEnvFactors(4) as EnvFactors,
-        RoW: constEnvFactors(10) as EnvFactors,
+        en: constEnvFactors(1) as number[],
+        fr: constEnvFactors(4) as number[],
+        RoW: constEnvFactors(10) as number[],
       },
     };
 
-    const result = joinEnvImpactSheet(
+    const result = flattenEnvFactorsSheet(
       envImpactSheet,
       rpcFactors,
       "conventional"
@@ -67,9 +67,9 @@ describe("env-impacts.ts", () => {
 
     const envImpactSheet = {
       a: {
-        se: constEnvFactors(1) as EnvFactors,
-        es: constEnvFactors(2) as EnvFactors,
-        RoW: constEnvFactors(3) as EnvFactors,
+        se: constEnvFactors(1) as number[],
+        es: constEnvFactors(2) as number[],
+        RoW: constEnvFactors(3) as number[],
       },
     };
 
@@ -81,7 +81,7 @@ describe("env-impacts.ts", () => {
       );
 
     test("Pure conventional", () => {
-      const result = joinEnvImpactSheet(
+      const result = flattenEnvFactorsSheet(
         envImpactSheet,
         rpcFactors(0),
         "conventional"
@@ -97,7 +97,7 @@ describe("env-impacts.ts", () => {
     });
 
     test("Pure organic", () => {
-      const result = joinEnvImpactSheet(
+      const result = flattenEnvFactorsSheet(
         envImpactSheet,
         rpcFactors(1),
         "organic"
@@ -113,12 +113,12 @@ describe("env-impacts.ts", () => {
     });
 
     test("Even split", () => {
-      const resultC = joinEnvImpactSheet(
+      const resultC = flattenEnvFactorsSheet(
         envImpactSheet,
         rpcFactors(0.5),
         "conventional"
       );
-      const resultO = joinEnvImpactSheet(
+      const resultO = flattenEnvFactorsSheet(
         envImpactSheet,
         rpcFactors(0.5),
         "organic"
@@ -135,12 +135,12 @@ describe("env-impacts.ts", () => {
 
     test("Uneven split", () => {
       const _rpcFactors = rpcFactors(0.3);
-      const resultC = joinEnvImpactSheet(
+      const resultC = flattenEnvFactorsSheet(
         envImpactSheet,
         _rpcFactors,
         "conventional"
       );
-      const resultO = joinEnvImpactSheet(
+      const resultO = flattenEnvFactorsSheet(
         envImpactSheet,
         _rpcFactors,
         "organic"

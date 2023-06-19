@@ -11,17 +11,17 @@
  * level, and as such, it's a lot more convenient.
  */
 
-import { ENV_FOOTPRINTS_ZERO } from "./constants";
+import { ENV_IMPACTS_ZERO } from "./constants";
 
 // TODO: This function could also take a diet and compute the env impact
 // directly, i.e. only computing the factors for the RPCs that are actually
 // included in the diet, rather than for all of them. This would be more
 // efficient, but I doubt this is the bottleneck. We can see later.
-export default function flattenEnvironmentalFootprints(
-  envImpactSheet: EnvOriginFactors,
+export default function flattenEnvironmentalFactors(
+  envImpactSheet: EnvFactors,
   rpcFactors: RpcFactors,
   mode: "organic" | "conventional"
-): EnvFootprints {
+): EnvImpacts {
   // Idea: Increase impact to account for waste.
   //    - Downside: we won't be able to say "environmental impact from waste"
   //    - (unless we outpt with and without waste for every item?)
@@ -56,7 +56,7 @@ export default function flattenEnvironmentalFootprints(
         }
         return envImpacts[origin].map((x) => ratio * x);
       })
-      .reduce((a, b) => a.map((x, i) => x + b[i]), ENV_FOOTPRINTS_ZERO);
+      .reduce((a, b) => a.map((x, i) => x + b[i]), ENV_IMPACTS_ZERO);
 
     return [suaCode, joinedEnvFactors];
   }).filter( x => x !== null).map(x => x!);

@@ -19,7 +19,7 @@ import namesJson from "@/data/rpc-names.json";
 import ResultsEngine from "@/lib/ResultsEngine";
 
 const foodsRecipes = foodsRecipesJson.data as unknown as FoodsRecipes;
-const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvOriginFactors;
+const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
 
 type LlCountryName =
   | "France"
@@ -68,7 +68,7 @@ const getCategoryName = (code: string, level: number) => {
 const codesInRecipes = Object.keys(foodsRecipes);
 
 export default async function computeFootprintsForEachRpcWithOrigin(
-  envFactors?: EnvOriginFactors
+  envFactors?: EnvFactors
 ): Promise<string[][]> {
   const header = [
     "Code",

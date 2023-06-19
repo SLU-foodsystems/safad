@@ -1,4 +1,4 @@
-import { ENV_FOOTPRINTS_ZERO } from "./constants";
+import { ENV_IMPACTS_ZERO } from "./constants";
 
 /**
  * Split a csv-document into a 2d-array, while ignoring any delimiter-
@@ -43,7 +43,7 @@ export default function main(csvString: string) {
   const data = csvToArr(csvString);
   const EXPECTED_LENGTH = 16;
 
-  const structured = {} as EnvOriginFactors;
+  const structured = {} as EnvFactors;
 
   data
     .filter((x) => x.length > 1)
@@ -83,7 +83,7 @@ export default function main(csvString: string) {
     const average = Object.values(footprintsPerOrigin)
       .reduce(
         (acc, footprints) => acc.map((x, i) => x + footprints[i]),
-        ENV_FOOTPRINTS_ZERO
+        ENV_IMPACTS_ZERO
       )
       .map((x: number) => x / numberOfOrigins);
 
