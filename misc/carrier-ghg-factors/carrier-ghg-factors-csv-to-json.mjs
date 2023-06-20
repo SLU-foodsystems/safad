@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Converts a csv with footprints of energy types to a json file.
+ * Converts a csv with GHG-demands of energy types to a json file.
  * Note that Electricty is the only carrier which has country-specific
  * parameters
  *
@@ -9,14 +9,14 @@
  *
  * Output:
  * {
- *   Electricty: { [country]: [co2, ch4, n2o]}
+ *   Electricty: { [country]: [co2, ch4, n2o]},
  *   [carrier]: [co2, ch4, n2o],
  * } as JSON
  *
  * Usage:
  *
- *  node carrier-footsprints-csv-to-json.mjs "./carrier-footprints.csv" >
- *    ../../src/data/carrier-footprints.json
+ *  node carrier-ghg-factors-csv-to-json.mjs "./carrier-ghg-factors.csv" >
+ *    ../../src/data/carrier-ghg-factors.json
  */
 
 import { readCsv } from "../utils.mjs";
@@ -30,12 +30,12 @@ function main(args) {
 
   csv
     .map((row) => row.map((x) => x.trim()))
-    .forEach(([carrier, country, _countryCode, ...footprintsStr]) => {
-      const footprints = footprintsStr.map((x) => (x ? parseFloat(x) : 0));
+    .forEach(([carrier, country, _countryCode, ...ghgsStrs]) => {
+      const ghgs = ghgsStrs.map((x) => (x ? parseFloat(x) : 0));
       if (carrier === "Electricity") {
-        results[carrier][country] = footprints;
+        results[carrier][country] = ghgs;
       } else {
-        results[carrier] = footprints;
+        results[carrier] = ghgs;
       }
     });
 

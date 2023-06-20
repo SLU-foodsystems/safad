@@ -51,11 +51,11 @@ function main(args) {
   );
 
   Object.keys(structured).forEach((suaCode) => {
-    const footprintsPerOrigin = structured[suaCode];
-    const numberOfOrigins = Object.values(footprintsPerOrigin).length;
-    const average = Object.values(footprintsPerOrigin)
-      .reduce((acc, footprints) => {
-        return acc ? acc.map((x, i) => x + footprints[i]) : footprints;
+    const factorsPerOrigin = structured[suaCode];
+    const numberOfOrigins = Object.values(factorsPerOrigin).length;
+    const average = Object.values(factorsPerOrigin)
+      .reduce((acc, factors) => {
+        return acc ? acc.map((x, i) => x + factors[i]) : factors;
       }, null)
       .map((x) => x / numberOfOrigins);
 

@@ -69,16 +69,17 @@ export function getProcessEnvFactors(
 
   return result;
 }
+
 /**
  * Compute the environmental impacts for each process.
  *
  * Input:
  * - Amount (kg) of each process
- * - Energies Footprints Factors: Contribution of energy type to each GHG.
- * - (static) Process Energy Factors: Contribution of each process to each
- *   energy type.
+ * - Energies impact Factors: Contribution of energy type to each GHG.
+ * - (static, impure) Process Energy Factors: Contribution of each process to
+ *   each energy type.
  *
- * Output: { [process]: [CO2, N2O, CH4, ...] }
+ * Output: { [l1Category]: { [processId]: [CO2, N2O, CH4, ...] } }
  */
 export const computeProcessImpacts = (
   processAmountsMap: Record<string, Record<string, number>>,

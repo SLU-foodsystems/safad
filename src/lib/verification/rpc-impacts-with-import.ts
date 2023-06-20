@@ -1,5 +1,5 @@
 /**
- * Computes the footprints of each rpc in the recipe.
+ * Computes the impacts of each RPC in the recipe.
  */
 
 import {
@@ -7,7 +7,7 @@ import {
   listAllProcesses,
   maybeQuoteValue,
 } from "@/lib/utils";
-import aggregateFootprints, {
+import aggregateImpacts, {
   AGGREGATE_HEADERS,
 } from "@/lib/footprints-aggregator";
 
@@ -117,11 +117,11 @@ export default async function computeFootprintsForEachRpcWithOrigin(
     const impactsPerDiet = diets
       .map((diet) => {
         const rpc = diet[0].code;
-        const footprints = RE.computeFootprints(diet);
-        if (footprints === null) {
+        const impacts = RE.computeImpacts(diet);
+        if (impacts === null) {
           return null;
         }
-        const [rpcFootprints, processImpacts, packagingImpacts] = footprints;
+        const [rpcImpacts, processImpacts, packagingImpacts] = impacts;
         const processes = listAllProcesses(processImpacts).join("$");
         const packeting = listAllProcesses(packagingImpacts).join("$");
 
@@ -130,8 +130,8 @@ export default async function computeFootprintsForEachRpcWithOrigin(
           maybeQuoteValue(names[rpc] || "NAME NOT FOUND"),
           maybeQuoteValue(getCategoryName(rpc, 1)),
           maybeQuoteValue(getCategoryName(rpc, 2)),
-          ...aggregateFootprints(
-            rpcFootprints,
+          ...aggregateImpacts(
+            rpcImpacts,
             processImpacts,
             packagingImpacts
           ),
