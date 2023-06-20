@@ -111,7 +111,7 @@ export default defineComponent({
           <button class="button button--small" @click="reset">Reset</button>
         </div>
         <div v-if="!envFactors">
-          <input type="file" @change="onFileChange" accepts=".csv" ref="fileInput"/>
+          <input type="file" @change="onFileChange" accepts=".csv" ref="fileInput" />
         </div>
       </div>
 
