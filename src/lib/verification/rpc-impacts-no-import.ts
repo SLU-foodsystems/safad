@@ -6,7 +6,7 @@ import reduceDiet from "@/lib/rpc-reducer";
 import { maybeQuoteValue } from "@/lib/utils";
 import {
   computeProcessFootprints,
-  getProcessFootprintsSheet as getProcessEnvImpactsSheet,
+  getProcessEnvFactors as getProcessEnvImpactsSheet,
 } from "@/lib/process-env-impact";
 import aggregateFootprints, { AGGREGATE_HEADERS } from "@/lib/footprints-aggregator";
 

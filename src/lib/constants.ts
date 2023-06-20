@@ -3,6 +3,8 @@ export const ENV_IMPACTS_ZERO = Array.from({
   length: N_ENV_FOOTPRINTS,
 }).map((_) => 0);
 
+export const N_PROCESS_GHGS = 3;
+
 // The planetary boundaries used as limits.
 export const PLANETARY_BOUNDARY_LIMITS = {
   co2e: (0.67 * 1000) / 365, // from tonnes per year to g per day
