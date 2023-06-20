@@ -1,9 +1,6 @@
 import reduceDiet from "./rpc-reducer";
 
-import {
-  computeProcessFootprints,
-  getProcessEnvFactors,
-} from "./process-env-impact";
+import { computeProcessImpacts, getProcessEnvFactors } from "./process-env-impact";
 
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import foodsRecipes from "@/data/foodex-recipes.json";
@@ -43,7 +40,7 @@ class ResultsEngine {
   private recomputeEnvFootprints() {
     if (!this.envFactorsPerOrigin) {
       console.info(
-        "Method recomputeEnvFootprints called before footprints file was set."
+        "Method recomputeEnvFootprints called before env factors file was set."
       );
       return;
     }
@@ -120,7 +117,7 @@ class ResultsEngine {
     return this.processEnvFactors !== null && this.envFactorsPerOrigin !== null;
   }
 
-  public computeFootprints(
+  public computeImpacts(
     diet: Diet
   ):
     | null
@@ -157,7 +154,7 @@ class ResultsEngine {
     );
 
     // Per-process impacts
-    const processesEnvImpacts = computeProcessFootprints(
+    const processesEnvImpacts = computeProcessImpacts(
       processes,
       this.processEnvFactors
     );
@@ -177,7 +174,7 @@ class ResultsEngine {
   }
 
   public computeImpactsByCategory(diet: Diet) {
-    const impacts = this.computeFootprints(diet);
+    const impacts = this.computeImpacts(diet);
     if (!impacts) return null;
 
     const [rpcImpact, processImpacts, packagingImpacts] = impacts;

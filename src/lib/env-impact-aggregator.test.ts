@@ -1,9 +1,9 @@
 import { describe, test, expect } from "vitest";
 import flattenEnvFactorsSheet from "./env-impact-aggregator";
-import { N_ENV_FOOTPRINTS } from "./constants";
+import { N_ENV_IMPACTS } from "./constants";
 
 const constEnvFactors = (x: number) =>
-  Array.from({ length: N_ENV_FOOTPRINTS }).map((_) => x);
+  Array.from({ length: N_ENV_IMPACTS }).map((_) => x);
 
 describe("env-impacts.ts", () => {
   test("basic functionality", () => {
@@ -41,8 +41,8 @@ describe("env-impacts.ts", () => {
     expect(result).toHaveProperty("a");
     expect(result).toHaveProperty("b");
 
-    expect(result.a).toHaveLength(N_ENV_FOOTPRINTS);
-    expect(result.b).toHaveLength(N_ENV_FOOTPRINTS);
+    expect(result.a).toHaveLength(N_ENV_IMPACTS);
+    expect(result.b).toHaveLength(N_ENV_IMPACTS);
 
     const expectedAs = constEnvFactors(
       (0.2 * 1) / 0.9 + (0.5 * 3) / 0.85 + (0.3 * 8) / 0.8

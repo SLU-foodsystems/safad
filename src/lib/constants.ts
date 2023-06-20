@@ -1,6 +1,6 @@
-export const N_ENV_FOOTPRINTS = 16;
+export const N_ENV_IMPACTS = 16;
 export const ENV_IMPACTS_ZERO = Array.from({
-  length: N_ENV_FOOTPRINTS,
+  length: N_ENV_IMPACTS,
 }).map((_) => 0);
 
 export const N_PROCESS_GHGS = 3;

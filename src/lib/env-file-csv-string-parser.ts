@@ -78,11 +78,11 @@ export default function main(csvString: string) {
     );
 
   // Set RoW to be the average
-  Object.entries(structured).forEach(([suaCode, footprintsPerOrigin]) => {
-    const numberOfOrigins = Object.values(footprintsPerOrigin).length;
-    const average = Object.values(footprintsPerOrigin)
+  Object.entries(structured).forEach(([suaCode, factorsPerOrigin]) => {
+    const numberOfOrigins = Object.values(factorsPerOrigin).length;
+    const average = Object.values(factorsPerOrigin)
       .reduce(
-        (acc, footprints) => acc.map((x, i) => x + footprints[i]),
+        (acc, factors) => acc.map((x, i) => x + factors[i]),
         ENV_IMPACTS_ZERO
       )
       .map((x: number) => x / numberOfOrigins);

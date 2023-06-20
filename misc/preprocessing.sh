@@ -2,7 +2,7 @@
 
 set -eu
 
-# Carrier footprints: GHG per energy type for each country
+# Carrier GHG factors: GHG per energy type for each country
 node ./carrier-ghg-factors/carrier-ghg-factors-csv-to-json.mjs ./carrier-ghg-factors/carrier-ghg-factors.csv \
   > ../src/data/carrier-ghg-factors.json
 

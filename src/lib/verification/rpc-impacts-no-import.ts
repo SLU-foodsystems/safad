@@ -8,7 +8,9 @@ import {
   computeProcessImpacts,
   getProcessEnvFactors,
 } from "@/lib/process-env-impact";
-import aggregateFootprints, { AGGREGATE_HEADERS } from "@/lib/footprints-aggregator";
+import aggregateImpacts, {
+  AGGREGATE_HEADERS,
+} from "@/lib/footprints-aggregator";
 
 import allEnvImpactsJson from "@/data/env-factors-flat.json";
 import categoryNamesJson from "@/data/category-names.json";
@@ -111,7 +113,7 @@ function getCountryBenchmark(
       processesEnvImpacts
     );
 
-    aggregateResults[diet.code] = aggregateFootprints(
+    aggregateResults[diet.code] = aggregateImpacts(
       rpcImpacts,
       processImpacts,
       {}
