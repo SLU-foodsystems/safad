@@ -3,8 +3,8 @@
 set -eu
 
 # Carrier footprints: GHG per energy type for each country
-node ./carrier-footprints/carrier-footprints-csv-to-json.mjs ./carrier-footprints/carrier-footprints.csv \
-  > ../src/data/carrier-footprints.json
+node ./carrier-ghg-factors/carrier-ghg-factors-csv-to-json.mjs ./carrier-ghg-factors/carrier-ghg-factors.csv \
+  > ../src/data/carrier-ghg-factors.json
 
 # Processes energy demands: Energy req. of each process
 node ./processes-energy-demand/processes-energy-demand-csv-json.mjs ./processes-energy-demand/processes-energy-demand.csv > ../src/data/processes-energy-demands.json

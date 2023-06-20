@@ -2,7 +2,7 @@ import reduceDiet from "./rpc-reducer";
 
 import {
   computeProcessFootprints,
-  getProcessFootprintsSheet,
+  getProcessEnvFactors,
 } from "./process-env-impact";
 
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
@@ -113,7 +113,7 @@ class ResultsEngine {
 
   public setCountry(country: string) {
     this.country = country;
-    this.processEnvFactors = getProcessFootprintsSheet(country);
+    this.processEnvFactors = getProcessEnvFactors(country);
   }
 
   public isReady() {

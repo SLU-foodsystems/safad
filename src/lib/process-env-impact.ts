@@ -1,14 +1,15 @@
-import { mapValues } from "./utils";
+import { N_PROCESS_GHGS } from "@/lib/constants";
+import { mapValues } from "@/lib/utils";
 
 import processEnergyDemandsJson from "@/data/processes-energy-demands.json";
-import carrierEnergyDemandsJson from "@/data/carrier-footprints.json";
+import carrierGhgFactorsJson from "@/data/carrier-ghg-factors.json";
 
 const processEnergyDemands = processEnergyDemandsJson as Record<
   string,
   number[]
 >;
 
-const carrierEnergyDemands = carrierEnergyDemandsJson as Record<
+const carrierGhgFactors = carrierGhgFactorsJson as Record<
   string,
   number[] | Record<string, number[]>
 >;
@@ -23,41 +24,46 @@ const CARRIER_ORDER = [
   "Other renewable energy sources",
   "Diesel fuel",
   "District heating",
-];
+] as const;
 
-export function getProcessFootprintsSheet(
+const isElectricty = (
+  carrier: string,
+  demands: number[] | Record<string, number[]>
+): demands is Record<string, number[]> => carrier === "Electricity";
+
+/**
+ * Create a mapping between processes and ghg impacts per kilo for a given
+ * country.
+ */
+export function getProcessEnvFactors(
   country: string
 ): Record<string, number[]> {
   const result: Record<string, number[]> = {};
   Object.entries(processEnergyDemands).forEach(
     ([processCode, demandPerCarrier]) => {
-      const footprints = [0, 0, 0]; // TODO: This hard-codes us to three footprints
+      const factors = Array.from({ length: N_PROCESS_GHGS }).map((_) => 0);
       demandPerCarrier.forEach((mjPerKg, carrierIdx) => {
         // Exit early if it's not using this energyType
         if (mjPerKg === 0) return;
 
         const carrier = CARRIER_ORDER[carrierIdx];
-        let impacts;
-        if (carrier === "Electricity") {
-          impacts = (carrierEnergyDemands[carrier] as Record<string, number[]>)[
-            country
-          ];
-        } else {
-          impacts = carrierEnergyDemands[carrier] as number[];
-        }
+        const demands = carrierGhgFactors[carrier];
+        const ghgsPerMj: number[] = isElectricty(carrier, demands)
+          ? demands[country]
+          : demands;
 
-        if (!impacts) {
+        if (!ghgsPerMj) {
           throw new Error(
             `Could not find process carrier impacts for (carrier, country) = (${carrier}, ${country}).`
           );
         }
 
-        impacts.forEach((factor, i) => {
-          footprints[i] += factor * mjPerKg;
+        ghgsPerMj.forEach((factor, i) => {
+          factors[i] += factor * mjPerKg;
         });
       });
 
-      result[processCode] = footprints;
+      result[processCode] = factors;
     }
   );
 
