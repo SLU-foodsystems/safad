@@ -5,8 +5,8 @@
 import reduceDiet from "@/lib/rpc-reducer";
 import { maybeQuoteValue } from "@/lib/utils";
 import {
-  computeProcessFootprints,
-  getProcessEnvFactors as getProcessEnvImpactsSheet,
+  computeProcessImpacts,
+  getProcessEnvFactors,
 } from "@/lib/process-env-impact";
 import aggregateFootprints, { AGGREGATE_HEADERS } from "@/lib/footprints-aggregator";
 
@@ -72,7 +72,7 @@ function getRpcImpact(
 function getCountryBenchmark(
   country: string
 ): [Record<string, (number | string)[]>, Record<string, string[]>] {
-  const processesEnvImpacts = getProcessEnvImpactsSheet(country);
+  const processesEnvImpacts = getProcessEnvFactors(country);
   const envImpacts = getFlattenedRpcImpacts(country);
 
   const diets = codesInRecipes.map((code) => ({
@@ -106,7 +106,7 @@ function getCountryBenchmark(
 
     const rpcImpacts = Object.fromEntries(impacts);
 
-    const processImpacts = computeProcessFootprints(
+    const processImpacts = computeProcessImpacts(
       processes,
       processesEnvImpacts
     );

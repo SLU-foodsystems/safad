@@ -26,7 +26,7 @@ const CARRIER_ORDER = [
   "District heating",
 ] as const;
 
-const isElectricty = (
+const hasCountryDependentDemands = (
   carrier: string,
   demands: number[] | Record<string, number[]>
 ): demands is Record<string, number[]> => carrier === "Electricity";
@@ -48,7 +48,7 @@ export function getProcessEnvFactors(
 
         const carrier = CARRIER_ORDER[carrierIdx];
         const demands = carrierGhgFactors[carrier];
-        const ghgsPerMj: number[] = isElectricty(carrier, demands)
+        const ghgsPerMj: number[] = hasCountryDependentDemands(carrier, demands)
           ? demands[country]
           : demands;
 
@@ -70,7 +70,7 @@ export function getProcessEnvFactors(
   return result;
 }
 /**
- * Compute the environmental footprints for each process.
+ * Compute the environmental impacts for each process.
  *
  * Input:
  * - Amount (kg) of each process
@@ -80,15 +80,15 @@ export function getProcessEnvFactors(
  *
  * Output: { [process]: [CO2, N2O, CH4, ...] }
  */
-export const computeProcessFootprints = (
+export const computeProcessImpacts = (
   processAmountsMap: Record<string, Record<string, number>>,
-  processFootprints: Record<string, number[]>
+  processFactors: Record<string, number[]>
 ): Record<string, { [k: string]: number[] }> =>
   mapValues(processAmountsMap, (processAmounts) =>
     Object.fromEntries(
       Object.entries(processAmounts).map(([processId, amountGram]) => [
         processId,
-        processFootprints[processId].map((x) => (x * amountGram) / 1000),
+        processFactors[processId].map((x) => (x * amountGram) / 1000),
       ])
     )
   );
