@@ -181,11 +181,7 @@ function main(args) {
   ).slice(1);
 
   // NOTE that the trade matrix uses ; as delimiter
-  const matrix = readCsv(
-    path.resolve(DIRNAME, "./trade-matrix.csv"),
-    ";",
-    true
-  );
+  const matrix = readCsv(path.resolve(DIRNAME, "./trade-matrix.csv"), ";");
 
   if (DEBUG_PRINT_ITEMNAMES) {
     uniq(matrix.map((x) => x[8]))
