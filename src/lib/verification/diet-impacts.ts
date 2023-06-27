@@ -68,6 +68,7 @@ const rpcFiles = {
   Italy: italyRpcFactors.data,
   Spain: spainRpcFactors.data,
   Sweden: swedenRpcFactors.data,
+  SwedenBaseline: swedenRpcFactors.data,
 } as unknown as Record<LlCountryName, RpcFactors>;
 
 const dietFiles = {
@@ -93,11 +94,11 @@ export async function computeFootprintsForDiets(envFactors?: EnvFactors): Promis
   const allResults = LL_COUNTRIES.map((country) => {
     if (country === "SwedenBaseline") {
       RE.setCountry("Sweden");
-      RE.setRpcFactors(rpcFiles.Sweden);
     } else {
       RE.setCountry(country);
-      RE.setRpcFactors(rpcFiles[country]);
     }
+
+    RE.setRpcFactors(rpcFiles[country]);
 
     const diet = Object.entries(dietFiles[country]).map(
       ([code, [amount, retailWaste, consumerWaste]]) => ({
@@ -105,7 +106,6 @@ export async function computeFootprintsForDiets(envFactors?: EnvFactors): Promis
         amount,
         retailWaste,
         consumerWaste,
-        organic: 0,
       })
     );
 
