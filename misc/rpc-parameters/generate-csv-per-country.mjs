@@ -156,6 +156,25 @@ function getFoodItemShares(matrix, country) {
 }
 
 /**
+ * @param {string[][]} rows
+ * @returns object
+ */
+function createCountryWastesMap(rows) {
+  /** @type {Object.<string, Object.<string, number>>}*/
+  const results = {};
+
+  rows.forEach(([category, country, valueStr]) => {
+    if (!results[country]) {
+      results[country] = {};
+    }
+    results[country][category] = parseFloat(valueStr);
+    return results;
+  });
+
+  return results;
+}
+
+/**
  * Main function
  *
  * @param {string[]} args
@@ -164,12 +183,10 @@ function main(args) {
   const [...countries] = args;
 
   // Input file: csv of column with category (as defined in rpc) and waste
-  // Create an object with { [category: string]: number }
-  /** @type {Object.<string, number>} */
-  const wasteFactorsMap = Object.fromEntries(
-    readCsv(path.resolve(DIRNAME, "./rpc-waste-factors.csv"), ",")
-      .slice(1)
-      .map(([k, v]) => [k, parseFloat(v)])
+  // Create an object with { [country: string]: { [category: string]: number } }
+  /** @type {Object.<string, Object.<string, number>>} */
+  const wasteFactorsMap = createCountryWastesMap(
+    readCsv(path.resolve(DIRNAME, "./rpc-waste-factors.csv"), ",").slice(1)
   );
 
   // A list of Sua Name, "match status", itemName, where
@@ -218,15 +235,6 @@ function main(args) {
       return;
     }
 
-    let waste = wasteFactorsMap[category];
-    if (!waste) {
-      console.warn(
-        `WARN (${i}): No waste found for category "${category}" (item "${itemName}").`
-      );
-      category = "Other";
-      waste = wasteFactorsMap[category];
-    }
-
     if (OVERRIDE_CODES.has(suaCode)) {
       return;
     }
@@ -236,6 +244,15 @@ function main(args) {
       const shares = sharesPerCountryAndItem[consumerCountry][itemName] || {
         RoW: 1,
       };
+
+      let waste = wasteFactorsMap[consumerCountry][category];
+      if (!waste) {
+        console.warn(
+          `WARN (${i}): No waste found for category "${category}" (item "${itemName}").`
+        );
+        category = "Other";
+        waste = wasteFactorsMap[consumerCountry][category];
+      }
 
       // And we store in the final results as a list, to be made into a csv.
       Object.entries(shares).forEach(([prodCountry, share]) => {
