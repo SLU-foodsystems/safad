@@ -138,14 +138,14 @@ class ResultsEngine {
       return null;
     }
 
-    const [rpcs, processes, packeting] = reduceDiet(
+    const [rpcAmounts, processesAmounts, packetingAmounts] = reduceDiet(
       diet,
       recipes,
       processesAndPackagingData
     );
 
     const rpcImpact = Object.fromEntries(
-      rpcs
+      rpcAmounts
         .map(([rpc, amountGram]) => [
           rpc,
           this.getRpcFootprints(rpc, amountGram),
@@ -155,11 +155,11 @@ class ResultsEngine {
 
     // Per-process impacts
     const processesEnvImpacts = computeProcessImpacts(
-      processes,
+      processesAmounts,
       this.processEnvFactors
     );
 
-    const packagingEnvImpacts = mapValues(packeting, (amounts) =>
+    const packagingEnvImpacts = mapValues(packetingAmounts, (amounts) =>
       Object.fromEntries(
         Object.entries(amounts).map(([packetingId, amount]) => [
           packetingId,
@@ -177,9 +177,9 @@ class ResultsEngine {
     const impacts = this.computeImpacts(diet);
     if (!impacts) return null;
 
-    const [rpcImpact, processImpacts, packagingImpacts] = impacts;
+    const [rpcImpacts, processImpacts, packagingImpacts] = impacts;
 
-    const rpcImpactsByCategory = aggregateRpcCategories(rpcImpact, 1);
+    const rpcImpactsByCategory = aggregateRpcCategories(rpcImpacts, 1);
     const processImpactsByCategory = mapValues(
       processImpacts,
       (perCategoryProcesses) => vectorsSum(Object.values(perCategoryProcesses))
