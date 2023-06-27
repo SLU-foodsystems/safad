@@ -17,6 +17,7 @@ import irelandDiet from "@/data/diets/Ireland.json";
 import italyDiet from "@/data/diets/Italy.json";
 import spainDiet from "@/data/diets/Spain.json";
 import swedenDiet from "@/data/diets/Sweden.json";
+import swedenBaselineDiet from "@/data/diets/SwedenBaseline.json";
 
 import processesAndPackagingData from "@/data/processes-and-packaging.json";
 
@@ -57,7 +58,7 @@ const dietFiles = {
   Italy: italyDiet,
   Spain: spainDiet,
   Sweden: swedenDiet,
-  SwedenBaseline: swedenDiet,
+  SwedenBaseline: swedenBaselineDiet,
 } as unknown as Record<LlCountryName, Record<string, number[]>>;
 
 export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
