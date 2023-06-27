@@ -1,6 +1,9 @@
 import reduceDiet from "./rpc-reducer";
 
-import { computeProcessImpacts, getProcessEnvFactors } from "./process-env-impact";
+import {
+  computeProcessImpacts,
+  getProcessEnvFactors,
+} from "./process-env-impact";
 
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import foodsRecipes from "@/data/foodex-recipes.json";
