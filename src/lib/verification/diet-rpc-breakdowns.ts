@@ -78,11 +78,11 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
 
   const allResults = LL_COUNTRIES.map((country) => {
     const subDiets = Object.entries(dietFiles[country])
-      .map(([code, [amount]]) => ({
+      .map(([code, [amount, retailWaste, consumerWaste]]) => ({
         code,
         amount,
-        retailWaste: 0,
-        consumerWaste: 0,
+        retailWaste,
+        consumerWaste,
       }))
       .map((d) => [
         d.code,
