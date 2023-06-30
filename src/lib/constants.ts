@@ -12,7 +12,7 @@ export const PLANETARY_BOUNDARY_LIMITS = {
   n: 12 / 365, // kg per year -> kg per day
   p: 1.1 / 365, // kg per year -> kg per day
   h2o: 334 / 365, // m3, per year -> per day
-  biodiversity: 1.33e-9 / 365, // unitless? -> per day
+  biodiversity: 4.70e-10 / 365, // unitless? -> per day
 };
 
 // Conversion factors from other GHGs to CO2.
