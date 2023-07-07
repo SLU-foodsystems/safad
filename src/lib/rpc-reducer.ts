@@ -56,8 +56,6 @@ function reduceToRpcs(
   const subcomponents = recipes[componentCode];
   if (!subcomponents) return [[componentCode, amount]];
 
-
-
   // Handle L3 preparation-processes
   let newRecordedSpecials = recordedPProcesses;
   const componentCodeLevel = getLevel(componentCode);
@@ -88,7 +86,11 @@ function reduceToRpcs(
       // Recourd the output amount
       const processAmount = ratio * amount;
       processes.map((processId) => {
-        recordProcessOrPacketingContribution(componentCode, processId, processAmount);
+        recordProcessOrPacketingContribution(
+          componentCode,
+          processId,
+          processAmount
+        );
       });
 
       // Some recipes will include references back to themselves, in which
@@ -127,8 +129,7 @@ export default function reduceDietToRPCs(
       map[level1Category] = {};
     }
 
-    map[level1Category][facet] =
-      (map[level1Category][facet] || 0) + amount;
+    map[level1Category][facet] = (map[level1Category][facet] || 0) + amount;
   };
 
   const rpcs = diet
