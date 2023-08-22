@@ -28,6 +28,8 @@ function main(args) {
       acc,
       [_i, code, _name, _category, originName, _originCode, ...impactsStr]
     ) => {
+      if (code.trim() === "NA") return acc;
+
       if (!(code in acc)) {
         acc[code] = {};
       }

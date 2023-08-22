@@ -25,7 +25,9 @@ function main(args) {
     .slice(1)
     .forEach(
       ([_i, code, _name, _category, country, _countryCode, ...impactsStr]) => {
-        // Covnert from strings to numbers
+        if (code === "NA") return;
+
+        // Convert from strings to numbers
         const impacts = impactsStr.map((x) => {
           const val = Number.parseFloat(x) || 0;
           return Number.isNaN(x) ? 0 : val;
