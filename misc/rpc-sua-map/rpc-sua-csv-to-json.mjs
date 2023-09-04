@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /**
- * Takes a csv file mapping sua to rpc factors, and converts it to
- * a JSON object, mapping each RPC code to SUA.
+ * Takes a csv file mapping RPC-codes to a SUA codes.
  */
 
 import { readCsv } from "../utils.mjs";
