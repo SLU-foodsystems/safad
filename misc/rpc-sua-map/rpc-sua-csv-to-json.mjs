@@ -17,7 +17,7 @@ function main(args) {
       if (handledFoodExCodes.has(foodExCode)) return;
 
       handledFoodExCodes.add(foodExCode);
-      map[foodExCode] = suaCode;
+      map[foodExCode] = (suaCode || "").trim();
     }
   );
 
