@@ -9,15 +9,28 @@ import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import foodsRecipes from "@/data/foodex-recipes.json";
 import processesAndPackagingData from "@/data/processes-and-packaging.json";
 import packetingEmissionsFactorsJson from "@/data/packeting-emissions-factors.json";
+import transportEmissionsFactorsJson from "@/data/transport-emissions-factors.json";
+
 import flattenEnvironmentalFactors from "./env-impact-aggregator";
-import { aggregateRpcCategories, mapValues, vectorsSum } from "./utils";
+import {
+  aggregateBy,
+  aggregateRpcCategories,
+  mapValues,
+  vectorSum,
+  vectorsSum,
+} from "./utils";
 import { ENV_IMPACTS_ZERO } from "./constants";
+import computeTransportEmissions from "./transport-emissions";
 
 const recipes = foodsRecipes.data as unknown as FoodsRecipes;
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
 const packetingEmissionsFactors = packetingEmissionsFactorsJson as Record<
   string,
   number[]
+>;
+const transportEmissionsFactors = transportEmissionsFactorsJson as Record<
+  string,
+  Record<string, number[]>
 >;
 
 /**
@@ -127,12 +140,18 @@ class ResultsEngine {
     | [
         Record<string, number[]>,
         Record<string, Record<string, number[]>>,
-        Record<string, Record<string, number[]>>
+        Record<string, Record<string, number[]>>,
+        Record<string, number[]>
       ] {
     if (!this.envFactorsPerOrigin) {
       console.error(
         "Compute called when no environmentalFactorsSheet was set."
       );
+      return null;
+    }
+
+    if (!this.rpcParameters) {
+      console.error("Compute called when no rpcParameters were set.");
       return null;
     }
 
@@ -147,7 +166,7 @@ class ResultsEngine {
       processesAndPackagingData
     );
 
-    const rpcImpact = Object.fromEntries(
+    const rpcImpacts = Object.fromEntries(
       rpcAmounts
         .map(([rpc, amountGram]) => [
           rpc,
@@ -162,6 +181,7 @@ class ResultsEngine {
       this.processEnvFactors
     );
 
+    // Map the packetingAmounts to their respective emission factors
     const packagingEnvImpacts = mapValues(packetingAmounts, (amounts) =>
       Object.fromEntries(
         Object.entries(amounts).map(([packetingId, amount]) => [
@@ -173,7 +193,32 @@ class ResultsEngine {
       )
     );
 
-    return [rpcImpact, processesEnvImpacts, packagingEnvImpacts];
+    // Transport impacts
+    const transportEnvImpactsEntries = rpcAmounts
+      .map(([rpcCode, amount]) => [
+        rpcCode,
+        computeTransportEmissions(
+          rpcToSuaMap[rpcCode],
+          amount,
+          this.rpcParameters!,
+          transportEmissionsFactors[this.country!],
+          this.country!
+        ),
+      ])
+      .filter((pair): pair is [string, number[]] => pair[1] !== null);
+
+    const transportEnvImpacts = aggregateBy<number[]>(
+      transportEnvImpactsEntries,
+      (x) => x,
+      vectorSum
+    );
+
+    return [
+      rpcImpacts,
+      processesEnvImpacts,
+      packagingEnvImpacts,
+      transportEnvImpacts,
+    ];
   }
 
   public computeImpactsByCategory(diet: Diet) {
