@@ -2,35 +2,40 @@ import { sum, vectorsSum } from "@/lib/utils";
 import { ENV_IMPACTS_ZERO, CO2E_CONV_FACTORS } from "@/lib/constants";
 
 export const AGGREGATE_HEADERS = [
-  "Total CO2e",
-  "Total CO2",
-  "Total CH4: Fossil",
-  "Total CH4: Biogenic",
-  "Total N2O",
-  "Carbon_Footprint",
-  "Carbon_Dioxide",
-  "Methane_fossil",
-  "Methane_bio",
-  "Nitrous_Oxide",
-  "HFC",
-  "Land",
-  "N_input",
-  "P_input",
-  "Water",
-  "Pesticides",
-  "Biodiversity",
-  "Ammonia",
+  // Aggregate over rpcs, processes, and packaging
+  "Carbon_footprint_tot",
+  "CO2_tot",
+  "CH4_fossil_tot",
+  "CH4_bio_tot",
+  "N2O_tot",
+  // Raw Materials GHGs
+  "CO2e_rm",
+  "CO2_rm",
+  "CH4_fossil_rm",
+  "CH4_bio_rm",
+  "N2O_rm",
+  "HFC_rm",
+  // Key indicators - raw materials
+  "Land_use",
+  "New_N_input",
+  "New_P_input",
+  "Blue_water_use",
+  "Pesticide_use",
+  "Biodiversity_land",
+  "Ammonia_emissions",
   "Labour",
-  "Animal_Welfare",
-  "Antibiotics",
-  "Process CO2e",
-  "Process CO2",
-  "Process CH4",
-  "Process N2O",
-  "Packaging CO2e",
-  "Packaging CO2",
-  "Packaging CH4: Fossil",
-  "Packaging N2O",
+  "Animal_welfare",
+  "Use_of_antibiotics",
+  // Processes
+  "CO2e_proc",
+  "CO2_proc",
+  "CH4_proc",
+  "N2O_proc",
+  // Packaging
+  "CO2e_pack",
+  "CO2_pack",
+  "CH4_fossil_pack",
+  "N2O_pack",
 ];
 
 export function expandedImpacts(
@@ -51,11 +56,11 @@ export function expandedImpacts(
   );
 
   const combinedGhgFootprints = [
-    rpcFootprints[0] + processCO2e + packagingCO2e,
-    rpcFootprints[1] + processFootprints[0],
-    rpcFootprints[2] + processFootprints[1],
+    rpcFootprints[0] + processCO2e + packagingCO2e, // CO2e
+    rpcFootprints[1] + processFootprints[0], // CO2
+    rpcFootprints[2] + processFootprints[1], // FCH4
     rpcFootprints[3], // biogenic CH4, which is not emitted from processes
-    rpcFootprints[4] + processFootprints[2],
+    rpcFootprints[4] + processFootprints[2], // N2O
   ];
 
   return [
@@ -80,9 +85,11 @@ export default function aggregateImpacts(
     Object.values(rpcFootprints).length > 0
       ? vectorsSum(Object.values(rpcFootprints))
       : ENV_IMPACTS_ZERO;
+
   const processValues = Object.values(processFootprints)
     .map((obj) => Object.values(obj))
     .flat(1);
+
   const totalProcessesFootprints = vectorsSum(processValues);
   while (totalProcessesFootprints.length < 3) {
     totalProcessesFootprints.push(0);
