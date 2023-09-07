@@ -1,0 +1,850 @@
+,,,,,,,
+"Emissions from transports, kg CO2e per kg of product",,,,,,,
+,,,,,,,
+"Production_country_code","Production_country","Consumption_country_code","Consumption_country","CO2e","CO2","CH4_fossil","N2O"
+"DOM","Domestic transport","SE","Sweden",0.03,0.027,0.0015,0.0015
+"AL","Albania","SE","Sweden",0.20,0.18,0.01,0.01
+"AR","Argentina","SE","Sweden",0.40,0.36,0.02,0.02
+"AT","Austria","SE","Sweden",0.20,0.18,0.01,0.01
+"AU","Australia","SE","Sweden",0.50,0.45,0.025,0.025
+"BA","Bosnia and Herzegovina","SE","Sweden",0.20,0.18,0.01,0.01
+"BE","Belgium","SE","Sweden",0.20,0.18,0.01,0.01
+"BF","Burkina Faso","SE","Sweden",0.30,0.27,0.015,0.015
+"BG","Bulgaria","SE","Sweden",0.20,0.18,0.01,0.01
+"BO","Bolivia","SE","Sweden",0.30,0.27,0.015,0.015
+"BR","Brazil","SE","Sweden",0.30,0.27,0.015,0.015
+"BY","Belarus","SE","Sweden",0.20,0.18,0.01,0.01
+"BZ","Belize","SE","Sweden",0.30,0.27,0.015,0.015
+"CA","Canada","SE","Sweden",0.40,0.36,0.02,0.02
+"CI","Cote d'Ivoire","SE","Sweden",0.30,0.27,0.015,0.015
+"CL","Chile","SE","Sweden",0.40,0.36,0.02,0.02
+"CM","Cameroon","SE","Sweden",0.30,0.27,0.015,0.015
+"CN","China","SE","Sweden",0.50,0.45,0.025,0.025
+"CO","Colombia","SE","Sweden",0.30,0.27,0.015,0.015
+"CR","Costa Rica","SE","Sweden",0.30,0.27,0.015,0.015
+"CS","Serbia","SE","Sweden",0.20,0.18,0.01,0.01
+"CY","Cyprus","SE","Sweden",0.20,0.18,0.01,0.01
+"CZ","Czechia","SE","Sweden",0.20,0.18,0.01,0.01
+"CZ","Czech Republic","SE","Sweden",0.20,0.18,0.01,0.01
+"DE","Germany","SE","Sweden",0.20,0.18,0.01,0.01
+"DK","Denmark","SE","Sweden",0.20,0.18,0.01,0.01
+"DZ","Algeria","SE","Sweden",0.30,0.27,0.015,0.015
+"EC","Ecuador","SE","Sweden",0.30,0.27,0.015,0.015
+"EE","Estonia","SE","Sweden",0.20,0.18,0.01,0.01
+"EG","Egypt","SE","Sweden",0.30,0.27,0.015,0.015
+"ES","Spain","SE","Sweden",0.20,0.18,0.01,0.01
+"ET","Ethiopia","SE","Sweden",0.40,0.36,0.02,0.02
+"FI","Finland","SE","Sweden",0.20,0.18,0.01,0.01
+"FR","France","SE","Sweden",0.20,0.18,0.01,0.01
+"GB","UK","SE","Sweden",0.20,0.18,0.01,0.01
+"GE","Georgia","SE","Sweden",0.20,0.18,0.01,0.01
+"GH","Ghana","SE","Sweden",0.40,0.36,0.02,0.02
+"GN","Guinea","SE","Sweden",0.30,0.27,0.015,0.015
+"GR","Greece","SE","Sweden",0.20,0.18,0.01,0.01
+"GT","Guatemala","SE","Sweden",0.30,0.27,0.015,0.015
+"HR","Croatia","SE","Sweden",0.20,0.18,0.01,0.01
+"HU","Hungary","SE","Sweden",0.20,0.18,0.01,0.01
+"ID","Indonesia","SE","Sweden",0.40,0.36,0.02,0.02
+"IE","Ireland","SE","Sweden",0.20,0.18,0.01,0.01
+"IL","Israel","SE","Sweden",0.40,0.36,0.02,0.02
+"IN","India","SE","Sweden",0.40,0.36,0.02,0.02
+"IR","Iran","SE","Sweden",0.40,0.36,0.02,0.02
+"IT","Italy","SE","Sweden",0.20,0.18,0.01,0.01
+"KE","Kenya","SE","Sweden",0.40,0.36,0.02,0.02
+"KG","Kyrgyzstan","SE","Sweden",0.50,0.45,0.025,0.025
+"KM","Comoros","SE","Sweden",0.40,0.36,0.02,0.02
+"KZ","Kazakhstan","SE","Sweden",0.50,0.45,0.025,0.025
+"LK","Sri Lanka","SE","Sweden",0.40,0.36,0.02,0.02
+"LT","Lithuania","SE","Sweden",0.20,0.18,0.01,0.01
+"LV","Latvia","SE","Sweden",0.20,0.18,0.01,0.01
+"MA","Morocco","SE","Sweden",0.30,0.27,0.015,0.015
+"MD","Republic of Moldova","SE","Sweden",0.20,0.18,0.01,0.01
+"MG","Madagascar","SE","Sweden",0.40,0.36,0.02,0.02
+"ML","Mali","SE","Sweden",0.40,0.36,0.02,0.02
+"MT","Malta","SE","Sweden",0.20,0.18,0.01,0.01
+"MX","Mexico","SE","Sweden",0.30,0.27,0.015,0.015
+"MY","Malaysia","SE","Sweden",0.40,0.36,0.02,0.02
+"NG","Nigeria","SE","Sweden",0.40,0.36,0.02,0.02
+"NI","Nicaragua","SE","Sweden",0.30,0.27,0.015,0.015
+"NL","Netherlands","SE","Sweden",0.20,0.18,0.01,0.01
+"NP","Nepal","SE","Sweden",0.40,0.36,0.02,0.02
+"NZ","New Zealand","SE","Sweden",0.50,0.45,0.025,0.025
+"PA","Panama","SE","Sweden",0.30,0.27,0.015,0.015
+"PE","Peru","SE","Sweden",0.30,0.27,0.015,0.015
+"PF","French Polynesia","SE","Sweden",0.50,0.45,0.025,0.025
+"PH","Philippines","SE","Sweden",0.40,0.36,0.02,0.02
+"PK","Pakistan","SE","Sweden",0.50,0.45,0.025,0.025
+"PL","Poland","SE","Sweden",0.20,0.18,0.01,0.01
+"PO","Romania","SE","Sweden",0.20,0.18,0.01,0.01
+"PT","Portugal","SE","Sweden",0.20,0.18,0.01,0.01
+"PY","Paraguay","SE","Sweden",0.30,0.27,0.015,0.015
+"RO","Romania","SE","Sweden",0.20,0.18,0.01,0.01
+"RoW","Rest of World","SE","Sweden",0.40,0.36,0.02,0.02
+"RU","Russia","SE","Sweden",0.50,0.45,0.025,0.025
+"SA","Saudi Arabia","SE","Sweden",0.40,0.36,0.02,0.02
+"SE","Sweden","SE","Sweden",0.20,0.18,0.01,0.01
+"SI","Slovenia","SE","Sweden",0.20,0.18,0.01,0.01
+"SK","Slovakia","SE","Sweden",0.20,0.18,0.01,0.01
+"SK","Slovak Republic","SE","Sweden",0.20,0.18,0.01,0.01
+"SN","Senegal","SE","Sweden",0.30,0.27,0.015,0.015
+"SR","Suriname","SE","Sweden",0.30,0.27,0.015,0.015
+"TG","Togo","SE","Sweden",0.30,0.27,0.015,0.015
+"TH","Thailand","SE","Sweden",0.40,0.36,0.02,0.02
+"TN","Tunisia","SE","Sweden",0.30,0.27,0.015,0.015
+"TR","Turkey","SE","Sweden",0.20,0.18,0.01,0.01
+"UA","Ukraine","SE","Sweden",0.50,0.45,0.025,0.025
+"US","USA","SE","Sweden",0.30,0.27,0.015,0.015
+"VN","Vietnam","SE","Sweden",0.40,0.36,0.02,0.02
+"ZA","South Africa","SE","Sweden",0.40,0.36,0.02,0.02
+"DOM","Domestic transport","FR","France",0.03,0.027,0.0015,0.0015
+"AL","Albania","FR","France",0.20,0.18,0.01,0.01
+"AR","Argentina","FR","France",0.40,0.36,0.02,0.02
+"AT","Austria","FR","France",0.20,0.18,0.01,0.01
+"AU","Australia","FR","France",0.50,0.45,0.025,0.025
+"BA","Bosnia and Herzegovina","FR","France",0.20,0.18,0.01,0.01
+"BE","Belgium","FR","France",0.20,0.18,0.01,0.01
+"BF","Burkina Faso","FR","France",0.30,0.27,0.015,0.015
+"BG","Bulgaria","FR","France",0.20,0.18,0.01,0.01
+"BO","Bolivia","FR","France",0.30,0.27,0.015,0.015
+"BR","Brazil","FR","France",0.30,0.27,0.015,0.015
+"BY","Belarus","FR","France",0.20,0.18,0.01,0.01
+"BZ","Belize","FR","France",0.30,0.27,0.015,0.015
+"CA","Canada","FR","France",0.40,0.36,0.02,0.02
+"CI","Cote d'Ivoire","FR","France",0.30,0.27,0.015,0.015
+"CL","Chile","FR","France",0.40,0.36,0.02,0.02
+"CM","Cameroon","FR","France",0.30,0.27,0.015,0.015
+"CN","China","FR","France",0.50,0.45,0.025,0.025
+"CO","Colombia","FR","France",0.30,0.27,0.015,0.015
+"CR","Costa Rica","FR","France",0.30,0.27,0.015,0.015
+"CS","Serbia","FR","France",0.20,0.18,0.01,0.01
+"CY","Cyprus","FR","France",0.20,0.18,0.01,0.01
+"CZ","Czechia","FR","France",0.20,0.18,0.01,0.01
+"CZ","Czech Republic","FR","France",0.20,0.18,0.01,0.01
+"DE","Germany","FR","France",0.20,0.18,0.01,0.01
+"DK","Denmark","FR","France",0.20,0.18,0.01,0.01
+"DZ","Algeria","FR","France",0.30,0.27,0.015,0.015
+"EC","Ecuador","FR","France",0.30,0.27,0.015,0.015
+"EE","Estonia","FR","France",0.20,0.18,0.01,0.01
+"EG","Egypt","FR","France",0.30,0.27,0.015,0.015
+"ES","Spain","FR","France",0.20,0.18,0.01,0.01
+"ET","Ethiopia","FR","France",0.40,0.36,0.02,0.02
+"FI","Finland","FR","France",0.20,0.18,0.01,0.01
+"FR","France","FR","France",0.20,0.18,0.01,0.01
+"GB","UK","FR","France",0.20,0.18,0.01,0.01
+"GE","Georgia","FR","France",0.20,0.18,0.01,0.01
+"GH","Ghana","FR","France",0.40,0.36,0.02,0.02
+"GN","Guinea","FR","France",0.30,0.27,0.015,0.015
+"GR","Greece","FR","France",0.20,0.18,0.01,0.01
+"GT","Guatemala","FR","France",0.30,0.27,0.015,0.015
+"HR","Croatia","FR","France",0.20,0.18,0.01,0.01
+"HU","Hungary","FR","France",0.20,0.18,0.01,0.01
+"ID","Indonesia","FR","France",0.40,0.36,0.02,0.02
+"IE","Ireland","FR","France",0.20,0.18,0.01,0.01
+"IL","Israel","FR","France",0.40,0.36,0.02,0.02
+"IN","India","FR","France",0.40,0.36,0.02,0.02
+"IR","Iran","FR","France",0.40,0.36,0.02,0.02
+"IT","Italy","FR","France",0.20,0.18,0.01,0.01
+"KE","Kenya","FR","France",0.40,0.36,0.02,0.02
+"KG","Kyrgyzstan","FR","France",0.50,0.45,0.025,0.025
+"KM","Comoros","FR","France",0.40,0.36,0.02,0.02
+"KZ","Kazakhstan","FR","France",0.50,0.45,0.025,0.025
+"LK","Sri Lanka","FR","France",0.40,0.36,0.02,0.02
+"LT","Lithuania","FR","France",0.20,0.18,0.01,0.01
+"LV","Latvia","FR","France",0.20,0.18,0.01,0.01
+"MA","Morocco","FR","France",0.30,0.27,0.015,0.015
+"MD","Republic of Moldova","FR","France",0.20,0.18,0.01,0.01
+"MG","Madagascar","FR","France",0.40,0.36,0.02,0.02
+"ML","Mali","FR","France",0.40,0.36,0.02,0.02
+"MT","Malta","FR","France",0.20,0.18,0.01,0.01
+"MX","Mexico","FR","France",0.30,0.27,0.015,0.015
+"MY","Malaysia","FR","France",0.40,0.36,0.02,0.02
+"NG","Nigeria","FR","France",0.40,0.36,0.02,0.02
+"NI","Nicaragua","FR","France",0.30,0.27,0.015,0.015
+"NL","Netherlands","FR","France",0.20,0.18,0.01,0.01
+"NP","Nepal","FR","France",0.40,0.36,0.02,0.02
+"NZ","New Zealand","FR","France",0.50,0.45,0.025,0.025
+"PA","Panama","FR","France",0.30,0.27,0.015,0.015
+"PE","Peru","FR","France",0.30,0.27,0.015,0.015
+"PF","French Polynesia","FR","France",0.50,0.45,0.025,0.025
+"PH","Philippines","FR","France",0.40,0.36,0.02,0.02
+"PK","Pakistan","FR","France",0.50,0.45,0.025,0.025
+"PL","Poland","FR","France",0.20,0.18,0.01,0.01
+"PO","Romania","FR","France",0.20,0.18,0.01,0.01
+"PT","Portugal","FR","France",0.20,0.18,0.01,0.01
+"PY","Paraguay","FR","France",0.30,0.27,0.015,0.015
+"RO","Romania","FR","France",0.20,0.18,0.01,0.01
+"RoW","Rest of World","FR","France",0.40,0.36,0.02,0.02
+"RU","Russia","FR","France",0.50,0.45,0.025,0.025
+"SA","Saudi Arabia","FR","France",0.40,0.36,0.02,0.02
+"SE","Sweden","FR","France",0.20,0.18,0.01,0.01
+"SI","Slovenia","FR","France",0.20,0.18,0.01,0.01
+"SK","Slovakia","FR","France",0.20,0.18,0.01,0.01
+"SK","Slovak Republic","FR","France",0.20,0.18,0.01,0.01
+"SN","Senegal","FR","France",0.30,0.27,0.015,0.015
+"SR","Suriname","FR","France",0.30,0.27,0.015,0.015
+"TG","Togo","FR","France",0.30,0.27,0.015,0.015
+"TH","Thailand","FR","France",0.40,0.36,0.02,0.02
+"TN","Tunisia","FR","France",0.30,0.27,0.015,0.015
+"TR","Turkey","FR","France",0.20,0.18,0.01,0.01
+"UA","Ukraine","FR","France",0.50,0.45,0.025,0.025
+"US","USA","FR","France",0.30,0.27,0.015,0.015
+"VN","Vietnam","FR","France",0.40,0.36,0.02,0.02
+"ZA","South Africa","FR","France",0.40,0.36,0.02,0.02
+"DOM","Domestic transport","ES","Spain",0.03,0.027,0.0015,0.0015
+"AL","Albania","ES","Spain",0.20,0.18,0.01,0.01
+"AR","Argentina","ES","Spain",0.40,0.36,0.02,0.02
+"AT","Austria","ES","Spain",0.20,0.18,0.01,0.01
+"AU","Australia","ES","Spain",0.50,0.45,0.025,0.025
+"BA","Bosnia and Herzegovina","ES","Spain",0.20,0.18,0.01,0.01
+"BE","Belgium","ES","Spain",0.20,0.18,0.01,0.01
+"BF","Burkina Faso","ES","Spain",0.30,0.27,0.015,0.015
+"BG","Bulgaria","ES","Spain",0.20,0.18,0.01,0.01
+"BO","Bolivia","ES","Spain",0.30,0.27,0.015,0.015
+"BR","Brazil","ES","Spain",0.30,0.27,0.015,0.015
+"BY","Belarus","ES","Spain",0.20,0.18,0.01,0.01
+"BZ","Belize","ES","Spain",0.30,0.27,0.015,0.015
+"CA","Canada","ES","Spain",0.40,0.36,0.02,0.02
+"CI","Cote d'Ivoire","ES","Spain",0.30,0.27,0.015,0.015
+"CL","Chile","ES","Spain",0.40,0.36,0.02,0.02
+"CM","Cameroon","ES","Spain",0.30,0.27,0.015,0.015
+"CN","China","ES","Spain",0.50,0.45,0.025,0.025
+"CO","Colombia","ES","Spain",0.30,0.27,0.015,0.015
+"CR","Costa Rica","ES","Spain",0.30,0.27,0.015,0.015
+"CS","Serbia","ES","Spain",0.20,0.18,0.01,0.01
+"CY","Cyprus","ES","Spain",0.20,0.18,0.01,0.01
+"CZ","Czechia","ES","Spain",0.20,0.18,0.01,0.01
+"CZ","Czech Republic","ES","Spain",0.20,0.18,0.01,0.01
+"DE","Germany","ES","Spain",0.20,0.18,0.01,0.01
+"DK","Denmark","ES","Spain",0.20,0.18,0.01,0.01
+"DZ","Algeria","ES","Spain",0.30,0.27,0.015,0.015
+"EC","Ecuador","ES","Spain",0.30,0.27,0.015,0.015
+"EE","Estonia","ES","Spain",0.20,0.18,0.01,0.01
+"EG","Egypt","ES","Spain",0.30,0.27,0.015,0.015
+"ES","Spain","ES","Spain",0.20,0.18,0.01,0.01
+"ET","Ethiopia","ES","Spain",0.40,0.36,0.02,0.02
+"FI","Finland","ES","Spain",0.20,0.18,0.01,0.01
+"FR","France","ES","Spain",0.20,0.18,0.01,0.01
+"GB","UK","ES","Spain",0.20,0.18,0.01,0.01
+"GE","Georgia","ES","Spain",0.20,0.18,0.01,0.01
+"GH","Ghana","ES","Spain",0.40,0.36,0.02,0.02
+"GN","Guinea","ES","Spain",0.30,0.27,0.015,0.015
+"GR","Greece","ES","Spain",0.20,0.18,0.01,0.01
+"GT","Guatemala","ES","Spain",0.30,0.27,0.015,0.015
+"HR","Croatia","ES","Spain",0.20,0.18,0.01,0.01
+"HU","Hungary","ES","Spain",0.20,0.18,0.01,0.01
+"ID","Indonesia","ES","Spain",0.40,0.36,0.02,0.02
+"IE","Ireland","ES","Spain",0.20,0.18,0.01,0.01
+"IL","Israel","ES","Spain",0.40,0.36,0.02,0.02
+"IN","India","ES","Spain",0.40,0.36,0.02,0.02
+"IR","Iran","ES","Spain",0.40,0.36,0.02,0.02
+"IT","Italy","ES","Spain",0.20,0.18,0.01,0.01
+"KE","Kenya","ES","Spain",0.40,0.36,0.02,0.02
+"KG","Kyrgyzstan","ES","Spain",0.50,0.45,0.025,0.025
+"KM","Comoros","ES","Spain",0.40,0.36,0.02,0.02
+"KZ","Kazakhstan","ES","Spain",0.50,0.45,0.025,0.025
+"LK","Sri Lanka","ES","Spain",0.40,0.36,0.02,0.02
+"LT","Lithuania","ES","Spain",0.20,0.18,0.01,0.01
+"LV","Latvia","ES","Spain",0.20,0.18,0.01,0.01
+"MA","Morocco","ES","Spain",0.30,0.27,0.015,0.015
+"MD","Republic of Moldova","ES","Spain",0.20,0.18,0.01,0.01
+"MG","Madagascar","ES","Spain",0.40,0.36,0.02,0.02
+"ML","Mali","ES","Spain",0.40,0.36,0.02,0.02
+"MT","Malta","ES","Spain",0.20,0.18,0.01,0.01
+"MX","Mexico","ES","Spain",0.30,0.27,0.015,0.015
+"MY","Malaysia","ES","Spain",0.40,0.36,0.02,0.02
+"NG","Nigeria","ES","Spain",0.40,0.36,0.02,0.02
+"NI","Nicaragua","ES","Spain",0.30,0.27,0.015,0.015
+"NL","Netherlands","ES","Spain",0.20,0.18,0.01,0.01
+"NP","Nepal","ES","Spain",0.40,0.36,0.02,0.02
+"NZ","New Zealand","ES","Spain",0.50,0.45,0.025,0.025
+"PA","Panama","ES","Spain",0.30,0.27,0.015,0.015
+"PE","Peru","ES","Spain",0.30,0.27,0.015,0.015
+"PF","French Polynesia","ES","Spain",0.50,0.45,0.025,0.025
+"PH","Philippines","ES","Spain",0.40,0.36,0.02,0.02
+"PK","Pakistan","ES","Spain",0.50,0.45,0.025,0.025
+"PL","Poland","ES","Spain",0.20,0.18,0.01,0.01
+"PO","Romania","ES","Spain",0.20,0.18,0.01,0.01
+"PT","Portugal","ES","Spain",0.20,0.18,0.01,0.01
+"PY","Paraguay","ES","Spain",0.30,0.27,0.015,0.015
+"RO","Romania","ES","Spain",0.20,0.18,0.01,0.01
+"RoW","Rest of World","ES","Spain",0.40,0.36,0.02,0.02
+"RU","Russia","ES","Spain",0.50,0.45,0.025,0.025
+"SA","Saudi Arabia","ES","Spain",0.40,0.36,0.02,0.02
+"SE","Sweden","ES","Spain",0.20,0.18,0.01,0.01
+"SI","Slovenia","ES","Spain",0.20,0.18,0.01,0.01
+"SK","Slovakia","ES","Spain",0.20,0.18,0.01,0.01
+"SK","Slovak Republic","ES","Spain",0.20,0.18,0.01,0.01
+"SN","Senegal","ES","Spain",0.30,0.27,0.015,0.015
+"SR","Suriname","ES","Spain",0.30,0.27,0.015,0.015
+"TG","Togo","ES","Spain",0.30,0.27,0.015,0.015
+"TH","Thailand","ES","Spain",0.40,0.36,0.02,0.02
+"TN","Tunisia","ES","Spain",0.30,0.27,0.015,0.015
+"TR","Turkey","ES","Spain",0.20,0.18,0.01,0.01
+"UA","Ukraine","ES","Spain",0.50,0.45,0.025,0.025
+"US","USA","ES","Spain",0.30,0.27,0.015,0.015
+"VN","Vietnam","ES","Spain",0.40,0.36,0.02,0.02
+"ZA","South Africa","ES","Spain",0.40,0.36,0.02,0.02
+"DOM","Domestic transport","PL","Poland",0.03,0.027,0.0015,0.0015
+"AL","Albania","PL","Poland",0.20,0.18,0.01,0.01
+"AR","Argentina","PL","Poland",0.40,0.36,0.02,0.02
+"AT","Austria","PL","Poland",0.20,0.18,0.01,0.01
+"AU","Australia","PL","Poland",0.50,0.45,0.025,0.025
+"BA","Bosnia and Herzegovina","PL","Poland",0.20,0.18,0.01,0.01
+"BE","Belgium","PL","Poland",0.20,0.18,0.01,0.01
+"BF","Burkina Faso","PL","Poland",0.30,0.27,0.015,0.015
+"BG","Bulgaria","PL","Poland",0.20,0.18,0.01,0.01
+"BO","Bolivia","PL","Poland",0.30,0.27,0.015,0.015
+"BR","Brazil","PL","Poland",0.30,0.27,0.015,0.015
+"BY","Belarus","PL","Poland",0.20,0.18,0.01,0.01
+"BZ","Belize","PL","Poland",0.30,0.27,0.015,0.015
+"CA","Canada","PL","Poland",0.40,0.36,0.02,0.02
+"CI","Cote d'Ivoire","PL","Poland",0.30,0.27,0.015,0.015
+"CL","Chile","PL","Poland",0.40,0.36,0.02,0.02
+"CM","Cameroon","PL","Poland",0.30,0.27,0.015,0.015
+"CN","China","PL","Poland",0.50,0.45,0.025,0.025
+"CO","Colombia","PL","Poland",0.30,0.27,0.015,0.015
+"CR","Costa Rica","PL","Poland",0.30,0.27,0.015,0.015
+"CS","Serbia","PL","Poland",0.20,0.18,0.01,0.01
+"CY","Cyprus","PL","Poland",0.20,0.18,0.01,0.01
+"CZ","Czechia","PL","Poland",0.20,0.18,0.01,0.01
+"CZ","Czech Republic","PL","Poland",0.20,0.18,0.01,0.01
+"DE","Germany","PL","Poland",0.20,0.18,0.01,0.01
+"DK","Denmark","PL","Poland",0.20,0.18,0.01,0.01
+"DZ","Algeria","PL","Poland",0.30,0.27,0.015,0.015
+"EC","Ecuador","PL","Poland",0.30,0.27,0.015,0.015
+"EE","Estonia","PL","Poland",0.20,0.18,0.01,0.01
+"EG","Egypt","PL","Poland",0.30,0.27,0.015,0.015
+"ES","Spain","PL","Poland",0.20,0.18,0.01,0.01
+"ET","Ethiopia","PL","Poland",0.40,0.36,0.02,0.02
+"FI","Finland","PL","Poland",0.20,0.18,0.01,0.01
+"FR","France","PL","Poland",0.20,0.18,0.01,0.01
+"GB","UK","PL","Poland",0.20,0.18,0.01,0.01
+"GE","Georgia","PL","Poland",0.20,0.18,0.01,0.01
+"GH","Ghana","PL","Poland",0.40,0.36,0.02,0.02
+"GN","Guinea","PL","Poland",0.30,0.27,0.015,0.015
+"GR","Greece","PL","Poland",0.20,0.18,0.01,0.01
+"GT","Guatemala","PL","Poland",0.30,0.27,0.015,0.015
+"HR","Croatia","PL","Poland",0.20,0.18,0.01,0.01
+"HU","Hungary","PL","Poland",0.20,0.18,0.01,0.01
+"ID","Indonesia","PL","Poland",0.40,0.36,0.02,0.02
+"IE","Ireland","PL","Poland",0.20,0.18,0.01,0.01
+"IL","Israel","PL","Poland",0.40,0.36,0.02,0.02
+"IN","India","PL","Poland",0.40,0.36,0.02,0.02
+"IR","Iran","PL","Poland",0.40,0.36,0.02,0.02
+"IT","Italy","PL","Poland",0.20,0.18,0.01,0.01
+"KE","Kenya","PL","Poland",0.40,0.36,0.02,0.02
+"KG","Kyrgyzstan","PL","Poland",0.50,0.45,0.025,0.025
+"KM","Comoros","PL","Poland",0.40,0.36,0.02,0.02
+"KZ","Kazakhstan","PL","Poland",0.50,0.45,0.025,0.025
+"LK","Sri Lanka","PL","Poland",0.40,0.36,0.02,0.02
+"LT","Lithuania","PL","Poland",0.20,0.18,0.01,0.01
+"LV","Latvia","PL","Poland",0.20,0.18,0.01,0.01
+"MA","Morocco","PL","Poland",0.30,0.27,0.015,0.015
+"MD","Republic of Moldova","PL","Poland",0.20,0.18,0.01,0.01
+"MG","Madagascar","PL","Poland",0.40,0.36,0.02,0.02
+"ML","Mali","PL","Poland",0.40,0.36,0.02,0.02
+"MT","Malta","PL","Poland",0.20,0.18,0.01,0.01
+"MX","Mexico","PL","Poland",0.30,0.27,0.015,0.015
+"MY","Malaysia","PL","Poland",0.40,0.36,0.02,0.02
+"NG","Nigeria","PL","Poland",0.40,0.36,0.02,0.02
+"NI","Nicaragua","PL","Poland",0.30,0.27,0.015,0.015
+"NL","Netherlands","PL","Poland",0.20,0.18,0.01,0.01
+"NP","Nepal","PL","Poland",0.40,0.36,0.02,0.02
+"NZ","New Zealand","PL","Poland",0.50,0.45,0.025,0.025
+"PA","Panama","PL","Poland",0.30,0.27,0.015,0.015
+"PE","Peru","PL","Poland",0.30,0.27,0.015,0.015
+"PF","French Polynesia","PL","Poland",0.50,0.45,0.025,0.025
+"PH","Philippines","PL","Poland",0.40,0.36,0.02,0.02
+"PK","Pakistan","PL","Poland",0.50,0.45,0.025,0.025
+"PL","Poland","PL","Poland",0.20,0.18,0.01,0.01
+"PO","Romania","PL","Poland",0.20,0.18,0.01,0.01
+"PT","Portugal","PL","Poland",0.20,0.18,0.01,0.01
+"PY","Paraguay","PL","Poland",0.30,0.27,0.015,0.015
+"RO","Romania","PL","Poland",0.20,0.18,0.01,0.01
+"RoW","Rest of World","PL","Poland",0.40,0.36,0.02,0.02
+"RU","Russia","PL","Poland",0.50,0.45,0.025,0.025
+"SA","Saudi Arabia","PL","Poland",0.40,0.36,0.02,0.02
+"SE","Sweden","PL","Poland",0.20,0.18,0.01,0.01
+"SI","Slovenia","PL","Poland",0.20,0.18,0.01,0.01
+"SK","Slovakia","PL","Poland",0.20,0.18,0.01,0.01
+"SK","Slovak Republic","PL","Poland",0.20,0.18,0.01,0.01
+"SN","Senegal","PL","Poland",0.30,0.27,0.015,0.015
+"SR","Suriname","PL","Poland",0.30,0.27,0.015,0.015
+"TG","Togo","PL","Poland",0.30,0.27,0.015,0.015
+"TH","Thailand","PL","Poland",0.40,0.36,0.02,0.02
+"TN","Tunisia","PL","Poland",0.30,0.27,0.015,0.015
+"TR","Turkey","PL","Poland",0.20,0.18,0.01,0.01
+"UA","Ukraine","PL","Poland",0.50,0.45,0.025,0.025
+"US","USA","PL","Poland",0.30,0.27,0.015,0.015
+"VN","Vietnam","PL","Poland",0.40,0.36,0.02,0.02
+"ZA","South Africa","PL","Poland",0.40,0.36,0.02,0.02
+"DOM","Domestic transport","IT","Italy",0.03,0.027,0.0015,0.0015
+"AL","Albania","IT","Italy",0.20,0.18,0.01,0.01
+"AR","Argentina","IT","Italy",0.40,0.36,0.02,0.02
+"AT","Austria","IT","Italy",0.20,0.18,0.01,0.01
+"AU","Australia","IT","Italy",0.50,0.45,0.025,0.025
+"BA","Bosnia and Herzegovina","IT","Italy",0.20,0.18,0.01,0.01
+"BE","Belgium","IT","Italy",0.20,0.18,0.01,0.01
+"BF","Burkina Faso","IT","Italy",0.30,0.27,0.015,0.015
+"BG","Bulgaria","IT","Italy",0.20,0.18,0.01,0.01
+"BO","Bolivia","IT","Italy",0.30,0.27,0.015,0.015
+"BR","Brazil","IT","Italy",0.30,0.27,0.015,0.015
+"BY","Belarus","IT","Italy",0.20,0.18,0.01,0.01
+"BZ","Belize","IT","Italy",0.30,0.27,0.015,0.015
+"CA","Canada","IT","Italy",0.40,0.36,0.02,0.02
+"CI","Cote d'Ivoire","IT","Italy",0.30,0.27,0.015,0.015
+"CL","Chile","IT","Italy",0.40,0.36,0.02,0.02
+"CM","Cameroon","IT","Italy",0.30,0.27,0.015,0.015
+"CN","China","IT","Italy",0.50,0.45,0.025,0.025
+"CO","Colombia","IT","Italy",0.30,0.27,0.015,0.015
+"CR","Costa Rica","IT","Italy",0.30,0.27,0.015,0.015
+"CS","Serbia","IT","Italy",0.20,0.18,0.01,0.01
+"CY","Cyprus","IT","Italy",0.20,0.18,0.01,0.01
+"CZ","Czechia","IT","Italy",0.20,0.18,0.01,0.01
+"CZ","Czech Republic","IT","Italy",0.20,0.18,0.01,0.01
+"DE","Germany","IT","Italy",0.20,0.18,0.01,0.01
+"DK","Denmark","IT","Italy",0.20,0.18,0.01,0.01
+"DZ","Algeria","IT","Italy",0.30,0.27,0.015,0.015
+"EC","Ecuador","IT","Italy",0.30,0.27,0.015,0.015
+"EE","Estonia","IT","Italy",0.20,0.18,0.01,0.01
+"EG","Egypt","IT","Italy",0.30,0.27,0.015,0.015
+"ES","Spain","IT","Italy",0.20,0.18,0.01,0.01
+"ET","Ethiopia","IT","Italy",0.40,0.36,0.02,0.02
+"FI","Finland","IT","Italy",0.20,0.18,0.01,0.01
+"FR","France","IT","Italy",0.20,0.18,0.01,0.01
+"GB","UK","IT","Italy",0.20,0.18,0.01,0.01
+"GE","Georgia","IT","Italy",0.20,0.18,0.01,0.01
+"GH","Ghana","IT","Italy",0.40,0.36,0.02,0.02
+"GN","Guinea","IT","Italy",0.30,0.27,0.015,0.015
+"GR","Greece","IT","Italy",0.20,0.18,0.01,0.01
+"GT","Guatemala","IT","Italy",0.30,0.27,0.015,0.015
+"HR","Croatia","IT","Italy",0.20,0.18,0.01,0.01
+"HU","Hungary","IT","Italy",0.20,0.18,0.01,0.01
+"ID","Indonesia","IT","Italy",0.40,0.36,0.02,0.02
+"IE","Ireland","IT","Italy",0.20,0.18,0.01,0.01
+"IL","Israel","IT","Italy",0.40,0.36,0.02,0.02
+"IN","India","IT","Italy",0.40,0.36,0.02,0.02
+"IR","Iran","IT","Italy",0.40,0.36,0.02,0.02
+"IT","Italy","IT","Italy",0.20,0.18,0.01,0.01
+"KE","Kenya","IT","Italy",0.40,0.36,0.02,0.02
+"KG","Kyrgyzstan","IT","Italy",0.50,0.45,0.025,0.025
+"KM","Comoros","IT","Italy",0.40,0.36,0.02,0.02
+"KZ","Kazakhstan","IT","Italy",0.50,0.45,0.025,0.025
+"LK","Sri Lanka","IT","Italy",0.40,0.36,0.02,0.02
+"LT","Lithuania","IT","Italy",0.20,0.18,0.01,0.01
+"LV","Latvia","IT","Italy",0.20,0.18,0.01,0.01
+"MA","Morocco","IT","Italy",0.30,0.27,0.015,0.015
+"MD","Republic of Moldova","IT","Italy",0.20,0.18,0.01,0.01
+"MG","Madagascar","IT","Italy",0.40,0.36,0.02,0.02
+"ML","Mali","IT","Italy",0.40,0.36,0.02,0.02
+"MT","Malta","IT","Italy",0.20,0.18,0.01,0.01
+"MX","Mexico","IT","Italy",0.30,0.27,0.015,0.015
+"MY","Malaysia","IT","Italy",0.40,0.36,0.02,0.02
+"NG","Nigeria","IT","Italy",0.40,0.36,0.02,0.02
+"NI","Nicaragua","IT","Italy",0.30,0.27,0.015,0.015
+"NL","Netherlands","IT","Italy",0.20,0.18,0.01,0.01
+"NP","Nepal","IT","Italy",0.40,0.36,0.02,0.02
+"NZ","New Zealand","IT","Italy",0.50,0.45,0.025,0.025
+"PA","Panama","IT","Italy",0.30,0.27,0.015,0.015
+"PE","Peru","IT","Italy",0.30,0.27,0.015,0.015
+"PF","French Polynesia","IT","Italy",0.50,0.45,0.025,0.025
+"PH","Philippines","IT","Italy",0.40,0.36,0.02,0.02
+"PK","Pakistan","IT","Italy",0.50,0.45,0.025,0.025
+"PL","Poland","IT","Italy",0.20,0.18,0.01,0.01
+"PO","Romania","IT","Italy",0.20,0.18,0.01,0.01
+"PT","Portugal","IT","Italy",0.20,0.18,0.01,0.01
+"PY","Paraguay","IT","Italy",0.30,0.27,0.015,0.015
+"RO","Romania","IT","Italy",0.20,0.18,0.01,0.01
+"RoW","Rest of World","IT","Italy",0.40,0.36,0.02,0.02
+"RU","Russia","IT","Italy",0.50,0.45,0.025,0.025
+"SA","Saudi Arabia","IT","Italy",0.40,0.36,0.02,0.02
+"SE","Sweden","IT","Italy",0.20,0.18,0.01,0.01
+"SI","Slovenia","IT","Italy",0.20,0.18,0.01,0.01
+"SK","Slovakia","IT","Italy",0.20,0.18,0.01,0.01
+"SK","Slovak Republic","IT","Italy",0.20,0.18,0.01,0.01
+"SN","Senegal","IT","Italy",0.30,0.27,0.015,0.015
+"SR","Suriname","IT","Italy",0.30,0.27,0.015,0.015
+"TG","Togo","IT","Italy",0.30,0.27,0.015,0.015
+"TH","Thailand","IT","Italy",0.40,0.36,0.02,0.02
+"TN","Tunisia","IT","Italy",0.30,0.27,0.015,0.015
+"TR","Turkey","IT","Italy",0.20,0.18,0.01,0.01
+"UA","Ukraine","IT","Italy",0.50,0.45,0.025,0.025
+"US","USA","IT","Italy",0.30,0.27,0.015,0.015
+"VN","Vietnam","IT","Italy",0.40,0.36,0.02,0.02
+"ZA","South Africa","IT","Italy",0.40,0.36,0.02,0.02
+"DOM","Domestic transport","HU","Hungary",0.03,0.027,0.0015,0.0015
+"AL","Albania","HU","Hungary",0.20,0.18,0.01,0.01
+"AR","Argentina","HU","Hungary",0.40,0.36,0.02,0.02
+"AT","Austria","HU","Hungary",0.20,0.18,0.01,0.01
+"AU","Australia","HU","Hungary",0.50,0.45,0.025,0.025
+"BA","Bosnia and Herzegovina","HU","Hungary",0.20,0.18,0.01,0.01
+"BE","Belgium","HU","Hungary",0.20,0.18,0.01,0.01
+"BF","Burkina Faso","HU","Hungary",0.30,0.27,0.015,0.015
+"BG","Bulgaria","HU","Hungary",0.20,0.18,0.01,0.01
+"BO","Bolivia","HU","Hungary",0.30,0.27,0.015,0.015
+"BR","Brazil","HU","Hungary",0.30,0.27,0.015,0.015
+"BY","Belarus","HU","Hungary",0.20,0.18,0.01,0.01
+"BZ","Belize","HU","Hungary",0.30,0.27,0.015,0.015
+"CA","Canada","HU","Hungary",0.40,0.36,0.02,0.02
+"CI","Cote d'Ivoire","HU","Hungary",0.30,0.27,0.015,0.015
+"CL","Chile","HU","Hungary",0.40,0.36,0.02,0.02
+"CM","Cameroon","HU","Hungary",0.30,0.27,0.015,0.015
+"CN","China","HU","Hungary",0.50,0.45,0.025,0.025
+"CO","Colombia","HU","Hungary",0.30,0.27,0.015,0.015
+"CR","Costa Rica","HU","Hungary",0.30,0.27,0.015,0.015
+"CS","Serbia","HU","Hungary",0.20,0.18,0.01,0.01
+"CY","Cyprus","HU","Hungary",0.20,0.18,0.01,0.01
+"CZ","Czechia","HU","Hungary",0.20,0.18,0.01,0.01
+"CZ","Czech Republic","HU","Hungary",0.20,0.18,0.01,0.01
+"DE","Germany","HU","Hungary",0.20,0.18,0.01,0.01
+"DK","Denmark","HU","Hungary",0.20,0.18,0.01,0.01
+"DZ","Algeria","HU","Hungary",0.30,0.27,0.015,0.015
+"EC","Ecuador","HU","Hungary",0.30,0.27,0.015,0.015
+"EE","Estonia","HU","Hungary",0.20,0.18,0.01,0.01
+"EG","Egypt","HU","Hungary",0.30,0.27,0.015,0.015
+"ES","Spain","HU","Hungary",0.20,0.18,0.01,0.01
+"ET","Ethiopia","HU","Hungary",0.40,0.36,0.02,0.02
+"FI","Finland","HU","Hungary",0.20,0.18,0.01,0.01
+"FR","France","HU","Hungary",0.20,0.18,0.01,0.01
+"GB","UK","HU","Hungary",0.20,0.18,0.01,0.01
+"GE","Georgia","HU","Hungary",0.20,0.18,0.01,0.01
+"GH","Ghana","HU","Hungary",0.40,0.36,0.02,0.02
+"GN","Guinea","HU","Hungary",0.30,0.27,0.015,0.015
+"GR","Greece","HU","Hungary",0.20,0.18,0.01,0.01
+"GT","Guatemala","HU","Hungary",0.30,0.27,0.015,0.015
+"HR","Croatia","HU","Hungary",0.20,0.18,0.01,0.01
+"HU","Hungary","HU","Hungary",0.20,0.18,0.01,0.01
+"ID","Indonesia","HU","Hungary",0.40,0.36,0.02,0.02
+"IE","Ireland","HU","Hungary",0.20,0.18,0.01,0.01
+"IL","Israel","HU","Hungary",0.40,0.36,0.02,0.02
+"IN","India","HU","Hungary",0.40,0.36,0.02,0.02
+"IR","Iran","HU","Hungary",0.40,0.36,0.02,0.02
+"IT","Italy","HU","Hungary",0.20,0.18,0.01,0.01
+"KE","Kenya","HU","Hungary",0.40,0.36,0.02,0.02
+"KG","Kyrgyzstan","HU","Hungary",0.50,0.45,0.025,0.025
+"KM","Comoros","HU","Hungary",0.40,0.36,0.02,0.02
+"KZ","Kazakhstan","HU","Hungary",0.50,0.45,0.025,0.025
+"LK","Sri Lanka","HU","Hungary",0.40,0.36,0.02,0.02
+"LT","Lithuania","HU","Hungary",0.20,0.18,0.01,0.01
+"LV","Latvia","HU","Hungary",0.20,0.18,0.01,0.01
+"MA","Morocco","HU","Hungary",0.30,0.27,0.015,0.015
+"MD","Republic of Moldova","HU","Hungary",0.20,0.18,0.01,0.01
+"MG","Madagascar","HU","Hungary",0.40,0.36,0.02,0.02
+"ML","Mali","HU","Hungary",0.40,0.36,0.02,0.02
+"MT","Malta","HU","Hungary",0.20,0.18,0.01,0.01
+"MX","Mexico","HU","Hungary",0.30,0.27,0.015,0.015
+"MY","Malaysia","HU","Hungary",0.40,0.36,0.02,0.02
+"NG","Nigeria","HU","Hungary",0.40,0.36,0.02,0.02
+"NI","Nicaragua","HU","Hungary",0.30,0.27,0.015,0.015
+"NL","Netherlands","HU","Hungary",0.20,0.18,0.01,0.01
+"NP","Nepal","HU","Hungary",0.40,0.36,0.02,0.02
+"NZ","New Zealand","HU","Hungary",0.50,0.45,0.025,0.025
+"PA","Panama","HU","Hungary",0.30,0.27,0.015,0.015
+"PE","Peru","HU","Hungary",0.30,0.27,0.015,0.015
+"PF","French Polynesia","HU","Hungary",0.50,0.45,0.025,0.025
+"PH","Philippines","HU","Hungary",0.40,0.36,0.02,0.02
+"PK","Pakistan","HU","Hungary",0.50,0.45,0.025,0.025
+"PL","Poland","HU","Hungary",0.20,0.18,0.01,0.01
+"PO","Romania","HU","Hungary",0.20,0.18,0.01,0.01
+"PT","Portugal","HU","Hungary",0.20,0.18,0.01,0.01
+"PY","Paraguay","HU","Hungary",0.30,0.27,0.015,0.015
+"RO","Romania","HU","Hungary",0.20,0.18,0.01,0.01
+"RoW","Rest of World","HU","Hungary",0.40,0.36,0.02,0.02
+"RU","Russia","HU","Hungary",0.50,0.45,0.025,0.025
+"SA","Saudi Arabia","HU","Hungary",0.40,0.36,0.02,0.02
+"SE","Sweden","HU","Hungary",0.20,0.18,0.01,0.01
+"SI","Slovenia","HU","Hungary",0.20,0.18,0.01,0.01
+"SK","Slovakia","HU","Hungary",0.20,0.18,0.01,0.01
+"SK","Slovak Republic","HU","Hungary",0.20,0.18,0.01,0.01
+"SN","Senegal","HU","Hungary",0.30,0.27,0.015,0.015
+"SR","Suriname","HU","Hungary",0.30,0.27,0.015,0.015
+"TG","Togo","HU","Hungary",0.30,0.27,0.015,0.015
+"TH","Thailand","HU","Hungary",0.40,0.36,0.02,0.02
+"TN","Tunisia","HU","Hungary",0.30,0.27,0.015,0.015
+"TR","Turkey","HU","Hungary",0.20,0.18,0.01,0.01
+"UA","Ukraine","HU","Hungary",0.50,0.45,0.025,0.025
+"US","USA","HU","Hungary",0.30,0.27,0.015,0.015
+"VN","Vietnam","HU","Hungary",0.40,0.36,0.02,0.02
+"ZA","South Africa","HU","Hungary",0.40,0.36,0.02,0.02
+"DOM","Domestic transport","GR","Greece",0.03,0.027,0.0015,0.0015
+"AL","Albania","GR","Greece",0.20,0.18,0.01,0.01
+"AR","Argentina","GR","Greece",0.40,0.36,0.02,0.02
+"AT","Austria","GR","Greece",0.20,0.18,0.01,0.01
+"AU","Australia","GR","Greece",0.50,0.45,0.025,0.025
+"BA","Bosnia and Herzegovina","GR","Greece",0.20,0.18,0.01,0.01
+"BE","Belgium","GR","Greece",0.20,0.18,0.01,0.01
+"BF","Burkina Faso","GR","Greece",0.30,0.27,0.015,0.015
+"BG","Bulgaria","GR","Greece",0.20,0.18,0.01,0.01
+"BO","Bolivia","GR","Greece",0.30,0.27,0.015,0.015
+"BR","Brazil","GR","Greece",0.30,0.27,0.015,0.015
+"BY","Belarus","GR","Greece",0.20,0.18,0.01,0.01
+"BZ","Belize","GR","Greece",0.30,0.27,0.015,0.015
+"CA","Canada","GR","Greece",0.40,0.36,0.02,0.02
+"CI","Cote d'Ivoire","GR","Greece",0.30,0.27,0.015,0.015
+"CL","Chile","GR","Greece",0.40,0.36,0.02,0.02
+"CM","Cameroon","GR","Greece",0.30,0.27,0.015,0.015
+"CN","China","GR","Greece",0.50,0.45,0.025,0.025
+"CO","Colombia","GR","Greece",0.30,0.27,0.015,0.015
+"CR","Costa Rica","GR","Greece",0.30,0.27,0.015,0.015
+"CS","Serbia","GR","Greece",0.20,0.18,0.01,0.01
+"CY","Cyprus","GR","Greece",0.20,0.18,0.01,0.01
+"CZ","Czechia","GR","Greece",0.20,0.18,0.01,0.01
+"CZ","Czech Republic","GR","Greece",0.20,0.18,0.01,0.01
+"DE","Germany","GR","Greece",0.20,0.18,0.01,0.01
+"DK","Denmark","GR","Greece",0.20,0.18,0.01,0.01
+"DZ","Algeria","GR","Greece",0.30,0.27,0.015,0.015
+"EC","Ecuador","GR","Greece",0.30,0.27,0.015,0.015
+"EE","Estonia","GR","Greece",0.20,0.18,0.01,0.01
+"EG","Egypt","GR","Greece",0.30,0.27,0.015,0.015
+"ES","Spain","GR","Greece",0.20,0.18,0.01,0.01
+"ET","Ethiopia","GR","Greece",0.40,0.36,0.02,0.02
+"FI","Finland","GR","Greece",0.20,0.18,0.01,0.01
+"FR","France","GR","Greece",0.20,0.18,0.01,0.01
+"GB","UK","GR","Greece",0.20,0.18,0.01,0.01
+"GE","Georgia","GR","Greece",0.20,0.18,0.01,0.01
+"GH","Ghana","GR","Greece",0.40,0.36,0.02,0.02
+"GN","Guinea","GR","Greece",0.30,0.27,0.015,0.015
+"GR","Greece","GR","Greece",0.20,0.18,0.01,0.01
+"GT","Guatemala","GR","Greece",0.30,0.27,0.015,0.015
+"HR","Croatia","GR","Greece",0.20,0.18,0.01,0.01
+"HU","Hungary","GR","Greece",0.20,0.18,0.01,0.01
+"ID","Indonesia","GR","Greece",0.40,0.36,0.02,0.02
+"IE","Ireland","GR","Greece",0.20,0.18,0.01,0.01
+"IL","Israel","GR","Greece",0.40,0.36,0.02,0.02
+"IN","India","GR","Greece",0.40,0.36,0.02,0.02
+"IR","Iran","GR","Greece",0.40,0.36,0.02,0.02
+"IT","Italy","GR","Greece",0.20,0.18,0.01,0.01
+"KE","Kenya","GR","Greece",0.40,0.36,0.02,0.02
+"KG","Kyrgyzstan","GR","Greece",0.50,0.45,0.025,0.025
+"KM","Comoros","GR","Greece",0.40,0.36,0.02,0.02
+"KZ","Kazakhstan","GR","Greece",0.50,0.45,0.025,0.025
+"LK","Sri Lanka","GR","Greece",0.40,0.36,0.02,0.02
+"LT","Lithuania","GR","Greece",0.20,0.18,0.01,0.01
+"LV","Latvia","GR","Greece",0.20,0.18,0.01,0.01
+"MA","Morocco","GR","Greece",0.30,0.27,0.015,0.015
+"MD","Republic of Moldova","GR","Greece",0.20,0.18,0.01,0.01
+"MG","Madagascar","GR","Greece",0.40,0.36,0.02,0.02
+"ML","Mali","GR","Greece",0.40,0.36,0.02,0.02
+"MT","Malta","GR","Greece",0.20,0.18,0.01,0.01
+"MX","Mexico","GR","Greece",0.30,0.27,0.015,0.015
+"MY","Malaysia","GR","Greece",0.40,0.36,0.02,0.02
+"NG","Nigeria","GR","Greece",0.40,0.36,0.02,0.02
+"NI","Nicaragua","GR","Greece",0.30,0.27,0.015,0.015
+"NL","Netherlands","GR","Greece",0.20,0.18,0.01,0.01
+"NP","Nepal","GR","Greece",0.40,0.36,0.02,0.02
+"NZ","New Zealand","GR","Greece",0.50,0.45,0.025,0.025
+"PA","Panama","GR","Greece",0.30,0.27,0.015,0.015
+"PE","Peru","GR","Greece",0.30,0.27,0.015,0.015
+"PF","French Polynesia","GR","Greece",0.50,0.45,0.025,0.025
+"PH","Philippines","GR","Greece",0.40,0.36,0.02,0.02
+"PK","Pakistan","GR","Greece",0.50,0.45,0.025,0.025
+"PL","Poland","GR","Greece",0.20,0.18,0.01,0.01
+"PO","Romania","GR","Greece",0.20,0.18,0.01,0.01
+"PT","Portugal","GR","Greece",0.20,0.18,0.01,0.01
+"PY","Paraguay","GR","Greece",0.30,0.27,0.015,0.015
+"RO","Romania","GR","Greece",0.20,0.18,0.01,0.01
+"RoW","Rest of World","GR","Greece",0.40,0.36,0.02,0.02
+"RU","Russia","GR","Greece",0.50,0.45,0.025,0.025
+"SA","Saudi Arabia","GR","Greece",0.40,0.36,0.02,0.02
+"SE","Sweden","GR","Greece",0.20,0.18,0.01,0.01
+"SI","Slovenia","GR","Greece",0.20,0.18,0.01,0.01
+"SK","Slovakia","GR","Greece",0.20,0.18,0.01,0.01
+"SK","Slovak Republic","GR","Greece",0.20,0.18,0.01,0.01
+"SN","Senegal","GR","Greece",0.30,0.27,0.015,0.015
+"SR","Suriname","GR","Greece",0.30,0.27,0.015,0.015
+"TG","Togo","GR","Greece",0.30,0.27,0.015,0.015
+"TH","Thailand","GR","Greece",0.40,0.36,0.02,0.02
+"TN","Tunisia","GR","Greece",0.30,0.27,0.015,0.015
+"TR","Turkey","GR","Greece",0.20,0.18,0.01,0.01
+"UA","Ukraine","GR","Greece",0.50,0.45,0.025,0.025
+"US","USA","GR","Greece",0.30,0.27,0.015,0.015
+"VN","Vietnam","GR","Greece",0.40,0.36,0.02,0.02
+"ZA","South Africa","GR","Greece",0.40,0.36,0.02,0.02
+"DOM","Domestic transport","DE","Germany",0.03,0.027,0.0015,0.0015
+"AL","Albania","DE","Germany",0.20,0.18,0.01,0.01
+"AR","Argentina","DE","Germany",0.40,0.36,0.02,0.02
+"AT","Austria","DE","Germany",0.20,0.18,0.01,0.01
+"AU","Australia","DE","Germany",0.50,0.45,0.025,0.025
+"BA","Bosnia and Herzegovina","DE","Germany",0.20,0.18,0.01,0.01
+"BE","Belgium","DE","Germany",0.20,0.18,0.01,0.01
+"BF","Burkina Faso","DE","Germany",0.30,0.27,0.015,0.015
+"BG","Bulgaria","DE","Germany",0.20,0.18,0.01,0.01
+"BO","Bolivia","DE","Germany",0.30,0.27,0.015,0.015
+"BR","Brazil","DE","Germany",0.30,0.27,0.015,0.015
+"BY","Belarus","DE","Germany",0.20,0.18,0.01,0.01
+"BZ","Belize","DE","Germany",0.30,0.27,0.015,0.015
+"CA","Canada","DE","Germany",0.40,0.36,0.02,0.02
+"CI","Cote d'Ivoire","DE","Germany",0.30,0.27,0.015,0.015
+"CL","Chile","DE","Germany",0.40,0.36,0.02,0.02
+"CM","Cameroon","DE","Germany",0.30,0.27,0.015,0.015
+"CN","China","DE","Germany",0.50,0.45,0.025,0.025
+"CO","Colombia","DE","Germany",0.30,0.27,0.015,0.015
+"CR","Costa Rica","DE","Germany",0.30,0.27,0.015,0.015
+"CS","Serbia","DE","Germany",0.20,0.18,0.01,0.01
+"CY","Cyprus","DE","Germany",0.20,0.18,0.01,0.01
+"CZ","Czechia","DE","Germany",0.20,0.18,0.01,0.01
+"CZ","Czech Republic","DE","Germany",0.20,0.18,0.01,0.01
+"DE","Germany","DE","Germany",0.20,0.18,0.01,0.01
+"DK","Denmark","DE","Germany",0.20,0.18,0.01,0.01
+"DZ","Algeria","DE","Germany",0.30,0.27,0.015,0.015
+"EC","Ecuador","DE","Germany",0.30,0.27,0.015,0.015
+"EE","Estonia","DE","Germany",0.20,0.18,0.01,0.01
+"EG","Egypt","DE","Germany",0.30,0.27,0.015,0.015
+"ES","Spain","DE","Germany",0.20,0.18,0.01,0.01
+"ET","Ethiopia","DE","Germany",0.40,0.36,0.02,0.02
+"FI","Finland","DE","Germany",0.20,0.18,0.01,0.01
+"FR","France","DE","Germany",0.20,0.18,0.01,0.01
+"GB","UK","DE","Germany",0.20,0.18,0.01,0.01
+"GE","Georgia","DE","Germany",0.20,0.18,0.01,0.01
+"GH","Ghana","DE","Germany",0.40,0.36,0.02,0.02
+"GN","Guinea","DE","Germany",0.30,0.27,0.015,0.015
+"GR","Greece","DE","Germany",0.20,0.18,0.01,0.01
+"GT","Guatemala","DE","Germany",0.30,0.27,0.015,0.015
+"HR","Croatia","DE","Germany",0.20,0.18,0.01,0.01
+"HU","Hungary","DE","Germany",0.20,0.18,0.01,0.01
+"ID","Indonesia","DE","Germany",0.40,0.36,0.02,0.02
+"IE","Ireland","DE","Germany",0.20,0.18,0.01,0.01
+"IL","Israel","DE","Germany",0.40,0.36,0.02,0.02
+"IN","India","DE","Germany",0.40,0.36,0.02,0.02
+"IR","Iran","DE","Germany",0.40,0.36,0.02,0.02
+"IT","Italy","DE","Germany",0.20,0.18,0.01,0.01
+"KE","Kenya","DE","Germany",0.40,0.36,0.02,0.02
+"KG","Kyrgyzstan","DE","Germany",0.50,0.45,0.025,0.025
+"KM","Comoros","DE","Germany",0.40,0.36,0.02,0.02
+"KZ","Kazakhstan","DE","Germany",0.50,0.45,0.025,0.025
+"LK","Sri Lanka","DE","Germany",0.40,0.36,0.02,0.02
+"LT","Lithuania","DE","Germany",0.20,0.18,0.01,0.01
+"LV","Latvia","DE","Germany",0.20,0.18,0.01,0.01
+"MA","Morocco","DE","Germany",0.30,0.27,0.015,0.015
+"MD","Republic of Moldova","DE","Germany",0.20,0.18,0.01,0.01
+"MG","Madagascar","DE","Germany",0.40,0.36,0.02,0.02
+"ML","Mali","DE","Germany",0.40,0.36,0.02,0.02
+"MT","Malta","DE","Germany",0.20,0.18,0.01,0.01
+"MX","Mexico","DE","Germany",0.30,0.27,0.015,0.015
+"MY","Malaysia","DE","Germany",0.40,0.36,0.02,0.02
+"NG","Nigeria","DE","Germany",0.40,0.36,0.02,0.02
+"NI","Nicaragua","DE","Germany",0.30,0.27,0.015,0.015
+"NL","Netherlands","DE","Germany",0.20,0.18,0.01,0.01
+"NP","Nepal","DE","Germany",0.40,0.36,0.02,0.02
+"NZ","New Zealand","DE","Germany",0.50,0.45,0.025,0.025
+"PA","Panama","DE","Germany",0.30,0.27,0.015,0.015
+"PE","Peru","DE","Germany",0.30,0.27,0.015,0.015
+"PF","French Polynesia","DE","Germany",0.50,0.45,0.025,0.025
+"PH","Philippines","DE","Germany",0.40,0.36,0.02,0.02
+"PK","Pakistan","DE","Germany",0.50,0.45,0.025,0.025
+"PL","Poland","DE","Germany",0.20,0.18,0.01,0.01
+"PO","Romania","DE","Germany",0.20,0.18,0.01,0.01
+"PT","Portugal","DE","Germany",0.20,0.18,0.01,0.01
+"PY","Paraguay","DE","Germany",0.30,0.27,0.015,0.015
+"RO","Romania","DE","Germany",0.20,0.18,0.01,0.01
+"RoW","Rest of World","DE","Germany",0.40,0.36,0.02,0.02
+"RU","Russia","DE","Germany",0.50,0.45,0.025,0.025
+"SA","Saudi Arabia","DE","Germany",0.40,0.36,0.02,0.02
+"SE","Sweden","DE","Germany",0.20,0.18,0.01,0.01
+"SI","Slovenia","DE","Germany",0.20,0.18,0.01,0.01
+"SK","Slovakia","DE","Germany",0.20,0.18,0.01,0.01
+"SK","Slovak Republic","DE","Germany",0.20,0.18,0.01,0.01
+"SN","Senegal","DE","Germany",0.30,0.27,0.015,0.015
+"SR","Suriname","DE","Germany",0.30,0.27,0.015,0.015
+"TG","Togo","DE","Germany",0.30,0.27,0.015,0.015
+"TH","Thailand","DE","Germany",0.40,0.36,0.02,0.02
+"TN","Tunisia","DE","Germany",0.30,0.27,0.015,0.015
+"TR","Turkey","DE","Germany",0.20,0.18,0.01,0.01
+"UA","Ukraine","DE","Germany",0.50,0.45,0.025,0.025
+"US","USA","DE","Germany",0.30,0.27,0.015,0.015
+"VN","Vietnam","DE","Germany",0.40,0.36,0.02,0.02
+"ZA","South Africa","DE","Germany",0.40,0.36,0.02,0.02
+"DOM","Domestic transport","IE","Ireland",0.03,0.027,0.0015,0.0015
+"AL","Albania","IE","Ireland",0.20,0.18,0.01,0.01
+"AR","Argentina","IE","Ireland",0.40,0.36,0.02,0.02
+"AT","Austria","IE","Ireland",0.20,0.18,0.01,0.01
+"AU","Australia","IE","Ireland",0.50,0.45,0.025,0.025
+"BA","Bosnia and Herzegovina","IE","Ireland",0.20,0.18,0.01,0.01
+"BE","Belgium","IE","Ireland",0.20,0.18,0.01,0.01
+"BF","Burkina Faso","IE","Ireland",0.30,0.27,0.015,0.015
+"BG","Bulgaria","IE","Ireland",0.20,0.18,0.01,0.01
+"BO","Bolivia","IE","Ireland",0.30,0.27,0.015,0.015
+"BR","Brazil","IE","Ireland",0.30,0.27,0.015,0.015
+"BY","Belarus","IE","Ireland",0.20,0.18,0.01,0.01
+"BZ","Belize","IE","Ireland",0.30,0.27,0.015,0.015
+"CA","Canada","IE","Ireland",0.40,0.36,0.02,0.02
+"CI","Cote d'Ivoire","IE","Ireland",0.30,0.27,0.015,0.015
+"CL","Chile","IE","Ireland",0.40,0.36,0.02,0.02
+"CM","Cameroon","IE","Ireland",0.30,0.27,0.015,0.015
+"CN","China","IE","Ireland",0.50,0.45,0.025,0.025
+"CO","Colombia","IE","Ireland",0.30,0.27,0.015,0.015
+"CR","Costa Rica","IE","Ireland",0.30,0.27,0.015,0.015
+"CS","Serbia","IE","Ireland",0.20,0.18,0.01,0.01
+"CY","Cyprus","IE","Ireland",0.20,0.18,0.01,0.01
+"CZ","Czechia","IE","Ireland",0.20,0.18,0.01,0.01
+"CZ","Czech Republic","IE","Ireland",0.20,0.18,0.01,0.01
+"DE","Germany","IE","Ireland",0.20,0.18,0.01,0.01
+"DK","Denmark","IE","Ireland",0.20,0.18,0.01,0.01
+"DZ","Algeria","IE","Ireland",0.30,0.27,0.015,0.015
+"EC","Ecuador","IE","Ireland",0.30,0.27,0.015,0.015
+"EE","Estonia","IE","Ireland",0.20,0.18,0.01,0.01
+"EG","Egypt","IE","Ireland",0.30,0.27,0.015,0.015
+"ES","Spain","IE","Ireland",0.20,0.18,0.01,0.01
+"ET","Ethiopia","IE","Ireland",0.40,0.36,0.02,0.02
+"FI","Finland","IE","Ireland",0.20,0.18,0.01,0.01
+"FR","France","IE","Ireland",0.20,0.18,0.01,0.01
+"GB","UK","IE","Ireland",0.20,0.18,0.01,0.01
+"GE","Georgia","IE","Ireland",0.20,0.18,0.01,0.01
+"GH","Ghana","IE","Ireland",0.40,0.36,0.02,0.02
+"GN","Guinea","IE","Ireland",0.30,0.27,0.015,0.015
+"GR","Greece","IE","Ireland",0.20,0.18,0.01,0.01
+"GT","Guatemala","IE","Ireland",0.30,0.27,0.015,0.015
+"HR","Croatia","IE","Ireland",0.20,0.18,0.01,0.01
+"HU","Hungary","IE","Ireland",0.20,0.18,0.01,0.01
+"ID","Indonesia","IE","Ireland",0.40,0.36,0.02,0.02
+"IE","Ireland","IE","Ireland",0.20,0.18,0.01,0.01
+"IL","Israel","IE","Ireland",0.40,0.36,0.02,0.02
+"IN","India","IE","Ireland",0.40,0.36,0.02,0.02
+"IR","Iran","IE","Ireland",0.40,0.36,0.02,0.02
+"IT","Italy","IE","Ireland",0.20,0.18,0.01,0.01
+"KE","Kenya","IE","Ireland",0.40,0.36,0.02,0.02
+"KG","Kyrgyzstan","IE","Ireland",0.50,0.45,0.025,0.025
+"KM","Comoros","IE","Ireland",0.40,0.36,0.02,0.02
+"KZ","Kazakhstan","IE","Ireland",0.50,0.45,0.025,0.025
+"LK","Sri Lanka","IE","Ireland",0.40,0.36,0.02,0.02
+"LT","Lithuania","IE","Ireland",0.20,0.18,0.01,0.01
+"LV","Latvia","IE","Ireland",0.20,0.18,0.01,0.01
+"MA","Morocco","IE","Ireland",0.30,0.27,0.015,0.015
+"MD","Republic of Moldova","IE","Ireland",0.20,0.18,0.01,0.01
+"MG","Madagascar","IE","Ireland",0.40,0.36,0.02,0.02
+"ML","Mali","IE","Ireland",0.40,0.36,0.02,0.02
+"MT","Malta","IE","Ireland",0.20,0.18,0.01,0.01
+"MX","Mexico","IE","Ireland",0.30,0.27,0.015,0.015
+"MY","Malaysia","IE","Ireland",0.40,0.36,0.02,0.02
+"NG","Nigeria","IE","Ireland",0.40,0.36,0.02,0.02
+"NI","Nicaragua","IE","Ireland",0.30,0.27,0.015,0.015
+"NL","Netherlands","IE","Ireland",0.20,0.18,0.01,0.01
+"NP","Nepal","IE","Ireland",0.40,0.36,0.02,0.02
+"NZ","New Zealand","IE","Ireland",0.50,0.45,0.025,0.025
+"PA","Panama","IE","Ireland",0.30,0.27,0.015,0.015
+"PE","Peru","IE","Ireland",0.30,0.27,0.015,0.015
+"PF","French Polynesia","IE","Ireland",0.50,0.45,0.025,0.025
+"PH","Philippines","IE","Ireland",0.40,0.36,0.02,0.02
+"PK","Pakistan","IE","Ireland",0.50,0.45,0.025,0.025
+"PL","Poland","IE","Ireland",0.20,0.18,0.01,0.01
+"PO","Romania","IE","Ireland",0.20,0.18,0.01,0.01
+"PT","Portugal","IE","Ireland",0.20,0.18,0.01,0.01
+"PY","Paraguay","IE","Ireland",0.30,0.27,0.015,0.015
+"RO","Romania","IE","Ireland",0.20,0.18,0.01,0.01
+"RoW","Rest of World","IE","Ireland",0.40,0.36,0.02,0.02
+"RU","Russia","IE","Ireland",0.50,0.45,0.025,0.025
+"SA","Saudi Arabia","IE","Ireland",0.40,0.36,0.02,0.02
+"SE","Sweden","IE","Ireland",0.20,0.18,0.01,0.01
+"SI","Slovenia","IE","Ireland",0.20,0.18,0.01,0.01
+"SK","Slovakia","IE","Ireland",0.20,0.18,0.01,0.01
+"SK","Slovak Republic","IE","Ireland",0.20,0.18,0.01,0.01
+"SN","Senegal","IE","Ireland",0.30,0.27,0.015,0.015
+"SR","Suriname","IE","Ireland",0.30,0.27,0.015,0.015
+"TG","Togo","IE","Ireland",0.30,0.27,0.015,0.015
+"TH","Thailand","IE","Ireland",0.40,0.36,0.02,0.02
+"TN","Tunisia","IE","Ireland",0.30,0.27,0.015,0.015
+"TR","Turkey","IE","Ireland",0.20,0.18,0.01,0.01
+"UA","Ukraine","IE","Ireland",0.50,0.45,0.025,0.025
+"US","USA","IE","Ireland",0.30,0.27,0.015,0.015
+"VN","Vietnam","IE","Ireland",0.40,0.36,0.02,0.02
+"ZA","South Africa","IE","Ireland",0.40,0.36,0.02,0.02

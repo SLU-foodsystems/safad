@@ -6,6 +6,11 @@ set -eu
 node ./carrier-ghg-factors/carrier-ghg-factors-csv-to-json.mjs ./carrier-ghg-factors/carrier-ghg-factors.csv \
   > ../src/data/carrier-ghg-factors.json
 
+# Transport emissions factors: emissions for each consumption/production pair
+node ./transport-emissions-factors/transports-emissions-factors-csv-to-json.mjs \
+  ./transport-emissions-factors/transports-emissions-factors.csv \
+  > ../src/data/transport-emissions-factors.json
+
 # Processes energy demands: Energy req. of each process
 node ./processes-energy-demand/processes-energy-demand-csv-json.mjs ./processes-energy-demand/processes-energy-demand.csv > ../src/data/processes-energy-demands.json
 
