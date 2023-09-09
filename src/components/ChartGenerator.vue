@@ -69,8 +69,9 @@ export default defineComponent({
             return acc.map((entry, i) => [entry[0], entry[1] + curr[i][1]]);
           }, []);
 
+        type ChartDataPoint = { axis: string; value: number };
         const chartData = totalFootprints
-          .map(([axis, absoluteValue]) => {
+          .map(([axis, absoluteValue]): ChartDataPoint | null => {
             const limitValue = limits[axis];
             if (!limitValue) {
               console.error(`Can't find limit for axis ${axis}.`);
@@ -81,8 +82,7 @@ export default defineComponent({
 
             return { axis: names[axis], value };
           })
-          .filter((x) => x !== null)
-          .map((x) => x!); // Fucking typescript
+          .filter((x): x is ChartDataPoint => x !== null);
 
         const divSelector = `.boundaries-charts-container [data-country='${country}']`;
         let maxValue = this.maxValue && this.maxValue >= 1 ? this.maxValue : 2;

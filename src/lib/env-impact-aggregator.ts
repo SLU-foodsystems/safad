@@ -61,8 +61,7 @@ export default function flattenEnvironmentalFactors(
 
       return [suaCode, joinedEnvFactors];
     })
-    .filter((x) => x !== null)
-    .map((x) => x!);
+    .filter((x): x is [string, number[]] => x !== null)
 
-  return Object.fromEntries(entries!);
+  return Object.fromEntries(entries);
 }

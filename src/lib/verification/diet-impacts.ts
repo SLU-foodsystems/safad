@@ -133,10 +133,10 @@ export async function computeFootprintsForDiets(envFactors?: EnvFactors): Promis
       ];
     });
 
-    return [country as string, data] as [string, string[][]];
+
+    return [country, data] as [string, string[][]];
   })
-    .filter((x) => x !== null)
-    .map((x) => x!);
+    .filter((x): x is [string, string[][]] => x !== null);
 
   return allResults;
 }

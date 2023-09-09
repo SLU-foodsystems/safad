@@ -139,9 +139,9 @@ export default async function computeFootprintsForEachRpcWithOrigin(
           packeting,
         ];
       })
-      .filter((x) => x !== null);
+      .filter((x): x is string[] => x !== null);
 
-    const impactsCsv = impactsPerDiet.map((row) => row!.join(",")).join("\n");
+    const impactsCsv = impactsPerDiet.map((row) => row.join(",")).join("\n");
 
     return [country, header.join(",") + "\n" + impactsCsv];
   });
