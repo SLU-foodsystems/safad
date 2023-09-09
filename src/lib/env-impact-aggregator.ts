@@ -35,31 +35,34 @@ export default function flattenEnvironmentalFactors(
 
   const suaCodes = Object.keys(envImpactSheet);
 
-  const entries = suaCodes.map((suaCode) => {
-    const envImpacts = envImpactSheet[suaCode];
-    const originFactors = rpcFactors[suaCode];
+  const entries = suaCodes
+    .map((suaCode) => {
+      const envImpacts = envImpactSheet[suaCode];
+      const originFactors = rpcFactors[suaCode];
 
-    if (!originFactors) {
-      console.warn(`No origin factors found for SUA ${suaCode}`);
-      return null;
-    }
+      if (!originFactors) {
+        console.warn(`No origin factors found for SUA ${suaCode}`);
+        return null;
+      }
 
-    const joinedEnvFactors = Object.keys(originFactors)
-      .map((origin) => {
-        const [shareRatio, waste, organic] = originFactors[origin];
-        const wasteChangeFactor = 1 / (1 - waste);
-        const organicRatio = mode === "organic" ? organic : 1 - organic;
+      const joinedEnvFactors = Object.keys(originFactors)
+        .map((origin) => {
+          const [shareRatio, waste, organic] = originFactors[origin];
+          const wasteChangeFactor = 1 / (1 - waste);
+          const organicRatio = mode === "organic" ? organic : 1 - organic;
 
-        const ratio = shareRatio * organicRatio * wasteChangeFactor;
-        if (!envImpacts[origin]) {
-          origin = "RoW";
-        }
-        return envImpacts[origin].map((x) => ratio * x);
-      })
-      .reduce((a, b) => a.map((x, i) => x + b[i]), ENV_IMPACTS_ZERO);
+          const ratio = shareRatio * organicRatio * wasteChangeFactor;
+          if (!envImpacts[origin]) {
+            origin = "RoW";
+          }
+          return envImpacts[origin].map((x) => ratio * x);
+        })
+        .reduce((a, b) => a.map((x, i) => x + b[i]), ENV_IMPACTS_ZERO);
 
-    return [suaCode, joinedEnvFactors];
-  }).filter( x => x !== null).map(x => x!);
+      return [suaCode, joinedEnvFactors];
+    })
+    .filter((x) => x !== null)
+    .map((x) => x!);
 
   return Object.fromEntries(entries!);
 }
