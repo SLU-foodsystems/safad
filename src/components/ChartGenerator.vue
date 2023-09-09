@@ -34,13 +34,15 @@ export default defineComponent({
   },
 
   watch: {
-    envFactors: 'run',
-    maxValue: 'run',
+    envFactors: "run",
+    maxValue: "run",
   },
 
   methods: {
     async run() {
-      const countriesAndDiets = await computeFootprintsForDiets(this.envFactors);
+      const countriesAndDiets = await computeFootprintsForDiets(
+        this.envFactors
+      );
       const limits = PLANETARY_BOUNDARY_LIMITS as Record<string, number>;
       const names: Record<string, string> = {
         co2e: "Carbon Footprint",
@@ -111,7 +113,7 @@ export default defineComponent({
     <div class="center">
       <label class="max-value-input-container">
         <span>Configure scaling</span>
-        <input type="number" v-model="maxValue">
+        <input type="number" v-model="maxValue" />
       </label>
       <button class="button" @click="downloadSvgs">Download Charts</button>
     </div>
@@ -127,18 +129,17 @@ export default defineComponent({
 .max-value-input-container {
   display: inline-block;
   margin-right: 1em;
+
   span {
     display: block;
     font-weight: bold;
   }
+
   input {
     width: 8em;
     padding: 0.5em;
-
   }
 }
-
-
 
 .boundaries-charts-container>div {
   &::before {
