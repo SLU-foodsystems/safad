@@ -42,7 +42,14 @@ function main(args) {
         if (!(consumptionCountry in results)) {
           results[consumptionCountry] = {};
         }
-        results[consumptionCountry][productionCountry] = ghgs;
+
+        // Replace all instances of "Domestic transport" with the country
+        // itself.
+        const normalizedProductionCountry =
+          productionCountry === "Domestic transport"
+            ? consumptionCountry
+            : productionCountry;
+        results[consumptionCountry][normalizedProductionCountry] = ghgs;
       }
     );
 
