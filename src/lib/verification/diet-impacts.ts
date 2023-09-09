@@ -85,9 +85,9 @@ const dietFiles = {
 
 const categoryNames = categoryNamesJson as Record<string, string>;
 
-export async function computeFootprintsForDiets(envFactors?: EnvFactors): Promise<
-  [string, string[][]][]
-> {
+export async function computeFootprintsForDiets(
+  envFactors?: EnvFactors
+): Promise<[string, string[][]][]> {
   const RE = new ResultsEngine();
   RE.setEnvFactors(envFactors || allEnvImpacts);
 
@@ -117,8 +117,9 @@ export async function computeFootprintsForDiets(envFactors?: EnvFactors): Promis
     ]).sort();
 
     const data = categories.map((categoryId) => {
-      const [rpcImpacts, processImpacts, packagingImpacts] =
-        results.map((x) => x[categoryId]);
+      const [rpcImpacts, processImpacts, packagingImpacts] = results.map(
+        (x) => x[categoryId]
+      );
 
       const footprints = expandedImpacts(
         rpcImpacts || ENV_IMPACTS_ZERO,
@@ -126,28 +127,23 @@ export async function computeFootprintsForDiets(envFactors?: EnvFactors): Promis
         packagingImpacts || [0, 0]
       );
 
-      return [
-        categoryId,
-        `"${categoryNames[categoryId]}"`,
-        ...footprints,
-      ];
+      return [categoryId, `"${categoryNames[categoryId]}"`, ...footprints];
     });
 
-
     return [country, data] as [string, string[][]];
-  })
-    .filter((x): x is [string, string[][]] => x !== null);
+  }).filter((x): x is [string, string[][]] => x !== null);
 
   return allResults;
 }
 
-
-export default async function computeFootprintsForEachRpcWithOrigin(envFactors?: EnvFactors): Promise<
-  string[][]
-> {
+export default async function computeFootprintsForEachRpcWithOrigin(
+  envFactors?: EnvFactors
+): Promise<string[][]> {
   const HEADER = ["Category Code", "Category Name", ...AGGREGATE_HEADERS];
-  return (await computeFootprintsForDiets(envFactors)).map(([country, data]) => [
-    country,
-    HEADER + "\n" + data.map((row) => row.join(",")).join("\n"),
-  ]);
+  return (await computeFootprintsForDiets(envFactors)).map(
+    ([country, data]) => [
+      country,
+      HEADER + "\n" + data.map((row) => row.join(",")).join("\n"),
+    ]
+  );
 }
