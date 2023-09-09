@@ -5,10 +5,10 @@
  */
 export default function aggregateAmountsPerOrigin(
   rpcAmounts: [string, number][],
-  rpcParameters: RpcFactors
+  rpcParameters: RpcFactors,
+  defaultCountry: string
 ) {
   // You can do a really fancy flatMap+reduce here, but it wouldn't be very readable.
-
 
   // Each country with the amount (in grams??)
   const results: Record<string, number> = {};
@@ -20,8 +20,21 @@ export default function aggregateAmountsPerOrigin(
       return;
     }
 
+    // Handle the edge-case where there's only data for RoW
+    if (Object.keys(factorsPerOrigin).length === 1 && factorsPerOrigin.RoW) {
+      results[defaultCountry] = (results[defaultCountry] || 0) + rpcAmount;
+      return;
+    }
+
+    // We distribute the RoW import across the other countries
+    let rowMultiplier = 1;
+    if ("RoW" in factorsPerOrigin) {
+      rowMultiplier = 1 / (1 - factorsPerOrigin.RoW[0]);
+    }
+
     Object.entries(factorsPerOrigin).map(([originName, factors]) => {
-      const originAmount = factors[0] * rpcAmount;
+      if (originName === "RoW") return; // skip, as it's handled above
+      const originAmount = factors[0] * rpcAmount * rowMultiplier;
       results[originName] = (results[originName] || 0) + originAmount;
     });
   });
