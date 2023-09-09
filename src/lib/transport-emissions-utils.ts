@@ -1,9 +1,30 @@
+import { vectorsSum } from "./utils";
+
+export function computeTransportEmissions(
+  amountsPerOrigin: Record<string, number>,
+  transportEmissionsFactors: Record<string, number[]>
+): number[] {
+  return vectorsSum(
+    Object.entries(amountsPerOrigin)
+      .map(([originCode, amount]) => {
+        const emissionsFactors = transportEmissionsFactors[originCode];
+        if (!emissionsFactors) {
+          console.error(`Emissions factors missing for origin ${originCode}`);
+          return null;
+        }
+
+        return emissionsFactors.map((factor) => factor * amount);
+      })
+      .filter((x): x is number[] => x !== null)
+  );
+}
+
 /**
  * Compute the total amount (weight) of rpcs from each country,
  * given a list of RPCs and their factors (i.e. the import share)
  * Returns an object with countries as keys (incl. Domestic)
  */
-export default function aggregateAmountsPerOrigin(
+export function aggregateAmountsPerOrigin(
   rpcAmounts: [string, number][],
   rpcParameters: RpcFactors,
   defaultCountry: string

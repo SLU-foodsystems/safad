@@ -1,5 +1,21 @@
 import { describe, test, expect } from "vitest";
-import aggregateAmountsPerOrigin from "./rpcs-per-origin-aggregator";
+import { computeTransportEmissions, aggregateAmountsPerOrigin } from "./transport-emissions-utils"
+
+describe("computeTransportEmissions", () => {
+  test("basic functionality", () =>  {
+    const amounts = {
+      "Sweden": 1000,
+      "France": 100,
+    };
+    const emissionsFactors = {
+      "Sweden": [1, 2, 3],
+      "France": [4, 5, 6],
+    };
+
+    const results = computeTransportEmissions(amounts, emissionsFactors);
+    expect(results).toMatchObject([1000 + 400, 2000 + 500, 3000 + 600]);
+  });
+});
 
 describe("aggregateAmountsPerOrigin", () => {
   test("it handles a single product and single country", () => {
