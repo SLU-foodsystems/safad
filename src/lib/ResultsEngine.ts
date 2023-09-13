@@ -1,5 +1,5 @@
 import reduceDiet from "./rpc-reducer";
-
+import { ENV_IMPACTS_ZERO } from "./constants";
 import {
   computeProcessImpacts,
   getProcessEnvFactors,
@@ -19,7 +19,6 @@ import {
   vectorSum,
   vectorsSum,
 } from "./utils";
-import { ENV_IMPACTS_ZERO } from "./constants";
 import computeTransportEmissions from "./transport-emissions";
 
 const recipes = foodsRecipes.data as unknown as FoodsRecipes;
@@ -225,7 +224,8 @@ class ResultsEngine {
     const impacts = this.computeImpacts(diet);
     if (!impacts) return null;
 
-    const [rpcImpacts, processImpacts, packagingImpacts] = impacts;
+    const [rpcImpacts, processImpacts, packagingImpacts, transportImpacts] =
+      impacts;
 
     const rpcImpactsByCategory = aggregateRpcCategories(rpcImpacts, 1);
     const processImpactsByCategory = mapValues(
@@ -236,11 +236,16 @@ class ResultsEngine {
       packagingImpacts,
       (perCategoryPackaging) => vectorsSum(Object.values(perCategoryPackaging))
     );
+    const transportImpactsByCategory = aggregateRpcCategories(
+      transportImpacts,
+      1
+    );
 
     return [
       rpcImpactsByCategory,
       processImpactsByCategory,
       packagingImpactsByCategory,
+      transportImpactsByCategory,
     ];
   }
 
