@@ -57,14 +57,14 @@ export function vectorsSum(lists: number[][]): number[] {
   return tail.reduce((acc, curr) => acc.map((x, i) => x + curr[i]), head);
 }
 
-function aggregateBy<T>(
-  map: Record<string, T>,
+export function aggregateBy<T>(
+  entries: [ string, T ][],
   grouper: (k: string) => string,
   aggregator: (v1: T, v2: T) => T
 ): Record<string, T> {
   const result: Record<string, T> = {};
 
-  Object.entries(map).forEach(([k, v]) => {
+  entries.forEach(([k, v]) => {
     const newKey = grouper(k);
     if (!(newKey in result)) {
       result[newKey] = v;
@@ -92,7 +92,7 @@ export function aggregateRpcCategories(
   level: number
 ) {
   return aggregateBy<number[]>(
-    rpcMap,
+    Object.entries(rpcMap),
     (code) => getRpcCodeSubset(code, level),
     (a: number[], b: number[]) => a.map((x, i) => x + b[i])
   );
