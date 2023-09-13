@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import computeTransportEmissions from "./transport-emissions-utils";
+import computeTransportEmissions from "./transport-emissions";
 
 describe("computeTransportEmissions", () => {
   test("it handles a single product and single country", () => {
