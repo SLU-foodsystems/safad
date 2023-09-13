@@ -1,64 +1,54 @@
 import { vectorsSum } from "./utils";
 
-export function computeTransportEmissions(
-  amountsPerOrigin: Record<string, number>,
-  transportEmissionsFactors: Record<string, number[]>
-): number[] {
+/**
+ * Compute the transport emissions of a rpc-level item and its amount.
+ */
+export default function computeTransportEmissions(
+  suaCode: string | undefined,
+  amount: number,
+  suaParameters: RpcFactors,
+  transportEmissionsFactors: Record<string, number[]>,
+  defaultCountry: string
+): number[] | null {
+  if (!suaCode || suaCode === "0") {
+    return null;
+  }
+
+  const factorsPerOrigin = suaParameters[suaCode];
+  if (!factorsPerOrigin) {
+    console.error(`No origin found for sua-code ${suaCode}.`);
+    return null;
+  }
+
+  // Handle the case where there's only data for RoW, which there will be e.g.
+  // when we don't have any import data at all.
+  if (Object.keys(factorsPerOrigin).length === 1 && factorsPerOrigin.RoW) {
+    return transportEmissionsFactors[defaultCountry].map((x) => x * amount);
+  }
+
+  // In case there's some import from RoW, we distribute it across the other
+  // origins via a multiplier
+  let rowMultiplier = 1;
+  if ("RoW" in factorsPerOrigin) {
+    rowMultiplier = 1 / (1 - factorsPerOrigin.RoW[0]);
+  }
+
+  // Finally, sum all of the emissions for each origin, adjusted by share.
   return vectorsSum(
-    Object.entries(amountsPerOrigin)
-      .map(([originCode, amount]) => {
+    Object.entries(factorsPerOrigin)
+      .map(([originCode, [share]]) => {
+        if (originCode === "RoW") return null;
+
         const emissionsFactors = transportEmissionsFactors[originCode];
         if (!emissionsFactors) {
           console.error(`Emissions factors missing for origin ${originCode}`);
           return null;
         }
 
-        return emissionsFactors.map((factor) => factor * amount);
+        return emissionsFactors.map(
+          (emissionsFactor) => amount * share * emissionsFactor * rowMultiplier
+        );
       })
-      .filter((x): x is number[] => x !== null)
+      .filter((emissions): emissions is number[] => emissions !== null)
   );
-}
-
-/**
- * Compute the total amount (weight) of rpcs from each country,
- * given a list of RPCs and their factors (i.e. the import share)
- * Returns an object with countries as keys (incl. Domestic)
- */
-export function aggregateAmountsPerOrigin(
-  rpcAmounts: [string, number][],
-  rpcParameters: RpcFactors,
-  defaultCountry: string
-) {
-  // You can do a really fancy flatMap+reduce here, but it wouldn't be very readable.
-
-  // Each country with the amount (in grams??)
-  const results: Record<string, number> = {};
-
-  rpcAmounts.forEach(([rpcCode, rpcAmount]) => {
-    const factorsPerOrigin = rpcParameters[rpcCode];
-    if (!factorsPerOrigin) {
-      console.error(`No origin found for rpc-code ${rpcCode}.`);
-      return;
-    }
-
-    // Handle the edge-case where there's only data for RoW
-    if (Object.keys(factorsPerOrigin).length === 1 && factorsPerOrigin.RoW) {
-      results[defaultCountry] = (results[defaultCountry] || 0) + rpcAmount;
-      return;
-    }
-
-    // We distribute the RoW import across the other countries
-    let rowMultiplier = 1;
-    if ("RoW" in factorsPerOrigin) {
-      rowMultiplier = 1 / (1 - factorsPerOrigin.RoW[0]);
-    }
-
-    Object.entries(factorsPerOrigin).map(([originName, factors]) => {
-      if (originName === "RoW") return; // skip, as it's handled above
-      const originAmount = factors[0] * rpcAmount * rowMultiplier;
-      results[originName] = (results[originName] || 0) + originAmount;
-    });
-  });
-
-  return results;
 }

@@ -1,119 +1,79 @@
 import { describe, test, expect } from "vitest";
-import { computeTransportEmissions, aggregateAmountsPerOrigin } from "./transport-emissions-utils"
+import computeTransportEmissions from "./transport-emissions-utils";
 
 describe("computeTransportEmissions", () => {
-  test("basic functionality", () =>  {
-    const amounts = {
-      "Sweden": 1000,
-      "France": 100,
-    };
-    const emissionsFactors = {
-      "Sweden": [1, 2, 3],
-      "France": [4, 5, 6],
-    };
-
-    const results = computeTransportEmissions(amounts, emissionsFactors);
-    expect(results).toMatchObject([1000 + 400, 2000 + 500, 3000 + 600]);
-  });
-});
-
-describe("aggregateAmountsPerOrigin", () => {
   test("it handles a single product and single country", () => {
-    const result = aggregateAmountsPerOrigin(
-      [["0111", 1000]],
+    const results = computeTransportEmissions(
+      "0111",
+      1000,
       {
         "0111": {
-          "Sweden": [1, 0.5, 0.3],
+          Sweden: [1, 0.5, 0.3],
         },
       },
+      { Sweden: [2, 3, 4] },
       "Sweden"
     );
 
-    expect(Object.keys(result)).toHaveLength(1);
-    expect(result).toHaveProperty("Sweden");
-    expect(result.Sweden).toEqual(1000);
+    expect(results).toEqual([2000, 3000, 4000]);
   });
 
   test("it handles a single product with multiple countries", () => {
-    const result = aggregateAmountsPerOrigin(
-      [["0111", 1000]],
+    const results = computeTransportEmissions(
+      "0111",
+      1000,
       {
         "0111": {
-          "Sweden": [0.3, 0, 0],
-          "France": [0.7, 0, 0],
+          Sweden: [0.3, 0, 0],
+          France: [0.7, 0, 0],
         },
       },
+      { Sweden: [1, 1, 1], France: [2, 3, 4] },
       "Sweden"
     );
 
-    expect(Object.keys(result)).toHaveLength(2);
-    expect(result).toHaveProperty("France");
-    expect(result).toHaveProperty("Sweden");
-    expect(result.France).toEqual(700);
-    expect(result.Sweden).toEqual(300);
-  });
-
-  test("it handles a multiple products with multiple countries", () => {
-    const result = aggregateAmountsPerOrigin(
-      [["0111", 1000], ["0112", 500]],
-      {
-        "0111": {
-          "Sweden": [0.3, 0, 0],
-          "France": [0.7, 0, 0],
-        },
-        "0112": {
-          "Germany": [0.7, 0, 0],
-          "Sweden": [0.5, 0, 0],
-        },
-      },
-      "Sweden"
-    );
-
-    expect(Object.keys(result)).toHaveLength(3);
-    expect(result).toHaveProperty("France");
-    expect(result).toHaveProperty("Germany");
-    expect(result).toHaveProperty("Sweden");
-    expect(result.France).toEqual(700);
-    expect(result.Germany).toEqual(350);
-    expect(result.Sweden).toEqual(550);
+    expect(results).toEqual([
+      1000 * 0.3 * 1 + 1000 * 0.7 * 2,
+      1000 * 0.3 * 1 + 1000 * 0.7 * 3,
+      1000 * 0.3 * 1 + 1000 * 0.7 * 4,
+    ]);
   });
 
   test("it distributes RoW across countries", () => {
-    const result = aggregateAmountsPerOrigin(
-      [["0111", 1000], ["0112", 1000]],
+    const result = computeTransportEmissions(
+      "0111",
+      1000,
       {
         "0111": {
-          "Sweden": [0.3, 0, 0],
-          "France": [0.2, 0, 0],
-          "RoW": [0.5, 0, 0],
-        },
-        "0112": {
-          "Germany": [0.3, 0, 0],
-          "Sweden": [0.5, 0, 0],
-          "RoW": [0.2, 0, 0],
+          Sweden: [0.3, 0, 0],
+          France: [0.2, 0, 0],
+          RoW: [0.4, 0, 0],
         },
       },
+      { Sweden: [1, 3, 5], France: [2, 4, 6] },
       "Sweden"
     );
 
-    expect(Object.keys(result)).toHaveLength(3);
-    expect(result).toHaveProperty("France");
-    expect(result).toHaveProperty("Germany");
-    expect(result).toHaveProperty("Sweden");
-    expect(result.France).toEqual(400);
-    expect(result.Germany).toEqual(300 / 0.8);
-    expect(result.Sweden).toEqual(300 / 0.5 + 500 / 0.8);
+    const multiplier = 1 / (1 - 0.4);
+
+    expect(result!.map(Math.round)).toEqual(
+      [
+        multiplier * 1000 * (0.3 * 1 + 0.2 * 2),
+        multiplier * 1000 * (0.3 * 3 + 0.2 * 4),
+        multiplier * 1000 * (0.3 * 5 + 0.2 * 6),
+      ].map(Math.round)
+    );
   });
 
   test("it handles the case where there's only RoW", () => {
-    const result = aggregateAmountsPerOrigin(
-      [["0111", 1000]],
-      { "0111": { "RoW": [1, 0, 0] } },
+    const result = computeTransportEmissions(
+      "0123",
+      1000,
+      { "0123": { RoW: [1, 0, 0] } },
+      { Sweden: [1, 3, 5] },
       "Sweden"
     );
 
-    expect(Object.keys(result)).toHaveLength(1);
-    expect(result).toHaveProperty("Sweden");
-    expect(result.Sweden).toEqual(1000);
+    expect(result).toEqual([1000, 3000, 5000]);
   });
 });
