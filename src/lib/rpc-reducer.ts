@@ -13,8 +13,11 @@ type RPC = [string, number]; // Code, Amount
 // Get the 'level' of a given food given its id
 const getLevel = (str: string) => str.split(".").length - 1;
 
-function mergeRpcs(rpcs: [string, number][]) {
-  // Merge all RPCs, to avoid duplicate entries
+/**
+ * Aggergate a list of rpcs and their amounts by grouping/summing any duplicate
+ * entries.
+ */
+function aggregateDuplicateRpcs(rpcs: [string, number][]) {
   const foundRpcs = new Set();
   const mergedRpcs: [string, number][] = [];
   rpcs.forEach(([code, amount]) => {
@@ -34,13 +37,6 @@ function mergeRpcs(rpcs: [string, number][]) {
  * Recursive function to reduce one RPC (derivative) to a list of the RPC
  * sub-components that constitute it, respecting the amount, yield, and waste.
  * Ensures each RPC only occures once.
- *
- * It also MUTATES the outside argument "processesMap", adding the amount for
- * each process it encounters along the way.
- *
- * Code-style, this is a bit criminal. It'd be 'prettier' to send along the
- * facets object, but it also just introduces a lot of passing around for
- * nothing.
  */
 function reduceToRpcs(
   recordProcessOrPacketingContribution: (
@@ -110,7 +106,7 @@ function reduceToRpcs(
     .flat(1);
 }
 
-export default function reduceDietToRPCs(
+export default function reduceDietToRpcs(
   diet: Diet,
   recipes: FoodsRecipes,
   preparationAndPackagingList: Record<string, string>
@@ -152,5 +148,5 @@ export default function reduceDietToRPCs(
     )
     .flat(1);
 
-  return [mergeRpcs(rpcs), processesMap, packetingMap];
+  return [aggregateDuplicateRpcs(rpcs), processesMap, packetingMap];
 }
