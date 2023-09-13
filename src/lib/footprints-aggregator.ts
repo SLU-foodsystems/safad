@@ -45,37 +45,37 @@ export const AGGREGATE_HEADERS = [
 
 export function expandedImpacts(
   rpcFootprints: number[],
-  processFootprints: number[],
-  packagingFootprints: number[],
+  processEmissions: number[],
+  packagingEmissions: number[],
   transportEmissions: number[]
 ) {
   const processCO2e = sum(
     ["CO2", "FCH4", "N2O"].map(
-      (ghg, i) => (processFootprints[i] || 0) * CO2E_CONV_FACTORS[ghg]
+      (ghg, i) => (processEmissions[i] || 0) * CO2E_CONV_FACTORS[ghg]
     )
   );
 
   const packagingCO2e = sum(
     ["CO2", "FCH4", "N2O"].map(
-      (ghg, i) => (packagingFootprints[i] || 0) * CO2E_CONV_FACTORS[ghg]
+      (ghg, i) => (packagingEmissions[i] || 0) * CO2E_CONV_FACTORS[ghg]
     )
   );
 
-  const combinedGhgFootprints = [
+  const combinedEmissions = [
     rpcFootprints[0] + processCO2e + packagingCO2e, // CO2e
-    rpcFootprints[1] + processFootprints[0], // CO2
-    rpcFootprints[2] + processFootprints[1], // FCH4
+    rpcFootprints[1] + processEmissions[0], // CO2
+    rpcFootprints[2] + processEmissions[1], // FCH4
     rpcFootprints[3], // biogenic CH4, which is not emitted from processes
-    rpcFootprints[4] + processFootprints[2], // N2O
+    rpcFootprints[4] + processEmissions[2], // N2O
   ];
 
   return [
-    ...combinedGhgFootprints,
+    ...combinedEmissions,
     ...rpcFootprints,
     processCO2e,
-    ...processFootprints,
+    ...processEmissions,
     packagingCO2e,
-    ...packagingFootprints,
+    ...packagingEmissions,
     ...transportEmissions
   ];
 }
@@ -85,41 +85,41 @@ export function expandedImpacts(
  */
 export default function aggregateImpacts(
   rpcFootprints: Record<string, number[]>,
-  processFootprints: Record<string, Record<string, number[]>>,
-  packagingFootprints: Record<string, Record<string, number[]>>,
-  transportFootprints: Record<string, number[]>
+  processEmissions: Record<string, Record<string, number[]>>,
+  packagingEmissions: Record<string, Record<string, number[]>>,
+  transportEmissions: Record<string, number[]>
 ): number[] {
   const totalRpcFootprints =
     Object.values(rpcFootprints).length > 0
       ? vectorsSum(Object.values(rpcFootprints))
       : ENV_IMPACTS_ZERO;
 
-  const processValues = Object.values(processFootprints)
+  const processValues = Object.values(processEmissions)
     .map((obj) => Object.values(obj))
     .flat(1);
 
-  const totalProcessesFootprints = vectorsSum(processValues);
-  while (totalProcessesFootprints.length < 3) {
-    totalProcessesFootprints.push(0);
+  const totalProcessesEmissions = vectorsSum(processValues);
+  while (totalProcessesEmissions.length < 3) {
+    totalProcessesEmissions.push(0);
   }
 
-  const packagingValues = Object.values(packagingFootprints)
+  const packagingValues = Object.values(packagingEmissions)
     .map((obj) => Object.values(obj))
     .flat(1);
-  const totalPackagingFootprints = vectorsSum(packagingValues);
-  while (totalPackagingFootprints.length < 2) {
-    totalPackagingFootprints.push(0);
+  const totalPackagingEmissions = vectorsSum(packagingValues);
+  while (totalPackagingEmissions.length < 2) {
+    totalPackagingEmissions.push(0);
   }
 
-  const totalTransportFootprints =
-    Object.values(transportFootprints).length > 0
-      ? vectorsSum(Object.values(transportFootprints))
+  const totalTransportEmissions =
+    Object.values(transportEmissions).length > 0
+      ? vectorsSum(Object.values(transportEmissions))
       : TRANSPORT_EMISSIONS_ZERO;
 
   return expandedImpacts(
     totalRpcFootprints,
-    totalProcessesFootprints,
-    totalPackagingFootprints,
-    totalTransportFootprints
+    totalProcessesEmissions,
+    totalPackagingEmissions,
+    totalTransportEmissions
   );
 }
