@@ -1,13 +1,13 @@
+const zeroes = (length: number) => Array.from({ length }).map((_) => 0);
+
 export const N_ENV_IMPACTS = 16;
-export const ENV_IMPACTS_ZERO = Array.from({
-  length: N_ENV_IMPACTS,
-}).map((_) => 0);
+export const ENV_IMPACTS_ZERO = zeroes(N_ENV_IMPACTS);
 
 export const N_PROCESS_GHGS = 3;
+export const PROCESS_EMISSIONS_ZERO = zeroes(N_PROCESS_GHGS);
+
 export const N_TRANSPORT_GHGS = 4;
-export const TRANSPORT_EMISSIONS_ZERO = Array.from({
-  length: N_TRANSPORT_GHGS,
-}).map((_) => 0);
+export const TRANSPORT_EMISSIONS_ZERO = zeroes(N_TRANSPORT_GHGS);
 
 // The planetary boundaries used as limits.
 export const PLANETARY_BOUNDARY_LIMITS = {
@@ -16,7 +16,7 @@ export const PLANETARY_BOUNDARY_LIMITS = {
   n: 12 / 365, // kg per year -> kg per day
   p: 1.1 / 365, // kg per year -> kg per day
   h2o: 334 / 365, // m3, per year -> per day
-  biodiversity: 4.70e-10 / 365, // unitless? -> per day
+  biodiversity: 4.7e-10 / 365, // unitless? -> per day
 };
 
 // Conversion factors from other GHGs to CO2.

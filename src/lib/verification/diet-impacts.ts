@@ -117,15 +117,14 @@ export async function computeFootprintsForDiets(
     ]).sort();
 
     const data = categories.map((categoryId) => {
-      const [rpcImpacts, processImpacts, packagingImpacts, transportImpacts] = results.map(
-        (x) => x[categoryId]
-      );
+      const [rpcImpacts, processImpacts, packagingImpacts, transportImpacts] =
+        results.map((x) => x[categoryId]);
 
       const footprints = expandedImpacts(
         rpcImpacts || ENV_IMPACTS_ZERO,
         processImpacts || [0, 0, 0],
         packagingImpacts || [0, 0],
-        transportImpacts || TRANSPORT_EMISSIONS_ZERO,
+        transportImpacts || TRANSPORT_EMISSIONS_ZERO
       );
 
       return [categoryId, `"${categoryNames[categoryId]}"`, ...footprints];
