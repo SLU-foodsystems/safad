@@ -1,5 +1,5 @@
 import { sum, vectorsSum } from "@/lib/utils";
-import { ENV_IMPACTS_ZERO, CO2E_CONV_FACTORS } from "@/lib/constants";
+import { ENV_IMPACTS_ZERO, CO2E_CONV_FACTORS, TRANSPORT_EMISSIONS_ZERO } from "@/lib/constants";
 
 export const AGGREGATE_HEADERS = [
   // Aggregate over rpcs, processes, and packaging
@@ -36,12 +36,18 @@ export const AGGREGATE_HEADERS = [
   "CO2_pack",
   "CH4_fossil_pack",
   "N2O_pack",
+  // transport
+  "CO2e_transp",
+  "CO2_transp",
+  "CH4_fossil_transp",
+  "N2O_transp",
 ];
 
 export function expandedImpacts(
   rpcFootprints: number[],
   processFootprints: number[],
-  packagingFootprints: number[]
+  packagingFootprints: number[],
+  transportEmissions: number[]
 ) {
   const processCO2e = sum(
     ["CO2", "FCH4", "N2O"].map(
@@ -69,7 +75,8 @@ export function expandedImpacts(
     processCO2e,
     ...processFootprints,
     packagingCO2e,
-    ...packagingFootprints
+    ...packagingFootprints,
+    ...transportEmissions
   ];
 }
 
@@ -79,7 +86,8 @@ export function expandedImpacts(
 export default function aggregateImpacts(
   rpcFootprints: Record<string, number[]>,
   processFootprints: Record<string, Record<string, number[]>>,
-  packagingFootprints: Record<string, Record<string, number[]>>
+  packagingFootprints: Record<string, Record<string, number[]>>,
+  transportFootprints: Record<string, number[]>
 ): number[] {
   const totalRpcFootprints =
     Object.values(rpcFootprints).length > 0
@@ -103,9 +111,15 @@ export default function aggregateImpacts(
     totalPackagingFootprints.push(0);
   }
 
+  const totalTransportFootprints =
+    Object.values(transportFootprints).length > 0
+      ? vectorsSum(Object.values(transportFootprints))
+      : TRANSPORT_EMISSIONS_ZERO;
+
   return expandedImpacts(
     totalRpcFootprints,
     totalProcessesFootprints,
-    totalPackagingFootprints
+    totalPackagingFootprints,
+    totalTransportFootprints
   );
 }

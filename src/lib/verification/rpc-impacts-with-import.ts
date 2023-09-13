@@ -80,6 +80,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
     "Packeting",
   ];
 
+
   const names = namesJson as Record<string, string>;
 
   const diets = codesInRecipes.map((code) => [
@@ -121,7 +122,12 @@ export default async function computeFootprintsForEachRpcWithOrigin(
         if (impacts === null) {
           return null;
         }
-        const [rpcImpacts, processImpacts, packagingImpacts] = impacts;
+        const [
+          rpcImpacts,
+          processImpacts,
+          packagingImpacts,
+          transportEmissions,
+        ] = impacts;
         const processes = listAllProcesses(processImpacts).join("$");
         const packeting = listAllProcesses(packagingImpacts).join("$");
 
@@ -133,7 +139,8 @@ export default async function computeFootprintsForEachRpcWithOrigin(
           ...aggregateImpacts(
             rpcImpacts,
             processImpacts,
-            packagingImpacts
+            packagingImpacts,
+            transportEmissions
           ),
           processes,
           packeting,

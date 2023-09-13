@@ -17,6 +17,7 @@ import categoryNamesJson from "@/data/category-names.json";
 import foodsRecipesJson from "@/data/foodex-recipes.json";
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import namesJson from "@/data/rpc-names.json";
+import { ENV_IMPACTS_ZERO } from "../constants";
 
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
 
@@ -26,8 +27,6 @@ const allEnvImpacts = allEnvImpactsJson as Record<
   string,
   Record<string, number[]>
 >;
-
-const ENV_ZERO_IMPACT = Array.from({ length: 16 }).map((_) => 0);
 
 function getFlattenedRpcImpacts(country: string) {
   return Object.fromEntries(
@@ -55,7 +54,7 @@ function getRpcImpact(
   const suaCode = rpcToSuaMap[rpcCode];
   if (suaCode === "0") {
     // console.info("SUA was 0 for", rpcCode);
-    return ENV_ZERO_IMPACT;
+    return ENV_IMPACTS_ZERO;
   }
 
   if (!suaCode) {
@@ -116,6 +115,7 @@ function getCountryBenchmark(
     aggregateResults[diet.code] = aggregateImpacts(
       rpcImpacts,
       processImpacts,
+      {},
       {}
     );
   });

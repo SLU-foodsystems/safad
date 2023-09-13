@@ -31,7 +31,7 @@ import swedenDiet from "@/data/diets/Sweden.json";
 import swedenBaselineDiet from "@/data/diets/SwedenBaseline.json";
 
 import ResultsEngine from "@/lib/ResultsEngine";
-import { ENV_IMPACTS_ZERO } from "../constants";
+import { ENV_IMPACTS_ZERO, TRANSPORT_EMISSIONS_ZERO } from "../constants";
 
 const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
 
@@ -117,14 +117,15 @@ export async function computeFootprintsForDiets(
     ]).sort();
 
     const data = categories.map((categoryId) => {
-      const [rpcImpacts, processImpacts, packagingImpacts] = results.map(
+      const [rpcImpacts, processImpacts, packagingImpacts, transportImpacts] = results.map(
         (x) => x[categoryId]
       );
 
       const footprints = expandedImpacts(
         rpcImpacts || ENV_IMPACTS_ZERO,
         processImpacts || [0, 0, 0],
-        packagingImpacts || [0, 0]
+        packagingImpacts || [0, 0],
+        transportImpacts || TRANSPORT_EMISSIONS_ZERO,
       );
 
       return [categoryId, `"${categoryNames[categoryId]}"`, ...footprints];

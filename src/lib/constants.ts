@@ -4,6 +4,10 @@ export const ENV_IMPACTS_ZERO = Array.from({
 }).map((_) => 0);
 
 export const N_PROCESS_GHGS = 3;
+export const N_TRANSPORT_GHGS = 4;
+export const TRANSPORT_EMISSIONS_ZERO = Array.from({
+  length: N_TRANSPORT_GHGS,
+}).map((_) => 0);
 
 // The planetary boundaries used as limits.
 export const PLANETARY_BOUNDARY_LIMITS = {
