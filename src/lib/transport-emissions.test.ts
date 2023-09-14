@@ -5,7 +5,7 @@ describe("computeTransportEmissions", () => {
   test("it handles a single product and single country", () => {
     const results = computeTransportEmissions(
       "0111",
-      1000,
+      1000, // 1000 g = 1 kg
       {
         "0111": {
           Sweden: [1, 0.5, 0.3],
@@ -15,7 +15,7 @@ describe("computeTransportEmissions", () => {
       "Sweden"
     );
 
-    expect(results).toEqual([2000, 3000, 4000]);
+    expect(results).toEqual([2, 3, 4]);
   });
 
   test("it handles a single product with multiple countries", () => {
@@ -33,9 +33,9 @@ describe("computeTransportEmissions", () => {
     );
 
     expect(results).toEqual([
-      1000 * 0.3 * 1 + 1000 * 0.7 * 2,
-      1000 * 0.3 * 1 + 1000 * 0.7 * 3,
-      1000 * 0.3 * 1 + 1000 * 0.7 * 4,
+      0.3 * 1 + 0.7 * 2,
+      0.3 * 1 + 0.7 * 3,
+      0.3 * 1 + 0.7 * 4,
     ]);
   });
 
@@ -56,12 +56,12 @@ describe("computeTransportEmissions", () => {
 
     const multiplier = 1 / (1 - 0.4);
 
-    expect(result!.map(Math.round)).toEqual(
+    expect(result!.map(x => x.toFixed(2))).toEqual(
       [
-        multiplier * 1000 * (0.3 * 1 + 0.2 * 2),
-        multiplier * 1000 * (0.3 * 3 + 0.2 * 4),
-        multiplier * 1000 * (0.3 * 5 + 0.2 * 6),
-      ].map(Math.round)
+        multiplier * (0.3 * 1 + 0.2 * 2),
+        multiplier * (0.3 * 3 + 0.2 * 4),
+        multiplier * (0.3 * 5 + 0.2 * 6),
+      ].map(x => x.toFixed(2))
     );
   });
 
@@ -74,6 +74,6 @@ describe("computeTransportEmissions", () => {
       "Sweden"
     );
 
-    expect(result).toEqual([1000, 3000, 5000]);
+    expect(result).toEqual([1, 3, 5]);
   });
 });
