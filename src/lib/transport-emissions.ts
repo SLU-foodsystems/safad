@@ -5,9 +5,9 @@ import { vectorsSum } from "./utils";
  */
 export default function computeTransportEmissions(
   suaCode: string | undefined,
-  amount: number,
+  amount: number, // in grams
   suaParameters: RpcFactors,
-  transportEmissionsFactors: Record<string, number[]>,
+  transportEmissionsFactors: Record<string, number[]>, // per kg
   defaultCountry: string
 ): number[] | null {
   if (!suaCode || suaCode === "0") {
@@ -20,10 +20,12 @@ export default function computeTransportEmissions(
     return null;
   }
 
+  const amountKg = amount / 1000;
+
   // Handle the case where there's only data for RoW, which there will be e.g.
   // when we don't have any import data at all.
   if (Object.keys(factorsPerOrigin).length === 1 && factorsPerOrigin.RoW) {
-    return transportEmissionsFactors[defaultCountry].map((x) => x * amount);
+    return transportEmissionsFactors[defaultCountry].map((x) => x * amountKg);
   }
 
   // In case there's some import from RoW, we distribute it across the other
@@ -46,7 +48,7 @@ export default function computeTransportEmissions(
         }
 
         return emissionsFactors.map(
-          (emissionsFactor) => amount * share * emissionsFactor * rowMultiplier
+          (emissionsFactor) => amountKg * share * emissionsFactor * rowMultiplier
         );
       })
       .filter((emissions): emissions is number[] => emissions !== null)
