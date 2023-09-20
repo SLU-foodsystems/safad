@@ -82,7 +82,7 @@ export default function BoundariesChart(
     .attr("cx", "0")
     .attr("cy", "0")
     .attr("gradientUnits", "userSpaceOnUse")
-    .attr("r", GRADIENT_SCALEUP_FACTOR * Math.max(cfg.w, cfg.h) / 2);
+    .attr("r", (GRADIENT_SCALEUP_FACTOR * Math.max(cfg.w, cfg.h)) / 2);
 
   // scale the gradient, with
   (
@@ -92,13 +92,16 @@ export default function BoundariesChart(
       [1.05, "#f9a933"],
       [cfg.maxValue * 0.8, "rgba(255, 112, 68, 1)"],
       [cfg.maxValue * 1.0, "rgba(255, 112, 68, 1)"],
-      [cfg.maxValue + .01, "rgba(255, 112, 68, 0.35)"],
+      [cfg.maxValue + 0.01, "rgba(255, 112, 68, 0.35)"],
       [cfg.maxValue * 1.5, "rgba(226, 0, 42, 0)"],
     ] as [number, string][]
   ).forEach(([offset, color]) => {
     radialGradient
       .append("stop")
-      .attr("offset", `${(100 * offset) / (cfg.maxValue * GRADIENT_SCALEUP_FACTOR)}%`)
+      .attr(
+        "offset",
+        `${(100 * offset) / (cfg.maxValue * GRADIENT_SCALEUP_FACTOR)}%`
+      )
       .attr("stop-color", color);
   });
 
