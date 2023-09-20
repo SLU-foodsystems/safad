@@ -87,7 +87,7 @@ export function expandedImpacts(
 /**
  * Join all footprints into a vector of (numeric) impacts.
  */
-export default function aggregateImpacts(
+export function aggregateImpacts(
   rpcFootprints: Record<string, number[]>,
   processEmissions: Record<string, Record<string, number[]>>,
   packagingEmissions: Record<string, Record<string, number[]>>,

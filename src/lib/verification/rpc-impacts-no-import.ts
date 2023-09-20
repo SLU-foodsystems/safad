@@ -8,9 +8,10 @@ import {
   computeProcessImpacts,
   getProcessEnvFactors,
 } from "@/lib/process-env-impact";
-import aggregateImpacts, {
+import {
   AGGREGATE_HEADERS,
-} from "@/lib/footprints-aggregator";
+  aggregateImpacts,
+} from "@/lib/impacts-csv-utils";
 
 import allEnvImpactsJson from "@/data/env-factors-flat.json";
 import categoryNamesJson from "@/data/category-names.json";

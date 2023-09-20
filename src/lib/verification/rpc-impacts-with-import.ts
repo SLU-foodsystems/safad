@@ -7,9 +7,10 @@ import {
   listAllProcesses,
   maybeQuoteValue,
 } from "@/lib/utils";
-import aggregateImpacts, {
+import {
   AGGREGATE_HEADERS,
-} from "@/lib/footprints-aggregator";
+  aggregateImpacts,
+} from "@/lib/impacts-csv-utils";
 
 import allEnvImpactsJson from "@/data/env-factors.json";
 import categoryNamesJson from "@/data/category-names.json";
