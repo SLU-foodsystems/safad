@@ -6,7 +6,7 @@ A web-based tool to benchmark environmental impacts of diets.
 
 The project has two distinct parts:
 
-- a set of static scripts, all in `./misc`
+- a set of static scripts, all in `./data-preprocessing/`
 - a front-end webapp that uses the output of the static scripts
 
 ## Technologies
