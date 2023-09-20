@@ -2,23 +2,21 @@
  * Computes the envrionmental impacts of each rpc in the recipe.
  */
 
-import reduceDiet from "@/lib/rpc-reducer";
 import { maybeQuoteValue } from "@/lib/utils";
+import { ENV_IMPACTS_ZERO } from "@/lib/constants";
+
+import reduceDiet from "@/lib/rpc-reducer";
 import {
   computeProcessImpacts,
   getProcessEnvFactors,
 } from "@/lib/process-emissions";
-import {
-  AGGREGATE_HEADERS,
-  aggregateImpacts,
-} from "@/lib/impacts-csv-utils";
+import { AGGREGATE_HEADERS, aggregateImpacts } from "@/lib/impacts-csv-utils";
 
 import allEnvImpactsJson from "@/data/env-factors-flat.json";
 import categoryNamesJson from "@/data/category-names.json";
 import foodsRecipesJson from "@/data/foodex-recipes.json";
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import namesJson from "@/data/rpc-names.json";
-import { ENV_IMPACTS_ZERO } from "../constants";
 
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
 
