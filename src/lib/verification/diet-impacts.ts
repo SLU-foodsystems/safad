@@ -6,7 +6,7 @@ import { uniq } from "@/lib/utils";
 import {
   expandedImpacts,
   AGGREGATE_HEADERS,
-} from "@/lib/footprints-aggregator";
+} from "@/lib/impacts-csv-utils";
 
 import allEnvImpactsJson from "@/data/env-factors.json";
 import categoryNamesJson from "@/data/category-names.json";
