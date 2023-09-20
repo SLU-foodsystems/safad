@@ -21,9 +21,9 @@ export default function BoundariesChart(
 ) {
   const cfg: Config = Object.assign(
     {
-      w: 600,
-      h: 600,
-      margin: { top: 40, right: 40, bottom: 40, left: 40 },
+      w: 800,
+      h: 800,
+      margin: { top: 200, right: 200, bottom: 200, left: 200 },
       levels: 8,
       maxValue: 1,
       labelOffsetFactor: 1.05,
