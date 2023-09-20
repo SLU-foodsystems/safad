@@ -91,7 +91,7 @@ export default function BoundariesChart(
       [0.95, "#2ba05f"],
       [1.05, "#f9a933"],
       [cfg.maxValue * 0.8, "rgba(255, 112, 68, 1)"],
-      [cfg.maxValue, "rgba(255, 112, 68, 1)"],
+      [cfg.maxValue * 1.0, "rgba(255, 112, 68, 1)"],
       [cfg.maxValue + .01, "rgba(255, 112, 68, 0.35)"],
       [cfg.maxValue * 1.5, "rgba(226, 0, 42, 0)"],
     ] as [number, string][]
