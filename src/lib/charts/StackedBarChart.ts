@@ -157,7 +157,9 @@ export default function StackedBarChart(
   // Stack the data.
   // TODO: Typecast is ugly, but I can't figure out to get it working anyway
   // else right now.
-  const stackedData = d3.stack().keys(columns)(data as unknown as { [key: string]: number; }[]);
+  const stackedData = d3.stack().keys(columns)(
+    data as unknown as { [key: string]: number }[]
+  );
 
   // Show the bars
   svg
