@@ -3,7 +3,7 @@ import { ENV_IMPACTS_ZERO } from "./constants";
 import {
   computeProcessImpacts,
   getProcessEnvFactors,
-} from "./process-env-impact";
+} from "./process-emissions";
 
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import foodsRecipes from "@/data/foodex-recipes.json";
