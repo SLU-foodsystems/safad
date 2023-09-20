@@ -7,7 +7,7 @@ import { maybeQuoteValue } from "@/lib/utils";
 import {
   computeProcessImpacts,
   getProcessEnvFactors,
-} from "@/lib/process-env-impact";
+} from "@/lib/process-emissions";
 import {
   AGGREGATE_HEADERS,
   aggregateImpacts,
