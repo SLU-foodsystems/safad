@@ -1,5 +1,9 @@
 import { sum, vectorsSum } from "@/lib/utils";
-import { ENV_IMPACTS_ZERO, CO2E_CONV_FACTORS, TRANSPORT_EMISSIONS_ZERO } from "@/lib/constants";
+import {
+  ENV_IMPACTS_ZERO,
+  CO2E_CONV_FACTORS,
+  TRANSPORT_EMISSIONS_ZERO,
+} from "@/lib/constants";
 
 export const AGGREGATE_HEADERS = [
   // Aggregate over rpcs, processes, and packaging
@@ -76,7 +80,7 @@ export function expandedImpacts(
     ...processEmissions,
     packagingCO2e,
     ...packagingEmissions,
-    ...transportEmissions
+    ...transportEmissions,
   ];
 }
 

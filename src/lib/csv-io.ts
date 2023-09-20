@@ -22,4 +22,3 @@ export function downloadAsPlaintext(data: string, filename: string) {
   link.click();
   document.body.removeChild(link);
 }
-
