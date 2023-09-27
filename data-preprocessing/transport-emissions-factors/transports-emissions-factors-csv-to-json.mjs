@@ -20,7 +20,7 @@
 import { readCsv } from "../utils.mjs";
 
 function main(args) {
-  const csv = readCsv(args[0], ",").slice(4); // Drop Headers
+  const csv = readCsv(args[0], ",").slice(2); // Drop Headers
 
   const results = {};
 
@@ -28,10 +28,10 @@ function main(args) {
     .map((row) => row.map((x) => x.trim())) // Trim all fields
     .forEach(
       ([
-        _prodCountryCode,
-        productionCountry,
         _consumptionCountryCode,
         consumptionCountry,
+        _prodCountryCode,
+        productionCountry,
         ...ghgsStrs
       ]) => {
         // Convert all GHG factors to numbers, falling back to 0 if missing
