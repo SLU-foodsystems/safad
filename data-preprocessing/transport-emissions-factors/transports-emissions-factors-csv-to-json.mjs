@@ -39,6 +39,13 @@ function main(args) {
           .map((x) => (x ? parseFloat(x) : 0))
           .map((x) => (Number.isNaN(x) ? 0 : x));
 
+        if (consumptionCountry === "Czech Republic") {
+          consumptionCountry = "Czechia";
+        }
+        if (productionCountry === "Czech Republic") {
+          productionCountry = "Czechia";
+        }
+
         if (!(consumptionCountry in results)) {
           results[consumptionCountry] = {};
         }
