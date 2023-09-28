@@ -27,3 +27,15 @@ export const CO2E_CONV_FACTORS: Record<string, number> = {
   N2O: 273,
   HCFC: 1960,
 };
+
+export const LL_COUNTRY_CODES: Record<string, string> = {
+  France: "FR",
+  Germany: "DE",
+  Greece: "GR",
+  Hungary: "HU",
+  Ireland: "IE",
+  Italy: "IT",
+  Poland: "PL",
+  Spain: "ES",
+  Sweden: "SE",
+};

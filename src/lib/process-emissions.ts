@@ -36,7 +36,7 @@ const hasCountryDependentDemands = (
  * country.
  */
 export function getProcessEnvFactors(
-  country: string
+  countryCode: string
 ): Record<string, number[]> {
   const result: Record<string, number[]> = {};
   Object.entries(processEnergyDemands).forEach(
@@ -49,12 +49,13 @@ export function getProcessEnvFactors(
         const carrier = CARRIER_ORDER[carrierIdx];
         const demands = carrierGhgFactors[carrier];
         const ghgsPerMj: number[] = hasCountryDependentDemands(carrier, demands)
-          ? demands[country]
+          ? demands[countryCode]
           : demands;
 
         if (!ghgsPerMj) {
           throw new Error(
-            `Could not find process carrier impacts for (carrier, country) = (${carrier}, ${country}).`
+            `Could not find process carrier impacts for ` +
+            `(carrier, country) = (${carrier}, ${countryCode}).`
           );
         }
 

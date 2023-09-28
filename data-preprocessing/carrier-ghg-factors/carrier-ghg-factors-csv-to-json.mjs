@@ -9,7 +9,7 @@
  *
  * Output:
  * {
- *   Electricty: { [country]: [co2, ch4, n2o]},
+ *   Electricty: { [countryCode]: [co2, ch4, n2o]},
  *   [carrier]: [co2, ch4, n2o],
  * } as JSON
  *
@@ -30,10 +30,10 @@ function main(args) {
 
   csv
     .map((row) => row.map((x) => x.trim()))
-    .forEach(([carrier, country, _countryCode, ...ghgsStrs]) => {
+    .forEach(([carrier, _country, countryCode, ...ghgsStrs]) => {
       const ghgs = ghgsStrs.map((x) => (x ? parseFloat(x) : 0));
       if (carrier === "Electricity") {
-        results[carrier][country] = ghgs;
+        results[carrier][countryCode] = ghgs;
       } else {
         results[carrier] = ghgs;
       }

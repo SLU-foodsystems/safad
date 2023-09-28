@@ -28,10 +28,10 @@ function main(args) {
     .map((row) => row.map((x) => x.trim())) // Trim all fields
     .forEach(
       ([
-        _consumptionCountryCode,
-        consumptionCountry,
-        _prodCountryCode,
-        productionCountry,
+        consumptionCountryCode,
+        _consumptionCountry,
+        productionCountryCode,
+        _productionCountry,
         ...ghgsStrs
       ]) => {
         // Convert all GHG factors to numbers, falling back to 0 if missing
@@ -39,24 +39,11 @@ function main(args) {
           .map((x) => (x ? parseFloat(x) : 0))
           .map((x) => (Number.isNaN(x) ? 0 : x));
 
-        if (consumptionCountry === "Czech Republic") {
-          consumptionCountry = "Czechia";
-        }
-        if (productionCountry === "Czech Republic") {
-          productionCountry = "Czechia";
+        if (!(consumptionCountryCode in results)) {
+          results[consumptionCountryCode] = {};
         }
 
-        if (!(consumptionCountry in results)) {
-          results[consumptionCountry] = {};
-        }
-
-        // Replace all instances of "Domestic transport" with the country
-        // itself.
-        const normalizedProductionCountry =
-          productionCountry === "Domestic transport"
-            ? consumptionCountry
-            : productionCountry;
-        results[consumptionCountry][normalizedProductionCountry] = ghgs;
+        results[consumptionCountryCode][productionCountryCode] = ghgs;
       }
     );
 

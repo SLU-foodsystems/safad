@@ -18,6 +18,7 @@ import foodsRecipesJson from "@/data/foodex-recipes.json";
 import namesJson from "@/data/rpc-names.json";
 
 import ResultsEngine from "@/lib/ResultsEngine";
+import { LL_COUNTRY_CODES } from "../constants";
 
 const foodsRecipes = foodsRecipesJson.data as unknown as FoodsRecipes;
 const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
@@ -29,7 +30,7 @@ type LlCountryName =
   | "Hungary"
   | "Ireland"
   | "Italy"
-  | "Poland"
+  // | "Poland"
   | "Spain"
   | "Sweden"
   | "SwedenBaseline";
@@ -41,7 +42,7 @@ let LL_COUNTRIES: LlCountryName[] = [
   "Hungary",
   "Ireland",
   "Italy",
-  "Poland",
+  // "Poland",
   "Spain",
   "Sweden",
   "SwedenBaseline",
@@ -109,9 +110,9 @@ export default async function computeFootprintsForEachRpcWithOrigin(
 
   const results = syncRpcFiles.map(([country, rpcParameters]) => {
     if (country === "SwedenBaseline") {
-      RE.setCountry("Sweden");
+      RE.setCountryCode("SE");
     } else {
-      RE.setCountry(country);
+      RE.setCountryCode(LL_COUNTRY_CODES[country]);
     }
 
     RE.setRpcFactors(rpcParameters);

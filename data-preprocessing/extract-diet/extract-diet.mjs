@@ -20,32 +20,38 @@ const OUTPUT_AS_CSV = false;
 const DIETS = [
   {
     country: "France",
+    countryCode: "FR",
     surveyName: "The French national dietary survey (INCA3, 2014-2015)",
     ageClass: "Adolescents",
   },
   {
     country: "Germany",
+    countryCode: "DE",
     surveyName: "Eating Study as a KiGGS Module (EsKiMo)",
     ageClass: "Adolescents",
   },
   {
     country: "Greece",
+    countryCode: "GR",
     surveyName:
       "The EFSA-funded collection of dietary and related data in the general population aged 10-74 years in Greece",
     ageClass: "Elderly",
   },
   {
     country: "Hungary",
+    countryCode: "HU",
     surveyName: "Hungarian national food consumption survey",
     ageClass: "Adults",
   },
   {
     country: "Ireland",
+    countryCode: "IE",
     surveyName: "National Adult Nutrition Survey",
     ageClass: "Adults",
   },
   {
     country: "Italy",
+    countryCode: "IT",
     surveyName:
       "Italian national dietary survey on adult population from 10 up to " +
       "74 years old",
@@ -53,17 +59,20 @@ const DIETS = [
   },
   {
     country: "Spain",
+    countryCode: "ES",
     surveyName:
       "Spanish National dietary survey in adults, elderly and pregnant women",
     ageClass: "Adults",
   },
   {
     country: "SwedenBaseline",
+    countyCode: "SE-B",
     surveyName: "Swedish National Dietary Survey - Riksmaten adults 2010-11",
     ageClass: "Adults",
   },
   {
     country: "Sweden",
+    countyCode: "SE",
     surveyName: "National Food Administration",
     ageClass: "Other children",
   },

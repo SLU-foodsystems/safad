@@ -62,7 +62,7 @@ const addProcesses = (
 export default async function computeSlvImpacts(): Promise<string> {
   const RE = new ResultsEngine();
   RE.setEnvFactors(allEnvImpacts);
-  RE.setCountry("Sweden");
+  RE.setCountryCode("SE");
   RE.setRpcFactors(rpcFile);
 
   const headerStr =

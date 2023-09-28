@@ -53,8 +53,8 @@ export default function main(csvString: string) {
         code,
         _name,
         _category,
-        originName,
-        _originCode,
+        _originName,
+        originCode,
         ...impactsStr
       ]) => {
         // Handle the base-case, i.e. the initial acc.
@@ -62,17 +62,13 @@ export default function main(csvString: string) {
           structured[code] = {};
         }
 
-        if (originName.toLowerCase().trim() === "Rest of world") {
-          originName = "RoW";
-        }
-
-        structured[code][originName] = impactsStr.map((x) => {
+        structured[code][originCode] = impactsStr.map((x) => {
           const val = parseFloat(x);
           return Number.isNaN(val) ? 0 : val;
         });
 
-        while (structured[code][originName].length < EXPECTED_LENGTH) {
-          structured[code][originName].push(0);
+        while (structured[code][originCode].length < EXPECTED_LENGTH) {
+          structured[code][originCode].push(0);
         }
       }
     );

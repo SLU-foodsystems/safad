@@ -16,6 +16,8 @@ import url from "url";
 
 import { readCsv, roundToPrecision, uniq } from "../utils.mjs";
 
+import countryCodes from "./country-codes.json" assert { type: "json" };
+
 const ROW_THRESHOLD = 0.1;
 const RESULT_PRECISION = 3;
 
@@ -38,9 +40,9 @@ const COUNTRY_RENAME_MAP = {
 };
 
 const ALL_COUNTRY_OVERRIDES = [
-  ["01802", "Sugar cane", "Sugar crops", "Spain", 1, 0.045, 0],
-  ["01491.01", "Oil palm fruit", "Oil crops, tree", "Malaysia", 0.3, 0.06, 0],
-  ["01491.01", "Oil palm fruit", "Oil crops, tree", "Indonesia", 0.7, 0.06, 0],
+  ["01802", "Sugar cane", "Sugar crops", "ES", 1, 0.045, 0],
+  ["01491.01", "Oil palm fruit", "Oil crops, tree", "MY", 0.3, 0.06, 0],
+  ["01491.01", "Oil palm fruit", "Oil crops, tree", "ID", 0.7, 0.06, 0],
 ];
 
 // Sua codes in the list above
@@ -76,12 +78,15 @@ function getFoodItemShares(matrix, country) {
       producerCountry: x[7],
       itemName: x[8].trim(),
     }))
-    .map((x) => {
-      if (x.producerCountry in COUNTRY_RENAME_MAP) {
-        return { ...x, producerCountry: COUNTRY_RENAME_MAP[x.producerCountry] };
-      }
-      return x;
-    })
+    .map((x) =>
+      x.producerCountry in COUNTRY_RENAME_MAP
+        ? { ...x, producerCountry: COUNTRY_RENAME_MAP[x.producerCountry] }
+        : x
+    )
+    .map((x) => ({
+      ...x,
+      producerCountry: countryCodes[x.producerCountry] || (x.producerCountry !== "NA" ? console.log(x.producerCountry) : "NA") || "NA",
+    }))
     .filter(
       (x) => x.producerCountry !== "NA" && x.itemName !== "NA" && x.amount > 0
     );
