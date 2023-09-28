@@ -15,7 +15,7 @@
 // The idea is that this file then is combined with the env impacts sheet to
 // create a net-env-impact sheet.
 
-import { readCsv, roundToPrecision } from "../utils.mjs";
+import { readCsv } from "../utils.mjs";
 
 const DEBUG_INVALID_SUMS = false;
 const DEBUG_PRETTY_PRINT = false;

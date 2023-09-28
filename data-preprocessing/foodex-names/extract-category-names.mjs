@@ -4,16 +4,16 @@ import { readCsv } from "../utils.mjs";
 
 function main(args) {
   if (args.length !== 2) {
-    throw new Error("Expected exactly two arguments: path to csv, and level.")
+    throw new Error("Expected exactly two arguments: path to csv, and level.");
   }
 
   const [csvPath, levelStr] = args;
-  const csv = readCsv(csvPath, ',').slice(1);
+  const csv = readCsv(csvPath, ",").slice(1);
 
   const level = Number.parseInt(levelStr, 10);
   const offset = 2 * (level - 1);
 
-  const pairs = csv.map(row => {
+  const pairs = csv.map((row) => {
     return [row[0 + offset], row[1 + offset]];
   });
 
