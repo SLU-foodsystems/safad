@@ -41,7 +41,7 @@ class ResultsEngine {
 
   rpcParameters: RpcFactors | null = null;
 
-  country: string | null = null;
+  countryCode: string | null = null;
   processEnvFactors: Record<string, number[]> | null = null;
 
   factorsOverrides: FactorsOverrides = {
@@ -123,9 +123,9 @@ class ResultsEngine {
     this.factorsOverrides = overrides;
   }
 
-  public setCountry(country: string) {
-    this.country = country;
-    this.processEnvFactors = getProcessEnvFactors(country);
+  public setCountryCode(countryCode: string) {
+    this.countryCode = countryCode;
+    this.processEnvFactors = getProcessEnvFactors(countryCode);
   }
 
   public isReady() {
@@ -154,7 +154,7 @@ class ResultsEngine {
       return null;
     }
 
-    if (!this.country || !this.processEnvFactors) {
+    if (!this.countryCode || !this.processEnvFactors) {
       console.error("Compute called when no country or process was set.");
       return null;
     }
@@ -201,8 +201,8 @@ class ResultsEngine {
           rpcToSuaMap[rpcCode],
           amount - (transportlessAmounts[rpcCode] || 0),
           this.rpcParameters!,
-          transportEmissionsFactors[this.country!],
-          this.country!
+          transportEmissionsFactors[this.countryCode!],
+          this.countryCode!
         ),
       ])
       .filter((pair): pair is [string, number[]] => pair[1] !== null);

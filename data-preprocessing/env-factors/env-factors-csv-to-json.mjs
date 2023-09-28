@@ -26,7 +26,7 @@ function main(args) {
   const structured = envFactorsCsv.reduce(
     (
       acc,
-      [_i, code, _name, _category, originName, _originCode, ...impactsStr]
+      [_i, code, _name, _category, _originName, originCode, ...impactsStr]
     ) => {
       if (code.trim() === "NA") return acc;
 
@@ -34,17 +34,17 @@ function main(args) {
         acc[code] = {};
       }
 
-      if (originName.toLowerCase().trim() === "Rest of world") {
-        originName = "RoW";
+      if (originCode.toLowerCase().trim() === "RoW") {
+        originCode = "RoW";
       }
 
-      acc[code][originName] = impactsStr.map((x) => {
+      acc[code][originCode] = impactsStr.map((x) => {
         const val = parseFloat(x);
         return Number.isNaN(val) ? 0 : val;
       });
 
-      while (acc[code][originName].length < EXPECTED_LENGTH) {
-        acc[code][originName].push(0);
+      while (acc[code][originCode].length < EXPECTED_LENGTH) {
+        acc[code][originCode].push(0);
       }
 
       return acc;

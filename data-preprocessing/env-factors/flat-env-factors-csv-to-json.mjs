@@ -24,7 +24,7 @@ function main(args) {
   readCsv(args[0], ",")
     .slice(1)
     .forEach(
-      ([_i, code, _name, _category, country, _countryCode, ...impactsStr]) => {
+      ([_i, code, _name, _category, _country, countryCode, ...impactsStr]) => {
         if (code === "NA") return;
 
         // Convert from strings to numbers
@@ -37,7 +37,7 @@ function main(args) {
           results[code] = {};
         }
 
-        results[code][country] = impacts;
+        results[code][countryCode] = impacts;
       }
     );
 

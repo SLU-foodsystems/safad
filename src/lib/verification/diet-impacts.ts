@@ -31,7 +31,7 @@ import swedenDiet from "@/data/diets/Sweden.json";
 import swedenBaselineDiet from "@/data/diets/SwedenBaseline.json";
 
 import ResultsEngine from "@/lib/ResultsEngine";
-import { ENV_IMPACTS_ZERO, TRANSPORT_EMISSIONS_ZERO } from "../constants";
+import { ENV_IMPACTS_ZERO, LL_COUNTRY_CODES, TRANSPORT_EMISSIONS_ZERO } from "../constants";
 
 const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
 
@@ -93,9 +93,9 @@ export async function computeFootprintsForDiets(
 
   const allResults = LL_COUNTRIES.map((country) => {
     if (country === "SwedenBaseline") {
-      RE.setCountry("Sweden");
+      RE.setCountryCode("SE");
     } else {
-      RE.setCountry(country);
+      RE.setCountryCode(LL_COUNTRY_CODES[country]);
     }
 
     RE.setRpcFactors(rpcFiles[country]);
