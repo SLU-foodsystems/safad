@@ -132,9 +132,7 @@ function main(args) {
   DIETS.forEach(({ country, surveyName, ageClass }) => {
     const amounts = filtered
       .filter(
-        (row) =>
-          row[3] === surveyName &&
-          (!ageClass || row[5] === ageClass)
+        (row) => row[3] === surveyName && (!ageClass || row[5] === ageClass)
       )
       .map((row) => {
         const [

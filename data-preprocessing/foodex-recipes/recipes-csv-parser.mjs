@@ -35,6 +35,7 @@ function removeNullSelfReferences(obj) {
     if (DEBUG_REMOVED_ITEMS && itemsWereRemoved) {
       const fixedWidth = (str, len) =>
         str + (str.length >= len ? "" : " ".repeat(len - id.length));
+
       console.log(
         fixedWidth(id, 15),
         "\t",

@@ -4,7 +4,7 @@
 // Usage:
 //  node ./extract-names.mjs ./foodex-recipes.csv > ../../src/data/rpc-names.json
 
-import { readCsv  } from "../utils.mjs";
+import { readCsv } from "../utils.mjs";
 
 function main(args) {
   if (args.length !== 1) {
@@ -15,10 +15,22 @@ function main(args) {
 
   // imopprt CSVs. Slice(1) to drop header
   const recipesCsv = readCsv(args[0], ",").slice(1);
+  // Take only the first two items from each row
   const componentPairs = recipesCsv.map(([code, name]) => [code, name]);
-  const subcomponentPairs = recipesCsv.map(([_code, _name, componentCode, componentName]) => [componentCode, componentName]);
+  const subcomponentPairs = recipesCsv.map(
+    ([_code, _name, componentCode, componentName]) => [
+      componentCode,
+      componentName,
+    ]
+  );
 
-  console.log(JSON.stringify(Object.fromEntries([...componentPairs, ...subcomponentPairs]), null, 2));
+  console.log(
+    JSON.stringify(
+      Object.fromEntries([...componentPairs, ...subcomponentPairs]),
+      null,
+      2
+    )
+  );
 }
 
 main(process.argv.slice(2));
