@@ -7,6 +7,7 @@ import { downloadAsPlaintext } from "@/lib/csv-io";
 import getImpactsPerRpc from "@/lib/verification/rpc-impacts-with-import";
 import getImpactsPerDiet from "@/lib/verification/diet-impacts";
 import getRpcsInDiet from "@/lib/verification/diet-rpc-breakdowns";
+import computeSlvImpacts from "@/lib/verification/slv-impacts";
 
 import parseEnvFactorsCsv from "@/lib/env-file-csv-string-parser";
 
@@ -45,6 +46,11 @@ export default defineComponent({
       validationFilesPerCountry.forEach(([country, csv]) => {
         downloadAsPlaintext(csv, country + "-diet-breakdown.csv");
       });
+    },
+
+    async generateSlvDiets() {
+      const csvString = await computeSlvImpacts();
+      downloadAsPlaintext(csvString, "slv-data.csv");
     },
 
     onFileChange(event: Event) {
@@ -125,6 +131,9 @@ export default defineComponent({
         </button>
         <button class="button button--accent" @click="generateRpcsPerDiet">
           Diet Verification
+        </button>
+        <button class="button button--accent" @click="generateSlvDiets">
+          SLV Diet
         </button>
       </div>
       <ChartGenerator :envFactors="envFactors" />
