@@ -7,10 +7,7 @@ import {
   listAllProcesses,
   maybeQuoteValue,
 } from "@/lib/utils";
-import {
-  AGGREGATE_HEADERS,
-  aggregateImpacts,
-} from "@/lib/impacts-csv-utils";
+import { AGGREGATE_HEADERS, aggregateImpacts } from "@/lib/impacts-csv-utils";
 
 import allEnvImpactsJson from "@/data/env-factors.json";
 import categoryNamesJson from "@/data/category-names.json";
@@ -78,7 +75,6 @@ export default async function computeFootprintsForEachRpcWithOrigin(
     "Processes",
     "Packeting",
   ];
-
 
   const names = namesJson as Record<string, string>;
 
