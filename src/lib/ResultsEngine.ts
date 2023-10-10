@@ -159,11 +159,12 @@ class ResultsEngine {
       return null;
     }
 
-    const [rpcAmounts, processesAmounts, packetingAmounts] = reduceDiet(
-      diet,
-      recipes,
-      processesAndPackagingData
-    );
+    const [
+      rpcAmounts,
+      processesAmounts,
+      packetingAmounts,
+      transportlessAmounts,
+    ] = reduceDiet(diet, recipes, processesAndPackagingData);
 
     const rpcImpacts = Object.fromEntries(
       rpcAmounts
@@ -198,7 +199,7 @@ class ResultsEngine {
         rpcCode,
         computeTransportEmissions(
           rpcToSuaMap[rpcCode],
-          amount,
+          amount - (transportlessAmounts[rpcCode] || 0),
           this.rpcParameters!,
           transportEmissionsFactors[this.country!],
           this.country!
