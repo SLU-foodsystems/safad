@@ -421,7 +421,7 @@ describe("RPC reducer", () => {
         },
       ];
 
-      // Let's pretend this leads to a pizza
+      // Let's pretend this translates to a pizza
       const recipes: FoodsRecipes = {
         "I.20.01.001.001": [["A.19.01.002.003", [], 0.5, 3]],
         "A.19.01.002.003": [["A.19.01.002.003", [], 1, 1]],
@@ -436,6 +436,161 @@ describe("RPC reducer", () => {
 
       expect(packaging["A.19"]).toHaveProperty("P5");
       expect(packaging["A.19"]["P5"]).toEqual(1000 * 0.5 * 3);
+    });
+  });
+
+  describe("Transportless Amounts", () => {
+    test("A transportless process appears in map", () => {
+      const recipes: FoodsRecipes = {
+        "A.01.example": [["A.01.example", ["F28.A07KD"], 1, 5]],
+      };
+      const diet: Diet = [
+        {
+          code: "A.01.example",
+          amount: 1000,
+          retailWaste: 0,
+          consumerWaste: 0,
+        },
+      ];
+
+      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+        diet,
+        recipes,
+        {}
+      );
+
+      expect(transportless).toHaveProperty("A.01.example");
+      expect(transportless["A.01.example"]).toEqual(4000);
+    });
+
+    test("The exception of polished rice does not appear in map", () => {
+      const recipes: FoodsRecipes = {
+        "A.01.example": [["A.01.example", ["F28.A0BZV", "F28.A07GG"], 1, 5]],
+      };
+      const diet: Diet = [
+        {
+          code: "A.01.example",
+          amount: 1000,
+          retailWaste: 0,
+          consumerWaste: 0,
+        },
+      ];
+
+      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+        diet,
+        recipes,
+        {}
+      );
+
+      expect(transportless).not.toHaveProperty("A.01.example");
+    });
+
+    test("Does not appear in map if yield is 1", () => {
+      const recipes: FoodsRecipes = {
+        "A.01.example": [["A.01.example", ["F28.A07KD"], 1, 1]],
+      };
+      const diet: Diet = [
+        {
+          code: "A.01.example",
+          amount: 1000,
+          retailWaste: 0,
+          consumerWaste: 0,
+        },
+      ];
+
+      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+        diet,
+        recipes,
+        {}
+      );
+
+      expect(transportless).not.toHaveProperty("A.01.example");
+    });
+
+    describe("A transportless process appears in map for complex recipes", () => {
+      test("Case A: Three steps, process in the middle", () => {
+
+      const recipes: FoodsRecipes = {
+        "A.01.foo": [["A.01.bar", [], 1, 1]],
+        "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1, 4]],
+        "A.01.baz": [["A.01.qux", [], 1, 1.5]],
+      };
+      const diet: Diet = [
+        {
+          code: "A.01.foo",
+          amount: 1000,
+          retailWaste: 0,
+          consumerWaste: 0,
+        },
+      ];
+
+      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+        diet,
+        recipes,
+        {}
+      );
+
+      expect(transportless).toHaveProperty("A.01.qux");
+      expect(transportless["A.01.qux"]).toEqual(4500);
+    });
+      })
+
+    test("Case B: Three steps, with processes on each", () => {
+      const recipes: FoodsRecipes = {
+        "A.01.foo": [["A.01.bar", ["F28.A0C00"], 1.0, 1.1]],
+        "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1.0, 4]],
+        "A.01.baz": [["A.01.qux", ["F28.A0C0B"], 1.0, 1.5]],
+      };
+      const diet: Diet = [
+        {
+          code: "A.01.foo",
+          amount: 1000,
+          retailWaste: 0,
+          consumerWaste: 0,
+        },
+      ];
+
+      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+        diet,
+        recipes,
+        {}
+      );
+
+      // The amount from yields is 6600
+      // But in each step, some yields are added that should not be transported.
+      // 1000 -> 1100 = 100
+      // 1100 -> 4400 = 3300
+      // 4400 -> 6600 = 2200 -> total to subtract = 5600
+      // OR: despite 6600 in yield, we only transport 1000
+      expect(transportless).toHaveProperty("A.01.qux");
+      expect(transportless["A.01.qux"]).toEqual(5600);
+    });
+
+    test("Case B: Three steps, with processes and ratios", () => {
+      const recipes: FoodsRecipes = {
+        "A.01.foo": [["A.01.bar", ["F28.A0C00"], 1.0, 1.1]],
+        "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 0.5, 4]],
+        "A.01.baz": [["A.01.qux", ["F28.A0C0B"], 1.0, 1.5]],
+      };
+      const diet: Diet = [
+        {
+          code: "A.01.foo",
+          amount: 1000,
+          retailWaste: 0,
+          consumerWaste: 0,
+        },
+      ];
+
+      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+        diet,
+        recipes,
+        {}
+      );
+
+      // The amount from yields is 6600
+      // But in each step, some yields are added that should not be transported.
+      expect(transportless).toHaveProperty("A.01.qux");
+      expect(transportless["A.01.qux"]).toEqual(2300);
     });
   });
 });
