@@ -49,7 +49,7 @@ const getCodeTranslator = (csvFile) => {
 
     const code = foodEx2Code.trim();
     if (!(code in mappings)) {
-      // Log on new codes
+      // Avoid warning multiple times for a single code.
       if (!missingCodes.has(code)) {
         console.error("No FoodEx1 code found for FoodEx2 code " + code);
         missingCodes.add(code);

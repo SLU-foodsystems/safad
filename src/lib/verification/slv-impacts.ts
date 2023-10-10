@@ -34,85 +34,83 @@ export default async function computeSlvImpacts(): Promise<string> {
   RE.setRpcFactors(rpcFile);
 
   const headerStr =
-    "SLV Code,Sub-code,Name,Amount (g)," + AGGREGATE_HEADERS.join(",");
+    "SLV Code,SLV Name,Ingredient Code,Ingredient Name,Net Amount (g)," + AGGREGATE_HEADERS.join(",");
 
-  return (
-    headerStr +
-    "\n" +
-    Object.entries(slvRecipes)
-      .map(([slvCode, { rpcs, processes: slvProcesses }]) => {
-        const BASE_AMOUNT = 1000; // 1 kg
+  const data = Object.entries(slvRecipes).map(
+    ([slvCode, { rpcs, processes: slvProcesses }]) => {
+      const BASE_AMOUNT = 1000; // grams, = 1 kg
+      const slvName = maybeQuote(slvNames[slvCode]);
 
-        const diet = Object.entries(rpcs).map(([code, percentage]) => ({
+      // Map each key-value (rpc-code, percentage) to a DietElement object
+      const diet: Diet = Object.entries(rpcs).map(
+        ([code, percentage]): DietElement => ({
           code,
           amount: percentage * BASE_AMOUNT,
           retailWaste: 0,
           consumerWaste: 0,
-        }));
+        })
+      );
 
-        const disaggregateImpacts = diet.map((dietEl) => {
-          const { code: foodExCode, amount } = dietEl;
-          const impacts = RE.computeImpacts([dietEl]);
-          const impactsVector =
-            impacts === null ? ENV_IMPACTS_ZERO : aggregateImpacts(...impacts);
+      // Now, compute the impact of each diet element seperately
+      const disaggregateImpacts = diet.map((dietEl) => {
+        const { code: foodExCode, amount } = dietEl;
+        const impacts = RE.computeImpacts([dietEl]);
+        const impactsVector =
+          impacts === null ? ENV_IMPACTS_ZERO : aggregateImpacts(...impacts);
 
-          const name = maybeQuote(rpcNames[foodExCode] || "(Name not found)");
-          return [slvCode, foodExCode, name, amount, ...impactsVector];
-        });
+        const name = maybeQuote(rpcNames[foodExCode] || "(Name not found)");
+        return [slvCode, slvName, foodExCode, name, amount, ...impactsVector];
+      });
 
-        const totalImpacts = RE.computeImpacts(diet);
-        if (totalImpacts === null) return [[]];
+      // And, for good measure, we compute the total impacts as well (should be
+      // the sum of the disaggregate ones, but we will also add the processes to
+      // it below.)
+      const totalImpacts = RE.computeImpacts(diet);
+      if (totalImpacts === null) return [[]];
 
-        let totalProcessImpacts = totalImpacts[1];
+      let totalProcessImpacts = totalImpacts[1];
 
-        // If the breakdown from SLV to RPC foods includes processes, we want to
-        // add those to the total process impacts
-        const hasProcesses = Object.keys(slvProcesses).length > 0;
-        if (hasProcesses) {
-          // Compte the env. impacts of the additional, slv processes. This is
-          // a bit hacky, as we're reaching into the RE for its
-          // processEnvFactors. Sorry about that :)
-          const slvProcessesImpacts = computeProcessImpacts(
-            { processes: slvProcesses },
-            RE.processEnvFactors!
-          ).processes;
+      // If the breakdown from SLV to RPC foods includes processes, we want to
+      // add those to the total process impacts
+      const hasProcesses = Object.keys(slvProcesses).length > 0;
+      if (hasProcesses) {
+        // Compte the env. impacts of the additional, slv processes. This is
+        // a bit hacky, as we're reaching into the RE for its
+        // processEnvFactors. Sorry about that :)
+        const slvProcessesImpacts = computeProcessImpacts(
+          { processes: slvProcesses },
+          RE.processEnvFactors!
+        ).processes;
 
-          // The key "A.00" does not matter - that information is not used,
-          // but it's needed for the structure (i.e. { [string]: impacts })
-          Object.assign(totalProcessImpacts, { "A.00": slvProcessesImpacts });
-        }
+        // The key "A.00" does not matter - that information is not used,
+        // but it's needed for the structure (i.e. { [string]: impacts })
+        Object.assign(totalProcessImpacts, { "A.00": slvProcessesImpacts });
+      }
 
-        const impactsVector = aggregateImpacts(
-          totalImpacts[0],
-          totalProcessImpacts,
-          totalImpacts[2],
-          totalImpacts[3]
-        );
+      const impactsVector = aggregateImpacts(
+        totalImpacts[0],
+        totalProcessImpacts,
+        totalImpacts[2],
+        totalImpacts[3]
+      );
 
-        return [
-          [
-            slvCode,
-            "(total)",
-            maybeQuote(slvNames[slvCode]),
-            1000,
-            ...impactsVector,
-          ],
-          ...disaggregateImpacts,
-        ];
-      })
-      .map((rows) => rows.map((row) => row.join(",")).join("\n"))
-      .join("\n")
+      return [
+        [
+          slvCode,
+          slvName,
+          slvCode,
+          "(total)",
+          1000,
+          ...impactsVector,
+        ],
+        ...disaggregateImpacts,
+      ];
+    }
+  );
+
+  return (
+    headerStr +
+    "\n" +
+    data.map((rows) => rows.map((row) => row.join(",")).join("\n")).join("\n")
   );
 }
-
-// export default async function computeFootprintsForEachRpcWithOrigin(
-//   envFactors?: EnvFactors
-// ): Promise<string[][]> {
-//   const HEADER = ["Category Code", "Category Name", ...AGGREGATE_HEADERS];
-//   return (await computeFootprintsForDiets(envFactors)).map(
-//     ([country, data]) => [
-//       country,
-//       HEADER + "\n" + data.map((row) => row.join(",")).join("\n"),
-//     ]
-//   );
-// }
