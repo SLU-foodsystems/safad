@@ -3,8 +3,6 @@
  * with an amount, and waste.
  */
 
-// Component, Facet,   proportion, reverse yield
-// string   , string[], number   , number
 import { getRpcCodeSubset } from "@/lib/utils";
 
 type ProcessesMap = Record<string, Record<string, number>>;
@@ -37,90 +35,99 @@ function aggregateDuplicateRpcs(rpcs: [string, number][]) {
  * Recursive function to reduce one RPC (derivative) to a list of the RPC
  * sub-components that constitute it, respecting the amount, yield, and waste.
  * Ensures each RPC only occures once.
+ *
+ * It will also record any preparation processes and packaging.
  */
 function reduceToRpcs(
-  recordProcessOrPacketingContribution: (
+  [componentCode, amount]: RPC,
+  recordProcessOrPackagingContribution: (
     code: string,
     facet: string,
     amount: number
   ) => void,
   recipes: FoodsRecipes,
   preparationProcesses: Record<string, string>,
-  recordedPProcesses: string[],
-  [componentCode, amount]: RPC
+  recordedSpecials: Set<string>
 ): RPC[] {
   const subcomponents = recipes[componentCode];
   if (!subcomponents) return [[componentCode, amount]];
 
-  // Handle L3 preparation-processes
-  let newRecordedSpecials = recordedPProcesses;
+  let newRecordedSpecials = recordedSpecials;
   const componentCodeLevel = getLevel(componentCode);
-  if (componentCodeLevel >= 3) {
-    const l3Code = getRpcCodeSubset(componentCode, 3);
-    const special = preparationProcesses[l3Code];
 
-    if (special && !recordedPProcesses.includes(l3Code)) {
-      newRecordedSpecials = [l3Code, ...recordedPProcesses];
-      recordProcessOrPacketingContribution(l3Code, special, amount);
-    }
-  }
+  // Helper function to record the processes and packaging contributions for a
+  // given level
+  const recordPPContributionHelper = (level: number) => {
+    if (componentCodeLevel < level) return;
 
-  if (componentCodeLevel >= 2) {
-    const l2Code = getRpcCodeSubset(componentCode, 2);
-    const special = preparationProcesses[l2Code];
+    const levelCode = getRpcCodeSubset(componentCode, level);
+    const special = preparationProcesses[levelCode];
+    if (!special || recordedSpecials.has(levelCode)) return;
 
-    if (special && !recordedPProcesses.includes(l2Code)) {
-      newRecordedSpecials = [l2Code, ...recordedPProcesses];
-      recordProcessOrPacketingContribution(l2Code, special, amount);
-    }
-  }
+    newRecordedSpecials = new Set([levelCode, ...recordedSpecials]);
+    recordProcessOrPackagingContribution(levelCode, special, amount);
+  };
+
+  // We need to handle L2 and L3 PP-contributions in the base-case, i.e. when
+  // there are no sub-components.
+  recordPPContributionHelper(3);
+  recordPPContributionHelper(2);
 
   return subcomponents
     .map(([subcomponentCode, processes, ratio, yieldFactor]): RPC[] => {
       const netAmount = yieldFactor * ratio * amount;
 
-      // Recourd the output amount
+      // Record the output amount for processes
       const processAmount = ratio * amount;
-      processes.map((processId) => {
-        recordProcessOrPacketingContribution(
+      processes.forEach((processId) =>
+        recordProcessOrPackagingContribution(
           componentCode,
           processId,
           processAmount
-        );
-      });
+        )
+      );
 
       // Some recipes will include references back to themselves, in which
-      // case we do not want to recurse any further (otherwise: loop).
-      // additional process.
+      // case we do not want to recurse any further additional process.
+      // (otherwise, we'll get an infinite loop).
       const isSelfReference = subcomponentCode === componentCode;
       if (isSelfReference) return [[subcomponentCode, netAmount]];
 
+      // Recurse!
       return reduceToRpcs(
-        recordProcessOrPacketingContribution,
+        [subcomponentCode, netAmount],
+        recordProcessOrPackagingContribution,
         recipes,
         preparationProcesses,
-        newRecordedSpecials,
-        [subcomponentCode, netAmount]
+        newRecordedSpecials
       );
     })
     .flat(1);
 }
 
+/**
+ * Reduce a 'diet' (list of ingredients) to RPCs and amounts, as well as a
+ * list of proccesses and packaging (with amounts).
+ */
 export default function reduceDietToRpcs(
   diet: Diet,
   recipes: FoodsRecipes,
   preparationAndPackagingList: Record<string, string>
 ): [[string, number][], ProcessesMap, ProcessesMap] {
   const processesMap: ProcessesMap = {};
-  const packetingMap: ProcessesMap = {};
+  const packagingMap: ProcessesMap = {};
 
-  const recordProcessOrPacketingContribution = (
+  // This is a helper function that will be called for all processes and
+  // packaging found when traversing the recipes, adding to the above two maps.
+  const recordProcessOrPackagingContribution = (
     code: string,
     facet: string,
     amount: number
   ) => {
     const level1Category = getRpcCodeSubset(code, 1);
-    const map = facet.length === 2 ? packetingMap : processesMap;
+    // We use 'real' facets for processing, but made-up ones for packaging. The
+    // made-up ones are just e.g. "P1", i.e. length of 2.
+    const map = facet.length === 2 ? packagingMap : processesMap;
     if (!(level1Category in map)) {
       map[level1Category] = {};
     }
@@ -129,24 +136,24 @@ export default function reduceDietToRpcs(
   };
 
   const rpcs = diet
-    // First, count up the waste factor
+    // First, count up the amounts by the retail- and consumer waste factors
     .map((entry): RPC => {
       const wasteChangeFactor =
         1 / ((1 - entry.retailWaste) * (1 - entry.consumerWaste));
 
       return [entry.code, entry.amount * wasteChangeFactor];
     })
-    // Now, compine with the recipes to get RPCs!
+    // Now, combine with the recipes to get RPCs!
     .map((rpcDerivative) =>
       reduceToRpcs(
-        recordProcessOrPacketingContribution,
+        rpcDerivative,
+        recordProcessOrPackagingContribution,
         recipes,
         preparationAndPackagingList,
-        [],
-        rpcDerivative
+        new Set()
       )
     )
     .flat(1);
 
-  return [aggregateDuplicateRpcs(rpcs), processesMap, packetingMap];
+  return [aggregateDuplicateRpcs(rpcs), processesMap, packagingMap];
 }
