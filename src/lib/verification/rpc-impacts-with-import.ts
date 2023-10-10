@@ -30,7 +30,6 @@ type LlCountryName =
   | "Hungary"
   | "Ireland"
   | "Italy"
-  // | "Poland"
   | "Spain"
   | "Sweden"
   | "SwedenBaseline";
@@ -42,7 +41,6 @@ let LL_COUNTRIES: LlCountryName[] = [
   "Hungary",
   "Ireland",
   "Italy",
-  // "Poland",
   "Spain",
   "Sweden",
   "SwedenBaseline",
@@ -55,7 +53,6 @@ const rpcFiles = {
   Hungary: import("@/data/rpc-parameters/Hungary-rpc.json"),
   Ireland: import("@/data/rpc-parameters/Ireland-rpc.json"),
   Italy: import("@/data/rpc-parameters/Italy-rpc.json"),
-  Poland: import("@/data/rpc-parameters/Poland-rpc.json"),
   Spain: import("@/data/rpc-parameters/Spain-rpc.json"),
   Sweden: import("@/data/rpc-parameters/Sweden-rpc.json"),
   SwedenBaseline: import("@/data/rpc-parameters/Sweden-rpc.json"),
