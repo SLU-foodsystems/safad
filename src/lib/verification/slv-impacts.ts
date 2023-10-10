@@ -2,31 +2,30 @@
  * Computes the footprints of each rpc in the recipe.
  */
 
-import { uniq } from "@/lib/utils";
-import {
-  expandedImpacts,
-  AGGREGATE_HEADERS,
-  aggregateImpacts,
-} from "@/lib/impacts-csv-utils";
+import { AGGREGATE_HEADERS, aggregateImpacts } from "@/lib/impacts-csv-utils";
 
 import allEnvImpactsJson from "@/data/env-factors.json";
-import categoryNamesJson from "@/data/category-names.json";
+import slvNamesJson from "@/data/slv-names.json";
 
 import swedenRpcFactors from "@/data/rpc-parameters/Sweden-rpc.json";
 import slvRecipesJson from "@/data/slv-diet.json";
+import rpcNamesJson from "@/data/rpc-names.json";
 
 import ResultsEngine from "@/lib/ResultsEngine";
-import { ENV_IMPACTS_ZERO, TRANSPORT_EMISSIONS_ZERO } from "../constants";
+import { ENV_IMPACTS_ZERO } from "../constants";
 import { computeProcessImpacts } from "../process-emissions";
 
 const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
 const rpcFile = swedenRpcFactors.data as unknown as RpcFactors;
-const categoryNames = categoryNamesJson as Record<string, string>;
+const rpcNames = rpcNamesJson as Record<string, string>;
+const slvNames = slvNamesJson as Record<string, string>;
 
 const slvRecipes = slvRecipesJson as Record<
   string,
   { rpcs: Record<string, number>; processes: Record<string, number> }
 >;
+
+const maybeQuote = (str: string) => (str.includes(",") ? `"${str}"` : str);
 
 export default async function computeSlvImpacts(): Promise<string> {
   const RE = new ResultsEngine();
@@ -35,7 +34,7 @@ export default async function computeSlvImpacts(): Promise<string> {
   RE.setRpcFactors(rpcFile);
 
   const headerStr =
-    "SLV Code,Sub-code,Amount (g)," + AGGREGATE_HEADERS.join(",");
+    "SLV Code,Sub-code,Name,Amount (g)," + AGGREGATE_HEADERS.join(",");
 
   return (
     headerStr +
@@ -57,7 +56,8 @@ export default async function computeSlvImpacts(): Promise<string> {
           const impactsVector =
             impacts === null ? ENV_IMPACTS_ZERO : aggregateImpacts(...impacts);
 
-          return [slvCode, foodExCode, amount, ...impactsVector];
+          const name = maybeQuote(rpcNames[foodExCode] || "(Name not found)");
+          return [slvCode, foodExCode, name, amount, ...impactsVector];
         });
 
         const totalImpacts = RE.computeImpacts(diet);
@@ -90,7 +90,13 @@ export default async function computeSlvImpacts(): Promise<string> {
         );
 
         return [
-          [slvCode, "TOTAL", 1000, ...impactsVector],
+          [
+            slvCode,
+            "(total)",
+            maybeQuote(slvNames[slvCode]),
+            1000,
+            ...impactsVector,
+          ],
           ...disaggregateImpacts,
         ];
       })
