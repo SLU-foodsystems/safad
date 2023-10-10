@@ -4,7 +4,6 @@ import reduceDiet from "./rpc-reducer";
 interface DietComponent {
   code: string;
   amount: number;
-  organic: number;
   retailWaste: number;
   consumerWaste: number;
 }
@@ -22,14 +21,12 @@ describe("RPC reducer", () => {
       {
         code: "no-waste",
         amount: 100,
-        organic: 10,
         retailWaste: 0,
         consumerWaste: 0,
       },
       {
         code: "with-waste",
         amount: 200,
-        organic: 10,
         retailWaste: 0.1,
         consumerWaste: 0.2,
       },
@@ -56,7 +53,6 @@ describe("RPC reducer", () => {
       {
         code: "A.01.example",
         amount: 100,
-        organic: 0,
         retailWaste: 0,
         consumerWaste: 0,
       },
@@ -85,7 +81,6 @@ describe("RPC reducer", () => {
       {
         code: "A.01.03.001.007", // Couscous
         amount: 1000,
-        organic: 0,
         retailWaste: 0,
         consumerWaste: 0,
       },
@@ -117,7 +112,6 @@ describe("RPC reducer", () => {
       {
         code: "A.01.Pizza",
         amount: 1000,
-        organic: 0,
         retailWaste: 0,
         consumerWaste: 0,
       },
@@ -154,7 +148,6 @@ describe("RPC reducer", () => {
       {
         code: "A.01.02.003",
         amount: 100,
-        organic: 10,
         retailWaste: 0.1,
         consumerWaste: 0.3,
       },
@@ -211,7 +204,6 @@ describe("RPC reducer", () => {
       {
         code: "a",
         amount: 100,
-        organic: 10,
         retailWaste: 0.1,
         consumerWaste: 0.3,
       },
@@ -239,7 +231,6 @@ describe("RPC reducer", () => {
       {
         code: "A.01.123.01",
         amount: 100,
-        organic: 10,
         retailWaste: 0.1,
         consumerWaste: 0.3,
       },
@@ -272,7 +263,6 @@ describe("RPC reducer", () => {
       {
         code: "A.01",
         amount: 100,
-        organic: 0,
         retailWaste: 0.1,
         consumerWaste: 0.3,
       },
@@ -299,7 +289,6 @@ describe("RPC reducer", () => {
         {
           code: "A.19.01.002", // pizza
           amount: 1000,
-          organic: 0,
           retailWaste: 0,
           consumerWaste: 0,
         },
@@ -325,7 +314,6 @@ describe("RPC reducer", () => {
         {
           code: "A.19.01.002.003", // pizza derivative
           amount: 1234,
-          organic: 0,
           retailWaste: 0,
           consumerWaste: 0,
         },
@@ -350,7 +338,6 @@ describe("RPC reducer", () => {
         {
           code: "I.20.01.001.001", // Dummy product
           amount: 1000,
-          organic: 0,
           retailWaste: 0,
           consumerWaste: 0,
         },
@@ -380,7 +367,6 @@ describe("RPC reducer", () => {
         {
           code: "A.19.01",
           amount: 1000,
-          organic: 0,
           retailWaste: 0,
           consumerWaste: 0,
         },
@@ -406,7 +392,6 @@ describe("RPC reducer", () => {
         {
           code: "A.19.01.002.003", // pizza derivative
           amount: 1234,
-          organic: 0,
           retailWaste: 0,
           consumerWaste: 0,
         },
@@ -431,7 +416,6 @@ describe("RPC reducer", () => {
         {
           code: "I.20.01.001.001", // Dummy product
           amount: 1000,
-          organic: 0,
           retailWaste: 0,
           consumerWaste: 0,
         },
