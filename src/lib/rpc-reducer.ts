@@ -5,7 +5,7 @@
 
 import { getRpcCodeSubset } from "@/lib/utils";
 
-type ProcessesMap = Record<string, Record<string, number>>;
+type NestedMap<K extends string | number, V> = Record<K, Record<K, V>>;
 type RPC = [string, number]; // Code, Amount
 
 // Get the 'level' of a given food given its id
@@ -113,9 +113,9 @@ export default function reduceDietToRpcs(
   diet: Diet,
   recipes: FoodsRecipes,
   preparationAndPackagingList: Record<string, string>
-): [[string, number][], ProcessesMap, ProcessesMap] {
-  const processesMap: ProcessesMap = {};
-  const packagingMap: ProcessesMap = {};
+): [[string, number][], NestedMap<string, number>, NestedMap<string, number>] {
+  const processesMap: NestedMap<string, number> = {};
+  const packagingMap: NestedMap<string, number> = {};
 
   // This is a helper function that will be called for all processes and
   // packaging found when traversing the recipes, adding to the above two maps.
