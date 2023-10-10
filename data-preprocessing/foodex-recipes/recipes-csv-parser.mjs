@@ -95,9 +95,6 @@ function main(args) {
 
   // imopprt CSVs. Slice(1) to drop header
   const recipesCsv = readCsv(args[0], ",").slice(1);
-  // For unknown reasons, the 'smart' split doesn't work for the recipes, but it
-  // does for the processes. Conveniently, it's not needed for the recipes, but
-  // it is for the processes.
   const processesCsv = readCsv(args[1], ",").slice(1);
 
   const yieldMap = buildYieldMap(processesCsv);
