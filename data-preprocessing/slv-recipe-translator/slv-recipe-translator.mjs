@@ -107,6 +107,7 @@ function main(args) {
         i2FoodEx2Code,
       ]) => [
         slvId,
+        i1FoodEx2Code,
         codeTranslator(i1FoodEx2Code),
         processTranslator(i1ProcessName),
         toFloat(i1Share, 0),
@@ -120,17 +121,32 @@ function main(args) {
     // i.e. i2 when there is one, and otherwise i1.
     // Also record track of which processes and their amounts
     .map(
-      ([slvId, i1Code, i1Process, i1Share, i1NetShare, i2Code, i2Process, i2Yield]) => {
+      ([
+        slvId,
+        i1FoodEx2Code,
+        i1Code,
+        i1Process,
+        i1Share,
+        i1NetShare,
+        i2Code,
+        i2Process,
+        i2Yield,
+      ]) => {
         const processes = [];
         if (i1Process) {
           processes.push({ code: i1Process, amount: i1NetShare });
         }
 
+        const common = {
+          slvId,
+          i1Code,
+          i1Share,
+          i1FoodEx2Code,
+        };
+
         if (!i2Code) {
           return {
-            slvId,
-            i1Code,
-            i1Amount: i1Share,
+            ...common,
             code: i1Code,
             amount: i1NetShare,
             processes,
@@ -142,9 +158,7 @@ function main(args) {
         }
 
         return {
-          slvId,
-          i1Code,
-          i1Amount: i1Share,
+          ...common,
           code: i2Code,
           amount: i1NetShare * i2Yield,
           processes,
@@ -154,7 +168,7 @@ function main(args) {
 
   const results = {};
   ingredientsList.forEach(
-    ({ slvId, i1Amount, i1Code, code, amount, processes }) => {
+    ({ slvId, i1FoodEx2Code, i1Code, i1Share, code, amount, processes }) => {
       if (!results[slvId]) {
         results[slvId] = [];
       }
@@ -166,7 +180,8 @@ function main(args) {
 
       const item = [
         i1Code,
-        perc2Decimal(i1Amount),
+        i1FoodEx2Code,
+        perc2Decimal(i1Share),
         code,
         perc2Decimal(amount),
         processesObj,
