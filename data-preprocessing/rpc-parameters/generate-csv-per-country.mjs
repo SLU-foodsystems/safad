@@ -34,7 +34,7 @@ const COUNTRY_RENAME_MAP = {
   "Iran (Islamic Republic of)": "Iran",
   "Rest of the World": "RoW",
   "Russian Federation": "Russia",
-  "United Kingdom": "UK",
+  "United Kingdom": "United Kingdom",
   "United States of America": "USA",
   "Côte d'Ivoire": "Cote d'Ivoire",
 };
