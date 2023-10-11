@@ -2,7 +2,7 @@
 
 import * as utils from "../utils.mjs";
 
-const perc2Decimal = (val) => Math.round(val) / 100; // Round to avoid long decimals
+const perc2Decimal = (val) => val / 100;
 
 /**
  * Generate a function mapping an slv process name to a facet, where such a
