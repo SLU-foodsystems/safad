@@ -118,7 +118,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
       {
         code,
         amount: 1000,
-        ...getWasteFactors(country, code),
+        ...getWasteFactors(country === "SwedenBaseline" ? "Sweden" : country, code),
       },
     ]);
 
