@@ -13,12 +13,17 @@ import allEnvImpactsJson from "@/data/env-factors.json";
 import categoryNamesJson from "@/data/category-names.json";
 import foodsRecipesJson from "@/data/foodex-recipes.json";
 import namesJson from "@/data/rpc-names.json";
+import wasteFactorsJson from "@/data/waste-factors.json";
 
 import ResultsEngine from "@/lib/ResultsEngine";
 import { LL_COUNTRY_CODES } from "../constants";
 
 const foodsRecipes = foodsRecipesJson.data as unknown as FoodsRecipes;
 const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
+const wasteFactors = wasteFactorsJson as Record<
+  string,
+  Record<string, number[]>
+>;
 
 type LlCountryName =
   | "France"
@@ -63,6 +68,13 @@ const getCategoryName = (code: string, level: number) => {
 
 const codesInRecipes = Object.keys(foodsRecipes);
 
+const getWasteFactors = (country: string, rpcCode: string) => {
+  const [retailWaste, consumerWaste] = wasteFactors[country][
+    getRpcCodeSubset(rpcCode, 2)
+  ] || [0, 0];
+  return { retailWaste, consumerWaste };
+};
+
 export default async function computeFootprintsForEachRpcWithOrigin(
   envFactors?: EnvFactors
 ): Promise<string[][]> {
@@ -77,15 +89,6 @@ export default async function computeFootprintsForEachRpcWithOrigin(
   ];
 
   const names = namesJson as Record<string, string>;
-
-  const diets = codesInRecipes.map((code) => [
-    {
-      code,
-      amount: 1000,
-      consumerWaste: 0,
-      retailWaste: 0,
-    },
-  ]);
 
   const RE = new ResultsEngine();
   RE.setEnvFactors(envFactors || allEnvImpacts);
@@ -109,6 +112,14 @@ export default async function computeFootprintsForEachRpcWithOrigin(
     }
 
     RE.setRpcFactors(rpcParameters);
+
+    const diets = codesInRecipes.map((code) => [
+      {
+        code,
+        amount: 1000,
+        ...getWasteFactors(country, code),
+      },
+    ]);
 
     const impactsPerDiet = diets
       .map((diet) => {
