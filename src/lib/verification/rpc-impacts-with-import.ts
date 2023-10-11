@@ -83,6 +83,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
     "Name",
     "L1 Category",
     "L2 Category",
+    "% Waste (Retail- and consumer)",
     ...AGGREGATE_HEADERS,
     "Processes",
     "Packeting",
@@ -137,11 +138,15 @@ export default async function computeFootprintsForEachRpcWithOrigin(
         const processes = listAllProcesses(processImpacts).join("$");
         const packeting = listAllProcesses(packagingImpacts).join("$");
 
+        const combinedWaste =
+          ((1 + diet[0].retailWaste) * (1 + diet[0].consumerWaste)) - 1;
+
         return [
           rpc,
           maybeQuoteValue(names[rpc] || "NAME NOT FOUND"),
           maybeQuoteValue(getCategoryName(rpc, 1)),
           maybeQuoteValue(getCategoryName(rpc, 2)),
+          combinedWaste.toFixed(2),
           ...aggregateImpacts(
             rpcImpacts,
             processImpacts,
