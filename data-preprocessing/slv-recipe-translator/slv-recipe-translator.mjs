@@ -92,7 +92,7 @@ function main(args) {
         slvId,
         _slvName,
         _i1Name,
-        _i1Share,
+        i1Share,
         _i1Desc,
         i1ProcessName,
         _i1YieldFactor,
@@ -109,6 +109,7 @@ function main(args) {
         slvId,
         codeTranslator(i1FoodEx2Code),
         processTranslator(i1ProcessName),
+        toFloat(i1Share, 0),
         toFloat(i1NetShare, 0),
         codeTranslator(i2FoodEx2Code),
         processTranslator(i2ProcessName),
@@ -119,7 +120,7 @@ function main(args) {
     // i.e. i2 when there is one, and otherwise i1.
     // Also record track of which processes and their amounts
     .map(
-      ([slvId, i1Code, i1Process, i1NetShare, i2Code, i2Process, i2Yield]) => {
+      ([slvId, i1Code, i1Process, i1Share, i1NetShare, i2Code, i2Process, i2Yield]) => {
         const processes = [];
         if (i1Process) {
           processes.push({ code: i1Process, amount: i1NetShare });
@@ -129,7 +130,7 @@ function main(args) {
           return {
             slvId,
             i1Code,
-            i1Amount: i1NetShare,
+            i1Amount: i1Share,
             code: i1Code,
             amount: i1NetShare,
             processes,
@@ -143,7 +144,7 @@ function main(args) {
         return {
           slvId,
           i1Code,
-          i1Amount: i1NetShare,
+          i1Amount: i1Share,
           code: i2Code,
           amount: i1NetShare * i2Yield,
           processes,
