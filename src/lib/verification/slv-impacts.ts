@@ -15,7 +15,7 @@ import wasteFactors from "@/data/waste-factors.json";
 import ResultsEngine from "@/lib/ResultsEngine";
 import { ENV_IMPACTS_ZERO } from "@/lib/constants";
 import { computeProcessImpacts } from "@/lib/process-emissions";
-import { getRpcCodeSubset } from "@/lib/utils";
+import { getRpcCodeSubset, listAllProcesses } from "@/lib/utils";
 
 const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
 const rpcFile = swedenRpcFactors.data as unknown as RpcFactors;
@@ -67,7 +67,7 @@ export default async function computeSlvImpacts(): Promise<string> {
 
   const headerStr =
     "SLV Code,SLV Name,Ingredient Code,FoodEx2 code,Ingredient Name,Net Amount (g)," +
-    AGGREGATE_HEADERS.join(",");
+    AGGREGATE_HEADERS.join(",") + ",Processes,Packaging";
 
   const data = Object.entries(slvRecipes).map(([slvCode, ingredients]) => {
     const BASE_AMOUNT = 1000; // grams, = 1 kg
@@ -98,6 +98,8 @@ export default async function computeSlvImpacts(): Promise<string> {
         ]);
 
         let impactsVector = ENV_IMPACTS_ZERO;
+        let processes = "";
+        let packaging = "";
         if (impacts !== null) {
           const processImpacts = addProcesses(
             impacts[1],
@@ -110,6 +112,8 @@ export default async function computeSlvImpacts(): Promise<string> {
             impacts[2],
             impacts[3]
           );
+          processes = listAllProcesses(processImpacts).join("$");
+          packaging = listAllProcesses(impacts[2]).join("$");
         }
 
         const i1Name = maybeQuote(rpcNames[code] || "(Name not found)");
@@ -121,6 +125,8 @@ export default async function computeSlvImpacts(): Promise<string> {
           i1Name,
           grossShare * BASE_AMOUNT,
           ...impactsVector,
+          processes,
+          packaging,
         ];
       }
     );
