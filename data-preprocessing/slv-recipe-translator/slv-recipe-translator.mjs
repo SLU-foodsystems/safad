@@ -2,6 +2,7 @@
 
 import * as utils from "../utils.mjs";
 
+/** @param {number} val */
 const perc2Decimal = (val) => val / 100;
 
 /**
@@ -46,6 +47,10 @@ const getCodeTranslator = (csvFile) => {
 
   const missingCodes = new Set();
 
+  /**
+   * @param {string} foodEx2Code
+   * @returns {string}
+   */
   return (foodEx2Code) => {
     if (!foodEx2Code) return "";
 
@@ -78,6 +83,10 @@ function main(args) {
   const processTranslator = getProcessTranslator(processTranslationsCsv);
   const codeTranslator = getCodeTranslator(foodExTranslationsCsv);
 
+  /**
+   * @param {string} str
+   * @param {number?} fallback
+   */
   const toFloat = (str, fallback = 0) => {
     const f = Number.parseFloat(str.trim());
     return Number.isNaN(f) ? fallback : f;
