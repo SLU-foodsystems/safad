@@ -25,7 +25,7 @@ const swedenWasteFactors = wasteFactors.Sweden as Record<string, number[]>;
 
 const slvRecipes = slvRecipesJson as unknown as Record<
   string,
-  [string, string, number, string, number, { [code: string]: number }][]
+  [string, string, number, number, string][]
 >;
 
 const getWaste = (rpcCode: string) => {
@@ -73,28 +73,37 @@ export default async function computeSlvImpacts(): Promise<string> {
     const BASE_AMOUNT = 1000; // grams, = 1 kg
     const slvName = maybeQuote(slvNames[slvCode]);
 
-    const slvProcesses: { [facet: string]: number } = {};
-    ingredients.forEach(([_i1Code, _i1ShortCode, _i1Share, _rpcCode, processes]) =>
-      Object.entries(processes).forEach(([facet, perc]) => {
-        slvProcesses[facet] = (slvProcesses[facet] || 0) + perc * BASE_AMOUNT;
-      })
+    // Gather all slv-level processes
+    const slvProcesses: { [process: string]: number } = {};
+    ingredients.forEach(
+      ([_code, _shortCode, _grossShare, netShare, process]) => {
+        if (!process) return;
+        slvProcesses[process] =
+          (slvProcesses[process] || 0) + netShare * BASE_AMOUNT;
+      }
     );
 
     // Now, compute the impact of each diet element seperately
     const disaggregateImpacts = ingredients.map(
-      ([i1Code, i1ShortCode, i1GrossShare, rpcCode, share, processes]) => {
-        const [retailWaste, consumerWaste] = getWaste(i1Code);
+      ([code, shortCode, grossShare, netShare, process]) => {
+        const [retailWaste, consumerWaste] = getWaste(code);
+        const netAmount = netShare * BASE_AMOUNT;
         const impacts = RE.computeImpacts([
           {
-            code: rpcCode,
-            amount: share * BASE_AMOUNT,
+            code,
+            amount: netAmount,
             retailWaste,
             consumerWaste,
           },
         ]);
+
         let impactsVector = ENV_IMPACTS_ZERO;
         if (impacts !== null) {
-          const processImpacts = addProcesses(impacts[1], processes, RE);
+          const processImpacts = addProcesses(
+            impacts[1],
+            process ? { [process]: netAmount } : {},
+            RE
+          );
           impactsVector = aggregateImpacts(
             impacts[0],
             processImpacts,
@@ -103,14 +112,14 @@ export default async function computeSlvImpacts(): Promise<string> {
           );
         }
 
-        const i1Name = maybeQuote(rpcNames[i1Code] || "(Name not found)");
+        const i1Name = maybeQuote(rpcNames[code] || "(Name not found)");
         return [
           slvCode,
           slvName,
-          i1Code,
-          i1ShortCode,
+          code,
+          shortCode,
           i1Name,
-          i1GrossShare * BASE_AMOUNT,
+          grossShare * BASE_AMOUNT,
           ...impactsVector,
         ];
       }
@@ -120,12 +129,14 @@ export default async function computeSlvImpacts(): Promise<string> {
     // the sum of the disaggregate ones, but we will also add the processes to
     // it below.)
     const totalImpacts = RE.computeImpacts(
-      ingredients.map(([i1Code, _i1ShortCode, _i1PercAmount, rpcCode, percAmount]) => ({
-        code: rpcCode,
-        amount: percAmount * BASE_AMOUNT,
-        retailWaste: getWaste(i1Code)[0],
-        consumerWaste: getWaste(i1Code)[1],
-      }))
+      ingredients.map(
+        ([code, _i1ShortCode, _grossShare, netShare]) => ({
+          code,
+          amount: netShare * BASE_AMOUNT,
+          retailWaste: getWaste(code)[0],
+          consumerWaste: getWaste(code)[1],
+        })
+      )
     );
     if (totalImpacts === null) return [[]];
 
