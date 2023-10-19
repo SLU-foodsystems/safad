@@ -8,7 +8,7 @@
 //
 // Output (stdout):
 //
-// { data: { [rpcCode]: {
+// { data: { [suaCode]: {
 //    [origin]: { [share, waste] as [number, number] }
 // }} } as JSON
 //
