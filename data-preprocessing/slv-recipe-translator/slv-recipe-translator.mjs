@@ -95,107 +95,43 @@ function main(args) {
   // Select only the relevant information of each row, replacing
   //  - foodex2 codes with fooxex1 codes
   //  - slv process names with foodex process/facet codes
-  const ingredientsList = recipes
-    .map(
-      ([
-        slvId,
-        _slvName,
-        _i1Name,
-        i1Share,
-        _i1Desc,
-        i1ProcessName,
-        _i1YieldFactor,
-        _i1PublicationSource,
-        i1FoodEx2Code,
-        i1NetShare,
-        _i1NetAmountDesc,
-        _i2Name,
-        i2ProcessName,
-        i2YieldFactor,
-        _i2PublicationSource,
-        i2FoodEx2Code,
-      ]) => [
-        slvId,
-        i1FoodEx2Code,
-        codeTranslator(i1FoodEx2Code),
-        processTranslator(i1ProcessName),
-        toFloat(i1Share, 0),
-        toFloat(i1NetShare, 0),
-        codeTranslator(i2FoodEx2Code),
-        processTranslator(i2ProcessName),
-        toFloat(i2YieldFactor, 1),
-      ]
-    )
-    // Now, take each row and break it down to the smallest of the two ingredients,
-    // i.e. i2 when there is one, and otherwise i1.
-    // Also record track of which processes and their amounts
-    .map(
-      ([
-        slvId,
-        i1FoodEx2Code,
-        i1Code,
-        i1Process,
-        i1Share,
-        i1NetShare,
-        i2Code,
-        i2Process,
-        i2Yield,
-      ]) => {
-        const processes = [];
-        if (i1Process) {
-          processes.push({ code: i1Process, amount: i1NetShare });
-        }
-
-        const common = {
-          slvId,
-          i1Code,
-          i1Share,
-          i1FoodEx2Code,
-        };
-
-        if (!i2Code) {
-          return {
-            ...common,
-            code: i1Code,
-            amount: i1NetShare,
-            processes,
-          };
-        }
-
-        if (i2Process) {
-          processes.push({ code: i2Process, amount: i1NetShare * i2Yield });
-        }
-
-        return {
-          ...common,
-          code: i2Code,
-          amount: i1NetShare * i2Yield,
-          processes,
-        };
-      }
-    );
+  const ingredientsList = recipes.map(
+    ([
+      slvId,
+      _slvName,
+      _i1Name,
+      i1Share,
+      _i1Desc,
+      i1ProcessName,
+      _i1YieldFactor,
+      _i1PublicationSource,
+      i1FoodEx2Code,
+      i1NetShare,
+      _i1NetAmountDesc,
+      _i2Name,
+    ]) => ({
+      slvId,
+      code: codeTranslator(i1FoodEx2Code),
+      foodEx2Code: i1FoodEx2Code,
+      process: processTranslator(i1ProcessName),
+      grossShare: toFloat(i1Share, 0),
+      netShare: toFloat(i1NetShare, 0),
+    })
+  );
 
   const results = {};
   ingredientsList.forEach(
-    ({ slvId, i1FoodEx2Code, i1Code, i1Share, code, amount, processes }) => {
+    ({ slvId, foodEx2Code, grossShare, code, netShare, process }) => {
       if (!results[slvId]) {
         results[slvId] = [];
       }
-
-      const processesObj = {};
-      processes.forEach(({ code, amount }) => {
-        processesObj[code] = (processesObj[code] || 0) + perc2Decimal(amount);
-      });
-
-      const item = [
-        i1Code,
-        i1FoodEx2Code,
-        perc2Decimal(i1Share),
+      results[slvId].push([
         code,
-        perc2Decimal(amount),
-        processesObj,
-      ];
-      results[slvId].push(item);
+        foodEx2Code,
+        perc2Decimal(grossShare),
+        perc2Decimal(netShare),
+        process || "",
+      ]);
     }
   );
 
