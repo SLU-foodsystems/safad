@@ -67,7 +67,8 @@ export default async function computeSlvImpacts(): Promise<string> {
 
   const headerStr =
     "SLV Code,SLV Name,Ingredient Code,FoodEx2 code,Ingredient Name,Net Amount (g)," +
-    AGGREGATE_HEADERS.join(",") + ",Processes,Packaging";
+    AGGREGATE_HEADERS.join(",") +
+    ",Processes,Packaging";
 
   const data = Object.entries(slvRecipes).map(([slvCode, ingredients]) => {
     const BASE_AMOUNT = 1000; // grams, = 1 kg
@@ -135,14 +136,12 @@ export default async function computeSlvImpacts(): Promise<string> {
     // the sum of the disaggregate ones, but we will also add the processes to
     // it below.)
     const totalImpacts = RE.computeImpacts(
-      ingredients.map(
-        ([code, _i1ShortCode, _grossShare, netShare]) => ({
-          code,
-          amount: netShare * BASE_AMOUNT,
-          retailWaste: getWaste(code)[0],
-          consumerWaste: getWaste(code)[1],
-        })
-      )
+      ingredients.map(([code, _i1ShortCode, _grossShare, netShare]) => ({
+        code,
+        amount: netShare * BASE_AMOUNT,
+        retailWaste: getWaste(code)[0],
+        consumerWaste: getWaste(code)[1],
+      }))
     );
     if (totalImpacts === null) return [[]];
 
