@@ -1,4 +1,4 @@
-"Facet Code","Process","Energy Consumption","Note","Electricity","Heating oil","Natural gas","Other fossil energy sources","Bark and chips","Pellets and briquettes","Other renewable energy sources","Diesel fuel","District heating"
+"Facet Code","Process","Energy Consumption","Approximation","Electricity","Heating oil","Natural gas","Other fossil energy sources","Bark and chips","Pellets and briquettes","Other renewable energy sources","Diesel fuel","District heating"
 "F28.A07JZ","Bacteria fermentation",0.395,,,,0.395,,,,,,
 "F28.A07GZ","Broiling/grilling",2,,2.000,,,,,,,,
 "F28.A0BYP","Canning / jarring",5.55,,0.355,4.285,0.908,,,,,,
@@ -40,7 +40,3 @@
 "F28.A07LK","Parboiling / pre-gelatinising",1.18,,0.113,,1.071,,,,,,
 "F28.A07MN","Decaffeinating",0.81,"Extraction",0.202,0.006,0.603,,,,,,
 "F28.A0BZT","Refining",1.81,,0.079,0.243,1.485,,,,,,
-"F28.A0BA2","",0,,0,0,0,,,,,,
-"F28.A0BA3","",0,,0,0,0,,,,,,
-"F28.A0BA4","",0,,0,0,0,,,,,,
-"F28.A0BA6","",0,,0,0,0,,,,,,
