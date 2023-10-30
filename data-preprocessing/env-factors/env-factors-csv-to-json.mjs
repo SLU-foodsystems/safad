@@ -55,6 +55,11 @@ function main(args) {
   Object.keys(structured).forEach((suaCode) => {
     const factorsPerOrigin = structured[suaCode];
     const numberOfOrigins = Object.values(factorsPerOrigin).length;
+
+    // Abort if RoW is present. Not really necessary, since source data should
+    // not contain RoW AND country-specific import data - but just in case.
+    if (Object.keys(factorsPerOrigin).includes("RoW")) return;
+
     const average = Object.values(factorsPerOrigin)
       .reduce((acc, factors) => {
         return acc ? acc.map((x, i) => x + factors[i]) : factors;
