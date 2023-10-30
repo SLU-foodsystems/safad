@@ -55,6 +55,10 @@ export default function flattenEnvironmentalFactors(
           if (!envImpacts[origin]) {
             origin = "RoW";
           }
+
+          if (origin === "RoW" && !envImpacts[origin]) {
+            console.error("RoW missing for sua " + suaCode);
+          }
           return envImpacts[origin].map((x) => ratio * x);
         })
         .reduce((a, b) => a.map((x, i) => x + b[i]), ENV_IMPACTS_ZERO);
