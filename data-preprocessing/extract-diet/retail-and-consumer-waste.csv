@@ -63,19 +63,19 @@
 "A.07.04","Crustaceans","Sweden","SE",0.09,0.11
 "A.07.05","Water molluscs","Sweden","SE",0.09,0.11
 "A.07.06","Amphibians, reptiles, snails, insects","Sweden","SE",0.09,0.11
-"A.08","Milk and dairy products","Sweden","SE",0.005,0.07
-"A.08.01","Liquid milk","Sweden","SE",0.005,0.07
-"A.08.02","Milk based beverages","Sweden","SE",0.005,0.07
-"A.08.03","Concentrated milk","Sweden","SE",0.005,0.07
-"A.08.04","Whey and whey products (excluding whey cheese)","Sweden","SE",0.005,0.07
-"A.08.05","Cream and cream products","Sweden","SE",0.005,0.07
-"A.08.06","Fermented milk products","Sweden","SE",0.005,0.07
-"A.08.07","Milk derivatives","Sweden","SE",0.005,0.07
-"A.08.08","Cheese","Sweden","SE",0.005,0.07
-"A.08.09","Milk and milk product imitates","Sweden","SE",0.005,0.07
-"A.09","Eggs and egg products","Sweden","SE",0.005,0.07
-"A.09.01","Eggs, fresh","Sweden","SE",0.005,0.07
-"A.09.02","Eggs, powder","Sweden","SE",0.005,0.07
+"A.08","Milk and dairy products","Sweden","SE",0.01,0.07
+"A.08.01","Liquid milk","Sweden","SE",0.01,0.07
+"A.08.02","Milk based beverages","Sweden","SE",0.01,0.07
+"A.08.03","Concentrated milk","Sweden","SE",0.01,0.07
+"A.08.04","Whey and whey products (excluding whey cheese)","Sweden","SE",0.01,0.07
+"A.08.05","Cream and cream products","Sweden","SE",0.01,0.07
+"A.08.06","Fermented milk products","Sweden","SE",0.01,0.07
+"A.08.07","Milk derivatives","Sweden","SE",0.01,0.07
+"A.08.08","Cheese","Sweden","SE",0.01,0.07
+"A.08.09","Milk and milk product imitates","Sweden","SE",0.01,0.07
+"A.09","Eggs and egg products","Sweden","SE",0.01,0.07
+"A.09.01","Eggs, fresh","Sweden","SE",0.01,0.07
+"A.09.02","Eggs, powder","Sweden","SE",0.01,0.07
 "A.10","Sugar and confectionary","Sweden","SE",0.01,0.04
 "A.10.01","Sugars","Sweden","SE",0.01,0.04
 "A.10.02","Sugar substitutes","Sweden","SE",0.01,0.04
@@ -91,15 +91,15 @@
 "A.11.04","Vegetable oil","Sweden","SE",0.01,0.04
 "A.11.05","Fats of mixed origin","Sweden","SE",0.01,0.04
 "A.11.06","Margarine and similar products","Sweden","SE",0.01,0.04
-"A.12","Fruit and vegetable juices","Sweden","SE",0.1,0.19
-"A.12.01","Fruit juice","Sweden","SE",0.1,0.19
-"A.12.02","Concentrated fruit juice","Sweden","SE",0.1,0.19
-"A.12.03","Fruit nectar","Sweden","SE",0.1,0.19
-"A.12.04","Mixed fruit juice","Sweden","SE",0.1,0.19
-"A.12.05","Dehydrated/powdered fruit juice","Sweden","SE",0.1,0.19
-"A.12.06","Vegetable juice","Sweden","SE",0.1,0.19
-"A.12.07","Mixed vegetable juice","Sweden","SE",0.1,0.19
-"A.12.08","Mixed fruit and vegetable juice","Sweden","SE",0.1,0.19
+"A.12","Fruit and vegetable juices","Sweden","SE",0.10,0.19
+"A.12.01","Fruit juice","Sweden","SE",0.10,0.19
+"A.12.02","Concentrated fruit juice","Sweden","SE",0.10,0.19
+"A.12.03","Fruit nectar","Sweden","SE",0.10,0.19
+"A.12.04","Mixed fruit juice","Sweden","SE",0.10,0.19
+"A.12.05","Dehydrated/powdered fruit juice","Sweden","SE",0.10,0.19
+"A.12.06","Vegetable juice","Sweden","SE",0.10,0.19
+"A.12.07","Mixed vegetable juice","Sweden","SE",0.10,0.19
+"A.12.08","Mixed fruit and vegetable juice","Sweden","SE",0.10,0.19
 "A.13","Non-alcoholic beverages (excepting milk based beverages)","Sweden","SE",0.01,0.04
 "A.13.01","Soft drinks","Sweden","SE",0.01,0.04
 "A.13.02","Tea (Infusion)","Sweden","SE",0.01,0.04
@@ -114,11 +114,11 @@
 "A.14.05","Liqueur","Sweden","SE",0.01,0.04
 "A.14.06","Spirits","Sweden","SE",0.01,0.04
 "A.14.07","Alcoholic mixed drinks","Sweden","SE",0.01,0.04
-"A.15","Drinking water (water without any additives except carbon dioxide; includes water ice for consumption)","Sweden","SE",0,0
-"A.15.01","Tap water","Sweden","SE",0,0
-"A.15.02","Well water","Sweden","SE",0,0
-"A.15.03","Bottled water","Sweden","SE",0,0
-"A.15.04","Water ice (for consumption)","Sweden","SE",0,0
+"A.15","Drinking water (water without any additives except carbon dioxide; includes water ice for consumption)","Sweden","SE",0.00,0.00
+"A.15.01","Tap water","Sweden","SE",0.00,0.00
+"A.15.02","Well water","Sweden","SE",0.00,0.00
+"A.15.03","Bottled water","Sweden","SE",0.00,0.00
+"A.15.04","Water ice (for consumption)","Sweden","SE",0.00,0.00
 "A.16","Herbs, spices and condiments","Sweden","SE",0.01,0.04
 "A.16.01","Herbs","Sweden","SE",0.01,0.04
 "A.16.02","Spices","Sweden","SE",0.01,0.04
@@ -137,7 +137,7 @@
 "A.17.04","Follow-on formulae, liquid","Sweden","SE",0.04,0.11
 "A.17.05","Cereal-based food for infants and young children","Sweden","SE",0.04,0.11
 "A.17.06","Ready-to-eat meal for infants and young children","Sweden","SE",0.04,0.11
-"A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","Sweden","SE",0.005,0.07
+"A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","Sweden","SE",0.01,0.07
 "A.17.08","Fruit juice and herbal tea for infants and young children","Sweden","SE",0.01,0.04
 "A.18","Products for special nutritional use","Sweden","SE",0.04,0.11
 "A.18.01","Food for weight reduction","Sweden","SE",0.04,0.11
@@ -161,170 +161,170 @@
 "A.20.01","Snack food","Sweden","SE",0.04,0.11
 "A.20.02","Ices and desserts","Sweden","SE",0.04,0.11
 "A.20.03","Other foods (foods which cannot be included in any other group)","Sweden","SE",0.04,0.11
-"I.13.06","Energy drink","Sweden","SE",0.01,0.04
-"A.01","Grains and grain-based products","France","FR",0.02,0.25
-"A.01.01","Grains as crops","France","FR",0.02,0.25
-"A.01.02","Grains for human consumption","France","FR",0.02,0.25
-"A.01.03","Grain milling products","France","FR",0.02,0.25
-"A.01.04","Bread and rolls","France","FR",0.02,0.25
-"A.01.05","Pasta (Raw)","France","FR",0.02,0.25
-"A.01.06","Breakfast cereals","France","FR",0.02,0.25
-"A.01.07","Fine bakery wares","France","FR",0.02,0.25
-"A.02","Vegetables and vegetable products (including fungi)","France","FR",0.1,0.19
-"A.02.01","Root vegetables","France","FR",0.1,0.19
-"A.02.02","Bulb vegetables","France","FR",0.1,0.19
-"A.02.03","Fruiting vegetables","France","FR",0.1,0.19
-"A.02.04","Brassica vegetables","France","FR",0.1,0.19
-"A.02.05","Leaf vegetables","France","FR",0.1,0.19
-"A.02.06","Legume vegetables","France","FR",0.1,0.19
-"A.02.07","Stem vegetables (Fresh)","France","FR",0.1,0.19
-"A.02.08","Sugar plants","France","FR",0.1,0.19
-"A.02.09","Sea weeds","France","FR",0.09,0.11
-"A.02.10","Tea and herbs for infusions (Solid)","France","FR",0.01,0.04
-"A.02.11","Cocoa beans and cocoa products","France","FR",0.01,0.04
-"A.02.12","Coffee beans and coffee products (Solid)","France","FR",0.01,0.04
-"A.02.13","Coffee imitates (Solid)","France","FR",0.01,0.04
-"A.02.14","Vegetable products","France","FR",0.1,0.19
-"A.02.15","Fungi, cultivated","France","FR",0.1,0.19
-"A.02.16","Fungi, wild, edible","France","FR",0.1,0.19
-"A.03","Starchy roots and tubers","France","FR",0.07,0.17
-"A.03.01","Potatoes and potatoes products","France","FR",0.07,0.17
-"A.03.02","Other starchy roots and tubers","France","FR",0.07,0.17
-"A.04","Legumes, nuts and oilseeds","France","FR",0.01,0.04
-"A.04.01","Legumes, beans, green, without pods","France","FR",0.01,0.04
-"A.04.02","Legumes, beans, dried","France","FR",0.01,0.04
-"A.04.03","Tree nuts","France","FR",0.01,0.04
-"A.04.04","Oilseeds","France","FR",0.01,0.04
-"A.04.05","Other seeds","France","FR",0.01,0.04
-"A.05","Fruit and fruit products","France","FR",0.1,0.19
-"A.05.01","Citrus fruits","France","FR",0.1,0.19
-"A.05.02","Pome fruits","France","FR",0.1,0.19
-"A.05.03","Stone fruits","France","FR",0.1,0.19
-"A.05.04","Berries and small fruits","France","FR",0.1,0.19
-"A.05.05","Oilfruits","France","FR",0.1,0.19
-"A.05.06","Miscellaneous fruits","France","FR",0.1,0.19
-"A.05.07","Dried fruits","France","FR",0.1,0.19
-"A.05.08","Jam, marmalade and other fruit spreads","France","FR",0.1,0.19
-"A.05.09","Other fruit products (excluding beverages)","France","FR",0.1,0.19
-"A.06","Meat and meat products (including edible offal)","France","FR",0.04,0.11
-"A.06.01","Livestock meat","France","FR",0.04,0.11
-"A.06.02","Poultry","France","FR",0.04,0.11
-"A.06.03","Game mammals","France","FR",0.04,0.11
-"A.06.04","Game birds","France","FR",0.04,0.11
-"A.06.05","Mixed meat","France","FR",0.04,0.11
-"A.06.06","Edible offal, farmed animals","France","FR",0.04,0.11
-"A.06.07","Edible offal, game animals","France","FR",0.04,0.11
-"A.06.08","Preserved meat","France","FR",0.04,0.11
-"A.06.09","Sausages","France","FR",0.04,0.11
-"A.06.10","Meat specialities","France","FR",0.04,0.11
-"A.06.11","Pastes, pâtés and terrines","France","FR",0.04,0.11
-"A.06.12","Meat imitates","France","FR",0.04,0.11
-"A.07","Fish and other seafood (including amphibians, reptiles, snails and insects)","France","FR",0.09,0.11
-"A.07.01","Fish meat","France","FR",0.09,0.11
-"A.07.02","Fish products","France","FR",0.09,0.11
-"A.07.03","Fish offal","France","FR",0.09,0.11
-"A.07.04","Crustaceans","France","FR",0.09,0.11
-"A.07.05","Water molluscs","France","FR",0.09,0.11
-"A.07.06","Amphibians, reptiles, snails, insects","France","FR",0.09,0.11
-"A.08","Milk and dairy products","France","FR",0.005,0.07
-"A.08.01","Liquid milk","France","FR",0.005,0.07
-"A.08.02","Milk based beverages","France","FR",0.005,0.07
-"A.08.03","Concentrated milk","France","FR",0.005,0.07
-"A.08.04","Whey and whey products (excluding whey cheese)","France","FR",0.005,0.07
-"A.08.05","Cream and cream products","France","FR",0.005,0.07
-"A.08.06","Fermented milk products","France","FR",0.005,0.07
-"A.08.07","Milk derivatives","France","FR",0.005,0.07
-"A.08.08","Cheese","France","FR",0.005,0.07
-"A.08.09","Milk and milk product imitates","France","FR",0.005,0.07
-"A.09","Eggs and egg products","France","FR",0.005,0.07
-"A.09.01","Eggs, fresh","France","FR",0.005,0.07
-"A.09.02","Eggs, powder","France","FR",0.005,0.07
-"A.10","Sugar and confectionary","France","FR",0.01,0.04
-"A.10.01","Sugars","France","FR",0.01,0.04
-"A.10.02","Sugar substitutes","France","FR",0.01,0.04
-"A.10.03","Chocolate (Cocoa) products","France","FR",0.01,0.04
-"A.10.04","Confectionery (non-chocolate)","France","FR",0.01,0.04
-"A.10.05","Dessert sauces","France","FR",0.01,0.04
-"A.10.06","Molasses and other syrups","France","FR",0.01,0.04
-"A.10.07","Honey","France","FR",0.01,0.04
-"A.11","Animal and vegetable fats and oils","France","FR",0.01,0.04
-"A.11.01","Animal fat","France","FR",0.04,0.11
-"A.11.02","Fish oil","France","FR",0.09,0.11
-"A.11.03","Vegetable fat","France","FR",0.01,0.04
-"A.11.04","Vegetable oil","France","FR",0.01,0.04
-"A.11.05","Fats of mixed origin","France","FR",0.01,0.04
-"A.11.06","Margarine and similar products","France","FR",0.01,0.04
-"A.12","Fruit and vegetable juices","France","FR",0.1,0.19
-"A.12.01","Fruit juice","France","FR",0.1,0.19
-"A.12.02","Concentrated fruit juice","France","FR",0.1,0.19
-"A.12.03","Fruit nectar","France","FR",0.1,0.19
-"A.12.04","Mixed fruit juice","France","FR",0.1,0.19
-"A.12.05","Dehydrated/powdered fruit juice","France","FR",0.1,0.19
-"A.12.06","Vegetable juice","France","FR",0.1,0.19
-"A.12.07","Mixed vegetable juice","France","FR",0.1,0.19
-"A.12.08","Mixed fruit and vegetable juice","France","FR",0.1,0.19
-"A.13","Non-alcoholic beverages (excepting milk based beverages)","France","FR",0.01,0.04
-"A.13.01","Soft drinks","France","FR",0.01,0.04
-"A.13.02","Tea (Infusion)","France","FR",0.01,0.04
-"A.13.03","Coffee (Beverage)","France","FR",0.01,0.04
-"A.13.04","Coffee imitates beverage","France","FR",0.01,0.04
-"A.13.05","Cocoa beverage","France","FR",0.01,0.04
-"A.14","Alcoholic beverages","France","FR",0.01,0.04
-"A.14.01","Beer and beer-like beverage","France","FR",0.01,0.04
-"A.14.02","Wine","France","FR",0.01,0.04
-"A.14.03","Fortified and liqueur wines (e.g. Vermouth, Sherry, Madeira)","France","FR",0.01,0.04
-"A.14.04","Wine-like drinks (e.g. Cider, Perry)","France","FR",0.01,0.04
-"A.14.05","Liqueur","France","FR",0.01,0.04
-"A.14.06","Spirits","France","FR",0.01,0.04
-"A.14.07","Alcoholic mixed drinks","France","FR",0.01,0.04
-"A.15","Drinking water (water without any additives except carbon dioxide; includes water ice for consumption)","France","FR",0,0
-"A.15.01","Tap water","France","FR",0,0
-"A.15.02","Well water","France","FR",0,0
-"A.15.03","Bottled water","France","FR",0,0
-"A.15.04","Water ice (for consumption)","France","FR",0,0
-"A.16","Herbs, spices and condiments","France","FR",0.01,0.04
-"A.16.01","Herbs","France","FR",0.01,0.04
-"A.16.02","Spices","France","FR",0.01,0.04
-"A.16.03","Herb and spice mixtures","France","FR",0.01,0.04
-"A.16.04","Seasoning or extracts","France","FR",0.01,0.04
-"A.16.05","Condiment","France","FR",0.01,0.04
-"A.16.06","Dressing","France","FR",0.01,0.04
-"A.16.07","Chutney and pickles","France","FR",0.01,0.04
-"A.16.08","Savoury sauces","France","FR",0.01,0.04
-"A.16.09","Flavourings or essences","France","FR",0.01,0.04
-"A.16.10","Baking ingredients","France","FR",0.01,0.04
-"A.17","Food for infants and small children","France","FR",0.04,0.11
-"A.17.01","Infant formulae, powder","France","FR",0.04,0.11
-"A.17.02","Infant formulae, liquid","France","FR",0.04,0.11
-"A.17.03","Follow-on formulae, powder","France","FR",0.04,0.11
-"A.17.04","Follow-on formulae, liquid","France","FR",0.04,0.11
-"A.17.05","Cereal-based food for infants and young children","France","FR",0.04,0.11
-"A.17.06","Ready-to-eat meal for infants and young children","France","FR",0.04,0.11
-"A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","France","FR",0.005,0.07
-"A.17.08","Fruit juice and herbal tea for infants and young children","France","FR",0.01,0.04
-"A.18","Products for special nutritional use","France","FR",0.04,0.11
-"A.18.01","Food for weight reduction","France","FR",0.04,0.11
-"A.18.02","Dietary supplements","France","FR",0.04,0.11
-"A.18.03","Food for sports people (labelled as such)","France","FR",0.04,0.11
-"A.18.04","Dietetic food for diabetics (labelled as such)","France","FR",0.04,0.11
-"A.18.05","Medical food (are specially formulated and intended for the dietary management of a disease that has distinctive nutritional needs that cannot be met by normal diet alone; intended to be used under medical supervision)","France","FR",0.04,0.11
+"A.13.06","Energy drink","Sweden","SE",0.01,0.04
+"A.01","Grains and grain-based products","France","FR",0.04,0.05
+"A.01.01","Grains as crops","France","FR",0.04,0.05
+"A.01.02","Grains for human consumption","France","FR",0.04,0.05
+"A.01.03","Grain milling products","France","FR",0.04,0.05
+"A.01.04","Bread and rolls","France","FR",0.04,0.05
+"A.01.05","Pasta (Raw)","France","FR",0.04,0.05
+"A.01.06","Breakfast cereals","France","FR",0.04,0.05
+"A.01.07","Fine bakery wares","France","FR",0.04,0.05
+"A.02","Vegetables and vegetable products (including fungi)","France","FR",0.04,0.08
+"A.02.01","Root vegetables","France","FR",0.04,0.08
+"A.02.02","Bulb vegetables","France","FR",0.04,0.08
+"A.02.03","Fruiting vegetables","France","FR",0.04,0.08
+"A.02.04","Brassica vegetables","France","FR",0.04,0.08
+"A.02.05","Leaf vegetables","France","FR",0.04,0.08
+"A.02.06","Legume vegetables","France","FR",0.04,0.08
+"A.02.07","Stem vegetables (Fresh)","France","FR",0.04,0.08
+"A.02.08","Sugar plants","France","FR",0.04,0.08
+"A.02.09","Sea weeds","France","FR",0.04,0.08
+"A.02.10","Tea and herbs for infusions (Solid)","France","FR",0.04,0.08
+"A.02.11","Cocoa beans and cocoa products","France","FR",0.04,0.08
+"A.02.12","Coffee beans and coffee products (Solid)","France","FR",0.04,0.08
+"A.02.13","Coffee imitates (Solid)","France","FR",0.04,0.08
+"A.02.14","Vegetable products","France","FR",0.04,0.08
+"A.02.15","Fungi, cultivated","France","FR",0.04,0.08
+"A.02.16","Fungi, wild, edible","France","FR",0.04,0.08
+"A.03","Starchy roots and tubers","France","FR",0.04,0.05
+"A.03.01","Potatoes and potatoes products","France","FR",0.04,0.05
+"A.03.02","Other starchy roots and tubers","France","FR",0.04,0.05
+"A.04","Legumes, nuts and oilseeds","France","FR",0.04,0.08
+"A.04.01","Legumes, beans, green, without pods","France","FR",0.04,0.08
+"A.04.02","Legumes, beans, dried","France","FR",0.04,0.08
+"A.04.03","Tree nuts","France","FR",0.06,0.08
+"A.04.04","Oilseeds","France","FR",0.04,0.05
+"A.04.05","Other seeds","France","FR",0.04,0.05
+"A.05","Fruit and fruit products","France","FR",0.06,0.08
+"A.05.01","Citrus fruits","France","FR",0.06,0.08
+"A.05.02","Pome fruits","France","FR",0.06,0.08
+"A.05.03","Stone fruits","France","FR",0.06,0.08
+"A.05.04","Berries and small fruits","France","FR",0.06,0.08
+"A.05.05","Oilfruits","France","FR",0.04,0.05
+"A.05.06","Miscellaneous fruits","France","FR",0.06,0.08
+"A.05.07","Dried fruits","France","FR",0.06,0.08
+"A.05.08","Jam, marmalade and other fruit spreads","France","FR",0.06,0.08
+"A.05.09","Other fruit products (excluding beverages)","France","FR",0.06,0.08
+"A.06","Meat and meat products (including edible offal)","France","FR",0.03,0.08
+"A.06.01","Livestock meat","France","FR",0.03,0.08
+"A.06.02","Poultry","France","FR",0.03,0.08
+"A.06.03","Game mammals","France","FR",0.03,0.08
+"A.06.04","Game birds","France","FR",0.03,0.08
+"A.06.05","Mixed meat","France","FR",0.03,0.08
+"A.06.06","Edible offal, farmed animals","France","FR",0.03,0.08
+"A.06.07","Edible offal, game animals","France","FR",0.03,0.08
+"A.06.08","Preserved meat","France","FR",0.03,0.08
+"A.06.09","Sausages","France","FR",0.03,0.08
+"A.06.10","Meat specialities","France","FR",0.03,0.08
+"A.06.11","Pastes, pâtés and terrines","France","FR",0.03,0.08
+"A.06.12","Meat imitates","France","FR",0.03,0.08
+"A.07","Fish and other seafood (including amphibians, reptiles, snails and insects)","France","FR",0.03,0.08
+"A.07.01","Fish meat","France","FR",0.03,0.08
+"A.07.02","Fish products","France","FR",0.03,0.08
+"A.07.03","Fish offal","France","FR",0.03,0.08
+"A.07.04","Crustaceans","France","FR",0.03,0.08
+"A.07.05","Water molluscs","France","FR",0.03,0.08
+"A.07.06","Amphibians, reptiles, snails, insects","France","FR",0.03,0.08
+"A.08","Milk and dairy products","France","FR",0.03,0.08
+"A.08.01","Liquid milk","France","FR",0.03,0.08
+"A.08.02","Milk based beverages","France","FR",0.03,0.08
+"A.08.03","Concentrated milk","France","FR",0.03,0.08
+"A.08.04","Whey and whey products (excluding whey cheese)","France","FR",0.03,0.08
+"A.08.05","Cream and cream products","France","FR",0.03,0.08
+"A.08.06","Fermented milk products","France","FR",0.03,0.08
+"A.08.07","Milk derivatives","France","FR",0.03,0.08
+"A.08.08","Cheese","France","FR",0.03,0.08
+"A.08.09","Milk and milk product imitates","France","FR",0.03,0.08
+"A.09","Eggs and egg products","France","FR",0.03,0.08
+"A.09.01","Eggs, fresh","France","FR",0.03,0.08
+"A.09.02","Eggs, powder","France","FR",0.03,0.08
+"A.10","Sugar and confectionary","France","FR",0.04,0.05
+"A.10.01","Sugars","France","FR",0.04,0.05
+"A.10.02","Sugar substitutes","France","FR",0.04,0.05
+"A.10.03","Chocolate (Cocoa) products","France","FR",0.06,0.08
+"A.10.04","Confectionery (non-chocolate)","France","FR",0.06,0.08
+"A.10.05","Dessert sauces","France","FR",0.04,0.05
+"A.10.06","Molasses and other syrups","France","FR",0.04,0.05
+"A.10.07","Honey","France","FR",0.03,0.08
+"A.11","Animal and vegetable fats and oils","France","FR",0.03,0.08
+"A.11.01","Animal fat","France","FR",0.03,0.08
+"A.11.02","Fish oil","France","FR",0.03,0.08
+"A.11.03","Vegetable fat","France","FR",0.04,0.05
+"A.11.04","Vegetable oil","France","FR",0.04,0.05
+"A.11.05","Fats of mixed origin","France","FR",0.04,0.07
+"A.11.06","Margarine and similar products","France","FR",0.03,0.08
+"A.12","Fruit and vegetable juices","France","FR",0.06,0.08
+"A.12.01","Fruit juice","France","FR",0.06,0.08
+"A.12.02","Concentrated fruit juice","France","FR",0.06,0.08
+"A.12.03","Fruit nectar","France","FR",0.06,0.08
+"A.12.04","Mixed fruit juice","France","FR",0.06,0.08
+"A.12.05","Dehydrated/powdered fruit juice","France","FR",0.06,0.08
+"A.12.06","Vegetable juice","France","FR",0.04,0.08
+"A.12.07","Mixed vegetable juice","France","FR",0.04,0.08
+"A.12.08","Mixed fruit and vegetable juice","France","FR",0.04,0.08
+"A.13","Non-alcoholic beverages (excepting milk based beverages)","France","FR",0.04,0.05
+"A.13.01","Soft drinks","France","FR",0.04,0.05
+"A.13.02","Tea (Infusion)","France","FR",0.04,0.08
+"A.13.03","Coffee (Beverage)","France","FR",0.06,0.08
+"A.13.04","Coffee imitates beverage","France","FR",0.06,0.08
+"A.13.05","Cocoa beverage","France","FR",0.06,0.08
+"A.14","Alcoholic beverages","France","FR",0.04,0.05
+"A.14.01","Beer and beer-like beverage","France","FR",0.04,0.05
+"A.14.02","Wine","France","FR",0.06,0.08
+"A.14.03","Fortified and liqueur wines (e.g. Vermouth, Sherry, Madeira)","France","FR",0.06,0.08
+"A.14.04","Wine-like drinks (e.g. Cider, Perry)","France","FR",0.06,0.08
+"A.14.05","Liqueur","France","FR",0.04,0.05
+"A.14.06","Spirits","France","FR",0.04,0.05
+"A.14.07","Alcoholic mixed drinks","France","FR",0.04,0.05
+"A.15","Drinking water (water without any additives except carbon dioxide; includes water ice for consumption)","France","FR",0.00,0.00
+"A.15.01","Tap water","France","FR",0.00,0.00
+"A.15.02","Well water","France","FR",0.00,0.00
+"A.15.03","Bottled water","France","FR",0.00,0.00
+"A.15.04","Water ice (for consumption)","France","FR",0.00,0.00
+"A.16","Herbs, spices and condiments","France","FR",0.04,0.08
+"A.16.01","Herbs","France","FR",0.04,0.08
+"A.16.02","Spices","France","FR",0.04,0.08
+"A.16.03","Herb and spice mixtures","France","FR",0.04,0.08
+"A.16.04","Seasoning or extracts","France","FR",0.04,0.08
+"A.16.05","Condiment","France","FR",0.04,0.08
+"A.16.06","Dressing","France","FR",0.04,0.07
+"A.16.07","Chutney and pickles","France","FR",0.04,0.08
+"A.16.08","Savoury sauces","France","FR",0.04,0.05
+"A.16.09","Flavourings or essences","France","FR",0.04,0.08
+"A.16.10","Baking ingredients","France","FR",0.04,0.08
+"A.17","Food for infants and small children","France","FR",0.04,0.07
+"A.17.01","Infant formulae, powder","France","FR",0.04,0.07
+"A.17.02","Infant formulae, liquid","France","FR",0.04,0.07
+"A.17.03","Follow-on formulae, powder","France","FR",0.04,0.07
+"A.17.04","Follow-on formulae, liquid","France","FR",0.04,0.07
+"A.17.05","Cereal-based food for infants and young children","France","FR",0.04,0.05
+"A.17.06","Ready-to-eat meal for infants and young children","France","FR",0.04,0.07
+"A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","France","FR",0.03,0.08
+"A.17.08","Fruit juice and herbal tea for infants and young children","France","FR",0.06,0.08
+"A.18","Products for special nutritional use","France","FR",0.04,0.07
+"A.18.01","Food for weight reduction","France","FR",0.04,0.07
+"A.18.02","Dietary supplements","France","FR",0.04,0.07
+"A.18.03","Food for sports people (labelled as such)","France","FR",0.04,0.07
+"A.18.04","Dietetic food for diabetics (labelled as such)","France","FR",0.04,0.07
+"A.18.05","Medical food (are specially formulated and intended for the dietary management of a disease that has distinctive nutritional needs that cannot be met by normal diet alone; intended to be used under medical supervision)","France","FR",0.04,0.07
 "A.19","Composite food (including frozen products)","France","FR",0.04,0.11
-"A.19.01","Cereal-based dishes","France","FR",0.04,0.11
-"A.19.02","Rice-based meals","France","FR",0.04,0.11
-"A.19.03","Potato based dishes","France","FR",0.04,0.11
-"A.19.04","Beans-based meals","France","FR",0.04,0.11
-"A.19.05","Meat-based meals","France","FR",0.04,0.11
-"A.19.06","Fish and seafood based meals","France","FR",0.04,0.11
-"A.19.07","Vegetable-based meals","France","FR",0.04,0.11
-"A.19.08","Egg-based meal (e.g., omelette)","France","FR",0.04,0.11
-"A.19.09","Mushroom-based meals","France","FR",0.04,0.11
-"A.19.10","Ready to eat soups","France","FR",0.04,0.11
-"A.19.11","Prepared salads","France","FR",0.04,0.11
-"A.20","Snacks, desserts, and other foods","France","FR",0.04,0.11
-"A.20.01","Snack food","France","FR",0.04,0.11
-"A.20.02","Ices and desserts","France","FR",0.04,0.11
-"A.20.03","Other foods (foods which cannot be included in any other group)","France","FR",0.04,0.11
-"I.13.06","Energy drink","France","FR",0.01,0.04
+"A.19.01","Cereal-based dishes","France","FR",0.04,0.05
+"A.19.02","Rice-based meals","France","FR",0.04,0.05
+"A.19.03","Potato based dishes","France","FR",0.04,0.05
+"A.19.04","Beans-based meals","France","FR",0.04,0.08
+"A.19.05","Meat-based meals","France","FR",0.03,0.08
+"A.19.06","Fish and seafood based meals","France","FR",0.03,0.08
+"A.19.07","Vegetable-based meals","France","FR",0.04,0.08
+"A.19.08","Egg-based meal (e.g., omelette)","France","FR",0.03,0.08
+"A.19.09","Mushroom-based meals","France","FR",0.04,0.08
+"A.19.10","Ready to eat soups","France","FR",0.03,0.08
+"A.19.11","Prepared salads","France","FR",0.04,0.08
+"A.20","Snacks, desserts, and other foods","France","FR",0.04,0.05
+"A.20.01","Snack food","France","FR",0.04,0.05
+"A.20.02","Ices and desserts","France","FR",0.04,0.05
+"A.20.03","Other foods (foods which cannot be included in any other group)","France","FR",0.04,0.07
+"A.13.06","Energy drink","France","FR",0.04,0.05
 "A.01","Grains and grain-based products","Germany","DE",0.02,0.25
 "A.01.01","Grains as crops","Germany","DE",0.02,0.25
 "A.01.02","Grains for human consumption","Germany","DE",0.02,0.25
@@ -487,7 +487,7 @@
 "A.20.01","Snack food","Germany","DE",0.04,0.11
 "A.20.02","Ices and desserts","Germany","DE",0.04,0.11
 "A.20.03","Other foods (foods which cannot be included in any other group)","Germany","DE",0.04,0.11
-"I.13.06","Energy drink","Germany","DE",0.01,0.04
+"A.13.06","Energy drink","Germany","DE",0.01,0.04
 "A.01","Grains and grain-based products","Italy","IT",0.02,0.25
 "A.01.01","Grains as crops","Italy","IT",0.02,0.25
 "A.01.02","Grains for human consumption","Italy","IT",0.02,0.25
@@ -650,7 +650,7 @@
 "A.20.01","Snack food","Italy","IT",0.04,0.11
 "A.20.02","Ices and desserts","Italy","IT",0.04,0.11
 "A.20.03","Other foods (foods which cannot be included in any other group)","Italy","IT",0.04,0.11
-"I.13.06","Energy drink","Italy","IT",0.01,0.04
+"A.13.06","Energy drink","Italy","IT",0.01,0.04
 "A.01","Grains and grain-based products","Spain","ES",0.02,0.25
 "A.01.01","Grains as crops","Spain","ES",0.02,0.25
 "A.01.02","Grains for human consumption","Spain","ES",0.02,0.25
@@ -813,7 +813,7 @@
 "A.20.01","Snack food","Spain","ES",0.04,0.11
 "A.20.02","Ices and desserts","Spain","ES",0.04,0.11
 "A.20.03","Other foods (foods which cannot be included in any other group)","Spain","ES",0.04,0.11
-"I.13.06","Energy drink","Spain","ES",0.01,0.04
+"A.13.06","Energy drink","Spain","ES",0.01,0.04
 "A.01","Grains and grain-based products","Poland","PL",0.02,0.25
 "A.01.01","Grains as crops","Poland","PL",0.02,0.25
 "A.01.02","Grains for human consumption","Poland","PL",0.02,0.25
@@ -976,7 +976,7 @@
 "A.20.01","Snack food","Poland","PL",0.04,0.11
 "A.20.02","Ices and desserts","Poland","PL",0.04,0.11
 "A.20.03","Other foods (foods which cannot be included in any other group)","Poland","PL",0.04,0.11
-"I.13.06","Energy drink","Poland","PL",0.01,0.04
+"A.13.06","Energy drink","Poland","PL",0.01,0.04
 "A.01","Grains and grain-based products","Ireland","IE",0.02,0.25
 "A.01.01","Grains as crops","Ireland","IE",0.02,0.25
 "A.01.02","Grains for human consumption","Ireland","IE",0.02,0.25
@@ -1139,7 +1139,7 @@
 "A.20.01","Snack food","Ireland","IE",0.04,0.11
 "A.20.02","Ices and desserts","Ireland","IE",0.04,0.11
 "A.20.03","Other foods (foods which cannot be included in any other group)","Ireland","IE",0.04,0.11
-"I.13.06","Energy drink","Ireland","IE",0.01,0.04
+"A.13.06","Energy drink","Ireland","IE",0.01,0.04
 "A.01","Grains and grain-based products","Greece","GR",0.02,0.25
 "A.01.01","Grains as crops","Greece","GR",0.02,0.25
 "A.01.02","Grains for human consumption","Greece","GR",0.02,0.25
@@ -1302,7 +1302,7 @@
 "A.20.01","Snack food","Greece","GR",0.04,0.11
 "A.20.02","Ices and desserts","Greece","GR",0.04,0.11
 "A.20.03","Other foods (foods which cannot be included in any other group)","Greece","GR",0.04,0.11
-"I.13.06","Energy drink","Greece","GR",0.01,0.04
+"A.13.06","Energy drink","Greece","GR",0.01,0.04
 "A.01","Grains and grain-based products","Hungary","HU",0.02,0.25
 "A.01.01","Grains as crops","Hungary","HU",0.02,0.25
 "A.01.02","Grains for human consumption","Hungary","HU",0.02,0.25
@@ -1465,4 +1465,4 @@
 "A.20.01","Snack food","Hungary","HU",0.04,0.11
 "A.20.02","Ices and desserts","Hungary","HU",0.04,0.11
 "A.20.03","Other foods (foods which cannot be included in any other group)","Hungary","HU",0.04,0.11
-"I.13.06","Energy drink","Hungary","HU",0.01,0.04
+"A.13.06","Energy drink","Hungary","HU",0.01,0.04
