@@ -40,6 +40,10 @@ class ResultsEngine {
   processEnvFactors: Record<string, number[]> | null = null;
 
   emissionsFactorsPackaging: null | Record<string, number[]> = null;
+  emissionsFactorsEnergy: null | Record<
+    string,
+    number[] | Record<string, number[]>
+  > = null;
 
   factorsOverrides: FactorsOverrides = {
     mode: "absolute",
@@ -122,7 +126,27 @@ class ResultsEngine {
 
   public setCountryCode(countryCode: string) {
     this.countryCode = countryCode;
-    this.processEnvFactors = getProcessEnvFactors(countryCode);
+    if (this.emissionsFactorsEnergy) {
+      this.processEnvFactors = getProcessEnvFactors(
+        countryCode,
+        this.emissionsFactorsEnergy
+      );
+    }
+  }
+
+  public setEmissionsFactorsEnergy(
+    emissionsFactorsProcesses: Record<
+      string,
+      number[] | Record<string, number[]>
+    >
+  ) {
+    this.emissionsFactorsEnergy = emissionsFactorsProcesses;
+    if (this.countryCode) {
+      this.processEnvFactors = getProcessEnvFactors(
+        this.countryCode,
+        this.emissionsFactorsEnergy
+      );
+    }
   }
 
   public setEmissionsFactorsPackaging(

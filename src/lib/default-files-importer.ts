@@ -1,8 +1,15 @@
 import emissionsFactorsPackagingUrl from "@/default-input-files/emissions-factors-packaging.csv?url";
-import { parseEmissionsFactorsPackaging } from "./input-files-parsers";
+import emissionsFactorsEnergyUrl from "@/default-input-files/emissions-factors-energy.csv?url";
+import {
+  parseEmissionsFactorsEnergy,
+  parseEmissionsFactorsPackaging,
+} from "./input-files-parsers";
 
-export async function emissionsFactorsPackaging() {
-  const csvString = await fetch(emissionsFactorsPackagingUrl).then((res) => {
+export async function fetchAndParseFile<T>(
+  url: string,
+  parser: (fileContent: string) => T
+) {
+  const csvString = await fetch(url).then((res) => {
     if (!res.ok) {
       throw new Error(res.statusText);
     }
@@ -10,5 +17,19 @@ export async function emissionsFactorsPackaging() {
     return res.text();
   });
 
-  return parseEmissionsFactorsPackaging(csvString);
+  return parser(csvString);
+}
+
+export async function emissionsFactorsPackaging() {
+  return fetchAndParseFile(
+    emissionsFactorsPackagingUrl,
+    parseEmissionsFactorsPackaging
+  );
+}
+
+export async function emissionsFactorsEnergy() {
+  return fetchAndParseFile(
+    emissionsFactorsEnergyUrl,
+    parseEmissionsFactorsEnergy
+  );
 }

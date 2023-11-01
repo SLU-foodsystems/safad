@@ -2,16 +2,10 @@ import { N_PROCESS_GHGS } from "@/lib/constants";
 import { mapValues } from "@/lib/utils";
 
 import processEnergyDemandsJson from "@/data/processes-energy-demands.json";
-import carrierGhgFactorsJson from "@/data/carrier-ghg-factors.json";
 
 const processEnergyDemands = processEnergyDemandsJson as Record<
   string,
   number[]
->;
-
-const carrierGhgFactors = carrierGhgFactorsJson as Record<
-  string,
-  number[] | Record<string, number[]>
 >;
 
 const CARRIER_ORDER = [
@@ -36,7 +30,8 @@ const hasCountryDependentDemands = (
  * country.
  */
 export function getProcessEnvFactors(
-  countryCode: string
+  countryCode: string,
+  emissionsFactors: Record<string, number[] | Record<string, number[]>>
 ): Record<string, number[]> {
   const result: Record<string, number[]> = {};
   Object.entries(processEnergyDemands).forEach(
@@ -47,7 +42,7 @@ export function getProcessEnvFactors(
         if (mjPerKg === 0) return;
 
         const carrier = CARRIER_ORDER[carrierIdx];
-        const demands = carrierGhgFactors[carrier];
+        const demands = emissionsFactors[carrier];
         const ghgsPerMj: number[] = hasCountryDependentDemands(carrier, demands)
           ? demands[countryCode]
           : demands;
