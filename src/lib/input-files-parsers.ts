@@ -16,3 +16,24 @@ export function parseEmissionsFactorsPackaging(csvString: string) {
     ])
   );
 }
+
+export function parseEmissionsFactorsEnergy(csvString: string) {
+  const csv = parseCsvFile(csvString).slice(1); // Drop Header
+
+  const emissionsFactors: Record<string, number[] | Record<string, number[]>> =
+    { Electricity: {} };
+
+  csv
+    .map((row) => row.map((x) => x.trim()))
+    .forEach(([carrier, _country, countryCode, ...ghgsStrs]) => {
+      const ghgs = ghgsStrs.map((x) => (x ? parseFloat(x) : 0));
+      if (carrier === "Electricity") {
+        (emissionsFactors[carrier] as Record<string, number[]>)[countryCode] =
+          ghgs;
+      } else {
+        emissionsFactors[carrier] = ghgs;
+      }
+    });
+
+  return emissionsFactors;
+}
