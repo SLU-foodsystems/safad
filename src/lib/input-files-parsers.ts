@@ -84,3 +84,14 @@ export function parseProcessesEnergyDemands(csvString: string) {
     })
   );
 }
+
+export function parseProcessesPackaging(csvString: string) {
+  const data = parseCsvFile(csvString).slice(1);
+
+  const packagingData = Object.fromEntries(data.map((row) => [row[0], row[7]]));
+  const preparationProcessesData = Object.fromEntries(
+    data.map((row) => [row[2], row[4]]).filter((pair) => pair[1] !== "")
+  );
+
+  return { ...packagingData, ...preparationProcessesData };
+}

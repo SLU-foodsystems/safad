@@ -21,6 +21,7 @@ import {
   emissionsFactorsEnergy,
   emissionsFactorsPackaging,
   emissionsFactorsTransport,
+  processesAndPackagingData,
   processesEnergyDemands,
 } from "../default-files-importer";
 
@@ -104,6 +105,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
   RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
   RE.setProcessesEnergyDemands(await processesEnergyDemands());
+  RE.setProcessesAndPackaging(await processesAndPackagingData());
 
   const syncRpcFiles = await Promise.all(
     LL_COUNTRIES.map(
