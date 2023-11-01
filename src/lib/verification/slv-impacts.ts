@@ -20,6 +20,7 @@ import {
   emissionsFactorsEnergy,
   emissionsFactorsPackaging,
   emissionsFactorsTransport,
+  processesAndPackagingData,
   processesEnergyDemands,
 } from "../default-files-importer";
 
@@ -75,6 +76,7 @@ export default async function computeSlvImpacts(): Promise<string> {
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
   RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
   RE.setProcessesEnergyDemands(await processesEnergyDemands());
+  RE.setProcessesAndPackaging(await processesAndPackagingData());
 
   const headerStr =
     "SLV Code,SLV Name,Ingredient Code,FoodEx2 code,Ingredient Name,Net Amount (g)," +

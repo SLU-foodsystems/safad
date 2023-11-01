@@ -37,6 +37,7 @@ import {
   emissionsFactorsEnergy,
   emissionsFactorsPackaging,
   emissionsFactorsTransport,
+  processesAndPackagingData,
   processesEnergyDemands,
 } from "../default-files-importer";
 
@@ -101,6 +102,7 @@ export async function computeFootprintsForDiets(
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
   RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
   RE.setProcessesEnergyDemands(await processesEnergyDemands());
+  RE.setProcessesAndPackaging(await processesAndPackagingData());
 
   const allResults = LL_COUNTRIES.map((country) => {
     if (country === "SwedenBaseline") {

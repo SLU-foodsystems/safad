@@ -2,12 +2,14 @@ import emissionsFactorsPackagingUrl from "@/default-input-files/emissions-factor
 import emissionsFactorsEnergyUrl from "@/default-input-files/emissions-factors-energy.csv?url";
 import emissionsFactorsTransportUrl from "@/default-input-files/emissions-factors-transport.csv?url";
 import processesEnergyDemandsUrl from "@/default-input-files/processes-energy-demands.csv?url";
+import processesAndPackagingUrl from "@/default-input-files/processes-packaging.csv?url";
 
 import {
   parseEmissionsFactorsEnergy,
   parseEmissionsFactorsPackaging,
   parseEmissionsFactorsTransport,
   parseProcessesEnergyDemands,
+  parseProcessesPackaging,
 } from "./input-files-parsers";
 
 export async function fetchAndParseFile<T>(
@@ -51,4 +53,8 @@ export async function processesEnergyDemands() {
     processesEnergyDemandsUrl,
     parseProcessesEnergyDemands
   );
+}
+
+export async function processesAndPackagingData() {
+  return fetchAndParseFile(processesAndPackagingUrl, parseProcessesPackaging);
 }

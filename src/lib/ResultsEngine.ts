@@ -7,7 +7,6 @@ import {
 
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import foodsRecipes from "@/data/foodex-recipes.json";
-import processesAndPackagingData from "@/data/processes-and-packaging.json";
 
 import flattenEnvironmentalFactors from "./env-impact-aggregator";
 import {
@@ -44,6 +43,7 @@ class ResultsEngine {
     null;
 
   processesEnergyDemands: null | Record<string, number[]> = null;
+  processesAndPackaging: null | Record<string, string> = null;
 
   factorsOverrides: FactorsOverrides = {
     mode: "absolute",
@@ -172,8 +172,10 @@ class ResultsEngine {
     this.emissionsFactorsTransport = emissionsFactorsTransport;
   }
 
-  public isReady() {
-    return this.processEnvFactors !== null && this.envFactorsPerOrigin !== null;
+  public setProcessesAndPackaging(
+    processesAndPackaging: Record<string, string>
+  ) {
+    this.processesAndPackaging = processesAndPackaging;
   }
 
   public computeImpacts(
@@ -217,12 +219,19 @@ class ResultsEngine {
       return null;
     }
 
+    if (!this.processesAndPackaging) {
+      console.error(
+        "Compute called without processes and packaging set."
+      );
+      return null;
+    }
+
     const [
       rpcAmounts,
       processesAmounts,
       packetingAmounts,
       transportlessAmounts,
-    ] = reduceDiet(diet, recipes, processesAndPackagingData);
+    ] = reduceDiet(diet, recipes, this.processesAndPackaging);
 
     const rpcImpacts = Object.fromEntries(
       rpcAmounts
