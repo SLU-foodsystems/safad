@@ -17,7 +17,7 @@ import wasteFactorsJson from "@/data/waste-factors.json";
 
 import ResultsEngine from "@/lib/ResultsEngine";
 import { LL_COUNTRY_CODES } from "../constants";
-import { emissionsFactorsEnergy, emissionsFactorsPackaging } from "../default-files-importer";
+import { emissionsFactorsEnergy, emissionsFactorsPackaging, emissionsFactorsTransport } from "../default-files-importer";
 
 const foodsRecipes = foodsRecipesJson.data as unknown as FoodsRecipes;
 const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
@@ -96,6 +96,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
   RE.setEnvFactors(envFactors || allEnvImpacts);
   RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
+  RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
 
   const syncRpcFiles = await Promise.all(
     LL_COUNTRIES.map(

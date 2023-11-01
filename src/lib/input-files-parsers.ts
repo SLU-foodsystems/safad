@@ -37,3 +37,34 @@ export function parseEmissionsFactorsEnergy(csvString: string) {
 
   return emissionsFactors;
 }
+
+export function parseEmissionsFactorsTransport(csvString: string) {
+  const csv = parseCsvFile(csvString).slice(1); // Drop Header
+
+  const results: Record<string, Record<string, number[]>> = {};
+
+  csv
+    .map((row) => row.map((x) => x.trim())) // Trim all fields
+    .forEach(
+      ([
+        consumptionCountryCode,
+        _consumptionCountry,
+        productionCountryCode,
+        _productionCountry,
+        ...ghgsStrs
+      ]) => {
+        // Convert all GHG factors to numbers, falling back to 0 if missing
+        const ghgs = ghgsStrs
+          .map((x) => (x ? parseFloat(x) : 0))
+          .map((x) => (Number.isNaN(x) ? 0 : x));
+
+        if (!(consumptionCountryCode in results)) {
+          results[consumptionCountryCode] = {};
+        }
+
+        results[consumptionCountryCode][productionCountryCode] = ghgs;
+      }
+    );
+
+  return results;
+}

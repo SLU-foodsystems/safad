@@ -1,8 +1,11 @@
 import emissionsFactorsPackagingUrl from "@/default-input-files/emissions-factors-packaging.csv?url";
 import emissionsFactorsEnergyUrl from "@/default-input-files/emissions-factors-energy.csv?url";
+import emissionsFactorsTransportUrl from "@/default-input-files/emissions-factors-transport.csv?url";
+
 import {
   parseEmissionsFactorsEnergy,
   parseEmissionsFactorsPackaging,
+  parseEmissionsFactorsTransport,
 } from "./input-files-parsers";
 
 export async function fetchAndParseFile<T>(
@@ -31,5 +34,12 @@ export async function emissionsFactorsEnergy() {
   return fetchAndParseFile(
     emissionsFactorsEnergyUrl,
     parseEmissionsFactorsEnergy
+  );
+}
+
+export async function emissionsFactorsTransport() {
+  return fetchAndParseFile(
+    emissionsFactorsTransportUrl,
+    parseEmissionsFactorsTransport
   );
 }
