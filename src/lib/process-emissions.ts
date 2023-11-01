@@ -44,7 +44,7 @@ export function getProcessEnvFactors(
         if (!ghgsPerMj) {
           throw new Error(
             `Could not find process carrier impacts for ` +
-            `(carrier, country) = (${carrier}, ${countryCode}).`
+              `(carrier, country) = (${carrier}, ${countryCode}).`
           );
         }
 

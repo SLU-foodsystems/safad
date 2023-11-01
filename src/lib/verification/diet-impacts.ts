@@ -3,10 +3,7 @@
  */
 
 import { uniq } from "@/lib/utils";
-import {
-  expandedImpacts,
-  AGGREGATE_HEADERS,
-} from "@/lib/impacts-csv-utils";
+import { expandedImpacts, AGGREGATE_HEADERS } from "@/lib/impacts-csv-utils";
 
 import allEnvImpactsJson from "@/data/env-factors.json";
 import categoryNamesJson from "@/data/category-names.json";
@@ -31,8 +28,17 @@ import swedenDiet from "@/data/diets/Sweden.json";
 import swedenBaselineDiet from "@/data/diets/SwedenBaseline.json";
 
 import ResultsEngine from "@/lib/ResultsEngine";
-import { ENV_IMPACTS_ZERO, LL_COUNTRY_CODES, TRANSPORT_EMISSIONS_ZERO } from "../constants";
-import { emissionsFactorsEnergy, emissionsFactorsPackaging, emissionsFactorsTransport, processesEnergyDemands } from "../default-files-importer";
+import {
+  ENV_IMPACTS_ZERO,
+  LL_COUNTRY_CODES,
+  TRANSPORT_EMISSIONS_ZERO,
+} from "../constants";
+import {
+  emissionsFactorsEnergy,
+  emissionsFactorsPackaging,
+  emissionsFactorsTransport,
+  processesEnergyDemands,
+} from "../default-files-importer";
 
 const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
 

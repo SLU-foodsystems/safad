@@ -16,7 +16,12 @@ import ResultsEngine from "@/lib/ResultsEngine";
 import { ENV_IMPACTS_ZERO } from "@/lib/constants";
 import { computeProcessImpacts } from "@/lib/process-emissions";
 import { getRpcCodeSubset, listAllProcesses } from "@/lib/utils";
-import { emissionsFactorsEnergy, emissionsFactorsPackaging, emissionsFactorsTransport, processesEnergyDemands } from "../default-files-importer";
+import {
+  emissionsFactorsEnergy,
+  emissionsFactorsPackaging,
+  emissionsFactorsTransport,
+  processesEnergyDemands,
+} from "../default-files-importer";
 
 const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
 const rpcFile = swedenRpcFactors.data as unknown as RpcFactors;

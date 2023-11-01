@@ -17,7 +17,12 @@ import wasteFactorsJson from "@/data/waste-factors.json";
 
 import ResultsEngine from "@/lib/ResultsEngine";
 import { LL_COUNTRY_CODES } from "../constants";
-import { emissionsFactorsEnergy, emissionsFactorsPackaging, emissionsFactorsTransport, processesEnergyDemands } from "../default-files-importer";
+import {
+  emissionsFactorsEnergy,
+  emissionsFactorsPackaging,
+  emissionsFactorsTransport,
+  processesEnergyDemands,
+} from "../default-files-importer";
 
 const foodsRecipes = foodsRecipesJson.data as unknown as FoodsRecipes;
 const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
@@ -124,7 +129,10 @@ export default async function computeFootprintsForEachRpcWithOrigin(
       {
         code,
         amount: 1000,
-        ...getWasteFactors(country === "SwedenBaseline" ? "Sweden" : country, code),
+        ...getWasteFactors(
+          country === "SwedenBaseline" ? "Sweden" : country,
+          code
+        ),
       },
     ]);
 
@@ -145,7 +153,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
         const packeting = listAllProcesses(packagingImpacts).join("$");
 
         const combinedWaste =
-          ((1 + diet[0].retailWaste) * (1 + diet[0].consumerWaste)) - 1;
+          (1 + diet[0].retailWaste) * (1 + diet[0].consumerWaste) - 1;
 
         return [
           rpc,
