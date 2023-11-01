@@ -1,13 +1,6 @@
 import { N_PROCESS_GHGS } from "@/lib/constants";
 import { mapValues } from "@/lib/utils";
 
-import processEnergyDemandsJson from "@/data/processes-energy-demands.json";
-
-const processEnergyDemands = processEnergyDemandsJson as Record<
-  string,
-  number[]
->;
-
 const CARRIER_ORDER = [
   "Electricity",
   "Heating oil",
@@ -31,6 +24,7 @@ const hasCountryDependentDemands = (
  */
 export function getProcessEnvFactors(
   countryCode: string,
+  processEnergyDemands: Record<string, number[]>,
   emissionsFactors: Record<string, number[] | Record<string, number[]>>
 ): Record<string, number[]> {
   const result: Record<string, number[]> = {};

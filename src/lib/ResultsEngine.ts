@@ -43,6 +43,8 @@ class ResultsEngine {
   emissionsFactorsTransport: null | Record<string, Record<string, number[]>> =
     null;
 
+  processesEnergyDemands: null | Record<string, number[]> = null;
+
   factorsOverrides: FactorsOverrides = {
     mode: "absolute",
     productionWaste: null,
@@ -122,14 +124,23 @@ class ResultsEngine {
     this.factorsOverrides = overrides;
   }
 
-  public setCountryCode(countryCode: string) {
-    this.countryCode = countryCode;
-    if (this.emissionsFactorsEnergy) {
+  private attemptUpdateProcessEmissionsFactors() {
+    if (
+      this.countryCode &&
+      this.emissionsFactorsEnergy &&
+      this.processesEnergyDemands
+    ) {
       this.processEnvFactors = getProcessEnvFactors(
-        countryCode,
+        this.countryCode,
+        this.processesEnergyDemands,
         this.emissionsFactorsEnergy
       );
     }
+  }
+
+  public setCountryCode(countryCode: string) {
+    this.countryCode = countryCode;
+    this.attemptUpdateProcessEmissionsFactors();
   }
 
   public setEmissionsFactorsEnergy(
@@ -139,12 +150,14 @@ class ResultsEngine {
     >
   ) {
     this.emissionsFactorsEnergy = emissionsFactorsProcesses;
-    if (this.countryCode) {
-      this.processEnvFactors = getProcessEnvFactors(
-        this.countryCode,
-        this.emissionsFactorsEnergy
-      );
-    }
+    this.attemptUpdateProcessEmissionsFactors();
+  }
+
+  public setProcessesEnergyDemands(
+    processesEnergyDemands: Record<string, number[]>
+  ) {
+    this.processesEnergyDemands = processesEnergyDemands;
+    this.attemptUpdateProcessEmissionsFactors();
   }
 
   public setEmissionsFactorsPackaging(

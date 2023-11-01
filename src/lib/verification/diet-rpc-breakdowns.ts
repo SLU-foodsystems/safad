@@ -20,7 +20,7 @@ import swedenDiet from "@/data/diets/Sweden.json";
 import swedenBaselineDiet from "@/data/diets/SwedenBaseline.json";
 
 import processesAndPackagingData from "@/data/processes-and-packaging.json";
-import { emissionsFactorsEnergy, emissionsFactorsPackaging, emissionsFactorsTransport } from "../default-files-importer";
+import { emissionsFactorsEnergy, emissionsFactorsPackaging, emissionsFactorsTransport, processesEnergyDemands } from "../default-files-importer";
 
 const recipes = foodsRecipesJson.data as unknown as FoodsRecipes;
 const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
@@ -79,6 +79,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
   RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
   RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
+  RE.setProcessesEnergyDemands(await processesEnergyDemands());
 
   const allResults = LL_COUNTRIES.map((country) => {
     const subDiets = Object.entries(dietFiles[country])
