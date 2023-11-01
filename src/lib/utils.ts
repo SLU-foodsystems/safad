@@ -58,7 +58,7 @@ export function vectorsSum(lists: number[][]): number[] {
 }
 
 export function aggregateBy<T>(
-  entries: [ string, T ][],
+  entries: [string, T][],
   grouper: (k: string) => string,
   aggregator: (v1: T, v2: T) => T
 ): Record<string, T> {
