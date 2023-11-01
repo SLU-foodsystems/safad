@@ -68,3 +68,19 @@ export function parseEmissionsFactorsTransport(csvString: string) {
 
   return results;
 }
+
+export function parseProcessesEnergyDemands(csvString: string) {
+  const csv = parseCsvFile(csvString).slice(1);
+
+  // TODO: ensure length of demandsStrs is correct
+  return Object.fromEntries(
+    csv.map(([code, _processName, _totalEnergy, _note, ...demandsStrs]) => {
+      // Covnert from strings to numbers
+      const demands = demandsStrs.map((x) => {
+        const val = Number.parseFloat(x) || 0;
+        return Number.isNaN(x) ? 0 : val;
+      });
+      return [code, demands];
+    })
+  );
+}
