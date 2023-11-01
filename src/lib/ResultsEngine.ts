@@ -8,7 +8,6 @@ import {
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import foodsRecipes from "@/data/foodex-recipes.json";
 import processesAndPackagingData from "@/data/processes-and-packaging.json";
-import transportEmissionsFactorsJson from "@/data/transport-emissions-factors.json";
 
 import flattenEnvironmentalFactors from "./env-impact-aggregator";
 import {
@@ -18,14 +17,11 @@ import {
   vectorSum,
   vectorsSum,
 } from "./utils";
+
 import computeTransportEmissions from "./transport-emissions";
 
 const recipes = foodsRecipes.data as unknown as FoodsRecipes;
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
-const transportEmissionsFactors = transportEmissionsFactorsJson as Record<
-  string,
-  Record<string, number[]>
->;
 
 /**
  * Ties all parts of computing the results into a singleton.
@@ -44,6 +40,8 @@ class ResultsEngine {
     string,
     number[] | Record<string, number[]>
   > = null;
+  emissionsFactorsTransport: null | Record<string, Record<string, number[]>> =
+    null;
 
   factorsOverrides: FactorsOverrides = {
     mode: "absolute",
@@ -155,6 +153,12 @@ class ResultsEngine {
     this.emissionsFactorsPackaging = emissionsFactorsPackaging;
   }
 
+  public setEmissionsFactorsTransport(
+    emissionsFactorsTransport: Record<string, Record<string, number[]>>
+  ) {
+    this.emissionsFactorsTransport = emissionsFactorsTransport;
+  }
+
   public isReady() {
     return this.processEnvFactors !== null && this.envFactorsPerOrigin !== null;
   }
@@ -189,6 +193,13 @@ class ResultsEngine {
     if (!this.emissionsFactorsPackaging) {
       console.error(
         "Compute called without emissions factors for packaging set."
+      );
+      return null;
+    }
+
+    if (!this.emissionsFactorsTransport) {
+      console.error(
+        "Compute called without emissions factors for transport set."
       );
       return null;
     }
@@ -235,7 +246,7 @@ class ResultsEngine {
           rpcToSuaMap[rpcCode],
           amount - (transportlessAmounts[rpcCode] || 0),
           this.rpcParameters!,
-          transportEmissionsFactors[this.countryCode!],
+          this.emissionsFactorsTransport![this.countryCode!],
           this.countryCode!
         ),
       ])
