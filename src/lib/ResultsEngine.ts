@@ -8,7 +8,6 @@ import {
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
 import foodsRecipes from "@/data/foodex-recipes.json";
 import processesAndPackagingData from "@/data/processes-and-packaging.json";
-import packetingEmissionsFactorsJson from "@/data/packeting-emissions-factors.json";
 import transportEmissionsFactorsJson from "@/data/transport-emissions-factors.json";
 
 import flattenEnvironmentalFactors from "./env-impact-aggregator";
@@ -23,10 +22,6 @@ import computeTransportEmissions from "./transport-emissions";
 
 const recipes = foodsRecipes.data as unknown as FoodsRecipes;
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
-const packetingEmissionsFactors = packetingEmissionsFactorsJson as Record<
-  string,
-  number[]
->;
 const transportEmissionsFactors = transportEmissionsFactorsJson as Record<
   string,
   Record<string, number[]>
@@ -43,6 +38,8 @@ class ResultsEngine {
 
   countryCode: string | null = null;
   processEnvFactors: Record<string, number[]> | null = null;
+
+  emissionsFactorsPackaging: null | Record<string, number[]> = null;
 
   factorsOverrides: FactorsOverrides = {
     mode: "absolute",
@@ -128,6 +125,12 @@ class ResultsEngine {
     this.processEnvFactors = getProcessEnvFactors(countryCode);
   }
 
+  public setEmissionsFactorsPackaging(
+    emissionsFactorsPackaging: Record<string, number[]>
+  ) {
+    this.emissionsFactorsPackaging = emissionsFactorsPackaging;
+  }
+
   public isReady() {
     return this.processEnvFactors !== null && this.envFactorsPerOrigin !== null;
   }
@@ -159,6 +162,13 @@ class ResultsEngine {
       return null;
     }
 
+    if (!this.emissionsFactorsPackaging) {
+      console.error(
+        "Compute called without emissions factors for packaging set."
+      );
+      return null;
+    }
+
     const [
       rpcAmounts,
       processesAmounts,
@@ -186,7 +196,7 @@ class ResultsEngine {
       Object.fromEntries(
         Object.entries(amounts).map(([packetingId, amount]) => [
           packetingId,
-          packetingEmissionsFactors[packetingId].map(
+          this.emissionsFactorsPackaging![packetingId].map(
             (x) => (x * amount) / 1000
           ),
         ])
