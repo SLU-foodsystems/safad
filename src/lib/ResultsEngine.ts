@@ -26,8 +26,8 @@ const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
  * Ties all parts of computing the results into a singleton.
  */
 class ResultsEngine {
-  envFactorsPerOrigin: EnvFactors | null = null;
-  flatEnvImpacts: EnvImpacts | null = null;
+  footprintsRpcsPerOrigin: EnvFactors | null = null;
+  footprintsRpcsMerged: EnvImpacts | null = null;
 
   rpcParameters: RpcFactors | null = null;
 
@@ -54,7 +54,7 @@ class ResultsEngine {
   };
 
   private recomputeEnvFootprints() {
-    if (!this.envFactorsPerOrigin) {
+    if (!this.footprintsRpcsPerOrigin) {
       console.info(
         "Method recomputeEnvFootprints called before env factors file was set."
       );
@@ -68,16 +68,16 @@ class ResultsEngine {
       return;
     }
 
-    this.flatEnvImpacts = flattenEnvironmentalFactors(
-      this.envFactorsPerOrigin,
+    this.footprintsRpcsMerged = flattenEnvironmentalFactors(
+      this.footprintsRpcsPerOrigin,
       this.rpcParameters,
       "conventional"
     );
   }
 
   // Replace the conventional environmental factors with a new set.
-  public setEnvFactors(conventional: EnvFactors) {
-    this.envFactorsPerOrigin = conventional;
+  public setFootprintsRpcs(footprintsRpcsPerOrigin: EnvFactors) {
+    this.footprintsRpcsPerOrigin = footprintsRpcsPerOrigin;
     this.recomputeEnvFootprints();
   }
 
@@ -85,7 +85,7 @@ class ResultsEngine {
     rpcCode: string,
     amountGram: number
   ): null | number[] {
-    if (!this.flatEnvImpacts) {
+    if (!this.footprintsRpcsMerged) {
       throw new Error("getEnvImpact called before sheets were assigned.");
     }
 
@@ -105,12 +105,12 @@ class ResultsEngine {
       return null;
     }
 
-    if (!this.flatEnvImpacts[suaCode]) {
+    if (!this.footprintsRpcsMerged[suaCode]) {
       // console.warn(`Missing factors for ${rpcCode} (${suaCode})`);
       return ENV_IMPACTS_ZERO;
     }
 
-    return this.flatEnvImpacts[suaCode].map((x) => (x * amountGram) / 1000);
+    return this.footprintsRpcsMerged[suaCode].map((x) => (x * amountGram) / 1000);
   }
 
   // Set the rpc-factors, i.e. the origin of each rpc, its share, and its
@@ -188,7 +188,7 @@ class ResultsEngine {
         Record<string, Record<string, number[]>>,
         Record<string, number[]>
       ] {
-    if (!this.envFactorsPerOrigin) {
+    if (!this.footprintsRpcsPerOrigin) {
       console.error(
         "Compute called when no environmentalFactorsSheet was set."
       );
@@ -320,7 +320,7 @@ class ResultsEngine {
   // Necessary for testing.
   public reset() {
     this.rpcParameters = null;
-    this.envFactorsPerOrigin = null;
+    this.footprintsRpcsPerOrigin = null;
   }
 }
 

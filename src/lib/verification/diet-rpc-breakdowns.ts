@@ -5,7 +5,6 @@
 import reduceDiet from "@/lib/rpc-reducer";
 import ResultsEngine from "@/lib/ResultsEngine";
 
-import allEnvImpactsJson from "@/data/env-factors.json";
 import foodsRecipesJson from "@/data/foodex-recipes.json";
 import rpcNamesJson from "@/data/rpc-names.json";
 
@@ -23,12 +22,12 @@ import {
   emissionsFactorsEnergy,
   emissionsFactorsPackaging,
   emissionsFactorsTransport,
+  footprintsRpcs,
   processesAndPackagingData,
   processesEnergyDemands,
 } from "../default-files-importer";
 
 const recipes = foodsRecipesJson.data as unknown as FoodsRecipes;
-const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
 const rpcNames = rpcNamesJson as Record<string, string>;
 
 type LlCountryName =
@@ -82,7 +81,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
   const processesAndPackagingCsvData = await processesAndPackagingData();
 
   const RE = new ResultsEngine();
-  RE.setEnvFactors(allEnvImpacts);
+  RE.setFootprintsRpcs(await footprintsRpcs());
   RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
   RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
@@ -100,7 +99,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
       .map((d) => [
         d.code,
         d.amount,
-        reduceDiet([d], recipes, processesAndPackagingData)[0],
+        reduceDiet([d], recipes, processesAndPackagingCsvData)[0],
       ]);
 
     const subDietRows: string[] = [];

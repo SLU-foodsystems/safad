@@ -2,9 +2,6 @@
 
 set -eu
 
-# Environmental factors with import factors
-node ./env-factors/env-factors-csv-to-json.mjs ./env-factors/env-factors.csv > ../src/data/env-factors.json
-
 # RPC parameters: done in two steps to allow for, in the future, to manually
 # adjust the values if we want to.
 # Step a: Generate csv files
