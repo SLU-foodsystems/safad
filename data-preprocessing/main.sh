@@ -2,22 +2,6 @@
 
 set -eu
 
-# Carrier GHG factors: GHG per energy type for each country
-node ./carrier-ghg-factors/carrier-ghg-factors-csv-to-json.mjs ./carrier-ghg-factors/carrier-ghg-factors.csv \
-  > ../src/data/carrier-ghg-factors.json
-
-# Transport emissions factors: emissions for each consumption/production pair
-node ./transport-emissions-factors/transports-emissions-factors-csv-to-json.mjs \
-  ./transport-emissions-factors/transports-emissions-factors.csv \
-  > ../src/data/transport-emissions-factors.json
-
-# Processes energy demands: Energy req. of each process
-node ./processes-energy-demand/processes-energy-demand-csv-json.mjs ./processes-energy-demand/processes-energy-demand.csv > ../src/data/processes-energy-demands.json
-
-
-# Flat environmental factors - without import factors, mostly for verification
-node ./env-factors/flat-env-factors-csv-to-json.mjs ./env-factors/env-factors.csv > ../src/data/env-factors-flat.json
-
 # Environmental factors with import factors
 node ./env-factors/env-factors-csv-to-json.mjs ./env-factors/env-factors.csv > ../src/data/env-factors.json
 
@@ -39,6 +23,3 @@ node ./rpc-sua-map/rpc-sua-csv-to-json.mjs ./rpc-sua-map/rpc-to-sua.csv > ../src
 
 # Create a json representation of the csvs
 node ./foodex-recipes/recipes-csv-parser.mjs ./foodex-recipes/foodex-recipes.csv ./foodex-recipes/foods-and-processes.csv > ../src/data/foodex-recipes.json
-
-# Processes and Packaging file: Additional processes and packaing data
-node ./processes-and-packaging/processes-and-packaging.mjs ./processes-and-packaging/processes-and-packaging.csv > ../src/data/processes-and-packaging.json
