@@ -9,7 +9,6 @@ import {
 } from "@/lib/utils";
 import { AGGREGATE_HEADERS, aggregateImpacts } from "@/lib/impacts-csv-utils";
 
-import allEnvImpactsJson from "@/data/env-factors.json";
 import categoryNamesJson from "@/data/category-names.json";
 import foodsRecipesJson from "@/data/foodex-recipes.json";
 import namesJson from "@/data/rpc-names.json";
@@ -21,12 +20,12 @@ import {
   emissionsFactorsEnergy,
   emissionsFactorsPackaging,
   emissionsFactorsTransport,
+  footprintsRpcs,
   processesAndPackagingData,
   processesEnergyDemands,
 } from "../default-files-importer";
 
 const foodsRecipes = foodsRecipesJson.data as unknown as FoodsRecipes;
-const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
 const wasteFactors = wasteFactorsJson as Record<
   string,
   Record<string, number[]>
@@ -100,7 +99,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
 
   const RE = new ResultsEngine();
 
-  RE.setEnvFactors(envFactors || allEnvImpacts);
+  RE.setFootprintsRpcs(envFactors || await footprintsRpcs());
   RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
   RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());

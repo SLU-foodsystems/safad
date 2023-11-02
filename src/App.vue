@@ -9,8 +9,6 @@ import getImpactsPerDiet from "@/lib/verification/diet-impacts";
 import getRpcsInDiet from "@/lib/verification/diet-rpc-breakdowns";
 import computeSlvImpacts from "@/lib/verification/slv-impacts";
 
-import parseEnvFactorsCsv from "@/lib/env-file-csv-string-parser";
-
 type FileState = "initial" | "loading" | "loaded" | "error";
 
 export default defineComponent({

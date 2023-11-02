@@ -5,7 +5,6 @@
 import { uniq } from "@/lib/utils";
 import { expandedImpacts, AGGREGATE_HEADERS } from "@/lib/impacts-csv-utils";
 
-import allEnvImpactsJson from "@/data/env-factors.json";
 import categoryNamesJson from "@/data/category-names.json";
 
 import franceRpcFactors from "@/data/rpc-parameters/France-rpc.json";
@@ -37,11 +36,10 @@ import {
   emissionsFactorsEnergy,
   emissionsFactorsPackaging,
   emissionsFactorsTransport,
+  footprintsRpcs,
   processesAndPackagingData,
   processesEnergyDemands,
 } from "../default-files-importer";
-
-const allEnvImpacts = allEnvImpactsJson.data as unknown as EnvFactors;
 
 type LlCountryName =
   | "France"
@@ -97,7 +95,7 @@ export async function computeFootprintsForDiets(
   envFactors?: EnvFactors
 ): Promise<[string, string[][]][]> {
   const RE = new ResultsEngine();
-  RE.setEnvFactors(envFactors || allEnvImpacts);
+  RE.setFootprintsRpcs(envFactors || await footprintsRpcs());
   RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
   RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());

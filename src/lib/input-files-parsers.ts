@@ -1,3 +1,4 @@
+import { ENV_IMPACTS_ZERO } from "@/lib/constants";
 import { parseCsvFile } from "@/lib/utils";
 
 export function parseEmissionsFactorsPackaging(csvString: string) {
@@ -94,4 +95,65 @@ export function parseProcessesPackaging(csvString: string) {
   );
 
   return { ...packagingData, ...preparationProcessesData };
+}
+
+export function parseFootprintsRpcs(csvString: string) {
+  const data = parseCsvFile(csvString).slice(1);
+  const EXPECTED_LENGTH = 16;
+
+  const structured = {} as EnvFactors;
+
+  data
+    .filter((x) => x.length > 1)
+    .forEach(
+      ([
+        _i,
+        code,
+        _name,
+        _category,
+        _originName,
+        originCode,
+        ...impactsStr
+      ]) => {
+        if (code.trim() === "NA") return;
+
+        // Handle the base-case, i.e. the initial acc.
+        if (!(code in structured)) {
+          structured[code] = {};
+        }
+
+        if (originCode.toLowerCase().trim() === "row") {
+          originCode = "RoW";
+        }
+
+        structured[code][originCode] = impactsStr.map((x) => {
+          const val = parseFloat(x);
+          return Number.isNaN(val) ? 0 : val;
+        });
+
+        while (structured[code][originCode].length < EXPECTED_LENGTH) {
+          structured[code][originCode].push(0);
+        }
+      }
+    );
+
+  // Set RoW to be the average
+  Object.entries(structured).forEach(([suaCode, factorsPerOrigin]) => {
+    // Abort if RoW already is defined
+    if (Object.keys(factorsPerOrigin).includes("RoW")) return;
+
+    const numberOfOrigins = Object.values(factorsPerOrigin).length;
+    const average = Object.values(factorsPerOrigin)
+      // Sum all values together
+      .reduce(
+        (acc, factors) => acc.map((x, i) => x + factors[i]),
+        ENV_IMPACTS_ZERO
+      )
+      // divide by the number of origins to get an average
+      .map((x: number) => x / numberOfOrigins);
+
+    structured[suaCode].RoW = average;
+  });
+
+  return structured;
 }
