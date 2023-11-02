@@ -89,18 +89,13 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
   RE.setProcessesAndPackaging(processesAndPackagingCsvData);
 
   const allResults = LL_COUNTRIES.map((country) => {
-    const subDiets = Object.entries(dietFiles[country])
-      .map(([code, [amount, retailWaste, consumerWaste]]) => ({
+    const subDiets = Object.entries(dietFiles[country]).map(
+      ([code, [amount]]) => [
         code,
         amount,
-        retailWaste,
-        consumerWaste,
-      }))
-      .map((d) => [
-        d.code,
-        d.amount,
-        reduceDiet([d], recipes, processesAndPackagingCsvData)[0],
-      ]);
+        reduceDiet([[code, amount]], recipes, processesAndPackagingCsvData)[0],
+      ]
+    );
 
     const subDietRows: string[] = [];
     subDiets.forEach(([code, amount, rpcs]) => {

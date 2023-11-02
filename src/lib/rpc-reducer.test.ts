@@ -1,13 +1,7 @@
 import { describe, expect, test } from "vitest";
 import reduceDiet from "./rpc-reducer";
 
-interface DietComponent {
-  code: string;
-  amount: number;
-  retailWaste: number;
-  consumerWaste: number;
-}
-
+type DietComponent = [string, number];
 type Diet = DietComponent[];
 
 // Component, Facet, proportion ([0, 1]%), reverse yield
@@ -18,28 +12,15 @@ describe("RPC reducer", () => {
   test("Handles direct RPCs", () => {
     const recipes: FoodsRecipes = {};
     const diet: Diet = [
-      {
-        code: "no-waste",
-        amount: 100,
-        retailWaste: 0,
-        consumerWaste: 0,
-      },
-      {
-        code: "with-waste",
-        amount: 200,
-        retailWaste: 0.1,
-        consumerWaste: 0.2,
-      },
+      ["foo", 100],
+      ["bar", 200],
     ];
 
     const [rpcs, facets] = reduceDiet(diet, recipes, {});
     expect(rpcs).toHaveLength(2);
-    // First, no waste
-    expect(rpcs[0]).toEqual(["no-waste", 100]);
 
-    // Second, correct waste factors
-    expect(rpcs[1][0]).toEqual("with-waste");
-    expect(rpcs[1][1]).toBeCloseTo(200 / (0.9 * 0.8));
+    expect(rpcs[0]).toEqual(["foo", 100]);
+    expect(rpcs[1]).toEqual(["bar", 200]);
 
     // No facets.
     expect(Object.keys(facets)).toHaveLength(0);
@@ -49,14 +30,7 @@ describe("RPC reducer", () => {
     const recipes: FoodsRecipes = {
       "A.01.example": [["A.01.example", ["facetA"], 1, 1]],
     };
-    const diet: Diet = [
-      {
-        code: "A.01.example",
-        amount: 100,
-        retailWaste: 0,
-        consumerWaste: 0,
-      },
-    ];
+    const diet: Diet = [["A.01.example", 100]];
 
     const [[rpc], processes] = reduceDiet(diet, recipes, {});
     expect(rpc[0]).toEqual("A.01.example");
@@ -77,14 +51,8 @@ describe("RPC reducer", () => {
       "A.01.02.001.002": [["A.01.02.001.003", ["F28.A0C04"], 1, 2]],
     };
 
-    const diet: Diet = [
-      {
-        code: "A.01.03.001.007", // Couscous
-        amount: 1000,
-        retailWaste: 0,
-        consumerWaste: 0,
-      },
-    ];
+    // Couscous
+    const diet: Diet = [["A.01.03.001.007", 1000]];
 
     const [rpcs, processes] = reduceDiet(diet, recipes, {});
     expect(rpcs).toHaveLength(1);
@@ -108,14 +76,7 @@ describe("RPC reducer", () => {
       ],
     };
 
-    const diet: Diet = [
-      {
-        code: "A.01.Pizza",
-        amount: 1000,
-        retailWaste: 0,
-        consumerWaste: 0,
-      },
-    ];
+    const diet: Diet = [["A.01.Pizza", 1000]];
 
     const [rpcs, processes] = reduceDiet(diet, recipes, {});
     expect(rpcs).toHaveLength(2);
@@ -144,29 +105,22 @@ describe("RPC reducer", () => {
       ],
     };
 
-    const diet: Diet = [
-      {
-        code: "A.01.02.003",
-        amount: 100,
-        retailWaste: 0.1,
-        consumerWaste: 0.3,
-      },
-    ];
+    const baseAmount = 100;
 
-    const baseWasteAmount = 100 / (0.9 * 0.7);
+    const diet: Diet = [["A.01.02.003", baseAmount]];
 
     const [rpcs, processes] = reduceDiet(diet, recipes, {});
     expect(rpcs).toHaveLength(3);
 
     // RPC 1
     expect(rpcs[0][0]).toEqual("A.01.11");
-    expect(rpcs[0][1]).toEqual(baseWasteAmount * 0.2 * 10 * 1 * 1.7);
+    expect(rpcs[0][1]).toEqual(baseAmount * 0.2 * 10 * 1 * 1.7);
     // RPC 2
     expect(rpcs[1][0]).toEqual("A.01.12");
-    expect(rpcs[1][1]).toBeCloseTo(baseWasteAmount * 0.8 * 1 * 0.5 * 2);
+    expect(rpcs[1][1]).toBeCloseTo(baseAmount * 0.8 * 1 * 0.5 * 2);
     // RPC 3
     expect(rpcs[2][0]).toEqual("A.01.13");
-    expect(rpcs[2][1]).toBeCloseTo(baseWasteAmount * 0.8 * 1 * 0.5 * 3);
+    expect(rpcs[2][1]).toBeCloseTo(baseAmount * 0.8 * 1 * 0.5 * 3);
 
     // Facets
     const processIds = [
@@ -178,14 +132,14 @@ describe("RPC reducer", () => {
     ];
     expect(processIds).toHaveLength(3);
     // FacetA: Should be 2 * the amount of A.01
-    expect(processes["A.01"].facetA).toBeCloseTo(baseWasteAmount);
+    expect(processes["A.01"].facetA).toBeCloseTo(baseAmount);
     // FacetB
     expect(processes["A.01"].facetB).toBeCloseTo(
-      baseWasteAmount * 0.2 * 10 + // A.01.0.1
-        baseWasteAmount * 0.8 * 1 * 0.5
+      baseAmount * 0.2 * 10 + // A.01.0.1
+        baseAmount * 0.8 * 1 * 0.5
     );
     // FacetC
-    expect(processes["A.01"].facetC).toBeCloseTo(baseWasteAmount * 0.8 * 0.5);
+    expect(processes["A.01"].facetC).toBeCloseTo(baseAmount * 0.8 * 0.5);
   });
 
   test("Merges reappering RPCs", () => {
@@ -200,56 +154,40 @@ describe("RPC reducer", () => {
         ["rpc1", [], 0.5, 3],
       ],
     };
-    const diet: Diet = [
-      {
-        code: "a",
-        amount: 100,
-        retailWaste: 0.1,
-        consumerWaste: 0.3,
-      },
-    ];
+    const baseAmount = 100;
 
-    const baseWasteAmount = 100 / (0.9 * 0.7);
+    const diet: Diet = [["a", baseAmount]];
 
     const [rpcs, _facets] = reduceDiet(diet, recipes, {});
     expect(rpcs).toHaveLength(2);
     // RPC 1
     expect(rpcs[0][0]).toEqual("rpc1");
     expect(rpcs[0][1]).toEqual(
-      baseWasteAmount * 0.8 * 1 * 0.5 * 3 + baseWasteAmount * 0.2 * 10 * 1 * 1.7
+      baseAmount * 0.8 * 1 * 0.5 * 3 + baseAmount * 0.2 * 10 * 1 * 1.7
     );
     // RPC 2
     expect(rpcs[1][0]).toEqual("rpc2");
-    expect(rpcs[1][1]).toBeCloseTo(baseWasteAmount * 0.8 * 1 * 0.5 * 2);
+    expect(rpcs[1][1]).toBeCloseTo(baseAmount * 0.8 * 1 * 0.5 * 2);
   });
 
   test("Handles combined facets", () => {
     const recipes: FoodsRecipes = {
       "A.01.123.01": [["A.01.123", ["facetA", "facetB", "facetC"], 0.8, 10]],
     };
-    const diet: Diet = [
-      {
-        code: "A.01.123.01",
-        amount: 100,
-        retailWaste: 0.1,
-        consumerWaste: 0.3,
-      },
-    ];
 
-    const outputAmount = 100 / (0.9 * 0.7);
-    const inputAmount = outputAmount * 0.8 * 10;
+    const diet: Diet = [["A.01.123.01", 100]];
 
     const [rpcs, processes] = reduceDiet(diet, recipes, {});
     expect(rpcs).toHaveLength(1);
     // RPC 1
     expect(rpcs[0][0]).toEqual("A.01.123");
-    expect(rpcs[0][1]).toEqual(inputAmount);
+    expect(rpcs[0][1]).toEqual(100 * 0.8 * 10);
 
     // We should add netAmount for all three facets
     expect(Object.keys(processes["A.01"])).toHaveLength(3);
-    expect(processes["A.01"].facetA).toBeCloseTo(outputAmount * 0.8);
-    expect(processes["A.01"].facetB).toBeCloseTo(outputAmount * 0.8);
-    expect(processes["A.01"].facetC).toBeCloseTo(outputAmount * 0.8);
+    expect(processes["A.01"].facetA).toBeCloseTo(100 * 0.8);
+    expect(processes["A.01"].facetB).toBeCloseTo(100 * 0.8);
+    expect(processes["A.01"].facetC).toBeCloseTo(100 * 0.8);
   });
 
   test("Adds processes for self-referencing recipes", () => {
@@ -259,40 +197,25 @@ describe("RPC reducer", () => {
         ["A.02", ["facetB"], 0.8, 1],
       ],
     };
-    const diet: Diet = [
-      {
-        code: "A.01",
-        amount: 100,
-        retailWaste: 0.1,
-        consumerWaste: 0.3,
-      },
-    ];
 
-    const baseWasteAmount = 100 / (0.9 * 0.7);
+    const diet: Diet = [["A.01", 100]];
 
     const [rpcs, processes] = reduceDiet(diet, recipes, {});
     expect(rpcs).toHaveLength(2);
     // RPC 1
     expect(rpcs[0][0]).toEqual("A.01");
-    expect(rpcs[0][1]).toEqual(baseWasteAmount * 0.2 * 10);
+    expect(rpcs[0][1]).toEqual(100 * 0.2 * 10);
     // RPC 2
     expect(rpcs[1][0]).toEqual("A.02");
-    expect(rpcs[1][1]).toBeCloseTo(baseWasteAmount * 0.8 * 1);
+    expect(rpcs[1][1]).toBeCloseTo(100 * 0.8 * 1);
 
-    expect(processes["A.01"].facetA).toEqual(baseWasteAmount * 0.2);
-    expect(processes["A.01"].facetB).toEqual(baseWasteAmount * 0.8);
+    expect(processes["A.01"].facetA).toEqual(100 * 0.2);
+    expect(processes["A.01"].facetB).toEqual(100 * 0.8);
   });
 
   describe("Preparation processes", () => {
     test("Direct: Adds processes to diet on L3 level", () => {
-      const diet: Diet = [
-        {
-          code: "A.19.01.002", // pizza
-          amount: 1000,
-          retailWaste: 0,
-          consumerWaste: 0,
-        },
-      ];
+      const pizza: Diet = [["A.19.01.002", 1000]];
       const preparationProcesses = {
         "A.19.01.002": "F28.A07GY",
       };
@@ -301,7 +224,7 @@ describe("RPC reducer", () => {
       };
 
       const [_rpcs, processes] = reduceDiet(
-        diet,
+        pizza,
         recipes,
         preparationProcesses
       );
@@ -310,14 +233,8 @@ describe("RPC reducer", () => {
       expect(processes["A.19"]["F28.A07GY"]).toEqual(1000);
     });
     test("Direct: Adds processes to diet entered > L3 level", () => {
-      const diet: Diet = [
-        {
-          code: "A.19.01.002.003", // pizza derivative
-          amount: 1234,
-          retailWaste: 0,
-          consumerWaste: 0,
-        },
-      ];
+      // pizza derivative
+      const diet: Diet = [["A.19.01.002.003", 1234]];
       const recipes: FoodsRecipes = {
         "A.19.01.002.003": [["A.19.01.002.003", [], 1, 1]],
       };
@@ -334,14 +251,8 @@ describe("RPC reducer", () => {
     });
 
     test("Indirect: Adds processes to diet entered > L3 level", () => {
-      const diet: Diet = [
-        {
-          code: "I.20.01.001.001", // Dummy product
-          amount: 1000,
-          retailWaste: 0,
-          consumerWaste: 0,
-        },
-      ];
+      // Dummy product
+      const diet: Diet = [["I.20.01.001.001", 1000]];
 
       // Let's pretend this leads to a pizza
       const recipes: FoodsRecipes = {
@@ -363,14 +274,7 @@ describe("RPC reducer", () => {
 
   describe("Packaging", () => {
     test("Direct: Adds packaging to diet on L2 level", () => {
-      const diet: Diet = [
-        {
-          code: "A.19.01",
-          amount: 1000,
-          retailWaste: 0,
-          consumerWaste: 0,
-        },
-      ];
+      const diet: Diet = [["A.19.01", 1000]];
       const preparationProcesses = {
         "A.19.01": "P2",
       };
@@ -388,14 +292,8 @@ describe("RPC reducer", () => {
       expect(packaging["A.19"]["P2"]).toEqual(1000);
     });
     test("Direct: Adds packaging to diet entered > L2 level", () => {
-      const diet: Diet = [
-        {
-          code: "A.19.01.002.003", // pizza derivative
-          amount: 1234,
-          retailWaste: 0,
-          consumerWaste: 0,
-        },
-      ];
+      // pizza derivative
+      const diet: Diet = [["A.19.01.002.003", 1234]];
       const recipes: FoodsRecipes = {
         "A.19.01.002.003": [["A.19.01.002.003", [], 1, 1]],
       };
@@ -412,14 +310,8 @@ describe("RPC reducer", () => {
     });
 
     test("Indirect: Adds processes to diet entered > L2 level", () => {
-      const diet: Diet = [
-        {
-          code: "I.20.01.001.001", // Dummy product
-          amount: 1000,
-          retailWaste: 0,
-          consumerWaste: 0,
-        },
-      ];
+      // Dummy product
+      const diet: Diet = [["I.20.01.001.001", 1000]];
 
       // Let's pretend this translates to a pizza
       const recipes: FoodsRecipes = {
@@ -444,14 +336,7 @@ describe("RPC reducer", () => {
       const recipes: FoodsRecipes = {
         "A.01.example": [["A.01.example", ["F28.A07KD"], 1, 5]],
       };
-      const diet: Diet = [
-        {
-          code: "A.01.example",
-          amount: 1000,
-          retailWaste: 0,
-          consumerWaste: 0,
-        },
-      ];
+      const diet: Diet = [["A.01.example", 1000]];
 
       const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
         diet,
@@ -467,14 +352,7 @@ describe("RPC reducer", () => {
       const recipes: FoodsRecipes = {
         "A.01.example": [["A.01.example", ["F28.A0BZV", "F28.A07GG"], 1, 5]],
       };
-      const diet: Diet = [
-        {
-          code: "A.01.example",
-          amount: 1000,
-          retailWaste: 0,
-          consumerWaste: 0,
-        },
-      ];
+      const diet: Diet = [["A.01.example", 1000]];
 
       const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
         diet,
@@ -489,14 +367,7 @@ describe("RPC reducer", () => {
       const recipes: FoodsRecipes = {
         "A.01.example": [["A.01.example", ["F28.A07KD"], 1, 1]],
       };
-      const diet: Diet = [
-        {
-          code: "A.01.example",
-          amount: 1000,
-          retailWaste: 0,
-          consumerWaste: 0,
-        },
-      ];
+      const diet: Diet = [["A.01.example", 1000]];
 
       const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
         diet,
@@ -509,31 +380,23 @@ describe("RPC reducer", () => {
 
     describe("A transportless process appears in map for complex recipes", () => {
       test("Case A: Three steps, process in the middle", () => {
+        const recipes: FoodsRecipes = {
+          "A.01.foo": [["A.01.bar", [], 1, 1]],
+          "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1, 4]],
+          "A.01.baz": [["A.01.qux", [], 1, 1.5]],
+        };
+        const diet: Diet = [["A.01.foo", 1000]];
 
-      const recipes: FoodsRecipes = {
-        "A.01.foo": [["A.01.bar", [], 1, 1]],
-        "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1, 4]],
-        "A.01.baz": [["A.01.qux", [], 1, 1.5]],
-      };
-      const diet: Diet = [
-        {
-          code: "A.01.foo",
-          amount: 1000,
-          retailWaste: 0,
-          consumerWaste: 0,
-        },
-      ];
+        const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+          diet,
+          recipes,
+          {}
+        );
 
-      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
-        diet,
-        recipes,
-        {}
-      );
-
-      expect(transportless).toHaveProperty("A.01.qux");
-      expect(transportless["A.01.qux"]).toEqual(4500);
+        expect(transportless).toHaveProperty("A.01.qux");
+        expect(transportless["A.01.qux"]).toEqual(4500);
+      });
     });
-      })
 
     test("Case B: Three steps, with processes on each", () => {
       const recipes: FoodsRecipes = {
@@ -541,14 +404,7 @@ describe("RPC reducer", () => {
         "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1.0, 4]],
         "A.01.baz": [["A.01.qux", ["F28.A0C0B"], 1.0, 1.5]],
       };
-      const diet: Diet = [
-        {
-          code: "A.01.foo",
-          amount: 1000,
-          retailWaste: 0,
-          consumerWaste: 0,
-        },
-      ];
+      const diet: Diet = [["A.01.foo", 1000]];
 
       const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
         diet,
@@ -572,14 +428,7 @@ describe("RPC reducer", () => {
         "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 0.5, 4]],
         "A.01.baz": [["A.01.qux", ["F28.A0C0B"], 1.0, 1.5]],
       };
-      const diet: Diet = [
-        {
-          code: "A.01.foo",
-          amount: 1000,
-          retailWaste: 0,
-          consumerWaste: 0,
-        },
-      ];
+      const diet: Diet = [["A.01.foo", 1000]];
 
       const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
         diet,

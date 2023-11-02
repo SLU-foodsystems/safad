@@ -9,12 +9,11 @@ import slvNamesJson from "@/data/slv-names.json";
 import swedenRpcFactors from "@/data/rpc-parameters/Sweden-rpc.json";
 import slvRecipesJson from "@/data/slv-diet.json";
 import rpcNamesJson from "@/data/rpc-names.json";
-import wasteFactors from "@/data/waste-factors.json";
 
 import ResultsEngine from "@/lib/ResultsEngine";
 import { ENV_IMPACTS_ZERO } from "@/lib/constants";
 import { computeProcessImpacts } from "@/lib/process-emissions";
-import { getRpcCodeSubset, listAllProcesses } from "@/lib/utils";
+import { listAllProcesses } from "@/lib/utils";
 import {
   emissionsFactorsEnergy,
   emissionsFactorsPackaging,
@@ -22,22 +21,17 @@ import {
   footprintsRpcs,
   processesAndPackagingData,
   processesEnergyDemands,
+  wasteRetailAndConsumer,
 } from "../default-files-importer";
 
 const rpcFile = swedenRpcFactors.data as unknown as RpcFactors;
 const rpcNames = rpcNamesJson as Record<string, string>;
 const slvNames = slvNamesJson as Record<string, string>;
-const swedenWasteFactors = wasteFactors.Sweden as Record<string, number[]>;
 
 const slvRecipes = slvRecipesJson as unknown as Record<
   string,
   [string, string, number, number, string][]
 >;
-
-const getWaste = (rpcCode: string) => {
-  const code = getRpcCodeSubset(rpcCode, 2);
-  return swedenWasteFactors[code] || [0, 0];
-};
 
 const maybeQuote = (str: string) => (str.includes(",") ? `"${str}"` : str);
 
@@ -76,6 +70,7 @@ export default async function computeSlvImpacts(): Promise<string> {
   RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
   RE.setProcessesEnergyDemands(await processesEnergyDemands());
   RE.setProcessesAndPackaging(await processesAndPackagingData());
+  RE.setWasteRetailAndConsumer(await wasteRetailAndConsumer("SE"));
 
   const headerStr =
     "SLV Code,SLV Name,Ingredient Code,FoodEx2 code,Ingredient Name,Net Amount (g)," +
@@ -99,16 +94,9 @@ export default async function computeSlvImpacts(): Promise<string> {
     // Now, compute the impact of each diet element seperately
     const disaggregateImpacts = ingredients.map(
       ([code, shortCode, grossShare, netShare, process]) => {
-        const [retailWaste, consumerWaste] = getWaste(code);
+        // const [retailWaste, consumerWaste] = getWaste(code);
         const netAmount = netShare * BASE_AMOUNT;
-        const impacts = RE.computeImpacts([
-          {
-            code,
-            amount: netAmount,
-            retailWaste,
-            consumerWaste,
-          },
-        ]);
+        const impacts = RE.computeImpacts([[code, netAmount]]);
 
         let impactsVector = ENV_IMPACTS_ZERO;
         let processes = "";
@@ -148,12 +136,10 @@ export default async function computeSlvImpacts(): Promise<string> {
     // the sum of the disaggregate ones, but we will also add the processes to
     // it below.)
     const totalImpacts = RE.computeImpacts(
-      ingredients.map(([code, _i1ShortCode, _grossShare, netShare]) => ({
+      ingredients.map(([code, _i1ShortCode, _grossShare, netShare]) => [
         code,
-        amount: netShare * BASE_AMOUNT,
-        retailWaste: getWaste(code)[0],
-        consumerWaste: getWaste(code)[1],
-      }))
+        netShare * BASE_AMOUNT,
+      ])
     );
     if (totalImpacts === null) return [[]];
 

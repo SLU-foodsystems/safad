@@ -6,6 +6,11 @@ import processesAndPackagingUrl from "@/default-input-files/processes-packaging.
 
 import footprintsRpcsUrl from "@/default-input-files/footprints-rpcs.csv?url";
 
+const wasteRetailAndConsumerUrls = import.meta.glob(
+  "@/default-input-files/waste-retail-and-consumer/*.csv",
+  { as: "url", eager: true }
+);
+
 import {
   parseEmissionsFactorsEnergy,
   parseEmissionsFactorsPackaging,
@@ -13,6 +18,7 @@ import {
   parseFootprintsRpcs,
   parseProcessesEnergyDemands,
   parseProcessesPackaging,
+  parseWasteRetailAndConsumer,
 } from "./input-files-parsers";
 
 export async function fetchAndParseFile<T>(
@@ -64,4 +70,19 @@ export async function processesAndPackagingData() {
 
 export async function footprintsRpcs() {
   return fetchAndParseFile(footprintsRpcsUrl, parseFootprintsRpcs);
+}
+
+export async function wasteRetailAndConsumer(countryCode: string) {
+  const keys = Object.keys(wasteRetailAndConsumerUrls);
+
+  const csvFileUrlKey = keys.find((k) => k.endsWith(`${countryCode}.csv`));
+  if (!csvFileUrlKey) {
+    const alts = keys.join(", ");
+    throw new Error(`Invalid country code. Received ${countryCode}, expected one of ${alts}.`);
+  }
+
+  return fetchAndParseFile(
+    wasteRetailAndConsumerUrls[csvFileUrlKey],
+    parseWasteRetailAndConsumer
+  );
 }
