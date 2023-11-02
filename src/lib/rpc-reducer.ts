@@ -173,7 +173,7 @@ function reduceToRpcs(
  * list of proccesses and packaging (with amounts).
  */
 export default function reduceDietToRpcs(
-  diet: Diet,
+  diet: [string, number][],
   recipes: FoodsRecipes,
   preparationAndPackagingList: Record<string, string>
 ): [
@@ -209,14 +209,6 @@ export default function reduceDietToRpcs(
   };
 
   const rpcs = diet
-    // First, count up the amounts by the retail- and consumer waste factors
-    .map((entry): RPC => {
-      const wasteChangeFactor =
-        1 / ((1 - entry.retailWaste) * (1 - entry.consumerWaste));
-
-      return [entry.code, entry.amount * wasteChangeFactor];
-    })
-    // Now, combine with the recipes to get RPCs!
     .map((rpcDerivative) =>
       reduceToRpcs(
         rpcDerivative,

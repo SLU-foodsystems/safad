@@ -39,6 +39,7 @@ import {
   footprintsRpcs,
   processesAndPackagingData,
   processesEnergyDemands,
+  wasteRetailAndConsumer,
 } from "../default-files-importer";
 
 type LlCountryName =
@@ -95,29 +96,36 @@ export async function computeFootprintsForDiets(
   envFactors?: EnvFactors
 ): Promise<[string, string[][]][]> {
   const RE = new ResultsEngine();
-  RE.setFootprintsRpcs(envFactors || await footprintsRpcs());
+  RE.setFootprintsRpcs(envFactors || (await footprintsRpcs()));
   RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
   RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
   RE.setProcessesEnergyDemands(await processesEnergyDemands());
   RE.setProcessesAndPackaging(await processesAndPackagingData());
 
-  const allResults = LL_COUNTRIES.map((country) => {
-    if (country === "SwedenBaseline") {
+  const wastesRetailAndConsumer: Record<string, Record<string, number[]>> = {};
+  for (const countryName of LL_COUNTRIES) {
+    if (countryName === "SwedenBaseline") continue;
+    const countryCode = LL_COUNTRY_CODES[countryName];
+    wastesRetailAndConsumer[countryCode] = await wasteRetailAndConsumer(
+      countryCode
+    );
+  }
+
+  const allResults = LL_COUNTRIES.map((countryName) => {
+    if (countryName === "SwedenBaseline") {
       RE.setCountryCode("SE");
+      RE.setWasteRetailAndConsumer(wastesRetailAndConsumer["SE"]);
     } else {
-      RE.setCountryCode(LL_COUNTRY_CODES[country]);
+      const countryCode = LL_COUNTRY_CODES[countryName];
+      RE.setWasteRetailAndConsumer(wastesRetailAndConsumer[countryCode]);
+      RE.setCountryCode(countryCode);
     }
 
-    RE.setRpcFactors(rpcFiles[country]);
+    RE.setRpcFactors(rpcFiles[countryName]);
 
-    const diet = Object.entries(dietFiles[country]).map(
-      ([code, [amount, retailWaste, consumerWaste]]) => ({
-        code,
-        amount,
-        retailWaste,
-        consumerWaste,
-      })
+    const diet = Object.entries(dietFiles[countryName]).map(
+      ([code, [amount]]): [string, number] => [code, amount]
     );
 
     const results = RE.computeImpactsByCategory(diet);
@@ -141,7 +149,7 @@ export async function computeFootprintsForDiets(
       return [categoryId, `"${categoryNames[categoryId]}"`, ...footprints];
     });
 
-    return [country, data] as [string, string[][]];
+    return [countryName, data] as [string, string[][]];
   }).filter((x): x is [string, string[][]] => x !== null);
 
   return allResults;

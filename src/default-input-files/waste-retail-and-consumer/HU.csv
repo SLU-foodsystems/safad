@@ -1,0 +1,164 @@
+"Food code (level 2)","Food name (level 2)","Country ","Country code","Retail waste","Consumer waste"
+"A.01","Grains and grain-based products","Hungary","HU",0.02,0.25
+"A.01.01","Grains as crops","Hungary","HU",0.02,0.25
+"A.01.02","Grains for human consumption","Hungary","HU",0.02,0.25
+"A.01.03","Grain milling products","Hungary","HU",0.02,0.25
+"A.01.04","Bread and rolls","Hungary","HU",0.02,0.25
+"A.01.05","Pasta (Raw)","Hungary","HU",0.02,0.25
+"A.01.06","Breakfast cereals","Hungary","HU",0.02,0.25
+"A.01.07","Fine bakery wares","Hungary","HU",0.02,0.25
+"A.02","Vegetables and vegetable products (including fungi)","Hungary","HU",0.1,0.19
+"A.02.01","Root vegetables","Hungary","HU",0.1,0.19
+"A.02.02","Bulb vegetables","Hungary","HU",0.1,0.19
+"A.02.03","Fruiting vegetables","Hungary","HU",0.1,0.19
+"A.02.04","Brassica vegetables","Hungary","HU",0.1,0.19
+"A.02.05","Leaf vegetables","Hungary","HU",0.1,0.19
+"A.02.06","Legume vegetables","Hungary","HU",0.1,0.19
+"A.02.07","Stem vegetables (Fresh)","Hungary","HU",0.1,0.19
+"A.02.08","Sugar plants","Hungary","HU",0.1,0.19
+"A.02.09","Sea weeds","Hungary","HU",0.09,0.11
+"A.02.10","Tea and herbs for infusions (Solid)","Hungary","HU",0.01,0.04
+"A.02.11","Cocoa beans and cocoa products","Hungary","HU",0.01,0.04
+"A.02.12","Coffee beans and coffee products (Solid)","Hungary","HU",0.01,0.04
+"A.02.13","Coffee imitates (Solid)","Hungary","HU",0.01,0.04
+"A.02.14","Vegetable products","Hungary","HU",0.1,0.19
+"A.02.15","Fungi, cultivated","Hungary","HU",0.1,0.19
+"A.02.16","Fungi, wild, edible","Hungary","HU",0.1,0.19
+"A.03","Starchy roots and tubers","Hungary","HU",0.07,0.17
+"A.03.01","Potatoes and potatoes products","Hungary","HU",0.07,0.17
+"A.03.02","Other starchy roots and tubers","Hungary","HU",0.07,0.17
+"A.04","Legumes, nuts and oilseeds","Hungary","HU",0.01,0.04
+"A.04.01","Legumes, beans, green, without pods","Hungary","HU",0.01,0.04
+"A.04.02","Legumes, beans, dried","Hungary","HU",0.01,0.04
+"A.04.03","Tree nuts","Hungary","HU",0.01,0.04
+"A.04.04","Oilseeds","Hungary","HU",0.01,0.04
+"A.04.05","Other seeds","Hungary","HU",0.01,0.04
+"A.05","Fruit and fruit products","Hungary","HU",0.1,0.19
+"A.05.01","Citrus fruits","Hungary","HU",0.1,0.19
+"A.05.02","Pome fruits","Hungary","HU",0.1,0.19
+"A.05.03","Stone fruits","Hungary","HU",0.1,0.19
+"A.05.04","Berries and small fruits","Hungary","HU",0.1,0.19
+"A.05.05","Oilfruits","Hungary","HU",0.1,0.19
+"A.05.06","Miscellaneous fruits","Hungary","HU",0.1,0.19
+"A.05.07","Dried fruits","Hungary","HU",0.1,0.19
+"A.05.08","Jam, marmalade and other fruit spreads","Hungary","HU",0.1,0.19
+"A.05.09","Other fruit products (excluding beverages)","Hungary","HU",0.1,0.19
+"A.06","Meat and meat products (including edible offal)","Hungary","HU",0.04,0.11
+"A.06.01","Livestock meat","Hungary","HU",0.04,0.11
+"A.06.02","Poultry","Hungary","HU",0.04,0.11
+"A.06.03","Game mammals","Hungary","HU",0.04,0.11
+"A.06.04","Game birds","Hungary","HU",0.04,0.11
+"A.06.05","Mixed meat","Hungary","HU",0.04,0.11
+"A.06.06","Edible offal, farmed animals","Hungary","HU",0.04,0.11
+"A.06.07","Edible offal, game animals","Hungary","HU",0.04,0.11
+"A.06.08","Preserved meat","Hungary","HU",0.04,0.11
+"A.06.09","Sausages","Hungary","HU",0.04,0.11
+"A.06.10","Meat specialities","Hungary","HU",0.04,0.11
+"A.06.11","Pastes, pâtés and terrines","Hungary","HU",0.04,0.11
+"A.06.12","Meat imitates","Hungary","HU",0.04,0.11
+"A.07","Fish and other seafood (including amphibians, reptiles, snails and insects)","Hungary","HU",0.09,0.11
+"A.07.01","Fish meat","Hungary","HU",0.09,0.11
+"A.07.02","Fish products","Hungary","HU",0.09,0.11
+"A.07.03","Fish offal","Hungary","HU",0.09,0.11
+"A.07.04","Crustaceans","Hungary","HU",0.09,0.11
+"A.07.05","Water molluscs","Hungary","HU",0.09,0.11
+"A.07.06","Amphibians, reptiles, snails, insects","Hungary","HU",0.09,0.11
+"A.08","Milk and dairy products","Hungary","HU",0.005,0.07
+"A.08.01","Liquid milk","Hungary","HU",0.005,0.07
+"A.08.02","Milk based beverages","Hungary","HU",0.005,0.07
+"A.08.03","Concentrated milk","Hungary","HU",0.005,0.07
+"A.08.04","Whey and whey products (excluding whey cheese)","Hungary","HU",0.005,0.07
+"A.08.05","Cream and cream products","Hungary","HU",0.005,0.07
+"A.08.06","Fermented milk products","Hungary","HU",0.005,0.07
+"A.08.07","Milk derivatives","Hungary","HU",0.005,0.07
+"A.08.08","Cheese","Hungary","HU",0.005,0.07
+"A.08.09","Milk and milk product imitates","Hungary","HU",0.005,0.07
+"A.09","Eggs and egg products","Hungary","HU",0.005,0.07
+"A.09.01","Eggs, fresh","Hungary","HU",0.005,0.07
+"A.09.02","Eggs, powder","Hungary","HU",0.005,0.07
+"A.10","Sugar and confectionary","Hungary","HU",0.01,0.04
+"A.10.01","Sugars","Hungary","HU",0.01,0.04
+"A.10.02","Sugar substitutes","Hungary","HU",0.01,0.04
+"A.10.03","Chocolate (Cocoa) products","Hungary","HU",0.01,0.04
+"A.10.04","Confectionery (non-chocolate)","Hungary","HU",0.01,0.04
+"A.10.05","Dessert sauces","Hungary","HU",0.01,0.04
+"A.10.06","Molasses and other syrups","Hungary","HU",0.01,0.04
+"A.10.07","Honey","Hungary","HU",0.01,0.04
+"A.11","Animal and vegetable fats and oils","Hungary","HU",0.01,0.04
+"A.11.01","Animal fat","Hungary","HU",0.04,0.11
+"A.11.02","Fish oil","Hungary","HU",0.09,0.11
+"A.11.03","Vegetable fat","Hungary","HU",0.01,0.04
+"A.11.04","Vegetable oil","Hungary","HU",0.01,0.04
+"A.11.05","Fats of mixed origin","Hungary","HU",0.01,0.04
+"A.11.06","Margarine and similar products","Hungary","HU",0.01,0.04
+"A.12","Fruit and vegetable juices","Hungary","HU",0.1,0.19
+"A.12.01","Fruit juice","Hungary","HU",0.1,0.19
+"A.12.02","Concentrated fruit juice","Hungary","HU",0.1,0.19
+"A.12.03","Fruit nectar","Hungary","HU",0.1,0.19
+"A.12.04","Mixed fruit juice","Hungary","HU",0.1,0.19
+"A.12.05","Dehydrated/powdered fruit juice","Hungary","HU",0.1,0.19
+"A.12.06","Vegetable juice","Hungary","HU",0.1,0.19
+"A.12.07","Mixed vegetable juice","Hungary","HU",0.1,0.19
+"A.12.08","Mixed fruit and vegetable juice","Hungary","HU",0.1,0.19
+"A.13","Non-alcoholic beverages (excepting milk based beverages)","Hungary","HU",0.01,0.04
+"A.13.01","Soft drinks","Hungary","HU",0.01,0.04
+"A.13.02","Tea (Infusion)","Hungary","HU",0.01,0.04
+"A.13.03","Coffee (Beverage)","Hungary","HU",0.01,0.04
+"A.13.04","Coffee imitates beverage","Hungary","HU",0.01,0.04
+"A.13.05","Cocoa beverage","Hungary","HU",0.01,0.04
+"A.14","Alcoholic beverages","Hungary","HU",0.01,0.04
+"A.14.01","Beer and beer-like beverage","Hungary","HU",0.01,0.04
+"A.14.02","Wine","Hungary","HU",0.01,0.04
+"A.14.03","Fortified and liqueur wines (e.g. Vermouth, Sherry, Madeira)","Hungary","HU",0.01,0.04
+"A.14.04","Wine-like drinks (e.g. Cider, Perry)","Hungary","HU",0.01,0.04
+"A.14.05","Liqueur","Hungary","HU",0.01,0.04
+"A.14.06","Spirits","Hungary","HU",0.01,0.04
+"A.14.07","Alcoholic mixed drinks","Hungary","HU",0.01,0.04
+"A.15","Drinking water (water without any additives except carbon dioxide; includes water ice for consumption)","Hungary","HU",0,0
+"A.15.01","Tap water","Hungary","HU",0,0
+"A.15.02","Well water","Hungary","HU",0,0
+"A.15.03","Bottled water","Hungary","HU",0,0
+"A.15.04","Water ice (for consumption)","Hungary","HU",0,0
+"A.16","Herbs, spices and condiments","Hungary","HU",0.01,0.04
+"A.16.01","Herbs","Hungary","HU",0.01,0.04
+"A.16.02","Spices","Hungary","HU",0.01,0.04
+"A.16.03","Herb and spice mixtures","Hungary","HU",0.01,0.04
+"A.16.04","Seasoning or extracts","Hungary","HU",0.01,0.04
+"A.16.05","Condiment","Hungary","HU",0.01,0.04
+"A.16.06","Dressing","Hungary","HU",0.01,0.04
+"A.16.07","Chutney and pickles","Hungary","HU",0.01,0.04
+"A.16.08","Savoury sauces","Hungary","HU",0.01,0.04
+"A.16.09","Flavourings or essences","Hungary","HU",0.01,0.04
+"A.16.10","Baking ingredients","Hungary","HU",0.01,0.04
+"A.17","Food for infants and small children","Hungary","HU",0.04,0.11
+"A.17.01","Infant formulae, powder","Hungary","HU",0.04,0.11
+"A.17.02","Infant formulae, liquid","Hungary","HU",0.04,0.11
+"A.17.03","Follow-on formulae, powder","Hungary","HU",0.04,0.11
+"A.17.04","Follow-on formulae, liquid","Hungary","HU",0.04,0.11
+"A.17.05","Cereal-based food for infants and young children","Hungary","HU",0.04,0.11
+"A.17.06","Ready-to-eat meal for infants and young children","Hungary","HU",0.04,0.11
+"A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","Hungary","HU",0.005,0.07
+"A.17.08","Fruit juice and herbal tea for infants and young children","Hungary","HU",0.01,0.04
+"A.18","Products for special nutritional use","Hungary","HU",0.04,0.11
+"A.18.01","Food for weight reduction","Hungary","HU",0.04,0.11
+"A.18.02","Dietary supplements","Hungary","HU",0.04,0.11
+"A.18.03","Food for sports people (labelled as such)","Hungary","HU",0.04,0.11
+"A.18.04","Dietetic food for diabetics (labelled as such)","Hungary","HU",0.04,0.11
+"A.18.05","Medical food (are specially formulated and intended for the dietary management of a disease that has distinctive nutritional needs that cannot be met by normal diet alone; intended to be used under medical supervision)","Hungary","HU",0.04,0.11
+"A.19","Composite food (including frozen products)","Hungary","HU",0.04,0.11
+"A.19.01","Cereal-based dishes","Hungary","HU",0.04,0.11
+"A.19.02","Rice-based meals","Hungary","HU",0.04,0.11
+"A.19.03","Potato based dishes","Hungary","HU",0.04,0.11
+"A.19.04","Beans-based meals","Hungary","HU",0.04,0.11
+"A.19.05","Meat-based meals","Hungary","HU",0.04,0.11
+"A.19.06","Fish and seafood based meals","Hungary","HU",0.04,0.11
+"A.19.07","Vegetable-based meals","Hungary","HU",0.04,0.11
+"A.19.08","Egg-based meal (e.g., omelette)","Hungary","HU",0.04,0.11
+"A.19.09","Mushroom-based meals","Hungary","HU",0.04,0.11
+"A.19.10","Ready to eat soups","Hungary","HU",0.04,0.11
+"A.19.11","Prepared salads","Hungary","HU",0.04,0.11
+"A.20","Snacks, desserts, and other foods","Hungary","HU",0.04,0.11
+"A.20.01","Snack food","Hungary","HU",0.04,0.11
+"A.20.02","Ices and desserts","Hungary","HU",0.04,0.11
+"A.20.03","Other foods (foods which cannot be included in any other group)","Hungary","HU",0.04,0.11
+"A.13.06","Energy drink","Hungary","HU",0.01,0.04

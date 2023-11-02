@@ -157,3 +157,25 @@ export function parseFootprintsRpcs(csvString: string) {
 
   return structured;
 }
+
+export function parseWasteRetailAndConsumer(csvString: string) {
+  const data = parseCsvFile(csvString).slice(1);
+
+  const asNumber = (str: string) => {
+    const maybeNumber = Number.parseFloat((str || "").trim());
+    return Number.isNaN(maybeNumber) ? 0 : maybeNumber;
+  };
+
+  return Object.fromEntries(
+    data.map(
+      ([
+        code,
+        _name,
+        _countryName,
+        _countryCode,
+        retailWaste,
+        consumerWaste,
+      ]) => [code, [asNumber(retailWaste), asNumber(consumerWaste)]]
+    )
+  );
+}

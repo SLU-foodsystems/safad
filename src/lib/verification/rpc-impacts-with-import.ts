@@ -12,7 +12,6 @@ import { AGGREGATE_HEADERS, aggregateImpacts } from "@/lib/impacts-csv-utils";
 import categoryNamesJson from "@/data/category-names.json";
 import foodsRecipesJson from "@/data/foodex-recipes.json";
 import namesJson from "@/data/rpc-names.json";
-import wasteFactorsJson from "@/data/waste-factors.json";
 
 import ResultsEngine from "@/lib/ResultsEngine";
 import { LL_COUNTRY_CODES } from "../constants";
@@ -23,13 +22,10 @@ import {
   footprintsRpcs,
   processesAndPackagingData,
   processesEnergyDemands,
+  wasteRetailAndConsumer,
 } from "../default-files-importer";
 
 const foodsRecipes = foodsRecipesJson.data as unknown as FoodsRecipes;
-const wasteFactors = wasteFactorsJson as Record<
-  string,
-  Record<string, number[]>
->;
 
 type LlCountryName =
   | "France"
@@ -74,13 +70,6 @@ const getCategoryName = (code: string, level: number) => {
 
 const codesInRecipes = Object.keys(foodsRecipes);
 
-const getWasteFactors = (country: string, rpcCode: string) => {
-  const [retailWaste, consumerWaste] = wasteFactors[country][
-    getRpcCodeSubset(rpcCode, 2)
-  ] || [0, 0];
-  return { retailWaste, consumerWaste };
-};
-
 export default async function computeFootprintsForEachRpcWithOrigin(
   envFactors?: EnvFactors
 ): Promise<string[][]> {
@@ -99,48 +88,56 @@ export default async function computeFootprintsForEachRpcWithOrigin(
 
   const RE = new ResultsEngine();
 
-  RE.setFootprintsRpcs(envFactors || await footprintsRpcs());
+  RE.setFootprintsRpcs(envFactors || (await footprintsRpcs()));
   RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
   RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
   RE.setProcessesEnergyDemands(await processesEnergyDemands());
   RE.setProcessesAndPackaging(await processesAndPackagingData());
 
-  const syncRpcFiles = await Promise.all(
-    LL_COUNTRIES.map(
-      async (country: LlCountryName): Promise<[string, RpcFactors]> => {
-        const rpcParameters = (
-          (await rpcFiles[country]) as unknown as { data: RpcFactors }
-        ).data;
-        return [country, rpcParameters];
-      }
+  const syncRpcFiles = Object.fromEntries(
+    await Promise.all(
+      LL_COUNTRIES.map(
+        async (country: LlCountryName): Promise<[string, RpcFactors]> => {
+          const rpcParameters = (
+            (await rpcFiles[country]) as unknown as { data: RpcFactors }
+          ).data;
+          return [country, rpcParameters];
+        }
+      )
     )
   );
 
-  const results = syncRpcFiles.map(([country, rpcParameters]) => {
-    if (country === "SwedenBaseline") {
+  const syncWasteFiles = Object.fromEntries(
+    await Promise.all(
+      LL_COUNTRIES.map(
+        async (
+          country: LlCountryName
+        ): Promise<[string, Record<string, number[]>]> => {
+          const wasteCountryCode =
+            country === "SwedenBaseline" ? "SE" : LL_COUNTRY_CODES[country];
+          const wasteFactors = await wasteRetailAndConsumer(wasteCountryCode);
+          return [country, wasteFactors];
+        }
+      )
+    )
+  );
+
+  const results = LL_COUNTRIES.map((countryName) => {
+    if (countryName === "SwedenBaseline") {
       RE.setCountryCode("SE");
+      RE.setWasteRetailAndConsumer(syncWasteFiles["Sweden"]);
     } else {
-      RE.setCountryCode(LL_COUNTRY_CODES[country]);
+      RE.setCountryCode(LL_COUNTRY_CODES[countryName]);
+      RE.setWasteRetailAndConsumer(syncWasteFiles[countryName]);
     }
 
+    const rpcParameters = syncRpcFiles[countryName];
     RE.setRpcFactors(rpcParameters);
 
-    const diets = codesInRecipes.map((code) => [
-      {
-        code,
-        amount: 1000,
-        ...getWasteFactors(
-          country === "SwedenBaseline" ? "Sweden" : country,
-          code
-        ),
-      },
-    ]);
-
-    const impactsPerDiet = diets
-      .map((diet) => {
-        const rpc = diet[0].code;
-        const impacts = RE.computeImpacts(diet);
+    const impactsPerDiet = codesInRecipes
+      .map((code) => {
+        const impacts = RE.computeImpacts([[code, 1000]]);
         if (impacts === null) {
           return null;
         }
@@ -153,15 +150,12 @@ export default async function computeFootprintsForEachRpcWithOrigin(
         const processes = listAllProcesses(processImpacts).join("$");
         const packeting = listAllProcesses(packagingImpacts).join("$");
 
-        const combinedWaste =
-          (1 + diet[0].retailWaste) * (1 + diet[0].consumerWaste) - 1;
-
         return [
-          rpc,
-          maybeQuoteValue(names[rpc] || "NAME NOT FOUND"),
-          maybeQuoteValue(getCategoryName(rpc, 1)),
-          maybeQuoteValue(getCategoryName(rpc, 2)),
-          combinedWaste.toFixed(2),
+          code,
+          maybeQuoteValue(names[code] || "NAME NOT FOUND"),
+          maybeQuoteValue(getCategoryName(code, 1)),
+          maybeQuoteValue(getCategoryName(code, 2)),
+          "TODO",
           ...aggregateImpacts(
             rpcImpacts,
             processImpacts,
@@ -176,7 +170,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
 
     const impactsCsv = impactsPerDiet.map((row) => row.join(",")).join("\n");
 
-    return [country, header.join(",") + "\n" + impactsCsv];
+    return [countryName, header.join(",") + "\n" + impactsCsv];
   });
 
   return results;

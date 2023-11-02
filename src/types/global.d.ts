@@ -13,12 +13,7 @@ declare global {
   type ValueOf<T> = T[keyof T];
 
   // Holds the information for a specific diet, i.e. a list of foods.
-  interface DietElement {
-    code: string;
-    amount: number;
-    retailWaste: number;
-    consumerWaste: number;
-  }
+  type DietElement = [string, number]; // code, amount
 
   // Collection type
   type Diet = DietElement[];

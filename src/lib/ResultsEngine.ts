@@ -18,6 +18,7 @@ import {
 } from "./utils";
 
 import computeTransportEmissions from "./transport-emissions";
+import adjustDietForWaste from "./waste-retail-consumer-adjuster";
 
 const recipes = foodsRecipes.data as unknown as FoodsRecipes;
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
@@ -45,6 +46,7 @@ class ResultsEngine {
   processesEnergyDemands: null | Record<string, number[]> = null;
   processesAndPackaging: null | Record<string, string> = null;
 
+  wasteRetailAndConsumer: null | Record<string, number[]> = null;
 
   private recomputeEnvFootprints() {
     if (!this.footprintsRpcsPerOrigin) {
@@ -72,6 +74,12 @@ class ResultsEngine {
   public setFootprintsRpcs(footprintsRpcsPerOrigin: EnvFactors) {
     this.footprintsRpcsPerOrigin = footprintsRpcsPerOrigin;
     this.recomputeEnvFootprints();
+  }
+
+  public setWasteRetailAndConsumer(
+    wasteRetailAndConsumer: Record<string, number[]>
+  ) {
+    this.wasteRetailAndConsumer = wasteRetailAndConsumer;
   }
 
   private getRpcFootprints(
@@ -103,7 +111,9 @@ class ResultsEngine {
       return ENV_IMPACTS_ZERO;
     }
 
-    return this.footprintsRpcsMerged[suaCode].map((x) => (x * amountGram) / 1000);
+    return this.footprintsRpcsMerged[suaCode].map(
+      (x) => (x * amountGram) / 1000
+    );
   }
 
   // Set the rpc-factors, i.e. the origin of each rpc, its share, and its
@@ -168,7 +178,7 @@ class ResultsEngine {
   }
 
   public computeImpacts(
-    diet: Diet
+    diet: [string, number][]
   ):
     | null
     | [
@@ -180,6 +190,13 @@ class ResultsEngine {
     if (!this.footprintsRpcsPerOrigin) {
       console.error(
         "Compute called when no environmentalFactorsSheet was set."
+      );
+      return null;
+    }
+
+    if (!this.wasteRetailAndConsumer) {
+      console.error(
+        "Compute called without retail- and consumer waste factors set."
       );
       return null;
     }
@@ -209,18 +226,18 @@ class ResultsEngine {
     }
 
     if (!this.processesAndPackaging) {
-      console.error(
-        "Compute called without processes and packaging set."
-      );
+      console.error("Compute called without processes and packaging set.");
       return null;
     }
+
+    const dietWithWaste = adjustDietForWaste(diet, this.wasteRetailAndConsumer);
 
     const [
       rpcAmounts,
       processesAmounts,
       packetingAmounts,
       transportlessAmounts,
-    ] = reduceDiet(diet, recipes, this.processesAndPackaging);
+    ] = reduceDiet(dietWithWaste, recipes, this.processesAndPackaging);
 
     const rpcImpacts = Object.fromEntries(
       rpcAmounts
@@ -277,7 +294,7 @@ class ResultsEngine {
     ];
   }
 
-  public computeImpactsByCategory(diet: Diet) {
+  public computeImpactsByCategory(diet: [string, number][]) {
     const impacts = this.computeImpacts(diet);
     if (!impacts) return null;
 

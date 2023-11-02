@@ -1,0 +1,164 @@
+"Food code (level 2)","Food name (level 2)","Country ","Country code","Retail waste","Consumer waste"
+"A.01","Grains and grain-based products","Ireland","IE",0.02,0.25
+"A.01.01","Grains as crops","Ireland","IE",0.02,0.25
+"A.01.02","Grains for human consumption","Ireland","IE",0.02,0.25
+"A.01.03","Grain milling products","Ireland","IE",0.02,0.25
+"A.01.04","Bread and rolls","Ireland","IE",0.02,0.25
+"A.01.05","Pasta (Raw)","Ireland","IE",0.02,0.25
+"A.01.06","Breakfast cereals","Ireland","IE",0.02,0.25
+"A.01.07","Fine bakery wares","Ireland","IE",0.02,0.25
+"A.02","Vegetables and vegetable products (including fungi)","Ireland","IE",0.1,0.19
+"A.02.01","Root vegetables","Ireland","IE",0.1,0.19
+"A.02.02","Bulb vegetables","Ireland","IE",0.1,0.19
+"A.02.03","Fruiting vegetables","Ireland","IE",0.1,0.19
+"A.02.04","Brassica vegetables","Ireland","IE",0.1,0.19
+"A.02.05","Leaf vegetables","Ireland","IE",0.1,0.19
+"A.02.06","Legume vegetables","Ireland","IE",0.1,0.19
+"A.02.07","Stem vegetables (Fresh)","Ireland","IE",0.1,0.19
+"A.02.08","Sugar plants","Ireland","IE",0.1,0.19
+"A.02.09","Sea weeds","Ireland","IE",0.09,0.11
+"A.02.10","Tea and herbs for infusions (Solid)","Ireland","IE",0.01,0.04
+"A.02.11","Cocoa beans and cocoa products","Ireland","IE",0.01,0.04
+"A.02.12","Coffee beans and coffee products (Solid)","Ireland","IE",0.01,0.04
+"A.02.13","Coffee imitates (Solid)","Ireland","IE",0.01,0.04
+"A.02.14","Vegetable products","Ireland","IE",0.1,0.19
+"A.02.15","Fungi, cultivated","Ireland","IE",0.1,0.19
+"A.02.16","Fungi, wild, edible","Ireland","IE",0.1,0.19
+"A.03","Starchy roots and tubers","Ireland","IE",0.07,0.17
+"A.03.01","Potatoes and potatoes products","Ireland","IE",0.07,0.17
+"A.03.02","Other starchy roots and tubers","Ireland","IE",0.07,0.17
+"A.04","Legumes, nuts and oilseeds","Ireland","IE",0.01,0.04
+"A.04.01","Legumes, beans, green, without pods","Ireland","IE",0.01,0.04
+"A.04.02","Legumes, beans, dried","Ireland","IE",0.01,0.04
+"A.04.03","Tree nuts","Ireland","IE",0.01,0.04
+"A.04.04","Oilseeds","Ireland","IE",0.01,0.04
+"A.04.05","Other seeds","Ireland","IE",0.01,0.04
+"A.05","Fruit and fruit products","Ireland","IE",0.1,0.19
+"A.05.01","Citrus fruits","Ireland","IE",0.1,0.19
+"A.05.02","Pome fruits","Ireland","IE",0.1,0.19
+"A.05.03","Stone fruits","Ireland","IE",0.1,0.19
+"A.05.04","Berries and small fruits","Ireland","IE",0.1,0.19
+"A.05.05","Oilfruits","Ireland","IE",0.1,0.19
+"A.05.06","Miscellaneous fruits","Ireland","IE",0.1,0.19
+"A.05.07","Dried fruits","Ireland","IE",0.1,0.19
+"A.05.08","Jam, marmalade and other fruit spreads","Ireland","IE",0.1,0.19
+"A.05.09","Other fruit products (excluding beverages)","Ireland","IE",0.1,0.19
+"A.06","Meat and meat products (including edible offal)","Ireland","IE",0.04,0.11
+"A.06.01","Livestock meat","Ireland","IE",0.04,0.11
+"A.06.02","Poultry","Ireland","IE",0.04,0.11
+"A.06.03","Game mammals","Ireland","IE",0.04,0.11
+"A.06.04","Game birds","Ireland","IE",0.04,0.11
+"A.06.05","Mixed meat","Ireland","IE",0.04,0.11
+"A.06.06","Edible offal, farmed animals","Ireland","IE",0.04,0.11
+"A.06.07","Edible offal, game animals","Ireland","IE",0.04,0.11
+"A.06.08","Preserved meat","Ireland","IE",0.04,0.11
+"A.06.09","Sausages","Ireland","IE",0.04,0.11
+"A.06.10","Meat specialities","Ireland","IE",0.04,0.11
+"A.06.11","Pastes, pâtés and terrines","Ireland","IE",0.04,0.11
+"A.06.12","Meat imitates","Ireland","IE",0.04,0.11
+"A.07","Fish and other seafood (including amphibians, reptiles, snails and insects)","Ireland","IE",0.09,0.11
+"A.07.01","Fish meat","Ireland","IE",0.09,0.11
+"A.07.02","Fish products","Ireland","IE",0.09,0.11
+"A.07.03","Fish offal","Ireland","IE",0.09,0.11
+"A.07.04","Crustaceans","Ireland","IE",0.09,0.11
+"A.07.05","Water molluscs","Ireland","IE",0.09,0.11
+"A.07.06","Amphibians, reptiles, snails, insects","Ireland","IE",0.09,0.11
+"A.08","Milk and dairy products","Ireland","IE",0.005,0.07
+"A.08.01","Liquid milk","Ireland","IE",0.005,0.07
+"A.08.02","Milk based beverages","Ireland","IE",0.005,0.07
+"A.08.03","Concentrated milk","Ireland","IE",0.005,0.07
+"A.08.04","Whey and whey products (excluding whey cheese)","Ireland","IE",0.005,0.07
+"A.08.05","Cream and cream products","Ireland","IE",0.005,0.07
+"A.08.06","Fermented milk products","Ireland","IE",0.005,0.07
+"A.08.07","Milk derivatives","Ireland","IE",0.005,0.07
+"A.08.08","Cheese","Ireland","IE",0.005,0.07
+"A.08.09","Milk and milk product imitates","Ireland","IE",0.005,0.07
+"A.09","Eggs and egg products","Ireland","IE",0.005,0.07
+"A.09.01","Eggs, fresh","Ireland","IE",0.005,0.07
+"A.09.02","Eggs, powder","Ireland","IE",0.005,0.07
+"A.10","Sugar and confectionary","Ireland","IE",0.01,0.04
+"A.10.01","Sugars","Ireland","IE",0.01,0.04
+"A.10.02","Sugar substitutes","Ireland","IE",0.01,0.04
+"A.10.03","Chocolate (Cocoa) products","Ireland","IE",0.01,0.04
+"A.10.04","Confectionery (non-chocolate)","Ireland","IE",0.01,0.04
+"A.10.05","Dessert sauces","Ireland","IE",0.01,0.04
+"A.10.06","Molasses and other syrups","Ireland","IE",0.01,0.04
+"A.10.07","Honey","Ireland","IE",0.01,0.04
+"A.11","Animal and vegetable fats and oils","Ireland","IE",0.01,0.04
+"A.11.01","Animal fat","Ireland","IE",0.04,0.11
+"A.11.02","Fish oil","Ireland","IE",0.09,0.11
+"A.11.03","Vegetable fat","Ireland","IE",0.01,0.04
+"A.11.04","Vegetable oil","Ireland","IE",0.01,0.04
+"A.11.05","Fats of mixed origin","Ireland","IE",0.01,0.04
+"A.11.06","Margarine and similar products","Ireland","IE",0.01,0.04
+"A.12","Fruit and vegetable juices","Ireland","IE",0.1,0.19
+"A.12.01","Fruit juice","Ireland","IE",0.1,0.19
+"A.12.02","Concentrated fruit juice","Ireland","IE",0.1,0.19
+"A.12.03","Fruit nectar","Ireland","IE",0.1,0.19
+"A.12.04","Mixed fruit juice","Ireland","IE",0.1,0.19
+"A.12.05","Dehydrated/powdered fruit juice","Ireland","IE",0.1,0.19
+"A.12.06","Vegetable juice","Ireland","IE",0.1,0.19
+"A.12.07","Mixed vegetable juice","Ireland","IE",0.1,0.19
+"A.12.08","Mixed fruit and vegetable juice","Ireland","IE",0.1,0.19
+"A.13","Non-alcoholic beverages (excepting milk based beverages)","Ireland","IE",0.01,0.04
+"A.13.01","Soft drinks","Ireland","IE",0.01,0.04
+"A.13.02","Tea (Infusion)","Ireland","IE",0.01,0.04
+"A.13.03","Coffee (Beverage)","Ireland","IE",0.01,0.04
+"A.13.04","Coffee imitates beverage","Ireland","IE",0.01,0.04
+"A.13.05","Cocoa beverage","Ireland","IE",0.01,0.04
+"A.14","Alcoholic beverages","Ireland","IE",0.01,0.04
+"A.14.01","Beer and beer-like beverage","Ireland","IE",0.01,0.04
+"A.14.02","Wine","Ireland","IE",0.01,0.04
+"A.14.03","Fortified and liqueur wines (e.g. Vermouth, Sherry, Madeira)","Ireland","IE",0.01,0.04
+"A.14.04","Wine-like drinks (e.g. Cider, Perry)","Ireland","IE",0.01,0.04
+"A.14.05","Liqueur","Ireland","IE",0.01,0.04
+"A.14.06","Spirits","Ireland","IE",0.01,0.04
+"A.14.07","Alcoholic mixed drinks","Ireland","IE",0.01,0.04
+"A.15","Drinking water (water without any additives except carbon dioxide; includes water ice for consumption)","Ireland","IE",0,0
+"A.15.01","Tap water","Ireland","IE",0,0
+"A.15.02","Well water","Ireland","IE",0,0
+"A.15.03","Bottled water","Ireland","IE",0,0
+"A.15.04","Water ice (for consumption)","Ireland","IE",0,0
+"A.16","Herbs, spices and condiments","Ireland","IE",0.01,0.04
+"A.16.01","Herbs","Ireland","IE",0.01,0.04
+"A.16.02","Spices","Ireland","IE",0.01,0.04
+"A.16.03","Herb and spice mixtures","Ireland","IE",0.01,0.04
+"A.16.04","Seasoning or extracts","Ireland","IE",0.01,0.04
+"A.16.05","Condiment","Ireland","IE",0.01,0.04
+"A.16.06","Dressing","Ireland","IE",0.01,0.04
+"A.16.07","Chutney and pickles","Ireland","IE",0.01,0.04
+"A.16.08","Savoury sauces","Ireland","IE",0.01,0.04
+"A.16.09","Flavourings or essences","Ireland","IE",0.01,0.04
+"A.16.10","Baking ingredients","Ireland","IE",0.01,0.04
+"A.17","Food for infants and small children","Ireland","IE",0.04,0.11
+"A.17.01","Infant formulae, powder","Ireland","IE",0.04,0.11
+"A.17.02","Infant formulae, liquid","Ireland","IE",0.04,0.11
+"A.17.03","Follow-on formulae, powder","Ireland","IE",0.04,0.11
+"A.17.04","Follow-on formulae, liquid","Ireland","IE",0.04,0.11
+"A.17.05","Cereal-based food for infants and young children","Ireland","IE",0.04,0.11
+"A.17.06","Ready-to-eat meal for infants and young children","Ireland","IE",0.04,0.11
+"A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","Ireland","IE",0.005,0.07
+"A.17.08","Fruit juice and herbal tea for infants and young children","Ireland","IE",0.01,0.04
+"A.18","Products for special nutritional use","Ireland","IE",0.04,0.11
+"A.18.01","Food for weight reduction","Ireland","IE",0.04,0.11
+"A.18.02","Dietary supplements","Ireland","IE",0.04,0.11
+"A.18.03","Food for sports people (labelled as such)","Ireland","IE",0.04,0.11
+"A.18.04","Dietetic food for diabetics (labelled as such)","Ireland","IE",0.04,0.11
+"A.18.05","Medical food (are specially formulated and intended for the dietary management of a disease that has distinctive nutritional needs that cannot be met by normal diet alone; intended to be used under medical supervision)","Ireland","IE",0.04,0.11
+"A.19","Composite food (including frozen products)","Ireland","IE",0.04,0.11
+"A.19.01","Cereal-based dishes","Ireland","IE",0.04,0.11
+"A.19.02","Rice-based meals","Ireland","IE",0.04,0.11
+"A.19.03","Potato based dishes","Ireland","IE",0.04,0.11
+"A.19.04","Beans-based meals","Ireland","IE",0.04,0.11
+"A.19.05","Meat-based meals","Ireland","IE",0.04,0.11
+"A.19.06","Fish and seafood based meals","Ireland","IE",0.04,0.11
+"A.19.07","Vegetable-based meals","Ireland","IE",0.04,0.11
+"A.19.08","Egg-based meal (e.g., omelette)","Ireland","IE",0.04,0.11
+"A.19.09","Mushroom-based meals","Ireland","IE",0.04,0.11
+"A.19.10","Ready to eat soups","Ireland","IE",0.04,0.11
+"A.19.11","Prepared salads","Ireland","IE",0.04,0.11
+"A.20","Snacks, desserts, and other foods","Ireland","IE",0.04,0.11
+"A.20.01","Snack food","Ireland","IE",0.04,0.11
+"A.20.02","Ices and desserts","Ireland","IE",0.04,0.11
+"A.20.03","Other foods (foods which cannot be included in any other group)","Ireland","IE",0.04,0.11
+"A.13.06","Energy drink","Ireland","IE",0.01,0.04

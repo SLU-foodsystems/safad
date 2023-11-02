@@ -1,0 +1,164 @@
+"Food code (level 2)","Food name (level 2)","Country ","Country code","Retail waste","Consumer waste"
+"A.01","Grains and grain-based products","Spain","ES",0.02,0.25
+"A.01.01","Grains as crops","Spain","ES",0.02,0.25
+"A.01.02","Grains for human consumption","Spain","ES",0.02,0.25
+"A.01.03","Grain milling products","Spain","ES",0.02,0.25
+"A.01.04","Bread and rolls","Spain","ES",0.02,0.25
+"A.01.05","Pasta (Raw)","Spain","ES",0.02,0.25
+"A.01.06","Breakfast cereals","Spain","ES",0.02,0.25
+"A.01.07","Fine bakery wares","Spain","ES",0.02,0.25
+"A.02","Vegetables and vegetable products (including fungi)","Spain","ES",0.1,0.19
+"A.02.01","Root vegetables","Spain","ES",0.1,0.19
+"A.02.02","Bulb vegetables","Spain","ES",0.1,0.19
+"A.02.03","Fruiting vegetables","Spain","ES",0.1,0.19
+"A.02.04","Brassica vegetables","Spain","ES",0.1,0.19
+"A.02.05","Leaf vegetables","Spain","ES",0.1,0.19
+"A.02.06","Legume vegetables","Spain","ES",0.1,0.19
+"A.02.07","Stem vegetables (Fresh)","Spain","ES",0.1,0.19
+"A.02.08","Sugar plants","Spain","ES",0.1,0.19
+"A.02.09","Sea weeds","Spain","ES",0.09,0.11
+"A.02.10","Tea and herbs for infusions (Solid)","Spain","ES",0.01,0.04
+"A.02.11","Cocoa beans and cocoa products","Spain","ES",0.01,0.04
+"A.02.12","Coffee beans and coffee products (Solid)","Spain","ES",0.01,0.04
+"A.02.13","Coffee imitates (Solid)","Spain","ES",0.01,0.04
+"A.02.14","Vegetable products","Spain","ES",0.1,0.19
+"A.02.15","Fungi, cultivated","Spain","ES",0.1,0.19
+"A.02.16","Fungi, wild, edible","Spain","ES",0.1,0.19
+"A.03","Starchy roots and tubers","Spain","ES",0.07,0.17
+"A.03.01","Potatoes and potatoes products","Spain","ES",0.07,0.17
+"A.03.02","Other starchy roots and tubers","Spain","ES",0.07,0.17
+"A.04","Legumes, nuts and oilseeds","Spain","ES",0.01,0.04
+"A.04.01","Legumes, beans, green, without pods","Spain","ES",0.01,0.04
+"A.04.02","Legumes, beans, dried","Spain","ES",0.01,0.04
+"A.04.03","Tree nuts","Spain","ES",0.01,0.04
+"A.04.04","Oilseeds","Spain","ES",0.01,0.04
+"A.04.05","Other seeds","Spain","ES",0.01,0.04
+"A.05","Fruit and fruit products","Spain","ES",0.1,0.19
+"A.05.01","Citrus fruits","Spain","ES",0.1,0.19
+"A.05.02","Pome fruits","Spain","ES",0.1,0.19
+"A.05.03","Stone fruits","Spain","ES",0.1,0.19
+"A.05.04","Berries and small fruits","Spain","ES",0.1,0.19
+"A.05.05","Oilfruits","Spain","ES",0.1,0.19
+"A.05.06","Miscellaneous fruits","Spain","ES",0.1,0.19
+"A.05.07","Dried fruits","Spain","ES",0.1,0.19
+"A.05.08","Jam, marmalade and other fruit spreads","Spain","ES",0.1,0.19
+"A.05.09","Other fruit products (excluding beverages)","Spain","ES",0.1,0.19
+"A.06","Meat and meat products (including edible offal)","Spain","ES",0.04,0.11
+"A.06.01","Livestock meat","Spain","ES",0.04,0.11
+"A.06.02","Poultry","Spain","ES",0.04,0.11
+"A.06.03","Game mammals","Spain","ES",0.04,0.11
+"A.06.04","Game birds","Spain","ES",0.04,0.11
+"A.06.05","Mixed meat","Spain","ES",0.04,0.11
+"A.06.06","Edible offal, farmed animals","Spain","ES",0.04,0.11
+"A.06.07","Edible offal, game animals","Spain","ES",0.04,0.11
+"A.06.08","Preserved meat","Spain","ES",0.04,0.11
+"A.06.09","Sausages","Spain","ES",0.04,0.11
+"A.06.10","Meat specialities","Spain","ES",0.04,0.11
+"A.06.11","Pastes, pâtés and terrines","Spain","ES",0.04,0.11
+"A.06.12","Meat imitates","Spain","ES",0.04,0.11
+"A.07","Fish and other seafood (including amphibians, reptiles, snails and insects)","Spain","ES",0.09,0.11
+"A.07.01","Fish meat","Spain","ES",0.09,0.11
+"A.07.02","Fish products","Spain","ES",0.09,0.11
+"A.07.03","Fish offal","Spain","ES",0.09,0.11
+"A.07.04","Crustaceans","Spain","ES",0.09,0.11
+"A.07.05","Water molluscs","Spain","ES",0.09,0.11
+"A.07.06","Amphibians, reptiles, snails, insects","Spain","ES",0.09,0.11
+"A.08","Milk and dairy products","Spain","ES",0.005,0.07
+"A.08.01","Liquid milk","Spain","ES",0.005,0.07
+"A.08.02","Milk based beverages","Spain","ES",0.005,0.07
+"A.08.03","Concentrated milk","Spain","ES",0.005,0.07
+"A.08.04","Whey and whey products (excluding whey cheese)","Spain","ES",0.005,0.07
+"A.08.05","Cream and cream products","Spain","ES",0.005,0.07
+"A.08.06","Fermented milk products","Spain","ES",0.005,0.07
+"A.08.07","Milk derivatives","Spain","ES",0.005,0.07
+"A.08.08","Cheese","Spain","ES",0.005,0.07
+"A.08.09","Milk and milk product imitates","Spain","ES",0.005,0.07
+"A.09","Eggs and egg products","Spain","ES",0.005,0.07
+"A.09.01","Eggs, fresh","Spain","ES",0.005,0.07
+"A.09.02","Eggs, powder","Spain","ES",0.005,0.07
+"A.10","Sugar and confectionary","Spain","ES",0.01,0.04
+"A.10.01","Sugars","Spain","ES",0.01,0.04
+"A.10.02","Sugar substitutes","Spain","ES",0.01,0.04
+"A.10.03","Chocolate (Cocoa) products","Spain","ES",0.01,0.04
+"A.10.04","Confectionery (non-chocolate)","Spain","ES",0.01,0.04
+"A.10.05","Dessert sauces","Spain","ES",0.01,0.04
+"A.10.06","Molasses and other syrups","Spain","ES",0.01,0.04
+"A.10.07","Honey","Spain","ES",0.01,0.04
+"A.11","Animal and vegetable fats and oils","Spain","ES",0.01,0.04
+"A.11.01","Animal fat","Spain","ES",0.04,0.11
+"A.11.02","Fish oil","Spain","ES",0.09,0.11
+"A.11.03","Vegetable fat","Spain","ES",0.01,0.04
+"A.11.04","Vegetable oil","Spain","ES",0.01,0.04
+"A.11.05","Fats of mixed origin","Spain","ES",0.01,0.04
+"A.11.06","Margarine and similar products","Spain","ES",0.01,0.04
+"A.12","Fruit and vegetable juices","Spain","ES",0.1,0.19
+"A.12.01","Fruit juice","Spain","ES",0.1,0.19
+"A.12.02","Concentrated fruit juice","Spain","ES",0.1,0.19
+"A.12.03","Fruit nectar","Spain","ES",0.1,0.19
+"A.12.04","Mixed fruit juice","Spain","ES",0.1,0.19
+"A.12.05","Dehydrated/powdered fruit juice","Spain","ES",0.1,0.19
+"A.12.06","Vegetable juice","Spain","ES",0.1,0.19
+"A.12.07","Mixed vegetable juice","Spain","ES",0.1,0.19
+"A.12.08","Mixed fruit and vegetable juice","Spain","ES",0.1,0.19
+"A.13","Non-alcoholic beverages (excepting milk based beverages)","Spain","ES",0.01,0.04
+"A.13.01","Soft drinks","Spain","ES",0.01,0.04
+"A.13.02","Tea (Infusion)","Spain","ES",0.01,0.04
+"A.13.03","Coffee (Beverage)","Spain","ES",0.01,0.04
+"A.13.04","Coffee imitates beverage","Spain","ES",0.01,0.04
+"A.13.05","Cocoa beverage","Spain","ES",0.01,0.04
+"A.14","Alcoholic beverages","Spain","ES",0.01,0.04
+"A.14.01","Beer and beer-like beverage","Spain","ES",0.01,0.04
+"A.14.02","Wine","Spain","ES",0.01,0.04
+"A.14.03","Fortified and liqueur wines (e.g. Vermouth, Sherry, Madeira)","Spain","ES",0.01,0.04
+"A.14.04","Wine-like drinks (e.g. Cider, Perry)","Spain","ES",0.01,0.04
+"A.14.05","Liqueur","Spain","ES",0.01,0.04
+"A.14.06","Spirits","Spain","ES",0.01,0.04
+"A.14.07","Alcoholic mixed drinks","Spain","ES",0.01,0.04
+"A.15","Drinking water (water without any additives except carbon dioxide; includes water ice for consumption)","Spain","ES",0,0
+"A.15.01","Tap water","Spain","ES",0,0
+"A.15.02","Well water","Spain","ES",0,0
+"A.15.03","Bottled water","Spain","ES",0,0
+"A.15.04","Water ice (for consumption)","Spain","ES",0,0
+"A.16","Herbs, spices and condiments","Spain","ES",0.01,0.04
+"A.16.01","Herbs","Spain","ES",0.01,0.04
+"A.16.02","Spices","Spain","ES",0.01,0.04
+"A.16.03","Herb and spice mixtures","Spain","ES",0.01,0.04
+"A.16.04","Seasoning or extracts","Spain","ES",0.01,0.04
+"A.16.05","Condiment","Spain","ES",0.01,0.04
+"A.16.06","Dressing","Spain","ES",0.01,0.04
+"A.16.07","Chutney and pickles","Spain","ES",0.01,0.04
+"A.16.08","Savoury sauces","Spain","ES",0.01,0.04
+"A.16.09","Flavourings or essences","Spain","ES",0.01,0.04
+"A.16.10","Baking ingredients","Spain","ES",0.01,0.04
+"A.17","Food for infants and small children","Spain","ES",0.04,0.11
+"A.17.01","Infant formulae, powder","Spain","ES",0.04,0.11
+"A.17.02","Infant formulae, liquid","Spain","ES",0.04,0.11
+"A.17.03","Follow-on formulae, powder","Spain","ES",0.04,0.11
+"A.17.04","Follow-on formulae, liquid","Spain","ES",0.04,0.11
+"A.17.05","Cereal-based food for infants and young children","Spain","ES",0.04,0.11
+"A.17.06","Ready-to-eat meal for infants and young children","Spain","ES",0.04,0.11
+"A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","Spain","ES",0.005,0.07
+"A.17.08","Fruit juice and herbal tea for infants and young children","Spain","ES",0.01,0.04
+"A.18","Products for special nutritional use","Spain","ES",0.04,0.11
+"A.18.01","Food for weight reduction","Spain","ES",0.04,0.11
+"A.18.02","Dietary supplements","Spain","ES",0.04,0.11
+"A.18.03","Food for sports people (labelled as such)","Spain","ES",0.04,0.11
+"A.18.04","Dietetic food for diabetics (labelled as such)","Spain","ES",0.04,0.11
+"A.18.05","Medical food (are specially formulated and intended for the dietary management of a disease that has distinctive nutritional needs that cannot be met by normal diet alone; intended to be used under medical supervision)","Spain","ES",0.04,0.11
+"A.19","Composite food (including frozen products)","Spain","ES",0.04,0.11
+"A.19.01","Cereal-based dishes","Spain","ES",0.04,0.11
+"A.19.02","Rice-based meals","Spain","ES",0.04,0.11
+"A.19.03","Potato based dishes","Spain","ES",0.04,0.11
+"A.19.04","Beans-based meals","Spain","ES",0.04,0.11
+"A.19.05","Meat-based meals","Spain","ES",0.04,0.11
+"A.19.06","Fish and seafood based meals","Spain","ES",0.04,0.11
+"A.19.07","Vegetable-based meals","Spain","ES",0.04,0.11
+"A.19.08","Egg-based meal (e.g., omelette)","Spain","ES",0.04,0.11
+"A.19.09","Mushroom-based meals","Spain","ES",0.04,0.11
+"A.19.10","Ready to eat soups","Spain","ES",0.04,0.11
+"A.19.11","Prepared salads","Spain","ES",0.04,0.11
+"A.20","Snacks, desserts, and other foods","Spain","ES",0.04,0.11
+"A.20.01","Snack food","Spain","ES",0.04,0.11
+"A.20.02","Ices and desserts","Spain","ES",0.04,0.11
+"A.20.03","Other foods (foods which cannot be included in any other group)","Spain","ES",0.04,0.11
+"A.13.06","Energy drink","Spain","ES",0.01,0.04
