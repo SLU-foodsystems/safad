@@ -45,13 +45,6 @@ class ResultsEngine {
   processesEnergyDemands: null | Record<string, number[]> = null;
   processesAndPackaging: null | Record<string, string> = null;
 
-  factorsOverrides: FactorsOverrides = {
-    mode: "absolute",
-    productionWaste: null,
-    retailWaste: null,
-    consumerWaste: null,
-    techincalImprovement: null,
-  };
 
   private recomputeEnvFootprints() {
     if (!this.footprintsRpcsPerOrigin) {
@@ -118,10 +111,6 @@ class ResultsEngine {
   public setRpcFactors(rpcFactors: RpcFactors) {
     this.rpcParameters = rpcFactors;
     this.recomputeEnvFootprints();
-  }
-
-  public setFactorsOverrides(overrides: FactorsOverrides) {
-    this.factorsOverrides = overrides;
   }
 
   private attemptUpdateProcessEmissionsFactors() {
