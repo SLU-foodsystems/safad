@@ -42,6 +42,24 @@ export async function fetchAndParseFile<T>(
   return parser(csvString);
 }
 
+export async function fetchAndParseCountrySpecificFile<T>(
+  countryCode: string,
+  urlsMap: Record<string, string>,
+  parser: (fileContent: string) => T
+) {
+  const keys = Object.keys(urlsMap);
+
+  const csvFileUrlKey = keys.find((k) => k.endsWith(`${countryCode}.csv`));
+  if (!csvFileUrlKey) {
+    const alts = keys.join(", ");
+    throw new Error(
+      `Invalid country code. Received ${countryCode}, expected one of ${alts}.`
+    );
+  }
+
+  return fetchAndParseFile(urlsMap[csvFileUrlKey], parser);
+}
+
 export async function emissionsFactorsPackaging() {
   return fetchAndParseFile(
     emissionsFactorsPackagingUrl,
@@ -79,32 +97,16 @@ export async function footprintsRpcs() {
 }
 
 export async function wasteRetailAndConsumer(countryCode: string) {
-  const keys = Object.keys(wasteRetailAndConsumerUrls);
-
-  const csvFileUrlKey = keys.find((k) => k.endsWith(`${countryCode}.csv`));
-  if (!csvFileUrlKey) {
-    const alts = keys.join(", ");
-    throw new Error(
-      `Invalid country code. Received ${countryCode}, expected one of ${alts}.`
-    );
-  }
-
-  return fetchAndParseFile(
-    wasteRetailAndConsumerUrls[csvFileUrlKey],
+  return fetchAndParseCountrySpecificFile(
+    countryCode,
+    wasteRetailAndConsumerUrls,
     parseWasteRetailAndConsumer
   );
 }
 
 export async function diet(countryCode: string) {
-  const keys = Object.keys(dietsUrls);
-
-  const csvFileUrlKey = keys.find((k) => k.endsWith(`${countryCode}.csv`));
-  if (!csvFileUrlKey) {
-    const alts = keys.join(", ");
-    throw new Error(
-      `Invalid country code. Received ${countryCode}, expected one of ${alts}.`
-    );
-  }
+  return fetchAndParseCountrySpecificFile(countryCode, dietsUrls, parseDiet);
+}
 
   return fetchAndParseFile(dietsUrls[csvFileUrlKey], parseDiet);
 }

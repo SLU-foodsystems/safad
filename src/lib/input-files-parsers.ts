@@ -1,9 +1,9 @@
 import { ENV_IMPACTS_ZERO } from "@/lib/constants";
 import { parseCsvFile } from "@/lib/utils";
 
-const asNumber = (str: string): number => {
+const asNumber = (str: string, elseValue = 0): number => {
   const maybeNumber = Number.parseFloat((str || "").trim());
-  return Number.isNaN(maybeNumber) ? 0 : maybeNumber;
+  return Number.isNaN(maybeNumber) ? elseValue : maybeNumber;
 };
 
 export function parseEmissionsFactorsPackaging(csvString: string) {
