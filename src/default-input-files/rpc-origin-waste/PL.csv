@@ -1,0 +1,376 @@
+SUA Code,SUA Name,Category,Producer Country,Share,Waste,Organic
+01371,"Almonds, in shell",Nuts,AU,0.111,0.06,0
+01371,"Almonds, in shell",Nuts,ES,0.26,0.06,0
+01371,"Almonds, in shell",Nuts,US,0.564,0.06,0
+01371,"Almonds, in shell",Nuts,RoW,0.065,0.06,0
+01654,"Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw",Vegetables,IN,0.101,0.07,0
+01654,"Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw",Vegetables,LT,0.136,0.07,0
+01654,"Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw",Vegetables,RU,0.379,0.07,0
+01654,"Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw",Vegetables,UA,0.254,0.07,0
+01654,"Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw",Vegetables,RoW,0.13,0.07,0
+01341,Apples,Fruits,RoW,1,0.07,0
+01343,Apricots,Fruits,TR,0.686,0.07,0
+01343,Apricots,Fruits,RoW,0.314,0.07,0
+01379.01,Areca nuts,Nuts,RoW,1,0.06,0
+01216,Artichokes,Vegetables,FR,0.415,0.07,0
+01216,Artichokes,Vegetables,GR,0.561,0.07,0
+01216,Artichokes,Vegetables,RoW,0.024,0.07,0
+01211,Asparagus,Vegetables,RoW,1,0.07,0
+01311,Avocados,Vegetables,CL,0.169,0.07,0
+01311,Avocados,Vegetables,IL,0.146,0.07,0
+01311,Avocados,Vegetables,PE,0.279,0.07,0
+01311,Avocados,Vegetables,ZA,0.152,0.07,0
+01311,Avocados,Vegetables,ES,0.158,0.07,0
+01311,Avocados,Vegetables,RoW,0.095,0.07,0
+01312,Bananas,Fruits,CO,0.276,0.07,0
+01312,Bananas,Fruits,CR,0.15,0.07,0
+01312,Bananas,Fruits,EC,0.337,0.07,0
+01312,Bananas,Fruits,RoW,0.237,0.07,0
+0115,"Barley, average","Cereals, incl feed",RoW,1,0.045,0
+01701,"Beans, dry",Pulses,RoW,1,0.06,0
+01355.01,Blueberries,Berries,RoW,1,0.07,0
+01377,"Brazil nuts, in shell",Nuts,AU,0.111,0.06,0
+01377,"Brazil nuts, in shell",Nuts,ES,0.26,0.06,0
+01377,"Brazil nuts, in shell",Nuts,US,0.564,0.06,0
+01377,"Brazil nuts, in shell",Nuts,RoW,0.065,0.06,0
+01702,"Broad beans and horse beans, dry","Pulses, incl feed",RoW,1,0.06,0
+01243,"Broad beans and horse beans, green",Vegetables,RoW,1,0.07,0
+01192,Buckwheat,Seeds,PL,0.939,0.06,0
+01192,Buckwheat,Seeds,RoW,0.061,0.06,0
+01212,Cabbages,Vegetables,RoW,1,0.07,0
+01195,Canary seed,Nuts,CA,0.689,0.06,0
+01195,Canary seed,Nuts,HU,0.262,0.06,0
+01195,Canary seed,Nuts,RoW,0.049,0.06,0
+01229,Cantaloupes and other melons,Fruits,BR,0.171,0.07,0
+01229,Cantaloupes and other melons,Fruits,ES,0.482,0.07,0
+01229,Cantaloupes and other melons,Fruits,UA,0.105,0.07,0
+01229,Cantaloupes and other melons,Fruits,RoW,0.242,0.07,0
+01251,Carrots and turnips,Vegetables,RoW,1,0.07,0
+01372,"Cashew nuts, in shell",Nuts,IN,0.36,0.06,0
+01372,"Cashew nuts, in shell",Nuts,CI,0.238,0.06,0
+01372,"Cashew nuts, in shell",Nuts,RoW,0.402,0.06,0
+01520.01,"Cassava, fresh",Vegetables,CR,0.269,0.07,0
+01520.01,"Cassava, fresh",Vegetables,TH,0.588,0.07,0
+01520.01,"Cassava, fresh",Vegetables,RoW,0.144,0.07,0
+01213,"Cauliflowers and broccoli, average",Vegetables,BR,0.171,0.07,0
+01213,"Cauliflowers and broccoli, average",Vegetables,ES,0.482,0.07,0
+01213,"Cauliflowers and broccoli, average",Vegetables,UA,0.105,0.07,0
+01213,"Cauliflowers and broccoli, average",Vegetables,RoW,0.242,0.07,0
+01199.90,Cereals n.e.c.,Cereals,PL,0.999,0.045,0
+01199.90,Cereals n.e.c.,Cereals,RoW,0.001,0.045,0
+01344.02,Cherries,Berries,RoW,1,0.07,0
+01373,"Chestnuts, in shell",Nuts,RoW,1,0.06,0
+01703,"Chick peas, dry",Pulses,AR,0.416,0.06,0
+01703,"Chick peas, dry",Pulses,CA,0.185,0.06,0
+01703,"Chick peas, dry",Pulses,TR,0.164,0.06,0
+01703,"Chick peas, dry",Pulses,RoW,0.235,0.06,0
+01231,"chillies and peppers, green (capsicum spp. and pimenta spp.)",Spices,NL,0.267,0.07,0
+01231,"chillies and peppers, green (capsicum spp. and pimenta spp.)",Spices,ES,0.613,0.07,0
+01231,"chillies and peppers, green (capsicum spp. and pimenta spp.)",Spices,RoW,0.119,0.07,0
+01652,"Chillies and peppers, green (Capsicum spp. and Pimenta spp.), raw",Spices,NL,0.267,0.07,0
+01652,"Chillies and peppers, green (Capsicum spp. and Pimenta spp.), raw",Spices,ES,0.613,0.07,0
+01652,"Chillies and peppers, green (Capsicum spp. and Pimenta spp.), raw",Spices,RoW,0.119,0.07,0
+01640,Cocoa beans,Stimulants,GH,0.275,0.07,0
+01640,Cocoa beans,Stimulants,CI,0.503,0.07,0
+01640,Cocoa beans,Stimulants,RoW,0.222,0.07,0
+01460,"Coconut, in shell",Nuts,IN,0.123,0.06,0
+01460,"Coconut, in shell",Nuts,ID,0.27,0.06,0
+01460,"Coconut, in shell",Nuts,PH,0.532,0.06,0
+01460,"Coconut, in shell",Nuts,RoW,0.075,0.06,0
+01610,"Coffee, green",Stimulants,BR,0.345,0.07,0
+01610,"Coffee, green",Stimulants,ID,0.111,0.07,0
+01610,"Coffee, green",Stimulants,RoW,0.544,0.07,0
+01355.02,Cranberries,Berries,RoW,1,0.07,0
+01232,"Cucumbers and gherkins, averrage",Vegetables,RoW,1,0.07,0
+01351.01,Currants,Berries,PL,0.999,0.07,0
+01351.01,Currants,Berries,RoW,0.001,0.07,0
+01314,Dates,Fruits,IR,0.636,0.07,0
+01314,Dates,Fruits,TN,0.216,0.07,0
+01314,Dates,Fruits,RoW,0.148,0.07,0
+01599.10,"Edible roots and tubers with high starch or inulin content, n.e.c., fresh",Roots,RoW,1,0.24,0
+01233,Eggplants (aubergines),Vegetables,NL,0.38,0.07,0
+01233,Eggplants (aubergines),Vegetables,ES,0.548,0.07,0
+01233,Eggplants (aubergines),Vegetables,RoW,0.072,0.07,0
+0232,"eggs from other birds in shell, fresh, n.e.c.",Dairy,RoW,1,0.017,0
+01315,Figs,Fruits,GR,0.215,0.07,0
+01315,Figs,Fruits,TR,0.769,0.07,0
+01315,Figs,Fruits,RoW,0.015,0.07,0
+01193,Fonio,Cereals,RoW,1,0.045,0
+21170.02,"game meat, fresh, chilled or frozen",Meat,RoW,1,0.057,0
+01351.02,Gooseberries,Berries,PL,1,0.07,0
+01330,Grapes,Fruits,IT,0.321,0.07,0
+01330,Grapes,Fruits,RoW,0.679,0.07,0
+01290.01,Green corn (maize),Vegetables,HU,0.489,0.07,0
+01290.01,Green corn (maize),Vegetables,PL,0.439,0.07,0
+01290.01,Green corn (maize),Vegetables,RoW,0.072,0.07,0
+01252,Green garlic,Vegetables,EG,0.108,0.07,0
+01252,Green garlic,Vegetables,ES,0.557,0.07,0
+01252,Green garlic,Vegetables,RoW,0.336,0.07,0
+0142,"Groundnuts, excluding shelled",Nuts,AU,0.111,0.06,0
+0142,"Groundnuts, excluding shelled",Nuts,ES,0.26,0.06,0
+0142,"Groundnuts, excluding shelled",Nuts,US,0.564,0.06,0
+0142,"Groundnuts, excluding shelled",Nuts,RoW,0.065,0.06,0
+01374,"Hazelnuts, in shell",Nuts,GE,0.127,0.06,0
+01374,"Hazelnuts, in shell",Nuts,PL,0.676,0.06,0
+01374,"Hazelnuts, in shell",Nuts,RoW,0.197,0.06,0
+0231,"hen eggs in shell, fresh",Dairy,RoW,1,0.017,0
+21118.01,"horse meat, fresh or chilled",Meat,RoW,1,0.057,0
+01352,Kiwi fruit,Fruits,GR,0.162,0.07,0
+01352,Kiwi fruit,Fruits,IT,0.622,0.07,0
+01352,Kiwi fruit,Fruits,RoW,0.217,0.07,0
+01379.02,Kola nuts,Nuts,CI,0.662,0.06,0
+01379.02,Kola nuts,Nuts,NG,0.246,0.06,0
+01379.02,Kola nuts,Nuts,RoW,0.092,0.06,0
+01254,Leeks and other alliaceous vegetables,Vegetables,PL,0.914,0.07,0
+01254,Leeks and other alliaceous vegetables,Vegetables,RoW,0.086,0.07,0
+01322,Lemons and limes,Fruits,AR,0.134,0.07,0
+01322,Lemons and limes,Fruits,ES,0.595,0.07,0
+01322,Lemons and limes,Fruits,TR,0.138,0.07,0
+01322,Lemons and limes,Fruits,RoW,0.133,0.07,0
+01704,"Lentils, dry (organic)",Pulses,CA,0.662,0.06,0
+01704,"Lentils, dry (organic)",Pulses,RU,0.142,0.06,0
+01704,"Lentils, dry (organic)",Pulses,TR,0.126,0.06,0
+01704,"Lentils, dry (organic)",Pulses,RoW,0.07,0.06,0
+01214,Lettuce and chicory,Vegetables,ES,0.337,0.07,0
+01214,Lettuce and chicory,Vegetables,RoW,0.663,0.07,0
+01441,Linseed,Seeds,KZ,0.448,0.06,0
+01441,Linseed,Seeds,RU,0.218,0.06,0
+01441,Linseed,Seeds,UA,0.16,0.06,0
+01441,Linseed,Seeds,RoW,0.174,0.06,0
+01709.02,Lupins,Pulses,RoW,1,0.06,0
+0112,Maize (corn),"Cereals, incl feed",RoW,1,0.045,0
+01316,"Mangoes, guavas and mangosteens",Fruits,BR,0.467,0.07,0
+01316,"Mangoes, guavas and mangosteens",Fruits,PE,0.263,0.07,0
+01316,"Mangoes, guavas and mangosteens",Fruits,RoW,0.27,0.07,0
+01630,Maté leaves,Stimulants,AR,0.458,0.07,0
+01630,Maté leaves,Stimulants,BR,0.494,0.07,0
+01630,Maté leaves,Stimulants,RoW,0.049,0.07,0
+21118.02,"meat of asses, fresh or chilled",Meat,RoW,1,0.057,0
+21111.02,"meat of cattle with the bone, fresh or chilled",Meat,RoW,1,0.057,0
+21121,"meat of chickens, fresh or chilled",Meat,RoW,1,0.057,0
+21122,"meat of ducks, fresh or chilled",Meat,PL,0.979,0.057,0
+21122,"meat of ducks, fresh or chilled",Meat,RoW,0.021,0.057,0
+21123,"meat of geese, fresh or chilled",Meat,PL,0.995,0.057,0
+21123,"meat of geese, fresh or chilled",Meat,RoW,0.005,0.057,0
+21116,"meat of goat, fresh or chilled",Meat,DE,0.784,0.057,0
+21116,"meat of goat, fresh or chilled",Meat,RoW,0.216,0.057,0
+21114,"meat of rabbits and hares, fresh or chilled",Meat,PL,0.823,0.057,0
+21114,"meat of rabbits and hares, fresh or chilled",Meat,RoW,0.177,0.057,0
+21115,"meat of sheep, fresh or chilled",Meat,FR,0.171,0.057,0
+21115,"meat of sheep, fresh or chilled",Meat,NZ,0.113,0.057,0
+21115,"meat of sheep, fresh or chilled",Meat,RoW,0.717,0.057,0
+21124,"meat of turkeys, fresh or chilled",Meat,RoW,1,0.057,0
+0118,Millet,Cereals,PL,0.946,0.045,0
+0118,Millet,Cereals,RoW,0.054,0.045,0
+01199.02,Mixed grain,Cereals,PL,0.999,0.045,0
+01199.02,Mixed grain,Cereals,RoW,0.001,0.045,0
+01270,Mushrooms and truffles,Mushrooms,RoW,1,0.07,0
+01442,Mustard seed,Seeds,CA,0.186,0.06,0
+01442,Mustard seed,Seeds,KZ,0.144,0.06,0
+01442,Mustard seed,Seeds,CZ,0.161,0.06,0
+01442,Mustard seed,Seeds,RU,0.196,0.06,0
+01442,Mustard seed,Seeds,UA,0.214,0.06,0
+01442,Mustard seed,Seeds,RoW,0.1,0.06,0
+02910,natural honey,Other,UA,0.225,0.06,0
+02910,natural honey,Other,RoW,0.775,0.06,0
+01653,"nutmeg, mace, cardamoms, raw",Spices,GT,0.256,0.07,0
+01653,"nutmeg, mace, cardamoms, raw",Spices,ID,0.547,0.07,0
+01653,"nutmeg, mace, cardamoms, raw",Spices,RoW,0.198,0.07,0
+0117,Oats,"Cereals, incl feed",RoW,1,0.045,0
+01491.02,Oil palm seeds,"Oil crops, tree",IN,0.134,0.06,0
+01491.02,Oil palm seeds,"Oil crops, tree",MY,0.18,0.06,0
+01491.02,Oil palm seeds,"Oil crops, tree",ET,0.137,0.06,0
+01491.02,Oil palm seeds,"Oil crops, tree",RoW,0.549,0.06,0
+01450,Olives,"Oil crops, tree",IT,0.274,0.06,0
+01450,Olives,"Oil crops, tree",ES,0.597,0.06,0
+01450,Olives,"Oil crops, tree",RoW,0.129,0.06,0
+01253.02,"Onions and shallots, dry (excluding dehydrated)",Vegetables,RoW,1,0.07,0
+01323,Oranges,Fruits,BR,0.183,0.07,0
+01323,Oranges,Fruits,GR,0.113,0.07,0
+01323,Oranges,Fruits,ES,0.516,0.07,0
+01323,Oranges,Fruits,RoW,0.188,0.07,0
+01241.90,"Other beans, green",Vegetables,RoW,1,0.07,0
+01359.90,"Other fruits, n.e.c.",Fruits,RoW,1,0.07,0
+01449.90,"Other oil seeds, n.e.c.",Oil crops,IN,0.134,0.06,0
+01449.90,"Other oil seeds, n.e.c.",Oil crops,MY,0.18,0.06,0
+01449.90,"Other oil seeds, n.e.c.",Oil crops,ET,0.137,0.06,0
+01449.90,"Other oil seeds, n.e.c.",Oil crops,RoW,0.549,0.06,0
+01709.90,Other pulses n.e.c.,Pulses,RoW,1,0.06,0
+01699,"Other stimulant, spice and aromatic crops, n.e.c.",Stimulants,RoW,1,0.07,0
+01290.90,"Other vegetables, fresh n.e.c.",Vegetables,RoW,1,0.07,0
+01317,Papayas,Fruits,BR,0.27,0.07,0
+01317,Papayas,Fruits,IN,0.587,0.07,0
+01317,Papayas,Fruits,RoW,0.143,0.07,0
+01345,Peaches and nectarines,Fruits,IT,0.195,0.07,0
+01345,Peaches and nectarines,Fruits,ES,0.636,0.07,0
+01345,Peaches and nectarines,Fruits,RoW,0.169,0.07,0
+01342.01,Pears,Fruits,RoW,1,0.07,0
+01705,"Peas, dry","Pulses, incl feed",PL,0.785,0.06,0
+01705,"Peas, dry","Pulses, incl feed",RoW,0.215,0.06,0
+01242,"Peas, green",Vegetables,RoW,1,0.07,0
+01651,"Pepper (Piper spp.), raw",Vegetables,BR,0.323,0.07,0
+01651,"Pepper (Piper spp.), raw",Vegetables,IN,0.136,0.07,0
+01651,"Pepper (Piper spp.), raw",Vegetables,ID,0.333,0.07,0
+01651,"Pepper (Piper spp.), raw",Vegetables,RoW,0.207,0.07,0
+01359.01,Persimmons,Fruits,RoW,1,0.07,0
+21181,"pig meat, cuts, salted, dried or smoked (bacon and ham)",Meat,RoW,1,0.057,0
+01318,Pineapples,Fruits,CR,0.366,0.07,0
+01318,Pineapples,Fruits,TH,0.469,0.07,0
+01318,Pineapples,Fruits,RoW,0.165,0.07,0
+01375,"pistachios, in shell",Nuts,IR,0.294,0.06,0
+01375,"pistachios, in shell",Nuts,US,0.669,0.06,0
+01375,"pistachios, in shell",Nuts,RoW,0.037,0.06,0
+01313,Plantains and others,Fruits,CO,0.412,0.07,0
+01313,Plantains and others,Fruits,EC,0.539,0.07,0
+01313,Plantains and others,Fruits,RoW,0.049,0.07,0
+01346,Plums and sloes,Fruits,CL,0.174,0.07,0
+01346,Plums and sloes,Fruits,RoW,0.826,0.07,0
+01321,Pomelos and grapefruits,Fruits,IL,0.13,0.07,0
+01321,Pomelos and grapefruits,Fruits,ZA,0.187,0.07,0
+01321,Pomelos and grapefruits,Fruits,ES,0.134,0.07,0
+01321,Pomelos and grapefruits,Fruits,TR,0.173,0.07,0
+01321,Pomelos and grapefruits,Fruits,RoW,0.376,0.07,0
+01448,Poppy seed,Seeds,CZ,0.339,0.06,0
+01448,Poppy seed,Seeds,ES,0.318,0.06,0
+01448,Poppy seed,Seeds,TR,0.123,0.06,0
+01448,Poppy seed,Seeds,RoW,0.22,0.06,0
+01510,Potatoes,Roots,RoW,1,0.24,0
+01235,"Pumpkins, squash and gourds",Vegetables,RoW,1,0.07,0
+01342.02,Quinces,Other,TR,0.803,0.06,0
+01342.02,Quinces,Other,RoW,0.197,0.06,0
+01194,Quinoa,Seeds,BO,0.391,0.06,0
+01194,Quinoa,Seeds,PE,0.59,0.06,0
+01194,Quinoa,Seeds,RoW,0.019,0.06,0
+01443,rapeseed or colza seed,Seeds,PL,0.876,0.06,0
+01443,rapeseed or colza seed,Seeds,RoW,0.124,0.06,0
+01353.01,Raspberries,Berries,RoW,1,0.07,0
+02211,raw milk of cattle,Dairy,RoW,1,0.017,0
+02291,raw milk of sheep,Dairy,PL,1,0.017,0
+0113,Rice,Cereals,PL,0.999,0.045,0
+0113,Rice,Cereals,RoW,0.001,0.045,0
+0116,Rye,"Cereals, incl feed",PL,0.998,0.045,0
+0116,Rye,"Cereals, incl feed",RoW,0.002,0.045,0
+01444,Sesame seed,Seeds,IN,0.605,0.06,0
+01444,Sesame seed,Seeds,NG,0.174,0.06,0
+01444,Sesame seed,Seeds,PK,0.109,0.06,0
+01444,Sesame seed,Seeds,RoW,0.112,0.06,0
+0114,Sorghum,Cereals,HU,0.492,0.045,0
+0114,Sorghum,Cereals,RO,0.142,0.045,0
+0114,Sorghum,Cereals,UA,0.166,0.045,0
+0114,Sorghum,Cereals,RoW,0.2,0.045,0
+01344.01,Sour cherries,Fruits,PL,0.982,0.07,0
+01344.01,Sour cherries,Fruits,RoW,0.018,0.07,0
+0141,Soya beans,Pulses,AR,0.434,0.06,0
+0141,Soya beans,Pulses,BR,0.174,0.06,0
+0141,Soya beans,Pulses,US,0.239,0.06,0
+0141,Soya beans,Pulses,RoW,0.153,0.06,0
+01215,Spinach,Vegetables,IT,0.201,0.07,0
+01215,Spinach,Vegetables,ES,0.644,0.07,0
+01215,Spinach,Vegetables,RoW,0.155,0.07,0
+01354,Strawberries,Fruits,RoW,1,0.07,0
+01801,Sugar beet,Sugar crops,RoW,1,0.045,0
+01445,Sunflower seed,Oil crops,UA,0.787,0.06,0
+01445,Sunflower seed,Oil crops,RoW,0.213,0.06,0
+01530,Sweet potatoes,Roots,IT,0.125,0.24,0
+01530,Sweet potatoes,Roots,ES,0.48,0.24,0
+01530,Sweet potatoes,Roots,US,0.217,0.24,0
+01530,Sweet potatoes,Roots,RoW,0.178,0.24,0
+01324,"Tangerines, mandarins, clementines",Fruits,ES,0.854,0.07,0
+01324,"Tangerines, mandarins, clementines",Fruits,RoW,0.146,0.07,0
+01234,"Tomatoes, average",Vegetables,RoW,1,0.07,0
+01191,Triticale,Cereals,PL,0.999,0.045,0
+01191,Triticale,Cereals,RoW,0.001,0.045,0
+01929.02,"True hemp, raw or retted",Other,PL,0.999,0.06,0
+01929.02,"True hemp, raw or retted",Other,RoW,0.001,0.06,0
+01376,"Walnuts, in shell",Nuts,RoW,1,0.06,0
+01221,Watermelons,Fruits,GR,0.127,0.07,0
+01221,Watermelons,Fruits,HU,0.205,0.07,0
+01221,Watermelons,Fruits,IT,0.296,0.07,0
+01221,Watermelons,Fruits,ES,0.216,0.07,0
+01221,Watermelons,Fruits,RoW,0.156,0.07,0
+01709.01,Vetches,Other,PL,1,0.06,0
+0111,"Wheat, average","Cereals, incl feed",RoW,1,0.045,0
+01319,"Other tropical fruits, n.e.c.",Fruits,ES,0.665,0.07,0
+01319,"Other tropical fruits, n.e.c.",Fruits,BF,0.214,0.07,0
+01319,"Other tropical fruits, n.e.c.",Fruits,RoW,0.121,0.07,0
+01379.90,Nuts nes,Nuts,TR,0.552,0.06,0
+01379.90,Nuts nes,Nuts,RoW,0.448,0.06,0
+01620,Tea leaves,Stimulants,LK,0.118,0.07,0
+01620,Tea leaves,Stimulants,IN,0.235,0.07,0
+01620,Tea leaves,Stimulants,ID,0.118,0.07,0
+01620,Tea leaves,Stimulants,KE,0.231,0.07,0
+01620,Tea leaves,Stimulants,RoW,0.298,0.07,0
+01655,"Cinnamon and cinnamon-tree flowers, raw",Spices,ID,0.867,0.07,0
+01655,"Cinnamon and cinnamon-tree flowers, raw",Spices,RoW,0.133,0.07,0
+01656,"Cloves (whole stems), raw",Spices,KM,0.342,0.07,0
+01656,"Cloves (whole stems), raw",Spices,ID,0.215,0.07,0
+01656,"Cloves (whole stems), raw",Spices,MG,0.378,0.07,0
+01656,"Cloves (whole stems), raw",Spices,RoW,0.064,0.07,0
+01657,"Ginger, raw",Spices,RoW,1,0.07,0
+01658,Water buffalo milk,Dairy,RoW,1,0.017,0
+02212,"Vanilla, raw",Spices,MG,0.839,0.07,0
+02212,"Vanilla, raw",Spices,RoW,0.161,0.07,0
+02292,Goat milk,Dairy,PL,1,0.017,0
+21113.02,Pig meat,Meat,RoW,1,0.057,0
+21170.01,Pigeon fresh meat,Meat,RoW,1,0.057,0
+21170.92,"Other meat n.e.c, fresh, chilled or frozen",Meat,RoW,1,0.057,0
+A02DE,Herrings,Fish,RoW,1,0.02,0
+A02ES,Herring roe,Fish,RoW,1,0.02,0
+A02DH,Sprat,Fish,RoW,1,0.02,0
+A02DB,European sardine,Fish,RoW,1,0.02,0
+A02DD,Anchovies,Fish,RoW,1,0.02,0
+A029M,Char,Fish,RoW,1,0.02,0
+A029B,Smelt,Fish,RoW,1,0.02,0
+A029Q,Whitefishes or coregonus,Fish,RoW,1,0.02,0
+A027N,Perch,Fish,RoW,1,0.02,0
+A029T,Sea bass,Fish,RoW,1,0.02,0
+A02CT,Mackerel,Fish,RoW,1,0.02,0
+A02DR,Tuna and bonito (generic),Fish,RoW,1,0.02,0
+A02AD,Mullets,Fish,RoW,1,0.02,0
+A02CB,Hakes,Fish,RoW,1,0.02,0
+A02AT,Flounders,Fish,RoW,1,0.02,0
+A02AY,Halibut,Fish,RoW,1,0.02,0
+A02BC,Plaice,Fish,RoW,1,0.02,0
+A02BF,Sole,Fish,RoW,1,0.02,0
+A027C,Carps,Fish,RoW,1,0.02,0
+A027B,Freshwater bream - Europe,Fish,RoW,1,0.02,0
+A028G,River eels,Fish,RoW,1,0.02,0
+A02BJ,Anglerfish and monkfish,Fish,RoW,1,0.02,0
+A02DJ,Sharks,Fish,RoW,1,0.02,0
+A02DQ,Rays,Fish,RoW,1,0.02,0
+A02FA,Sturgeon roe,Fish,RoW,1,0.02,0
+A02DS,Bonito,Fish,RoW,1,0.02,0
+A02DA,Sardines and sardine-type fishes,Fish,RoW,1,0.02,0
+A07Y0,Swordfish,Fish,RoW,1,0.02,0
+A02FF,Freshwater crabs,Fish,RoW,1,0.02,0
+A02FP,Lobsters,Fish,RoW,1,0.02,0
+A02FS,"Lobster, norway",Fish,RoW,1,0.02,0
+A02FY,"Prawn, giant tiger",Fish,RoW,1,0.02,0
+A02GA,White shrimp,Fish,RoW,1,0.02,0
+A02FV,Spiny and rock lobsters,Fish,RoW,1,0.02,0
+A02FG,Freshwater crayfishes,Fish,RoW,1,0.02,0
+A02JH,Squids,Fish,RoW,1,0.02,0
+A02JD,Octopuses,Fish,RoW,1,0.02,0
+A02JA,Cuttlefishes,Fish,RoW,1,0.02,0
+A02HA,Clams,Fish,RoW,1,0.02,0
+A02HE,Cockles,Fish,RoW,1,0.02,0
+A02HF,Mussels,Fish,RoW,1,0.02,0
+A02HG,Oysters,Fish,RoW,1,0.02,0
+A02HN,"Scallops, pectens",Fish,RoW,1,0.02,0
+A02GX,"Water snails, conches and whelks",Fish,RoW,1,0.02,0
+A02GX,"Water snails, conches and whelks",Fish,RoW,1,0.02,0
+A02KR,Frogs (legs),Fish,RoW,1,0.02,0
+A02LK,Snails,Fish,RoW,1,0.02,0
+A0C75,Salmons,Fish,RoW,1,0.02,0
+A029F,Trouts,Fish,RoW,1,0.02,0
+A027J,Catfishes (freshwater),Fish,RoW,1,0.02,0
+A029Z,Wolffish,Fish,RoW,1,0.02,0
+A02BV,Cod,Fish,RoW,1,0.02,0
+A02EL,Cod liver,Fish,RoW,1,0.02,0
+A02EP,Cod roe,Fish,RoW,1,0.02,0
+A02CG,Whiting,Fish,RoW,1,0.02,0
+A02CA,Haddock,Fish,RoW,1,0.02,0
+A0F7F,Lumpfish roe,Fish,RoW,1,0.02,0
+01802,Sugar cane,Sugar crops,ES,1,0.045,0
+01491.01,Oil palm fruit,"Oil crops, tree",MY,0.3,0.06,0
+01491.01,Oil palm fruit,"Oil crops, tree",ID,0.7,0.06,0

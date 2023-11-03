@@ -188,3 +188,38 @@ export function parseDiet(csvString: string): Diet {
     asNumber(amount),
   ]);
 }
+
+export function parseRpcOriginWaste(csvString: string) {
+  const parametersCsv = parseCsvFile(csvString).slice(1);
+
+  // The CSV has each entry as a line. Even though they're probably sorted and
+  // grouped together, we're not going to use that structure in this algorithm,
+  // to avoid that assumption causing bugs.
+  //
+  // We will walk through each line, and successively build an object with the
+  // desired shape (see header of this file).
+  //
+  // If we meet the same (code, origin) pair twice, we will simply overwrite it.
+  return parametersCsv.reduce(
+    (
+      acc,
+      [suaCode, _name, _category, origin, originShare, productionWaste, organic]
+    ) => {
+      // First time we see this RPC code? Add an empty object, which we will
+      // populate with one obj per origin
+      if (!(suaCode in acc)) {
+        acc[suaCode] = {};
+      }
+
+      acc[suaCode][origin] = [
+        asNumber(originShare),
+        asNumber(productionWaste),
+        asNumber(organic),
+      ];
+
+      // Pass the acc along.
+      return acc;
+    },
+    {} as Record<string, Record<string, number[]>>
+  );
+}
