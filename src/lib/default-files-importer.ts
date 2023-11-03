@@ -16,6 +16,14 @@ const dietsUrls = import.meta.glob("@/default-input-files/diets/*.csv", {
   eager: true,
 });
 
+const rpcOriginWasteUrls = import.meta.glob(
+  "@/default-input-files/rpc-origin-waste/*.csv",
+  {
+    as: "url",
+    eager: true,
+  }
+);
+
 import {
   parseDiet,
   parseEmissionsFactorsEnergy,
@@ -24,6 +32,7 @@ import {
   parseFootprintsRpcs,
   parseProcessesEnergyDemands,
   parseProcessesPackaging,
+  parseRpcOriginWaste,
   parseWasteRetailAndConsumer,
 } from "./input-files-parsers";
 
@@ -108,5 +117,10 @@ export async function diet(countryCode: string) {
   return fetchAndParseCountrySpecificFile(countryCode, dietsUrls, parseDiet);
 }
 
-  return fetchAndParseFile(dietsUrls[csvFileUrlKey], parseDiet);
+export async function rpcOriginWaste(countryCode: string) {
+  return fetchAndParseCountrySpecificFile(
+    countryCode,
+    rpcOriginWasteUrls,
+    parseRpcOriginWaste
+  );
 }
