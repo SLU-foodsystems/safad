@@ -14,7 +14,6 @@ import url from "url";
 import { readCsv, roundToPrecision } from "../utils.mjs";
 
 const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
-const OUTPUT_AS_CSV = false;
 
 const DIETS = [
   {
@@ -65,13 +64,13 @@ const DIETS = [
   },
   {
     country: "SwedenBaseline",
-    countyCode: "SE-B",
+    countryCode: "SE-B",
     surveyName: "Swedish National Dietary Survey - Riksmaten adults 2010-11",
     ageClass: "Adults",
   },
   {
     country: "Sweden",
-    countyCode: "SE",
+    countryCode: "SE",
     surveyName: "National Food Administration",
     ageClass: "Other children",
   },
@@ -106,7 +105,7 @@ function main(args) {
 
   const filtered = df.filter(generalDietFilter);
 
-  DIETS.forEach(({ country, surveyName, ageClass }) => {
+  DIETS.forEach(({ countryCode, surveyName, ageClass }) => {
     const amounts = filtered
       .filter(
         (row) => row[3] === surveyName && (!ageClass || row[5] === ageClass)
@@ -152,34 +151,27 @@ function main(args) {
       amounts[efsaCode] = roundToPrecision(amounts[efsaCode], 4);
     });
 
-    if (OUTPUT_AS_CSV) {
-      const namesMap = Object.fromEntries(
-        filtered.map((row) => {
-          return [creaToEfsaCodes[row[8]], row[7]];
-        })
-      );
+    const namesMap = Object.fromEntries(
+      filtered.map((row) => {
+        return [creaToEfsaCodes[row[8]], row[7]];
+      })
+    );
 
-      const csvHeader = "Code,Name,Amount";
-      const csvBody = Object.entries(amounts)
-        .map(([code, [amount]]) =>
-          [
-            code,
-            `"${namesMap[code]}"`,
-            amount,
-          ].join(",")
-        )
-        .join("\n");
-      const csv = csvHeader + "\n" + csvBody;
-      fs.writeFileSync(
-        path.resolve(DIRNAME, `./csv-out/${country}-crea-diet.csv`),
-        csv
-      );
-    } else {
-      fs.writeFileSync(
-        path.resolve(DIRNAME, `../../src/data/diets/${country}.json`),
-        JSON.stringify(amounts)
-      );
-    }
+    const csvHeader = "Code,Name,Amount";
+    const csvBody = Object.entries(amounts)
+      .map(([code, amount]) =>
+        [code, `"${namesMap[code]}"`, amount].join(",")
+      )
+      .join("\n");
+
+    const csv = csvHeader + "\n" + csvBody;
+    fs.writeFileSync(
+      path.resolve(
+        DIRNAME,
+        `../../src/default-input-files/diets/${countryCode}.csv`
+      ),
+      csv
+    );
   });
 }
 

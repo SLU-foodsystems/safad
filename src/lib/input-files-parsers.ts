@@ -1,6 +1,11 @@
 import { ENV_IMPACTS_ZERO } from "@/lib/constants";
 import { parseCsvFile } from "@/lib/utils";
 
+const asNumber = (str: string): number => {
+  const maybeNumber = Number.parseFloat((str || "").trim());
+  return Number.isNaN(maybeNumber) ? 0 : maybeNumber;
+};
+
 export function parseEmissionsFactorsPackaging(csvString: string) {
   const array = parseCsvFile(csvString)
     // Remove any empty rows
@@ -161,11 +166,6 @@ export function parseFootprintsRpcs(csvString: string) {
 export function parseWasteRetailAndConsumer(csvString: string) {
   const data = parseCsvFile(csvString).slice(1);
 
-  const asNumber = (str: string) => {
-    const maybeNumber = Number.parseFloat((str || "").trim());
-    return Number.isNaN(maybeNumber) ? 0 : maybeNumber;
-  };
-
   return Object.fromEntries(
     data.map(
       ([
@@ -178,4 +178,13 @@ export function parseWasteRetailAndConsumer(csvString: string) {
       ]) => [code, [asNumber(retailWaste), asNumber(consumerWaste)]]
     )
   );
+}
+
+export function parseDiet(csvString: string): Diet {
+  const data = parseCsvFile(csvString).slice(1);
+
+  return data.map(([code, _name, amount]): [string, number] => [
+    code,
+    asNumber(amount),
+  ]);
 }

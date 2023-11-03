@@ -16,16 +16,6 @@ import italyRpcFactors from "@/data/rpc-parameters/Italy-rpc.json";
 import spainRpcFactors from "@/data/rpc-parameters/Spain-rpc.json";
 import swedenRpcFactors from "@/data/rpc-parameters/Sweden-rpc.json";
 
-import franceDiet from "@/data/diets/France.json";
-import germanyDiet from "@/data/diets/Germany.json";
-import greeceDiet from "@/data/diets/Greece.json";
-import hungaryDiet from "@/data/diets/Hungary.json";
-import irelandDiet from "@/data/diets/Ireland.json";
-import italyDiet from "@/data/diets/Italy.json";
-import spainDiet from "@/data/diets/Spain.json";
-import swedenDiet from "@/data/diets/Sweden.json";
-import swedenBaselineDiet from "@/data/diets/SwedenBaseline.json";
-
 import ResultsEngine from "@/lib/ResultsEngine";
 import {
   ENV_IMPACTS_ZERO,
@@ -33,6 +23,7 @@ import {
   TRANSPORT_EMISSIONS_ZERO,
 } from "../constants";
 import {
+  diet,
   emissionsFactorsEnergy,
   emissionsFactorsPackaging,
   emissionsFactorsTransport,
@@ -78,23 +69,23 @@ const rpcFiles = {
   SwedenBaseline: swedenRpcFactors.data,
 } as unknown as Record<LlCountryName, RpcFactors>;
 
-const dietFiles = {
-  France: franceDiet,
-  Germany: germanyDiet,
-  Greece: greeceDiet,
-  Hungary: hungaryDiet,
-  Ireland: irelandDiet,
-  Italy: italyDiet,
-  Spain: spainDiet,
-  Sweden: swedenDiet,
-  SwedenBaseline: swedenBaselineDiet,
-} as unknown as Record<LlCountryName, Record<string, number[]>>;
-
 const categoryNames = categoryNamesJson as Record<string, string>;
 
 export async function computeFootprintsForDiets(
   envFactors?: EnvFactors
 ): Promise<[string, string[][]][]> {
+  const dietFiles = {
+    France: await diet("FR"),
+    Germany: await diet("DE"),
+    Greece: await diet("GR"),
+    Hungary: await diet("HU"),
+    Ireland: await diet("IE"),
+    Italy: await diet("IT"),
+    Spain: await diet("ES"),
+    Sweden: await diet("SE"),
+    SwedenBaseline: await diet("SE-B"),
+  } as Record<string, [string, number][]>;
+
   const RE = new ResultsEngine();
   RE.setFootprintsRpcs(envFactors || (await footprintsRpcs()));
   RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
@@ -124,11 +115,7 @@ export async function computeFootprintsForDiets(
 
     RE.setRpcFactors(rpcFiles[countryName]);
 
-    const diet = Object.entries(dietFiles[countryName]).map(
-      ([code, [amount]]): [string, number] => [code, amount]
-    );
-
-    const results = RE.computeImpactsByCategory(diet);
+    const results = RE.computeImpactsByCategory(dietFiles[countryName]);
     if (results === null) return null;
     const categories = uniq([
       ...Object.keys(results[0]),
