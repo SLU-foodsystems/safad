@@ -220,6 +220,6 @@ export function parseRpcOriginWaste(csvString: string) {
       // Pass the acc along.
       return acc;
     },
-    {} as Record<string, Record<string, number[]>>
+    {} as RpcFactors
   );
 }
