@@ -8,17 +8,8 @@ import ResultsEngine from "@/lib/ResultsEngine";
 import foodsRecipesJson from "@/data/foodex-recipes.json";
 import rpcNamesJson from "@/data/rpc-names.json";
 
-import franceDiet from "@/data/diets/France.json";
-import germanyDiet from "@/data/diets/Germany.json";
-import greeceDiet from "@/data/diets/Greece.json";
-import hungaryDiet from "@/data/diets/Hungary.json";
-import irelandDiet from "@/data/diets/Ireland.json";
-import italyDiet from "@/data/diets/Italy.json";
-import spainDiet from "@/data/diets/Spain.json";
-import swedenDiet from "@/data/diets/Sweden.json";
-import swedenBaselineDiet from "@/data/diets/SwedenBaseline.json";
-
 import {
+  diet,
   emissionsFactorsEnergy,
   emissionsFactorsPackaging,
   emissionsFactorsTransport,
@@ -54,18 +45,6 @@ let LL_COUNTRIES: LlCountryName[] = [
   "SwedenBaseline",
 ];
 
-const dietFiles = {
-  France: franceDiet,
-  Germany: germanyDiet,
-  Greece: greeceDiet,
-  Hungary: hungaryDiet,
-  Ireland: irelandDiet,
-  Italy: italyDiet,
-  Spain: spainDiet,
-  Sweden: swedenDiet,
-  SwedenBaseline: swedenBaselineDiet,
-} as unknown as Record<LlCountryName, Record<string, number[]>>;
-
 export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
   string[][]
 > {
@@ -78,6 +57,18 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
     "Amount",
   ];
 
+  const dietFiles = {
+    France: await diet("FR"),
+    Germany: await diet("DE"),
+    Greece: await diet("GR"),
+    Hungary: await diet("HU"),
+    Ireland: await diet("IE"),
+    Italy: await diet("IT"),
+    Spain: await diet("ES"),
+    Sweden: await diet("SE"),
+    SwedenBaseline: await diet("SE-B"),
+  } as Record<string, [string, number][]>;
+
   const processesAndPackagingCsvData = await processesAndPackagingData();
 
   const RE = new ResultsEngine();
@@ -89,13 +80,11 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
   RE.setProcessesAndPackaging(processesAndPackagingCsvData);
 
   const allResults = LL_COUNTRIES.map((country) => {
-    const subDiets = Object.entries(dietFiles[country]).map(
-      ([code, [amount]]) => [
-        code,
-        amount,
-        reduceDiet([[code, amount]], recipes, processesAndPackagingCsvData)[0],
-      ]
-    );
+    const subDiets = dietFiles[country].map(([code, amount]) => [
+      code,
+      amount,
+      reduceDiet([[code, amount]], recipes, processesAndPackagingCsvData)[0],
+    ]);
 
     const subDietRows: string[] = [];
     subDiets.forEach(([code, amount, rpcs]) => {

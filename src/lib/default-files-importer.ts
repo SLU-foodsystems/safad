@@ -11,7 +11,13 @@ const wasteRetailAndConsumerUrls = import.meta.glob(
   { as: "url", eager: true }
 );
 
+const dietsUrls = import.meta.glob("@/default-input-files/diets/*.csv", {
+  as: "url",
+  eager: true,
+});
+
 import {
+  parseDiet,
   parseEmissionsFactorsEnergy,
   parseEmissionsFactorsPackaging,
   parseEmissionsFactorsTransport,
@@ -78,11 +84,27 @@ export async function wasteRetailAndConsumer(countryCode: string) {
   const csvFileUrlKey = keys.find((k) => k.endsWith(`${countryCode}.csv`));
   if (!csvFileUrlKey) {
     const alts = keys.join(", ");
-    throw new Error(`Invalid country code. Received ${countryCode}, expected one of ${alts}.`);
+    throw new Error(
+      `Invalid country code. Received ${countryCode}, expected one of ${alts}.`
+    );
   }
 
   return fetchAndParseFile(
     wasteRetailAndConsumerUrls[csvFileUrlKey],
     parseWasteRetailAndConsumer
   );
+}
+
+export async function diet(countryCode: string) {
+  const keys = Object.keys(dietsUrls);
+
+  const csvFileUrlKey = keys.find((k) => k.endsWith(`${countryCode}.csv`));
+  if (!csvFileUrlKey) {
+    const alts = keys.join(", ");
+    throw new Error(
+      `Invalid country code. Received ${countryCode}, expected one of ${alts}.`
+    );
+  }
+
+  return fetchAndParseFile(dietsUrls[csvFileUrlKey], parseDiet);
 }

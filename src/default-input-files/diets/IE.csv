@@ -1,0 +1,518 @@
+Code,Name,Amount
+A.14.07.003,"Alcopop and flavoured wine",3.2951
+A.14.01.002,"Wheat beer",179.535
+A.02.05.022,"Alfalfa sprouts",0.0818
+A.18.02.011,"Red algae",0.0109
+A.16.02.004,"Allspice fruit",0.0027
+A.04.03.001,"Tree nuts",0.3286
+A.07.01.004,"Canned anchovies",0.0004
+A.16.07.002,"Apple chutney",0.0116
+A.01.07.001.038,"Sugar and similar, confectionery and water-based sweet desserts",0.3373
+A.05.02.001,"Apples",23.2336
+A.05.03.001,"Apricots",0.0484
+A.01.05.004,"Asian-style noodles other than glass noodles",0.8442
+A.02.07.001,"Stems/stalks eaten as vegetables",0.193
+A.02.03.004,"Aubergines",0.2307
+A.05.06.014,"Avocados",0.5234
+A.06.08.007,"Bacon",9.9726
+A.02.07.008,"Bamboo shoots",0.0173
+A.16.05.007,"Barbecue or steak sauces",0.1089
+A.02.13.005,"Barley coffee ingredient",0.051
+A.01.02.002.001,"Barley groats",0.061
+A.16.01.009,"Basil",0.039
+I.16.01.025,"Basil, dry",0.001
+A.16.01.010,"Laurel",0.0111
+A.02.06.001,"Slicing bean (young pods)",1.5291
+I.16.08.001.004,"White sauces",1.0856
+A.11.01.009,"Fats and oils from terrestrial animals",0.0859
+A.14.01.004,"Beer, alcohol-free",0.3179
+A.02.01.002,"Root and tuber vegetables (excluding starchy- and sugar-)",0.6078
+I.01.07.001.076,"Beignets",0.0324
+A.05.04.022,"Bilberries (generic)",0.6593
+A.01.07.002.003,"Biscuit with inclusions, filling or coating",7.147
+A.01.07.002.002,"Confectionery including chocolate",1.6272
+A.01.07.002.010,"Biscuits, oat meal",1.1625
+A.01.07.002.001,"Biscuits, sweet, plain",0.8641
+A.01.07.002.009,"Biscuits, sweet, wheat wholemeal",2.6143
+A.10.03.001,"Bitter chocolate",0.4351
+A.04.02.011,"Black eyed peas (without pods)",0.0995
+A.05.04.004,"Blackberries and similar-",0.1163
+A.11.05,"Functional vegetable margarines/fats",3.0482
+A.11.06.001,"Traditional margarine",5.9563
+A.06.09.003.001,"Blood-type sausage",1.2017
+A.09.01.001,"Whole eggs",10.3892
+A.04.02.001,"Yardlong beans (with pods)",2.0172
+A.15.03,"Still bottled drinking water",154.6285
+A.04.03.003,"Brazil nuts and similar-",0.1874
+A.01.04.001.001,"Wheat bread and rolls, white (refined flour)",57.8853
+A.01.04.007.003,"Bread stuffing",1.3497
+A.01.04.007.001,"Breadcrumbs",3.7469
+A.06.09.004.001,"Breakfast-type sausage",12.8821
+A.01.07.001.042,"Brioche type products",0.1334
+A.16.08.002,"Continental european brown cooked sauce, gravy",2.5675
+I.10.04.019,"Candied or sugar preserved nuts",0.0075
+A.04.02.007,"Broad beans (without pods)",0.0957
+A.02.04.001,"Broccoli",6.6507
+A.10.01.002,"Brown sugar",0.1304
+A.02.04.003,"Brussels sprouts",0.5504
+A.01.03.003.002,"Groats",0.0053
+A.01.02.001.004,"Bulgur",0.0484
+A.01.07.001.002,"Yeast leavened sweet doughs",0.5916
+A.11.01.001,"Milk fat from other animals",9.6489
+A.01.07.002.006,"Crackers and breadsticks",1.5389
+A.08.06.008,"Traditional buttermilk (churning)",0.0279
+A.05.09.008.001,"Candied or sugar preserved vegetables",0.0018
+A.06.01.001,"Cow, ox or bull fresh meat",50.1189
+A.05.09.006.004,"Canned or jarred apricot",0.0196
+I.04.02.022,"Runner beans (dry)",0.0186
+A.05.09.006.012,"Miscellaneous fruits (generic)",0.8408
+A.05.09.006.001,"Canned or jarred mandarin",0.0297
+A.05.09.006.008,"Canned or jarred peach",0.1511
+A.05.09.006.003,"Canned or jarred pear",0.1223
+I.04.02.024,"Peas (dry) and similar-",2.3263
+A.05.09.006.011,"Canned or jarred pineapple",0.4162
+A.05.09.006.005,"Canned or jarred plum",0.0522
+A.10.04.004,"Caramel, hard",0.0008
+A.16.02.010,"Caraway fruit",0.0001
+A.15.03.002,"Still natural mineral water",0.5118
+A.16.02.011,"Cardamom fruit",0.0054
+A.02.01.003,"Carrots",22.7026
+A.04.03.004,"Dried nuts/seeds and related flours and powders",0.3153
+A.02.04.002,"Romanesco cauliflowers",2.8846
+A.02.01.004,"Celeriacs",0.0258
+A.02.07.003,"Celtuce",1.9753
+A.01.06.003.001,"Cereal bars mixed",1.0177
+A.01.06.001.008,"Cereal flakes and similar",0.0565
+A.01.02.010.001,"Mixture of grains",0.0355
+A.14.02.002,"Sparkling wine",1.4541
+A.01.03.008.003,"Chapati",0.0126
+I.16.08.001.001,"Cheese sauce",0.1337
+A.08.08.069,"Soft brined cheese (feta type)",0.1618
+A.05.03.006,"Cherries and similar-",0.1548
+A.04.03.005,"Chinese water chestnut",0.0078
+A.10.04.016,"Chewing gum",0.0022
+A.06.02.001,"Poultry fresh meat (muscle meat)",57.4223
+A.04.02.006,"Chickpea flour",0.0264
+A.04.02.005,"Hummus",0.8929
+A.02.08.003,"Wild chicories",0.044
+A.02.03.003,"Chili peppers",0.2402
+A.16.07.007,"Chili pickle",0.0039
+A.02.04.005,"Chinese cabbages and similar-",0.0199
+A.16.01.002,"Chives",0.0017
+I.10.03.002.002,"Couverture chocolate",0.0932
+A.01.07.001.006,"Chocolate-based cakes",1.5532
+I.10.03.006.001,"Chocolate coated confectionery",4.1352
+A.05.09.012,"Chocolate coated dried fruit",0.0392
+A.10.05.002,"Dessert sauces/toppings",0.1131
+I.01.07.001.049,"Choux pastry dough",0.0151
+A.14.04.001,"Cider",34.0292
+A.16.02.014,"Cinnamon bark and similar-",0.0096
+A.05.01.002,"Shaddocks",9.9293
+A.05.01.005,"Tangerines",1.4618
+A.16.02.015,"Cloves buds",0.0031
+A.02.11.003,"Cocoa beverage-preparation, powder",0.2658
+A.02.11.002,"Cocoa powder",0.0017
+A.02.14.009,"Coconut water",0.6274
+A.04.03.006,"Coconuts",0.0251
+I.07.01.017.001,"Salted seafood",5.5806
+I.07.03.001.001,"Cod roe",0.0344
+A.13.03.002,"Coffee beverages",30.6511
+A.02.12.006,"Instant coffee powder",1.3131
+A.13.01.003,"Cola-type drinks",53.2786
+A.18.02.003,"Combination of vitamin and mineral only supplements",0.3108
+A.05.06.015,"Common banana",23.0057
+A.02.15.001,"Wild fungi and similar-",7.2318
+A.05.09.007.002,"Fruit compote, apple",1.0585
+A.06.08.002,"Ham, beef",0.0473
+A.06.08.006,"Cured seasoned poultry meat",0.6173
+A.06.08.001,"Raw cured (or seasoned) meat",17.2113
+A.06.02.002,"Turkey meat, dried",3.2977
+I.16.01.015,"Coriander leaves",0.0148
+A.16.02.016,"Coriander seed",0.0313
+A.20.01.002,"Corn chips",0.2257
+A.10.06.004,"Corn syrup",0.0024
+I.08.08.187,"Cottage cheese",0.3171
+A.02.03.008,"Courgettes and similar-",0.8822
+A.01.03.001.007,"Couscous",0.2244
+A.08.01.001.002,"Cow milk",210.9317
+A.05.04.009,"Cranberries and similar-",0.0706
+A.01.07.001.008,"Spice cakes",2.8057
+A.08.08.113,"Mascarpone",0.0072
+A.14.05.007,"Cream liqueur",0.2117
+I.16.08.003.002,"Cream with other ingredients",0.2831
+A.08.05.001.003,"Cream, plain",1.8331
+I.16.08.003.009,"Tzatziki",0.0012
+A.08.05.004.005,"Créme fraiche and other mild variants of sour cream",0.2141
+A.01.04.005.001,"Rye crisp bread",0.4927
+A.01.04.005.003,"Wheat crisp bread",0.1234
+A.02.05.002,"Romaines",6.4958
+A.01.07.001.012,"Croissant",0.7231
+A.01.07.001.013,"Puff-pastry croissant, filled with chocolate",0.2072
+A.01.07.001.014,"Croissant, filled with cream",0.0942
+A.02.03.006,"Cucurbits fruiting vegetables",2.0184
+A.16.02.017,"Cumin seed",0.0308
+A.02.04.006,"Kales and similar-",0.0314
+A.05.04.010,"Currants and similar-",0.0333
+A.16.03.002,"Curry powder",0.0701
+A.16.05.012,"Curry sauce",3.69
+A.20.02.004,"Custard",1.3432
+A.05.06.001,"Dates",0.0068
+I.10.04.015.004,"Dessert halva",0.0406
+A.16.02.018,"Dill leaves",0.0002
+A.01.07.001.017,"Doughnuts-berliner",0.7681
+A.10.04.008,"Dragée, sugar coated",0.156
+A.05.07.004,"Dried apricots",0.0876
+A.05.07.008,"Dried bananas",0.0053
+A.05.07.007,"Dried dates",0.1283
+I.16.01.018,"Herbs/spices sauces",0.4598
+A.01.05.005,"Fresh spiced sausages in casing",0.0136
+A.05.07.005,"Dried pears",0.002
+A.05.07.003,"Dried prunes",0.1932
+A.02.14.007,"Sun-dried tomatoes",0.2645
+A.05.07.001,"Dried vine fruits (raisins etc.)",0.6962
+A.15,"Water based beverages",543.1171
+A.09.01.005,"Duck eggs",0.0412
+A.06.02.003,"Duck fresh meat",0.8728
+A.01.07.001.018,"Éclair",0.237
+A.07.04.001,"Freshwater crabs",0.2074
+I.13.06,"Isotonic and sport drinks",17.7567
+A.08.03.001,"Evaporated milk (liquid, unsweetened)",0.0583
+I.08.08.193,"Ripened cheese",0.1383
+A.16.02.019,"Fennel seed",0.0001
+A.13.02.001,"Tea infusion with added flavouring ingredients",405.8034
+A.18.02.006,"Fiber supplements",0.0098
+A.05.06.002,"Figs",0.0053
+I.10.03.005.002,"Gianduja chocolate",1.1207
+A.08.08.011,"Firm-ripened cheese with added herbs, spices or other ingredients",0.0455
+I.08.08.191,"Firm/semi-hard cheese (gouda and edam type)",0.4899
+I.19.06.003.001,"Fish and vegetables meal",0.0436
+A.07.02.001,"Fish balls",0.0152
+I.07.02.004.003,"Fish paste or surimi",0.0798
+I.07.02.005.002,"Fish pâté",0.0108
+I.01.07.001.064,"Flan tart",0.2333
+A.08.01.001.003,"Flavoured milks",0.3964
+A.08.05.003.006,"Flavoured sour cream",0.1232
+A.02.07.004,"Florence fennels",0.0186
+A.10.04.010,"Foamed sugar products (marshmallows)",0.082
+A.18.05,"Formulations containing special fatty acids (e.g. Omega-3, essential fatty acids)",0.3525
+A.06.09.004.005,"Sliceable or firm cooked sausages",0.3172
+A.06.09.001.002,"Teewurst-type sausage",1.1614
+A.19.01.003.005,"Pasta, filled, cooked",0.1272
+A.19.08.006,"Hardened egg products",5.5049
+A.03.01.003,"Fries (finger chips)",32.9531
+A.01.07.001.020,"Fruit cake",3.5512
+A.05.09.007.004,"Fruit compote, apricot",0.0216
+A.05.09.007.003,"Fruit compote, pear",0.0202
+A.05.09.007.005,"Fruit compote, plum",0.0604
+I.12.02.024,"Fruit juices (100% from named source)",2.1478
+I.14.05.001.003,"Marsala",0.0096
+A.01.07.001.023,"Fruit pie-tarts",4.0657
+A.05.09.002,"Fruit salad",1.2785
+A.05.09.005,"Fruiting vegetables",0.1605
+I.08.02.003,"Fruit smoothies",4.5067
+A.10.04.007,"Fudge",0.0094
+I.16.02.033,"Garlic and similar-",0.3938
+I.20.02.006.001,"Gelatine dessert",0.5981
+A.11.01.003,"Ghee",0.0626
+A.16.02.022,"Ginger roots",0.0857
+A.01.07.001.024,"Gingerbread",0.0952
+A.02.07.005,"Globe artichokes",0.0207
+A.10.01.008,"Glucose",0.0014
+A.01.04.001.005,"Gluten free bread, brown",0.0226
+A.01.04.001.002,"Gluten free bread, white",1.168
+A.08.01.005,"Goat milk",0.1305
+A.05.04.006,"Raspberries and similar-",0.4349
+A.05.04.011,"Gooseberries and similar-",0.0051
+A.01.07.001.025,"Gougere",0.0512
+A.05.06.018,"Pome fruits",0.0699
+A.11.04.005,"Grape seed oil",0.0039
+A.05.01.001,"Grapefruits and similar-",0.6341
+A.16.04.011,"Stock cubes or granulate, meat",0.3751
+I.07.01.017.004,"Haddock",1.0342
+A.07.01.018,"Hakes",0.2963
+A.10.04.001,"Hard candies",0.4651
+I.08.08.192,"Other processed cheese",11.6083
+A.04.03.007,"Primary derivatives from nuts and similar seeds",0.0635
+A.02.04.004,"White cabbage",8.2193
+A.09.01.003,"Hen egg white",0.2739
+A.09.01.002,"Hen egg yolk",0.0261
+A.13.02.004,"Wormwoods infusion leaves",16.6581
+A.07.01.001,"Smoked herring",0.6548
+I.16.08.005.002,"Hollandaise type sauce",0.0188
+A.10.07.003,"Minor honey types",1.0235
+A.02.01.005,"Wasabi roots",0.0006
+A.16.05.009,"Horseradish sauce",0.0145
+A.13.05.001,"Hot drinks and similar (coffee, cocoa, tea and herbal infusions)",0.7427
+I.20.02.001.007,"Ice cream, milk-based",5.3576
+I.20.02.002.003,"Ice cream, milk-imitate based",0.0666
+A.08.09.007,"Imitation cheese",0.0026
+A.01.02.009.007,"Indian rice grain",0.0223
+I.16.03.003.002,"Spices",0.0021
+A.13.03.007,"Instant coffee (beverage)",0.0291
+A.02.12.007,"Instant coffee powder, decaffeinated",0.1061
+A.18.02.005,"Protein and amino acids supplements",0.1531
+A.05.08.001.001,"Jam, strawberries",0.4148
+A.05.08.001.011,"Jam, apricots",0.0257
+A.05.08.001.003,"Jam, blackberries",0.0084
+A.05.08.001.009,"Jam, blueberries",0.0188
+A.05.08.001.005,"Jam, currants (black)",0.0822
+A.05.08.001.007,"Jam, gooseberries",0.0059
+A.05.08.001.018,"Other fruit spreads",1.0048
+A.05.08.001.002,"Jam, raspberries",0.2474
+A.05.08.001.014,"Jam, sweet cherry",0.0186
+A.10.04.013,"Soft candies and analogues",0.9623
+A.12.02.005,"Juice concentrate, black currant",0.1103
+A.12.01.001,"Other fruit juices",5.1845
+A.12.06.002,"Juice, carrot",0.2845
+A.12.01.007,"Juice, cranberry",2.116
+A.12.01.006,"Juice, grape",0.1236
+A.12.01.003,"Juice, grapefruit",1.1405
+A.12.01.010,"Juice, lemon",0.3153
+A.12.01.011,"Juice, lime",0.0134
+I.12.04.011,"Multivitamin juices",2.5502
+I.12.08.002.001,"Juice, multi-fruit-carrot",0.346
+A.12.01.002,"Juice, orange",30.7579
+A.12.01.004,"Juice, pineapple",0.2451
+A.12.01.008,"Juice, pomegranate",0.4988
+A.12.01.017,"Juice, prune",0.209
+A.12.06.001,"Juice, tomato",0.1883
+A.05.06.008,"Sweetsops",1.7943
+A.06.01.004,"Lamb fresh meat",8.2597
+A.02.05.010,"Taros",0.8922
+A.02.07.006,"Leeks and similar-",0.946
+A.05.01.003,"Lemons and similar-",0.0737
+I.04.02.023,"Lentils (dry)",0.333
+A.04.02.008,"Lima beans (dry)",0.0133
+A.05.01.004,"Limes",0.0004
+A.04.04.001,"Linseeds",0.1888
+I.14.05.001.001,"Liqueurs",0.5944
+I.14.05.001.002,"Liquid drink bases (including concentrates and home-made preparations)",5.0542
+A.10.04.011,"Liquorice candies",0.1664
+A.06.10.005,"Liver cheese",0.1166
+A.06.08.014,"Luncheon spiced ham-type tinned meat",0.1697
+A.04.03.008,"Macadamias",0.0031
+A.01.07.001.043,"Macaroons",0.0973
+A.16.02.025,"Mace aril",0
+A.07.01.013,"Smoked mackerel",0.4183
+A.03.01.002,"Starchy root and tuber products",68.2488
+A.01.03.004.001,"Maize, milled",0.2258
+A.06.01.003,"Porchetta",9.3322
+A.16.07.004,"Mango chutney",0.061
+A.05.06.016,"Mangoes",0.2146
+A.10.06.002,"Maples (trunk sap)",0.0577
+I.16.01.028,"Marjoram, dry",0.0101
+A.05.08.002.001,"Marmalade, oranges",1.3446
+A.10.04.003,"Marzipan raw mass",0.0075
+A.16.06.005,"Mayonnaise, hollandaise and related sauces",5.5229
+A.16.04.013,"Meat extract",0.0067
+A.19.10.004,"Meat/poultry soup, dry",0.3188
+A.02.03.009,"Melons and similar-",1.0005
+I.01.07.001.075,"Meringue",0.1576
+I.01.07.001.071,"Meringue tart",0.7318
+I.10.03.008.002,"Milk chocolate",2.8934
+A.08.03.003.001,"Milk powder, full fat",0.0368
+A.08.03.003.003,"Milk powder, skimmed",0.0284
+A.08.02.002.003,"Milkshakes",0.8157
+A.18.02.002,"Zinc",0.1734
+A.16.05.010,"Mint sauce",0.0161
+I.16.01.014,"Mints",0.0013
+A.01.06.005.001,"Processed and mixed breakfast cereals",2.9382
+A.01.06.002.001,"Mixed cereal-based snacks",0.1688
+A.16.07.005,"Mixed chutney",0.0092
+A.05.09.001,"Mixed dried fruits",0.0653
+I.16.03.003.001,"Mixed herbs and spices",0.0386
+A.16.07.010,"Mixed pickle",0.1244
+A.19.11.002,"Mushroom salad",0.0088
+I.19.07.004.001,"Salted vegetables",0.0093
+A.19.10.001,"Vegetables-based cooked sauce",4.1278
+A.08.08.120,"Mozzarella",4.0585
+A.01.06.002.009,"Muesli plain",2.0177
+A.01.07.001.036,"Muffins",1.6181
+A.01.04.004.001,"Multigrain (not only rye-wheat) bread and rolls",10.52
+A.04.02.009,"Mung beans (without pods)",0.6694
+A.19.10.008,"Mushroom soup, dry",0.0625
+I.16.08.010.002,"Mushrooms cooked sauce",0.2541
+A.02.14.001,"Mushy peas",0.7331
+A.07.05.007,"Mussels",0.1213
+I.16.08.010.003,"Mustard and related sauces",0.149
+A.04.04.007,"Mustard seeds and similar-",0.0001
+A.19.02.001,"Spring rolls",0.2898
+A.05.03.011,"Peaches and similar-",1.4892
+A.03.01.001,"New potatoes",12.9627
+A.08.09.003,"Non dairy coffee creamer",0.0018
+A.10.04.014,"White nougat mass",0.032
+A.16.02.027,"Nutmeg seed",0.0042
+A.01.02.008,"Oat popped",0.5781
+A.01.06.001.011,"Processed oat-based flakes",0.7956
+A.08.09.004,"Spelt drink",0.0563
+A.11.04.008,"Olive pomace oil",0.5892
+A.05.05.001,"Olives, processed",0.2823
+I.16.02.034,"Onions and similar-",16.3398
+I.16.01.013,"Oregano",0.002
+I.20.02.004.001,"Other desserts spoonable",0.519
+I.16.08.009.002,"Oyster sauce",0.1057
+A.07.05.008,"Oysters",0.0039
+A.03.01.007,"Potato crisps or sticks",13.8454
+A.01.07.001.028,"Pancakes",1.797
+A.05.06.017,"Papayas",0.0247
+A.16.01.005,"Root parsley leaves",0.0889
+A.02.01.007,"Parsnip roots",2.5286
+A.05.06.010,"Passionfruits",0.0149
+A.01.05.013,"Pasta wholemeal",0.7457
+I.01.05.016,"Pasta, plain (not stuffed), cooked",0.3937
+A.01.05.006,"Pasta-like products",5.4889
+I.01.07.001.051,"Shortcrust (pies -tarts)",0.8816
+A.06.11.003,"Pate, chicken liver",0.0314
+A.06.11.004,"Pate, pork liver",0.0455
+A.11.03.001,"Peanut butter",0.3289
+A.11.04.011,"Peanut oil, edible",0.0022
+A.04.02.021,"Peanuts and similar-",0.9021
+A.05.02.002,"Pears",5.6089
+A.02.06.002,"Podded pea (young pods)",0.5446
+A.04.01.002,"Peas shoots and sprouts",6.0833
+A.04.03.009,"Pecans",0.0184
+A.16.02.028,"Sichuan pepper fruit",0.1288
+A.06.09.006.005,"Spalla cotta",0.0606
+A.02.03.002,"Sweet peppers",8.3934
+I.16.08.006.002,"Pesto",0.2797
+A.06.04.001,"Pheasant fresh meat",0.014
+A.02.14.005,"Processed or preserved vegetables and similar",1.0982
+A.06.06.011,"Pig kidney",0.0207
+A.06.06.023,"Pig trotters and feet",0.0049
+A.04.03.010,"Pine nut kernels and similar-",0.0636
+A.05.06.021,"Pineapples",0.8183
+A.04.03.011,"Pistachios",0.0986
+A.01.04.005.007,"Pita bread",1.5922
+I.19.01.002.009,"Yeast bread – pizza dough",10.2384
+A.07.01.021,"Pleurotus",0.4536
+A.05.03.002,"Plums and similar-",1.2137
+A.19.08.007,"Poached eggs",0.8026
+A.20.01.005,"Popcorn kernels",1.2557
+I.01.07.001.055,"Poppy seeds",0.0033
+A.11.01.004,"Pork lard",0.0137
+A.01.06.007.001,"Oat porridge",33.4066
+A.14.02.003,"Wine, red",24.0143
+A.03.01.011,"Potato flour",0.0353
+A.20.01.001,"Potato starch-based snacks",0.2682
+A.10.03.010,"Pralines",0.0124
+A.01.03.008.004,"Unleavened doughs",0.0026
+A.20.01.006,"Pretzels",0.0218
+A.08.08.004,"Processed cheese, spreadable",1.1392
+A.08.08.003,"Processed cheese, sliceable",1.0873
+A.01.06.001.002,"Processed mixed cereal-based flakes",8.7327
+A.01.06.001.020,"Processed wheat-based flakes",7.6071
+A.06.09.005.009,"Spreadable cooked sausages",0.4215
+A.01.07.001.029,"Profiterole",0.1156
+A.01.04.006.008,"Puffed rice textured bread",0.2384
+A.04.04.009,"Pumpkin seeds",0.1258
+A.02.03.010,"Pumpkins and similar-",0.3321
+I.01.02.010.006,"Quinoa grain",0.1273
+A.06.01.007,"Rabbit, other slaughtering products",0.0662
+A.02.01.008,"Small radishes",0.0506
+A.11.04.013,"Rape seed oil, edible",0.0121
+A.16.07.011,"Relishes",0.3279
+A.01.06.001.016,"Rice rolled grains",0.0595
+A.08.09.005,"Rice drink",1.0757
+A.01.03.006.001,"Rice flour",0.0209
+A.01.02.009.003,"Rice grain",8.279
+A.01.06.004.004,"Rice, popped",1.7945
+A.08.08.144,"Ricotta",0.0825
+A.01.04.002.003,"Rye bread and rolls, wholemeal",0.4735
+A.16.01.006,"Sage",0.0009
+I.16.01.022,"Sage, dry",0.0039
+A.16.06.001,"Salad dressing",0.7658
+A.16.06.003,"Salad dressing, low fat",0.0818
+A.06.09.006.001,"Salami-type sausage",0.5476
+I.07.01.006.001,"Smoked salmon",6.4886
+A.16.05.013,"Salsa",0.5204
+A.16.04.001,"Salt",0.6774
+A.07.01.003,"Sardines and sardine-type fishes",0.3562
+A.16.05.011,"Teriyaki sauce",1.2364
+I.10.05.005,"Savoury sauces",1.4333
+A.07.05.010,"Scallops, pectens",0.097
+A.01.07.001.032,"Scones and similar",6.8389
+A.07.01.011,"Sea bass",0.4883
+A.07.01.026,"Sea bream",0.0385
+A.11.04.015,"Sesame seed oil, edible",0.0108
+A.04.04.004,"Sesame seeds",0.0691
+A.02.02.003,"Shallots and similar-",0.0376
+A.06.06.012,"Sheep kidney",0.0763
+A.06.06.004,"Sheep other slaughtering products",0.2865
+A.14.03.002,"Sherry",0.1639
+I.19.06.004.001,"Shrimp sauce",0.1048
+A.07.04.005,"White shrimp",1.3743
+A.13.01.002.010,"Soft drinks with minor amounts of fruits or flavours",35.926
+A.13.01.002.011,"Soft drink, with fruit juice (fruit content below the minimum for nectars)",8.7808
+I.08.08.190,"Soft-ripened cheese with white and blue mould (cambozola type)",0.0632
+I.08.08.189,"Soft-ripened cheese with natural rind and other soft-ripened cheeses",0.6586
+A.07.01.022,"Yellowfin sole",0.4813
+A.20.02.005,"Water-based ice creams",0.3928
+A.08.05.003.002,"Sour cream, plain",0.178
+A.11.04.016,"Soya bean oil, refined",0.0006
+A.08.09.008,"Soya drink",2.2504
+A.06.12.001,"Soyabean-based meat imitates",0.0353
+A.08.09.009,"Soya yoghurt",0.7255
+A.04.02.012,"Soyabeans for oil",0.0056
+A.01.07.002.008,"Speculaas",0.323
+A.01.07.001.034,"Sponge cake",3.4314
+A.07.01.002,"Sprat",0.0255
+A.02.02.004,"Spring onions",0.6499
+A.07.05.001,"Squids, cuttlefishes, octopuses",0.0604
+A.01.07.002.014,"Sticks, salty",0.0781
+A.16.04.008,"Stock cube or granulate, beef",0.0275
+A.16.04.010,"Stock cubes or granulate, chicken",0.0757
+A.16.04.012,"Vegetable savoury extracts",0.0843
+A.14.01.001,"Stout beer",55.7942
+A.05.04.003,"Wild strawberries",2.165
+A.10.06.005,"Syrups (molasses and other syrups)",0.0157
+A.11.04.017,"Sunflower seed oil, edible",0.0866
+A.04.04.005,"Sunflower seeds",0.135
+A.02.01.010,"Swedes",0.187
+A.01.06.003.002,"Sweet bars and other formed sweet masses",0.0887
+A.02.03.012,"Sweet corn canned",4.0441
+A.03.02.001,"Sweet potatoes",0.4314
+A.07.01.036,"Swordfish",0.0305
+A.05.04.001,"Table grapes and similar-",3.351
+A.03.02.003,"Tapioca starch-based snacks",0.1836
+A.16.05.014,"Tartar sauce",0.0818
+A.16.01.008,"Thyme",0.0008
+I.16.01.024,"Thyme, dry",0.0086
+A.10.04.006,"Toffee",0.0341
+A.08.09.011,"Tofu",0.1344
+A.16.07.001,"Tomato chutney",0.033
+A.16.05.006,"Tomato ketchup and related sauces",1.5089
+A.02.14.003,"Tomato puree",0.4708
+I.16.08.010.009,"Tomato-containing cooked sauces",9.4711
+A.02.03.001,"Tomatoes and similar-",23.9501
+A.01.04.005.009,"Tortilla",3.2807
+A.20.01.003,"Tortilla chips",0.4947
+I.07.01.006.002,"Trouts",0.5047
+A.07.01.014,"Tuna and bonito (generic)",3.7856
+A.16.02.031,"Turmeric roots",0.0205
+A.02.01.012,"Turnips",4.6157
+A.14.06.004,"Vodka and vodka-like spirits",6.0703
+A.06.06.002,"Veal liver",0.0098
+A.19.07.001,"Vegetables and vegetable products",0.0196
+A.14.03.001,"Vermouth",0.0161
+A.16.05.004,"Vinegar, wine",0.2573
+A.18.02.001,"Vitamins",0.0515
+A.01.07.001.037,"Waffles",0.0353
+A.11.04.019,"Walnut oil",0.0012
+A.04.03.012,"Walnuts",0.0878
+A.02.05.015,"Watercresses",0.0055
+A.02.03.011,"Watermelons and similar-",0.2069
+A.01.03.001.008,"Wheat bran",0.0165
+A.01.04.001.004,"Wheat bread and rolls, brown or wholemeal",42.6001
+A.01.03.001.003,"Wheat flour white",3.6972
+A.01.02.001.001,"Wheat germ",0.0279
+A.08.04.002.002,"Whey powder",0.0025
+A.08.04.001.001,"Whey protein",0.456
+I.10.03.009.002,"White chocolate",0.1103
+A.10.01.001,"White sugar",6.0746
+I.07.01.017.002,"Whiting",0.3982
+A.14.02.001,"Wine-like drinks",25.0993
+A.03.02.004,"Yams",0.0248
+A.16.10.001,"Yeast cultures",0.0022
+A.16.04.015,"Yeast extract",0.0525
+A.08.06.002.002,"Yoghurt drinks, including sweetened and/or flavoured variants",5.2686
+A.08.06.001.002,"Yoghurt, cow milk",26.1444
