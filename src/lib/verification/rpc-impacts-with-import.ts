@@ -22,6 +22,7 @@ import {
   footprintsRpcs,
   processesAndPackagingData,
   processesEnergyDemands,
+  rpcOriginWaste,
   wasteRetailAndConsumer,
 } from "../default-files-importer";
 
@@ -50,18 +51,6 @@ let LL_COUNTRIES: LlCountryName[] = [
   "SwedenBaseline",
 ];
 
-const rpcFiles = {
-  France: import("@/data/rpc-parameters/France-rpc.json"),
-  Germany: import("@/data/rpc-parameters/Germany-rpc.json"),
-  Greece: import("@/data/rpc-parameters/Greece-rpc.json"),
-  Hungary: import("@/data/rpc-parameters/Hungary-rpc.json"),
-  Ireland: import("@/data/rpc-parameters/Ireland-rpc.json"),
-  Italy: import("@/data/rpc-parameters/Italy-rpc.json"),
-  Spain: import("@/data/rpc-parameters/Spain-rpc.json"),
-  Sweden: import("@/data/rpc-parameters/Sweden-rpc.json"),
-  SwedenBaseline: import("@/data/rpc-parameters/Sweden-rpc.json"),
-} as unknown as Record<LlCountryName, Promise<{ data: RpcFactors }>>;
-
 const categoryNames = categoryNamesJson as Record<string, string>;
 const getCategoryName = (code: string, level: number) => {
   const levelCode = getRpcCodeSubset(code, level);
@@ -73,6 +62,18 @@ const codesInRecipes = Object.keys(foodsRecipes);
 export default async function computeFootprintsForEachRpcWithOrigin(
   envFactors?: EnvFactors
 ): Promise<string[][]> {
+  const rpcFiles = {
+    France: await rpcOriginWaste("FR"),
+    Germany: await rpcOriginWaste("DE"),
+    Greece: await rpcOriginWaste("GR"),
+    Hungary: await rpcOriginWaste("HU"),
+    Ireland: await rpcOriginWaste("IE"),
+    Italy: await rpcOriginWaste("IT"),
+    Spain: await rpcOriginWaste("ES"),
+    Sweden: await rpcOriginWaste("SE"),
+    SwedenBaseline: await rpcOriginWaste("SE"),
+  } as Record<LlCountryName, RpcFactors>;
+
   const header = [
     "Code",
     "Name",
@@ -94,19 +95,6 @@ export default async function computeFootprintsForEachRpcWithOrigin(
   RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
   RE.setProcessesEnergyDemands(await processesEnergyDemands());
   RE.setProcessesAndPackaging(await processesAndPackagingData());
-
-  const syncRpcFiles = Object.fromEntries(
-    await Promise.all(
-      LL_COUNTRIES.map(
-        async (country: LlCountryName): Promise<[string, RpcFactors]> => {
-          const rpcParameters = (
-            (await rpcFiles[country]) as unknown as { data: RpcFactors }
-          ).data;
-          return [country, rpcParameters];
-        }
-      )
-    )
-  );
 
   const syncWasteFiles = Object.fromEntries(
     await Promise.all(
@@ -132,7 +120,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
       RE.setWasteRetailAndConsumer(syncWasteFiles[countryName]);
     }
 
-    const rpcParameters = syncRpcFiles[countryName];
+    const rpcParameters = rpcFiles[countryName];
     RE.setRpcFactors(rpcParameters);
 
     const impactsPerDiet = codesInRecipes

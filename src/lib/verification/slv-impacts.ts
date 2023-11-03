@@ -6,7 +6,6 @@ import { AGGREGATE_HEADERS, aggregateImpacts } from "@/lib/impacts-csv-utils";
 
 import slvNamesJson from "@/data/slv-names.json";
 
-import swedenRpcFactors from "@/data/rpc-parameters/Sweden-rpc.json";
 import slvRecipesJson from "@/data/slv-diet.json";
 import rpcNamesJson from "@/data/rpc-names.json";
 
@@ -21,10 +20,10 @@ import {
   footprintsRpcs,
   processesAndPackagingData,
   processesEnergyDemands,
+  rpcOriginWaste,
   wasteRetailAndConsumer,
 } from "../default-files-importer";
 
-const rpcFile = swedenRpcFactors.data as unknown as RpcFactors;
 const rpcNames = rpcNamesJson as Record<string, string>;
 const slvNames = slvNamesJson as Record<string, string>;
 
@@ -63,7 +62,7 @@ export default async function computeSlvImpacts(): Promise<string> {
   const RE = new ResultsEngine();
   RE.setFootprintsRpcs(await footprintsRpcs());
   RE.setCountryCode("SE");
-  RE.setRpcFactors(rpcFile);
+  RE.setRpcFactors(await rpcOriginWaste("SE"));
 
   RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());

@@ -159,9 +159,7 @@ function main(args) {
 
     const csvHeader = "Code,Name,Amount";
     const csvBody = Object.entries(amounts)
-      .map(([code, amount]) =>
-        [code, `"${namesMap[code]}"`, amount].join(",")
-      )
+      .map(([code, amount]) => [code, `"${namesMap[code]}"`, amount].join(","))
       .join("\n");
 
     const csv = csvHeader + "\n" + csvBody;

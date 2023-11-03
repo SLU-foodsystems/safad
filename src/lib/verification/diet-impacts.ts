@@ -7,15 +7,6 @@ import { expandedImpacts, AGGREGATE_HEADERS } from "@/lib/impacts-csv-utils";
 
 import categoryNamesJson from "@/data/category-names.json";
 
-import franceRpcFactors from "@/data/rpc-parameters/France-rpc.json";
-import germanyRpcFactors from "@/data/rpc-parameters/Germany-rpc.json";
-import greeceRpcFactors from "@/data/rpc-parameters/Greece-rpc.json";
-import hungaryRpcFactors from "@/data/rpc-parameters/Hungary-rpc.json";
-import irelandRpcFactors from "@/data/rpc-parameters/Ireland-rpc.json";
-import italyRpcFactors from "@/data/rpc-parameters/Italy-rpc.json";
-import spainRpcFactors from "@/data/rpc-parameters/Spain-rpc.json";
-import swedenRpcFactors from "@/data/rpc-parameters/Sweden-rpc.json";
-
 import ResultsEngine from "@/lib/ResultsEngine";
 import {
   ENV_IMPACTS_ZERO,
@@ -30,6 +21,7 @@ import {
   footprintsRpcs,
   processesAndPackagingData,
   processesEnergyDemands,
+  rpcOriginWaste,
   wasteRetailAndConsumer,
 } from "../default-files-importer";
 
@@ -57,23 +49,23 @@ const LL_COUNTRIES: LlCountryName[] = [
   "SwedenBaseline",
 ];
 
-const rpcFiles = {
-  France: franceRpcFactors.data,
-  Germany: germanyRpcFactors.data,
-  Greece: greeceRpcFactors.data,
-  Hungary: hungaryRpcFactors.data,
-  Ireland: irelandRpcFactors.data,
-  Italy: italyRpcFactors.data,
-  Spain: spainRpcFactors.data,
-  Sweden: swedenRpcFactors.data,
-  SwedenBaseline: swedenRpcFactors.data,
-} as unknown as Record<LlCountryName, RpcFactors>;
-
 const categoryNames = categoryNamesJson as Record<string, string>;
 
 export async function computeFootprintsForDiets(
   envFactors?: EnvFactors
 ): Promise<[string, string[][]][]> {
+  const rpcFiles = {
+    France: await rpcOriginWaste("FR"),
+    Germany: await rpcOriginWaste("DE"),
+    Greece: await rpcOriginWaste("GR"),
+    Hungary: await rpcOriginWaste("HU"),
+    Ireland: await rpcOriginWaste("IE"),
+    Italy: await rpcOriginWaste("IT"),
+    Spain: await rpcOriginWaste("ES"),
+    Sweden: await rpcOriginWaste("SE"),
+    SwedenBaseline: await rpcOriginWaste("SE"),
+  } as Record<LlCountryName, RpcFactors>;
+
   const dietFiles = {
     France: await diet("FR"),
     Germany: await diet("DE"),

@@ -7,11 +7,6 @@ set -eu
 # Step a: Generate csv files
 node ./rpc-parameters/generate-csv-per-country.mjs France Germany Greece Hungary Ireland Italy Poland Spain Sweden
 
-# Step b: Convert csv to json
-for country in France Germany Greece Hungary Ireland Italy Poland Spain Sweden; do
-  node ./rpc-parameters/rpc-parameters-csv-to-json.mjs "./rpc-parameters/csv-out/$country-rpc.csv" > "../src/data/rpc-parameters/$country-rpc.json"
-done
-
 # Extract all category names
 node ./foodex-names/extract-category-names.mjs ./foodex-names/foodex-names.csv 2 > ../src/data/category-names.json
 
