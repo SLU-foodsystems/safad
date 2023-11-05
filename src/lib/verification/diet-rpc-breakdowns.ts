@@ -14,7 +14,7 @@ import {
   emissionsFactorsPackaging,
   emissionsFactorsTransport,
   footprintsRpcs,
-  processesAndPackagingData,
+  preparationProcessesAndPackaging,
   processesEnergyDemands,
 } from "../default-files-importer";
 
@@ -69,7 +69,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
     SwedenBaseline: await diet("SE-B"),
   } as Record<string, [string, number][]>;
 
-  const processesAndPackagingCsvData = await processesAndPackagingData();
+  const processesAndPackagingCsvData = await preparationProcessesAndPackaging();
 
   const RE = new ResultsEngine();
   RE.setFootprintsRpcs(await footprintsRpcs());
@@ -77,7 +77,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
   RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
   RE.setProcessesEnergyDemands(await processesEnergyDemands());
-  RE.setProcessesAndPackaging(processesAndPackagingCsvData);
+  RE.setPrepProcessesAndPackaging(processesAndPackagingCsvData);
 
   const allResults = LL_COUNTRIES.map((country) => {
     const subDiets = dietFiles[country].map(([code, amount]) => [

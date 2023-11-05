@@ -18,7 +18,7 @@ import {
   emissionsFactorsPackaging,
   emissionsFactorsTransport,
   footprintsRpcs,
-  processesAndPackagingData,
+  preparationProcessesAndPackaging,
   processesEnergyDemands,
   rpcOriginWaste,
   wasteRetailAndConsumer,
@@ -68,7 +68,7 @@ export default async function computeSlvImpacts(): Promise<string> {
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
   RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
   RE.setProcessesEnergyDemands(await processesEnergyDemands());
-  RE.setProcessesAndPackaging(await processesAndPackagingData());
+  RE.setPrepProcessesAndPackaging(await preparationProcessesAndPackaging());
   RE.setWasteRetailAndConsumer(await wasteRetailAndConsumer("SE"));
 
   const headerStr =

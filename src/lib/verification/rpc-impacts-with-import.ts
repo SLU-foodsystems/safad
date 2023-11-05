@@ -20,7 +20,7 @@ import {
   emissionsFactorsPackaging,
   emissionsFactorsTransport,
   footprintsRpcs,
-  processesAndPackagingData,
+  preparationProcessesAndPackaging,
   processesEnergyDemands,
   rpcOriginWaste,
   wasteRetailAndConsumer,
@@ -94,7 +94,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
   RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
   RE.setProcessesEnergyDemands(await processesEnergyDemands());
-  RE.setProcessesAndPackaging(await processesAndPackagingData());
+  RE.setPrepProcessesAndPackaging(await preparationProcessesAndPackaging());
 
   const syncWasteFiles = Object.fromEntries(
     await Promise.all(

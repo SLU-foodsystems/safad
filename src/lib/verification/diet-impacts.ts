@@ -19,7 +19,7 @@ import {
   emissionsFactorsPackaging,
   emissionsFactorsTransport,
   footprintsRpcs,
-  processesAndPackagingData,
+  preparationProcessesAndPackaging,
   processesEnergyDemands,
   rpcOriginWaste,
   wasteRetailAndConsumer,
@@ -84,7 +84,7 @@ export async function computeFootprintsForDiets(
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
   RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
   RE.setProcessesEnergyDemands(await processesEnergyDemands());
-  RE.setProcessesAndPackaging(await processesAndPackagingData());
+  RE.setPrepProcessesAndPackaging(await preparationProcessesAndPackaging());
 
   const wastesRetailAndConsumer: Record<string, Record<string, number[]>> = {};
   for (const countryName of LL_COUNTRIES) {

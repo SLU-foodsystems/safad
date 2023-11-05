@@ -2,7 +2,7 @@ import emissionsFactorsPackagingUrl from "@/default-input-files/emissions-factor
 import emissionsFactorsEnergyUrl from "@/default-input-files/emissions-factors-energy.csv?url";
 import emissionsFactorsTransportUrl from "@/default-input-files/emissions-factors-transport.csv?url";
 import processesEnergyDemandsUrl from "@/default-input-files/processes-energy-demands.csv?url";
-import processesAndPackagingUrl from "@/default-input-files/processes-packaging.csv?url";
+import preparationProcessesAndPackagingUrl from "@/default-input-files/preparation-processes-and-packaging.csv?url";
 
 import footprintsRpcsUrl from "@/default-input-files/footprints-rpcs.csv?url";
 
@@ -97,8 +97,8 @@ export async function processesEnergyDemands() {
   );
 }
 
-export async function processesAndPackagingData() {
-  return fetchAndParseFile(processesAndPackagingUrl, parseProcessesPackaging);
+export async function preparationProcessesAndPackaging() {
+  return fetchAndParseFile(preparationProcessesAndPackagingUrl, parseProcessesPackaging);
 }
 
 export async function footprintsRpcs() {
