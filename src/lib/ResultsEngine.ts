@@ -44,7 +44,7 @@ class ResultsEngine {
     null;
 
   processesEnergyDemands: null | Record<string, number[]> = null;
-  processesAndPackaging: null | Record<string, string> = null;
+  preparationProcessesAndPackaging: null | Record<string, string> = null;
 
   wasteRetailAndConsumer: null | Record<string, number[]> = null;
 
@@ -171,10 +171,10 @@ class ResultsEngine {
     this.emissionsFactorsTransport = emissionsFactorsTransport;
   }
 
-  public setProcessesAndPackaging(
+  public setPrepProcessesAndPackaging(
     processesAndPackaging: Record<string, string>
   ) {
-    this.processesAndPackaging = processesAndPackaging;
+    this.preparationProcessesAndPackaging = processesAndPackaging;
   }
 
   public computeImpacts(
@@ -225,7 +225,7 @@ class ResultsEngine {
       return null;
     }
 
-    if (!this.processesAndPackaging) {
+    if (!this.preparationProcessesAndPackaging) {
       console.error("Compute called without processes and packaging set.");
       return null;
     }
@@ -237,7 +237,7 @@ class ResultsEngine {
       processesAmounts,
       packetingAmounts,
       transportlessAmounts,
-    ] = reduceDiet(dietWithWaste, recipes, this.processesAndPackaging);
+    ] = reduceDiet(dietWithWaste, recipes, this.preparationProcessesAndPackaging);
 
     const rpcImpacts = Object.fromEntries(
       rpcAmounts
