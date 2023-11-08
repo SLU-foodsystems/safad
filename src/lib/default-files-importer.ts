@@ -37,6 +37,7 @@ import {
   parseRpcOriginWaste,
   parseWasteRetailAndConsumer,
 } from "./input-files-parsers";
+import type ResultsEngine from "./ResultsEngine";
 
 export async function fetchAndParseFile<T>(
   url: string,
@@ -100,7 +101,10 @@ export async function processesEnergyDemands() {
 }
 
 export async function preparationProcessesAndPackaging() {
-  return fetchAndParseFile(preparationProcessesAndPackagingUrl, parseProcessesPackaging);
+  return fetchAndParseFile(
+    preparationProcessesAndPackagingUrl,
+    parseProcessesPackaging
+  );
 }
 
 export async function footprintsRpcs() {
@@ -129,4 +133,28 @@ export async function rpcOriginWaste(countryCode: string) {
 
 export async function foodsRecipes() {
   return await fetchAndParseFile(foodsRecipesUrl, parseRecipeFile);
+}
+
+export async function configureResultsEngine(
+  resultsEngine: ResultsEngine,
+  countryCode: string
+) {
+
+  resultsEngine.setCountryCode(countryCode);
+
+  resultsEngine.setFoodsRecipes(await foodsRecipes());
+  resultsEngine.setFootprintsRpcs(await footprintsRpcs());
+
+  resultsEngine.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
+  resultsEngine.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
+  resultsEngine.setEmissionsFactorsTransport(await emissionsFactorsTransport());
+
+  resultsEngine.setProcessesEnergyDemands(await processesEnergyDemands());
+  resultsEngine.setPrepProcessesAndPackaging(
+    await preparationProcessesAndPackaging()
+  );
+  resultsEngine.setWasteRetailAndConsumer(
+    await wasteRetailAndConsumer(countryCode)
+  );
+  resultsEngine.setRpcFactors(await rpcOriginWaste(countryCode));
 }
