@@ -1,96 +1,127 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-
-import ChartGenerator from "@/components/ChartGenerator.vue";
-import { downloadAsPlaintext } from "@/lib/csv-io";
-
-import getImpactsPerRpc from "@/lib/verification/rpc-impacts-with-import";
-import getImpactsPerDiet from "@/lib/verification/diet-impacts";
-import getRpcsInDiet from "@/lib/verification/diet-rpc-breakdowns";
-import computeSlvImpacts from "@/lib/verification/slv-impacts";
+import * as DefaultFilesImporter from "@/lib/default-files-importer";
+import ResultsEngine from "./lib/ResultsEngine";
+import FileSelector from "./components/FileSelector.vue";
 import { parseFootprintsRpcs } from "./lib/input-files-parsers";
 
-type FileState = "initial" | "loading" | "loaded" | "error";
+const LL_COUNTRY_CODES: string[] = [
+  "FR",
+  "DE",
+  "GR",
+  "HU",
+  "IE",
+  "IT",
+  // "PL",
+  "ES",
+  "SE",
+]
+
+const LL_COUNTRY_NAMES: Record<string, string> = {
+  FR: "France",
+  DE: "Germany",
+  GR: "Greece",
+  HU: "Hungary",
+  IE: "Ireland",
+  IT: "Italy",
+  PL: "Poland",
+  ES: "Spain",
+  SE: "Sweden",
+};
+
+interface SetFilePayload {
+  data: string;
+  name: string;
+}
+
+interface FileInterface<T> {
+  state: "default" | "custom";
+  name: string;
+  defaultName: string;
+  data: null | string;
+  getDefault: (country: string) => Promise<T>,
+  parser: (data: string) => T;
+  setter: (data: T) => void;
+}
 
 export default defineComponent({
-  components: { ChartGenerator },
-
+  components: { FileSelector },
   data() {
     return {
-      envFactors: undefined as EnvFactors | undefined,
-      envFactorsFileName: "",
-      fileState: "initial" as FileState,
+      LL_COUNTRY_CODES,
+      LL_COUNTRY_NAMES,
+
+      RE: (new ResultsEngine()) as ResultsEngine,
+      countryCode: "SE",
+      diet: [],
+
+
+      processEnvFactors: null as null | FileInterface<Record<string, number[]>>,
+
+      emissionsFactorsPackaging: null as null | FileInterface<Record<string,
+        number[]>>,
+      emissionsFactorsEnergy: null as null | FileInterface<Record<string, number[] | Record<string, number[]>>>,
+        emissionsFactorsTransport: null as null | FileInterface<Record<string, Record<string, number[]>>>,
+
+      processesEnergyDemands: null as null | FileInterface<Record<string,
+        number[]>>,
+      preparationProcessesAndPackaging: null as null |
+        FileInterface<Record<string, string>>,
+      wasteRetailAndConsumer: null as null | FileInterface<Record<string,
+        number[]>>,
+
+      footprintsRpcsFile: null as null | FileInterface<EnvFactors>,
     };
   },
 
   methods: {
-    async generateImpactsPerRpc() {
-      const validationFilesPerCountry = await getImpactsPerRpc(this.envFactors);
-      validationFilesPerCountry.forEach(([country, csv]) => {
-        downloadAsPlaintext(csv, country + "-rpc-impacts.csv");
-      });
+    async compute() {
+      const diet = await DefaultFilesImporter.diet(this.countryCode);
+      const impacts = this.RE.computeImpacts(diet);
+      console.log(impacts);
     },
 
-    async generateImpactsPerDiet() {
-      const validationFilesPerCountry = await getImpactsPerDiet(
-        this.envFactors
-      );
-      validationFilesPerCountry.forEach(([country, csv]) => {
-        downloadAsPlaintext(csv, country + "-category-impacts.csv");
-      });
+    async resetFile<T>(fileInterface: FileInterface<T>) {
+      if (!fileInterface) return;
+
+      fileInterface.setter(await fileInterface.getDefault(this.countryCode));
+      fileInterface.name = "";
+      fileInterface.state = "default";
+      fileInterface.data = null;
     },
 
-    async generateRpcsPerDiet() {
-      const validationFilesPerCountry = await getRpcsInDiet();
-      validationFilesPerCountry.forEach(([country, csv]) => {
-        downloadAsPlaintext(csv, country + "-diet-breakdown.csv");
-      });
+    async setFile<T>(payload: SetFilePayload, fileInterface: FileInterface<T> | null) {
+      if (!fileInterface) return;
+
+      fileInterface.setter(fileInterface.parser(payload.data));
+      fileInterface.name = payload.name;
+      fileInterface.state = "custom";
+      fileInterface.data = null;
     },
 
-    async generateSlvDiets() {
-      const csvString = await computeSlvImpacts();
-      downloadAsPlaintext(csvString, "slv-data.csv");
-    },
+    async downloadFile<T>(fileInterface: FileInterface<T>) {
 
-    onFileChange(event: Event) {
-      const { files } = event.target as HTMLInputElement;
-      if (!files || files.length === 0) return;
+      console.log("TODO: Download", fileInterface.name || fileInterface.defaultName)
 
-      const file = files[0];
-      if (!file) return;
+      /*if (fileInterface.state === "default") {
+        downloadAsPlaintext(await fileInterface.getDefault(this.countryCode), fileInterface.defaultName);
+      } else {
+        downloadAsPlaintext(fileInterface.data, fileInterface.name);
+      }*/
+    }
+  },
 
-      const fileName = file.name || "env-factors.csv";
-      const reader = new FileReader();
-
-      reader.addEventListener("error", (...args) => {
-        this.fileState = "error";
-        // TODO: Handle errors
-        console.error(...args);
-      });
-      reader.addEventListener("load", () => {
-        this.attemptSetFileData(fileName, reader.result as string | null);
-      });
-      reader.readAsText(file);
-    },
-    attemptSetFileData(fileName: string, rawCsvText: string | null) {
-      try {
-        if (rawCsvText === null) throw new Error("reader result was null");
-
-        const structuredData = parseFootprintsRpcs(rawCsvText as string);
-        this.envFactors = structuredData || undefined;
-        this.envFactorsFileName = fileName;
-        this.fileState = "loaded";
-      } catch (err) {
-        console.error(err);
-        alert("Failed parsing file!");
-      }
-    },
-    reset() {
-      this.envFactors = undefined;
-      this.envFactorsFileName = "";
-      this.fileState = "initial";
-      (this.$refs.fileInput as HTMLInputElement).value = "";
-    },
+  beforeMount() {
+    DefaultFilesImporter.configureResultsEngine(this.RE as ResultsEngine, this.countryCode);
+    this.footprintsRpcsFile = {
+      state: "default",
+      name: "",
+      data: null,
+      defaultName: "footprints-rpcs.csv",
+      getDefault: DefaultFilesImporter.footprintsRpcs,
+      parser: parseFootprintsRpcs,
+      setter: (data: EnvFactors) => (this.RE as ResultsEngine).setFootprintsRpcs(data),
+    };
   },
 });
 </script>
@@ -101,41 +132,26 @@ export default defineComponent({
       <div class="cluster cluster--center">
         <img src="@/assets/slu-logo.svg" class="start-page__logo" />
       </div>
-      <h2>SLU Plan'Eat Diet Tester</h2>
-      <div class="env-factors-box stack">
-        <h3>Replace Environmental Factors</h3>
-        <div>
-          <em>Upload a file in the format of ALL_RPC.csv to replace the
-            environmental data used in the program.</em>
-        </div>
-        <div>
-          <strong>Current File</strong>:
-          {{ envFactorsFileName || "Default environmental file" }}
-        </div>
-        <div v-if="envFactors">
-          <button class="button button--small" @click="reset">Reset</button>
-        </div>
-        <div v-if="!envFactors">
-          <input type="file" @change="onFileChange" accepts=".csv" ref="fileInput" />
-        </div>
-      </div>
+      <h2>SLU SAFAD</h2>
+      <div class="stack">
+        <h3>Living Lab Country</h3>
+        <select v-model="countryCode">
+          <option v-for="code in LL_COUNTRY_CODES" :value="code" v-text="LL_COUNTRY_NAMES[code]" />
+        </select>
+        <h3>Input Data</h3>
 
-      <h3>Download verification files</h3>
-      <div class="cluster cluster--center">
-        <button class="button button--accent" @click="generateImpactsPerRpc">
-          RPC Verification
-        </button>
-        <button class="button button--accent" @click="generateImpactsPerDiet">
-          Category Verification
-        </button>
-        <button class="button button--accent" @click="generateRpcsPerDiet">
-          Diet Verification
-        </button>
-        <button class="button button--accent" @click="generateSlvDiets">
-          SLV Diet
-        </button>
+        <FileSelector @setFile="(p: SetFilePayload) => setFile(p, footprintsRpcsFile)"
+          @reset="() => resetFile(footprintsRpcsFile!)" :fileName="footprintsRpcsFile?.name"
+          :state="footprintsRpcsFile?.state" />
+
+        <h3>Parameter Files</h3>
+        <!-- Processes Energy, PrepProcPack, Waste (Ret & cons.), rpc factors,
+          Recipes-->
+        <h3>Emissions Factors</h3>
+        <div class="cluster cluster--center">
+          <button class="button button--accent" @click="compute">Compute</button>
+        </div>
       </div>
-      <ChartGenerator :envFactors="envFactors" />
     </div>
   </section>
 </template>
@@ -157,7 +173,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
 
-  > div {
+  >div {
     flex-basis: 30em;
   }
 
@@ -172,18 +188,5 @@ export default defineComponent({
   height: 4em;
   margin: 0 auto;
   margin-bottom: 2em;
-}
-
-.env-factors-box {
-  background: #f0f0f0;
-  border: 2px solid #ddd;
-  border-radius: 0.5em;
-  padding: 1em;
-
-  text-align: left;
-
-  button {
-    background: $yellow;
-  }
 }
 </style>
