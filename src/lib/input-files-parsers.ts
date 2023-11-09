@@ -1,5 +1,5 @@
 import { ENV_IMPACTS_ZERO } from "@/lib/constants";
-import { parseCsvFile } from "@/lib/utils";
+import { parseCsvFile, roundToPrecision } from "@/lib/utils";
 
 const asNumber = (str: string, elseValue = 0): number => {
   const maybeNumber = Number.parseFloat((str || "").trim());
@@ -222,4 +222,111 @@ export function parseRpcOriginWaste(csvString: string) {
     },
     {} as RpcFactors
   );
+}
+
+export function parseRecipeFiles(
+  recipesCsvStr: string,
+  processesCsvStr: string
+) {
+  const PROCESS_UNSPECIFIED = "F28.A07XD";
+
+  /**
+   * Precautionary: Delete any empty rulesets.
+   */
+  function deleteEmptyValues(obj: FoodsRecipes) {
+    Object.entries(obj).forEach(([id, values]) => {
+      const nSubComponents = values.length;
+      if (nSubComponents === 0) delete obj[id];
+    });
+  }
+
+  function removeNullSelfReferences(obj: FoodsRecipes) {
+    Object.entries(obj).forEach(([id, _values]) => {
+      obj[id] = obj[id].filter(
+        ([foodCode, process]) => foodCode !== id || process.length > 0
+      );
+    });
+  }
+
+  /**
+   * Helper function to build a lookup-map of yields and allocation factors.
+   */
+  function buildYieldMap(processesCsv: string[][]) {
+    const yieldMap: Record<string, number> = {};
+
+    processesCsv
+      .map(
+        ([
+          code,
+          _foodName,
+          _foodEx2Code,
+          _foodEx2Name,
+          facets,
+          _facetDesc,
+          yieldFactorStr,
+          allocationFactorStr,
+        ]) =>
+          [
+            code,
+            facets,
+            parseFloat(yieldFactorStr),
+            parseFloat(allocationFactorStr),
+          ] as [string, string, number, number]
+      )
+      .forEach(([code, facets, yieldFactor, allocationFactor]) => {
+        // Overwrite allocation factor for this specific process
+        if (facets === PROCESS_UNSPECIFIED) allocationFactor = 1;
+        const key = code + "|" + facets;
+        yieldMap[key] = yieldFactor * allocationFactor;
+      });
+
+    return yieldMap;
+  }
+
+  // import CSVs. Slice(1) to drop header
+  const recipesCsv = parseCsvFile(recipesCsvStr).slice(1);
+  const processesCsv = parseCsvFile(processesCsvStr).slice(1);
+
+  const yieldMap = buildYieldMap(processesCsv);
+  const recipes: FoodsRecipes = {};
+
+  recipesCsv.forEach(
+    ([code, _name, component, _componentName, facetStr, perc, prob]) => {
+      if (code === "") return; // Empty row
+      const value = roundToPrecision(
+        (parseFloat(perc) * parseFloat(prob)) / 100,
+        3
+      );
+
+      if (value === 0) return;
+
+      // Note to self: I've checked that all missing values here are of the
+      // facet "To be further disaggregated (d)", which is why we can just
+      // assume a 1. For custom recipes, the user is responsible for data
+      // completeness, and 1 is a sound default value.
+      const yieldFactor = yieldMap[component + "|" + facetStr] || 1;
+
+      const processes = facetStr
+        .split("$")
+        .filter((f) => f.startsWith("F28.") && f !== PROCESS_UNSPECIFIED);
+
+      const entry: [string, string[], number, number] = [
+        component,
+        processes,
+        value,
+        yieldFactor,
+      ];
+
+      if (code in recipes) {
+        recipes[code].push(entry);
+      } else {
+        recipes[code] = [entry];
+      }
+    }
+  );
+
+  removeNullSelfReferences(recipes);
+  deleteEmptyValues(recipes);
+
+  return recipes;
 }

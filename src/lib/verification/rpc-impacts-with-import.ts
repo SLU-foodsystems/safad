@@ -10,7 +10,6 @@ import {
 import { AGGREGATE_HEADERS, aggregateImpacts } from "@/lib/impacts-csv-utils";
 
 import categoryNamesJson from "@/data/category-names.json";
-import foodsRecipesJson from "@/data/foodex-recipes.json";
 import namesJson from "@/data/rpc-names.json";
 
 import ResultsEngine from "@/lib/ResultsEngine";
@@ -19,14 +18,13 @@ import {
   emissionsFactorsEnergy,
   emissionsFactorsPackaging,
   emissionsFactorsTransport,
+  foodsRecipes,
   footprintsRpcs,
   preparationProcessesAndPackaging,
   processesEnergyDemands,
   rpcOriginWaste,
   wasteRetailAndConsumer,
 } from "../default-files-importer";
-
-const foodsRecipes = foodsRecipesJson.data as unknown as FoodsRecipes;
 
 type LlCountryName =
   | "France"
@@ -57,11 +55,12 @@ const getCategoryName = (code: string, level: number) => {
   return categoryNames[levelCode] || `NOT FOUND (${levelCode})`;
 };
 
-const codesInRecipes = Object.keys(foodsRecipes);
 
 export default async function computeFootprintsForEachRpcWithOrigin(
   envFactors?: EnvFactors
 ): Promise<string[][]> {
+  const codesInRecipes = Object.keys(await foodsRecipes());
+
   const rpcFiles = {
     France: await rpcOriginWaste("FR"),
     Germany: await rpcOriginWaste("DE"),
@@ -89,6 +88,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
 
   const RE = new ResultsEngine();
 
+  RE.setFoodsRecipes(await foodsRecipes());
   RE.setFootprintsRpcs(envFactors || (await footprintsRpcs()));
   RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());

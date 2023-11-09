@@ -13,5 +13,3 @@ node ./foodex-names/extract-category-names.mjs ./foodex-names/foodex-names.csv 2
 # Create a json for mapping rpc codes to sua names
 node ./rpc-sua-map/rpc-sua-csv-to-json.mjs ./rpc-sua-map/rpc-to-sua.csv > ../src/data/rpc-to-sua.json
 
-# Create a json representation of the csvs
-node ./foodex-recipes/recipes-csv-parser.mjs ./foodex-recipes/foodex-recipes.csv ./foodex-recipes/foods-and-processes.csv > ../src/data/foodex-recipes.json

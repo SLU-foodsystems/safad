@@ -188,3 +188,8 @@ export function parseCsvFile(fileContent: string, delim = ",") {
   }
   return ret;
 }
+
+export function roundToPrecision(number: number, decimalPoints = 2) {
+  const k = 10 ** decimalPoints;
+  return Math.round(number * k) / k;
+}
