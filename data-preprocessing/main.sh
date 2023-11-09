@@ -2,10 +2,8 @@
 
 set -eu
 
-# RPC parameters: done in two steps to allow for, in the future, to manually
-# adjust the values if we want to.
-# Step a: Generate csv files
-node ./rpc-parameters/generate-csv-per-country.mjs France Germany Greece Hungary Ireland Italy Poland Spain Sweden
+# RPC parameters
+#node ./rpc-parameters/generate-csv-per-country.mjs France Germany Greece Hungary Ireland Italy Poland Spain Sweden
 
 # Extract all category names
 node ./foodex-names/extract-category-names.mjs ./foodex-names/foodex-names.csv 2 > ../src/data/category-names.json
