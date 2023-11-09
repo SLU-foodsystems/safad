@@ -6,7 +6,6 @@ import {
 } from "./process-emissions";
 
 import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
-import foodsRecipes from "@/data/foodex-recipes.json";
 
 import flattenEnvironmentalFactors from "./env-impact-aggregator";
 import {
@@ -20,7 +19,6 @@ import {
 import computeTransportEmissions from "./transport-emissions";
 import adjustDietForWaste from "./waste-retail-consumer-adjuster";
 
-const recipes = foodsRecipes.data as unknown as FoodsRecipes;
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
 
 /**
@@ -31,6 +29,7 @@ class ResultsEngine {
   footprintsRpcsMerged: EnvImpacts | null = null;
 
   rpcParameters: RpcFactors | null = null;
+  foodsRecipes: null | FoodsRecipes = null;
 
   countryCode: string | null = null;
   processEnvFactors: Record<string, number[]> | null = null;
@@ -80,6 +79,10 @@ class ResultsEngine {
     wasteRetailAndConsumer: Record<string, number[]>
   ) {
     this.wasteRetailAndConsumer = wasteRetailAndConsumer;
+  }
+
+  public setFoodsRecipes(foodsRecipes: FoodsRecipes) {
+    this.foodsRecipes = foodsRecipes;
   }
 
   private getRpcFootprints(
@@ -194,6 +197,11 @@ class ResultsEngine {
       return null;
     }
 
+    if (!this.foodsRecipes) {
+      console.error("Compute called without foodsRecipes.");
+      return null;
+    }
+
     if (!this.wasteRetailAndConsumer) {
       console.error(
         "Compute called without retail- and consumer waste factors set."
@@ -237,7 +245,11 @@ class ResultsEngine {
       processesAmounts,
       packetingAmounts,
       transportlessAmounts,
-    ] = reduceDiet(dietWithWaste, recipes, this.preparationProcessesAndPackaging);
+    ] = reduceDiet(
+      dietWithWaste,
+      this.foodsRecipes,
+      this.preparationProcessesAndPackaging
+    );
 
     const rpcImpacts = Object.fromEntries(
       rpcAmounts

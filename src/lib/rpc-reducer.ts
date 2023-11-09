@@ -5,6 +5,9 @@
 
 import { getRpcCodeSubset } from "@/lib/utils";
 
+type NestedMap<K extends string | number, V> = Record<K, Record<K, V>>;
+type RPC = [string, number]; // Code, Amount
+
 // TODO: Ideally we would take these two as parameters instead.
 const TRANSPORTLESS_PROCESSES = [
   "F28.A07KD",
@@ -24,6 +27,13 @@ const TRANSPORTLESS_PROCESSES = [
 
 const TRANSPORTLESS_PROCESS_EXCEPTION = ["F28.A0BZV", "F28.A07GG"];
 
+// Get the 'level' of a given food given its id
+const getLevel = (str: string) => str.split(".").length - 1;
+
+/**
+ * Helper function to check if a combination of processes should be considered
+ * 'transportless' or not, based on the two constants above.
+ */
 const isTransportlessProcess = (processes: string[]): boolean => {
   if (processes.length === 0) return false;
   // Handle the exception of polished rice.
@@ -37,11 +47,6 @@ const isTransportlessProcess = (processes: string[]): boolean => {
   return processes.some((p) => TRANSPORTLESS_PROCESSES.includes(p));
 };
 
-type NestedMap<K extends string | number, V> = Record<K, Record<K, V>>;
-type RPC = [string, number]; // Code, Amount
-
-// Get the 'level' of a given food given its id
-const getLevel = (str: string) => str.split(".").length - 1;
 
 /**
  * Aggergate a list of rpcs and their amounts by grouping/summing any duplicate

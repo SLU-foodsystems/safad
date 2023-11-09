@@ -18,6 +18,7 @@ import {
   emissionsFactorsEnergy,
   emissionsFactorsPackaging,
   emissionsFactorsTransport,
+  foodsRecipes,
   footprintsRpcs,
   preparationProcessesAndPackaging,
   processesEnergyDemands,
@@ -79,6 +80,7 @@ export async function computeFootprintsForDiets(
   } as Record<string, [string, number][]>;
 
   const RE = new ResultsEngine();
+  RE.setFoodsRecipes(await foodsRecipes());
   RE.setFootprintsRpcs(envFactors || (await footprintsRpcs()));
   RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());

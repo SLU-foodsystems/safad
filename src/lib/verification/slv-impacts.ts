@@ -17,6 +17,7 @@ import {
   emissionsFactorsEnergy,
   emissionsFactorsPackaging,
   emissionsFactorsTransport,
+  foodsRecipes,
   footprintsRpcs,
   preparationProcessesAndPackaging,
   processesEnergyDemands,
@@ -60,6 +61,7 @@ const addProcesses = (
 
 export default async function computeSlvImpacts(): Promise<string> {
   const RE = new ResultsEngine();
+  RE.setFoodsRecipes(await foodsRecipes());
   RE.setFootprintsRpcs(await footprintsRpcs());
   RE.setCountryCode("SE");
   RE.setRpcFactors(await rpcOriginWaste("SE"));
