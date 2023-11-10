@@ -334,12 +334,6 @@ class ResultsEngine {
       transportImpactsByCategory,
     ];
   }
-
-  // Necessary for testing.
-  public reset() {
-    this.rpcParameters = null;
-    this.footprintsRpcsPerOrigin = null;
-  }
 }
 
 export default ResultsEngine;
