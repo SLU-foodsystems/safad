@@ -67,19 +67,15 @@ export default defineComponent({
       countryCode: "SE",
       diet: [],
 
-      processEnvFactors: null as null | FileInterface<Record<string, number[]>>,
+      processEnvFactorsFile: null as null | FileInterface<Record<string, number[]>>,
 
-      emissionsFactorsPackaging: null as null | FileInterface<Record<string,
-        number[]>>,
-      emissionsFactorsEnergy: null as null | FileInterface<Record<string, number[] | Record<string, number[]>>>,
-      emissionsFactorsTransport: null as null | FileInterface<NestedRecord<string, number[]>>,
+      emissionsFactorsPackagingFile: null as null | FileInterface<Record<string, number[]>>,
+      emissionsFactorsEnergyFile: null as null | FileInterface<Record<string, number[] | Record<string, number[]>>>,
+      emissionsFactorsTransportFile: null as null | FileInterface<NestedRecord<string, number[]>>,
 
-      processesEnergyDemands: null as null | FileInterface<Record<string,
-        number[]>>,
-      preparationProcessesAndPackaging: null as null |
-        FileInterface<Record<string, string>>,
-      wasteRetailAndConsumer: null as null | FileInterface<Record<string,
-        number[]>>,
+      processesEnergyDemandsFile: null as null | FileInterface<Record<string, number[]>>,
+      preparationProcessesAndPackagingFile: null as null | FileInterface<Record<string, string>>,
+      wasteRetailAndConsumerFile: null as null | FileInterface<Record<string, number[]>>,
 
       dietData: [] as Diet,
 
