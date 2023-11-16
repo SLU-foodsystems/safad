@@ -39,7 +39,7 @@ class ResultsEngine {
     string,
     number[] | Record<string, number[]>
   > = null;
-  emissionsFactorsTransport: null | Record<string, Record<string, number[]>> =
+  emissionsFactorsTransport: null | NestedRecord<string, number[]> =
     null;
 
   processesEnergyDemands: null | Record<string, number[]> = null;
@@ -167,7 +167,7 @@ class ResultsEngine {
   }
 
   public setEmissionsFactorsTransport(
-    emissionsFactorsTransport: Record<string, Record<string, number[]>>
+    emissionsFactorsTransport: NestedRecord<string, number[]>
   ) {
     this.emissionsFactorsTransport = emissionsFactorsTransport;
   }
@@ -184,8 +184,8 @@ class ResultsEngine {
     | null
     | [
         Record<string, number[]>,
-        Record<string, Record<string, number[]>>,
-        Record<string, Record<string, number[]>>,
+        NestedRecord<string, number[]>,
+        NestedRecord<string, number[]>,
         Record<string, number[]>
       ] {
     if (!this.footprintsRpcsPerOrigin) {

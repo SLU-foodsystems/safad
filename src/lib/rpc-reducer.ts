@@ -5,8 +5,6 @@
 
 import { getRpcCodeSubset } from "@/lib/utils";
 
-type NestedMap<K extends string | number, V> = Record<K, Record<K, V>>;
-
 // TODO: Ideally we would take these two as parameters instead.
 const TRANSPORTLESS_PROCESSES = [
   "F28.A07KD",
@@ -181,12 +179,12 @@ export default function reduceDietToRpcs(
   preparationAndPackagingList: Record<string, string>,
 ): [
   Diet,
-  NestedMap<string, number>,
-  NestedMap<string, number>,
+  NestedRecord<string, number>,
+  NestedRecord<string, number>,
   Record<string, number>,
 ] {
-  const processesMap: NestedMap<string, number> = {};
-  const packagingMap: NestedMap<string, number> = {};
+  const processesMap: NestedRecord<string, number> = {};
+  const packagingMap: NestedRecord<string, number> = {};
   const transportlessMap: Record<string, number> = {};
 
   // This is a helper function that will be called for all processes and

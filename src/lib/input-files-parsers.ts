@@ -47,7 +47,7 @@ export function parseEmissionsFactorsEnergy(csvString: string) {
 export function parseEmissionsFactorsTransport(csvString: string) {
   const csv = parseCsvFile(csvString).slice(1); // Drop Header
 
-  const results: Record<string, Record<string, number[]>> = {};
+  const results: NestedRecord<string, number[]> = {};
 
   csv
     .map((row) => row.map((x) => x.trim())) // Trim all fields

@@ -36,10 +36,10 @@ const slvRecipes = slvRecipesJson as unknown as Record<
 const maybeQuote = (str: string) => (str.includes(",") ? `"${str}"` : str);
 
 const addProcesses = (
-  processImpacts: Record<string, Record<string, number[]>>,
+  processImpacts: NestedRecord<string, number[]>,
   processAmounts: Record<string, number>,
   RE: ResultsEngine
-): Record<string, Record<string, number[]>> => {
+): NestedRecord<string, number[]> => {
   const hasProcesses = Object.keys(processAmounts).length > 0;
   if (!hasProcesses) return processImpacts;
 

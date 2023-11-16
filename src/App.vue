@@ -60,7 +60,7 @@ export default defineComponent({
       emissionsFactorsPackaging: null as null | FileInterface<Record<string,
         number[]>>,
       emissionsFactorsEnergy: null as null | FileInterface<Record<string, number[] | Record<string, number[]>>>,
-      emissionsFactorsTransport: null as null | FileInterface<Record<string, Record<string, number[]>>>,
+      emissionsFactorsTransport: null as null | FileInterface<NestedRecord<string, number[]>>,
 
       processesEnergyDemands: null as null | FileInterface<Record<string,
         number[]>>,
