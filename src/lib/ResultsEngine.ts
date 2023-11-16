@@ -25,14 +25,14 @@ const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
  * Ties all parts of computing the results into a singleton.
  */
 class ResultsEngine {
-  footprintsRpcsPerOrigin: RpcFootprintsByOrigin | null = null;
-  footprintsRpcsMerged: RpcFootprints | null = null;
+  footprintsRpcsPerOrigin: null | RpcFootprintsByOrigin = null;
+  footprintsRpcsMerged: null | RpcFootprints = null;
 
-  rpcParameters: RpcFactors | null = null;
+  rpcParameters: null | RpcFactors = null;
   foodsRecipes: null | FoodsRecipes = null;
 
-  countryCode: string | null = null;
-  processEnvFactors: Record<string, number[]> | null = null;
+  countryCode: null | string = null;
+  processEnvFactors: null | Record<string, number[]> = null;
 
   emissionsFactorsPackaging: null | Record<string, number[]> = null;
   emissionsFactorsEnergy: null | Record<
