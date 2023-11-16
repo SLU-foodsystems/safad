@@ -1,9 +1,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+
 import * as DefaultFilesImporter from "@/lib/default-files-importer";
-import ResultsEngine from "./lib/ResultsEngine";
-import FileSelector from "./components/FileSelector.vue";
-import * as InputFileParsers from "./lib/input-files-parsers";
+import * as InputFileParsers from "@/lib/input-files-parsers";
+import ResultsEngine from "@/lib/ResultsEngine";
+
+import FileSelector from "@/components/FileSelector.vue";
 
 const LL_COUNTRY_CODES: string[] = [
   "FR",
