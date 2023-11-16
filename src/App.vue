@@ -135,6 +135,25 @@ export default defineComponent({
       setter: (data: Diet) => { this.dietData = data },
     });
 
+    this.processesEnergyDemandsFile = initFileInterface({
+      defaultName: "processes-energy-demands.csv",
+      getDefault: DefaultFilesImporter.processesEnergyDemands,
+      parser: InputFileParsers.parseEmissionsFactorsPackaging,
+      setter: this.RE.setEmissionsFactorsPackaging,
+    });
+    this.preparationProcessesAndPackagingFile = initFileInterface({
+      defaultName: "prep-processes-and-packaging.csv",
+      getDefault: DefaultFilesImporter.preparationProcessesAndPackaging,
+      parser: InputFileParsers.parseProcessesPackaging,
+      setter: this.RE.setPrepProcessesAndPackaging,
+    });
+    this.wasteRetailAndConsumerFile = initFileInterface({
+      defaultName: "waste-retail-and-consumer.csv",
+      getDefault: DefaultFilesImporter.wasteRetailAndConsumer,
+      parser: InputFileParsers.parseWasteRetailAndConsumer,
+      setter: this.RE.setWasteRetailAndConsumer,
+    });
+
     this.emissionsFactorsPackagingFile = initFileInterface({
       defaultName: "emissions-factors-packaging.csv",
       getDefault: DefaultFilesImporter.emissionsFactorsPackaging,
@@ -184,8 +203,31 @@ export default defineComponent({
           :state="dietFile?.state || 'default'"
         />
         <h3>Parameter Files</h3>
-        <!-- Processes Energy, PrepProcPack, Waste (Ret & cons.), rpc factors,
-          Recipes-->
+
+        <!-- rpc factors, Recipes-->
+
+        <h4>Parameter File: Processes Energy Demand</h4>
+        <FileSelector
+          @setFile="(p: SetFilePayload) => setFile(p, processesEnergyDemandsFile)"
+          @reset="() => resetFile(processesEnergyDemandsFile!)"
+          :fileName="processesEnergyDemandsFile?.name"
+          :state="processesEnergyDemandsFile?.state || 'default'"
+        />
+        <h4>Parameter File: Preparation Processes and Packagin</h4>
+        <FileSelector
+          @setFile="(p: SetFilePayload) => setFile(p, preparationProcessesAndPackagingFile)"
+          @reset="() => resetFile(preparationProcessesAndPackagingFile!)"
+          :fileName="preparationProcessesAndPackagingFile?.name"
+          :state="preparationProcessesAndPackagingFile?.state || 'default'"
+        />
+        <h4>Parameter File: Wastes, consumer and retail</h4>
+        <FileSelector
+          @setFile="(p: SetFilePayload) => setFile(p, wasteRetailAndConsumerFile)"
+          @reset="() => resetFile(wasteRetailAndConsumerFile!)"
+          :fileName="wasteRetailAndConsumerFile?.name"
+          :state="wasteRetailAndConsumerFile?.state || 'default'"
+        />
+
         <h3>Emissions Factors</h3>
         <h4>Emissions Factors: Packaging</h4>
         <FileSelector
