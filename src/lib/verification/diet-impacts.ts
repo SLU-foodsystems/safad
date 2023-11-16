@@ -65,7 +65,7 @@ export async function computeFootprintsForDiets(
     Spain: await rpcOriginWaste("ES"),
     Sweden: await rpcOriginWaste("SE"),
     SwedenBaseline: await rpcOriginWaste("SE"),
-  } as Record<LlCountryName, RpcFactors>;
+  } as Record<LlCountryName, RpcOriginWaste>;
 
   const dietFiles = {
     France: await diet("FR"),
@@ -107,7 +107,7 @@ export async function computeFootprintsForDiets(
       RE.setCountryCode(countryCode);
     }
 
-    RE.setRpcFactors(rpcFiles[countryName]);
+    RE.setRpcOriginWaste(rpcFiles[countryName]);
 
     const results = RE.computeImpactsByCategory(dietFiles[countryName]);
     if (results === null) return null;

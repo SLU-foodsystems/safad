@@ -73,7 +73,7 @@ export default defineComponent({
       emissionsFactorsEnergyFile: null as null | FileInterface<Record<string, number[] | Record<string, number[]>>>,
       emissionsFactorsTransportFile: null as null | FileInterface<NestedRecord<string, number[]>>,
 
-      rpcParametersFile: null as null | FileInterface<RpcFactors>,
+      rpcOriginWasteFile: null as null | FileInterface<RpcOriginWaste>,
       processesEnergyDemandsFile: null as null | FileInterface<Record<string, number[]>>,
       preparationProcessesAndPackagingFile: null as null | FileInterface<Record<string, string>>,
       wasteRetailAndConsumerFile: null as null | FileInterface<Record<string, number[]>>,
@@ -135,11 +135,11 @@ export default defineComponent({
       setter: (data: Diet) => { this.diet = data },
     });
 
-    this.rpcParametersFile = initFileInterface({
+    this.rpcOriginWasteFile = initFileInterface({
       defaultName: "rpc-parameters.csv",
       getDefault: DefaultFilesImporter.rpcOriginWaste,
       parser: InputFileParsers.parseRpcOriginWaste,
-      setter: this.RE.setRpcFactors,
+      setter: this.RE.setRpcOriginWaste,
     });
     this.processesEnergyDemandsFile = initFileInterface({
       defaultName: "processes-energy-demands.csv",
@@ -197,9 +197,12 @@ export default defineComponent({
         <h3>Input Data</h3>
 
         <h4>RPC Footprints</h4>
-        <FileSelector @setFile="(p: SetFilePayload) => setFile(p, footprintsRpcsFile)"
-          @reset="() => resetFile(footprintsRpcsFile!)" :fileName="footprintsRpcsFile?.name"
-          :state="footprintsRpcsFile?.state || 'default'" />
+        <FileSelector
+          @setFile="(p: SetFilePayload) => setFile(p, footprintsRpcsFile)"
+          @reset="() => resetFile(footprintsRpcsFile!)"
+          :fileName="footprintsRpcsFile?.name"
+          :state="footprintsRpcsFile?.state || 'default'"
+        />
 
         <h4>Diet</h4>
         <FileSelector
@@ -208,14 +211,17 @@ export default defineComponent({
           :fileName="dietFile?.name"
           :state="dietFile?.state || 'default'"
         />
-        <h3>Parameter Files</h3>
+        <h3>Parameter Files </h3>
 
         <!-- Recipes-->
 
         <h4>Parameter File: RPC Parameters</h4>
-        <FileSelector @setFile="(p: SetFilePayload) => setFile(p, rpcParametersFile)"
-          @reset="() => resetFile(rpcParametersFile!)" :fileName="rpcParametersFile?.name"
-          :state="rpcParametersFile?.state || 'default'" />
+        <FileSelector
+          @setFile="(p: SetFilePayload) => setFile(p, rpcOriginWasteFile)"
+          @reset="() => resetFile(rpcOriginWasteFile!)"
+          :fileName="rpcOriginWasteFile?.name"
+          :state="rpcOriginWasteFile?.state || 'default'"
+        />
 
         <h4>Parameter File: Processes Energy Demand</h4>
         <FileSelector

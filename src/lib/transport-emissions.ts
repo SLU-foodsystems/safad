@@ -6,7 +6,7 @@ import { vectorsSum } from "./utils";
 export default function computeTransportEmissions(
   suaCode: string | undefined,
   amount: number, // in grams
-  suaParameters: RpcFactors,
+  suaParameters: RpcOriginWaste,
   transportEmissionsFactors: Record<string, number[]>, // per kg
   defaultCountry: string
 ): number[] | null {

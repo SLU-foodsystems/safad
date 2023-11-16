@@ -64,7 +64,7 @@ export default async function computeSlvImpacts(): Promise<string> {
   RE.setFoodsRecipes(await foodsRecipes());
   RE.setFootprintsRpcs(await footprintsRpcs());
   RE.setCountryCode("SE");
-  RE.setRpcFactors(await rpcOriginWaste("SE"));
+  RE.setRpcOriginWaste(await rpcOriginWaste("SE"));
 
   RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
   RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());

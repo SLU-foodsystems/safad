@@ -213,7 +213,7 @@ export function parseRpcOriginWaste(csvString: string) {
       // Pass the acc along.
       return acc;
     },
-    {} as RpcFactors
+    {} as RpcOriginWaste
   );
 }
 
