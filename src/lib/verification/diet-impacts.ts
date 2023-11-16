@@ -88,7 +88,7 @@ export async function computeFootprintsForDiets(
   RE.setProcessesEnergyDemands(await processesEnergyDemands());
   RE.setPrepProcessesAndPackaging(await preparationProcessesAndPackaging());
 
-  const wastesRetailAndConsumer: Record<string, Record<string, number[]>> = {};
+  const wastesRetailAndConsumer: NestedRecord<string, number[]> = {};
   for (const countryName of LL_COUNTRIES) {
     if (countryName === "SwedenBaseline") continue;
     const countryCode = LL_COUNTRY_CODES[countryName];

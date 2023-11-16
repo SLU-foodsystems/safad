@@ -4,6 +4,8 @@ declare global {
   // Helper type
   type ValueOf<T> = T[keyof T];
 
+  type NestedRecord<K extends string | number, V> = Record<K, Record<K, V>>;
+
   // A helper type for an [rpcCode, amount] pair
   type FoodEntry = [string, number];
 

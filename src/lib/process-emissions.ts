@@ -72,7 +72,7 @@ export function getProcessEnvFactors(
  * Output: { [l1Category]: { [processId]: [CO2, N2O, CH4, ...] } }
  */
 export const computeProcessImpacts = (
-  processAmountsMap: Record<string, Record<string, number>>,
+  processAmountsMap: NestedRecord<string, number>,
   processFactors: Record<string, number[]>
 ): Record<string, { [k: string]: number[] }> =>
   mapValues(processAmountsMap, (processAmounts) =>

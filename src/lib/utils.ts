@@ -38,7 +38,7 @@ export const partition = <T>(array: T[], predicate: (el: T) => boolean) =>
       }
       return lists;
     },
-    [[], []]
+    [[], []],
   );
 
 export function vectorSum(xs: number[], ys: number[]) {
@@ -60,7 +60,7 @@ export function vectorsSum(lists: number[][]): number[] {
 export function aggregateBy<T>(
   entries: [string, T][],
   grouper: (k: string) => string,
-  aggregator: (v1: T, v2: T) => T
+  aggregator: (v1: T, v2: T) => T,
 ): Record<string, T> {
   const result: Record<string, T> = {};
 
@@ -89,24 +89,24 @@ export function getRpcCodeSubset(code: string, level: number) {
  */
 export function aggregateRpcCategories(
   rpcMap: Record<string, number[]>,
-  level: number
+  level: number,
 ) {
   return aggregateBy<number[]>(
     Object.entries(rpcMap),
     (code) => getRpcCodeSubset(code, level),
-    (a: number[], b: number[]) => a.map((x, i) => x + b[i])
+    (a: number[], b: number[]) => a.map((x, i) => x + b[i]),
   );
 }
 
 export const replaceKeys = <V>(
   obj: Record<string, V>,
-  replacement: Record<string, string>
+  replacement: Record<string, string>,
 ): Record<string, V> =>
   Object.fromEntries(Object.entries(obj).map(([k, v]) => [replacement[k], v]));
 
 export const mapValues = <V, T>(
   object: Record<string, V>,
-  fn: (x: V) => T
+  fn: (x: V) => T,
 ): Record<string, T> =>
   Object.fromEntries(Object.entries(object).map(([k, v]) => [k, fn(v)]));
 
@@ -119,13 +119,11 @@ export const maybeQuoteValue = (str: string, delim = ",") =>
 
 export const uniq = <T>(xs: T[]) => [...new Set(xs)];
 
-export const listAllProcesses = (
-  data: Record<string, Record<string, number[]>>
-) =>
+export const listAllProcesses = (data: NestedRecord<string, number[]>) =>
   uniq(
     Object.values(data)
       .map((obj) => Object.keys(obj))
-      .flat(1)
+      .flat(1),
   );
 
 /**
@@ -135,7 +133,7 @@ export const nthIndexOf = (
   string: string,
   searchString: string,
   nth: number,
-  fromIndex = 0
+  fromIndex = 0,
 ): number => {
   const index = string.indexOf(searchString, fromIndex);
 

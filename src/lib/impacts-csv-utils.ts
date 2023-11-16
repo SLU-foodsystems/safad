@@ -89,8 +89,8 @@ export function expandedImpacts(
  */
 export function aggregateImpacts(
   rpcFootprints: Record<string, number[]>,
-  processEmissions: Record<string, Record<string, number[]>>,
-  packagingEmissions: Record<string, Record<string, number[]>>,
+  processEmissions: NestedRecord<string, number[]>,
+  packagingEmissions: NestedRecord<string, number[]>,
   transportEmissions: Record<string, number[]>
 ): number[] {
   const totalRpcFootprints =
