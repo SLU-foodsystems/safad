@@ -66,7 +66,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
     Spain: await diet("ES"),
     Sweden: await diet("SE"),
     SwedenBaseline: await diet("SE-B"),
-  } as Record<string, [string, number][]>;
+  } as Record<string, Diet>;
 
   const processesAndPackagingCsvData = await preparationProcessesAndPackaging();
 
@@ -90,7 +90,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
 
     const subDietRows: string[] = [];
     subDiets.forEach(([code, amount, rpcs]) => {
-      const rpcs_ = rpcs as [string, number][];
+      const rpcs_ = rpcs as Diet;
       const code_ = code as string;
       rpcs_.forEach(([rpcCode, rpcAmount]) => {
         subDietRows.push(

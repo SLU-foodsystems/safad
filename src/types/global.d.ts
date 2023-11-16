@@ -1,36 +1,30 @@
 export {};
 
-type Tuple<T, N extends number> = N extends N
-  ? number extends N
-    ? T[]
-    : _TupleOf<T, N, []>
-  : never;
-type _TupleOf<T, N extends number, R extends unknown[]> = R["length"] extends N
-  ? R
-  : _TupleOf<T, N, [T, ...R]>;
-
 declare global {
+  // Helper type
   type ValueOf<T> = T[keyof T];
 
-  // Holds the information for a specific diet, i.e. a list of foods.
-  type DietElement = [string, number]; // code, amount
+  // A helper type for an [rpcCode, amount] pair
+  type FoodEntry = [string, number];
 
-  // Collection type
-  type Diet = DietElement[];
+  // Collection type: A diet is a list of food entries
+  type Diet = FoodEntry[];
 
   // FoodEx2.2 recipes
   // component, facet(s), % share, yield
-  // TODO: More readable with named keys, but easier data management like this.
-  type FoodsRecipe = [string, string[], number, number][];
-  type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };
+  type FoodsRecipeElement = [string, string[], number, number];
+  type FoodsRecipeEntry = FoodsRecipeElement[];
+  type FoodsRecipes = {
+    [foodexCode: string]: FoodsRecipeEntry
+  };
 
   // Factors are multiples of impact per kg of food per day.
-  interface EnvFactors {
+  interface RpcFootprintsByOrigin {
     [rpcCode: string]: { [originCode: string]: number[] };
   }
 
   // Impacts are the factors multiplied by an amount (kg)
-  interface EnvImpacts {
+  interface RpcFootprints {
     [rpcCode: string]: number[];
   }
 
@@ -40,13 +34,5 @@ declare global {
       // share, productionWaste, organic
       [originCode: string]: [number, number];
     };
-  }
-
-  interface FactorsOverrides {
-    mode: "absolute" | "relative";
-    productionWaste: number | null;
-    retailWaste: number | null;
-    consumerWaste: number | null;
-    techincalImprovement: number | null;
   }
 }

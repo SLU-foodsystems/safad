@@ -25,8 +25,8 @@ const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
  * Ties all parts of computing the results into a singleton.
  */
 class ResultsEngine {
-  footprintsRpcsPerOrigin: EnvFactors | null = null;
-  footprintsRpcsMerged: EnvImpacts | null = null;
+  footprintsRpcsPerOrigin: RpcFootprintsByOrigin | null = null;
+  footprintsRpcsMerged: RpcFootprints | null = null;
 
   rpcParameters: RpcFactors | null = null;
   foodsRecipes: null | FoodsRecipes = null;
@@ -68,7 +68,7 @@ class ResultsEngine {
     );
   }
 
-  public setFootprintsRpcs(footprintsRpcsPerOrigin: EnvFactors) {
+  public setFootprintsRpcs(footprintsRpcsPerOrigin: RpcFootprintsByOrigin) {
     this.footprintsRpcsPerOrigin = footprintsRpcsPerOrigin;
     this.recomputeEnvFootprints();
   }
@@ -179,7 +179,7 @@ class ResultsEngine {
   }
 
   public computeImpacts(
-    diet: [string, number][]
+    diet: Diet
   ):
     | null
     | [
@@ -304,7 +304,7 @@ class ResultsEngine {
     ];
   }
 
-  public computeImpactsByCategory(diet: [string, number][]) {
+  public computeImpactsByCategory(diet: Diet) {
     const impacts = this.computeImpacts(diet);
     if (!impacts) return null;
 

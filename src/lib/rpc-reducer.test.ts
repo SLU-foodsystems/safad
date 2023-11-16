@@ -1,9 +1,6 @@
 import { describe, expect, test } from "vitest";
 import reduceDiet from "./rpc-reducer";
 
-type DietComponent = [string, number];
-type Diet = DietComponent[];
-
 // Component, Facet, proportion ([0, 1]%), reverse yield
 type FoodsRecipe = [string, string[], number, number][];
 type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };

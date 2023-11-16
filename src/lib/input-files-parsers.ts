@@ -106,7 +106,7 @@ export function parseFootprintsRpcs(csvString: string) {
   const data = parseCsvFile(csvString).slice(1);
   const EXPECTED_LENGTH = 16;
 
-  const structured = {} as EnvFactors;
+  const structured = {} as RpcFootprintsByOrigin;
 
   data
     .filter((x) => x.length > 1)
@@ -177,7 +177,7 @@ export function parseWasteRetailAndConsumer(csvString: string) {
 export function parseDiet(csvString: string): Diet {
   const data = parseCsvFile(csvString).slice(1);
 
-  return data.map(([code, _name, amount]): [string, number] => [
+  return data.map(([code, _name, amount]): FoodEntry => [
     code,
     asNumber(amount),
   ]);

@@ -53,7 +53,7 @@ const LL_COUNTRIES: LlCountryName[] = [
 const categoryNames = categoryNamesJson as Record<string, string>;
 
 export async function computeFootprintsForDiets(
-  envFactors?: EnvFactors
+  envFactors?: RpcFootprintsByOrigin
 ): Promise<[string, string[][]][]> {
   const rpcFiles = {
     France: await rpcOriginWaste("FR"),
@@ -77,7 +77,7 @@ export async function computeFootprintsForDiets(
     Spain: await diet("ES"),
     Sweden: await diet("SE"),
     SwedenBaseline: await diet("SE-B"),
-  } as Record<string, [string, number][]>;
+  } as Record<string, Diet>;
 
   const RE = new ResultsEngine();
   RE.setFoodsRecipes(await foodsRecipes());
@@ -137,7 +137,7 @@ export async function computeFootprintsForDiets(
 }
 
 export default async function computeFootprintsForEachRpcWithOrigin(
-  envFactors?: EnvFactors
+  envFactors?: RpcFootprintsByOrigin
 ): Promise<string[][]> {
   const HEADER = ["Category Code", "Category Name", ...AGGREGATE_HEADERS];
   return (await computeFootprintsForDiets(envFactors)).map(

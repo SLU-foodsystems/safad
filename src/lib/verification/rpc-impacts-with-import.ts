@@ -46,7 +46,7 @@ const getCategoryName = (code: string, level: number) => {
 };
 
 export default async function computeFootprintsForEachRpcWithOrigin(
-  envFactors?: EnvFactors
+  envFactors?: RpcFootprintsByOrigin
 ): Promise<string[][]> {
   const foodsRecipes = await DefaultFilesImporter.foodsRecipes();
   const codesInRecipes = new Set(Object.keys(foodsRecipes));
