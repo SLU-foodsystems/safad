@@ -28,7 +28,7 @@ class ResultsEngine {
   footprintsRpcsPerOrigin: null | RpcFootprintsByOrigin = null;
   footprintsRpcsMerged: null | RpcFootprints = null;
 
-  rpcParameters: null | RpcFactors = null;
+  rpcOriginWaste: null | RpcOriginWaste = null;
   foodsRecipes: null | FoodsRecipes = null;
 
   countryCode: null | string = null;
@@ -55,7 +55,7 @@ class ResultsEngine {
       return;
     }
 
-    if (!this.rpcParameters) {
+    if (!this.rpcOriginWaste) {
       console.info(
         "Method recomputeEnvFootprints called before rpcFactors were set."
       );
@@ -64,7 +64,7 @@ class ResultsEngine {
 
     this.footprintsRpcsMerged = flattenEnvironmentalFactors(
       this.footprintsRpcsPerOrigin,
-      this.rpcParameters
+      this.rpcOriginWaste
     );
   }
 
@@ -91,7 +91,7 @@ class ResultsEngine {
       throw new Error("getEnvImpact called before sheets were assigned.");
     }
 
-    if (!this.rpcParameters) {
+    if (!this.rpcOriginWaste) {
       throw new Error(
         "getEnvImpact called before rpcParameters were assigned."
       );
@@ -119,8 +119,8 @@ class ResultsEngine {
 
   // Set the rpc-factors, i.e. the origin of each rpc, its share, and its
   // production waste.
-  public setRpcFactors(rpcParameters: RpcFactors) {
-    this.rpcParameters = rpcParameters;
+  public setRpcOriginWaste(rpcOriginWaste: RpcOriginWaste) {
+    this.rpcOriginWaste = rpcOriginWaste;
     this.recomputeEnvFootprints();
   }
 
@@ -207,7 +207,7 @@ class ResultsEngine {
       return null;
     }
 
-    if (!this.rpcParameters) {
+    if (!this.rpcOriginWaste) {
       console.error("Compute called when no rpcParameters were set.");
       return null;
     }
@@ -283,7 +283,7 @@ class ResultsEngine {
         computeTransportEmissions(
           rpcToSuaMap[rpcCode],
           amount - (transportlessAmounts[rpcCode] || 0),
-          this.rpcParameters!,
+          this.rpcOriginWaste!,
           this.emissionsFactorsTransport![this.countryCode!],
           this.countryCode!
         ),

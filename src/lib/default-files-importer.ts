@@ -156,5 +156,5 @@ export async function configureResultsEngine(
   resultsEngine.setWasteRetailAndConsumer(
     await wasteRetailAndConsumer(countryCode)
   );
-  resultsEngine.setRpcFactors(await rpcOriginWaste(countryCode));
+  resultsEngine.setRpcOriginWaste(await rpcOriginWaste(countryCode));
 }

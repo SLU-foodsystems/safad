@@ -7,7 +7,7 @@ const constEnvFactors = (x: number) =>
 
 describe("env-impacts.ts", () => {
   test("basic functionality", () => {
-    const rpcFactors: RpcFactors = {
+    const rpcFactors: RpcOriginWaste = {
       a: {
         se: [0.2, 0.1],
         es: [0.5, 0.15],

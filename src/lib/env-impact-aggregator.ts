@@ -19,7 +19,7 @@ import { ENV_IMPACTS_ZERO } from "./constants";
 // efficient, but I doubt this is the bottleneck. We can see later.
 export default function flattenEnvironmentalFactors(
   envImpactSheet: RpcFootprintsByOrigin,
-  rpcFactors: RpcFactors
+  rpcOriginWaste: RpcOriginWaste
 ): RpcFootprints {
   // Idea: Increase impact to account for waste.
   //    - Downside: we won't be able to say "environmental impact from waste"
@@ -37,7 +37,7 @@ export default function flattenEnvironmentalFactors(
   const entries = suaCodes
     .map((suaCode) => {
       const envImpacts = envImpactSheet[suaCode];
-      const originFactors = rpcFactors[suaCode];
+      const originFactors = rpcOriginWaste[suaCode];
 
       if (!originFactors) {
         console.warn(`No origin factors found for SUA ${suaCode}`);

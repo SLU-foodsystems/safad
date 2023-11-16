@@ -67,7 +67,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
     Spain: await DefaultFilesImporter.rpcOriginWaste("ES"),
     Sweden: await DefaultFilesImporter.rpcOriginWaste("SE"),
     SwedenBaseline: await DefaultFilesImporter.rpcOriginWaste("SE"),
-  } as Record<LlCountryName, RpcFactors>;
+  } as Record<LlCountryName, RpcOriginWaste>;
 
   const header = [
     "Code",
@@ -130,7 +130,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
     }
 
     const rpcParameters = rpcFiles[countryName];
-    RE.setRpcFactors(rpcParameters);
+    RE.setRpcOriginWaste(rpcParameters);
 
     const impactsPerDiet = [...codesInRecipes]
       .sort()

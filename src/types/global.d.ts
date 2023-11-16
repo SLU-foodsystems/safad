@@ -31,7 +31,7 @@ declare global {
   }
 
   // RPC factors -
-  interface RpcFactors {
+  interface RpcOriginWaste {
     [rpcCode: string]: {
       // share, productionWaste, organic
       [originCode: string]: [number, number];
