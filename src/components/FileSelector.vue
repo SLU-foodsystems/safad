@@ -72,11 +72,13 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="file-selector-box cluster">
+  <div class="file-selector-box cluster cluster--between">
     <input type="file" hidden ref="fileInput" @change="onFileInputChange" />
+
     <strong>{{ labelText }}</strong>
+
     <button class="button button--slim button--accent" @click="onButtonClick" v-text="buttonText" />
-    <button class="button button--slim" @click="download">Download Copy</button>
+    <button class="button button--slim" @click="download" v-if="false">Download Copy</button>
   </div>
 </template>
 
