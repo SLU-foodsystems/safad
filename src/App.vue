@@ -3,7 +3,7 @@ import { defineComponent } from "vue";
 import * as DefaultFilesImporter from "@/lib/default-files-importer";
 import ResultsEngine from "./lib/ResultsEngine";
 import FileSelector from "./components/FileSelector.vue";
-import { parseDiet, parseEmissionsFactorsEnergy, parseEmissionsFactorsPackaging, parseEmissionsFactorsTransport, parseFootprintsRpcs } from "./lib/input-files-parsers";
+import * as InputFileParsers from "./lib/input-files-parsers";
 
 const LL_COUNTRY_CODES: string[] = [
   "FR",
@@ -124,33 +124,33 @@ export default defineComponent({
     this.footprintsRpcsFile = initFileInterface({
       defaultName: "footprints-rpcs.csv",
       getDefault: DefaultFilesImporter.footprintsRpcs,
-      parser: parseFootprintsRpcs,
+      parser: InputFileParsers.parseFootprintsRpcs,
       setter: this.RE.setFootprintsRpcs,
     });
 
     this.dietFile = initFileInterface({
       defaultName: "diet.csv",
       getDefault: DefaultFilesImporter.diet,
-      parser: parseDiet,
+      parser: InputFileParsers.parseDiet,
       setter: (data: Diet) => { this.dietData = data },
     });
 
     this.emissionsFactorsPackagingFile = initFileInterface({
       defaultName: "emissions-factors-packaging.csv",
       getDefault: DefaultFilesImporter.emissionsFactorsPackaging,
-      parser: parseEmissionsFactorsPackaging,
+      parser: InputFileParsers.parseEmissionsFactorsPackaging,
       setter: this.RE.setEmissionsFactorsPackaging,
     });
     this.emissionsFactorsEnergyFile = initFileInterface({
       defaultName: "emissions-factors-energy.csv",
       getDefault: DefaultFilesImporter.emissionsFactorsEnergy,
-      parser: parseEmissionsFactorsEnergy,
+      parser: InputFileParsers.parseEmissionsFactorsEnergy,
       setter: this.RE.setEmissionsFactorsEnergy,
     });
     this.emissionsFactorsTransportFile = initFileInterface({
       defaultName: "emissions-factors-transport.csv",
       getDefault: DefaultFilesImporter.emissionsFactorsTransport,
-      parser: parseEmissionsFactorsTransport,
+      parser: InputFileParsers.parseEmissionsFactorsTransport,
       setter: this.RE.setEmissionsFactorsTransport,
     });
   },
