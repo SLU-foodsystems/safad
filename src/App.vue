@@ -65,7 +65,7 @@ export default defineComponent({
 
       RE: (new ResultsEngine()) as ResultsEngine,
       countryCode: "SE",
-      diet: [],
+      diet: [] as Diet,
 
       processEnvFactorsFile: null as null | FileInterface<Record<string, number[]>>,
 
@@ -77,8 +77,6 @@ export default defineComponent({
       preparationProcessesAndPackagingFile: null as null | FileInterface<Record<string, string>>,
       wasteRetailAndConsumerFile: null as null | FileInterface<Record<string, number[]>>,
 
-      dietData: [] as Diet,
-
       footprintsRpcsFile: null as null | FileInterface<RpcFootprintsByOrigin>,
       dietFile: null as null | FileInterface<Diet>,
     };
@@ -86,7 +84,7 @@ export default defineComponent({
 
   methods: {
     async compute() {
-      const impacts = this.RE.computeImpacts(this.dietData);
+      const impacts = this.RE.computeImpacts(this.diet);
       console.log(impacts);
     },
 
@@ -132,7 +130,7 @@ export default defineComponent({
       defaultName: "diet.csv",
       getDefault: DefaultFilesImporter.diet,
       parser: InputFileParsers.parseDiet,
-      setter: (data: Diet) => { this.dietData = data },
+      setter: (data: Diet) => { this.diet = data },
     });
 
     this.processesEnergyDemandsFile = initFileInterface({
