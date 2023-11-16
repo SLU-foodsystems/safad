@@ -8,10 +8,7 @@ export default defineComponent({
       type: String as PropType<"default" | "custom">,
       required: true,
     },
-    fileName: {
-      type: String,
-      required: true,
-    },
+    fileName: String,
   },
 
   emits: {
