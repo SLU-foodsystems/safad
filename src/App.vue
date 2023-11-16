@@ -3,7 +3,7 @@ import { defineComponent } from "vue";
 import * as DefaultFilesImporter from "@/lib/default-files-importer";
 import ResultsEngine from "./lib/ResultsEngine";
 import FileSelector from "./components/FileSelector.vue";
-import { parseFootprintsRpcs } from "./lib/input-files-parsers";
+import { parseDiet, parseFootprintsRpcs } from "./lib/input-files-parsers";
 
 const LL_COUNTRY_CODES: string[] = [
   "FR",
@@ -44,6 +44,18 @@ interface FileInterface<T> {
   setter: (data: T) => void;
 }
 
+const initFileInterface = <T>(
+  partialFileInterface: Pick<
+    FileInterface<T>, "defaultName" | "getDefault" | "parser" | "setter"
+  >
+): FileInterface<T> => ({
+  state: "default",
+  name: "",
+  data: null,
+  ...partialFileInterface
+})
+
+
 export default defineComponent({
   components: { FileSelector },
   data() {
@@ -69,14 +81,16 @@ export default defineComponent({
       wasteRetailAndConsumer: null as null | FileInterface<Record<string,
         number[]>>,
 
+      dietData: [] as Diet,
+
       footprintsRpcsFile: null as null | FileInterface<RpcFootprintsByOrigin>,
+      dietFile: null as null | FileInterface<Diet>,
     };
   },
 
   methods: {
     async compute() {
-      const diet = await DefaultFilesImporter.diet(this.countryCode);
-      const impacts = this.RE.computeImpacts(diet);
+      const impacts = this.RE.computeImpacts(this.dietData);
       console.log(impacts);
     },
 
@@ -112,15 +126,19 @@ export default defineComponent({
 
   beforeMount() {
     DefaultFilesImporter.configureResultsEngine(this.RE as ResultsEngine, this.countryCode);
-    this.footprintsRpcsFile = {
-      state: "default",
-      name: "",
-      data: null,
+    this.footprintsRpcsFile = initFileInterface({
       defaultName: "footprints-rpcs.csv",
       getDefault: DefaultFilesImporter.footprintsRpcs,
       parser: parseFootprintsRpcs,
       setter: (data: RpcFootprintsByOrigin) => (this.RE as ResultsEngine).setFootprintsRpcs(data),
-    };
+    });
+
+    this.dietFile = initFileInterface({
+      defaultName: "diet.csv",
+      getDefault: DefaultFilesImporter.diet,
+      parser: parseDiet,
+      setter: (data: Diet) => {this.dietData = data},
+    });
   },
 });
 </script>
@@ -139,10 +157,15 @@ export default defineComponent({
         </select>
         <h3>Input Data</h3>
 
+        <h4>RPC Footprints</h4>
         <FileSelector @setFile="(p: SetFilePayload) => setFile(p, footprintsRpcsFile)"
           @reset="() => resetFile(footprintsRpcsFile!)" :fileName="footprintsRpcsFile?.name"
           :state="footprintsRpcsFile?.state || 'default'" />
 
+        <h4>Diet</h4>
+        <FileSelector @setFile="(p: SetFilePayload) => setFile(p, dietFile)"
+          @reset="() => resetFile(dietFile!)" :fileName="dietFile?.name"
+          :state="dietFile?.state || 'default'" />
         <h3>Parameter Files</h3>
         <!-- Processes Energy, PrepProcPack, Waste (Ret & cons.), rpc factors,
           Recipes-->
