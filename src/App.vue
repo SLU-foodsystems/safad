@@ -55,8 +55,7 @@ const initFileInterface = <T>(
   name: "",
   data: null,
   ...partialFileInterface
-})
-
+});
 
 export default defineComponent({
   components: { FileSelector },
@@ -69,14 +68,24 @@ export default defineComponent({
       countryCode: "SE",
       diet: [] as Diet,
 
-      emissionsFactorsPackagingFile: null as null | FileInterface<Record<string, number[]>>,
-      emissionsFactorsEnergyFile: null as null | FileInterface<Record<string, number[] | Record<string, number[]>>>,
-      emissionsFactorsTransportFile: null as null | FileInterface<NestedRecord<string, number[]>>,
+      emissionsFactorsPackagingFile:
+        null as null | FileInterface<Record<string, number[]>>,
+      emissionsFactorsEnergyFile: null as null | FileInterface<
+        Record<string, number[] | Record<string, number[]>>
+      >,
+      emissionsFactorsTransportFile:
+        null as null | FileInterface<NestedRecord<string, number[]>>,
+
+      foodsRecipesFile: null as null | FileInterface<string>,
+      foodsProcessesFile: null as null | FileInterface<string>,
 
       rpcOriginWasteFile: null as null | FileInterface<RpcOriginWaste>,
-      processesEnergyDemandsFile: null as null | FileInterface<Record<string, number[]>>,
-      preparationProcessesAndPackagingFile: null as null | FileInterface<Record<string, string>>,
-      wasteRetailAndConsumerFile: null as null | FileInterface<Record<string, number[]>>,
+      processesEnergyDemandsFile:
+        null as null | FileInterface<Record<string, number[]>>,
+      preparationProcessesAndPackagingFile:
+        null as null | FileInterface<Record<string, string>>,
+      wasteRetailAndConsumerFile:
+        null as null | FileInterface<Record<string, number[]>>,
 
       footprintsRpcsFile: null as null | FileInterface<RpcFootprintsByOrigin>,
       dietFile: null as null | FileInterface<Diet>,
@@ -98,7 +107,10 @@ export default defineComponent({
       fileInterface.data = null;
     },
 
-    async setFile<T>(payload: SetFilePayload, fileInterface: FileInterface<T> | null) {
+    async setFile<T>(
+      payload: SetFilePayload,
+      fileInterface: FileInterface<T> | null
+    ) {
       if (!fileInterface) return;
 
       fileInterface.setter(fileInterface.parser(payload.data));
@@ -108,7 +120,9 @@ export default defineComponent({
     },
 
     async downloadFile<T>(fileInterface: FileInterface<T>) {
-      console.log("TODO: Download", fileInterface.name || fileInterface.defaultName)
+      console.log(
+        "TODO: Download", fileInterface.name || fileInterface.defaultName
+      )
 
       /*if (fileInterface.state === "default") {
         downloadAsPlaintext(await fileInterface.getDefault(this.countryCode), fileInterface.defaultName);
@@ -119,7 +133,10 @@ export default defineComponent({
   },
 
   beforeMount() {
-    DefaultFilesImporter.configureResultsEngine(this.RE as ResultsEngine, this.countryCode);
+    DefaultFilesImporter.configureResultsEngine(
+      this.RE as ResultsEngine,
+      this.countryCode
+    );
 
     this.footprintsRpcsFile = initFileInterface({
       defaultName: "footprints-rpcs.csv",
