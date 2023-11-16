@@ -8,6 +8,7 @@ import getImpactsPerRpc from "@/lib/verification/rpc-impacts-with-import";
 import getImpactsPerDiet from "@/lib/verification/diet-impacts";
 import getRpcsInDiet from "@/lib/verification/diet-rpc-breakdowns";
 import computeSlvImpacts from "@/lib/verification/slv-impacts";
+import { parseFootprintsRpcs } from "./lib/input-files-parsers";
 
 type FileState = "initial" | "loading" | "loaded" | "error";
 
@@ -75,7 +76,7 @@ export default defineComponent({
       try {
         if (rawCsvText === null) throw new Error("reader result was null");
 
-        const structuredData = parseEnvFactorsCsv(rawCsvText as string);
+        const structuredData = parseFootprintsRpcs(rawCsvText as string);
         this.envFactors = structuredData || undefined;
         this.envFactorsFileName = fileName;
         this.fileState = "loaded";
