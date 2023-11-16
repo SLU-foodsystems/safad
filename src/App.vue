@@ -3,7 +3,7 @@ import { defineComponent } from "vue";
 import * as DefaultFilesImporter from "@/lib/default-files-importer";
 import ResultsEngine from "./lib/ResultsEngine";
 import FileSelector from "./components/FileSelector.vue";
-import { parseDiet, parseFootprintsRpcs } from "./lib/input-files-parsers";
+import { parseDiet, parseEmissionsFactorsEnergy, parseEmissionsFactorsPackaging, parseEmissionsFactorsTransport, parseFootprintsRpcs } from "./lib/input-files-parsers";
 
 const LL_COUNTRY_CODES: string[] = [
   "FR",
@@ -109,7 +109,6 @@ export default defineComponent({
     },
 
     async downloadFile<T>(fileInterface: FileInterface<T>) {
-
       console.log("TODO: Download", fileInterface.name || fileInterface.defaultName)
 
       /*if (fileInterface.state === "default") {
@@ -126,14 +125,33 @@ export default defineComponent({
       defaultName: "footprints-rpcs.csv",
       getDefault: DefaultFilesImporter.footprintsRpcs,
       parser: parseFootprintsRpcs,
-      setter: (data: RpcFootprintsByOrigin) => (this.RE as ResultsEngine).setFootprintsRpcs(data),
+      setter: this.RE.setFootprintsRpcs,
     });
 
     this.dietFile = initFileInterface({
       defaultName: "diet.csv",
       getDefault: DefaultFilesImporter.diet,
       parser: parseDiet,
-      setter: (data: Diet) => {this.dietData = data},
+      setter: (data: Diet) => { this.dietData = data },
+    });
+
+    this.emissionsFactorsPackagingFile = initFileInterface({
+      defaultName: "emissions-factors-packaging.csv",
+      getDefault: DefaultFilesImporter.emissionsFactorsPackaging,
+      parser: parseEmissionsFactorsPackaging,
+      setter: this.RE.setEmissionsFactorsPackaging,
+    });
+    this.emissionsFactorsEnergyFile = initFileInterface({
+      defaultName: "emissions-factors-energy.csv",
+      getDefault: DefaultFilesImporter.emissionsFactorsEnergy,
+      parser: parseEmissionsFactorsEnergy,
+      setter: this.RE.setEmissionsFactorsEnergy,
+    });
+    this.emissionsFactorsTransportFile = initFileInterface({
+      defaultName: "emissions-factors-transport.csv",
+      getDefault: DefaultFilesImporter.emissionsFactorsTransport,
+      parser: parseEmissionsFactorsTransport,
+      setter: this.RE.setEmissionsFactorsTransport,
     });
   },
 });
@@ -159,13 +177,37 @@ export default defineComponent({
           :state="footprintsRpcsFile?.state || 'default'" />
 
         <h4>Diet</h4>
-        <FileSelector @setFile="(p: SetFilePayload) => setFile(p, dietFile)"
-          @reset="() => resetFile(dietFile!)" :fileName="dietFile?.name"
-          :state="dietFile?.state || 'default'" />
+        <FileSelector
+          @setFile="(p: SetFilePayload) => setFile(p, dietFile)"
+          @reset="() => resetFile(dietFile!)"
+          :fileName="dietFile?.name"
+          :state="dietFile?.state || 'default'"
+        />
         <h3>Parameter Files</h3>
         <!-- Processes Energy, PrepProcPack, Waste (Ret & cons.), rpc factors,
           Recipes-->
         <h3>Emissions Factors</h3>
+        <h4>Emissions Factors: Packaging</h4>
+        <FileSelector
+          @setFile="(p: SetFilePayload) => setFile(p, emissionsFactorsPackagingFile)"
+          @reset="() => resetFile(emissionsFactorsPackagingFile!)"
+          :fileName="emissionsFactorsPackagingFile?.name"
+          :state="emissionsFactorsPackagingFile?.state || 'default'"
+        />
+        <h4>Emissions Factors: Energy</h4>
+        <FileSelector
+          @setFile="(p: SetFilePayload) => setFile(p, emissionsFactorsEnergyFile)"
+          @reset="() => resetFile(emissionsFactorsEnergyFile!)"
+          :fileName="emissionsFactorsEnergyFile?.name"
+          :state="emissionsFactorsEnergyFile?.state || 'default'"
+        />
+        <h4>Emissions Factors: Transport</h4>
+        <FileSelector
+          @setFile="(p: SetFilePayload) => setFile(p, emissionsFactorsTransportFile)"
+          @reset="() => resetFile(emissionsFactorsTransportFile!)"
+          :fileName="emissionsFactorsTransportFile?.name"
+          :state="emissionsFactorsTransportFile?.state || 'default'"
+        />
         <div class="cluster cluster--center">
           <button class="button button--accent" @click="compute">Compute</button>
         </div>
