@@ -119,8 +119,8 @@ class ResultsEngine {
 
   // Set the rpc-factors, i.e. the origin of each rpc, its share, and its
   // production waste.
-  public setRpcFactors(rpcFactors: RpcFactors) {
-    this.rpcParameters = rpcFactors;
+  public setRpcFactors(rpcParameters: RpcFactors) {
+    this.rpcParameters = rpcParameters;
     this.recomputeEnvFootprints();
   }
 
