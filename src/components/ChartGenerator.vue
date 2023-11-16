@@ -23,7 +23,7 @@ const SCALEUP_FACTOR = 1.2;
 
 export default defineComponent({
   props: {
-    envFactors: Object as PropType<EnvFactors>,
+    rpcFootprints: Object as PropType<RpcFootprintsByOrigin>,
   },
 
   data() {
@@ -41,7 +41,7 @@ export default defineComponent({
   methods: {
     async run() {
       const countriesAndDiets = await computeFootprintsForDiets(
-        this.envFactors
+        this.rpcFootprints
       );
       const limits = PLANETARY_BOUNDARY_LIMITS as Record<string, number>;
       const names: Record<string, string> = {

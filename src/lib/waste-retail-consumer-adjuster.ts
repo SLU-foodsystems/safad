@@ -1,9 +1,9 @@
 import { getRpcCodeSubset } from "@/lib/utils";
 
 export default function adjustDietForWaste(
-  diet: [string, number][],
+  diet: Diet,
   waste: Record<string, number[]>
-): [string, number][] {
+): Diet {
   return diet.map(([code, amount]) => {
     // Get the level 2 code, and make sure it's on A and not I
     const l2Code = getRpcCodeSubset(code, 2).replace("I", "A");

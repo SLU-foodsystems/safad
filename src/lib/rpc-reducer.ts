@@ -1,12 +1,11 @@
 /**
- * Reduces a diet to a list of RPCs. The diet is a list of RPC derivatives, each
- * with an amount, and waste.
+ * Reduces a diet to a list of RPCs. The diet is a list of RPC derivatives,
+ * each with a code and an amount (in grams).
  */
 
 import { getRpcCodeSubset } from "@/lib/utils";
 
 type NestedMap<K extends string | number, V> = Record<K, Record<K, V>>;
-type RPC = [string, number]; // Code, Amount
 
 // TODO: Ideally we would take these two as parameters instead.
 const TRANSPORTLESS_PROCESSES = [
@@ -47,14 +46,13 @@ const isTransportlessProcess = (processes: string[]): boolean => {
   return processes.some((p) => TRANSPORTLESS_PROCESSES.includes(p));
 };
 
-
 /**
  * Aggergate a list of rpcs and their amounts by grouping/summing any duplicate
  * entries.
  */
-function aggregateDuplicateRpcs(rpcs: [string, number][]) {
+function aggregateDuplicateRpcs(rpcs: Diet) {
   const foundRpcs = new Set();
-  const mergedRpcs: [string, number][] = [];
+  const mergedRpcs: Diet = [];
   rpcs.forEach(([code, amount]) => {
     if (foundRpcs.has(code)) {
       const idx = mergedRpcs.findIndex((pair) => pair[0] === code);
@@ -76,25 +74,25 @@ function aggregateDuplicateRpcs(rpcs: [string, number][]) {
  * It will also record any preparation processes and packaging.
  */
 function reduceToRpcs(
-  [componentCode, amount]: RPC,
+  [componentCode, amount]: FoodEntry,
   recordProcessOrPackagingContribution: (
     code: string,
     facet: string,
-    amount: number
+    amount: number,
   ) => void,
   recipes: FoodsRecipes,
   preparationProcesses: Record<string, string>,
   recordedSpecials: Set<string>,
   recordTransportlessAmount: (rcpCode: string, amount: number) => void,
-  transportlessYieldAdjustment: number = 1
-): RPC[] {
+  transportlessYieldAdjustment: number = 1,
+): Diet {
   const subcomponents = recipes[componentCode];
   if (!subcomponents) {
     if (transportlessYieldAdjustment !== 1) {
       // Not sure about this??
       recordTransportlessAmount(
         componentCode,
-        amount * (1 - 1 / transportlessYieldAdjustment)
+        amount * (1 - 1 / transportlessYieldAdjustment),
       );
     }
     return [[componentCode, amount]];
@@ -122,7 +120,7 @@ function reduceToRpcs(
   recordPPContributionHelper(2);
 
   return subcomponents
-    .map(([subcomponentCode, processes, ratio, yieldFactor]): RPC[] => {
+    .map(([subcomponentCode, processes, ratio, yieldFactor]): Diet => {
       // HERE: check if process is one of the 'inverse-transport' processes.
       // If it is, we save the yieldFactor and pass it on to future recursions.
       const netAmount = yieldFactor * ratio * amount;
@@ -135,8 +133,8 @@ function reduceToRpcs(
         recordProcessOrPackagingContribution(
           componentCode,
           processId,
-          processAmount
-        )
+          processAmount,
+        ),
       );
 
       if (isTransportlessProcess(processes)) {
@@ -153,7 +151,7 @@ function reduceToRpcs(
         if (newTransportYield !== 1) {
           recordTransportlessAmount(
             subcomponentCode,
-            netAmount * (1 - 1 / newTransportYield)
+            netAmount * (1 - 1 / newTransportYield),
           );
         }
         return [[subcomponentCode, netAmount]];
@@ -167,7 +165,7 @@ function reduceToRpcs(
         preparationProcesses,
         newRecordedSpecials,
         recordTransportlessAmount,
-        newTransportYield
+        newTransportYield,
       );
     })
     .flat(1);
@@ -178,14 +176,14 @@ function reduceToRpcs(
  * list of proccesses and packaging (with amounts).
  */
 export default function reduceDietToRpcs(
-  diet: [string, number][],
+  diet: Diet,
   recipes: FoodsRecipes,
-  preparationAndPackagingList: Record<string, string>
+  preparationAndPackagingList: Record<string, string>,
 ): [
-  [string, number][],
+  Diet,
   NestedMap<string, number>,
   NestedMap<string, number>,
-  Record<string, number>
+  Record<string, number>,
 ] {
   const processesMap: NestedMap<string, number> = {};
   const packagingMap: NestedMap<string, number> = {};
@@ -196,7 +194,7 @@ export default function reduceDietToRpcs(
   const recordProcessOrPackagingContribution = (
     code: string,
     facet: string,
-    amount: number
+    amount: number,
   ) => {
     const level1Category = getRpcCodeSubset(code, 1);
     // We use 'real' facets for processing, but made-up ones for packaging. The
@@ -221,8 +219,8 @@ export default function reduceDietToRpcs(
         recipes,
         preparationAndPackagingList,
         new Set(),
-        recordTransportless
-      )
+        recordTransportless,
+      ),
     )
     .flat(1);
 

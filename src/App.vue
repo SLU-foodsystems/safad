@@ -55,13 +55,12 @@ export default defineComponent({
       countryCode: "SE",
       diet: [],
 
-
       processEnvFactors: null as null | FileInterface<Record<string, number[]>>,
 
       emissionsFactorsPackaging: null as null | FileInterface<Record<string,
         number[]>>,
       emissionsFactorsEnergy: null as null | FileInterface<Record<string, number[] | Record<string, number[]>>>,
-        emissionsFactorsTransport: null as null | FileInterface<Record<string, Record<string, number[]>>>,
+      emissionsFactorsTransport: null as null | FileInterface<Record<string, Record<string, number[]>>>,
 
       processesEnergyDemands: null as null | FileInterface<Record<string,
         number[]>>,
@@ -70,7 +69,7 @@ export default defineComponent({
       wasteRetailAndConsumer: null as null | FileInterface<Record<string,
         number[]>>,
 
-      footprintsRpcsFile: null as null | FileInterface<EnvFactors>,
+      footprintsRpcsFile: null as null | FileInterface<RpcFootprintsByOrigin>,
     };
   },
 
@@ -120,7 +119,7 @@ export default defineComponent({
       defaultName: "footprints-rpcs.csv",
       getDefault: DefaultFilesImporter.footprintsRpcs,
       parser: parseFootprintsRpcs,
-      setter: (data: EnvFactors) => (this.RE as ResultsEngine).setFootprintsRpcs(data),
+      setter: (data: RpcFootprintsByOrigin) => (this.RE as ResultsEngine).setFootprintsRpcs(data),
     };
   },
 });
@@ -142,7 +141,7 @@ export default defineComponent({
 
         <FileSelector @setFile="(p: SetFilePayload) => setFile(p, footprintsRpcsFile)"
           @reset="() => resetFile(footprintsRpcsFile!)" :fileName="footprintsRpcsFile?.name"
-          :state="footprintsRpcsFile?.state" />
+          :state="footprintsRpcsFile?.state || 'default'" />
 
         <h3>Parameter Files</h3>
         <!-- Processes Energy, PrepProcPack, Waste (Ret & cons.), rpc factors,

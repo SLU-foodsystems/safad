@@ -18,9 +18,9 @@ import { ENV_IMPACTS_ZERO } from "./constants";
 // included in the diet, rather than for all of them. This would be more
 // efficient, but I doubt this is the bottleneck. We can see later.
 export default function flattenEnvironmentalFactors(
-  envImpactSheet: EnvFactors,
+  envImpactSheet: RpcFootprintsByOrigin,
   rpcFactors: RpcFactors
-): EnvImpacts {
+): RpcFootprints {
   // Idea: Increase impact to account for waste.
   //    - Downside: we won't be able to say "environmental impact from waste"
   //    - (unless we outpt with and without waste for every item?)
