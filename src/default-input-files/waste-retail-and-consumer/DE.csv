@@ -1,164 +1,164 @@
-"Food code (level 2)","Food name (level 2)","Country ","Country code","Retail waste","Consumer waste"
-"A.01","Grains and grain-based products","Germany","DE",0.02,0.25
-"A.01.01","Grains as crops","Germany","DE",0.02,0.25
-"A.01.02","Grains for human consumption","Germany","DE",0.02,0.25
-"A.01.03","Grain milling products","Germany","DE",0.02,0.25
-"A.01.04","Bread and rolls","Germany","DE",0.02,0.25
-"A.01.05","Pasta (Raw)","Germany","DE",0.02,0.25
-"A.01.06","Breakfast cereals","Germany","DE",0.02,0.25
-"A.01.07","Fine bakery wares","Germany","DE",0.02,0.25
-"A.02","Vegetables and vegetable products (including fungi)","Germany","DE",0.1,0.19
-"A.02.01","Root vegetables","Germany","DE",0.1,0.19
-"A.02.02","Bulb vegetables","Germany","DE",0.1,0.19
-"A.02.03","Fruiting vegetables","Germany","DE",0.1,0.19
-"A.02.04","Brassica vegetables","Germany","DE",0.1,0.19
-"A.02.05","Leaf vegetables","Germany","DE",0.1,0.19
-"A.02.06","Legume vegetables","Germany","DE",0.1,0.19
-"A.02.07","Stem vegetables (Fresh)","Germany","DE",0.1,0.19
-"A.02.08","Sugar plants","Germany","DE",0.1,0.19
-"A.02.09","Sea weeds","Germany","DE",0.09,0.11
-"A.02.10","Tea and herbs for infusions (Solid)","Germany","DE",0.01,0.04
-"A.02.11","Cocoa beans and cocoa products","Germany","DE",0.01,0.04
-"A.02.12","Coffee beans and coffee products (Solid)","Germany","DE",0.01,0.04
-"A.02.13","Coffee imitates (Solid)","Germany","DE",0.01,0.04
-"A.02.14","Vegetable products","Germany","DE",0.1,0.19
-"A.02.15","Fungi, cultivated","Germany","DE",0.1,0.19
-"A.02.16","Fungi, wild, edible","Germany","DE",0.1,0.19
-"A.03","Starchy roots and tubers","Germany","DE",0.07,0.17
-"A.03.01","Potatoes and potatoes products","Germany","DE",0.07,0.17
-"A.03.02","Other starchy roots and tubers","Germany","DE",0.07,0.17
-"A.04","Legumes, nuts and oilseeds","Germany","DE",0.01,0.04
-"A.04.01","Legumes, beans, green, without pods","Germany","DE",0.01,0.04
-"A.04.02","Legumes, beans, dried","Germany","DE",0.01,0.04
-"A.04.03","Tree nuts","Germany","DE",0.01,0.04
-"A.04.04","Oilseeds","Germany","DE",0.01,0.04
-"A.04.05","Other seeds","Germany","DE",0.01,0.04
-"A.05","Fruit and fruit products","Germany","DE",0.1,0.19
-"A.05.01","Citrus fruits","Germany","DE",0.1,0.19
-"A.05.02","Pome fruits","Germany","DE",0.1,0.19
-"A.05.03","Stone fruits","Germany","DE",0.1,0.19
-"A.05.04","Berries and small fruits","Germany","DE",0.1,0.19
-"A.05.05","Oilfruits","Germany","DE",0.1,0.19
-"A.05.06","Miscellaneous fruits","Germany","DE",0.1,0.19
-"A.05.07","Dried fruits","Germany","DE",0.1,0.19
-"A.05.08","Jam, marmalade and other fruit spreads","Germany","DE",0.1,0.19
-"A.05.09","Other fruit products (excluding beverages)","Germany","DE",0.1,0.19
-"A.06","Meat and meat products (including edible offal)","Germany","DE",0.04,0.11
-"A.06.01","Livestock meat","Germany","DE",0.04,0.11
-"A.06.02","Poultry","Germany","DE",0.04,0.11
-"A.06.03","Game mammals","Germany","DE",0.04,0.11
-"A.06.04","Game birds","Germany","DE",0.04,0.11
-"A.06.05","Mixed meat","Germany","DE",0.04,0.11
-"A.06.06","Edible offal, farmed animals","Germany","DE",0.04,0.11
-"A.06.07","Edible offal, game animals","Germany","DE",0.04,0.11
-"A.06.08","Preserved meat","Germany","DE",0.04,0.11
-"A.06.09","Sausages","Germany","DE",0.04,0.11
-"A.06.10","Meat specialities","Germany","DE",0.04,0.11
-"A.06.11","Pastes, pâtés and terrines","Germany","DE",0.04,0.11
-"A.06.12","Meat imitates","Germany","DE",0.04,0.11
-"A.07","Fish and other seafood (including amphibians, reptiles, snails and insects)","Germany","DE",0.09,0.11
-"A.07.01","Fish meat","Germany","DE",0.09,0.11
-"A.07.02","Fish products","Germany","DE",0.09,0.11
-"A.07.03","Fish offal","Germany","DE",0.09,0.11
-"A.07.04","Crustaceans","Germany","DE",0.09,0.11
-"A.07.05","Water molluscs","Germany","DE",0.09,0.11
-"A.07.06","Amphibians, reptiles, snails, insects","Germany","DE",0.09,0.11
-"A.08","Milk and dairy products","Germany","DE",0.005,0.07
-"A.08.01","Liquid milk","Germany","DE",0.005,0.07
-"A.08.02","Milk based beverages","Germany","DE",0.005,0.07
-"A.08.03","Concentrated milk","Germany","DE",0.005,0.07
-"A.08.04","Whey and whey products (excluding whey cheese)","Germany","DE",0.005,0.07
-"A.08.05","Cream and cream products","Germany","DE",0.005,0.07
-"A.08.06","Fermented milk products","Germany","DE",0.005,0.07
-"A.08.07","Milk derivatives","Germany","DE",0.005,0.07
-"A.08.08","Cheese","Germany","DE",0.005,0.07
-"A.08.09","Milk and milk product imitates","Germany","DE",0.005,0.07
-"A.09","Eggs and egg products","Germany","DE",0.005,0.07
-"A.09.01","Eggs, fresh","Germany","DE",0.005,0.07
-"A.09.02","Eggs, powder","Germany","DE",0.005,0.07
-"A.10","Sugar and confectionary","Germany","DE",0.01,0.04
-"A.10.01","Sugars","Germany","DE",0.01,0.04
-"A.10.02","Sugar substitutes","Germany","DE",0.01,0.04
-"A.10.03","Chocolate (Cocoa) products","Germany","DE",0.01,0.04
-"A.10.04","Confectionery (non-chocolate)","Germany","DE",0.01,0.04
-"A.10.05","Dessert sauces","Germany","DE",0.01,0.04
-"A.10.06","Molasses and other syrups","Germany","DE",0.01,0.04
-"A.10.07","Honey","Germany","DE",0.01,0.04
-"A.11","Animal and vegetable fats and oils","Germany","DE",0.01,0.04
-"A.11.01","Animal fat","Germany","DE",0.04,0.11
-"A.11.02","Fish oil","Germany","DE",0.09,0.11
-"A.11.03","Vegetable fat","Germany","DE",0.01,0.04
-"A.11.04","Vegetable oil","Germany","DE",0.01,0.04
-"A.11.05","Fats of mixed origin","Germany","DE",0.01,0.04
-"A.11.06","Margarine and similar products","Germany","DE",0.01,0.04
-"A.12","Fruit and vegetable juices","Germany","DE",0.1,0.19
-"A.12.01","Fruit juice","Germany","DE",0.1,0.19
-"A.12.02","Concentrated fruit juice","Germany","DE",0.1,0.19
-"A.12.03","Fruit nectar","Germany","DE",0.1,0.19
-"A.12.04","Mixed fruit juice","Germany","DE",0.1,0.19
-"A.12.05","Dehydrated/powdered fruit juice","Germany","DE",0.1,0.19
-"A.12.06","Vegetable juice","Germany","DE",0.1,0.19
-"A.12.07","Mixed vegetable juice","Germany","DE",0.1,0.19
-"A.12.08","Mixed fruit and vegetable juice","Germany","DE",0.1,0.19
-"A.13","Non-alcoholic beverages (excepting milk based beverages)","Germany","DE",0.01,0.04
-"A.13.01","Soft drinks","Germany","DE",0.01,0.04
-"A.13.02","Tea (Infusion)","Germany","DE",0.01,0.04
-"A.13.03","Coffee (Beverage)","Germany","DE",0.01,0.04
-"A.13.04","Coffee imitates beverage","Germany","DE",0.01,0.04
-"A.13.05","Cocoa beverage","Germany","DE",0.01,0.04
-"A.14","Alcoholic beverages","Germany","DE",0.01,0.04
-"A.14.01","Beer and beer-like beverage","Germany","DE",0.01,0.04
-"A.14.02","Wine","Germany","DE",0.01,0.04
-"A.14.03","Fortified and liqueur wines (e.g. Vermouth, Sherry, Madeira)","Germany","DE",0.01,0.04
-"A.14.04","Wine-like drinks (e.g. Cider, Perry)","Germany","DE",0.01,0.04
-"A.14.05","Liqueur","Germany","DE",0.01,0.04
-"A.14.06","Spirits","Germany","DE",0.01,0.04
-"A.14.07","Alcoholic mixed drinks","Germany","DE",0.01,0.04
-"A.15","Drinking water (water without any additives except carbon dioxide; includes water ice for consumption)","Germany","DE",0,0
-"A.15.01","Tap water","Germany","DE",0,0
-"A.15.02","Well water","Germany","DE",0,0
-"A.15.03","Bottled water","Germany","DE",0,0
-"A.15.04","Water ice (for consumption)","Germany","DE",0,0
-"A.16","Herbs, spices and condiments","Germany","DE",0.01,0.04
-"A.16.01","Herbs","Germany","DE",0.01,0.04
-"A.16.02","Spices","Germany","DE",0.01,0.04
-"A.16.03","Herb and spice mixtures","Germany","DE",0.01,0.04
-"A.16.04","Seasoning or extracts","Germany","DE",0.01,0.04
-"A.16.05","Condiment","Germany","DE",0.01,0.04
-"A.16.06","Dressing","Germany","DE",0.01,0.04
-"A.16.07","Chutney and pickles","Germany","DE",0.01,0.04
-"A.16.08","Savoury sauces","Germany","DE",0.01,0.04
-"A.16.09","Flavourings or essences","Germany","DE",0.01,0.04
-"A.16.10","Baking ingredients","Germany","DE",0.01,0.04
-"A.17","Food for infants and small children","Germany","DE",0.04,0.11
-"A.17.01","Infant formulae, powder","Germany","DE",0.04,0.11
-"A.17.02","Infant formulae, liquid","Germany","DE",0.04,0.11
-"A.17.03","Follow-on formulae, powder","Germany","DE",0.04,0.11
-"A.17.04","Follow-on formulae, liquid","Germany","DE",0.04,0.11
-"A.17.05","Cereal-based food for infants and young children","Germany","DE",0.04,0.11
-"A.17.06","Ready-to-eat meal for infants and young children","Germany","DE",0.04,0.11
-"A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","Germany","DE",0.005,0.07
-"A.17.08","Fruit juice and herbal tea for infants and young children","Germany","DE",0.01,0.04
-"A.18","Products for special nutritional use","Germany","DE",0.04,0.11
-"A.18.01","Food for weight reduction","Germany","DE",0.04,0.11
-"A.18.02","Dietary supplements","Germany","DE",0.04,0.11
-"A.18.03","Food for sports people (labelled as such)","Germany","DE",0.04,0.11
-"A.18.04","Dietetic food for diabetics (labelled as such)","Germany","DE",0.04,0.11
-"A.18.05","Medical food (are specially formulated and intended for the dietary management of a disease that has distinctive nutritional needs that cannot be met by normal diet alone; intended to be used under medical supervision)","Germany","DE",0.04,0.11
-"A.19","Composite food (including frozen products)","Germany","DE",0.04,0.11
-"A.19.01","Cereal-based dishes","Germany","DE",0.04,0.11
-"A.19.02","Rice-based meals","Germany","DE",0.04,0.11
-"A.19.03","Potato based dishes","Germany","DE",0.04,0.11
-"A.19.04","Beans-based meals","Germany","DE",0.04,0.11
-"A.19.05","Meat-based meals","Germany","DE",0.04,0.11
-"A.19.06","Fish and seafood based meals","Germany","DE",0.04,0.11
-"A.19.07","Vegetable-based meals","Germany","DE",0.04,0.11
-"A.19.08","Egg-based meal (e.g., omelette)","Germany","DE",0.04,0.11
-"A.19.09","Mushroom-based meals","Germany","DE",0.04,0.11
-"A.19.10","Ready to eat soups","Germany","DE",0.04,0.11
-"A.19.11","Prepared salads","Germany","DE",0.04,0.11
-"A.20","Snacks, desserts, and other foods","Germany","DE",0.04,0.11
-"A.20.01","Snack food","Germany","DE",0.04,0.11
-"A.20.02","Ices and desserts","Germany","DE",0.04,0.11
-"A.20.03","Other foods (foods which cannot be included in any other group)","Germany","DE",0.04,0.11
-"A.13.06","Energy drink","Germany","DE",0.01,0.04
+"Food code (level 2)","Food name (level 2)","Retail waste","Consumer waste"
+"A.01","Grains and grain-based products",0.02,0.25
+"A.01.01","Grains as crops",0.02,0.25
+"A.01.02","Grains for human consumption",0.02,0.25
+"A.01.03","Grain milling products",0.02,0.25
+"A.01.04","Bread and rolls",0.02,0.25
+"A.01.05","Pasta (Raw)",0.02,0.25
+"A.01.06","Breakfast cereals",0.02,0.25
+"A.01.07","Fine bakery wares",0.02,0.25
+"A.02","Vegetables and vegetable products (including fungi)",0.1,0.19
+"A.02.01","Root vegetables",0.1,0.19
+"A.02.02","Bulb vegetables",0.1,0.19
+"A.02.03","Fruiting vegetables",0.1,0.19
+"A.02.04","Brassica vegetables",0.1,0.19
+"A.02.05","Leaf vegetables",0.1,0.19
+"A.02.06","Legume vegetables",0.1,0.19
+"A.02.07","Stem vegetables (Fresh)",0.1,0.19
+"A.02.08","Sugar plants",0.1,0.19
+"A.02.09","Sea weeds",0.09,0.11
+"A.02.10","Tea and herbs for infusions (Solid)",0.01,0.04
+"A.02.11","Cocoa beans and cocoa products",0.01,0.04
+"A.02.12","Coffee beans and coffee products (Solid)",0.01,0.04
+"A.02.13","Coffee imitates (Solid)",0.01,0.04
+"A.02.14","Vegetable products",0.1,0.19
+"A.02.15","Fungi, cultivated",0.1,0.19
+"A.02.16","Fungi, wild, edible",0.1,0.19
+"A.03","Starchy roots and tubers",0.07,0.17
+"A.03.01","Potatoes and potatoes products",0.07,0.17
+"A.03.02","Other starchy roots and tubers",0.07,0.17
+"A.04","Legumes, nuts and oilseeds",0.01,0.04
+"A.04.01","Legumes, beans, green, without pods",0.01,0.04
+"A.04.02","Legumes, beans, dried",0.01,0.04
+"A.04.03","Tree nuts",0.01,0.04
+"A.04.04","Oilseeds",0.01,0.04
+"A.04.05","Other seeds",0.01,0.04
+"A.05","Fruit and fruit products",0.1,0.19
+"A.05.01","Citrus fruits",0.1,0.19
+"A.05.02","Pome fruits",0.1,0.19
+"A.05.03","Stone fruits",0.1,0.19
+"A.05.04","Berries and small fruits",0.1,0.19
+"A.05.05","Oilfruits",0.1,0.19
+"A.05.06","Miscellaneous fruits",0.1,0.19
+"A.05.07","Dried fruits",0.1,0.19
+"A.05.08","Jam, marmalade and other fruit spreads",0.1,0.19
+"A.05.09","Other fruit products (excluding beverages)",0.1,0.19
+"A.06","Meat and meat products (including edible offal)",0.04,0.11
+"A.06.01","Livestock meat",0.04,0.11
+"A.06.02","Poultry",0.04,0.11
+"A.06.03","Game mammals",0.04,0.11
+"A.06.04","Game birds",0.04,0.11
+"A.06.05","Mixed meat",0.04,0.11
+"A.06.06","Edible offal, farmed animals",0.04,0.11
+"A.06.07","Edible offal, game animals",0.04,0.11
+"A.06.08","Preserved meat",0.04,0.11
+"A.06.09","Sausages",0.04,0.11
+"A.06.10","Meat specialities",0.04,0.11
+"A.06.11","Pastes, pâtés and terrines",0.04,0.11
+"A.06.12","Meat imitates",0.04,0.11
+"A.07","Fish and other seafood (including amphibians, reptiles, snails and insects)",0.09,0.11
+"A.07.01","Fish meat",0.09,0.11
+"A.07.02","Fish products",0.09,0.11
+"A.07.03","Fish offal",0.09,0.11
+"A.07.04","Crustaceans",0.09,0.11
+"A.07.05","Water molluscs",0.09,0.11
+"A.07.06","Amphibians, reptiles, snails, insects",0.09,0.11
+"A.08","Milk and dairy products",0.005,0.07
+"A.08.01","Liquid milk",0.005,0.07
+"A.08.02","Milk based beverages",0.005,0.07
+"A.08.03","Concentrated milk",0.005,0.07
+"A.08.04","Whey and whey products (excluding whey cheese)",0.005,0.07
+"A.08.05","Cream and cream products",0.005,0.07
+"A.08.06","Fermented milk products",0.005,0.07
+"A.08.07","Milk derivatives",0.005,0.07
+"A.08.08","Cheese",0.005,0.07
+"A.08.09","Milk and milk product imitates",0.005,0.07
+"A.09","Eggs and egg products",0.005,0.07
+"A.09.01","Eggs, fresh",0.005,0.07
+"A.09.02","Eggs, powder",0.005,0.07
+"A.10","Sugar and confectionary",0.01,0.04
+"A.10.01","Sugars",0.01,0.04
+"A.10.02","Sugar substitutes",0.01,0.04
+"A.10.03","Chocolate (Cocoa) products",0.01,0.04
+"A.10.04","Confectionery (non-chocolate)",0.01,0.04
+"A.10.05","Dessert sauces",0.01,0.04
+"A.10.06","Molasses and other syrups",0.01,0.04
+"A.10.07","Honey",0.01,0.04
+"A.11","Animal and vegetable fats and oils",0.01,0.04
+"A.11.01","Animal fat",0.04,0.11
+"A.11.02","Fish oil",0.09,0.11
+"A.11.03","Vegetable fat",0.01,0.04
+"A.11.04","Vegetable oil",0.01,0.04
+"A.11.05","Fats of mixed origin",0.01,0.04
+"A.11.06","Margarine and similar products",0.01,0.04
+"A.12","Fruit and vegetable juices",0.1,0.19
+"A.12.01","Fruit juice",0.1,0.19
+"A.12.02","Concentrated fruit juice",0.1,0.19
+"A.12.03","Fruit nectar",0.1,0.19
+"A.12.04","Mixed fruit juice",0.1,0.19
+"A.12.05","Dehydrated/powdered fruit juice",0.1,0.19
+"A.12.06","Vegetable juice",0.1,0.19
+"A.12.07","Mixed vegetable juice",0.1,0.19
+"A.12.08","Mixed fruit and vegetable juice",0.1,0.19
+"A.13","Non-alcoholic beverages (excepting milk based beverages)",0.01,0.04
+"A.13.01","Soft drinks",0.01,0.04
+"A.13.02","Tea (Infusion)",0.01,0.04
+"A.13.03","Coffee (Beverage)",0.01,0.04
+"A.13.04","Coffee imitates beverage",0.01,0.04
+"A.13.05","Cocoa beverage",0.01,0.04
+"A.14","Alcoholic beverages",0.01,0.04
+"A.14.01","Beer and beer-like beverage",0.01,0.04
+"A.14.02","Wine",0.01,0.04
+"A.14.03","Fortified and liqueur wines (e.g. Vermouth, Sherry, Madeira)",0.01,0.04
+"A.14.04","Wine-like drinks (e.g. Cider, Perry)",0.01,0.04
+"A.14.05","Liqueur",0.01,0.04
+"A.14.06","Spirits",0.01,0.04
+"A.14.07","Alcoholic mixed drinks",0.01,0.04
+"A.15","Drinking water (water without any additives except carbon dioxide; includes water ice for consumption)",0,0
+"A.15.01","Tap water",0,0
+"A.15.02","Well water",0,0
+"A.15.03","Bottled water",0,0
+"A.15.04","Water ice (for consumption)",0,0
+"A.16","Herbs, spices and condiments",0.01,0.04
+"A.16.01","Herbs",0.01,0.04
+"A.16.02","Spices",0.01,0.04
+"A.16.03","Herb and spice mixtures",0.01,0.04
+"A.16.04","Seasoning or extracts",0.01,0.04
+"A.16.05","Condiment",0.01,0.04
+"A.16.06","Dressing",0.01,0.04
+"A.16.07","Chutney and pickles",0.01,0.04
+"A.16.08","Savoury sauces",0.01,0.04
+"A.16.09","Flavourings or essences",0.01,0.04
+"A.16.10","Baking ingredients",0.01,0.04
+"A.17","Food for infants and small children",0.04,0.11
+"A.17.01","Infant formulae, powder",0.04,0.11
+"A.17.02","Infant formulae, liquid",0.04,0.11
+"A.17.03","Follow-on formulae, powder",0.04,0.11
+"A.17.04","Follow-on formulae, liquid",0.04,0.11
+"A.17.05","Cereal-based food for infants and young children",0.04,0.11
+"A.17.06","Ready-to-eat meal for infants and young children",0.04,0.11
+"A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children",0.005,0.07
+"A.17.08","Fruit juice and herbal tea for infants and young children",0.01,0.04
+"A.18","Products for special nutritional use",0.04,0.11
+"A.18.01","Food for weight reduction",0.04,0.11
+"A.18.02","Dietary supplements",0.04,0.11
+"A.18.03","Food for sports people (labelled as such)",0.04,0.11
+"A.18.04","Dietetic food for diabetics (labelled as such)",0.04,0.11
+"A.18.05","Medical food (are specially formulated and intended for the dietary management of a disease that has distinctive nutritional needs that cannot be met by normal diet alone; intended to be used under medical supervision)",0.04,0.11
+"A.19","Composite food (including frozen products)",0.04,0.11
+"A.19.01","Cereal-based dishes",0.04,0.11
+"A.19.02","Rice-based meals",0.04,0.11
+"A.19.03","Potato based dishes",0.04,0.11
+"A.19.04","Beans-based meals",0.04,0.11
+"A.19.05","Meat-based meals",0.04,0.11
+"A.19.06","Fish and seafood based meals",0.04,0.11
+"A.19.07","Vegetable-based meals",0.04,0.11
+"A.19.08","Egg-based meal (e.g., omelette)",0.04,0.11
+"A.19.09","Mushroom-based meals",0.04,0.11
+"A.19.10","Ready to eat soups",0.04,0.11
+"A.19.11","Prepared salads",0.04,0.11
+"A.20","Snacks, desserts, and other foods",0.04,0.11
+"A.20.01","Snack food",0.04,0.11
+"A.20.02","Ices and desserts",0.04,0.11
+"A.20.03","Other foods (foods which cannot be included in any other group)",0.04,0.11
+"A.13.06","Energy drink",0.01,0.04

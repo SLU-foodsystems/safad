@@ -167,16 +167,10 @@ export function parseWasteRetailAndConsumer(csvString: string) {
   const data = parseCsvFile(csvString).slice(1);
 
   return Object.fromEntries(
-    data.map(
-      ([
-        code,
-        _name,
-        _countryName,
-        _countryCode,
-        retailWaste,
-        consumerWaste,
-      ]) => [code, [asNumber(retailWaste), asNumber(consumerWaste)]]
-    )
+    data.map(([code, _name, retailWaste, consumerWaste]) => [
+      code,
+      [asNumber(retailWaste), asNumber(consumerWaste)],
+    ])
   );
 }
 
