@@ -39,13 +39,29 @@ class ResultsEngine {
     string,
     number[] | Record<string, number[]>
   > = null;
-  emissionsFactorsTransport: null | NestedRecord<string, number[]> =
-    null;
+  emissionsFactorsTransport: null | NestedRecord<string, number[]> = null;
 
   processesEnergyDemands: null | Record<string, number[]> = null;
   preparationProcessesAndPackaging: null | Record<string, string> = null;
 
   wasteRetailAndConsumer: null | Record<string, number[]> = null;
+
+  constructor() {
+    // JavaScript needs this so that we can pass references directly to the
+    // methods of the class, while still retailinig the reference to `this`
+    this.setFootprintsRpcs = this.setFootprintsRpcs.bind(this);
+    this.setRpcOriginWaste = this.setRpcOriginWaste.bind(this);
+    this.setProcessesEnergyDemands = this.setProcessesEnergyDemands.bind(this);
+    this.setEmissionsFactorsEnergy = this.setEmissionsFactorsEnergy.bind(this);
+    this.setEmissionsFactorsPackaging =
+      this.setEmissionsFactorsPackaging.bind(this);
+    this.setEmissionsFactorsTransport =
+      this.setEmissionsFactorsTransport.bind(this);
+    this.setPrepProcessesAndPackaging =
+      this.setPrepProcessesAndPackaging.bind(this);
+    this.setWasteRetailAndConsumer = this.setWasteRetailAndConsumer.bind(this);
+    this.setFoodsRecipes = this.setFoodsRecipes.bind(this);
+  }
 
   private recomputeEnvFootprints() {
     if (!this.footprintsRpcsPerOrigin) {
