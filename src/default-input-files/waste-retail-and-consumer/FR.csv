@@ -114,11 +114,11 @@
 "A.14.05","Liqueur",0.04,0.05
 "A.14.06","Spirits",0.04,0.05
 "A.14.07","Alcoholic mixed drinks",0.04,0.05
-"A.15","Drinking water (water without any additives except carbon dioxide; includes water ice for consumption)",0.00,0.00
-"A.15.01","Tap water",0.00,0.00
-"A.15.02","Well water",0.00,0.00
-"A.15.03","Bottled water",0.00,0.00
-"A.15.04","Water ice (for consumption)",0.00,0.00
+"A.15","Drinking water (water without any additives except carbon dioxide; includes water ice for consumption)",0,0
+"A.15.01","Tap water",0,0
+"A.15.02","Well water",0,0
+"A.15.03","Bottled water",0,0
+"A.15.04","Water ice (for consumption)",0,0
 "A.16","Herbs, spices and condiments",0.04,0.08
 "A.16.01","Herbs",0.04,0.08
 "A.16.02","Spices",0.04,0.08

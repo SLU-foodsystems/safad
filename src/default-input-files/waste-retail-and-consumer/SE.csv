@@ -91,15 +91,15 @@
 "A.11.04","Vegetable oil",0.01,0.04
 "A.11.05","Fats of mixed origin",0.01,0.04
 "A.11.06","Margarine and similar products",0.01,0.04
-"A.12","Fruit and vegetable juices",0.10,0.19
-"A.12.01","Fruit juice",0.10,0.19
-"A.12.02","Concentrated fruit juice",0.10,0.19
-"A.12.03","Fruit nectar",0.10,0.19
-"A.12.04","Mixed fruit juice",0.10,0.19
-"A.12.05","Dehydrated/powdered fruit juice",0.10,0.19
-"A.12.06","Vegetable juice",0.10,0.19
-"A.12.07","Mixed vegetable juice",0.10,0.19
-"A.12.08","Mixed fruit and vegetable juice",0.10,0.19
+"A.12","Fruit and vegetable juices",0.1,0.19
+"A.12.01","Fruit juice",0.1,0.19
+"A.12.02","Concentrated fruit juice",0.1,0.19
+"A.12.03","Fruit nectar",0.1,0.19
+"A.12.04","Mixed fruit juice",0.1,0.19
+"A.12.05","Dehydrated/powdered fruit juice",0.1,0.19
+"A.12.06","Vegetable juice",0.1,0.19
+"A.12.07","Mixed vegetable juice",0.1,0.19
+"A.12.08","Mixed fruit and vegetable juice",0.1,0.19
 "A.13","Non-alcoholic beverages (excepting milk based beverages)",0.01,0.04
 "A.13.01","Soft drinks",0.01,0.04
 "A.13.02","Tea (Infusion)",0.01,0.04
@@ -114,11 +114,11 @@
 "A.14.05","Liqueur",0.01,0.04
 "A.14.06","Spirits",0.01,0.04
 "A.14.07","Alcoholic mixed drinks",0.01,0.04
-"A.15","Drinking water (water without any additives except carbon dioxide; includes water ice for consumption)",0.00,0.00
-"A.15.01","Tap water",0.00,0.00
-"A.15.02","Well water",0.00,0.00
-"A.15.03","Bottled water",0.00,0.00
-"A.15.04","Water ice (for consumption)",0.00,0.00
+"A.15","Drinking water (water without any additives except carbon dioxide; includes water ice for consumption)",0,0
+"A.15.01","Tap water",0,0
+"A.15.02","Well water",0,0
+"A.15.03","Bottled water",0,0
+"A.15.04","Water ice (for consumption)",0,0
 "A.16","Herbs, spices and condiments",0.01,0.04
 "A.16.01","Herbs",0.01,0.04
 "A.16.02","Spices",0.01,0.04
