@@ -315,6 +315,8 @@ export default defineComponent({
 
   select {
     width: 20em;
+    margin-left: auto;
+    margin-right: auto;
     flex-grow: 1;
   }
 }
