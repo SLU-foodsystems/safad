@@ -48,7 +48,14 @@ const getCategoryName = (code: string, level: number) => {
 export default async function computeFootprintsForEachRpcWithOrigin(
   envFactors?: EnvFactors,
 ): Promise<string[][]> {
-  const codesInRecipes = Object.keys(await DefaultFilesImporter.foodsRecipes());
+  const foodsRecipes = await DefaultFilesImporter.foodsRecipes();
+  const codesInRecipes = new Set(Object.keys(foodsRecipes));
+  Object.values(foodsRecipes).forEach((recipe: FoodsRecipe) => {
+    recipe.forEach((component) => {
+      const code = component[0];
+      codesInRecipes.add(code);
+    });
+  });
 
   const rpcFiles = {
     France: await DefaultFilesImporter.rpcOriginWaste("FR"),
@@ -125,7 +132,8 @@ export default async function computeFootprintsForEachRpcWithOrigin(
     const rpcParameters = rpcFiles[countryName];
     RE.setRpcFactors(rpcParameters);
 
-    const impactsPerDiet = codesInRecipes
+    const impactsPerDiet = [...codesInRecipes]
+      .sort()
       .map((code) => {
         const impacts = RE.computeImpacts([[code, 1000]]);
         if (impacts === null) {
