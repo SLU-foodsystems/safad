@@ -76,9 +76,7 @@ export default defineComponent({
       emissionsFactorsTransportFile:
         null as null | FileInterface<NestedRecord<string, number[]>>,
 
-      foodsRecipesFile: null as null | FileInterface<string>,
-      foodsProcessesFile: null as null | FileInterface<string>,
-
+      foodsRecipesFile: null as null | FileInterface<FoodsRecipes>,
       rpcOriginWasteFile: null as null | FileInterface<RpcOriginWaste>,
       processesEnergyDemandsFile:
         null as null | FileInterface<Record<string, number[]>>,
@@ -177,6 +175,13 @@ export default defineComponent({
       setter: this.RE.setWasteRetailAndConsumer,
     });
 
+    this.foodsRecipesFile = initFileInterface({
+      defaultName: "foods-recipes.csv",
+      getDefault: DefaultFilesImporter.foodsRecipes,
+      parser: InputFileParsers.parseFoodsRecipes,
+      setter: this.RE.setFoodsRecipes,
+    });
+
     this.emissionsFactorsPackagingFile = initFileInterface({
       defaultName: "emissions-factors-packaging.csv",
       getDefault: DefaultFilesImporter.emissionsFactorsPackaging,
@@ -230,7 +235,13 @@ export default defineComponent({
         />
         <h3>Parameter Files </h3>
 
-        <!-- Recipes-->
+        <h4>Foods Recipes</h4>
+        <FileSelector
+          @setFile="(p: SetFilePayload) => setFile(p, foodsRecipesFile!)"
+          @reset="() => resetFile(foodsRecipesFile!)"
+          :fileName="foodsRecipesFile?.name"
+          :state="foodsRecipesFile?.state || 'default'"
+        />
 
         <h4>Parameter File: RPC Parameters</h4>
         <FileSelector
