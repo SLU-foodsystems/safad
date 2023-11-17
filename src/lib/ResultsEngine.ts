@@ -64,12 +64,10 @@ class ResultsEngine {
 
     this.footprintsRpcsMerged = flattenEnvironmentalFactors(
       this.footprintsRpcsPerOrigin,
-      this.rpcParameters,
-      "conventional"
+      this.rpcParameters
     );
   }
 
-  // Replace the conventional environmental factors with a new set.
   public setFootprintsRpcs(footprintsRpcsPerOrigin: EnvFactors) {
     this.footprintsRpcsPerOrigin = footprintsRpcsPerOrigin;
     this.recomputeEnvFootprints();

@@ -207,8 +207,7 @@ export function parseRpcOriginWaste(csvString: string) {
 
       acc[suaCode][origin] = [
         asNumber(originShare),
-        asNumber(productionWaste),
-        asNumber(organic),
+        asNumber(productionWaste)
       ];
 
       // Pass the acc along.

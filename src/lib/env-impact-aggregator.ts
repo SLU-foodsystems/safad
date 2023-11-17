@@ -19,8 +19,7 @@ import { ENV_IMPACTS_ZERO } from "./constants";
 // efficient, but I doubt this is the bottleneck. We can see later.
 export default function flattenEnvironmentalFactors(
   envImpactSheet: EnvFactors,
-  rpcFactors: RpcFactors,
-  mode: "organic" | "conventional"
+  rpcFactors: RpcFactors
 ): EnvImpacts {
   // Idea: Increase impact to account for waste.
   //    - Downside: we won't be able to say "environmental impact from waste"
@@ -47,11 +46,10 @@ export default function flattenEnvironmentalFactors(
 
       const joinedEnvFactors = Object.keys(originFactors)
         .map((origin) => {
-          const [shareRatio, waste, organic] = originFactors[origin];
+          const [shareRatio, waste] = originFactors[origin];
           const wasteChangeFactor = 1 / (1 - waste);
-          const organicRatio = mode === "organic" ? organic : 1 - organic;
 
-          const ratio = shareRatio * organicRatio * wasteChangeFactor;
+          const ratio = shareRatio * wasteChangeFactor;
           if (!envImpacts[origin]) {
             origin = "RoW";
           }
