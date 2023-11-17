@@ -70,7 +70,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
 
   const processesAndPackagingCsvData = await preparationProcessesAndPackaging();
 
-  const recipes = await foodsRecipes()
+  const recipes = await foodsRecipes();
 
   const RE = new ResultsEngine();
   RE.setFoodsRecipes(recipes);

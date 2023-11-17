@@ -14,17 +14,7 @@ import namesJson from "@/data/rpc-names.json";
 
 import ResultsEngine from "@/lib/ResultsEngine";
 import { LL_COUNTRY_CODES } from "../constants";
-import {
-  emissionsFactorsEnergy,
-  emissionsFactorsPackaging,
-  emissionsFactorsTransport,
-  foodsRecipes,
-  footprintsRpcs,
-  preparationProcessesAndPackaging,
-  processesEnergyDemands,
-  rpcOriginWaste,
-  wasteRetailAndConsumer,
-} from "../default-files-importer";
+import * as DefaultFilesImporter from "../default-files-importer";
 
 type LlCountryName =
   | "France"
@@ -55,22 +45,21 @@ const getCategoryName = (code: string, level: number) => {
   return categoryNames[levelCode] || `NOT FOUND (${levelCode})`;
 };
 
-
 export default async function computeFootprintsForEachRpcWithOrigin(
-  envFactors?: EnvFactors
+  envFactors?: EnvFactors,
 ): Promise<string[][]> {
-  const codesInRecipes = Object.keys(await foodsRecipes());
+  const codesInRecipes = Object.keys(await DefaultFilesImporter.foodsRecipes());
 
   const rpcFiles = {
-    France: await rpcOriginWaste("FR"),
-    Germany: await rpcOriginWaste("DE"),
-    Greece: await rpcOriginWaste("GR"),
-    Hungary: await rpcOriginWaste("HU"),
-    Ireland: await rpcOriginWaste("IE"),
-    Italy: await rpcOriginWaste("IT"),
-    Spain: await rpcOriginWaste("ES"),
-    Sweden: await rpcOriginWaste("SE"),
-    SwedenBaseline: await rpcOriginWaste("SE"),
+    France: await DefaultFilesImporter.rpcOriginWaste("FR"),
+    Germany: await DefaultFilesImporter.rpcOriginWaste("DE"),
+    Greece: await DefaultFilesImporter.rpcOriginWaste("GR"),
+    Hungary: await DefaultFilesImporter.rpcOriginWaste("HU"),
+    Ireland: await DefaultFilesImporter.rpcOriginWaste("IE"),
+    Italy: await DefaultFilesImporter.rpcOriginWaste("IT"),
+    Spain: await DefaultFilesImporter.rpcOriginWaste("ES"),
+    Sweden: await DefaultFilesImporter.rpcOriginWaste("SE"),
+    SwedenBaseline: await DefaultFilesImporter.rpcOriginWaste("SE"),
   } as Record<LlCountryName, RpcFactors>;
 
   const header = [
@@ -88,27 +77,40 @@ export default async function computeFootprintsForEachRpcWithOrigin(
 
   const RE = new ResultsEngine();
 
-  RE.setFoodsRecipes(await foodsRecipes());
-  RE.setFootprintsRpcs(envFactors || (await footprintsRpcs()));
-  RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
-  RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
-  RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
-  RE.setProcessesEnergyDemands(await processesEnergyDemands());
-  RE.setPrepProcessesAndPackaging(await preparationProcessesAndPackaging());
+  RE.setFoodsRecipes(await DefaultFilesImporter.foodsRecipes());
+  RE.setFootprintsRpcs(
+    envFactors || (await DefaultFilesImporter.footprintsRpcs()),
+  );
+  RE.setEmissionsFactorsPackaging(
+    await DefaultFilesImporter.emissionsFactorsPackaging(),
+  );
+  RE.setEmissionsFactorsEnergy(
+    await DefaultFilesImporter.emissionsFactorsEnergy(),
+  );
+  RE.setEmissionsFactorsTransport(
+    await DefaultFilesImporter.emissionsFactorsTransport(),
+  );
+  RE.setProcessesEnergyDemands(
+    await DefaultFilesImporter.processesEnergyDemands(),
+  );
+  RE.setPrepProcessesAndPackaging(
+    await DefaultFilesImporter.preparationProcessesAndPackaging(),
+  );
 
   const syncWasteFiles = Object.fromEntries(
     await Promise.all(
       LL_COUNTRIES.map(
         async (
-          country: LlCountryName
+          country: LlCountryName,
         ): Promise<[string, Record<string, number[]>]> => {
           const wasteCountryCode =
             country === "SwedenBaseline" ? "SE" : LL_COUNTRY_CODES[country];
-          const wasteFactors = await wasteRetailAndConsumer(wasteCountryCode);
+          const wasteFactors =
+            await DefaultFilesImporter.wasteRetailAndConsumer(wasteCountryCode);
           return [country, wasteFactors];
-        }
-      )
-    )
+        },
+      ),
+    ),
   );
 
   const results = LL_COUNTRIES.map((countryName) => {
@@ -148,7 +150,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
             rpcImpacts,
             processImpacts,
             packagingImpacts,
-            transportEmissions
+            transportEmissions,
           ),
           processes,
           packeting,
