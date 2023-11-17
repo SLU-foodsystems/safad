@@ -90,12 +90,17 @@ export default defineComponent({
     };
   },
 
+  watch: {
+    countryCode() {
+      this.RE.setCountryCode(this.countryCode);
+    },
+  },
+
   methods: {
     async compute() {
       const impacts = this.RE.computeImpacts(this.diet);
       console.log(impacts);
     },
-
     async resetFile<T>(fileInterface: FileInterface<T>) {
       if (!fileInterface) return;
 
@@ -127,7 +132,7 @@ export default defineComponent({
       } else {
         downloadAsPlaintext(fileInterface.data, fileInterface.name);
       }*/
-    }
+    },
   },
 
   beforeMount() {
