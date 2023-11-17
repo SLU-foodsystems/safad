@@ -46,7 +46,7 @@ const getCategoryName = (code: string, level: number) => {
 };
 
 export default async function computeFootprintsForEachRpcWithOrigin(
-  envFactors?: EnvFactors,
+  envFactors?: EnvFactors
 ): Promise<string[][]> {
   const foodsRecipes = await DefaultFilesImporter.foodsRecipes();
   const codesInRecipes = new Set(Object.keys(foodsRecipes));
@@ -86,38 +86,38 @@ export default async function computeFootprintsForEachRpcWithOrigin(
 
   RE.setFoodsRecipes(await DefaultFilesImporter.foodsRecipes());
   RE.setFootprintsRpcs(
-    envFactors || (await DefaultFilesImporter.footprintsRpcs()),
+    envFactors || (await DefaultFilesImporter.footprintsRpcs())
   );
   RE.setEmissionsFactorsPackaging(
-    await DefaultFilesImporter.emissionsFactorsPackaging(),
+    await DefaultFilesImporter.emissionsFactorsPackaging()
   );
   RE.setEmissionsFactorsEnergy(
-    await DefaultFilesImporter.emissionsFactorsEnergy(),
+    await DefaultFilesImporter.emissionsFactorsEnergy()
   );
   RE.setEmissionsFactorsTransport(
-    await DefaultFilesImporter.emissionsFactorsTransport(),
+    await DefaultFilesImporter.emissionsFactorsTransport()
   );
   RE.setProcessesEnergyDemands(
-    await DefaultFilesImporter.processesEnergyDemands(),
+    await DefaultFilesImporter.processesEnergyDemands()
   );
   RE.setPrepProcessesAndPackaging(
-    await DefaultFilesImporter.preparationProcessesAndPackaging(),
+    await DefaultFilesImporter.preparationProcessesAndPackaging()
   );
 
   const syncWasteFiles = Object.fromEntries(
     await Promise.all(
       LL_COUNTRIES.map(
         async (
-          country: LlCountryName,
+          country: LlCountryName
         ): Promise<[string, Record<string, number[]>]> => {
           const wasteCountryCode =
             country === "SwedenBaseline" ? "SE" : LL_COUNTRY_CODES[country];
           const wasteFactors =
             await DefaultFilesImporter.wasteRetailAndConsumer(wasteCountryCode);
           return [country, wasteFactors];
-        },
-      ),
-    ),
+        }
+      )
+    )
   );
 
   const results = LL_COUNTRIES.map((countryName) => {
@@ -158,7 +158,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
             rpcImpacts,
             processImpacts,
             packagingImpacts,
-            transportEmissions,
+            transportEmissions
           ),
           processes,
           packeting,
