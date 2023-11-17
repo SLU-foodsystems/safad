@@ -197,7 +197,7 @@ export function parseRpcOriginWaste(csvString: string) {
   return parametersCsv.reduce(
     (
       acc,
-      [suaCode, _name, _category, origin, originShare, productionWaste, organic]
+      [suaCode, _name, _originName, originCode, originShare, productionWaste]
     ) => {
       // First time we see this RPC code? Add an empty object, which we will
       // populate with one obj per origin
@@ -205,7 +205,7 @@ export function parseRpcOriginWaste(csvString: string) {
         acc[suaCode] = {};
       }
 
-      acc[suaCode][origin] = [
+      acc[suaCode][originCode] = [
         asNumber(originShare),
         asNumber(productionWaste)
       ];
