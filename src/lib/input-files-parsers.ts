@@ -217,7 +217,7 @@ export function parseRpcOriginWaste(csvString: string) {
   );
 }
 
-export function parseRecipeFile(recipesCsvStr: string) {
+export function parseFoodsRecipes(recipesCsvStr: string) {
   /**
    * Precautionary: Delete any empty rulesets.
    */

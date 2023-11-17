@@ -131,7 +131,7 @@ export async function rpcOriginWaste(countryCode: string) {
 export async function foodsRecipes() {
   return await fetchAndParseFile(
     foodsRecipesUrl,
-    InputFileParsers.parseRecipeFile
+    InputFileParsers.parseFoodsRecipes
   );
 }
 
