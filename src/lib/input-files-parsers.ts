@@ -207,7 +207,7 @@ export function parseRpcOriginWaste(csvString: string) {
 
       acc[suaCode][originCode] = [
         asNumber(originShare),
-        asNumber(productionWaste)
+        asNumber(productionWaste),
       ];
 
       // Pass the acc along.
@@ -217,12 +217,7 @@ export function parseRpcOriginWaste(csvString: string) {
   );
 }
 
-export function parseRecipeFiles(
-  recipesCsvStr: string,
-  processesCsvStr: string
-) {
-  const PROCESS_UNSPECIFIED = "F28.A07XD";
-
+export function parseRecipeFile(recipesCsvStr: string) {
   /**
    * Precautionary: Delete any empty rulesets.
    */
@@ -241,82 +236,53 @@ export function parseRecipeFiles(
     });
   }
 
-  /**
-   * Helper function to build a lookup-map of yields and allocation factors.
-   */
-  function buildYieldMap(processesCsv: string[][]) {
-    const yieldMap: Record<string, number> = {};
-
-    processesCsv
-      .map(
-        ([
-          code,
-          _foodName,
-          _foodEx2Code,
-          _foodEx2Name,
-          facets,
-          _facetDesc,
-          yieldFactorStr,
-          allocationFactorStr,
-        ]) =>
-          [
-            code,
-            facets,
-            parseFloat(yieldFactorStr),
-            parseFloat(allocationFactorStr),
-          ] as [string, string, number, number]
-      )
-      .forEach(([code, facets, yieldFactor, allocationFactor]) => {
-        // Overwrite allocation factor for this specific process
-        if (facets === PROCESS_UNSPECIFIED) allocationFactor = 1;
-        const key = code + "|" + facets;
-        yieldMap[key] = yieldFactor * allocationFactor;
-      });
-
-    return yieldMap;
-  }
-
-  // import CSVs. Slice(1) to drop header
-  const recipesCsv = parseCsvFile(recipesCsvStr).slice(1);
-  const processesCsv = parseCsvFile(processesCsvStr).slice(1);
-
-  const yieldMap = buildYieldMap(processesCsv);
   const recipes: FoodsRecipes = {};
 
-  recipesCsv.forEach(
-    ([code, _name, component, _componentName, facetStr, perc, prob]) => {
-      if (code === "") return; // Empty row
-      const value = roundToPrecision(
-        (parseFloat(perc) * parseFloat(prob)) / 100,
-        3
-      );
-
-      if (value === 0) return;
-
-      // Note to self: I've checked that all missing values here are of the
-      // facet "To be further disaggregated (d)", which is why we can just
-      // assume a 1. For custom recipes, the user is responsible for data
-      // completeness, and 1 is a sound default value.
-      const yieldFactor = yieldMap[component + "|" + facetStr] || 1;
-
-      const processes = facetStr
-        .split("$")
-        .filter((f) => f.startsWith("F28.") && f !== PROCESS_UNSPECIFIED);
-
-      const entry: [string, string[], number, number] = [
+  parseCsvFile(recipesCsvStr)
+    .slice(1) // drop header in csv file
+    .forEach(
+      ([
+        code,
+        _name,
         component,
-        processes,
-        value,
+        _componentName,
+        facetStr,
+        _facetDescr,
+        perc,
+        prob,
         yieldFactor,
-      ];
+        allocationFactor,
+      ]) => {
+        if (code === "") return; // Empty row
+        const value = roundToPrecision(
+          (parseFloat(perc) * parseFloat(prob)) / 100,
+          3
+        );
 
-      if (code in recipes) {
-        recipes[code].push(entry);
-      } else {
-        recipes[code] = [entry];
+        const netYieldFactor =
+          (parseFloat(yieldFactor) || 1) * (parseFloat(allocationFactor) || 1);
+
+        if (value === 0) return;
+
+        const PROCESS_UNSPECIFIED = "F28.A07XD";
+        const processes = facetStr
+          .split("$")
+          .filter((f) => f.startsWith("F28.") && f !== PROCESS_UNSPECIFIED);
+
+        const entry: [string, string[], number, number] = [
+          component,
+          processes,
+          value,
+          netYieldFactor || 1,
+        ];
+
+        if (code in recipes) {
+          recipes[code].push(entry);
+        } else {
+          recipes[code] = [entry];
+        }
       }
-    }
-  );
+    );
 
   removeNullSelfReferences(recipes);
   deleteEmptyValues(recipes);

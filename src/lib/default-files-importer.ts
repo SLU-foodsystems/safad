@@ -5,9 +5,7 @@ import processesEnergyDemandsUrl from "@/default-input-files/processes-energy-de
 import preparationProcessesAndPackagingUrl from "@/default-input-files/preparation-processes-and-packaging.csv?url";
 
 import footprintsRpcsUrl from "@/default-input-files/footprints-rpcs.csv?url";
-
 import foodsRecipesUrl from "@/default-input-files/foods-recipes.csv?url";
-import foodsProcessesUrl from "@/default-input-files/foods-yields-and-processes.csv?url";
 
 const wasteRetailAndConsumerUrls = import.meta.glob(
   "@/default-input-files/waste-retail-and-consumer/*.csv",
@@ -35,7 +33,7 @@ import {
   parseFootprintsRpcs,
   parseProcessesEnergyDemands,
   parseProcessesPackaging,
-  parseRecipeFiles,
+  parseRecipeFile,
   parseRpcOriginWaste,
   parseWasteRetailAndConsumer,
 } from "./input-files-parsers";
@@ -130,10 +128,5 @@ export async function rpcOriginWaste(countryCode: string) {
 }
 
 export async function foodsRecipes() {
-  const noop = (str: string) => str;
-
-  const recipesFile = await fetchAndParseFile(foodsRecipesUrl, noop);
-  const processesUrl = await fetchAndParseFile(foodsProcessesUrl, noop);
-
-  return parseRecipeFiles(recipesFile, processesUrl);
+  return await fetchAndParseFile(foodsRecipesUrl, parseRecipeFile);
 }
