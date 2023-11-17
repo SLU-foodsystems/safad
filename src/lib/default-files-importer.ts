@@ -25,21 +25,11 @@ const rpcOriginWasteUrls = import.meta.glob(
   }
 );
 
-import {
-  parseDiet,
-  parseEmissionsFactorsEnergy,
-  parseEmissionsFactorsPackaging,
-  parseEmissionsFactorsTransport,
-  parseFootprintsRpcs,
-  parseProcessesEnergyDemands,
-  parseProcessesPackaging,
-  parseRecipeFile,
-  parseRpcOriginWaste,
-  parseWasteRetailAndConsumer,
-} from "./input-files-parsers";
+import * as InputFileParsers from "./input-files-parsers";
+
 import type ResultsEngine from "./ResultsEngine";
 
-export async function fetchAndParseFile<T>(
+async function fetchAndParseFile<T>(
   url: string,
   parser: (fileContent: string) => T
 ) {
@@ -54,7 +44,7 @@ export async function fetchAndParseFile<T>(
   return parser(csvString);
 }
 
-export async function fetchAndParseCountrySpecificFile<T>(
+async function fetchAndParseCountrySpecificFile<T>(
   countryCode: string,
   urlsMap: Record<string, string>,
   parser: (fileContent: string) => T
@@ -75,71 +65,80 @@ export async function fetchAndParseCountrySpecificFile<T>(
 export async function emissionsFactorsPackaging() {
   return fetchAndParseFile(
     emissionsFactorsPackagingUrl,
-    parseEmissionsFactorsPackaging
+    InputFileParsers.parseEmissionsFactorsPackaging
   );
 }
 
 export async function emissionsFactorsEnergy() {
   return fetchAndParseFile(
     emissionsFactorsEnergyUrl,
-    parseEmissionsFactorsEnergy
+    InputFileParsers.parseEmissionsFactorsEnergy
   );
 }
 
 export async function emissionsFactorsTransport() {
   return fetchAndParseFile(
     emissionsFactorsTransportUrl,
-    parseEmissionsFactorsTransport
+    InputFileParsers.parseEmissionsFactorsTransport
   );
 }
 
 export async function processesEnergyDemands() {
   return fetchAndParseFile(
     processesEnergyDemandsUrl,
-    parseProcessesEnergyDemands
+    InputFileParsers.parseProcessesEnergyDemands
   );
 }
 
 export async function preparationProcessesAndPackaging() {
   return fetchAndParseFile(
     preparationProcessesAndPackagingUrl,
-    parseProcessesPackaging
+    InputFileParsers.parseProcessesPackaging
   );
 }
 
 export async function footprintsRpcs() {
-  return fetchAndParseFile(footprintsRpcsUrl, parseFootprintsRpcs);
+  return fetchAndParseFile(
+    footprintsRpcsUrl,
+    InputFileParsers.parseFootprintsRpcs
+  );
 }
 
 export async function wasteRetailAndConsumer(countryCode: string) {
   return fetchAndParseCountrySpecificFile(
     countryCode,
     wasteRetailAndConsumerUrls,
-    parseWasteRetailAndConsumer
+    InputFileParsers.parseWasteRetailAndConsumer
   );
 }
 
 export async function diet(countryCode: string) {
-  return fetchAndParseCountrySpecificFile(countryCode, dietsUrls, parseDiet);
+  return fetchAndParseCountrySpecificFile(
+    countryCode,
+    dietsUrls,
+    InputFileParsers.parseDiet
+  );
 }
 
 export async function rpcOriginWaste(countryCode: string) {
   return fetchAndParseCountrySpecificFile(
     countryCode,
     rpcOriginWasteUrls,
-    parseRpcOriginWaste
+    InputFileParsers.parseRpcOriginWaste
   );
 }
 
 export async function foodsRecipes() {
-  return await fetchAndParseFile(foodsRecipesUrl, parseRecipeFile);
+  return await fetchAndParseFile(
+    foodsRecipesUrl,
+    InputFileParsers.parseRecipeFile
+  );
 }
 
 export async function configureResultsEngine(
   resultsEngine: ResultsEngine,
   countryCode: string
 ) {
-
   resultsEngine.setCountryCode(countryCode);
 
   resultsEngine.setFoodsRecipes(await foodsRecipes());
