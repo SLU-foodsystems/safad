@@ -57,12 +57,27 @@ const initFileInterface = <T>(
   ...partialFileInterface
 });
 
+const Descriptions = {
+  footprintsRpc: "File with footprints of all raw commodities (crops, animal products, blue and novel foods) from different production countries (without any waste, conversion or allocation).",
+  diet: "File that contains the amount of different foods in diets.",
+  rpcOriginWaste: "File with origins and waste from farm to retail of each country specific RPC.",
+  wasteRetailAndConsumer: "File that specifies the amount of retail and consumer waste for different food types and per country.",
+  recipes: "File that disaggregates food items into their components and finally into its RPC, specifies processing steps, and contains conversion factors from going from RPC to edible RPCs. File with conversion (“reverse yield”-factors), allocation factors and definition of processes for the different food items.",
+  prepProcAndPack: "File with additional processing steps for composite foods (e.g. baking for bread) and specification of the types of packaging used.",
+  processesEnergyDemands: "File that contains the amount and type of energy sources that each process uses.",
+  emissionsFactorsEnergy: "Emission factors for electricity for different countries and other energy carriers (e.g. heating oil).",
+  emissionsFactorsPackaging: "Emissions factors for different types of packaging.",
+  emissionsFactorsTransport: "Emissions factors for transports between different countries.",
+};
+
 export default defineComponent({
   components: { FileSelector },
   data() {
     return {
       LL_COUNTRY_CODES,
       LL_COUNTRY_NAMES,
+
+      Descriptions,
 
       RE: (new ResultsEngine()) as ResultsEngine,
       countryCode: "SE",
@@ -223,82 +238,98 @@ export default defineComponent({
         </select>
         <h3>Input Data</h3>
 
-        <h4>RPC Footprints</h4>
         <FileSelector
+          file-label="Footprints RPC"
           @setFile="(p: SetFilePayload) => setFile(p, footprintsRpcsFile)"
           @reset="() => resetFile(footprintsRpcsFile!)"
-          :fileName="footprintsRpcsFile?.name"
+          :file-name="footprintsRpcsFile?.name || footprintsRpcsFile?.defaultName"
           :state="footprintsRpcsFile?.state || 'default'"
+          :file-description="Descriptions.footprintsRpc"
         />
 
-        <h4>Diet</h4>
         <FileSelector
+          file-label="Diet"
           @setFile="(p: SetFilePayload) => setFile(p, dietFile)"
           @reset="() => resetFile(dietFile!)"
-          :fileName="dietFile?.name"
+          :fileName="dietFile?.name || dietFile?.defaultName"
           :state="dietFile?.state || 'default'"
+          :file-description="Descriptions.diet"
         />
         <h3>Parameter Files </h3>
 
-        <h4>Foods Recipes</h4>
         <FileSelector
+          file-label="Foods Recipes"
           @setFile="(p: SetFilePayload) => setFile(p, foodsRecipesFile!)"
           @reset="() => resetFile(foodsRecipesFile!)"
-          :fileName="foodsRecipesFile?.name"
+          :fileName="foodsRecipesFile?.name || foodsRecipesFile?.defaultName"
           :state="foodsRecipesFile?.state || 'default'"
+          :file-description="Descriptions.recipes"
         />
 
-        <h4>Parameter File: RPC Parameters</h4>
         <FileSelector
+          file-label="RPC Origin & Waste"
           @setFile="(p: SetFilePayload) => setFile(p, rpcOriginWasteFile)"
           @reset="() => resetFile(rpcOriginWasteFile!)"
-          :fileName="rpcOriginWasteFile?.name"
+          :fileName="rpcOriginWasteFile?.name || rpcOriginWasteFile?.defaultName"
           :state="rpcOriginWasteFile?.state || 'default'"
+          :file-description="Descriptions.rpcOriginWaste"
         />
 
-        <h4>Parameter File: Processes Energy Demand</h4>
         <FileSelector
+          file-label="Processes Energy Demands"
           @setFile="(p: SetFilePayload) => setFile(p, processesEnergyDemandsFile)"
           @reset="() => resetFile(processesEnergyDemandsFile!)"
-          :fileName="processesEnergyDemandsFile?.name"
+          :fileName="processesEnergyDemandsFile?.name || processesEnergyDemandsFile?.defaultName"
           :state="processesEnergyDemandsFile?.state || 'default'"
+          :file-description="Descriptions.processesEnergyDemands"
         />
-        <h4>Parameter File: Preparation Processes and Packagin</h4>
+
         <FileSelector
+          file-label="Preparation Processes and Packaging"
           @setFile="(p: SetFilePayload) => setFile(p, preparationProcessesAndPackagingFile)"
           @reset="() => resetFile(preparationProcessesAndPackagingFile!)"
-          :fileName="preparationProcessesAndPackagingFile?.name"
+          :fileName="preparationProcessesAndPackagingFile?.name ||
+          preparationProcessesAndPackagingFile?.defaultName"
           :state="preparationProcessesAndPackagingFile?.state || 'default'"
+          :file-description="Descriptions.prepProcAndPack"
         />
-        <h4>Parameter File: Wastes, consumer and retail</h4>
         <FileSelector
+          file-label="Consumer- and Retail wastes"
           @setFile="(p: SetFilePayload) => setFile(p, wasteRetailAndConsumerFile)"
           @reset="() => resetFile(wasteRetailAndConsumerFile!)"
-          :fileName="wasteRetailAndConsumerFile?.name"
+          :fileName="wasteRetailAndConsumerFile?.name ||
+          wasteRetailAndConsumerFile?.defaultName"
           :state="wasteRetailAndConsumerFile?.state || 'default'"
+          :file-description="Descriptions.wasteRetailAndConsumer"
         />
 
         <h3>Emissions Factors</h3>
-        <h4>Emissions Factors: Packaging</h4>
         <FileSelector
+          file-label="Emissions Factors Packaging"
           @setFile="(p: SetFilePayload) => setFile(p, emissionsFactorsPackagingFile)"
           @reset="() => resetFile(emissionsFactorsPackagingFile!)"
-          :fileName="emissionsFactorsPackagingFile?.name"
+          :fileName="emissionsFactorsPackagingFile?.name ||
+          emissionsFactorsPackagingFile?.defaultName"
           :state="emissionsFactorsPackagingFile?.state || 'default'"
+          :file-description="Descriptions.emissionsFactorsPackaging"
         />
-        <h4>Emissions Factors: Energy</h4>
         <FileSelector
+          file-label="Emissions Factors Energy"
           @setFile="(p: SetFilePayload) => setFile(p, emissionsFactorsEnergyFile)"
           @reset="() => resetFile(emissionsFactorsEnergyFile!)"
-          :fileName="emissionsFactorsEnergyFile?.name"
+          :fileName="emissionsFactorsEnergyFile?.name ||
+          emissionsFactorsEnergyFile?.defaultName"
           :state="emissionsFactorsEnergyFile?.state || 'default'"
+          :file-description="Descriptions.emissionsFactorsEnergy"
         />
-        <h4>Emissions Factors: Transport</h4>
         <FileSelector
+          file-label="Emissions Factors Transport"
           @setFile="(p: SetFilePayload) => setFile(p, emissionsFactorsTransportFile)"
           @reset="() => resetFile(emissionsFactorsTransportFile!)"
-          :fileName="emissionsFactorsTransportFile?.name"
+          :fileName="emissionsFactorsTransportFile?.name ||
+          emissionsFactorsTransportFile?.defaultName"
           :state="emissionsFactorsTransportFile?.state || 'default'"
+          :file-description="Descriptions.emissionsFactorsTransport"
         />
         <div class="cluster cluster--center">
           <button class="button button--accent" @click="compute">Compute</button>
@@ -317,6 +348,8 @@ export default defineComponent({
   grid-row-end: results-end;
   grid-column-end: results-end;
 
+  background: $lightgray;
+
   height: 100%;
   width: 100%;
   padding: 2em 0;
@@ -325,7 +358,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
 
-  >div {
+  > div {
     flex-basis: 30em;
   }
 

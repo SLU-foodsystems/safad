@@ -8,7 +8,15 @@ export default defineComponent({
       type: String as PropType<"default" | "custom">,
       required: true,
     },
+    fileLabel: String,
     fileName: String,
+    fileDescription: String,
+  },
+
+  data() {
+    return {
+      showInfo: false,
+    };
   },
 
   emits: {
@@ -22,10 +30,6 @@ export default defineComponent({
   computed: {
     buttonText() {
       return this.state === "default" ? "Upload custom file" : "Reset to default";
-    },
-
-    labelText() {
-      return this.state === "default" ? "Default File" : this.fileName;
     },
   },
 
@@ -66,22 +70,82 @@ export default defineComponent({
     download() {
       this.$emit("download");
     },
+
+    toggleInfo() {
+      this.showInfo = !this.showInfo;
+    }
   },
 });
 
 </script>
 
 <template>
-  <div class="file-selector-box cluster cluster--between">
-    <input type="file" hidden ref="fileInput" @change="onFileInputChange" />
+  <div class="file-selector-box" :class="{ 'file-selector-box--custom': state === 'custom' }">
+    <input hidden type="file" ref="fileInput" @change="onFileInputChange" />
 
-    <strong>{{ labelText }}</strong>
+    <div class="cluster expander-toggle-row">
+      <h4>{{ fileLabel }}</h4>
+      <button class="expander-toggle" :data-expanded="showInfo" @click="toggleInfo" v-if="fileDescription">Info</button>
+    </div>
+    <div class="info-text" :aria-hidden="!showInfo" :hidden="!showInfo">
+      {{ fileDescription }}
+    </div>
+    <div class="cluster cluster--between">
+      <i v-if="state === 'default'">{{ fileName }} (Default)</i>
+      <span v-else v-text="fileName" />
 
-    <button class="button button--slim button--accent" @click="onButtonClick" v-text="buttonText" />
-    <button class="button button--slim" @click="download" v-if="false">Download Copy</button>
+      <div class="cluster">
+        <button class="button button--slim button--accent" @click="onButtonClick" v-text="buttonText" />
+        <button class="button button--slim" @click="download">Download Copy</button>
+      </div>
+    </div>
   </div>
 </template>
 
 
-<style lang="scss"></style>
+<style lang="scss">
+@import "../styles/_constants";
+
+.file-selector-box {
+  width: 60em;
+  max-width: 95%;
+  background: white;
+  padding: 1em;
+  text-align: left;
+
+  $base-box-shadow: 0 0.3em 0.75em -0.65em rgba(black, 0.5);
+  box-shadow: $base-box-shadow;
+
+  &--custom {
+    box-shadow: $base-box-shadow, -0.25em 0 0 $blue_sky;
+  }
+}
+
+h4 {
+  font-weight: bold;
+}
+
+.expander-toggle-row h4 {
+  margin-bottom: 0;
+}
+
+.expander-toggle {
+  display: inline-block;
+  font-size: 0.875em;
+  border-radius: 1em;
+  padding: 0.25em 0.5em;
+  background: $lightgray;
+  border: 1px solid $gray_feather;
+  &:focus {
+    outline: 2px solid black;
+  }
+}
+
+.info-text {
+  background: $lightgray;
+  padding: 0.5em;
+  margin: 0.5em 0;
+  font-style: italic;
+}
+</style>
 
