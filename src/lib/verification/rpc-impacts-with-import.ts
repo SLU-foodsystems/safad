@@ -50,7 +50,7 @@ export default async function computeFootprintsForEachRpcWithOrigin(
 ): Promise<string[][]> {
   const foodsRecipes = await DefaultFilesImporter.foodsRecipes();
   const codesInRecipes = new Set(Object.keys(foodsRecipes));
-  Object.values(foodsRecipes).forEach((recipe: FoodsRecipe) => {
+  Object.values(foodsRecipes).forEach((recipe: FoodsRecipeEntry) => {
     recipe.forEach((component) => {
       const code = component[0];
       codesInRecipes.add(code);
