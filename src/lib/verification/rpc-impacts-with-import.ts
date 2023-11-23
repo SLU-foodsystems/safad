@@ -14,7 +14,7 @@ import namesJson from "@/data/rpc-names.json";
 
 import ResultsEngine from "@/lib/ResultsEngine";
 import { LL_COUNTRY_CODES } from "../constants";
-import * as DefaultFilesImporter from "../default-files-importer";
+import * as DefaultInputFiles from "../default-input-files";
 
 type LlCountryName =
   | "France"
@@ -45,10 +45,10 @@ const getCategoryName = (code: string, level: number) => {
   return categoryNames[levelCode] || `NOT FOUND (${levelCode})`;
 };
 
-export default async function computeFootprintsForEachRpcWithOrigin(
-  envFactors?: RpcFootprintsByOrigin
-): Promise<string[][]> {
-  const foodsRecipes = await DefaultFilesImporter.foodsRecipes();
+export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
+  string[][]
+> {
+  const foodsRecipes = await DefaultInputFiles.parsed.foodsRecipes();
   const codesInRecipes = new Set(Object.keys(foodsRecipes));
   Object.values(foodsRecipes).forEach((recipe: FoodsRecipeEntry) => {
     recipe.forEach((component) => {
@@ -56,18 +56,6 @@ export default async function computeFootprintsForEachRpcWithOrigin(
       codesInRecipes.add(code);
     });
   });
-
-  const rpcFiles = {
-    France: await DefaultFilesImporter.rpcOriginWaste("FR"),
-    Germany: await DefaultFilesImporter.rpcOriginWaste("DE"),
-    Greece: await DefaultFilesImporter.rpcOriginWaste("GR"),
-    Hungary: await DefaultFilesImporter.rpcOriginWaste("HU"),
-    Ireland: await DefaultFilesImporter.rpcOriginWaste("IE"),
-    Italy: await DefaultFilesImporter.rpcOriginWaste("IT"),
-    Spain: await DefaultFilesImporter.rpcOriginWaste("ES"),
-    Sweden: await DefaultFilesImporter.rpcOriginWaste("SE"),
-    SwedenBaseline: await DefaultFilesImporter.rpcOriginWaste("SE"),
-  } as Record<LlCountryName, RpcOriginWaste>;
 
   const header = [
     "Code",
@@ -84,53 +72,15 @@ export default async function computeFootprintsForEachRpcWithOrigin(
 
   const RE = new ResultsEngine();
 
-  RE.setFoodsRecipes(await DefaultFilesImporter.foodsRecipes());
-  RE.setFootprintsRpcs(
-    envFactors || (await DefaultFilesImporter.footprintsRpcs())
-  );
-  RE.setEmissionsFactorsPackaging(
-    await DefaultFilesImporter.emissionsFactorsPackaging()
-  );
-  RE.setEmissionsFactorsEnergy(
-    await DefaultFilesImporter.emissionsFactorsEnergy()
-  );
-  RE.setEmissionsFactorsTransport(
-    await DefaultFilesImporter.emissionsFactorsTransport()
-  );
-  RE.setProcessesEnergyDemands(
-    await DefaultFilesImporter.processesEnergyDemands()
-  );
-  RE.setPrepProcessesAndPackaging(
-    await DefaultFilesImporter.preparationProcessesAndPackaging()
-  );
-
-  const syncWasteFiles = Object.fromEntries(
-    await Promise.all(
-      LL_COUNTRIES.map(
-        async (
-          country: LlCountryName
-        ): Promise<[string, Record<string, number[]>]> => {
-          const wasteCountryCode =
-            country === "SwedenBaseline" ? "SE" : LL_COUNTRY_CODES[country];
-          const wasteFactors =
-            await DefaultFilesImporter.wasteRetailAndConsumer(wasteCountryCode);
-          return [country, wasteFactors];
-        }
-      )
-    )
-  );
-
   const results = LL_COUNTRIES.map((countryName) => {
     if (countryName === "SwedenBaseline") {
-      RE.setCountryCode("SE");
-      RE.setWasteRetailAndConsumer(syncWasteFiles["Sweden"]);
+      DefaultInputFiles.configureResultsEngine(RE, "SE");
     } else {
-      RE.setCountryCode(LL_COUNTRY_CODES[countryName]);
-      RE.setWasteRetailAndConsumer(syncWasteFiles[countryName]);
+      DefaultInputFiles.configureResultsEngine(
+        RE,
+        LL_COUNTRY_CODES[countryName]
+      );
     }
-
-    const rpcParameters = rpcFiles[countryName];
-    RE.setRpcOriginWaste(rpcParameters);
 
     const impactsPerDiet = [...codesInRecipes]
       .sort()

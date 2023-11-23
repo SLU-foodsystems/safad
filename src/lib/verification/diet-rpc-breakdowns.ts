@@ -7,16 +7,7 @@ import ResultsEngine from "@/lib/ResultsEngine";
 
 import rpcNamesJson from "@/data/rpc-names.json";
 
-import {
-  diet,
-  emissionsFactorsEnergy,
-  emissionsFactorsPackaging,
-  emissionsFactorsTransport,
-  foodsRecipes,
-  footprintsRpcs,
-  preparationProcessesAndPackaging,
-  processesEnergyDemands,
-} from "../default-files-importer";
+import * as DefaultInputFiles from "../default-input-files";
 
 const rpcNames = rpcNamesJson as Record<string, string>;
 
@@ -57,28 +48,37 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
   ];
 
   const dietFiles = {
-    France: await diet("FR"),
-    Germany: await diet("DE"),
-    Greece: await diet("GR"),
-    Hungary: await diet("HU"),
-    Ireland: await diet("IE"),
-    Italy: await diet("IT"),
-    Spain: await diet("ES"),
-    Sweden: await diet("SE"),
-    SwedenBaseline: await diet("SE-B"),
+    France: await DefaultInputFiles.parsed.diet("FR"),
+    Germany: await DefaultInputFiles.parsed.diet("DE"),
+    Greece: await DefaultInputFiles.parsed.diet("GR"),
+    Hungary: await DefaultInputFiles.parsed.diet("HU"),
+    Ireland: await DefaultInputFiles.parsed.diet("IE"),
+    Italy: await DefaultInputFiles.parsed.diet("IT"),
+    Spain: await DefaultInputFiles.parsed.diet("ES"),
+    Sweden: await DefaultInputFiles.parsed.diet("SE"),
+    SwedenBaseline: await DefaultInputFiles.parsed.diet("SE-B"),
   } as Record<string, Diet>;
 
-  const processesAndPackagingCsvData = await preparationProcessesAndPackaging();
+  const processesAndPackagingCsvData =
+    await DefaultInputFiles.parsed.preparationProcessesAndPackaging();
 
-  const recipes = await foodsRecipes();
+  const recipes = await DefaultInputFiles.parsed.foodsRecipes();
 
   const RE = new ResultsEngine();
   RE.setFoodsRecipes(recipes);
-  RE.setFootprintsRpcs(await footprintsRpcs());
-  RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
-  RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
-  RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
-  RE.setProcessesEnergyDemands(await processesEnergyDemands());
+  RE.setFootprintsRpcs(await DefaultInputFiles.parsed.footprintsRpcs());
+  RE.setEmissionsFactorsPackaging(
+    await DefaultInputFiles.parsed.emissionsFactorsPackaging()
+  );
+  RE.setEmissionsFactorsEnergy(
+    await DefaultInputFiles.parsed.emissionsFactorsEnergy()
+  );
+  RE.setEmissionsFactorsTransport(
+    await DefaultInputFiles.parsed.emissionsFactorsTransport()
+  );
+  RE.setProcessesEnergyDemands(
+    await DefaultInputFiles.parsed.processesEnergyDemands()
+  );
   RE.setPrepProcessesAndPackaging(processesAndPackagingCsvData);
 
   const allResults = LL_COUNTRIES.map((country) => {
