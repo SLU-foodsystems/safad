@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import * as DefaultFilesImporter from "@/lib/default-files-importer";
+import * as DefaultInputFiles from "@/lib/default-input-files";
 import * as InputFileParsers from "@/lib/input-files-parsers";
 import ResultsEngine from "@/lib/ResultsEngine";
 
@@ -41,7 +41,7 @@ interface FileInterface<T> {
   name: string;
   defaultName: string;
   data: null | string;
-  getDefault: (country: string) => Promise<T>,
+  getDefault: (country: string) => Promise<string>,
   parser: (data: string) => T;
   setter: (data: T) => void;
 }
@@ -119,7 +119,7 @@ export default defineComponent({
     async resetFile<T>(fileInterface: FileInterface<T>) {
       if (!fileInterface) return;
 
-      fileInterface.setter(await fileInterface.getDefault(this.countryCode));
+      fileInterface.setter(fileInterface.parser(await fileInterface.getDefault(this.countryCode)));
       fileInterface.name = "";
       fileInterface.state = "default";
       fileInterface.data = null;
@@ -151,72 +151,73 @@ export default defineComponent({
   },
 
   beforeMount() {
-    DefaultFilesImporter.configureResultsEngine(
-      this.RE as ResultsEngine,
-      this.countryCode
-    );
+    if (!(this.RE instanceof ResultsEngine)) {
+      return;
+    }
+
+    DefaultInputFiles.configureResultsEngine(this.RE, this.countryCode);
 
     this.footprintsRpcsFile = initFileInterface({
       defaultName: "footprints-rpcs.csv",
-      getDefault: DefaultFilesImporter.footprintsRpcs,
+      getDefault: DefaultInputFiles.raw.footprintsRpcs,
       parser: InputFileParsers.parseFootprintsRpcs,
       setter: this.RE.setFootprintsRpcs,
     });
 
     this.dietFile = initFileInterface({
       defaultName: "diet.csv",
-      getDefault: DefaultFilesImporter.diet,
+      getDefault: DefaultInputFiles.raw.diet,
       parser: InputFileParsers.parseDiet,
       setter: (data: Diet) => { this.diet = data },
     });
 
     this.rpcOriginWasteFile = initFileInterface({
       defaultName: "rpc-parameters.csv",
-      getDefault: DefaultFilesImporter.rpcOriginWaste,
+      getDefault: DefaultInputFiles.raw.rpcOriginWaste,
       parser: InputFileParsers.parseRpcOriginWaste,
       setter: this.RE.setRpcOriginWaste,
     });
     this.processesEnergyDemandsFile = initFileInterface({
       defaultName: "processes-energy-demands.csv",
-      getDefault: DefaultFilesImporter.processesEnergyDemands,
+      getDefault: DefaultInputFiles.raw.processesEnergyDemands,
       parser: InputFileParsers.parseEmissionsFactorsPackaging,
       setter: this.RE.setEmissionsFactorsPackaging,
     });
     this.preparationProcessesAndPackagingFile = initFileInterface({
       defaultName: "prep-processes-and-packaging.csv",
-      getDefault: DefaultFilesImporter.preparationProcessesAndPackaging,
+      getDefault: DefaultInputFiles.raw.preparationProcessesAndPackaging,
       parser: InputFileParsers.parseProcessesPackaging,
       setter: this.RE.setPrepProcessesAndPackaging,
     });
     this.wasteRetailAndConsumerFile = initFileInterface({
       defaultName: "waste-retail-and-consumer.csv",
-      getDefault: DefaultFilesImporter.wasteRetailAndConsumer,
+      getDefault: DefaultInputFiles.raw.wasteRetailAndConsumer,
       parser: InputFileParsers.parseWasteRetailAndConsumer,
       setter: this.RE.setWasteRetailAndConsumer,
     });
 
     this.foodsRecipesFile = initFileInterface({
       defaultName: "foods-recipes.csv",
-      getDefault: DefaultFilesImporter.foodsRecipes,
+      getDefault: DefaultInputFiles.raw.foodsRecipes,
       parser: InputFileParsers.parseFoodsRecipes,
       setter: this.RE.setFoodsRecipes,
     });
 
     this.emissionsFactorsPackagingFile = initFileInterface({
       defaultName: "emissions-factors-packaging.csv",
-      getDefault: DefaultFilesImporter.emissionsFactorsPackaging,
+      getDefault: DefaultInputFiles.raw.emissionsFactorsPackaging,
       parser: InputFileParsers.parseEmissionsFactorsPackaging,
       setter: this.RE.setEmissionsFactorsPackaging,
     });
     this.emissionsFactorsEnergyFile = initFileInterface({
       defaultName: "emissions-factors-energy.csv",
-      getDefault: DefaultFilesImporter.emissionsFactorsEnergy,
+      getDefault: DefaultInputFiles.raw.emissionsFactorsEnergy,
       parser: InputFileParsers.parseEmissionsFactorsEnergy,
       setter: this.RE.setEmissionsFactorsEnergy,
     });
     this.emissionsFactorsTransportFile = initFileInterface({
       defaultName: "emissions-factors-transport.csv",
-      getDefault: DefaultFilesImporter.emissionsFactorsTransport,
+      getDefault: DefaultInputFiles.raw.emissionsFactorsTransport,
       parser: InputFileParsers.parseEmissionsFactorsTransport,
       setter: this.RE.setEmissionsFactorsTransport,
     });

@@ -13,18 +13,7 @@ import {
   LL_COUNTRY_CODES,
   TRANSPORT_EMISSIONS_ZERO,
 } from "../constants";
-import {
-  diet,
-  emissionsFactorsEnergy,
-  emissionsFactorsPackaging,
-  emissionsFactorsTransport,
-  foodsRecipes,
-  footprintsRpcs,
-  preparationProcessesAndPackaging,
-  processesEnergyDemands,
-  rpcOriginWaste,
-  wasteRetailAndConsumer,
-} from "../default-files-importer";
+import * as DefaultInputFiles from "../default-input-files";
 
 type LlCountryName =
   | "France"
@@ -56,45 +45,56 @@ export async function computeFootprintsForDiets(
   envFactors?: RpcFootprintsByOrigin
 ): Promise<[string, string[][]][]> {
   const rpcFiles = {
-    France: await rpcOriginWaste("FR"),
-    Germany: await rpcOriginWaste("DE"),
-    Greece: await rpcOriginWaste("GR"),
-    Hungary: await rpcOriginWaste("HU"),
-    Ireland: await rpcOriginWaste("IE"),
-    Italy: await rpcOriginWaste("IT"),
-    Spain: await rpcOriginWaste("ES"),
-    Sweden: await rpcOriginWaste("SE"),
-    SwedenBaseline: await rpcOriginWaste("SE"),
+    France: await DefaultInputFiles.parsed.rpcOriginWaste("FR"),
+    Germany: await DefaultInputFiles.parsed.rpcOriginWaste("DE"),
+    Greece: await DefaultInputFiles.parsed.rpcOriginWaste("GR"),
+    Hungary: await DefaultInputFiles.parsed.rpcOriginWaste("HU"),
+    Ireland: await DefaultInputFiles.parsed.rpcOriginWaste("IE"),
+    Italy: await DefaultInputFiles.parsed.rpcOriginWaste("IT"),
+    Spain: await DefaultInputFiles.parsed.rpcOriginWaste("ES"),
+    Sweden: await DefaultInputFiles.parsed.rpcOriginWaste("SE"),
+    SwedenBaseline: await DefaultInputFiles.parsed.rpcOriginWaste("SE"),
   } as Record<LlCountryName, RpcOriginWaste>;
 
   const dietFiles = {
-    France: await diet("FR"),
-    Germany: await diet("DE"),
-    Greece: await diet("GR"),
-    Hungary: await diet("HU"),
-    Ireland: await diet("IE"),
-    Italy: await diet("IT"),
-    Spain: await diet("ES"),
-    Sweden: await diet("SE"),
-    SwedenBaseline: await diet("SE-B"),
+    France: await DefaultInputFiles.parsed.diet("FR"),
+    Germany: await DefaultInputFiles.parsed.diet("DE"),
+    Greece: await DefaultInputFiles.parsed.diet("GR"),
+    Hungary: await DefaultInputFiles.parsed.diet("HU"),
+    Ireland: await DefaultInputFiles.parsed.diet("IE"),
+    Italy: await DefaultInputFiles.parsed.diet("IT"),
+    Spain: await DefaultInputFiles.parsed.diet("ES"),
+    Sweden: await DefaultInputFiles.parsed.diet("SE"),
+    SwedenBaseline: await DefaultInputFiles.parsed.diet("SE-B"),
   } as Record<string, Diet>;
 
   const RE = new ResultsEngine();
-  RE.setFoodsRecipes(await foodsRecipes());
-  RE.setFootprintsRpcs(envFactors || (await footprintsRpcs()));
-  RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
-  RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
-  RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
-  RE.setProcessesEnergyDemands(await processesEnergyDemands());
-  RE.setPrepProcessesAndPackaging(await preparationProcessesAndPackaging());
+  RE.setFoodsRecipes(await DefaultInputFiles.parsed.foodsRecipes());
+  RE.setFootprintsRpcs(
+    envFactors || (await DefaultInputFiles.parsed.footprintsRpcs())
+  );
+  RE.setEmissionsFactorsPackaging(
+    await DefaultInputFiles.parsed.emissionsFactorsPackaging()
+  );
+  RE.setEmissionsFactorsEnergy(
+    await DefaultInputFiles.parsed.emissionsFactorsEnergy()
+  );
+  RE.setEmissionsFactorsTransport(
+    await DefaultInputFiles.parsed.emissionsFactorsTransport()
+  );
+  RE.setProcessesEnergyDemands(
+    await DefaultInputFiles.parsed.processesEnergyDemands()
+  );
+  RE.setPrepProcessesAndPackaging(
+    await DefaultInputFiles.parsed.preparationProcessesAndPackaging()
+  );
 
   const wastesRetailAndConsumer: NestedRecord<string, number[]> = {};
   for (const countryName of LL_COUNTRIES) {
     if (countryName === "SwedenBaseline") continue;
     const countryCode = LL_COUNTRY_CODES[countryName];
-    wastesRetailAndConsumer[countryCode] = await wasteRetailAndConsumer(
-      countryCode
-    );
+    wastesRetailAndConsumer[countryCode] =
+      await DefaultInputFiles.parsed.wasteRetailAndConsumer(countryCode);
   }
 
   const allResults = LL_COUNTRIES.map((countryName) => {

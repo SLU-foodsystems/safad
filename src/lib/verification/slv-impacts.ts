@@ -13,17 +13,7 @@ import ResultsEngine from "@/lib/ResultsEngine";
 import { ENV_IMPACTS_ZERO } from "@/lib/constants";
 import { computeProcessImpacts } from "@/lib/process-emissions";
 import { listAllProcesses } from "@/lib/utils";
-import {
-  emissionsFactorsEnergy,
-  emissionsFactorsPackaging,
-  emissionsFactorsTransport,
-  foodsRecipes,
-  footprintsRpcs,
-  preparationProcessesAndPackaging,
-  processesEnergyDemands,
-  rpcOriginWaste,
-  wasteRetailAndConsumer,
-} from "../default-files-importer";
+import { configureResultsEngine } from "../default-input-files";
 
 const rpcNames = rpcNamesJson as Record<string, string>;
 const slvNames = slvNamesJson as Record<string, string>;
@@ -61,17 +51,7 @@ const addProcesses = (
 
 export default async function computeSlvImpacts(): Promise<string> {
   const RE = new ResultsEngine();
-  RE.setFoodsRecipes(await foodsRecipes());
-  RE.setFootprintsRpcs(await footprintsRpcs());
-  RE.setCountryCode("SE");
-  RE.setRpcOriginWaste(await rpcOriginWaste("SE"));
-
-  RE.setEmissionsFactorsPackaging(await emissionsFactorsPackaging());
-  RE.setEmissionsFactorsEnergy(await emissionsFactorsEnergy());
-  RE.setEmissionsFactorsTransport(await emissionsFactorsTransport());
-  RE.setProcessesEnergyDemands(await processesEnergyDemands());
-  RE.setPrepProcessesAndPackaging(await preparationProcessesAndPackaging());
-  RE.setWasteRetailAndConsumer(await wasteRetailAndConsumer("SE"));
+  configureResultsEngine(RE, "SE");
 
   const headerStr =
     "SLV Code,SLV Name,Ingredient Code,FoodEx2 code,Ingredient Name,Net Amount (g)," +
