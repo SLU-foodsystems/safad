@@ -6,6 +6,7 @@ import * as InputFileParsers from "@/lib/input-files-parsers";
 import ResultsEngine from "@/lib/ResultsEngine";
 
 import FileSelector from "@/components/FileSelector.vue";
+import { downloadAsPlaintext } from "./lib/csv-io";
 
 const LL_COUNTRY_CODES: string[] = [
   "FR",
@@ -102,6 +103,8 @@ export default defineComponent({
 
       footprintsRpcsFile: null as null | FileInterface<RpcFootprintsByOrigin>,
       dietFile: null as null | FileInterface<Diet>,
+
+      fileInterfaces: [] as FileInterface<any>[],
     };
   },
 
@@ -134,19 +137,15 @@ export default defineComponent({
       fileInterface.setter(fileInterface.parser(payload.data));
       fileInterface.name = payload.name;
       fileInterface.state = "custom";
-      fileInterface.data = null;
+      fileInterface.data = payload.data;
     },
 
     async downloadFile<T>(fileInterface: FileInterface<T>) {
-      console.log(
-        "TODO: Download", fileInterface.name || fileInterface.defaultName
-      )
-
-      /*if (fileInterface.state === "default") {
+      if (fileInterface.state === "default") {
         downloadAsPlaintext(await fileInterface.getDefault(this.countryCode), fileInterface.defaultName);
       } else {
-        downloadAsPlaintext(fileInterface.data, fileInterface.name);
-      }*/
+        downloadAsPlaintext(fileInterface.data || "", fileInterface.name);
+      }
     },
   },
 
@@ -202,7 +201,6 @@ export default defineComponent({
       setter: this.RE.setWasteRetailAndConsumer,
     });
 
-
     this.emissionsFactorsEnergyFile = initFileInterface({
       defaultName: "SAFAD IEF Energy.csv",
       getDefault: DefaultInputFiles.raw.emissionsFactorsEnergy,
@@ -243,6 +241,7 @@ export default defineComponent({
           file-label="Footprints RPC"
           @setFile="(p: SetFilePayload) => setFile(p, footprintsRpcsFile)"
           @reset="() => resetFile(footprintsRpcsFile!)"
+          @download="() => downloadFile(footprintsRpcsFile!)"
           :file-name="footprintsRpcsFile?.name || footprintsRpcsFile?.defaultName"
           :state="footprintsRpcsFile?.state || 'default'"
           :file-description="Descriptions.footprintsRpc"
@@ -252,6 +251,7 @@ export default defineComponent({
           file-label="Diet"
           @setFile="(p: SetFilePayload) => setFile(p, dietFile)"
           @reset="() => resetFile(dietFile!)"
+          @download="() => downloadFile(dietFile!)"
           :fileName="dietFile?.name || dietFile?.defaultName"
           :state="dietFile?.state || 'default'"
           :file-description="Descriptions.diet"
@@ -262,6 +262,7 @@ export default defineComponent({
           file-label="Foods Recipes"
           @setFile="(p: SetFilePayload) => setFile(p, foodsRecipesFile!)"
           @reset="() => resetFile(foodsRecipesFile!)"
+          @download="() => downloadFile(foodsRecipesFile!)"
           :fileName="foodsRecipesFile?.name || foodsRecipesFile?.defaultName"
           :state="foodsRecipesFile?.state || 'default'"
           :file-description="Descriptions.recipes"
@@ -271,6 +272,7 @@ export default defineComponent({
           file-label="RPC Origin & Waste"
           @setFile="(p: SetFilePayload) => setFile(p, rpcOriginWasteFile)"
           @reset="() => resetFile(rpcOriginWasteFile!)"
+          @download="() => downloadFile(rpcOriginWasteFile!)"
           :fileName="rpcOriginWasteFile?.name || rpcOriginWasteFile?.defaultName"
           :state="rpcOriginWasteFile?.state || 'default'"
           :file-description="Descriptions.rpcOriginWaste"
@@ -280,6 +282,7 @@ export default defineComponent({
           file-label="Processes Energy Demands"
           @setFile="(p: SetFilePayload) => setFile(p, processesEnergyDemandsFile)"
           @reset="() => resetFile(processesEnergyDemandsFile!)"
+          @download="() => downloadFile(processesEnergyDemandsFile!)"
           :fileName="processesEnergyDemandsFile?.name || processesEnergyDemandsFile?.defaultName"
           :state="processesEnergyDemandsFile?.state || 'default'"
           :file-description="Descriptions.processesEnergyDemands"
@@ -289,6 +292,7 @@ export default defineComponent({
           file-label="Preparation Processes and Packaging"
           @setFile="(p: SetFilePayload) => setFile(p, preparationProcessesAndPackagingFile)"
           @reset="() => resetFile(preparationProcessesAndPackagingFile!)"
+          @download="() => downloadFile(preparationProcessesAndPackagingFile!)"
           :fileName="preparationProcessesAndPackagingFile?.name ||
           preparationProcessesAndPackagingFile?.defaultName"
           :state="preparationProcessesAndPackagingFile?.state || 'default'"
@@ -298,6 +302,7 @@ export default defineComponent({
           file-label="Consumer- and Retail wastes"
           @setFile="(p: SetFilePayload) => setFile(p, wasteRetailAndConsumerFile)"
           @reset="() => resetFile(wasteRetailAndConsumerFile!)"
+          @download="() => downloadFile(wasteRetailAndConsumerFile!)"
           :fileName="wasteRetailAndConsumerFile?.name ||
           wasteRetailAndConsumerFile?.defaultName"
           :state="wasteRetailAndConsumerFile?.state || 'default'"
@@ -309,6 +314,7 @@ export default defineComponent({
           file-label="Emissions Factors Packaging"
           @setFile="(p: SetFilePayload) => setFile(p, emissionsFactorsPackagingFile)"
           @reset="() => resetFile(emissionsFactorsPackagingFile!)"
+          @download="() => downloadFile(emissionsFactorsPackagingFile!)"
           :fileName="emissionsFactorsPackagingFile?.name ||
           emissionsFactorsPackagingFile?.defaultName"
           :state="emissionsFactorsPackagingFile?.state || 'default'"
@@ -318,6 +324,7 @@ export default defineComponent({
           file-label="Emissions Factors Energy"
           @setFile="(p: SetFilePayload) => setFile(p, emissionsFactorsEnergyFile)"
           @reset="() => resetFile(emissionsFactorsEnergyFile!)"
+          @download="() => downloadFile(emissionsFactorsEnergyFile!)"
           :fileName="emissionsFactorsEnergyFile?.name ||
           emissionsFactorsEnergyFile?.defaultName"
           :state="emissionsFactorsEnergyFile?.state || 'default'"
@@ -327,6 +334,7 @@ export default defineComponent({
           file-label="Emissions Factors Transport"
           @setFile="(p: SetFilePayload) => setFile(p, emissionsFactorsTransportFile)"
           @reset="() => resetFile(emissionsFactorsTransportFile!)"
+          @download="() => downloadFile(emissionsFactorsTransportFile!)"
           :fileName="emissionsFactorsTransportFile?.name ||
           emissionsFactorsTransportFile?.defaultName"
           :state="emissionsFactorsTransportFile?.state || 'default'"
