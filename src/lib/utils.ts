@@ -38,7 +38,7 @@ export const partition = <T>(array: T[], predicate: (el: T) => boolean) =>
       }
       return lists;
     },
-    [[], []],
+    [[], []]
   );
 
 export function vectorSum(xs: number[], ys: number[]) {
@@ -123,7 +123,7 @@ export const listAllProcesses = (data: NestedRecord<string, number[]>) =>
   uniq(
     Object.values(data)
       .map((obj) => Object.keys(obj))
-      .flat(1),
+      .flat(1)
   );
 
 /**
@@ -133,7 +133,7 @@ export const nthIndexOf = (
   string: string,
   searchString: string,
   nth: number,
-  fromIndex = 0,
+  fromIndex = 0
 ): number => {
   const index = string.indexOf(searchString, fromIndex);
 

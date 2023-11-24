@@ -4,16 +4,16 @@
 
 import { uniq } from "@/lib/utils";
 import { expandedImpacts, AGGREGATE_HEADERS } from "@/lib/impacts-csv-utils";
-
-import categoryNamesJson from "@/data/category-names.json";
-
+import * as DefaultInputFiles from "@/lib/default-input-files";
 import ResultsEngine from "@/lib/ResultsEngine";
 import {
   ENV_IMPACTS_ZERO,
   LL_COUNTRY_CODES,
   TRANSPORT_EMISSIONS_ZERO,
-} from "../constants";
-import * as DefaultInputFiles from "../default-input-files";
+} from "@/lib/constants";
+import { configureResultsEngine } from "@/lib/default-input-files";
+
+import categoryNamesJson from "@/data/category-names.json";
 
 type LlCountryName =
   | "France"
@@ -22,7 +22,6 @@ type LlCountryName =
   | "Hungary"
   | "Ireland"
   | "Italy"
-  | "Poland"
   | "Spain"
   | "Sweden"
   | "SwedenBaseline";
@@ -41,75 +40,34 @@ const LL_COUNTRIES: LlCountryName[] = [
 
 const categoryNames = categoryNamesJson as Record<string, string>;
 
-export async function computeFootprintsForDiets(
-  envFactors?: RpcFootprintsByOrigin
-): Promise<[string, string[][]][]> {
-  const rpcFiles = {
-    France: await DefaultInputFiles.parsed.rpcOriginWaste("FR"),
-    Germany: await DefaultInputFiles.parsed.rpcOriginWaste("DE"),
-    Greece: await DefaultInputFiles.parsed.rpcOriginWaste("GR"),
-    Hungary: await DefaultInputFiles.parsed.rpcOriginWaste("HU"),
-    Ireland: await DefaultInputFiles.parsed.rpcOriginWaste("IE"),
-    Italy: await DefaultInputFiles.parsed.rpcOriginWaste("IT"),
-    Spain: await DefaultInputFiles.parsed.rpcOriginWaste("ES"),
-    Sweden: await DefaultInputFiles.parsed.rpcOriginWaste("SE"),
-    SwedenBaseline: await DefaultInputFiles.parsed.rpcOriginWaste("SE"),
-  } as Record<LlCountryName, RpcOriginWaste>;
-
-  const dietFiles = {
-    France: await DefaultInputFiles.parsed.diet("FR"),
-    Germany: await DefaultInputFiles.parsed.diet("DE"),
-    Greece: await DefaultInputFiles.parsed.diet("GR"),
-    Hungary: await DefaultInputFiles.parsed.diet("HU"),
-    Ireland: await DefaultInputFiles.parsed.diet("IE"),
-    Italy: await DefaultInputFiles.parsed.diet("IT"),
-    Spain: await DefaultInputFiles.parsed.diet("ES"),
-    Sweden: await DefaultInputFiles.parsed.diet("SE"),
-    SwedenBaseline: await DefaultInputFiles.parsed.diet("SE-B"),
-  } as Record<string, Diet>;
-
+export async function computeFootprintsForDiets(): Promise<
+  [string, string[][]][]
+> {
   const RE = new ResultsEngine();
-  RE.setFoodsRecipes(await DefaultInputFiles.parsed.foodsRecipes());
-  RE.setFootprintsRpcs(
-    envFactors || (await DefaultInputFiles.parsed.footprintsRpcs())
-  );
-  RE.setEmissionsFactorsPackaging(
-    await DefaultInputFiles.parsed.emissionsFactorsPackaging()
-  );
-  RE.setEmissionsFactorsEnergy(
-    await DefaultInputFiles.parsed.emissionsFactorsEnergy()
-  );
-  RE.setEmissionsFactorsTransport(
-    await DefaultInputFiles.parsed.emissionsFactorsTransport()
-  );
-  RE.setProcessesEnergyDemands(
-    await DefaultInputFiles.parsed.processesEnergyDemands()
-  );
-  RE.setPrepProcessesAndPackaging(
-    await DefaultInputFiles.parsed.preparationProcessesAndPackaging()
-  );
 
-  const wastesRetailAndConsumer: NestedRecord<string, number[]> = {};
-  for (const countryName of LL_COUNTRIES) {
-    if (countryName === "SwedenBaseline") continue;
-    const countryCode = LL_COUNTRY_CODES[countryName];
-    wastesRetailAndConsumer[countryCode] =
-      await DefaultInputFiles.parsed.wasteRetailAndConsumer(countryCode);
-  }
+  const diets: Record<LlCountryName, Diet> = {
+    France: await DefaultInputFiles.parsed.diet("France"),
+    Germany: await DefaultInputFiles.parsed.diet("Germany"),
+    Greece: await DefaultInputFiles.parsed.diet("Greece"),
+    Hungary: await DefaultInputFiles.parsed.diet("Hungary"),
+    Ireland: await DefaultInputFiles.parsed.diet("Ireland"),
+    Italy: await DefaultInputFiles.parsed.diet("Italy"),
+    Spain: await DefaultInputFiles.parsed.diet("Spain"),
+    Sweden: await DefaultInputFiles.parsed.diet("Sweden"),
+    SwedenBaseline: await DefaultInputFiles.parsed.diet("SwedenBaseline"),
+  };
 
   const allResults = LL_COUNTRIES.map((countryName) => {
+    const countryCode = LL_COUNTRY_CODES[countryName];
     if (countryName === "SwedenBaseline") {
-      RE.setCountryCode("SE");
-      RE.setWasteRetailAndConsumer(wastesRetailAndConsumer["SE"]);
+      configureResultsEngine(RE, "SE");
     } else {
-      const countryCode = LL_COUNTRY_CODES[countryName];
-      RE.setWasteRetailAndConsumer(wastesRetailAndConsumer[countryCode]);
-      RE.setCountryCode(countryCode);
+      configureResultsEngine(RE, countryCode);
     }
 
-    RE.setRpcOriginWaste(rpcFiles[countryName]);
+    const diet = diets[countryName];
+    const results = RE.computeImpactsByCategory(diet);
 
-    const results = RE.computeImpactsByCategory(dietFiles[countryName]);
     if (results === null) return null;
     const categories = uniq([
       ...Object.keys(results[0]),
@@ -136,14 +94,12 @@ export async function computeFootprintsForDiets(
   return allResults;
 }
 
-export default async function computeFootprintsForEachRpcWithOrigin(
-  envFactors?: RpcFootprintsByOrigin
-): Promise<string[][]> {
+export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
+  string[][]
+> {
   const HEADER = ["Category Code", "Category Name", ...AGGREGATE_HEADERS];
-  return (await computeFootprintsForDiets(envFactors)).map(
-    ([country, data]) => [
-      country,
-      HEADER + "\n" + data.map((row) => row.join(",")).join("\n"),
-    ]
-  );
+  return (await computeFootprintsForDiets()).map(([country, data]) => [
+    country,
+    HEADER + "\n" + data.map((row) => row.join(",")).join("\n"),
+  ]);
 }
