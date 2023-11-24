@@ -111,6 +111,16 @@ export default defineComponent({
   watch: {
     countryCode() {
       this.RE.setCountryCode(this.countryCode);
+
+      if (this.rpcOriginWasteFile?.state === "default") {
+        this.resetFile(this.rpcOriginWasteFile);
+      }
+      if (this.wasteRetailAndConsumerFile?.state === "default") {
+        this.resetFile(this.wasteRetailAndConsumerFile);
+      }
+      if (this.dietFile?.state === "default") {
+        this.resetFile(this.dietFile);
+      }
     },
   },
 
