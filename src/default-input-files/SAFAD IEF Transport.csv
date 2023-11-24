@@ -1,4 +1,4 @@
-"Emission factors for export to LL-countries, kg gas / kg product",,,,,,"Note: These numbers are not updated automatically when changes are made in the Transport EF tabs. Must be updated manually",
+"Importing, Code","Importing, Name","Exported from, Code","Exported from, Name","Carbon Footprint","Carbon dioxide","Methane","Nitrous oxide"
 "DE","Germany","AL","Albania",0.15781243044286,0.1512325105,0.0001337580462,0.0000095015757
 "DE","Germany","AR","Argentina",0.205589070722653,0.19738859973,0.00017642792332,0.000010779922629
 "DE","Germany","AT","Austria",0.05768053416798,0.0552753945,0.0000489239646,0.0000034696173
