@@ -15,10 +15,9 @@ const LL_COUNTRY_CODES: string[] = [
   "HU",
   "IE",
   "IT",
-  // "PL",
   "ES",
   "SE",
-]
+];
 
 const LL_COUNTRY_NAMES: Record<string, string> = {
   FR: "France",
@@ -42,33 +41,43 @@ interface FileInterface<T> {
   name: string;
   defaultName: string;
   data: null | string;
-  getDefault: (country: string) => Promise<string>,
+  getDefault: (country: string) => Promise<string>;
   parser: (data: string) => T;
   setter: (data: T) => void;
 }
 
 const initFileInterface = <T>(
   partialFileInterface: Pick<
-    FileInterface<T>, "defaultName" | "getDefault" | "parser" | "setter"
+    FileInterface<T>,
+    "defaultName" | "getDefault" | "parser" | "setter"
   >
 ): FileInterface<T> => ({
   state: "default",
   name: "",
   data: null,
-  ...partialFileInterface
+  ...partialFileInterface,
 });
 
 const Descriptions = {
-  footprintsRpc: "File with footprints of all raw commodities (crops, animal products, blue and novel foods) from different production countries (without any waste, conversion or allocation).",
+  footprintsRpc:
+    "File with footprints of all raw commodities (crops, animal products, blue and novel foods) from different production countries (without any waste, conversion or allocation).",
   diet: "File that contains the amount of different foods in diets.",
-  rpcOriginWaste: "File with origins and waste from farm to retail of each country specific RPC.",
-  wasteRetailAndConsumer: "File that specifies the amount of retail and consumer waste for different food types and per country.",
-  recipes: "File that disaggregates food items into their components and finally into its RPC, specifies processing steps, and contains conversion factors from going from RPC to edible RPCs. File with conversion (“reverse yield”-factors), allocation factors and definition of processes for the different food items.",
-  prepProcAndPack: "File with additional processing steps for composite foods (e.g. baking for bread) and specification of the types of packaging used.",
-  processesEnergyDemands: "File that contains the amount and type of energy sources that each process uses.",
-  emissionsFactorsEnergy: "Emission factors for electricity for different countries and other energy carriers (e.g. heating oil).",
-  emissionsFactorsPackaging: "Emissions factors for different types of packaging.",
-  emissionsFactorsTransport: "Emissions factors for transports between different countries.",
+  rpcOriginWaste:
+    "File with origins and waste from farm to retail of each country specific RPC.",
+  wasteRetailAndConsumer:
+    "File that specifies the amount of retail and consumer waste for different food types and per country.",
+  recipes:
+    "File that disaggregates food items into their components and finally into its RPC, specifies processing steps, and contains conversion factors from going from RPC to edible RPCs. File with conversion (“reverse yield”-factors), allocation factors and definition of processes for the different food items.",
+  prepProcAndPack:
+    "File with additional processing steps for composite foods (e.g. baking for bread) and specification of the types of packaging used.",
+  processesEnergyDemands:
+    "File that contains the amount and type of energy sources that each process uses.",
+  emissionsFactorsEnergy:
+    "Emission factors for electricity for different countries and other energy carriers (e.g. heating oil).",
+  emissionsFactorsPackaging:
+    "Emissions factors for different types of packaging.",
+  emissionsFactorsTransport:
+    "Emissions factors for transports between different countries.",
 };
 
 export default defineComponent({
@@ -80,26 +89,31 @@ export default defineComponent({
 
       Descriptions,
 
-      RE: (new ResultsEngine()) as ResultsEngine,
+      RE: new ResultsEngine() as ResultsEngine,
       countryCode: "SE",
       diet: [] as Diet,
 
-      emissionsFactorsPackagingFile:
-        null as null | FileInterface<Record<string, number[]>>,
+      emissionsFactorsPackagingFile: null as null | FileInterface<
+        Record<string, number[]>
+      >,
       emissionsFactorsEnergyFile: null as null | FileInterface<
         Record<string, number[] | Record<string, number[]>>
       >,
-      emissionsFactorsTransportFile:
-        null as null | FileInterface<NestedRecord<string, number[]>>,
+      emissionsFactorsTransportFile: null as null | FileInterface<
+        NestedRecord<string, number[]>
+      >,
 
       foodsRecipesFile: null as null | FileInterface<FoodsRecipes>,
       rpcOriginWasteFile: null as null | FileInterface<RpcOriginWaste>,
-      processesEnergyDemandsFile:
-        null as null | FileInterface<Record<string, number[]>>,
-      preparationProcessesAndPackagingFile:
-        null as null | FileInterface<Record<string, string>>,
-      wasteRetailAndConsumerFile:
-        null as null | FileInterface<Record<string, number[]>>,
+      processesEnergyDemandsFile: null as null | FileInterface<
+        Record<string, number[]>
+      >,
+      preparationProcessesAndPackagingFile: null as null | FileInterface<
+        Record<string, string>
+      >,
+      wasteRetailAndConsumerFile: null as null | FileInterface<
+        Record<string, number[]>
+      >,
 
       footprintsRpcsFile: null as null | FileInterface<RpcFootprintsByOrigin>,
       dietFile: null as null | FileInterface<Diet>,
@@ -129,10 +143,13 @@ export default defineComponent({
       const impacts = this.RE.computeImpacts(this.diet);
       console.log(impacts);
     },
+
     async resetFile<T>(fileInterface: FileInterface<T>) {
       if (!fileInterface) return;
 
-      fileInterface.setter(fileInterface.parser(await fileInterface.getDefault(this.countryCode)));
+      fileInterface.setter(
+        fileInterface.parser(await fileInterface.getDefault(this.countryCode))
+      );
       fileInterface.name = "";
       fileInterface.state = "default";
       fileInterface.data = null;
@@ -152,7 +169,10 @@ export default defineComponent({
 
     async downloadFile<T>(fileInterface: FileInterface<T>) {
       if (fileInterface.state === "default") {
-        downloadAsPlaintext(await fileInterface.getDefault(this.countryCode), fileInterface.defaultName);
+        downloadAsPlaintext(
+          await fileInterface.getDefault(this.countryCode),
+          fileInterface.defaultName
+        );
       } else {
         downloadAsPlaintext(fileInterface.data || "", fileInterface.name);
       }
@@ -177,7 +197,14 @@ export default defineComponent({
       defaultName: "SAFAD ID Diet Spec.csv",
       getDefault: DefaultInputFiles.raw.diet,
       parser: InputFileParsers.parseDiet,
-      setter: (data: Diet) => { this.diet = data },
+      setter: (data: Diet) => {
+        this.diet = data;
+      },
+    });
+    // Diet needs to be handled explicitly, as it's not managed in the
+    // "configureResultsEngine" builder function
+    this.dietFile.getDefault(this.countryCode).then((diet) => {
+      this.dietFile?.setter(this.dietFile.parser(diet));
     });
 
     this.foodsRecipesFile = initFileInterface({
@@ -237,12 +264,19 @@ export default defineComponent({
   <section class="start-page">
     <header class="cluster cluster--center">
       <img src="@/assets/slu-logo.svg" class="start-page__logo" />
-      <h1><b>S</b>ustainable <b>A</b>ssesment of <b>F</b>oods <b>A</b>nd <b>D</b>iets</h1>
+      <h1>
+        <b>S</b>ustainable <b>A</b>ssesment of <b>F</b>oods <b>A</b>nd
+        <b>D</b>iets
+      </h1>
     </header>
     <div class="stack u-tac start-page__main">
       <h3>Living Lab Country</h3>
       <select v-model="countryCode">
-        <option v-for="code in LL_COUNTRY_CODES" :value="code" v-text="LL_COUNTRY_NAMES[code]" />
+        <option
+          v-for="code in LL_COUNTRY_CODES"
+          :value="code"
+          v-text="LL_COUNTRY_NAMES[code]"
+        />
       </select>
       <h3>Input Data</h3>
 
@@ -265,7 +299,7 @@ export default defineComponent({
         :state="dietFile?.state || 'default'"
         :file-description="Descriptions.diet"
       />
-      <h3>Parameter Files </h3>
+      <h3>Parameter Files</h3>
 
       <FileSelector
         file-label="Foods Recipes"
@@ -292,18 +326,26 @@ export default defineComponent({
         @setFile="(p: SetFilePayload) => setFile(p, processesEnergyDemandsFile)"
         @reset="() => resetFile(processesEnergyDemandsFile!)"
         @download="() => downloadFile(processesEnergyDemandsFile!)"
-        :fileName="processesEnergyDemandsFile?.name || processesEnergyDemandsFile?.defaultName"
+        :fileName="
+          processesEnergyDemandsFile?.name ||
+          processesEnergyDemandsFile?.defaultName
+        "
         :state="processesEnergyDemandsFile?.state || 'default'"
         :file-description="Descriptions.processesEnergyDemands"
       />
 
       <FileSelector
         file-label="Preparation Processes and Packaging"
-        @setFile="(p: SetFilePayload) => setFile(p, preparationProcessesAndPackagingFile)"
+        @setFile="
+          (p: SetFilePayload) =>
+            setFile(p, preparationProcessesAndPackagingFile)
+        "
         @reset="() => resetFile(preparationProcessesAndPackagingFile!)"
         @download="() => downloadFile(preparationProcessesAndPackagingFile!)"
-        :fileName="preparationProcessesAndPackagingFile?.name ||
-        preparationProcessesAndPackagingFile?.defaultName"
+        :fileName="
+          preparationProcessesAndPackagingFile?.name ||
+          preparationProcessesAndPackagingFile?.defaultName
+        "
         :state="preparationProcessesAndPackagingFile?.state || 'default'"
         :file-description="Descriptions.prepProcAndPack"
       />
@@ -312,8 +354,10 @@ export default defineComponent({
         @setFile="(p: SetFilePayload) => setFile(p, wasteRetailAndConsumerFile)"
         @reset="() => resetFile(wasteRetailAndConsumerFile!)"
         @download="() => downloadFile(wasteRetailAndConsumerFile!)"
-        :fileName="wasteRetailAndConsumerFile?.name ||
-        wasteRetailAndConsumerFile?.defaultName"
+        :fileName="
+          wasteRetailAndConsumerFile?.name ||
+          wasteRetailAndConsumerFile?.defaultName
+        "
         :state="wasteRetailAndConsumerFile?.state || 'default'"
         :file-description="Descriptions.wasteRetailAndConsumer"
       />
@@ -321,11 +365,15 @@ export default defineComponent({
       <h3>Emissions Factors</h3>
       <FileSelector
         file-label="Emissions Factors Packaging"
-        @setFile="(p: SetFilePayload) => setFile(p, emissionsFactorsPackagingFile)"
+        @setFile="
+          (p: SetFilePayload) => setFile(p, emissionsFactorsPackagingFile)
+        "
         @reset="() => resetFile(emissionsFactorsPackagingFile!)"
         @download="() => downloadFile(emissionsFactorsPackagingFile!)"
-        :fileName="emissionsFactorsPackagingFile?.name ||
-        emissionsFactorsPackagingFile?.defaultName"
+        :fileName="
+          emissionsFactorsPackagingFile?.name ||
+          emissionsFactorsPackagingFile?.defaultName
+        "
         :state="emissionsFactorsPackagingFile?.state || 'default'"
         :file-description="Descriptions.emissionsFactorsPackaging"
       />
@@ -334,18 +382,24 @@ export default defineComponent({
         @setFile="(p: SetFilePayload) => setFile(p, emissionsFactorsEnergyFile)"
         @reset="() => resetFile(emissionsFactorsEnergyFile!)"
         @download="() => downloadFile(emissionsFactorsEnergyFile!)"
-        :fileName="emissionsFactorsEnergyFile?.name ||
-        emissionsFactorsEnergyFile?.defaultName"
+        :fileName="
+          emissionsFactorsEnergyFile?.name ||
+          emissionsFactorsEnergyFile?.defaultName
+        "
         :state="emissionsFactorsEnergyFile?.state || 'default'"
         :file-description="Descriptions.emissionsFactorsEnergy"
       />
       <FileSelector
         file-label="Emissions Factors Transport"
-        @setFile="(p: SetFilePayload) => setFile(p, emissionsFactorsTransportFile)"
+        @setFile="
+          (p: SetFilePayload) => setFile(p, emissionsFactorsTransportFile)
+        "
         @reset="() => resetFile(emissionsFactorsTransportFile!)"
         @download="() => downloadFile(emissionsFactorsTransportFile!)"
-        :fileName="emissionsFactorsTransportFile?.name ||
-        emissionsFactorsTransportFile?.defaultName"
+        :fileName="
+          emissionsFactorsTransportFile?.name ||
+          emissionsFactorsTransportFile?.defaultName
+        "
         :state="emissionsFactorsTransportFile?.state || 'default'"
         :file-description="Descriptions.emissionsFactorsTransport"
       />
