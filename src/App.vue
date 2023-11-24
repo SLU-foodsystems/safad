@@ -235,12 +235,11 @@ export default defineComponent({
 
 <template>
   <section class="start-page">
-    <div class="stack u-tac">
-      <div class="cluster cluster--center">
-        <img src="@/assets/slu-logo.svg" class="start-page__logo" />
-      </div>
-      <h2>SLU SAFAD</h2>
-      <div class="stack">
+    <header class="cluster cluster--center">
+      <img src="@/assets/slu-logo.svg" class="start-page__logo" />
+      <h1><b>S</b>ustainable <b>A</b>ssesment of <b>F</b>oods <b>A</b>nd <b>D</b>iets</h1>
+    </header>
+    <div class="stack u-tac start-page__main">
         <h3>Living Lab Country</h3>
         <select v-model="countryCode">
           <option v-for="code in LL_COUNTRY_CODES" :value="code" v-text="LL_COUNTRY_NAMES[code]" />
@@ -353,7 +352,6 @@ export default defineComponent({
         <div class="cluster cluster--center">
           <button class="button button--accent" @click="compute">Compute</button>
         </div>
-      </div>
     </div>
   </section>
 </template>
@@ -366,33 +364,42 @@ export default defineComponent({
   grid-column-start: sidebar-start;
   grid-row-end: results-end;
   grid-column-end: results-end;
+  display: block;
 
   background: $lightgray;
 
   height: 100%;
   width: 100%;
+  padding: 0;
+  padding-bottom: 2em;
+}
+
+header {
+  width: 100%;
   padding: 2em 0;
+  margin-bottom: 2em;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  > div {
-    flex-basis: 30em;
-  }
-
-  select {
-    width: 20em;
-    margin-left: auto;
-    margin-right: auto;
-    flex-grow: 1;
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 0;
   }
 }
 
 .start-page__logo {
   width: auto;
-  height: 4em;
-  margin: 0 auto;
-  margin-bottom: 2em;
+  height: 3em;
 }
+
+.start-page__main {
+  width: auto;
+  margin: 0 auto;
+}
+
+select {
+  width: 20em;
+  margin-left: auto;
+  margin-right: auto;
+  flex-grow: 1;
+}
+
 </style>

@@ -112,6 +112,8 @@ export default defineComponent({
   background: white;
   padding: 1em;
   text-align: left;
+  margin-left: auto;
+  margin-right: auto;
 
   $base-box-shadow: 0 0.3em 0.75em -0.65em rgba(black, 0.5);
   box-shadow: $base-box-shadow;
