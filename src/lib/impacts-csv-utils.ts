@@ -5,6 +5,18 @@ import {
   TRANSPORT_EMISSIONS_ZERO,
 } from "@/lib/constants";
 
+import {
+  getRpcCodeSubset,
+  listAllProcesses,
+  maybeQuoteValue,
+} from "@/lib/utils";
+
+import categoryNamesJson from "@/data/category-names.json";
+import namesJson from "@/data/rpc-names.json";
+
+const categoryNames = categoryNamesJson as Record<string, string>;
+const names = namesJson as Record<string, string>;
+
 export const AGGREGATE_HEADERS = [
   // Aggregate over rpcs, processes, and packaging
   "Carbon_footprint_tot",
@@ -46,6 +58,22 @@ export const AGGREGATE_HEADERS = [
   "CH4_fossil_transp",
   "N2O_transp",
 ];
+
+export const DETAILED_RESULTS_HEADER = [
+  "Code",
+  "Name",
+  "L1 Category",
+  "L2 Category",
+  "Amount (g)",
+  ...AGGREGATE_HEADERS,
+  "Processes",
+  "Packeting",
+];
+
+const getCategoryName = (code: string, level: number) => {
+  const levelCode = getRpcCodeSubset(code, level);
+  return categoryNames[levelCode] || `NOT FOUND (${levelCode})`;
+};
 
 export function expandedImpacts(
   rpcFootprints: number[],
@@ -126,4 +154,41 @@ export function aggregateImpacts(
     totalPackagingEmissions,
     totalTransportEmissions
   );
+}
+
+export function labeledImpacts(
+  code: string,
+  amount: number,
+  impacts: ImpactsTuple
+): string[] {
+  const [rpcImpacts, processImpacts, packagingImpacts, transportEmissions] =
+    impacts;
+  const processes = listAllProcesses(processImpacts).join("$");
+  const packeting = listAllProcesses(packagingImpacts).join("$");
+
+  return [
+    code,
+    maybeQuoteValue(names[code] || "NAME NOT FOUND"),
+    maybeQuoteValue(getCategoryName(code, 1)),
+    maybeQuoteValue(getCategoryName(code, 2)),
+    amount.toFixed(2),
+    ...aggregateImpacts(
+      rpcImpacts,
+      processImpacts,
+      packagingImpacts,
+      transportEmissions
+    ).map((x) => x.toString()),
+    processes,
+    packeting,
+  ];
+}
+
+export function labeledAndFilteredImpacts(
+  entries: [string, number, ImpactsTuple][]
+): string[][] {
+  return entries
+    .map(([code, amount, impacts]) =>
+      impacts === null ? null : labeledImpacts(code, amount, impacts)
+    )
+    .filter((x): x is string[] => x !== null);
 }

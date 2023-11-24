@@ -37,4 +37,11 @@ declare global {
       [originCode: string]: [number, number];
     };
   }
+
+  type ImpactsTuple = [
+    Record<string, number[]>,
+    NestedRecord<string, number[]>,
+    NestedRecord<string, number[]>,
+    Record<string, number[]>,
+  ];
 }

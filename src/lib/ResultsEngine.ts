@@ -19,13 +19,6 @@ import {
 import computeTransportEmissions from "./transport-emissions";
 import adjustDietForWaste from "./waste-retail-consumer-adjuster";
 
-type ImpactsTuple = [
-  Record<string, number[]>,
-  NestedRecord<string, number[]>,
-  NestedRecord<string, number[]>,
-  Record<string, number[]>,
-];
-
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
 
 /**
@@ -322,6 +315,25 @@ class ResultsEngine {
     return diet
       .map((entry) => [entry[0], entry[1], this.computeImpacts([entry])])
       .filter((x): x is [string, number, ImpactsTuple] => x[2] !== null);
+  }
+
+  public computeImpactsOfRecipe(): [string, number, ImpactsTuple][] {
+    if (!this.foodsRecipes) {
+      throw new Error(
+        "Called method computeImpactsOfRecipe before recipes were set."
+      );
+    }
+
+    const codesInRecipes = new Set(Object.keys(this.foodsRecipes));
+    Object.values(this.foodsRecipes).forEach((recipe: FoodsRecipeEntry) => {
+      recipe.forEach((component) => {
+        const code = component[0];
+        codesInRecipes.add(code);
+      });
+    });
+
+    const fauxDiet: Diet = [...codesInRecipes].sort().map(code => [code, 1000]);
+    return this.computeImpactsDetailed(fauxDiet);
   }
 
   public computeImpactsByCategory(diet: Diet) {

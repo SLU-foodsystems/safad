@@ -6,7 +6,12 @@ import * as InputFileParsers from "@/lib/input-files-parsers";
 import ResultsEngine from "@/lib/ResultsEngine";
 
 import FileSelector from "@/components/FileSelector.vue";
-import { downloadAsPlaintext } from "./lib/csv-io";
+import { downloadAsPlaintext } from "@/lib/csv-io";
+import { stringifyCsvData } from "@/lib/utils";
+import {
+  labeledAndFilteredImpacts,
+  DETAILED_RESULTS_HEADER,
+} from "@/lib/impacts-csv-utils";
 
 const LL_COUNTRY_CODES: string[] = [
   "FR",
@@ -140,8 +145,35 @@ export default defineComponent({
 
   methods: {
     async compute() {
-      const impacts = this.RE.computeImpacts(this.diet);
-      console.log(impacts);
+      if (!this.RE) return;
+
+      const detailedDietImpacts = labeledAndFilteredImpacts(
+        this.RE.computeImpactsDetailed(this.diet)
+      );
+      const impactsOfRecipe = labeledAndFilteredImpacts(
+        this.RE.computeImpactsOfRecipe()
+      );
+
+      const detailedDietImpactsCsv =
+        DETAILED_RESULTS_HEADER.join(",") +
+        "\n" +
+        stringifyCsvData(detailedDietImpacts);
+
+      const impactsOfRecipeCsv =
+        DETAILED_RESULTS_HEADER.join(",") +
+        "\n" +
+        stringifyCsvData(impactsOfRecipe);
+
+      console.log(detailedDietImpactsCsv);
+      console.log(impactsOfRecipeCsv);
+      downloadAsPlaintext(
+        detailedDietImpactsCsv,
+        "SAFAD OR Footprints per Diet.csv"
+      );
+      downloadAsPlaintext(
+        impactsOfRecipeCsv,
+        "SAFAD OR Footprints per Food.csv"
+      );
     },
 
     async resetFile<T>(fileInterface: FileInterface<T>) {

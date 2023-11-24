@@ -40,9 +40,7 @@ export default defineComponent({
 
   methods: {
     async run() {
-      const countriesAndDiets = await computeFootprintsForDiets(
-        this.rpcFootprints
-      );
+      const countriesAndDiets = await computeFootprintsForDiets();
       const limits = PLANETARY_BOUNDARY_LIMITS as Record<string, number>;
       const names: Record<string, string> = {
         co2e: "Carbon Footprint",
