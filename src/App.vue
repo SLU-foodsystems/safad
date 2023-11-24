@@ -158,65 +158,65 @@ export default defineComponent({
     DefaultInputFiles.configureResultsEngine(this.RE, this.countryCode);
 
     this.footprintsRpcsFile = initFileInterface({
-      defaultName: "footprints-rpcs.csv",
+      defaultName: "SAFAD ID Footprints RPC.csv",
       getDefault: DefaultInputFiles.raw.footprintsRpcs,
       parser: InputFileParsers.parseFootprintsRpcs,
       setter: this.RE.setFootprintsRpcs,
     });
 
     this.dietFile = initFileInterface({
-      defaultName: "diet.csv",
+      defaultName: "SAFAD ID Diet Spec.csv",
       getDefault: DefaultInputFiles.raw.diet,
       parser: InputFileParsers.parseDiet,
       setter: (data: Diet) => { this.diet = data },
     });
 
+    this.foodsRecipesFile = initFileInterface({
+      defaultName: "SAFAD IP Recipes.csv",
+      getDefault: DefaultInputFiles.raw.foodsRecipes,
+      parser: InputFileParsers.parseFoodsRecipes,
+      setter: this.RE.setFoodsRecipes,
+    });
     this.rpcOriginWasteFile = initFileInterface({
-      defaultName: "rpc-parameters.csv",
+      defaultName: "SAFAD IP Origin and Waste of RPC.csv",
       getDefault: DefaultInputFiles.raw.rpcOriginWaste,
       parser: InputFileParsers.parseRpcOriginWaste,
       setter: this.RE.setRpcOriginWaste,
     });
     this.processesEnergyDemandsFile = initFileInterface({
-      defaultName: "processes-energy-demands.csv",
+      defaultName: "SAFAD IP Energy Proc.csv",
       getDefault: DefaultInputFiles.raw.processesEnergyDemands,
       parser: InputFileParsers.parseEmissionsFactorsPackaging,
       setter: this.RE.setEmissionsFactorsPackaging,
     });
     this.preparationProcessesAndPackagingFile = initFileInterface({
-      defaultName: "prep-processes-and-packaging.csv",
+      defaultName: "SAFAD IP Prep Proc and Pack.csv",
       getDefault: DefaultInputFiles.raw.preparationProcessesAndPackaging,
       parser: InputFileParsers.parseProcessesPackaging,
       setter: this.RE.setPrepProcessesAndPackaging,
     });
     this.wasteRetailAndConsumerFile = initFileInterface({
-      defaultName: "waste-retail-and-consumer.csv",
+      defaultName: "SAFAD IP Waste Retail and Cons.csv",
       getDefault: DefaultInputFiles.raw.wasteRetailAndConsumer,
       parser: InputFileParsers.parseWasteRetailAndConsumer,
       setter: this.RE.setWasteRetailAndConsumer,
     });
 
-    this.foodsRecipesFile = initFileInterface({
-      defaultName: "foods-recipes.csv",
-      getDefault: DefaultInputFiles.raw.foodsRecipes,
-      parser: InputFileParsers.parseFoodsRecipes,
-      setter: this.RE.setFoodsRecipes,
-    });
 
-    this.emissionsFactorsPackagingFile = initFileInterface({
-      defaultName: "emissions-factors-packaging.csv",
-      getDefault: DefaultInputFiles.raw.emissionsFactorsPackaging,
-      parser: InputFileParsers.parseEmissionsFactorsPackaging,
-      setter: this.RE.setEmissionsFactorsPackaging,
-    });
     this.emissionsFactorsEnergyFile = initFileInterface({
-      defaultName: "emissions-factors-energy.csv",
+      defaultName: "SAFAD IEF Energy.csv",
       getDefault: DefaultInputFiles.raw.emissionsFactorsEnergy,
       parser: InputFileParsers.parseEmissionsFactorsEnergy,
       setter: this.RE.setEmissionsFactorsEnergy,
     });
+    this.emissionsFactorsPackagingFile = initFileInterface({
+      defaultName: "SAFAD IEF Packaging.csv",
+      getDefault: DefaultInputFiles.raw.emissionsFactorsPackaging,
+      parser: InputFileParsers.parseEmissionsFactorsPackaging,
+      setter: this.RE.setEmissionsFactorsPackaging,
+    });
     this.emissionsFactorsTransportFile = initFileInterface({
-      defaultName: "emissions-factors-transport.csv",
+      defaultName: "SAFAD IEF Transport.csv",
       getDefault: DefaultInputFiles.raw.emissionsFactorsTransport,
       parser: InputFileParsers.parseEmissionsFactorsTransport,
       setter: this.RE.setEmissionsFactorsTransport,
