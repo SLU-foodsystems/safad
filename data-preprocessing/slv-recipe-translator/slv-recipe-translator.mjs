@@ -122,6 +122,7 @@ function main(args) {
   const results = {};
   ingredientsList.forEach(
     ({ slvId, foodEx2Code, grossShare, code, netShare, process }) => {
+      if (perc2Decimal(grossShare) === 0 && perc2Decimal(netShare) === 0) return;
       if (!results[slvId]) {
         results[slvId] = [];
       }
