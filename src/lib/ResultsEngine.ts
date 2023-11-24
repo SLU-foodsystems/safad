@@ -19,6 +19,13 @@ import {
 import computeTransportEmissions from "./transport-emissions";
 import adjustDietForWaste from "./waste-retail-consumer-adjuster";
 
+type ImpactsTuple = [
+  Record<string, number[]>,
+  NestedRecord<string, number[]>,
+  NestedRecord<string, number[]>,
+  Record<string, number[]>,
+];
+
 const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
 
 /**
@@ -194,16 +201,7 @@ class ResultsEngine {
     this.preparationProcessesAndPackaging = processesAndPackaging;
   }
 
-  public computeImpacts(
-    diet: Diet
-  ):
-    | null
-    | [
-        Record<string, number[]>,
-        NestedRecord<string, number[]>,
-        NestedRecord<string, number[]>,
-        Record<string, number[]>
-      ] {
+  public computeImpacts(diet: Diet): null | ImpactsTuple {
     if (!this.footprintsRpcsPerOrigin) {
       console.error(
         "Compute called when no environmentalFactorsSheet was set."
@@ -318,6 +316,12 @@ class ResultsEngine {
       packagingEnvImpacts,
       transportEnvImpacts,
     ];
+  }
+
+  public computeImpactsDetailed(diet: Diet): [string, number, ImpactsTuple][] {
+    return diet
+      .map((entry) => [entry[0], entry[1], this.computeImpacts([entry])])
+      .filter((x): x is [string, number, ImpactsTuple] => x[2] !== null);
   }
 
   public computeImpactsByCategory(diet: Diet) {
