@@ -5,27 +5,27 @@ import type ResultsEngine from "./ResultsEngine";
  * Define all files we're importing, first the ones that are independent of
  * country, and then the ones dependent on country (code).
  */
-import emissionsFactorsPackagingUrl from "@/default-input-files/emissions-factors-packaging.csv?url";
-import emissionsFactorsEnergyUrl from "@/default-input-files/emissions-factors-energy.csv?url";
-import emissionsFactorsTransportUrl from "@/default-input-files/emissions-factors-transport.csv?url";
-import processesEnergyDemandsUrl from "@/default-input-files/processes-energy-demands.csv?url";
-import preparationProcessesAndPackagingUrl from "@/default-input-files/preparation-processes-and-packaging.csv?url";
-import footprintsRpcsUrl from "@/default-input-files/footprints-rpcs.csv?url";
-import foodsRecipesUrl from "@/default-input-files/foods-recipes.csv?url";
+import emissionsFactorsEnergyUrl from "@/default-input-files/SAFAD IEF Energy.csv?url";
+import emissionsFactorsPackagingUrl from "@/default-input-files/SAFAD IEF Packaging.csv?url";
+import emissionsFactorsTransportUrl from "@/default-input-files/SAFAD IEF Transport.csv?url";
+import processesEnergyDemandsUrl from "@/default-input-files/SAFAD IP Energy Proc.csv?url";
+import preparationProcessesAndPackagingUrl from "@/default-input-files/SAFAD IP Prep Proc and Pack.csv?url";
+import footprintsRpcsUrl from "@/default-input-files/SAFAD ID Footprints RPC.csv?url";
+import foodsRecipesUrl from "@/default-input-files/SAFAD IP Recipes.csv?url";
 
 // Per country
 const wasteRetailAndConsumerUrls = import.meta.glob(
-  "@/default-input-files/waste-retail-and-consumer/*.csv",
+  "@/default-input-files/SAFAD IP Waste Retail and Cons/*.csv",
   { as: "url", eager: true }
 );
 
-const dietsUrls = import.meta.glob("@/default-input-files/diets/*.csv", {
+const dietsUrls = import.meta.glob("@/default-input-files/SAFAD ID Diet Spec/*.csv", {
   as: "url",
   eager: true,
 });
 
 const rpcOriginWasteUrls = import.meta.glob(
-  "@/default-input-files/rpc-origin-waste/*.csv",
+  "@/default-input-files/SAFAD IP Origin and Waste of RPC/*.csv",
   {
     as: "url",
     eager: true,
@@ -39,6 +39,7 @@ const rpcOriginWasteUrls = import.meta.glob(
 async function fetchFile(url: string) {
   const csvString = await fetch(url).then((res) => {
     if (!res.ok) {
+      console.error("File not found for url: " + url);
       throw new Error(res.statusText);
     }
 
