@@ -349,8 +349,8 @@ export default defineComponent({
           :state="emissionsFactorsTransportFile?.state || 'default'"
           :file-description="Descriptions.emissionsFactorsTransport"
         />
-        <div class="cluster cluster--center">
-          <button class="button button--accent" @click="compute">Compute</button>
+        <div class="cluster cluster--end">
+          <button class="button button--accent" @click="compute">Download</button>
         </div>
     </div>
   </section>
@@ -393,6 +393,8 @@ header {
 .start-page__main {
   width: auto;
   margin: 0 auto;
+  width: 60em;
+  max-width: 95%;
 }
 
 select {
@@ -401,5 +403,4 @@ select {
   margin-right: auto;
   flex-grow: 1;
 }
-
 </style>
