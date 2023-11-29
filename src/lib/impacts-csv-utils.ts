@@ -192,3 +192,22 @@ export function labeledAndFilteredImpacts(
     )
     .filter((x): x is string[] => x !== null);
 }
+
+export function getDietBreakdown(disaggregatedDiet: [string, number, Diet][]): string[][] {
+  const rows: string[][] = [];
+  disaggregatedDiet.forEach(([code, amount, rpcs]) => {
+    rpcs.forEach(([rpcCode, rpcAmount]) => {
+      rows.push(
+        [
+          code,
+          `"${names[code]}"`,
+          String(amount),
+          rpcCode,
+          `"${names[rpcCode]}"`,
+          String(rpcAmount),
+        ]
+      );
+    });
+  });
+  return rows;
+}

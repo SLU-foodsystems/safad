@@ -3,13 +3,8 @@
  */
 
 import reduceDiet from "@/lib/rpc-reducer";
-import ResultsEngine from "@/lib/ResultsEngine";
-
-import rpcNamesJson from "@/data/rpc-names.json";
-
-import * as DefaultInputFiles from "../default-input-files";
-
-const rpcNames = rpcNamesJson as Record<string, string>;
+import * as DefaultInputFiles from "@/lib/default-input-files";
+import {getDietBreakdown} from "@/lib/impacts-csv-utils";
 
 type LlCountryName =
   | "France"
@@ -64,49 +59,15 @@ export default async function computeFootprintsForEachRpcWithOrigin(): Promise<
 
   const recipes = await DefaultInputFiles.parsed.foodsRecipes();
 
-  const RE = new ResultsEngine();
-  RE.setFoodsRecipes(recipes);
-  RE.setFootprintsRpcs(await DefaultInputFiles.parsed.footprintsRpcs());
-  RE.setEmissionsFactorsPackaging(
-    await DefaultInputFiles.parsed.emissionsFactorsPackaging()
-  );
-  RE.setEmissionsFactorsEnergy(
-    await DefaultInputFiles.parsed.emissionsFactorsEnergy()
-  );
-  RE.setEmissionsFactorsTransport(
-    await DefaultInputFiles.parsed.emissionsFactorsTransport()
-  );
-  RE.setProcessesEnergyDemands(
-    await DefaultInputFiles.parsed.processesEnergyDemands()
-  );
-  RE.setPrepProcessesAndPackaging(processesAndPackagingCsvData);
-
   const allResults = LL_COUNTRIES.map((country) => {
-    const subDiets = dietFiles[country].map(([code, amount]) => [
-      code,
-      amount,
-      reduceDiet([[code, amount]], recipes, processesAndPackagingCsvData)[0],
-    ]);
+    const subDietRows= getDietBreakdown(dietFiles[country]
+      .map(([code, amount]): [string, number, Diet] => [
+        code,
+        amount,
+        reduceDiet([[code, amount]], recipes, processesAndPackagingCsvData)[0],
+      ]))
 
-    const subDietRows: string[] = [];
-    subDiets.forEach(([code, amount, rpcs]) => {
-      const rpcs_ = rpcs as Diet;
-      const code_ = code as string;
-      rpcs_.forEach(([rpcCode, rpcAmount]) => {
-        subDietRows.push(
-          [
-            code,
-            `"${rpcNames[code_]}"`,
-            amount,
-            rpcCode,
-            `"${rpcNames[rpcCode]}"`,
-            rpcAmount,
-          ].join(",")
-        );
-      });
-    });
-
-    const csv = subDietRows.join("\n");
+    const csv = subDietRows.map(row => row.join(",")).join("\n");
     return [country, HEADER.join(",") + "\n" + csv];
   });
 

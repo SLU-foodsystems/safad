@@ -11,7 +11,9 @@ import { stringifyCsvData } from "@/lib/utils";
 import {
   labeledAndFilteredImpacts,
   DETAILED_RESULTS_HEADER,
+  getDietBreakdown,
 } from "@/lib/impacts-csv-utils";
+import reduceDietToRpcs from "./lib/rpc-reducer";
 
 const LL_COUNTRY_CODES: string[] = [
   "FR",
@@ -51,7 +53,7 @@ interface FileInterface<T> {
   setter: (data: T) => void;
 }
 
-const initFileInterface = <T>(
+const initFileInterface = <T,>(
   partialFileInterface: Pick<
     FileInterface<T>,
     "defaultName" | "getDefault" | "parser" | "setter"
@@ -97,6 +99,7 @@ export default defineComponent({
       RE: new ResultsEngine() as ResultsEngine,
       countryCode: "SE",
       diet: [] as Diet,
+      includeBreakdownFile: false,
 
       emissionsFactorsPackagingFile: null as null | FileInterface<
         Record<string, number[]>
@@ -174,6 +177,25 @@ export default defineComponent({
         impactsOfRecipeCsv,
         "SAFAD OR Footprints per Food.csv"
       );
+
+      if (this.includeBreakdownFile) {
+        const dietBreakdownRows =
+          getDietBreakdown(
+            this.diet.map(([code, amount]): [string, number, Diet] => [
+              code,
+              amount,
+              reduceDietToRpcs(
+                [[code, amount]],
+                this.RE.foodsRecipes!,
+                this.RE.preparationProcessesAndPackaging!
+              )[0],
+            ])
+          );
+        downloadAsPlaintext(
+          "Food Code,Food Name,Food Amount (g),RPC Code,RPC Name,RPC Amount (g)\n" + stringifyCsvData(dietBreakdownRows),
+          "SAFAD OS Breakdown per Food.csv"
+        );
+      }
     },
 
     async resetFile<T>(fileInterface: FileInterface<T>) {
@@ -436,6 +458,10 @@ export default defineComponent({
         :file-description="Descriptions.emissionsFactorsTransport"
       />
       <div class="cluster cluster--end">
+        <label class="cluster">
+          <input type="checkbox" v-model="includeBreakdownFile" />
+          Include Breakdown File
+        </label>
         <button class="button button--accent" @click="compute">Download</button>
       </div>
     </div>
@@ -481,6 +507,11 @@ header {
   margin: 0 auto;
   width: 60em;
   max-width: 95%;
+}
+
+label {
+  --space: 0.5rem;
+  cursor: pointer;
 }
 
 select {
