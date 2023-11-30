@@ -9,10 +9,8 @@ const isNumerical = (str: string) => {
   return true;
 };
 
-const normalizeString = (str: string) => (str || "").trim();
-
 const asNumber = (str: string, elseValue = 0): number => {
-  const maybeNumber = Number.parseFloat(normalizeString(str));
+  const maybeNumber = Number.parseFloat((str || "").trim());
   return Number.isNaN(maybeNumber) ? elseValue : maybeNumber;
 };
 
@@ -73,17 +71,15 @@ export function parseEmissionsFactorsEnergy(csvString: string) {
   const emissionsFactors: Record<string, number[] | Record<string, number[]>> =
     { Electricity: {} };
 
-  csv
-    .map((row) => row.map((x) => normalizeString(x)))
-    .forEach(([carrier, _country, countryCode, ...ghgsStrs]) => {
-      const ghgs = asNumbers(ghgsStrs);
-      if (carrier === "Electricity") {
-        (emissionsFactors[carrier] as Record<string, number[]>)[countryCode] =
-          ensureLength(ghgs, 3, 0);
-      } else {
-        emissionsFactors[carrier] = ensureLength(ghgs, 3, 0);
-      }
-    });
+  csv.forEach(([carrier, _country, countryCode, ...ghgsStrs]) => {
+    const ghgs = asNumbers(ghgsStrs);
+    if (carrier === "Electricity") {
+      (emissionsFactors[carrier] as Record<string, number[]>)[countryCode] =
+        ensureLength(ghgs, 3, 0);
+    } else {
+      emissionsFactors[carrier] = ensureLength(ghgs, 3, 0);
+    }
+  });
 
   const expectedCarrierTypes = [
     "Electricity",
@@ -118,25 +114,23 @@ export function parseEmissionsFactorsTransport(csvString: string) {
 
   const results: NestedRecord<string, number[]> = {};
 
-  csv
-    .map((row) => row.map((x) => normalizeString(x)))
-    .forEach(
-      ([
-        consumptionCountryCode,
-        _consumptionCountry,
-        productionCountryCode,
-        _productionCountry,
-        ...ghgsStrs
-      ]) => {
-        const ghgs = ensureLength(asNumbers(ghgsStrs), 4, 0);
+  csv.forEach(
+    ([
+      consumptionCountryCode,
+      _consumptionCountry,
+      productionCountryCode,
+      _productionCountry,
+      ...ghgsStrs
+    ]) => {
+      const ghgs = ensureLength(asNumbers(ghgsStrs), 4, 0);
 
-        if (!(consumptionCountryCode in results)) {
-          results[consumptionCountryCode] = {};
-        }
-
-        results[consumptionCountryCode][productionCountryCode] = ghgs;
+      if (!(consumptionCountryCode in results)) {
+        results[consumptionCountryCode] = {};
       }
-    );
+
+      results[consumptionCountryCode][productionCountryCode] = ghgs;
+    }
+  );
 
   return results;
 }
@@ -148,7 +142,7 @@ export function parseProcessesEnergyDemands(csvString: string) {
     csv.map(([code, _processName, _totalEnergy, _note, ...demandsStrs]) => {
       // Convert from strings to numbers
       const demands = asNumbers(demandsStrs);
-      return [normalizeString(code), ensureLength(demands, 11, 0)];
+      return [code, ensureLength(demands, 11, 0)];
     })
   );
 }
@@ -158,7 +152,7 @@ export function parseProcessesPackaging(csvString: string) {
 
   const packagingData = Object.fromEntries(
     data
-      .map((row) => [normalizeString(row[0]), normalizeString(row[7])])
+      .map((row) => [row[0], row[7]])
       // Skip all packaging values that are not "P1", "P2", ..., "P9"
       .filter(
         (pair) =>
@@ -169,7 +163,7 @@ export function parseProcessesPackaging(csvString: string) {
   );
   const preparationProcessesData = Object.fromEntries(
     data
-      .map((row) => [normalizeString(row[2]), normalizeString(row[4])])
+      .map((row) => [row[2], row[4]])
       // Most rows will be empty, and that's fine. Ignore them.
       .filter((pair) => pair[1] !== "")
   );
@@ -187,8 +181,8 @@ export function parseFootprintsRpcs(csvString: string) {
     .filter((x) => x.length > 1)
     .map(
       ([_i, code, _name, _category, _originName, originCode, ...impacts]) => [
-        normalizeString(code),
-        normalizeString(originCode),
+        code,
+        originCode,
         ...impacts,
       ]
     )
@@ -238,7 +232,7 @@ export function parseWasteRetailAndConsumer(csvString: string) {
 
   return Object.fromEntries(
     data.map(([code, _name, retailWaste, consumerWaste]) => [
-      normalizeString(code),
+      code,
       [asNumber(retailWaste), asNumber(consumerWaste)],
     ])
   );
@@ -248,7 +242,7 @@ export function parseDiet(csvString: string): Diet {
   const data = parseCsvFile(csvString).slice(1);
 
   return data.map(
-    ([code, _name, amount]): FoodEntry => [normalizeString(code), asNumber(amount)]
+    ([code, _name, amount]): FoodEntry => [code, asNumber(amount)]
   );
 }
 

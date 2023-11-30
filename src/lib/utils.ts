@@ -158,9 +158,19 @@ export const nthIndexOf = (
  * e.g. 'hello, world, 3, "foo, bar", 10' ->
  *      [['hello', 'world', 3, 'foo, bar', 10]]
  */
-export function parseCsvFile(fileContent: string, delim = ",") {
+interface ParseCsvFileOptions {
+  delimiter: string;
+  trim: boolean;
+}
+export function parseCsvFile(fileContent: string, optionOverrides: Partial<ParseCsvFileOptions> = {}) {
+  const options: ParseCsvFileOptions = {
+    delimiter: ",",
+    trim: true,
+    ...optionOverrides
+  };
+
   let line = [""];
-  const ret = [line];
+  const result = [line];
   let quote = false;
 
   for (let i = 0; i < fileContent.length; i++) {
@@ -170,14 +180,14 @@ export function parseCsvFile(fileContent: string, delim = ",") {
     if (!quote) {
       const cellIsEmpty = line[line.length - 1].length === 0;
       if (cur === '"' && cellIsEmpty) quote = true;
-      else if (cur === delim) line.push("");
+      else if (cur === options.delimiter) line.push("");
       else if (cur === "\r" && next === "\n") {
         line = [""];
-        ret.push(line);
+        result.push(line);
         i++;
       } else if (cur === "\n" || cur === "\r") {
         line = [""];
-        ret.push(line);
+        result.push(line);
       } else line[line.length - 1] += cur;
     } else {
       if (cur === '"' && next === '"') {
@@ -187,7 +197,12 @@ export function parseCsvFile(fileContent: string, delim = ",") {
       else line[line.length - 1] += cur;
     }
   }
-  return ret;
+
+  if (options.trim) {
+    return result.map(row => row.map(val => (val || "").trim()))
+  }
+
+  return result;
 }
 
 export function roundToPrecision(number: number, decimalPoints = 2) {
