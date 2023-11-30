@@ -215,10 +215,18 @@ export default defineComponent({
     ) {
       if (!fileInterface) return;
 
-      fileInterface.setter(fileInterface.parser(payload.data));
-      fileInterface.name = payload.name;
-      fileInterface.state = "custom";
-      fileInterface.data = payload.data;
+      try {
+        fileInterface.setter(fileInterface.parser(payload.data));
+        fileInterface.name = payload.name;
+        fileInterface.state = "custom";
+        fileInterface.data = payload.data;
+      } catch (err: unknown) {
+        if (typeof err === "string") {
+          window.alert(err);
+        } else if (err instanceof Error){
+          window.alert(err.message);
+        }
+      }
     },
 
     async downloadFile<T>(fileInterface: FileInterface<T>) {
