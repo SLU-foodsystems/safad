@@ -175,7 +175,6 @@ export function parseFootprintsRpcs(csvString: string) {
   const structured = {} as RpcFootprintsByOrigin;
 
   data
-    .filter((x) => x.length > 1)
     .map(
       ([_i, code, _name, _category, _originName, originCode, ...impacts]) => [
         code,

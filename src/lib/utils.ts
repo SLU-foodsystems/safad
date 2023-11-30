@@ -161,16 +161,18 @@ export const nthIndexOf = (
 interface ParseCsvFileOptions {
   delimiter: string;
   trim: boolean;
+  skipEmptyRows: boolean;
 }
 export function parseCsvFile(fileContent: string, optionOverrides: Partial<ParseCsvFileOptions> = {}) {
   const options: ParseCsvFileOptions = {
     delimiter: ",",
     trim: true,
+    skipEmptyRows: true,
     ...optionOverrides
   };
 
   let line = [""];
-  const result = [line];
+  let result = [line];
   let quote = false;
 
   for (let i = 0; i < fileContent.length; i++) {
@@ -199,7 +201,10 @@ export function parseCsvFile(fileContent: string, optionOverrides: Partial<Parse
   }
 
   if (options.trim) {
-    return result.map(row => row.map(val => (val || "").trim()))
+    result = result.map(row => row.map(val => (val || "").trim()))
+  }
+  if (options.skipEmptyRows) {
+    result = result.filter(row => row.some(value => !!value))
   }
 
   return result;
