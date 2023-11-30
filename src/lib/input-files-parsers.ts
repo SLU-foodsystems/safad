@@ -99,10 +99,7 @@ export function parseEmissionsFactorsEnergy(csvString: string) {
   if (missingCarrierTypes.length > 0) {
     const prefix = "Error validating file, Emissions Factors for Energy. ";
     throw new Error(
-      prefix +
-        `Packaging types were missing in 1st col: ${missingCarrierTypes.join(
-          ", "
-        )}`
+      prefix + `Carrier types were missing: ${missingCarrierTypes.join(", ")}`
     );
   }
 
