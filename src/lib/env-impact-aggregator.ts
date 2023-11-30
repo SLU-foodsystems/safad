@@ -32,15 +32,15 @@ export default function flattenEnvironmentalFactors(
   // Output:
   //  - (rpc -> env)
 
-  const suaCodes = Object.keys(envImpactSheet);
+  const rpcCodes = Object.keys(envImpactSheet);
 
-  const entries = suaCodes
-    .map((suaCode) => {
-      const envImpacts = envImpactSheet[suaCode];
-      const originFactors = rpcOriginWaste[suaCode];
+  const entries = rpcCodes
+    .map((rpcCode) => {
+      const envImpacts = envImpactSheet[rpcCode];
+      const originFactors = rpcOriginWaste[rpcCode];
 
       if (!originFactors) {
-        console.warn(`No origin factors found for SUA ${suaCode}`);
+        console.warn(`No origin factors found for rpc ${rpcCode}`);
         return null;
       }
 
@@ -55,13 +55,13 @@ export default function flattenEnvironmentalFactors(
           }
 
           if (origin === "RoW" && !envImpacts[origin]) {
-            console.error("RoW missing for sua " + suaCode);
+            console.error("RoW missing for rpc " + rpcCode);
           }
           return envImpacts[origin].map((x) => ratio * x);
         })
         .reduce((a, b) => a.map((x, i) => x + b[i]), ENV_IMPACTS_ZERO);
 
-      return [suaCode, joinedEnvFactors];
+      return [rpcCode, joinedEnvFactors];
     })
     .filter((x): x is [string, number[]] => x !== null)
 

@@ -112,38 +112,37 @@ export function parseFootprintsRpcs(csvString: string) {
     .filter((x) => x.length > 1)
     .forEach(
       ([
-        _i,
-        code,
+        rpcCode,
         _name,
         _category,
         _originName,
         originCode,
         ...impactsStr
       ]) => {
-        if (code.trim() === "NA") return;
+        if (!rpcCode || rpcCode.trim() === "NA") return;
 
         // Handle the base-case, i.e. the initial acc.
-        if (!(code in structured)) {
-          structured[code] = {};
+        if (!(rpcCode in structured)) {
+          structured[rpcCode] = {};
         }
 
         if (originCode.toLowerCase().trim() === "row") {
           originCode = "RoW";
         }
 
-        structured[code][originCode] = impactsStr.map((x) => {
+        structured[rpcCode][originCode] = impactsStr.map((x) => {
           const val = parseFloat(x);
           return Number.isNaN(val) ? 0 : val;
         });
 
-        while (structured[code][originCode].length < EXPECTED_LENGTH) {
-          structured[code][originCode].push(0);
+        while (structured[rpcCode][originCode].length < EXPECTED_LENGTH) {
+          structured[rpcCode][originCode].push(0);
         }
       }
     );
 
   // Set RoW to be the average
-  Object.entries(structured).forEach(([suaCode, factorsPerOrigin]) => {
+  Object.entries(structured).forEach(([rpcCode, factorsPerOrigin]) => {
     // Abort if RoW already is defined
     if (Object.keys(factorsPerOrigin).includes("RoW")) return;
 
@@ -157,7 +156,7 @@ export function parseFootprintsRpcs(csvString: string) {
       // divide by the number of origins to get an average
       .map((x: number) => x / numberOfOrigins);
 
-    structured[suaCode].RoW = average;
+    structured[rpcCode].RoW = average;
   });
 
   return structured;
@@ -196,15 +195,15 @@ export function parseRpcOriginWaste(csvString: string) {
   return parametersCsv.reduce(
     (
       acc,
-      [suaCode, _name, _originName, originCode, originShare, productionWaste]
+      [rpcCode, _name, _originName, originCode, originShare, productionWaste]
     ) => {
       // First time we see this RPC code? Add an empty object, which we will
       // populate with one obj per origin
-      if (!(suaCode in acc)) {
-        acc[suaCode] = {};
+      if (!(rpcCode in acc)) {
+        acc[rpcCode] = {};
       }
 
-      acc[suaCode][originCode] = [
+      acc[rpcCode][originCode] = [
         asNumber(originShare),
         asNumber(productionWaste),
       ];

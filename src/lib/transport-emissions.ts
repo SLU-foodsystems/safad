@@ -4,22 +4,24 @@ import { vectorsSum } from "./utils";
  * Compute the transport emissions of a rpc-level item and its amount.
  */
 export default function computeTransportEmissions(
-  suaCode: string | undefined,
+  rpcCode: string,
   amount: number, // in grams
-  suaParameters: RpcOriginWaste,
+  rpcParameters: RpcOriginWaste,
   transportEmissionsFactors: Record<string, number[]>, // per kg
   defaultCountry: string
 ): number[] | null {
-  if (!suaCode || suaCode === "0") {
+  if (!rpcCode || rpcCode === "0") {
     return null;
   }
 
-  const factorsPerOrigin = suaParameters[suaCode];
+  // Get the RPC Origin Waste data - we want the "share" specifically
+  const factorsPerOrigin = rpcParameters[rpcCode];
   if (!factorsPerOrigin) {
-    console.error(`No origin found for sua-code ${suaCode}.`);
+    // console.error(`No origin found for rpc ${rpcCode}.`);
     return null;
   }
 
+  // Amounts are in grams, but impact-factors per kg - adjust for this.
   const amountKg = amount / 1000;
 
   // Handle the case where there's only data for RoW, which there will be e.g.

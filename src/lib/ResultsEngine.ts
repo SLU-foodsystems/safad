@@ -5,8 +5,6 @@ import {
   getProcessEnvFactors,
 } from "./process-emissions";
 
-import rpcToSuaMapJson from "@/data/rpc-to-sua.json";
-
 import flattenEnvironmentalFactors from "./env-impact-aggregator";
 import {
   aggregateBy,
@@ -18,8 +16,6 @@ import {
 
 import computeTransportEmissions from "./transport-emissions";
 import adjustDietForWaste from "./waste-retail-consumer-adjuster";
-
-const rpcToSuaMap = rpcToSuaMapJson as Record<string, string>;
 
 /**
  * Ties all parts of computing the results into a singleton.
@@ -113,22 +109,12 @@ class ResultsEngine {
       );
     }
 
-    const suaCode = rpcToSuaMap[rpcCode];
-    if (suaCode === "0") {
+    if (!this.footprintsRpcsMerged[rpcCode]) {
+      // console.warn(`Missing factors for ${rpcCode}.`);
       return ENV_IMPACTS_ZERO;
     }
 
-    if (!suaCode) {
-      // console.warn(`No SUA code found for rpc ${rpcCode}`);
-      return null;
-    }
-
-    if (!this.footprintsRpcsMerged[suaCode]) {
-      // console.warn(`Missing factors for ${rpcCode} (${suaCode})`);
-      return ENV_IMPACTS_ZERO;
-    }
-
-    return this.footprintsRpcsMerged[suaCode].map(
+    return this.footprintsRpcsMerged[rpcCode].map(
       (x) => (x * amountGram) / 1000
     );
   }
@@ -288,7 +274,7 @@ class ResultsEngine {
       .map(([rpcCode, amount]) => [
         rpcCode,
         computeTransportEmissions(
-          rpcToSuaMap[rpcCode],
+          rpcCode,
           amount - (transportlessAmounts[rpcCode] || 0),
           this.rpcOriginWaste!,
           this.emissionsFactorsTransport![this.countryCode!],
