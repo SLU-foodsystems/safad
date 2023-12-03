@@ -510,8 +510,9 @@ export default defineComponent({
         </label>
 
         <div class="cluster">
-          <label class="cluster">
-            <input type="checkbox" v-model="includeBreakdownFile" />
+          <label class="cluster" :class="{ 'u-faded': useSlvRecipes }">
+            <input type="checkbox" v-model="includeBreakdownFile"
+            :disabled="useSlvRecipes" />
             Include Breakdown File
           </label>
           <button class="button button--accent" @click="compute">
