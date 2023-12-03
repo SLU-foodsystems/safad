@@ -14,6 +14,7 @@ import {
   getDietBreakdown,
 } from "@/lib/impacts-csv-utils";
 import reduceDietToRpcs from "./lib/rpc-reducer";
+import { generateSlvResults } from "./lib/slv-results-generator";
 
 const LL_COUNTRY_CODES: string[] = [
   "FR",
@@ -85,6 +86,7 @@ const Descriptions = {
     "Emissions factors for different types of packaging.",
   emissionsFactorsTransport:
     "Emissions factors for transports between different countries.",
+  slvRecipesFile: "To be written.",
 };
 
 export default defineComponent({
@@ -100,6 +102,9 @@ export default defineComponent({
       countryCode: "SE",
       diet: [] as Diet,
       includeBreakdownFile: false,
+
+      useSlvRecipes: true,
+      slvRecipes: [] as SlvRecipeComponent[],
 
       emissionsFactorsPackagingFile: null as null | FileInterface<
         Record<string, number[]>
@@ -126,7 +131,7 @@ export default defineComponent({
       footprintsRpcsFile: null as null | FileInterface<RpcFootprintsByOrigin>,
       dietFile: null as null | FileInterface<Diet>,
 
-      fileInterfaces: [] as FileInterface<any>[],
+      slvRecipesFile: null as null | FileInterface<SlvRecipeComponent[]>,
     };
   },
 
@@ -149,6 +154,15 @@ export default defineComponent({
   methods: {
     async compute() {
       if (!this.RE) return;
+
+      if (this.useSlvRecipes) {
+        const slvResultsCsv = await generateSlvResults(
+          this.slvRecipes,
+          this.RE as ResultsEngine
+        );
+        downloadAsPlaintext(slvResultsCsv, "SAFAD OS SLV Diet Breakdown.csv");
+        return;
+      }
 
       const detailedDietImpacts = labeledAndFilteredImpacts(
         this.RE.computeImpactsDetailed(this.diet)
@@ -179,20 +193,20 @@ export default defineComponent({
       );
 
       if (this.includeBreakdownFile) {
-        const dietBreakdownRows =
-          getDietBreakdown(
-            this.diet.map(([code, amount]): [string, number, Diet] => [
-              code,
-              amount,
-              reduceDietToRpcs(
-                [[code, amount]],
-                this.RE.foodsRecipes!,
-                this.RE.preparationProcessesAndPackaging!
-              )[0],
-            ])
-          );
+        const dietBreakdownRows = getDietBreakdown(
+          this.diet.map(([code, amount]): [string, number, Diet] => [
+            code,
+            amount,
+            reduceDietToRpcs(
+              [[code, amount]],
+              this.RE.foodsRecipes!,
+              this.RE.preparationProcessesAndPackaging!
+            )[0],
+          ])
+        );
         downloadAsPlaintext(
-          "Food Code,Food Name,Food Amount (g),RPC Code,RPC Name,RPC Amount (g)\n" + stringifyCsvData(dietBreakdownRows),
+          "Food Code,Food Name,Food Amount (g),RPC Code,RPC Name,RPC Amount (g)\n" +
+            stringifyCsvData(dietBreakdownRows),
           "SAFAD OS Breakdown per Food.csv"
         );
       }
@@ -309,6 +323,21 @@ export default defineComponent({
       getDefault: DefaultInputFiles.raw.emissionsFactorsTransport,
       parser: InputFileParsers.parseEmissionsFactorsTransport,
       setter: this.RE.setEmissionsFactorsTransport,
+    });
+
+    this.slvRecipesFile = initFileInterface({
+      defaultName: "SAFAD IS SLV Recipes.csv",
+      getDefault: DefaultInputFiles.raw.slvRecipes,
+      parser: InputFileParsers.parseSlvRecipes,
+      setter: (data: SlvRecipeComponent[]) => {
+        this.slvRecipes = data;
+      },
+    });
+
+    // SLV Recipes also needs to be set to initial value, as not handled by the
+    // configureResultsEngine utility.
+    this.slvRecipesFile.getDefault(this.countryCode).then((data) => {
+      this.slvRecipesFile?.setter(this.slvRecipesFile.parser(data));
     });
   },
 });
@@ -457,12 +486,35 @@ export default defineComponent({
         :state="emissionsFactorsTransportFile?.state || 'default'"
         :file-description="Descriptions.emissionsFactorsTransport"
       />
-      <div class="cluster cluster--end">
+
+      <div class="stack slv-container" v-show="useSlvRecipes">
+        <h3>SLV Recipes</h3>
+        <FileSelector
+          file-label="SLV Recipes"
+          @setFile="(p: SetFilePayload) => setFile(p, slvRecipesFile)"
+          @reset="() => resetFile(slvRecipesFile!)"
+          @download="() => downloadFile(slvRecipesFile!)"
+          :fileName="slvRecipesFile?.name || slvRecipesFile?.defaultName"
+          :state="slvRecipesFile?.state || 'default'"
+          :file-description="Descriptions.slvRecipesFile"
+        />
+      </div>
+
+      <div class="cluster cluster--between">
         <label class="cluster">
-          <input type="checkbox" v-model="includeBreakdownFile" />
-          Include Breakdown File
+          <input type="checkbox" v-model="useSlvRecipes" />
+          Use Swedish Livsmedelsverket Recipes
         </label>
-        <button class="button button--accent" @click="compute">Download</button>
+
+        <div class="cluster">
+          <label class="cluster">
+            <input type="checkbox" v-model="includeBreakdownFile" />
+            Include Breakdown File
+          </label>
+          <button class="button button--accent" @click="compute">
+            Download
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -507,6 +559,11 @@ header {
   margin: 0 auto;
   width: 60em;
   max-width: 95%;
+}
+
+.slv-container {
+  padding: 1em;
+  background: rgba($yellow_sunshine, 0.4);
 }
 
 label {
