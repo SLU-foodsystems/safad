@@ -38,7 +38,7 @@ const rpcOriginWasteUrls = import.meta.glob(
  */
 
 async function fetchFile(url: string) {
-  const csvString = await fetch(url).then((res) => {
+  return await fetch(url).then((res) => {
     if (!res.ok) {
       console.error("File not found for url: " + url);
       throw new Error(res.statusText);
@@ -46,8 +46,6 @@ async function fetchFile(url: string) {
 
     return res.text();
   });
-
-  return csvString;
 }
 
 async function fetchCountrySpecificFile(

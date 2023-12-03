@@ -177,10 +177,9 @@ export function parseWasteRetailAndConsumer(csvString: string) {
 export function parseDiet(csvString: string): Diet {
   const data = parseCsvFile(csvString).slice(1);
 
-  return data.map(([code, _name, amount]): FoodEntry => [
-    code,
-    asNumber(amount),
-  ]);
+  return data.map(
+    ([code, _name, amount]): FoodEntry => [code, asNumber(amount)]
+  );
 }
 
 export function parseRpcOriginWaste(csvString: string) {
