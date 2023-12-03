@@ -160,7 +160,10 @@ export default defineComponent({
           this.slvRecipes,
           this.RE as ResultsEngine
         );
-        downloadAsPlaintext(slvResultsCsv, "SAFAD OS SLV Diet Breakdown.csv");
+        downloadAsPlaintext(
+          slvResultsCsv,
+          "SAFAD OS Footprints per SLV Food.csv"
+        );
         return;
       }
 
