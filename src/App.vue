@@ -162,7 +162,7 @@ export default defineComponent({
         );
         downloadAsPlaintext(
           slvResultsCsv,
-          "SAFAD OS Footprints per SLV Food.csv"
+          "SAFAD OR Footprints per SLV Food.csv"
         );
         return;
       }
