@@ -44,4 +44,14 @@ declare global {
     NestedRecord<string, number[]>,
     Record<string, number[]>,
   ];
+
+  interface SlvRecipeComponent {
+    slvCode: string;
+    slvName: string;
+    foodEx2Code: string;
+    process: string;
+    grossShare: number;
+    netShare: number;
+  }
+
 }

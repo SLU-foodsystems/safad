@@ -289,3 +289,45 @@ export function parseFoodsRecipes(recipesCsvStr: string) {
 
   return recipes;
 }
+
+export function parseSlvRecipes(recipesCsvStr: string): SlvRecipeComponent[] {
+  const data: string[][] = parseCsvFile(recipesCsvStr).slice(1);
+
+  const processTranslations: Record<string, string> = {
+    "Juice drickfärdig": "F28.A07LN",
+    "Rå, tillagad": "F28.A0BA1",
+    Tillagad: "F28.A0BA1",
+    "Pure ": "F28.A0C6N",
+    Pulveriserat: "F28.A07KF",
+    "Juice koncentrerad": "F28.A07KF",
+    Torkad: "F28.A07KG",
+    Friterad: "F28.A07GV",
+  };
+
+  return data
+    .map(
+      ([
+        slvCode,
+        slvName,
+        _i1Name,
+        i1Share,
+        _i1Desc,
+        i1ProcessName,
+        _i1YieldFactor,
+        _i1PublicationSource,
+        i1FoodEx2Code,
+        i1NetShare,
+        _i1NetAmountDesc,
+        _i2Name,
+      ]) => ({
+        slvCode,
+        slvName,
+        foodEx2Code: i1FoodEx2Code,
+        process: processTranslations[i1ProcessName] || "",
+        grossShare: asNumber(i1Share, 0) / 100,
+        netShare: asNumber(i1NetShare, 0) / 100,
+      })
+    )
+    // Skip any ingredients with a 0-value
+    .filter((x) => x.grossShare > 0 && x.netShare > 0);
+}
