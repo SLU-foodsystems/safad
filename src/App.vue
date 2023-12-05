@@ -373,7 +373,8 @@ export default defineComponent({
         <div class="stack">
           <div class="cluster cluster--between">
             <span class="cluster">
-              <img src="@/assets/bar-chart.svg">
+              <img src="@/assets/bar-chart.svg"
+                width="2253" height="2250" loading="lazy">
               <h2>Download footprints of foods</h2>
             </span>
             <button class="button button--accent"
@@ -387,7 +388,8 @@ export default defineComponent({
         <div class="stack">
           <div class="cluster cluster--between">
             <span class="cluster">
-              <img src="@/assets/pie-chart.svg">
+              <img src="@/assets/pie-chart.svg"
+                width="2253" height="2250" loading="lazy">
               <h2>Download footprints of diet</h2>
             </span>
             <button class="button button--accent"
@@ -405,7 +407,8 @@ export default defineComponent({
         <div class="stack" style="background: #dbe3f2">
           <div class="cluster cluster--between">
             <span class="cluster">
-              <img src="@/assets/horizontal-stacked-bar-chart.svg">
+              <img src="@/assets/horizontal-stacked-bar-chart.svg"
+                width="2253" height="2250" loading="lazy">
               <h2>Download footprints based off of SLV Data</h2>
             </span>
             <button class="button button--accent"
