@@ -91,6 +91,7 @@ const Descriptions = {
 
 export default defineComponent({
   components: { FileSelector },
+
   data() {
     return {
       LL_COUNTRY_CODES,
@@ -103,7 +104,6 @@ export default defineComponent({
       diet: [] as Diet,
       includeBreakdownFile: false,
 
-      useSlvRecipes: true,
       slvRecipes: [] as SlvRecipeComponent[],
 
       emissionsFactorsPackagingFile: null as null | FileInterface<
@@ -152,26 +152,26 @@ export default defineComponent({
   },
 
   methods: {
-    async compute() {
+    async downloadFootprintsOfFoods() {
       if (!this.RE) return;
-
-      if (this.useSlvRecipes) {
-        const slvResultsCsv = await generateSlvResults(
-          this.slvRecipes,
-          this.RE as ResultsEngine
-        );
-        downloadAsPlaintext(
-          slvResultsCsv,
-          "SAFAD OR Footprints per SLV Food.csv"
-        );
-        return;
-      }
-
-      const detailedDietImpacts = labeledAndFilteredImpacts(
-        this.RE.computeImpactsDetailed(this.diet)
-      );
       const impactsOfRecipe = labeledAndFilteredImpacts(
         this.RE.computeImpactsOfRecipe()
+      );
+
+      const impactsOfRecipeCsv =
+        DETAILED_RESULTS_HEADER.join(",") +
+        "\n" +
+        stringifyCsvData(impactsOfRecipe);
+
+      downloadAsPlaintext(
+        impactsOfRecipeCsv,
+        "SAFAD OR Footprints per Food.csv"
+      );
+    },
+    async downloadFootprintsOfDiets() {
+      if (!this.RE) return;
+      const detailedDietImpacts = labeledAndFilteredImpacts(
+        this.RE.computeImpactsDetailed(this.diet)
       );
 
       const detailedDietImpactsCsv =
@@ -179,20 +179,9 @@ export default defineComponent({
         "\n" +
         stringifyCsvData(detailedDietImpacts);
 
-      const impactsOfRecipeCsv =
-        DETAILED_RESULTS_HEADER.join(",") +
-        "\n" +
-        stringifyCsvData(impactsOfRecipe);
-
-      console.log(detailedDietImpactsCsv);
-      console.log(impactsOfRecipeCsv);
       downloadAsPlaintext(
         detailedDietImpactsCsv,
         "SAFAD OR Footprints per Diet.csv"
-      );
-      downloadAsPlaintext(
-        impactsOfRecipeCsv,
-        "SAFAD OR Footprints per Food.csv"
       );
 
       if (this.includeBreakdownFile) {
@@ -213,6 +202,19 @@ export default defineComponent({
           "SAFAD OS Breakdown per Food.csv"
         );
       }
+    },
+
+    async downloadFootprintsOfSLVRecipes() {
+      if (!this.RE) return;
+
+      const slvResultsCsv = await generateSlvResults(
+        this.slvRecipes,
+        this.RE as ResultsEngine
+      );
+      downloadAsPlaintext(
+        slvResultsCsv,
+        "SAFAD OR Footprints per SLV Food.csv"
+      );
     },
 
     async resetFile<T>(fileInterface: FileInterface<T>) {
@@ -351,8 +353,9 @@ export default defineComponent({
     <header class="cluster cluster--center">
       <img src="@/assets/slu-logo.svg" class="start-page__logo" />
       <h1>
-        <b>S</b>ustainable <b>A</b>ssesment of <b>F</b>oods <b>A</b>nd
-        <b>D</b>iets
+        The
+        <abbr title="Sustainability Assesment of Foods and Diets">SAFAD</abbr>
+        tool by SLU
       </h1>
     </header>
     <div class="stack u-tac start-page__main">
@@ -364,6 +367,56 @@ export default defineComponent({
           v-text="LL_COUNTRY_NAMES[code]"
         />
       </select>
+      <br />
+      <h3>Download Output Data</h3>
+      <section class="download-section stack">
+        <div class="stack">
+          <div class="cluster cluster--between">
+            <h2>Download footprints of foods</h2>
+            <button class="button button--accent"
+              @click="downloadFootprintsOfFoods">Download</button>
+          </div>
+          <p>
+            Download a csv file with the impacts per kg of each food-item in the
+            recipes list.
+          </p>
+        </div>
+        <div class="stack">
+          <div class="cluster cluster--between">
+            <h2>Download footprints of diet</h2>
+            <button class="button button--accent"
+              @click="downloadFootprintsOfDiets">Download</button>
+          </div>
+          <p>
+            Download a csv file with the impacts of the foods and their amounts
+            listed in the diet file.
+          </p>
+          <label class="cluster">
+            <input type="checkbox" v-model="includeBreakdownFile" />
+            Include Breakdown File
+          </label>
+        </div>
+        <div class="stack" style="background: #dbe3f2">
+          <div class="cluster cluster--between">
+            <h2>Download footprints based off of SLV Data</h2>
+            <button class="button button--accent"
+              @click="downloadFootprintsOfSLVRecipes">Download</button>
+          </div>
+          <p>
+            Download a csv file with the impacts of recipes used by the <abbr
+              title="Svenska Livsmedelsverket">SLV</abbr> (Swedish Food Agency).
+          </p>
+        <FileSelector
+          file-label="SLV Recipes"
+          @setFile="(p: SetFilePayload) => setFile(p, slvRecipesFile)"
+          @reset="() => resetFile(slvRecipesFile!)"
+          @download="() => downloadFile(slvRecipesFile!)"
+          :fileName="slvRecipesFile?.name || slvRecipesFile?.defaultName"
+          :state="slvRecipesFile?.state || 'default'"
+          :file-description="Descriptions.slvRecipesFile"
+        />
+        </div>
+      </section>
       <h3>Input Data</h3>
 
       <FileSelector
@@ -385,6 +438,7 @@ export default defineComponent({
         :state="dietFile?.state || 'default'"
         :file-description="Descriptions.diet"
       />
+
       <h3>Parameter Files</h3>
 
       <FileSelector
@@ -489,37 +543,6 @@ export default defineComponent({
         :state="emissionsFactorsTransportFile?.state || 'default'"
         :file-description="Descriptions.emissionsFactorsTransport"
       />
-
-      <div class="stack slv-container" v-show="useSlvRecipes">
-        <h3>SLV Recipes</h3>
-        <FileSelector
-          file-label="SLV Recipes"
-          @setFile="(p: SetFilePayload) => setFile(p, slvRecipesFile)"
-          @reset="() => resetFile(slvRecipesFile!)"
-          @download="() => downloadFile(slvRecipesFile!)"
-          :fileName="slvRecipesFile?.name || slvRecipesFile?.defaultName"
-          :state="slvRecipesFile?.state || 'default'"
-          :file-description="Descriptions.slvRecipesFile"
-        />
-      </div>
-
-      <div class="cluster cluster--between">
-        <label class="cluster">
-          <input type="checkbox" v-model="useSlvRecipes" />
-          Use Swedish Livsmedelsverket Recipes
-        </label>
-
-        <div class="cluster">
-          <label class="cluster" :class="{ 'u-faded': useSlvRecipes }">
-            <input type="checkbox" v-model="includeBreakdownFile"
-            :disabled="useSlvRecipes" />
-            Include Breakdown File
-          </label>
-          <button class="button button--accent" @click="compute">
-            Download
-          </button>
-        </div>
-      </div>
     </div>
   </section>
 </template>
@@ -563,6 +586,24 @@ header {
   margin: 0 auto;
   width: 60em;
   max-width: 95%;
+}
+
+.download-section {
+  text-align: left;
+
+  > div {
+    background: white;
+    padding: 1em;
+    $base-box-shadow: 0 0.3em 0.75em -0.65em rgba(black, 0.5);
+    box-shadow: $base-box-shadow;
+  }
+
+  h2 {
+    margin-bottom: 0;
+  }
+  p {
+    font-size: 1.125em;
+  }
 }
 
 .slv-container {
