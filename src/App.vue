@@ -350,15 +350,36 @@ export default defineComponent({
 
 <template>
   <section class="start-page">
-    <header class="cluster cluster--center">
-      <img src="@/assets/slu-logo.svg" class="start-page__logo" />
-      <h1>
-        The
-        <abbr title="Sustainability Assesment of Foods and Diets">SAFAD</abbr>
-        tool by SLU
-      </h1>
+    <header class="stack start-page-wrap">
+      <div class="cluster cluster--center">
+        <img src="@/assets/slu-logo.svg" class="start-page__logo" />
+        <h1>
+          The
+          <abbr title="Sustainability Assesment of Foods and Diets">SAFAD</abbr>
+          tool by SLU
+        </h1>
+      </div>
+
+      <br />
+
+      <p>The Sustainability Assessment of Foods and Diets (SAFAD) tool allows
+      for sustainability assessments of foods and diets for 9 European countries
+      (France, Germany, Greece, Hungary, Ireland, Italy, Poland, Spain and
+      Sweden). To generate footprints for a diet or for foods using default
+      values, choose the country of interest in the drop-down menu. Footprint
+      files are then ready to be downloaded.</p>
+
+      <p>In the SAFAD tool, input data (Input, parameter, and emission factor
+      files) can easily be configured. To configure a file, download the default
+      file using the Download Copy button. Once configured, the custom file can
+      be uploaded using the Upload Custom file. The custom file must be in the
+      same format and uploaded as a .csv file. When all custom files are
+      uploaded, the new footprint for the diet or foods can be downloaded.</p>
+
+      <p>To learn more about a file’s function, press the Info button situated
+      next to the file's name.</p>
     </header>
-    <div class="stack u-tac start-page__main">
+    <div class="stack u-tac start-page-wrap">
       <h3>Living Lab Country</h3>
       <select v-model="countryCode">
         <option
@@ -586,6 +607,11 @@ header {
     font-size: 1.5em;
     margin-bottom: 0;
   }
+
+  p {
+    text-align: left;
+    width: 100%;
+  }
 }
 
 .start-page__logo {
@@ -593,7 +619,7 @@ header {
   height: 3em;
 }
 
-.start-page__main {
+.start-page-wrap {
   width: auto;
   margin: 0 auto;
   width: 60em;
