@@ -86,7 +86,7 @@ const Descriptions = {
     "Emissions factors for different types of packaging.",
   emissionsFactorsTransport:
     "Emissions factors for transports between different countries.",
-  slvRecipesFile: "To be written.",
+  slvRecipesFile: "An alternative recipe file containing recipes used by the Swedish Food Agency. This file defines for which recipes footprints are calculated for, what ingredients they contain and in what amounts (as determined by SFA). This file is complemented by SAFAD IP Recipes.csv file to break non-RPC items down to RPC-level.",
 };
 
 export default defineComponent({
