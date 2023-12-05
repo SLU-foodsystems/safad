@@ -165,17 +165,7 @@ p {
  * =========================================== */
 
 #app {
-  display: grid;
   height: 100%;
-  grid-template-areas: "sidebar main results";
-  grid-template-columns: 20em 2fr 1fr;
-  grid-template-rows: 1fr;
-}
-
-main {
-  padding: 4em 2em;
-  grid-area: main;
-  overflow-y: scroll;
 }
 
 .page-wrap {
@@ -188,23 +178,6 @@ main {
 /*
  * Specifics
  * =========================================== */
-
-.tag {
-  display: inline-block;
-  padding: 0.25em 0.5em;
-  font-size: 0.675em;
-  margin-right: -1rem;
-}
-
-.tag--blue {
-  background: ($blue_seabay);
-  color: white;
-}
-
-.tag--yellow {
-  background: $yellow_resin;
-  color: white;
-}
 
 .toggle {
   font-size: 0.75em;
