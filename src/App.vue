@@ -372,7 +372,10 @@ export default defineComponent({
       <section class="download-section stack">
         <div class="stack">
           <div class="cluster cluster--between">
-            <h2>Download footprints of foods</h2>
+            <span class="cluster">
+              <img src="@/assets/bar-chart.svg">
+              <h2>Download footprints of foods</h2>
+            </span>
             <button class="button button--accent"
               @click="downloadFootprintsOfFoods">Download</button>
           </div>
@@ -383,7 +386,10 @@ export default defineComponent({
         </div>
         <div class="stack">
           <div class="cluster cluster--between">
-            <h2>Download footprints of diet</h2>
+            <span class="cluster">
+              <img src="@/assets/pie-chart.svg">
+              <h2>Download footprints of diet</h2>
+            </span>
             <button class="button button--accent"
               @click="downloadFootprintsOfDiets">Download</button>
           </div>
@@ -398,7 +404,10 @@ export default defineComponent({
         </div>
         <div class="stack" style="background: #dbe3f2">
           <div class="cluster cluster--between">
-            <h2>Download footprints based off of SLV Data</h2>
+            <span class="cluster">
+              <img src="@/assets/horizontal-stacked-bar-chart.svg">
+              <h2>Download footprints based off of SLV Data</h2>
+            </span>
             <button class="button button--accent"
               @click="downloadFootprintsOfSLVRecipes">Download</button>
           </div>
@@ -596,6 +605,12 @@ header {
     padding: 1em;
     $base-box-shadow: 0 0.3em 0.75em -0.65em rgba(black, 0.5);
     box-shadow: $base-box-shadow;
+
+    img,
+    svg {
+      width: 3em;
+      height: 3em;
+    }
   }
 
   h2 {
