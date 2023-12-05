@@ -584,11 +584,8 @@ export default defineComponent({
 @import "styles/constants";
 
 .start-page {
-  grid-row-start: sidebar-start;
-  grid-column-start: sidebar-start;
-  grid-row-end: results-end;
-  grid-column-end: results-end;
   display: block;
+  overflow: auto;
 
   background: $lightgray;
 
