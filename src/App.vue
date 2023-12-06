@@ -380,7 +380,7 @@ export default defineComponent({
       next to the file's name.</p>
     </header>
     <div class="stack u-tac start-page-wrap">
-      <h3>Living Lab Country</h3>
+      <h3>Country</h3>
       <select v-model="countryCode">
         <option
           v-for="code in LL_COUNTRY_CODES"
