@@ -113,7 +113,10 @@ export function parseFootprintsRpcs(csvString: string) {
     .forEach(
       ([
         rpcCode,
+        _foodEx2Code,
         _name,
+        _suaCode,
+        _suaName,
         _category,
         _originName,
         originCode,

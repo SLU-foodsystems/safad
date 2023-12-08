@@ -1,6 +1,6 @@
 const zeroes = (length: number) => Array.from({ length }).map((_) => 0);
 
-export const N_ENV_IMPACTS = 16;
+export const N_ENV_IMPACTS = 35;
 export const ENV_IMPACTS_ZERO = zeroes(N_ENV_IMPACTS);
 
 export const N_PROCESS_GHGS = 3;
