@@ -18,41 +18,67 @@ const categoryNames = categoryNamesJson as Record<string, string>;
 const names = namesJson as Record<string, string>;
 
 export const AGGREGATE_HEADERS = [
-  // Aggregate over rpcs, processes, and packaging
-  "Carbon_footprint_tot",
-  "CO2_tot",
-  "CH4_fossil_tot",
-  "CH4_bio_tot",
-  "N2O_tot",
+ // Aggregate over rpcs, processes, and packaging
+  "Carbon footprint, total",
+  "Carbon dioxide, total",
+  "Methane, fossil, total",
+  "Methane, biogenic, total",
+  "Nitrous oxide, total",
+
   // Raw Materials GHGs
-  "CO2e_rm",
-  "CO2_rm",
-  "CH4_fossil_rm",
-  "CH4_bio_rm",
-  "N2O_rm",
-  "HFC_rm",
+  "Carbon footprint",
+  "Carbon dioxide",
+  "Methane, fossil",
+  "Methane, biogenic",
+  "Nitrous oxide",
+
   // Key indicators - raw materials
-  "Land_use",
-  "New_N_input",
-  "New_P_input",
-  "Blue_water_use",
-  "Pesticide_use",
-  "Biodiversity_land",
-  "Ammonia_emissions",
-  "Labour",
-  "Animal_welfare",
-  "Use_of_antibiotics",
+  "Land",
+  "N input",
+  "P input",
+  "Water",
+  "Pesticides",
+  "Biodiversity",
+  "Ammonia",
+  "Animal welfare",
+  "Antibiotics",
+
+  // Disaggregated GHG impacts
+  "CO2e_rm_fert_prod",
+  "CO2e_rm_cap_goods",
+  "CO2e_rm_soils",
+  "CO2e_rm_energy",
+  "CO2e_rm_LUC",
+  "CO2e_rm_ent_ferm",
+  "CO2_rm_fert_prod",
+  "CO2_rm_cap_goods",
+  "CO2_rm_energy",
+  "CO2_rm_LUC",
+  "CH4_fossil_rm_fert_prod",
+  "CH4_fossil_rm_cap_goods",
+  "CH4_fossil_rm_energy",
+  "CH4_bio_rm_soils_dir",
+  "CH4_bio_rm_ent_ferm",
+  "CH4_bio_rm_manure",
+  "N2O_rm_fert_prod",
+  "N2O_rm_cap_goods",
+  "N2O_rm_soils",
+  "N2O_rm_energy",
+  "N2O_rm_manure",
+
   // Processes
   "CO2e_proc",
   "CO2_proc",
   "CH4_proc",
   "N2O_proc",
+
   // Packaging
   "CO2e_pack",
   "CO2_pack",
   "CH4_fossil_pack",
   "N2O_pack",
-  // transport
+
+  // Transport
   "CO2e_transp",
   "CO2_transp",
   "CH4_fossil_transp",
