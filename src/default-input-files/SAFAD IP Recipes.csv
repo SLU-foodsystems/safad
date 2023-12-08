@@ -1695,7 +1695,7 @@
 "A.07.01.019","Flounder (Platichthys flesus)","A.07.01.019","Flounder (Platichthys flesus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.07.01.020","Halibut (Hippoglossus spp.)","A.07.01.020","Halibut (Hippoglossus spp.)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.07.01.021","Plaice (Pleuronectes)","A.07.01.021","Plaice (Pleuronectes)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
-"A.07.01.022","Sole (Limanda",,,,,,,,
+"A.07.01.022","Sole (Limanda; Solea)","A.07.01.022","Sole (Limanda; Solea)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.07.01.024","Carp (Cyprinus)","A.07.01.024","Carp (Cyprinus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.07.01.025","Babel (Barbus)","A.07.01.025","Babel (Barbus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.07.01.026","Bream (Charax)","A.07.01.026","Bream (Charax)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
@@ -2538,7 +2538,7 @@
 "A.14.07.002","Punch","A.15.03.002","Carbonated mineral water","F28.A07XD","PROCESS=Unspecified",56.28,1,1,1
 "A.14.07.003","Alcopop","I.14.06.009","Alcohol 40Â°","F28.A0C0R","PROCESS=Processed",13.3,1,1,1
 "A.14.07.003","Alcopop","A.13.01.002","Soft drink, flavoured","To be further disaggregated (p)",,86.7,1,1,1
-"A.15","Drinking water (water without any additives except carbon dioxide",,,,,,,,
+"A.15","Drinking water (water without any additives except carbon dioxide; includes water ice for consumption)","A.15","Drinking water (water without any additives except carbon dioxide; includes water ice for consumption)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.15.01","Tap water","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.15.02","Well water","A.15.02","Well water","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.15.03","Bottled water","A.15.03","Bottled water","F28.A07XD","PROCESS=Unspecified",100,1,1,1
@@ -2953,7 +2953,7 @@
 "A.18.04.008","Jam, marmalade and other fruit spreads for diabetics","A.18.04.008","Jam, marmalade and other fruit spreads for diabetics","F28.A0C0R","PROCESS=Processed",100,1,1,1
 "A.18.04.009","Milk products for diabetics","A.18.04.009","Milk products for diabetics","F28.A0C0R","PROCESS=Processed",100,1,1,1
 "A.18.04.012","Beer for diabetics","A.18.04.012","Beer for diabetics","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.05","Medical food (are specially formulated and intended for the dietary management of a disease that has distinctive nutritional needs that cannot be met by normal diet alone",,,,,,,,
+"A.18.05","Medical food (are specially formulated and intended for the dietary management of a disease that has distinctive nutritional needs that cannot be met by normal diet alone; intended to be used under medical supervision)","A.18.05","Medical food (are specially formulated and intended for the dietary management of a disease that has distinctive nutritional needs that cannot be met by normal diet alone; intended to be used under medical supervision)","F28.A0C0R","PROCESS=Processed",100,1,1,1
 "A.18.05.001","Nutritionally complete formulas","A.18.05.001","Nutritionally complete formulas","F28.A0C0R","PROCESS=Processed",100,1,1,1
 "A.18.05.002","Nutritionally incomplete formulas","A.18.05.002","Nutritionally incomplete formulas","F28.A0C0R","PROCESS=Processed",100,1,1,1
 "A.18.05.004","Oral rehydration products","A.18.05.004","Oral rehydration products","F28.A0C0R","PROCESS=Processed",100,1,1,1
