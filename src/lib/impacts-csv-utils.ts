@@ -91,7 +91,7 @@ export const DETAILED_RESULTS_HEADER = [
   "L1 Category",
   "L2 Category",
   "Amount (g)",
-  ...AGGREGATE_HEADERS,
+  ...AGGREGATE_HEADERS.map(x => `"${x}"`),
   "Processes",
   "Packeting",
 ];
