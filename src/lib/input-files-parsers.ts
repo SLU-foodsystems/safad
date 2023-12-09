@@ -219,6 +219,16 @@ export function parseRpcOriginWaste(csvString: string) {
 }
 
 export function parseFoodsRecipes(recipesCsvStr: string) {
+  function removeCorruptValues(obj: FoodsRecipes) {
+    Object.entries(obj).forEach(([id, _values]) => {
+      obj[id] = obj[id].filter(
+        // Remove all cases where the rpc code is "", which can happen for
+        // empty rows, etc.
+        ([foodCode]) => foodCode && foodCode !== ""
+      );
+    });
+  }
+
   /**
    * Precautionary: Delete any empty rulesets.
    */
@@ -285,6 +295,7 @@ export function parseFoodsRecipes(recipesCsvStr: string) {
       }
     );
 
+  removeCorruptValues(recipes);
   removeNullSelfReferences(recipes);
   deleteEmptyValues(recipes);
 
