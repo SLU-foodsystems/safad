@@ -38,7 +38,7 @@ class ResultsEngine {
   emissionsFactorsTransport: null | NestedRecord<string, number[]> = null;
 
   processesEnergyDemands: null | Record<string, number[]> = null;
-  preparationProcessesAndPackaging: null | Record<string, string> = null;
+  preparationProcessesAndPackaging: null | Record<string, string[]> = null;
 
   wasteRetailAndConsumer: null | Record<string, number[]> = null;
 
@@ -175,7 +175,7 @@ class ResultsEngine {
   }
 
   public setPrepProcessesAndPackaging(
-    processesAndPackaging: Record<string, string>
+    processesAndPackaging: Record<string, string[]>
   ) {
     this.preparationProcessesAndPackaging = processesAndPackaging;
   }
