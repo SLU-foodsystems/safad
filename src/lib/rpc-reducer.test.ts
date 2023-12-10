@@ -214,7 +214,7 @@ describe("RPC reducer", () => {
     test("Direct: Adds processes to diet on L3 level", () => {
       const pizza: Diet = [["A.19.01.002", 1000]];
       const preparationProcesses = {
-        "A.19.01.002": "F28.A07GY",
+        "A.19.01.002": ["F28.A07GY"],
       };
       const recipes: FoodsRecipes = {
         "A.19.01.002": [["A.19.01.002", [], 1, 1]],
@@ -235,7 +235,7 @@ describe("RPC reducer", () => {
       const recipes: FoodsRecipes = {
         "A.19.01.002.003": [["A.19.01.002.003", [], 1, 1]],
       };
-      const preparationProcesses = { "A.19.01.002": "F28.A07GY" };
+      const preparationProcesses = { "A.19.01.002": ["F28.A07GY"] };
 
       const [_rpcs, processes] = reduceDiet(
         diet,
@@ -256,7 +256,7 @@ describe("RPC reducer", () => {
         "I.20.01.001.001": [["A.19.01.002.003", [], 0.5, 3]],
         "A.19.01.002.003": [["A.19.01.002.003", [], 1, 1]],
       };
-      const preparationProcesses = { "A.19.01.002": "F28.A07GY" };
+      const preparationProcesses = { "A.19.01.002": ["F28.A07GY"] };
 
       const [_rpcs, processes] = reduceDiet(
         diet,
@@ -273,7 +273,7 @@ describe("RPC reducer", () => {
     test("Direct: Adds packaging to diet on L2 level", () => {
       const diet: Diet = [["A.19.01", 1000]];
       const preparationProcesses = {
-        "A.19.01": "P2",
+        "A.19.01": ["P2"],
       };
       const recipes: FoodsRecipes = {
         "A.19.01": [["A.19.01", [], 1, 1]],
@@ -294,7 +294,7 @@ describe("RPC reducer", () => {
       const recipes: FoodsRecipes = {
         "A.19.01.002.003": [["A.19.01.002.003", [], 1, 1]],
       };
-      const preparationProcesses = { "A.19.01": "P1" };
+      const preparationProcesses = { "A.19.01": ["P1"] };
 
       const [_rpcs, _processes, packaging] = reduceDiet(
         diet,
@@ -315,7 +315,7 @@ describe("RPC reducer", () => {
         "I.20.01.001.001": [["A.19.01.002.003", [], 0.5, 3]],
         "A.19.01.002.003": [["A.19.01.002.003", [], 1, 1]],
       };
-      const preparationProcesses = { "A.19.01": "P5" };
+      const preparationProcesses = { "A.19.01": ["P5"] };
 
       const [_rpcs, _processes, packaging] = reduceDiet(
         diet,

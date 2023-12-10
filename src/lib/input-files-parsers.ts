@@ -91,12 +91,20 @@ export function parseProcessesEnergyDemands(csvString: string) {
   );
 }
 
-export function parseProcessesPackaging(csvString: string) {
+export function parseProcessesPackaging(
+  csvString: string
+): Record<string, string[]> {
   const data = parseCsvFile(csvString).slice(1);
+  const splitFacetStr = (str: string) =>
+    (str || "").split("$").filter((x) => x.length > 0 && x !== "NA");
 
-  const packagingData = Object.fromEntries(data.map((row) => [row[0], row[7]]));
+  const packagingData = Object.fromEntries(
+    data.map((row) => [row[0], splitFacetStr(row[7])])
+  );
   const preparationProcessesData = Object.fromEntries(
-    data.map((row) => [row[2], row[4]]).filter((pair) => pair[1] !== "")
+    data
+      .map((row) => [row[2], splitFacetStr(row[4])])
+      .filter((pair) => pair[1].length > 0)
   );
 
   return { ...packagingData, ...preparationProcessesData };

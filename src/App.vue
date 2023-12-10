@@ -122,7 +122,7 @@ export default defineComponent({
         Record<string, number[]>
       >,
       preparationProcessesAndPackagingFile: null as null | FileInterface<
-        Record<string, string>
+        Record<string, string[]>
       >,
       wasteRetailAndConsumerFile: null as null | FileInterface<
         Record<string, number[]>

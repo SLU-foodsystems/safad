@@ -79,7 +79,7 @@ function reduceToRpcs(
     amount: number,
   ) => void,
   recipes: FoodsRecipes,
-  preparationProcesses: Record<string, string>,
+  preparationProcesses: Record<string, string[]>,
   recordedSpecials: Set<string>,
   recordTransportlessAmount: (rcpCode: string, amount: number) => void,
   transportlessYieldAdjustment: number = 1,
@@ -105,11 +105,15 @@ function reduceToRpcs(
     if (componentCodeLevel < level) return;
 
     const levelCode = getRpcCodeSubset(componentCode, level);
-    const special = preparationProcesses[levelCode];
-    if (!special || recordedSpecials.has(levelCode)) return;
+    if (recordedSpecials.has(levelCode)) return;
+    // TODO: Split up specials and iterate over them
+    const specials = preparationProcesses[levelCode];
+    if (!specials || specials.length === 0) return;
 
     newRecordedSpecials = new Set([levelCode, ...recordedSpecials]);
-    recordProcessOrPackagingContribution(levelCode, special, amount);
+    specials.forEach((special) => {
+      recordProcessOrPackagingContribution(levelCode, special, amount);
+    });
   };
 
   // We need to handle L2 and L3 PP-contributions in the base-case, i.e. when
@@ -176,7 +180,7 @@ function reduceToRpcs(
 export default function reduceDietToRpcs(
   diet: Diet,
   recipes: FoodsRecipes,
-  preparationAndPackagingList: Record<string, string>,
+  preparationAndPackagingList: Record<string, string[]>
 ): [
   Diet,
   NestedRecord<string, number>,
