@@ -76,13 +76,13 @@ function reduceToRpcs(
   recordProcessOrPackagingContribution: (
     code: string,
     facet: string,
-    amount: number,
+    amount: number
   ) => void,
   recipes: FoodsRecipes,
   preparationProcesses: Record<string, string[]>,
   recordedSpecials: Set<string>,
   recordTransportlessAmount: (rcpCode: string, amount: number) => void,
-  transportlessYieldAdjustment: number = 1,
+  transportlessYieldAdjustment: number = 1
 ): Diet {
   const subcomponents = recipes[componentCode];
   if (!subcomponents) {
@@ -90,7 +90,7 @@ function reduceToRpcs(
       // Not sure about this??
       recordTransportlessAmount(
         componentCode,
-        amount * (1 - 1 / transportlessYieldAdjustment),
+        amount * (1 - 1 / transportlessYieldAdjustment)
       );
     }
     return [[componentCode, amount]];
@@ -135,8 +135,8 @@ function reduceToRpcs(
         recordProcessOrPackagingContribution(
           componentCode,
           processId,
-          processAmount,
-        ),
+          processAmount
+        )
       );
 
       if (isTransportlessProcess(processes)) {
@@ -153,7 +153,7 @@ function reduceToRpcs(
         if (newTransportYield !== 1) {
           recordTransportlessAmount(
             subcomponentCode,
-            netAmount * (1 - 1 / newTransportYield),
+            netAmount * (1 - 1 / newTransportYield)
           );
         }
         return [[subcomponentCode, netAmount]];
@@ -167,7 +167,7 @@ function reduceToRpcs(
         preparationProcesses,
         newRecordedSpecials,
         recordTransportlessAmount,
-        newTransportYield,
+        newTransportYield
       );
     })
     .flat(1);
@@ -196,7 +196,7 @@ export default function reduceDietToRpcs(
   const recordProcessOrPackagingContribution = (
     code: string,
     facet: string,
-    amount: number,
+    amount: number
   ) => {
     const level1Category = getRpcCodeSubset(code, 1);
     // We use 'real' facets for processing, but made-up ones for packaging. The
@@ -221,8 +221,8 @@ export default function reduceDietToRpcs(
         recipes,
         preparationAndPackagingList,
         new Set(),
-        recordTransportless,
-      ),
+        recordTransportless
+      )
     )
     .flat(1);
 
