@@ -77,9 +77,14 @@ export const computeProcessImpacts = (
 ): Record<string, { [k: string]: number[] }> =>
   mapValues(processAmountsMap, (processAmounts) =>
     Object.fromEntries(
-      Object.entries(processAmounts).map(([processId, amountGram]) => [
-        processId,
-        processFactors[processId].map((x) => (x * amountGram) / 1000),
-      ])
+      Object.entries(processAmounts)
+        // TODO: We could/should warn when processId is _not_ in processAmounts,
+        // as that may indicate a malformatted/invalid/unexpected process, which
+        // can be difficult to debug / detect.
+        .filter(([processId]) => processId in processFactors)
+        .map(([processId, amountGram]) => [
+          processId,
+          processFactors[processId].map((x) => (x * amountGram) / 1000),
+        ])
     )
   );
