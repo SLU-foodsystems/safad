@@ -17,6 +17,7 @@ import namesJson from "@/data/rpc-names.json";
 const categoryNames = categoryNamesJson as Record<string, string>;
 const names = namesJson as Record<string, string>;
 
+
 export const AGGREGATE_HEADERS = [
  // Aggregate over rpcs, processes, and packaging
   "Carbon footprint, total",
@@ -44,45 +45,45 @@ export const AGGREGATE_HEADERS = [
   "Antibiotics",
 
   // Disaggregated GHG impacts
-  "CO2e_rm_fert_prod",
-  "CO2e_rm_cap_goods",
-  "CO2e_rm_soils",
-  "CO2e_rm_energy",
-  "CO2e_rm_LUC",
-  "CO2e_rm_ent_ferm",
-  "CO2_rm_fert_prod",
-  "CO2_rm_cap_goods",
-  "CO2_rm_energy",
-  "CO2_rm_LUC",
-  "CH4_fossil_rm_fert_prod",
-  "CH4_fossil_rm_cap_goods",
-  "CH4_fossil_rm_energy",
-  "CH4_bio_rm_soils_dir",
-  "CH4_bio_rm_ent_ferm",
-  "CH4_bio_rm_manure",
-  "N2O_rm_fert_prod",
-  "N2O_rm_cap_goods",
-  "N2O_rm_soils",
-  "N2O_rm_energy",
-  "N2O_rm_manure",
+  "Mineral fertiliser production (CO2e)",
+  "Capital goods (CO2e)",
+  "Soil emissions (CO2e)",
+  "Energy primary production (CO2e)",
+  "Land use change (CO2e)",
+  "Enteric fermentation (CO2e)",
+  "Mineral fertiliser production (CO2)",
+  "Capital goods (CO2)",
+  "Energy primary production (CO2)",
+  "Land use change (CO2)",
+  "Mineral fertiliser production (CH4, fossil)",
+  "Capital goods (CH4, fossil)",
+  "Energy primary production (CH4, fossil)",
+  "Soil emissions (CH4, biogenic)",
+  "Enteric fermentation (CH4, biogenic)",
+  "Manure management (CH4, biogenic)",
+  "Mineral fertiliser production (N2O)",
+  "Capital goods (N2O)",
+  "Soil emissions (N2O)",
+  "Energy primary production (N2O)",
+  "Manure management (N2O)",
 
   // Processes
-  "CO2e_proc",
-  "CO2_proc",
-  "CH4_proc",
-  "N2O_proc",
+  "Processing (CO2e)",
+  "Processing (CO2)",
+  "Processing (CH4, fossil)",
+  "Processing (N2O)",
 
   // Packaging
-  "CO2e_pack",
-  "CO2_pack",
-  "CH4_fossil_pack",
-  "N2O_pack",
+  "Packaging (CO2e)",
+  "Packaging (CO2)",
+  "Packaging (CH4, fossil)",
+  "Packaging (N2O)",
 
   // Transport
-  "CO2e_transp",
-  "CO2_transp",
-  "CH4_fossil_transp",
-  "N2O_transp",
+  "Transports (CO2e)",
+  "Transports (CO2)",
+  "Transports (CH4, fossil)",
+  "Transports (N2O)",
 ];
 
 export const DETAILED_RESULTS_HEADER = [
