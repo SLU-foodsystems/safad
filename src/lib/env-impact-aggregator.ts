@@ -17,21 +17,17 @@ import { ENV_IMPACTS_ZERO } from "./constants";
 // directly, i.e. only computing the factors for the RPCs that are actually
 // included in the diet, rather than for all of them. This would be more
 // efficient, but I doubt this is the bottleneck. We can see later.
+//
+// Input:
+//  - env impact sheet ((rpc, country) -> impacts)
+//  - country distribution: ((rpc, country) -> (ratio, waste))
+//
+// Output:
+//  - (rpc -> env)
 export default function flattenEnvironmentalFactors(
   envImpactSheet: RpcFootprintsByOrigin,
   rpcOriginWaste: RpcOriginWaste
 ): RpcFootprints {
-  // Idea: Increase impact to account for waste.
-  //    - Downside: we won't be able to say "environmental impact from waste"
-  //    - (unless we outpt with and without waste for every item?)
-  //
-  // Input:
-  //  - env impact sheet ((rpc, country) -> impacts)
-  //  - country distribution: ((rpc, country) -> (ratio, waste))
-  //
-  // Output:
-  //  - (rpc -> env)
-
   const rpcCodes = Object.keys(envImpactSheet);
 
   const entries = rpcCodes
