@@ -1,900 +1,906 @@
 RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code
-"A.01.02.001.002","Durum wheat grain","France","FR",0.954,0.045,0111
-"A.01.02.001.002","Durum wheat grain","Rest of World","RoW",0.046,0.045,0111
-"A.01.02.001.003","Common wheat grain","France","FR",0.954,0.045,0111
-"A.01.02.001.003","Common wheat grain","Rest of World","RoW",0.046,0.045,0111
-"A.01.02.001.004","Durum wheat grain","France","FR",0.954,0.045,0111
-"A.01.02.001.004","Durum wheat grain","Rest of World","RoW",0.046,0.045,0111
-"A.01.02.001","Common wheat grain","France","FR",0.954,0.045,0111
-"A.01.02.001","Common wheat grain","Rest of World","RoW",0.046,0.045,0111
-"A.01.02.002.001","Barley grains","France","FR",0.987,0.045,0115
-"A.01.02.002.001","Barley grains","Rest of World","RoW",0.013,0.045,0115
-"A.01.02.003","Maize grain","France","FR",0.961,0.045,0112
-"A.01.02.003","Maize grain","Rest of World","RoW",0.039,0.045,0112
-"A.01.02.004","Rye grain","France","FR",0.99,0.045,0116
-"A.01.02.004","Rye grain","Rest of World","RoW",0.01,0.045,0116
-"A.01.02.005","Spelt grain","France","FR",0.954,0.045,0111
-"A.01.02.005","Spelt grain","Rest of World","RoW",0.046,0.045,0111
-"A.01.02.006","Buckwheat","France","FR",0.932,0.06,01192
-"A.01.02.006","Buckwheat","Rest of World","RoW",0.068,0.06,01192
-"A.01.02.007","Millet grain","Rest of World","RoW",1,0.045,01193
-"A.01.02.007","Millet grain","France","FR",0.949,0.045,0118
-"A.01.02.007","Millet grain","Rest of World","RoW",0.051,0.045,0118
-"A.01.02.008","Oat grain","France","FR",0.931,0.045,0117
-"A.01.02.008","Oat grain","Rest of World","RoW",0.069,0.045,0117
-"A.01.02.009.007","Indian rice grain","France","FR",0.91,0.045,0113
-"A.01.02.009.007","Indian rice grain","Rest of World","RoW",0.09,0.045,0113
-"A.01.02.009","Rice grain","France","FR",0.91,0.045,0113
-"A.01.02.009","Rice grain","Rest of World","RoW",0.09,0.045,0113
-"A.01.02.010.002","Sorghum grain","France","FR",0.987,0.045,0114
-"A.01.02.010.002","Sorghum grain","Rest of World","RoW",0.013,0.045,0114
-"A.02.01.001","Arrowroots","France","FR",0.879,0.24,01599.10
-"A.02.01.001","Arrowroots","Rest of World","RoW",0.121,0.24,01599.10
-"A.02.01.002","Beetroots","France","FR",0.879,0.24,01599.10
-"A.02.01.002","Beetroots","Rest of World","RoW",0.121,0.24,01599.10
-"A.02.01.003","Carrots","France","FR",0.824,0.07,01251
-"A.02.01.003","Carrots","Rest of World","RoW",0.176,0.07,01251
-"A.02.01.004","Celeriacs","France","FR",0.879,0.24,01599.10
-"A.02.01.004","Celeriacs","Rest of World","RoW",0.121,0.24,01599.10
-"A.02.01.005","Horseradish roots","France","FR",0.879,0.24,01599.10
-"A.02.01.005","Horseradish roots","Rest of World","RoW",0.121,0.24,01599.10
-"A.02.01.006","Parsley roots","France","FR",0.879,0.24,01599.10
-"A.02.01.006","Parsley roots","Rest of World","RoW",0.121,0.24,01599.10
-"A.02.01.007","Parsnip roots","France","FR",0.879,0.24,01599.10
-"A.02.01.007","Parsnip roots","Rest of World","RoW",0.121,0.24,01599.10
-"A.02.01.008","Radishes","France","FR",0.786,0.07,01212
-"A.02.01.008","Radishes","Rest of World","RoW",0.214,0.07,01212
-"A.02.01.009","Salsifies","France","FR",0.544,0.06,01445
-"A.02.01.009","Salsifies","Ukraine","UA",0.19,0.06,01445
-"A.02.01.009","Salsifies","Rest of World","RoW",0.266,0.06,01445
-"A.02.01.010","Swedes","France","FR",0.786,0.07,01212
-"A.02.01.010","Swedes","Rest of World","RoW",0.214,0.07,01212
-"A.02.01.012","Turnips","France","FR",0.824,0.07,01251
-"A.02.01.012","Turnips","Rest of World","RoW",0.176,0.07,01251
-"A.02.02.001","Garlic","France","FR",0.474,0.07,01252
-"A.02.02.001","Garlic","Spain","ES",0.317,0.07,01252
-"A.02.02.001","Garlic","Rest of World","RoW",0.209,0.07,01252
-"A.02.02.002","Onions","France","FR",0.703,0.07,01253.02
-"A.02.02.002","Onions","Netherlands","NL",0.118,0.07,01253.02
-"A.02.02.002","Onions","Rest of World","RoW",0.179,0.07,01253.02
-"A.02.02.003","Shallots","France","FR",0.703,0.07,01253.02
-"A.02.02.003","Shallots","Netherlands","NL",0.118,0.07,01253.02
-"A.02.02.003","Shallots","Rest of World","RoW",0.179,0.07,01253.02
-"A.02.02.004","Spring onions","France","FR",0.703,0.07,01253.02
-"A.02.02.004","Spring onions","Netherlands","NL",0.118,0.07,01253.02
-"A.02.02.004","Spring onions","Rest of World","RoW",0.179,0.07,01253.02
-"A.02.02.005","Chives","France","FR",0.703,0.07,01253.02
-"A.02.02.005","Chives","Netherlands","NL",0.118,0.07,01253.02
-"A.02.02.005","Chives","Rest of World","RoW",0.179,0.07,01253.02
-"A.02.03.001","Tomatoes","France","FR",0.313,0.07,01234
-"A.02.03.001","Tomatoes","Italy","IT",0.217,0.07,01234
-"A.02.03.001","Tomatoes","Morocco","MA",0.161,0.07,01234
-"A.02.03.001","Tomatoes","Spain","ES",0.188,0.07,01234
-"A.02.03.001","Tomatoes","Rest of World","RoW",0.122,0.07,01234
-"A.02.03.002","Sweet peppers","France","FR",0.123,0.07,01231
-"A.02.03.002","Sweet peppers","Morocco","MA",0.192,0.07,01231
-"A.02.03.002","Sweet peppers","Spain","ES",0.603,0.07,01231
-"A.02.03.002","Sweet peppers","Rest of World","RoW",0.082,0.07,01231
-"A.02.03.003","Chilli pepper (Capsicum frutescens)","France","FR",0.123,0.07,01231
-"A.02.03.003","Chilli pepper (Capsicum frutescens)","Morocco","MA",0.192,0.07,01231
-"A.02.03.003","Chilli pepper (Capsicum frutescens)","Spain","ES",0.603,0.07,01231
-"A.02.03.003","Chilli pepper (Capsicum frutescens)","Rest of World","RoW",0.082,0.07,01231
-"A.02.03.003","Chilli pepper (Capsicum frutescens)","France","FR",0.123,0.07,01652
-"A.02.03.003","Chilli pepper (Capsicum frutescens)","Morocco","MA",0.192,0.07,01652
-"A.02.03.003","Chilli pepper (Capsicum frutescens)","Spain","ES",0.603,0.07,01652
-"A.02.03.003","Chilli pepper (Capsicum frutescens)","Rest of World","RoW",0.082,0.07,01652
-"A.02.03.004","Aubergines","France","FR",0.35,0.07,01233
-"A.02.03.004","Aubergines","Spain","ES",0.589,0.07,01233
-"A.02.03.004","Aubergines","Rest of World","RoW",0.061,0.07,01233
-"A.02.03.005","Okra","Spain","ES",0.213,0.07,01359.90
-"A.02.03.005","Okra","Rest of World","RoW",0.787,0.07,01359.90
-"A.02.03.006","Cucumbers","France","FR",0.651,0.07,01232
-"A.02.03.006","Cucumbers","Spain","ES",0.238,0.07,01232
-"A.02.03.006","Cucumbers","Rest of World","RoW",0.112,0.07,01232
-"A.02.03.007","Gherkins","France","FR",0.651,0.07,01232
-"A.02.03.007","Gherkins","Spain","ES",0.238,0.07,01232
-"A.02.03.007","Gherkins","Rest of World","RoW",0.112,0.07,01232
-"A.02.03.008","Courgettes","France","FR",0.394,0.07,01235
-"A.02.03.008","Courgettes","Morocco","MA",0.147,0.07,01235
-"A.02.03.008","Courgettes","Spain","ES",0.399,0.07,01235
-"A.02.03.008","Courgettes","Rest of World","RoW",0.06,0.07,01235
-"A.02.03.009","Melons","France","FR",0.609,0.07,01229
-"A.02.03.009","Melons","Morocco","MA",0.11,0.07,01229
-"A.02.03.009","Melons","Spain","ES",0.242,0.07,01229
-"A.02.03.009","Melons","Rest of World","RoW",0.039,0.07,01229
-"A.02.03.010","Pumpkins","France","FR",0.394,0.07,01235
-"A.02.03.010","Pumpkins","Morocco","MA",0.147,0.07,01235
-"A.02.03.010","Pumpkins","Spain","ES",0.399,0.07,01235
-"A.02.03.010","Pumpkins","Rest of World","RoW",0.06,0.07,01235
-"A.02.03.011","Watermelons","France","FR",0.115,0.07,01221
-"A.02.03.011","Watermelons","Italy","IT",0.131,0.07,01221
-"A.02.03.011","Watermelons","Spain","ES",0.627,0.07,01221
-"A.02.03.011","Watermelons","Rest of World","RoW",0.126,0.07,01221
-"A.02.03.012","Sweet corn","France","FR",0.902,0.07,01290.01
-"A.02.03.012","Sweet corn","Rest of World","RoW",0.098,0.07,01290.01
-"A.02.04.001","Broccoli","France","FR",0.609,0.07,01213
-"A.02.04.001","Broccoli","Morocco","MA",0.11,0.07,01213
-"A.02.04.001","Broccoli","Spain","ES",0.242,0.07,01213
-"A.02.04.001","Broccoli","Rest of World","RoW",0.039,0.07,01213
-"A.02.04.002","Cauliflowers","France","FR",0.609,0.07,01213
-"A.02.04.002","Cauliflowers","Morocco","MA",0.11,0.07,01213
-"A.02.04.002","Cauliflowers","Spain","ES",0.242,0.07,01213
-"A.02.04.002","Cauliflowers","Rest of World","RoW",0.039,0.07,01213
-"A.02.04.003","Brussels sprouts","France","FR",0.786,0.07,01212
-"A.02.04.003","Brussels sprouts","Rest of World","RoW",0.214,0.07,01212
-"A.02.04.004","Head cabbages","France","FR",0.786,0.07,01212
-"A.02.04.004","Head cabbages","Rest of World","RoW",0.214,0.07,01212
-"A.02.04.005","Chinese cabbages","France","FR",0.786,0.07,01212
-"A.02.04.005","Chinese cabbages","Rest of World","RoW",0.214,0.07,01212
-"A.02.04.006","Kales and similar-","France","FR",0.786,0.07,01212
-"A.02.04.006","Kales and similar-","Rest of World","RoW",0.214,0.07,01212
-"A.02.04.007","Kohlrabies","France","FR",0.786,0.07,01212
-"A.02.04.007","Kohlrabies","Rest of World","RoW",0.214,0.07,01212
-"A.02.05.001","Lamb's lettuces","France","FR",0.719,0.07,01214
-"A.02.05.001","Lamb's lettuces","Spain","ES",0.208,0.07,01214
-"A.02.05.001","Lamb's lettuces","Rest of World","RoW",0.073,0.07,01214
-"A.02.05.002","Head lettuces","France","FR",0.719,0.07,01214
-"A.02.05.002","Head lettuces","Spain","ES",0.208,0.07,01214
-"A.02.05.002","Head lettuces","Rest of World","RoW",0.073,0.07,01214
-"A.02.05.003","Crisp lettuces","France","FR",0.719,0.07,01214
-"A.02.05.003","Crisp lettuces","Spain","ES",0.208,0.07,01214
-"A.02.05.003","Crisp lettuces","Rest of World","RoW",0.073,0.07,01214
-"A.02.05.004","Escaroles","France","FR",0.719,0.07,01214
-"A.02.05.004","Escaroles","Spain","ES",0.208,0.07,01214
-"A.02.05.004","Escaroles","Rest of World","RoW",0.073,0.07,01214
-"A.02.05.005","Cresses","France","FR",0.786,0.07,01212
-"A.02.05.005","Cresses","Rest of World","RoW",0.214,0.07,01212
-"A.02.05.006","Land cresses","France","FR",0.786,0.07,01212
-"A.02.05.006","Land cresses","Rest of World","RoW",0.214,0.07,01212
-"A.02.05.007","Roman rocket","France","FR",0.786,0.07,01212
-"A.02.05.007","Roman rocket","Rest of World","RoW",0.214,0.07,01212
-"A.02.05.010","Spinaches","France","FR",0.971,0.07,01215
-"A.02.05.010","Spinaches","Rest of World","RoW",0.029,0.07,01215
-"A.02.05.012","Purslanes","France","FR",0.971,0.07,01215
-"A.02.05.012","Purslanes","Rest of World","RoW",0.029,0.07,01215
-"A.02.05.013","Chards","France","FR",0.932,0.045,01801
-"A.02.05.013","Chards","Rest of World","RoW",0.068,0.045,01801
-"A.02.05.014","Grape leaves","Spain","ES",0.213,0.07,01359.90
-"A.02.05.014","Grape leaves","Rest of World","RoW",0.787,0.07,01359.90
-"A.02.05.015","Watercresses","France","FR",0.786,0.07,01212
-"A.02.05.015","Watercresses","Rest of World","RoW",0.214,0.07,01212
-"A.02.05.016","Witloofs","France","FR",0.719,0.07,01214
-"A.02.05.016","Witloofs","Spain","ES",0.208,0.07,01214
-"A.02.05.016","Witloofs","Rest of World","RoW",0.073,0.07,01214
-"A.02.05.017","Oraches leaves","Spain","ES",0.213,0.07,01359.90
-"A.02.05.017","Oraches leaves","Rest of World","RoW",0.787,0.07,01359.90
-"A.02.05.019","Dandelions","France","FR",0.544,0.06,01445
-"A.02.05.019","Dandelions","Ukraine","UA",0.19,0.06,01445
-"A.02.05.019","Dandelions","Rest of World","RoW",0.266,0.06,01445
-"A.02.05.020","Common nettle","France","FR",0.971,0.07,01215
-"A.02.05.020","Common nettle","Rest of World","RoW",0.029,0.07,01215
-"A.02.05.021","Garden sorrel","France","FR",0.971,0.07,01215
-"A.02.05.021","Garden sorrel","Rest of World","RoW",0.029,0.07,01215
-"A.02.05.022","Alfalfa sprouts","France","FR",0.157,0.06,01709.90
-"A.02.05.022","Alfalfa sprouts","USA","US",0.241,0.06,01709.90
-"A.02.05.022","Alfalfa sprouts","Rest of World","RoW",0.602,0.06,01709.90
-"A.02.06.001","Beans (with pods) and similar-","France","FR",0.157,0.06,01701
-"A.02.06.001","Beans (with pods) and similar-","USA","US",0.241,0.06,01701
-"A.02.06.001","Beans (with pods) and similar-","Rest of World","RoW",0.602,0.06,01701
-"A.02.06.002","Peas (with pods) and similar-","France","FR",0.985,0.06,01705
-"A.02.06.002","Peas (with pods) and similar-","Rest of World","RoW",0.015,0.06,01705
-"A.02.07.001","Asparagus","France","FR",0.578,0.07,01211
-"A.02.07.001","Asparagus","Spain","ES",0.194,0.07,01211
-"A.02.07.001","Asparagus","Rest of World","RoW",0.227,0.07,01211
-"A.02.07.002","Cardoons","France","FR",0.544,0.06,01445
-"A.02.07.002","Cardoons","Ukraine","UA",0.19,0.06,01445
-"A.02.07.002","Cardoons","Rest of World","RoW",0.266,0.06,01445
-"A.02.07.003","Celeries","France","FR",0.824,0.07,01251
-"A.02.07.003","Celeries","Rest of World","RoW",0.176,0.07,01251
-"A.02.07.004","Florence fennels","France","FR",0.824,0.07,01251
-"A.02.07.004","Florence fennels","Rest of World","RoW",0.176,0.07,01251
-"A.02.07.005","Globe artichokes","France","FR",0.711,0.07,01216
-"A.02.07.005","Globe artichokes","Spain","ES",0.23,0.07,01216
-"A.02.07.005","Globe artichokes","Rest of World","RoW",0.059,0.07,01216
-"A.02.07.006","Leeks","France","FR",0.832,0.07,01254
-"A.02.07.006","Leeks","Belgium","BE",0.118,0.07,01254
-"A.02.07.006","Leeks","Rest of World","RoW",0.05,0.07,01254
-"A.02.07.007","Rhubarbs","France","FR",0.932,0.045,01801
-"A.02.07.007","Rhubarbs","Rest of World","RoW",0.068,0.045,01801
-"A.02.07.008","Bamboo shoots","Spain","ES",0.213,0.07,01359.90
-"A.02.07.008","Bamboo shoots","Rest of World","RoW",0.787,0.07,01359.90
-"A.02.07.009","Palm hearts","Spain","ES",0.213,0.07,01359.90
-"A.02.07.009","Palm hearts","Rest of World","RoW",0.787,0.07,01359.90
-"A.02.08.001","Sugar beet (root) (Beta vulgaris)","France","FR",0.932,0.045,01801
-"A.02.08.001","Sugar beet (root) (Beta vulgaris)","Rest of World","RoW",0.068,0.045,01801
-"A.02.08.002","Sugar cane (Saccharum officinarum)","Spain","ES",1,0.045,01802
-"A.02.08.003","Chicory roots","France","FR",0.879,0.24,01599.10
-"A.02.08.003","Chicory roots","Rest of World","RoW",0.121,0.24,01599.10
-"A.02.09.001.001","Kombu","India","IN",0.606,0.07,01699
-"A.02.09.001.001","Kombu","Turkey","TR",0.12,0.07,01699
-"A.02.09.001.001","Kombu","Rest of World","RoW",0.274,0.07,01699
-"A.02.09.001.002","Laver","India","IN",0.606,0.07,01699
-"A.02.09.001.002","Laver","Turkey","TR",0.12,0.07,01699
-"A.02.09.001.002","Laver","Rest of World","RoW",0.274,0.07,01699
-"A.02.09.001.003","Wakame","India","IN",0.606,0.07,01699
-"A.02.09.001.003","Wakame","Turkey","TR",0.12,0.07,01699
-"A.02.09.001.003","Wakame","Rest of World","RoW",0.274,0.07,01699
-"A.02.09.001","Carrageen mosses","India","IN",0.606,0.07,01699
-"A.02.09.001","Carrageen mosses","Turkey","TR",0.12,0.07,01699
-"A.02.09.001","Carrageen mosses","Rest of World","RoW",0.274,0.07,01699
-"A.02.10.001","Teas  and similar-","India","IN",0.606,0.07,01699
-"A.02.10.001","Teas  and similar-","Turkey","TR",0.12,0.07,01699
-"A.02.10.001","Teas  and similar-","Rest of World","RoW",0.274,0.07,01699
-"A.02.10.002","Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated","Sri Lanka","LK",0.151,0.07,01620
-"A.02.10.002","Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated","India","IN",0.135,0.07,01620
-"A.02.10.002","Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated","Kenya","KE",0.141,0.07,01620
-"A.02.10.002","Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated","Rest of World","RoW",0.574,0.07,01620
-"A.02.10.004","Mints","India","IN",0.606,0.07,01699
-"A.02.10.004","Mints","Turkey","TR",0.12,0.07,01699
-"A.02.10.004","Mints","Rest of World","RoW",0.274,0.07,01699
-"A.02.10.009","Strawberry infusion leaves","India","IN",0.606,0.07,01699
-"A.02.10.009","Strawberry infusion leaves","Turkey","TR",0.12,0.07,01699
-"A.02.10.009","Strawberry infusion leaves","Rest of World","RoW",0.274,0.07,01699
-"A.02.10.011","Maté (Ilex paraguariensis)","Argentina","AR",0.43,0.07,01630
-"A.02.10.011","Maté (Ilex paraguariensis)","Brazil","BR",0.544,0.07,01630
-"A.02.10.011","Maté (Ilex paraguariensis)","Rest of World","RoW",0.026,0.07,01630
-"A.02.10.013","Ginseng infusion roots","India","IN",0.606,0.07,01699
-"A.02.10.013","Ginseng infusion roots","Turkey","TR",0.12,0.07,01699
-"A.02.10.013","Ginseng infusion roots","Rest of World","RoW",0.274,0.07,01699
-"A.02.11.001","Cocoa beans (fermented beans) (Theobroma cacao)","Ghana","GH",0.245,0.07,01640
-"A.02.11.001","Cocoa beans (fermented beans) (Theobroma cacao)","Cote d'Ivoire","CI",0.497,0.07,01640
-"A.02.11.001","Cocoa beans (fermented beans) (Theobroma cacao)","Rest of World","RoW",0.258,0.07,01640
-"A.02.12.001","Coffee beans, green","Brazil","BR",0.336,0.07,01610
-"A.02.12.001","Coffee beans, green","Rest of World","RoW",0.664,0.07,01610
-"A.02.15.001","Common mushrooms","France","FR",0.481,0.07,01270
-"A.02.15.001","Common mushrooms","Netherlands","NL",0.234,0.07,01270
-"A.02.15.001","Common mushrooms","Spain","ES",0.115,0.07,01270
-"A.02.15.001","Common mushrooms","Rest of World","RoW",0.17,0.07,01270
-"A.02.15.002","Oyster mushroom (Pleurotus ostreatus)","France","FR",0.481,0.07,01270
-"A.02.15.002","Oyster mushroom (Pleurotus ostreatus)","Netherlands","NL",0.234,0.07,01270
-"A.02.15.002","Oyster mushroom (Pleurotus ostreatus)","Spain","ES",0.115,0.07,01270
-"A.02.15.002","Oyster mushroom (Pleurotus ostreatus)","Rest of World","RoW",0.17,0.07,01270
-"A.02.15.003","Shiitake","France","FR",0.481,0.07,01270
-"A.02.15.003","Shiitake","Netherlands","NL",0.234,0.07,01270
-"A.02.15.003","Shiitake","Spain","ES",0.115,0.07,01270
-"A.02.15.003","Shiitake","Rest of World","RoW",0.17,0.07,01270
-"A.02.16.002","Honey mushroom","France","FR",0.481,0.07,01270
-"A.02.16.002","Honey mushroom","Netherlands","NL",0.234,0.07,01270
-"A.02.16.002","Honey mushroom","Spain","ES",0.115,0.07,01270
-"A.02.16.002","Honey mushroom","Rest of World","RoW",0.17,0.07,01270
-"A.02.16.003","Ceps","France","FR",0.481,0.07,01270
-"A.02.16.003","Ceps","Netherlands","NL",0.234,0.07,01270
-"A.02.16.003","Ceps","Spain","ES",0.115,0.07,01270
-"A.02.16.003","Ceps","Rest of World","RoW",0.17,0.07,01270
-"A.02.16.004","Truffles","France","FR",0.481,0.07,01270
-"A.02.16.004","Truffles","Netherlands","NL",0.234,0.07,01270
-"A.02.16.004","Truffles","Spain","ES",0.115,0.07,01270
-"A.02.16.004","Truffles","Rest of World","RoW",0.17,0.07,01270
-"A.02.16.005","Morels","France","FR",0.481,0.07,01270
-"A.02.16.005","Morels","Netherlands","NL",0.234,0.07,01270
-"A.02.16.005","Morels","Spain","ES",0.115,0.07,01270
-"A.02.16.005","Morels","Rest of World","RoW",0.17,0.07,01270
-"A.02.16.006","Chanterelles","France","FR",0.481,0.07,01270
-"A.02.16.006","Chanterelles","Netherlands","NL",0.234,0.07,01270
-"A.02.16.006","Chanterelles","Spain","ES",0.115,0.07,01270
-"A.02.16.006","Chanterelles","Rest of World","RoW",0.17,0.07,01270
-"A.02.16.007","Saffron milk cap","France","FR",0.481,0.07,01270
-"A.02.16.007","Saffron milk cap","Netherlands","NL",0.234,0.07,01270
-"A.02.16.007","Saffron milk cap","Spain","ES",0.115,0.07,01270
-"A.02.16.007","Saffron milk cap","Rest of World","RoW",0.17,0.07,01270
-"A.03.01.001","New potatoes","France","FR",0.854,0.24,01510
-"A.03.01.001","New potatoes","Rest of World","RoW",0.146,0.24,01510
-"A.03.01.002","Main-crop potatoes","France","FR",0.854,0.24,01510
-"A.03.01.002","Main-crop potatoes","Rest of World","RoW",0.146,0.24,01510
-"A.03.02.001","Sweet potatoes","Israel","IL",0.125,0.24,01530
-"A.03.02.001","Sweet potatoes","Spain","ES",0.396,0.24,01530
-"A.03.02.001","Sweet potatoes","USA","US",0.225,0.24,01530
-"A.03.02.001","Sweet potatoes","Rest of World","RoW",0.254,0.24,01530
-"A.03.02.002","Cassava root (Manihot esculenta)","Costa Rica","CR",0.263,0.07,01520.01
-"A.03.02.002","Cassava root (Manihot esculenta)","Thailand","TH",0.579,0.07,01520.01
-"A.03.02.002","Cassava root (Manihot esculenta)","Rest of World","RoW",0.158,0.07,01520.01
-"A.03.02.002","Cassava root (Manihot esculenta)","France","FR",0.879,0.24,01599.10
-"A.03.02.002","Cassava root (Manihot esculenta)","Rest of World","RoW",0.121,0.24,01599.10
-"A.03.02.004","Yams","France","FR",0.879,0.24,01599.10
-"A.03.02.004","Yams","Rest of World","RoW",0.121,0.24,01599.10
-"A.03.02.005","Jerusalem artichokes","France","FR",0.879,0.24,01599.10
-"A.03.02.005","Jerusalem artichokes","Rest of World","RoW",0.121,0.24,01599.10
-"A.04.01.001","Beans (fresh seeds without pods) and similar-","France","FR",0.157,0.06,01701
-"A.04.01.001","Beans (fresh seeds without pods) and similar-","USA","US",0.241,0.06,01701
-"A.04.01.001","Beans (fresh seeds without pods) and similar-","Rest of World","RoW",0.602,0.06,01701
-"A.04.01.002","Peas (without pods) and similar-","France","FR",0.966,0.07,01242
-"A.04.01.002","Peas (without pods) and similar-","Rest of World","RoW",0.034,0.07,01242
-"A.04.02.001","Beans (dry) and similar-","France","FR",0.157,0.06,01701
-"A.04.02.001","Beans (dry) and similar-","USA","US",0.241,0.06,01701
-"A.04.02.001","Beans (dry) and similar-","Rest of World","RoW",0.602,0.06,01701
-"A.04.02.002","Lentils (dry) and similar-","Canada","CA",0.266,0.06,01704
-"A.04.02.002","Lentils (dry) and similar-","China","CN",0.237,0.06,01704
-"A.04.02.002","Lentils (dry) and similar-","France","FR",0.431,0.06,01704
-"A.04.02.002","Lentils (dry) and similar-","Rest of World","RoW",0.067,0.06,01704
-"A.04.02.003","Peas (dry) and similar-","France","FR",0.985,0.06,01705
-"A.04.02.003","Peas (dry) and similar-","Rest of World","RoW",0.015,0.06,01705
-"A.04.02.004","Lupins (Lupinus spp.)","France","FR",0.931,0.06,01709.02
-"A.04.02.004","Lupins (Lupinus spp.)","Rest of World","RoW",0.069,0.06,01709.02
-"A.04.02.005","Chickpeas (dry)","Argentina","AR",0.102,0.06,01703
-"A.04.02.005","Chickpeas (dry)","India","IN",0.504,0.06,01703
-"A.04.02.005","Chickpeas (dry)","Mexico","MX",0.137,0.06,01703
-"A.04.02.005","Chickpeas (dry)","Rest of World","RoW",0.257,0.06,01703
-"A.04.02.007","Broad bean (Vicia faba)","France","FR",0.931,0.06,01702
-"A.04.02.007","Broad bean (Vicia faba)","Rest of World","RoW",0.069,0.06,01702
-"A.04.02.007","Broad bean (Vicia faba)","France","FR",0.931,0.07,01243
-"A.04.02.007","Broad bean (Vicia faba)","Rest of World","RoW",0.069,0.07,01243
-"A.04.02.008","Lima beans (dry)","France","FR",0.157,0.06,01701
-"A.04.02.008","Lima beans (dry)","USA","US",0.241,0.06,01701
-"A.04.02.008","Lima beans (dry)","Rest of World","RoW",0.602,0.06,01701
-"A.04.02.009","Mung bean sprouts","France","FR",0.157,0.06,01701
-"A.04.02.009","Mung bean sprouts","France","FR",0.157,0.06,01701
-"A.04.02.009","Mung bean sprouts","USA","US",0.241,0.06,01701
-"A.04.02.009","Mung bean sprouts","USA","US",0.241,0.06,01701
-"A.04.02.009","Mung bean sprouts","Rest of World","RoW",0.602,0.06,01701
-"A.04.02.009","Mung bean sprouts","Rest of World","RoW",0.602,0.06,01701
-"A.04.02.011","Black eyed peas (dry)","France","FR",0.985,0.06,01705
-"A.04.02.011","Black eyed peas (dry)","Rest of World","RoW",0.015,0.06,01705
-"A.04.02.012","Soyabeans for oil","Argentina","AR",0.131,0.06,0141
-"A.04.02.012","Soyabeans for oil","Brazil","BR",0.551,0.06,0141
-"A.04.02.012","Soyabeans for oil","Rest of World","RoW",0.319,0.06,0141
-"A.04.02.014","Carobs","France","FR",0.157,0.06,01709.90
-"A.04.02.014","Carobs","USA","US",0.241,0.06,01709.90
-"A.04.02.014","Carobs","Rest of World","RoW",0.602,0.06,01709.90
-"A.04.02.020","Yams","France","FR",0.879,0.24,01599.10
-"A.04.02.020","Yams","Rest of World","RoW",0.121,0.24,01599.10
-"A.04.02.021","Peanuts","Spain","ES",0.274,0.06,0142
-"A.04.02.021","Peanuts","USA","US",0.584,0.06,0142
-"A.04.02.021","Peanuts","Rest of World","RoW",0.142,0.06,0142
-"A.04.03.001","Almonds sweet","Spain","ES",0.274,0.06,01371
-"A.04.03.001","Almonds sweet","USA","US",0.584,0.06,01371
-"A.04.03.001","Almonds sweet","Rest of World","RoW",0.142,0.06,01371
-"A.04.03.002","Bitter almonds","Spain","ES",0.274,0.06,01371
-"A.04.03.002","Bitter almonds","USA","US",0.584,0.06,01371
-"A.04.03.002","Bitter almonds","Rest of World","RoW",0.142,0.06,01371
-"A.04.03.003","Brazil nuts","Spain","ES",0.274,0.06,01377
-"A.04.03.003","Brazil nuts","USA","US",0.584,0.06,01377
-"A.04.03.003","Brazil nuts","Rest of World","RoW",0.142,0.06,01377
-"A.04.03.004","Cashew nuts","India","IN",0.325,0.06,01372
-"A.04.03.004","Cashew nuts","Cote d'Ivoire","CI",0.216,0.06,01372
-"A.04.03.004","Cashew nuts","Rest of World","RoW",0.459,0.06,01372
-"A.04.03.005","Chestnuts","France","FR",0.551,0.06,01373
-"A.04.03.005","Chestnuts","Spain","ES",0.184,0.06,01373
-"A.04.03.005","Chestnuts","Rest of World","RoW",0.265,0.06,01373
-"A.04.03.006","Coconuts","French Polynesia","PF",0.107,0.06,01460
-"A.04.03.006","Coconuts","Indonesia","ID",0.144,0.06,01460
-"A.04.03.006","Coconuts","Philippines","PH",0.638,0.06,01460
-"A.04.03.006","Coconuts","Rest of World","RoW",0.112,0.06,01460
-"A.04.03.007","Hazelnuts","France","FR",0.285,0.06,01374
-"A.04.03.007","Hazelnuts","Turkey","TR",0.581,0.06,01374
-"A.04.03.007","Hazelnuts","Rest of World","RoW",0.134,0.06,01374
-"A.04.03.008","Macadamias","Spain","ES",0.274,0.06,01371
-"A.04.03.008","Macadamias","USA","US",0.584,0.06,01371
-"A.04.03.008","Macadamias","Rest of World","RoW",0.142,0.06,01371
-"A.04.03.009","Pecans","Spain","ES",0.274,0.06,01371
-"A.04.03.009","Pecans","USA","US",0.584,0.06,01371
-"A.04.03.009","Pecans","Rest of World","RoW",0.142,0.06,01371
-"A.04.03.010","Pine nut kernels","Spain","ES",0.274,0.06,01371
-"A.04.03.010","Pine nut kernels","USA","US",0.584,0.06,01371
-"A.04.03.010","Pine nut kernels","Rest of World","RoW",0.142,0.06,01371
-"A.04.03.011","Pistachios (Pistachia vera)","Spain","ES",0.274,0.06,01371
-"A.04.03.011","Pistachios (Pistachia vera)","USA","US",0.584,0.06,01371
-"A.04.03.011","Pistachios (Pistachia vera)","Rest of World","RoW",0.142,0.06,01371
-"A.04.03.011","Pistachios (Pistachia vera)","Iran","IR",0.179,0.06,01375
-"A.04.03.011","Pistachios (Pistachia vera)","USA","US",0.756,0.06,01375
-"A.04.03.011","Pistachios (Pistachia vera)","Rest of World","RoW",0.066,0.06,01375
-"A.04.03.012","Walnuts","France","FR",0.785,0.06,01376
-"A.04.03.012","Walnuts","Rest of World","RoW",0.215,0.06,01376
-"A.04.03.013","Kola nut (Cola spp.)","Cote d'Ivoire","CI",0.948,0.06,01379.02
-"A.04.03.013","Kola nut (Cola spp.)","Rest of World","RoW",0.052,0.06,01379.02
-"A.04.04.001","Linseeds","Canada","CA",0.281,0.06,01441
-"A.04.04.001","Linseeds","France","FR",0.113,0.06,01441
-"A.04.04.001","Linseeds","Kazakhstan","KZ",0.128,0.06,01441
-"A.04.04.001","Linseeds","Russia","RU",0.337,0.06,01441
-"A.04.04.001","Linseeds","Rest of World","RoW",0.141,0.06,01441
-"A.04.04.003","Poppy seeds","France","FR",0.93,0.06,01448
-"A.04.04.003","Poppy seeds","Rest of World","RoW",0.07,0.06,01448
-"A.04.04.004","Sesame seed (Sesamum indicum syn. S. orientale)","France","FR",0.275,0.06,01449.90
-"A.04.04.004","Sesame seed (Sesamum indicum syn. S. orientale)","Rest of World","RoW",0.725,0.06,01449.90
-"A.04.04.004","Sesame seed (Sesamum indicum syn. S. orientale)","India","IN",0.463,0.06,01444
-"A.04.04.004","Sesame seed (Sesamum indicum syn. S. orientale)","Rest of World","RoW",0.537,0.06,01444
-"A.04.04.005","Sunflower seeds","France","FR",0.544,0.06,01445
-"A.04.04.005","Sunflower seeds","Ukraine","UA",0.19,0.06,01445
-"A.04.04.005","Sunflower seeds","Rest of World","RoW",0.266,0.06,01445
-"A.04.04.006 ","Rape seed (Brassica napus)","France","FR",0.696,0.06,01443
-"A.04.04.006 ","Rape seed (Brassica napus)","Rest of World","RoW",0.304,0.06,01443
-"A.04.04.007","Mustard seed (Brassica nigra)","Canada","CA",0.412,0.06,01442
-"A.04.04.007","Mustard seed (Brassica nigra)","France","FR",0.311,0.06,01442
-"A.04.04.007","Mustard seed (Brassica nigra)","Rest of World","RoW",0.277,0.06,01442
-"A.04.04.007","Mustard seed (Brassica nigra)","France","FR",0.275,0.06,01449.90
-"A.04.04.007","Mustard seed (Brassica nigra)","Rest of World","RoW",0.725,0.06,01449.90
-"A.04.04.009","Pumpkin seeds","France","FR",0.275,0.06,01449.90
-"A.04.04.009","Pumpkin seeds","Rest of World","RoW",0.725,0.06,01449.90
-"A.04.04.010","Safflower (Carthamus tinctorius)","India","IN",0.606,0.07,01699
-"A.04.04.010","Safflower (Carthamus tinctorius)","Turkey","TR",0.12,0.07,01699
-"A.04.04.010","Safflower (Carthamus tinctorius)","Rest of World","RoW",0.274,0.07,01699
-"A.04.04.011","Borage (Borago officinalis)","India","IN",0.606,0.07,01699
-"A.04.04.011","Borage (Borago officinalis)","Turkey","TR",0.12,0.07,01699
-"A.04.04.011","Borage (Borago officinalis)","Rest of World","RoW",0.274,0.07,01699
-"A.04.04.013","Hempseed (Cannabis sativa)","France","FR",0.275,0.06,01449.90
-"A.04.04.013","Hempseed (Cannabis sativa)","Rest of World","RoW",0.725,0.06,01449.90
-"A.04.04.013","Hempseed (Cannabis sativa)","France","FR",0.91,0.06,01929.02
-"A.04.04.013","Hempseed (Cannabis sativa)","Rest of World","RoW",0.09,0.06,01929.02
-"A.04.05","Other oilseeds (including elsewhere non-listed seeds)","France","FR",0.275,0.06,01449.90
-"A.04.05","Other oilseeds (including elsewhere non-listed seeds)","Rest of World","RoW",0.725,0.06,01449.90
-"A.05.01.001","Grapefruits","Israel","IL",0.208,0.07,01321
-"A.05.01.001","Grapefruits","South Africa","ZA",0.211,0.07,01321
-"A.05.01.001","Grapefruits","Spain","ES",0.139,0.07,01321
-"A.05.01.001","Grapefruits","USA","US",0.134,0.07,01321
-"A.05.01.001","Grapefruits","Rest of World","RoW",0.308,0.07,01321
-"A.05.01.002","Oranges","Brazil","BR",0.244,0.07,01323
-"A.05.01.002","Oranges","Spain","ES",0.528,0.07,01323
-"A.05.01.002","Oranges","Rest of World","RoW",0.228,0.07,01323
-"A.05.01.003","Lemons","Argentina","AR",0.136,0.07,01322
-"A.05.01.003","Lemons","Spain","ES",0.697,0.07,01322
-"A.05.01.003","Lemons","Rest of World","RoW",0.167,0.07,01322
-"A.05.01.004","Limes","Argentina","AR",0.136,0.07,01322
-"A.05.01.004","Limes","Spain","ES",0.697,0.07,01322
-"A.05.01.004","Limes","Rest of World","RoW",0.167,0.07,01322
-"A.05.01.005","Mandarins and similar-","Spain","ES",0.773,0.07,01324
-"A.05.01.005","Mandarins and similar-","Rest of World","RoW",0.227,0.07,01324
-"A.05.01.006","Pomelo (Citrus grandis)","Israel","IL",0.208,0.07,01321
-"A.05.01.006","Pomelo (Citrus grandis)","South Africa","ZA",0.211,0.07,01321
-"A.05.01.006","Pomelo (Citrus grandis)","Spain","ES",0.139,0.07,01321
-"A.05.01.006","Pomelo (Citrus grandis)","USA","US",0.134,0.07,01321
-"A.05.01.006","Pomelo (Citrus grandis)","Rest of World","RoW",0.308,0.07,01321
-"A.05.02.001","Apples","France","FR",0.807,0.07,01341
-"A.05.02.001","Apples","Rest of World","RoW",0.193,0.07,01341
-"A.05.02.002","Pears","France","FR",0.535,0.07,01342.01
-"A.05.02.002","Pears","Belgium","BE",0.108,0.07,01342.01
-"A.05.02.002","Pears","Rest of World","RoW",0.357,0.07,01342.01
-"A.05.02.003","Quinces","Spain","ES",0.518,0.06,01342.02
-"A.05.02.003","Quinces","Turkey","TR",0.371,0.06,01342.02
-"A.05.02.003","Quinces","Rest of World","RoW",0.111,0.06,01342.02
-"A.05.02.004","Medlars","Spain","ES",0.213,0.07,01359.90
-"A.05.02.004","Medlars","Rest of World","RoW",0.787,0.07,01359.90
-"A.05.02.005","Loquats","Spain","ES",0.213,0.07,01359.90
-"A.05.02.005","Loquats","Rest of World","RoW",0.787,0.07,01359.90
-"A.05.02.007","Sorb fruits","France","FR",0.807,0.07,01341
-"A.05.02.007","Sorb fruits","Rest of World","RoW",0.193,0.07,01341
-"A.05.02.009","Nashi pears","France","FR",0.535,0.07,01342.01
-"A.05.02.009","Nashi pears","Belgium","BE",0.108,0.07,01342.01
-"A.05.02.009","Nashi pears","Rest of World","RoW",0.357,0.07,01342.01
-"A.05.03.001","Apricots","France","FR",0.648,0.07,01343
-"A.05.03.001","Apricots","Turkey","TR",0.248,0.07,01343
-"A.05.03.001","Apricots","Rest of World","RoW",0.104,0.07,01343
-"A.05.03.002","Plums","France","FR",0.891,0.07,01346
-"A.05.03.002","Plums","Rest of World","RoW",0.109,0.07,01346
-"A.05.03.003","Damsons","France","FR",0.891,0.07,01346
-"A.05.03.003","Damsons","Rest of World","RoW",0.109,0.07,01346
-"A.05.03.004","Mirabelles","France","FR",0.891,0.07,01346
-"A.05.03.004","Mirabelles","Rest of World","RoW",0.109,0.07,01346
-"A.05.03.005","Gages","France","FR",0.891,0.07,01346
-"A.05.03.005","Gages","Rest of World","RoW",0.109,0.07,01346
-"A.05.03.006","Cherries (sweet)","France","FR",0.841,0.07,01344.02
-"A.05.03.006","Cherries (sweet)","Spain","ES",0.101,0.07,01344.02
-"A.05.03.006","Cherries (sweet)","Rest of World","RoW",0.058,0.07,01344.02
-"A.05.03.007","Sour cherries","Rest of World","RoW",1,0.07,01344.01
-"A.05.03.011","Peaches and similar-","France","FR",0.6,0.07,01345
-"A.05.03.011","Peaches and similar-","Spain","ES",0.372,0.07,01345
-"A.05.03.011","Peaches and similar-","Rest of World","RoW",0.029,0.07,01345
-"A.05.04.001","Table grapes","France","FR",0.882,0.07,01330
-"A.05.04.001","Table grapes","Rest of World","RoW",0.118,0.07,01330
-"A.05.04.002","Wine grapes","France","FR",0.882,0.07,01330
-"A.05.04.002","Wine grapes","Rest of World","RoW",0.118,0.07,01330
-"A.05.04.003","Strawberries","France","FR",0.377,0.07,01354
-"A.05.04.003","Strawberries","Spain","ES",0.479,0.07,01354
-"A.05.04.003","Strawberries","Rest of World","RoW",0.144,0.07,01354
-"A.05.04.004","Blackberries","France","FR",0.771,0.07,01353.01
-"A.05.04.004","Blackberries","Spain","ES",0.129,0.07,01353.01
-"A.05.04.004","Blackberries","Rest of World","RoW",0.1,0.07,01353.01
-"A.05.04.006","Raspberries (red and yellow)","France","FR",0.771,0.07,01353.01
-"A.05.04.006","Raspberries (red and yellow)","Spain","ES",0.129,0.07,01353.01
-"A.05.04.006","Raspberries (red and yellow)","Rest of World","RoW",0.1,0.07,01353.01
-"A.05.04.008","Blueberries","France","FR",0.771,0.07,01355.01
-"A.05.04.008","Blueberries","Spain","ES",0.129,0.07,01355.01
-"A.05.04.008","Blueberries","Rest of World","RoW",0.1,0.07,01355.01
-"A.05.04.009","Cranberries (Vaccinium macrocarpon)","France","FR",0.771,0.07,01355.01
-"A.05.04.009","Cranberries (Vaccinium macrocarpon)","Spain","ES",0.129,0.07,01355.01
-"A.05.04.009","Cranberries (Vaccinium macrocarpon)","Rest of World","RoW",0.1,0.07,01355.01
-"A.05.04.009","Cranberries (Vaccinium macrocarpon)","Rest of World","RoW",1,0.07,01355.02
-"A.05.04.010","Currants (black, red and white)","France","FR",0.949,0.07,01351.01
-"A.05.04.010","Currants (black, red and white)","Rest of World","RoW",0.051,0.07,01351.01
-"A.05.04.011","Gooseberries (green, red and yellow)","Rest of World","RoW",1,0.07,01351.02
-"A.05.04.012","Rose hips","India","IN",0.606,0.07,01699
-"A.05.04.012","Rose hips","Turkey","TR",0.12,0.07,01699
-"A.05.04.012","Rose hips","Rest of World","RoW",0.274,0.07,01699
-"A.05.04.013","Mulberries (black and white)","Turkey","TR",0.784,0.07,01315
-"A.05.04.013","Mulberries (black and white)","Rest of World","RoW",0.216,0.07,01315
-"A.05.04.014","Azarole (mediteranean medlar) (Crataegus azarolus)","France","FR",0.771,0.07,01355.01
-"A.05.04.014","Azarole (mediteranean medlar) (Crataegus azarolus)","Spain","ES",0.129,0.07,01355.01
-"A.05.04.014","Azarole (mediteranean medlar) (Crataegus azarolus)","Rest of World","RoW",0.1,0.07,01355.01
-"A.05.04.015","Elderberries","France","FR",0.949,0.07,01351.01
-"A.05.04.015","Elderberries","Rest of World","RoW",0.051,0.07,01351.01
-"A.05.04.016","Cloudberries","France","FR",0.771,0.07,01353.01
-"A.05.04.016","Cloudberries","Spain","ES",0.129,0.07,01353.01
-"A.05.04.016","Cloudberries","Rest of World","RoW",0.1,0.07,01353.01
-"A.05.04.017","Loganberry (Rubus loganobaccus)","France","FR",0.771,0.07,01355.01
-"A.05.04.017","Loganberry (Rubus loganobaccus)","Spain","ES",0.129,0.07,01355.01
-"A.05.04.017","Loganberry (Rubus loganobaccus)","Rest of World","RoW",0.1,0.07,01355.01
-"A.05.04.022","Bilberries","France","FR",0.771,0.07,01355.01
-"A.05.04.022","Bilberries","Spain","ES",0.129,0.07,01355.01
-"A.05.04.022","Bilberries","Rest of World","RoW",0.1,0.07,01355.01
-"A.05.04.026","Lingonberry (Vaccinium vitis-idaea)","France","FR",0.771,0.07,01355.01
-"A.05.04.026","Lingonberry (Vaccinium vitis-idaea)","Spain","ES",0.129,0.07,01355.01
-"A.05.04.026","Lingonberry (Vaccinium vitis-idaea)","Rest of World","RoW",0.1,0.07,01355.01
-"A.05.04.029","Ground cherries (physalis etc.)","France","FR",0.313,0.07,01234
-"A.05.04.029","Ground cherries (physalis etc.)","Italy","IT",0.217,0.07,01234
-"A.05.04.029","Ground cherries (physalis etc.)","Morocco","MA",0.161,0.07,01234
-"A.05.04.029","Ground cherries (physalis etc.)","Spain","ES",0.188,0.07,01234
-"A.05.04.029","Ground cherries (physalis etc.)","Rest of World","RoW",0.122,0.07,01234
-"A.05.04.030","Sea buckthorns","France","FR",0.949,0.07,01351.01
-"A.05.04.030","Sea buckthorns","Rest of World","RoW",0.051,0.07,01351.01
-"A.05.05.001","Olives for oil production","Italy","IT",0.126,0.06,01450
-"A.05.05.001","Olives for oil production","Spain","ES",0.55,0.06,01450
-"A.05.05.001","Olives for oil production","Rest of World","RoW",0.324,0.06,01450
-"A.05.05.002","Palm nuts (palmoil kernels)","France","FR",0.275,0.06,01491.02
-"A.05.05.002","Palm nuts (palmoil kernels)","Rest of World","RoW",0.725,0.06,01491.02
-"A.05.05.003","Palmfruit (Elaeis guineensis)","Malaysia","MY",0.3,0.06,01491.01
-"A.05.05.003","Palmfruit (Elaeis guineensis)","Indonesia","ID",0.7,0.06,01491.01
-"A.05.06.001","Dates","Algeria","DZ",0.334,0.07,01314
-"A.05.06.001","Dates","Tunisia","TN",0.554,0.07,01314
-"A.05.06.001","Dates","Rest of World","RoW",0.112,0.07,01314
-"A.05.06.002","Figs","Turkey","TR",0.784,0.07,01315
-"A.05.06.002","Figs","Rest of World","RoW",0.216,0.07,01315
-"A.05.06.003","Table olives","Italy","IT",0.126,0.06,01450
-"A.05.06.003","Table olives","Spain","ES",0.55,0.06,01450
-"A.05.06.003","Table olives","Rest of World","RoW",0.324,0.06,01450
-"A.05.06.004","Kumquats","Argentina","AR",0.136,0.07,01322
-"A.05.06.004","Kumquats","Spain","ES",0.697,0.07,01322
-"A.05.06.004","Kumquats","Rest of World","RoW",0.167,0.07,01322
-"A.05.06.005","Carambolas","Spain","ES",0.213,0.07,01359.90
-"A.05.06.005","Carambolas","Rest of World","RoW",0.787,0.07,01359.90
-"A.05.06.006","Persimmon (Sharon fruit) (Diospyros kaki)","Spain","ES",0.946,0.07,01359.01
-"A.05.06.006","Persimmon (Sharon fruit) (Diospyros kaki)","Rest of World","RoW",0.054,0.07,01359.01
-"A.05.06.006","Persimmon (Sharon fruit) (Diospyros kaki)","France","FR",0.313,0.07,01234
-"A.05.06.006","Persimmon (Sharon fruit) (Diospyros kaki)","Italy","IT",0.217,0.07,01234
-"A.05.06.006","Persimmon (Sharon fruit) (Diospyros kaki)","Morocco","MA",0.161,0.07,01234
-"A.05.06.006","Persimmon (Sharon fruit) (Diospyros kaki)","Spain","ES",0.188,0.07,01234
-"A.05.06.006","Persimmon (Sharon fruit) (Diospyros kaki)","Rest of World","RoW",0.122,0.07,01234
-"A.05.06.008","Kiwi fruits (green, red, yellow)","France","FR",0.526,0.07,01352
-"A.05.06.008","Kiwi fruits (green, red, yellow)","Italy","IT",0.203,0.07,01352
-"A.05.06.008","Kiwi fruits (green, red, yellow)","New Zealand","NZ",0.159,0.07,01352
-"A.05.06.008","Kiwi fruits (green, red, yellow)","Rest of World","RoW",0.112,0.07,01352
-"A.05.06.009","Litchis","Spain","ES",0.213,0.07,01359.90
-"A.05.06.009","Litchis","Rest of World","RoW",0.787,0.07,01359.90
-"A.05.06.010","Passionfruits","Spain","ES",0.213,0.07,01359.90
-"A.05.06.010","Passionfruits","Rest of World","RoW",0.787,0.07,01359.90
-"A.05.06.011","Prickly pears","Spain","ES",0.213,0.07,01359.90
-"A.05.06.011","Prickly pears","Rest of World","RoW",0.787,0.07,01359.90
-"A.05.06.013","American persimmons","France","FR",0.313,0.07,01234
-"A.05.06.013","American persimmons","Italy","IT",0.217,0.07,01234
-"A.05.06.013","American persimmons","Morocco","MA",0.161,0.07,01234
-"A.05.06.013","American persimmons","Spain","ES",0.188,0.07,01234
-"A.05.06.013","American persimmons","Rest of World","RoW",0.122,0.07,01234
-"A.05.06.014","Avocados","Chile","CL",0.131,0.07,01311
-"A.05.06.014","Avocados","Israel","IL",0.165,0.07,01311
-"A.05.06.014","Avocados","Peru","PE",0.253,0.07,01311
-"A.05.06.014","Avocados","Spain","ES",0.208,0.07,01311
-"A.05.06.014","Avocados","Rest of World","RoW",0.242,0.07,01311
-"A.05.06.015","Bananas (Musa × paradisica)","Cameroon","CM",0.2,0.07,01312
-"A.05.06.015","Bananas (Musa × paradisica)","Colombia","CO",0.13,0.07,01312
-"A.05.06.015","Bananas (Musa × paradisica)","Cote d'Ivoire","CI",0.228,0.07,01312
-"A.05.06.015","Bananas (Musa × paradisica)","Suriname","SR",0.139,0.07,01312
-"A.05.06.015","Bananas (Musa × paradisica)","Rest of World","RoW",0.302,0.07,01312
-"A.05.06.016","Mangoes","Brazil","BR",0.335,0.07,01316
-"A.05.06.016","Mangoes","Israel","IL",0.118,0.07,01316
-"A.05.06.016","Mangoes","Cote d'Ivoire","CI",0.107,0.07,01316
-"A.05.06.016","Mangoes","Peru","PE",0.236,0.07,01316
-"A.05.06.016","Mangoes","Rest of World","RoW",0.204,0.07,01316
-"A.05.06.017","Papayas","Brazil","BR",0.804,0.07,01317
-"A.05.06.017","Papayas","Thailand","TH",0.128,0.07,01317
-"A.05.06.017","Papayas","Rest of World","RoW",0.068,0.07,01317
-"A.05.06.018","Granate apples","Spain","ES",0.213,0.07,01359.90
-"A.05.06.018","Granate apples","Rest of World","RoW",0.787,0.07,01359.90
-"A.05.06.019","Wild sweetsops","Spain","ES",0.213,0.07,01359.90
-"A.05.06.019","Wild sweetsops","Rest of World","RoW",0.787,0.07,01359.90
-"A.05.06.020","Guavas","Brazil","BR",0.335,0.07,01316
-"A.05.06.020","Guavas","Israel","IL",0.118,0.07,01316
-"A.05.06.020","Guavas","Cote d'Ivoire","CI",0.107,0.07,01316
-"A.05.06.020","Guavas","Peru","PE",0.236,0.07,01316
-"A.05.06.020","Guavas","Rest of World","RoW",0.204,0.07,01316
-"A.05.06.021","Pineapples","Costa Rica","CR",0.455,0.07,01318
-"A.05.06.021","Pineapples","Thailand","TH",0.193,0.07,01318
-"A.05.06.021","Pineapples","Rest of World","RoW",0.352,0.07,01318
-"A.05.06.022","Bread fruit (jackfruit) (Artocarpus altilis)","Spain","ES",0.213,0.07,01359.90
-"A.05.06.022","Bread fruit (jackfruit) (Artocarpus altilis)","Rest of World","RoW",0.787,0.07,01359.90
-"A.05.06.029","Papayas","Brazil","BR",0.804,0.07,01317
-"A.05.06.029","Papayas","Thailand","TH",0.128,0.07,01317
-"A.05.06.029","Papayas","Rest of World","RoW",0.068,0.07,01317
-"A.05.06.030","Chayote (Sechium edule)","Spain","ES",0.213,0.07,01359.90
-"A.05.06.030","Chayote (Sechium edule)","Rest of World","RoW",0.787,0.07,01359.90
-"A.05.06.034","Longans","Spain","ES",0.213,0.07,01359.90
-"A.05.06.034","Longans","Rest of World","RoW",0.787,0.07,01359.90
-"A.06.01.001","Bovine muscle","France","FR",0.82,0.057,21111.02
-"A.06.01.001","Bovine muscle","Rest of World","RoW",0.18,0.057,21111.02
-"A.06.01.002","Calf fresh meat","France","FR",0.82,0.057,21111.02
-"A.06.01.002","Calf fresh meat","Rest of World","RoW",0.18,0.057,21111.02
-"A.06.01.003","Pig muscle","France","FR",0.8,0.057,21113.02
-"A.06.01.003","Pig muscle","Spain","ES",0.108,0.057,21113.02
-"A.06.01.003","Pig muscle","Rest of World","RoW",0.092,0.057,21113.02
-"A.06.01.004","Sheep muscle","France","FR",0.522,0.057,21115
-"A.06.01.004","Sheep muscle","New Zealand","NZ",0.115,0.057,21115
-"A.06.01.004","Sheep muscle","United Kingdom","GB",0.17,0.057,21115
-"A.06.01.004","Sheep muscle","Rest of World","RoW",0.193,0.057,21115
-"A.06.01.005","Goat muscle","France","FR",0.942,0.057,21116
-"A.06.01.005","Goat muscle","Rest of World","RoW",0.058,0.057,21116
-"A.06.01.006","Equine muscle","Argentina","AR",0.101,0.057,21118.01
-"A.06.01.006","Equine muscle","Canada","CA",0.151,0.057,21118.01
-"A.06.01.006","Equine muscle","France","FR",0.277,0.057,21118.01
-"A.06.01.006","Equine muscle","Mexico","MX",0.141,0.057,21118.01
-"A.06.01.006","Equine muscle","Rest of World","RoW",0.329,0.057,21118.01
-"A.06.01.007","Rabbit fresh meat","France","FR",0.962,0.057,21114
-"A.06.01.007","Rabbit fresh meat","Rest of World","RoW",0.038,0.057,21114
-"A.06.02.001","Chicken meat (Gallus domesticus)","France","FR",0.761,0.057,21121
-"A.06.02.001","Chicken meat (Gallus domesticus)","Rest of World","RoW",0.239,0.057,21121
-"A.06.02.002","Turkey fresh meat","France","FR",0.913,0.057,21124
-"A.06.02.002","Turkey fresh meat","Rest of World","RoW",0.087,0.057,21124
-"A.06.02.003","Duck fresh meat","France","FR",0.959,0.057,21122
-"A.06.02.003","Duck fresh meat","Rest of World","RoW",0.041,0.057,21122
-"A.06.02.004","Goose fresh meat","France","FR",0.585,0.057,21123
-"A.06.02.004","Goose fresh meat","Hungary","HU",0.235,0.057,21123
-"A.06.02.004","Goose fresh meat","Poland","PL",0.177,0.057,21123
-"A.06.02.004","Goose fresh meat","Rest of World","RoW",0.003,0.057,21123
-"A.06.02.005","Pigeon fresh meat","Rest of World","RoW",1,0.057,21170.01
-"A.06.02.006","Guinea-fowl fresh meat","France","FR",0.761,0.057,21121
-"A.06.02.006","Guinea-fowl fresh meat","Rest of World","RoW",0.239,0.057,21121
-"A.06.02.007","Ratites fresh meat","Germany","DE",0.116,0.057,21170.02
-"A.06.02.007","Ratites fresh meat","New Zealand","NZ",0.226,0.057,21170.02
-"A.06.02.007","Ratites fresh meat","Spain","ES",0.387,0.057,21170.02
-"A.06.02.007","Ratites fresh meat","United Kingdom","GB",0.103,0.057,21170.02
-"A.06.02.007","Ratites fresh meat","Rest of World","RoW",0.167,0.057,21170.02
-"A.06.03.001","Wild boar fresh meat","Germany","DE",0.116,0.057,21170.02
-"A.06.03.001","Wild boar fresh meat","New Zealand","NZ",0.226,0.057,21170.02
-"A.06.03.001","Wild boar fresh meat","Spain","ES",0.387,0.057,21170.02
-"A.06.03.001","Wild boar fresh meat","United Kingdom","GB",0.103,0.057,21170.02
-"A.06.03.001","Wild boar fresh meat","Rest of World","RoW",0.167,0.057,21170.02
-"A.06.03.002","Deer, red fresh meat","Germany","DE",0.116,0.057,21170.02
-"A.06.03.002","Deer, red fresh meat","New Zealand","NZ",0.226,0.057,21170.02
-"A.06.03.002","Deer, red fresh meat","Spain","ES",0.387,0.057,21170.02
-"A.06.03.002","Deer, red fresh meat","United Kingdom","GB",0.103,0.057,21170.02
-"A.06.03.002","Deer, red fresh meat","Rest of World","RoW",0.167,0.057,21170.02
-"A.06.03.003","European moose meat","Germany","DE",0.116,0.057,21170.02
-"A.06.03.003","European moose meat","New Zealand","NZ",0.226,0.057,21170.02
-"A.06.03.003","European moose meat","Spain","ES",0.387,0.057,21170.02
-"A.06.03.003","European moose meat","United Kingdom","GB",0.103,0.057,21170.02
-"A.06.03.003","European moose meat","Rest of World","RoW",0.167,0.057,21170.02
-"A.06.03.004","Reindeer meat","Germany","DE",0.116,0.057,21170.02
-"A.06.03.004","Reindeer meat","New Zealand","NZ",0.226,0.057,21170.02
-"A.06.03.004","Reindeer meat","Spain","ES",0.387,0.057,21170.02
-"A.06.03.004","Reindeer meat","United Kingdom","GB",0.103,0.057,21170.02
-"A.06.03.004","Reindeer meat","Rest of World","RoW",0.167,0.057,21170.02
-"A.06.03.006","Hare fresh meat","France","FR",0.962,0.057,21114
-"A.06.03.006","Hare fresh meat","Rest of World","RoW",0.038,0.057,21114
-"A.06.04.001","Pheasant fresh meat","Germany","DE",0.116,0.057,21170.02
-"A.06.04.001","Pheasant fresh meat","New Zealand","NZ",0.226,0.057,21170.02
-"A.06.04.001","Pheasant fresh meat","Spain","ES",0.387,0.057,21170.02
-"A.06.04.001","Pheasant fresh meat","United Kingdom","GB",0.103,0.057,21170.02
-"A.06.04.001","Pheasant fresh meat","Rest of World","RoW",0.167,0.057,21170.02
-"A.06.04.003","Mallard fresh meat","Germany","DE",0.116,0.057,21170.02
-"A.06.04.003","Mallard fresh meat","New Zealand","NZ",0.226,0.057,21170.02
-"A.06.04.003","Mallard fresh meat","Spain","ES",0.387,0.057,21170.02
-"A.06.04.003","Mallard fresh meat","United Kingdom","GB",0.103,0.057,21170.02
-"A.06.04.003","Mallard fresh meat","Rest of World","RoW",0.167,0.057,21170.02
-"A.06.04.004","Partridge fresh meat","Germany","DE",0.116,0.057,21170.02
-"A.06.04.004","Partridge fresh meat","New Zealand","NZ",0.226,0.057,21170.02
-"A.06.04.004","Partridge fresh meat","Spain","ES",0.387,0.057,21170.02
-"A.06.04.004","Partridge fresh meat","United Kingdom","GB",0.103,0.057,21170.02
-"A.06.04.004","Partridge fresh meat","Rest of World","RoW",0.167,0.057,21170.02
-"A.06.04.005","Quail fresh meat","Germany","DE",0.116,0.057,21170.02
-"A.06.04.005","Quail fresh meat","New Zealand","NZ",0.226,0.057,21170.02
-"A.06.04.005","Quail fresh meat","Spain","ES",0.387,0.057,21170.02
-"A.06.04.005","Quail fresh meat","United Kingdom","GB",0.103,0.057,21170.02
-"A.06.04.005","Quail fresh meat","Rest of World","RoW",0.167,0.057,21170.02
-"A.07.01.001","Herring roe","Rest of World","RoW",1,0.02,BF-01
-"A.07.01.001","Herring roe","Rest of World","RoW",1,0.02,BF-02
-"A.07.01.002","Sprat","Rest of World","RoW",1,0.02,BF-03
-"A.07.01.003","European sardine","Rest of World","RoW",1,0.02,BF-04
-"A.07.01.004","Anchovies","Rest of World","RoW",1,0.02,BF-05
-"A.07.01.007","Char","Rest of World","RoW",1,0.02,BF-06
-"A.07.01.008","Smelt","Rest of World","RoW",1,0.02,BF-07
-"A.07.01.009","Whitefishes or coregonus","Rest of World","RoW",1,0.02,BF-08
-"A.07.01.010","Perch","Rest of World","RoW",1,0.02,BF-09
-"A.07.01.011","Sea bass","Rest of World","RoW",1,0.02,BF-10
-"A.07.01.013","Mackerel","Rest of World","RoW",1,0.02,BF-11
-"A.07.01.014","Tuna and bonito (generic)","Rest of World","RoW",1,0.02,BF-12
-"A.07.01.016","Mullets","Rest of World","RoW",1,0.02,BF-13
-"A.07.01.018","Hakes","Rest of World","RoW",1,0.02,BF-14
-"A.07.01.019","Flounders","Rest of World","RoW",1,0.02,BF-15
-"A.07.01.020","Halibut","Rest of World","RoW",1,0.02,BF-16
-"A.07.01.021","Plaice","Rest of World","RoW",1,0.02,BF-17
-"A.07.01.022","Sole","Rest of World","RoW",1,0.02,BF-18
-"A.07.01.024","Carps","Rest of World","RoW",1,0.02,BF-19
-"A.07.01.026","Freshwater bream - Europe","Rest of World","RoW",1,0.02,BF-20
-"A.07.01.027","River eels","Rest of World","RoW",1,0.02,BF-21
-"A.07.01.029","Anglerfish and monkfish","Rest of World","RoW",1,0.02,BF-22
-"A.07.01.030","Sharks","Rest of World","RoW",1,0.02,BF-23
-"A.07.01.031","Rays","Rest of World","RoW",1,0.02,BF-24
-"A.07.01.032","Sturgeon roe","Rest of World","RoW",1,0.02,BF-25
-"A.07.01.033","Bonito","Rest of World","RoW",1,0.02,BF-26
-"A.07.01.035","Sardines and sardine-type fishes","Rest of World","RoW",1,0.02,BF-27
-"A.07.01.036","Swordfish","Rest of World","RoW",1,0.02,BF-28
-"A.07.04.001","Freshwater crabs","Rest of World","RoW",1,0.02,BF-29
-"A.07.04.002","Lobsters","Rest of World","RoW",1,0.02,BF-30
-"A.07.04.003","Lobster, norway","Rest of World","RoW",1,0.02,BF-31
-"A.07.04.004","Prawn, giant tiger","Rest of World","RoW",1,0.02,BF-32
-"A.07.04.005","White shrimp","Rest of World","RoW",1,0.02,BF-33
-"A.07.04.006","Spiny and rock lobsters","Rest of World","RoW",1,0.02,BF-34
-"A.07.04.007","Freshwater crayfishes","Rest of World","RoW",1,0.02,BF-35
-"A.07.05.001","Squids","Rest of World","RoW",1,0.02,BF-36
-"A.07.05.002","Octopuses","Rest of World","RoW",1,0.02,BF-37
-"A.07.05.003","Cuttlefishes","Rest of World","RoW",1,0.02,BF-38
-"A.07.05.005","Clams","Rest of World","RoW",1,0.02,BF-39
-"A.07.05.006","Cockles","Rest of World","RoW",1,0.02,BF-40
-"A.07.05.007","Mussels","Rest of World","RoW",1,0.02,BF-41
-"A.07.05.008","Oysters","Rest of World","RoW",1,0.02,BF-42
-"A.07.05.010","Scallops, pectens","Rest of World","RoW",1,0.02,BF-43
-"A.07.05.013","Water snails, conches and whelks","Rest of World","RoW",1,0.02,BF-45
-"A.07.05.013","Water snails, conches and whelks","Rest of World","RoW",1,0.02,BF-45
-"A.07.05.014","Water snails, conches and whelks","Rest of World","RoW",1,0.02,BF-45
-"A.07.05.014","Water snails, conches and whelks","Rest of World","RoW",1,0.02,BF-45
-"A.07.06.001","Frogs (legs)","Rest of World","RoW",1,0.02,BF-46
-"A.07.06.004","Snails","Rest of World","RoW",1,0.02,BF-47
-"A.08.01.001.001","Cow milk, > 4% fat (inc. Channel Island milk)","France","FR",0.805,0.017,02211
-"A.08.01.001.001","Cow milk, > 4% fat (inc. Channel Island milk)","Rest of World","RoW",0.195,0.017,02211
-"A.08.01.001.002","Cow milk","France","FR",0.805,0.017,02211
-"A.08.01.001.002","Cow milk","Rest of World","RoW",0.195,0.017,02211
-"A.08.01.002","Sheep milk","France","FR",1,0.017,02291
-"A.08.01.003","Water buffalo milk","Madagascar","MG",0.939,0.07,02212
-"A.08.01.003","Water buffalo milk","Rest of World","RoW",0.061,0.07,02212
-"A.08.01.005","Goat milk","France","FR",1,0.017,02292
-"A.08.01.007","Ass milk","France","FR",0.805,0.017,02211
-"A.08.01.007","Ass milk","Rest of World","RoW",0.195,0.017,02211
-"A.09.01.001","Hen eggs","France","FR",0.919,0.017,0231
-"A.09.01.001","Hen eggs","Rest of World","RoW",0.081,0.017,0231
-"A.09.01.005","Duck eggs","Rest of World","RoW",1,0.017,0232
-"A.09.01.006","Goose eggs","Rest of World","RoW",1,0.017,0232
-"A.09.01.007","Quail eggs","Rest of World","RoW",1,0.017,0232
-"A.10.07","Honey","France","FR",0.293,0.06,02910
-"A.10.07","Honey","Rest of World","RoW",0.707,0.06,02910
-"A.16.01.001","Chervil","India","IN",0.175,0.07,01654
-"A.16.01.001","Chervil","Syrian Arab Republic","SY",0.302,0.07,01654
-"A.16.01.001","Chervil","Rest of World","RoW",0.523,0.07,01654
-"A.16.01.002","Chives","India","IN",0.606,0.07,01699
-"A.16.01.002","Chives","Turkey","TR",0.12,0.07,01699
-"A.16.01.002","Chives","Rest of World","RoW",0.274,0.07,01699
-"A.16.01.003","Dill leaves","India","IN",0.606,0.07,01699
-"A.16.01.003","Dill leaves","Turkey","TR",0.12,0.07,01699
-"A.16.01.003","Dill leaves","Rest of World","RoW",0.274,0.07,01699
-"A.16.01.004","Celery leaves","India","IN",0.606,0.07,01699
-"A.16.01.004","Celery leaves","Turkey","TR",0.12,0.07,01699
-"A.16.01.004","Celery leaves","Rest of World","RoW",0.274,0.07,01699
-"A.16.01.005","Parsley","India","IN",0.606,0.07,01699
-"A.16.01.005","Parsley","Turkey","TR",0.12,0.07,01699
-"A.16.01.005","Parsley","Rest of World","RoW",0.274,0.07,01699
-"A.16.01.006","Sage","India","IN",0.606,0.07,01699
-"A.16.01.006","Sage","Turkey","TR",0.12,0.07,01699
-"A.16.01.006","Sage","Rest of World","RoW",0.274,0.07,01699
-"A.16.01.007","Rosemary","India","IN",0.606,0.07,01699
-"A.16.01.007","Rosemary","Turkey","TR",0.12,0.07,01699
-"A.16.01.007","Rosemary","Rest of World","RoW",0.274,0.07,01699
-"A.16.01.008","Thyme","India","IN",0.606,0.07,01699
-"A.16.01.008","Thyme","Turkey","TR",0.12,0.07,01699
-"A.16.01.008","Thyme","Rest of World","RoW",0.274,0.07,01699
-"A.16.01.009","Basil","India","IN",0.606,0.07,01699
-"A.16.01.009","Basil","Turkey","TR",0.12,0.07,01699
-"A.16.01.009","Basil","Rest of World","RoW",0.274,0.07,01699
-"A.16.01.010","Laurel","India","IN",0.606,0.07,01699
-"A.16.01.010","Laurel","Turkey","TR",0.12,0.07,01699
-"A.16.01.010","Laurel","Rest of World","RoW",0.274,0.07,01699
-"A.16.01.011","Tarragon","India","IN",0.606,0.07,01699
-"A.16.01.011","Tarragon","Turkey","TR",0.12,0.07,01699
-"A.16.01.011","Tarragon","Rest of World","RoW",0.274,0.07,01699
-"A.16.02.004","Allspice fruit","India","IN",0.606,0.07,01699
-"A.16.02.004","Allspice fruit","Turkey","TR",0.12,0.07,01699
-"A.16.02.004","Allspice fruit","Rest of World","RoW",0.274,0.07,01699
-"A.16.02.006","Anise seed","India","IN",0.175,0.07,01654
-"A.16.02.006","Anise seed","Syrian Arab Republic","SY",0.302,0.07,01654
-"A.16.02.006","Anise seed","Rest of World","RoW",0.523,0.07,01654
-"A.16.02.008","Black caraway seed","India","IN",0.175,0.07,01654
-"A.16.02.008","Black caraway seed","Syrian Arab Republic","SY",0.302,0.07,01654
-"A.16.02.008","Black caraway seed","Rest of World","RoW",0.523,0.07,01654
-"A.16.02.009","Capers buds","India","IN",0.606,0.07,01699
-"A.16.02.009","Capers buds","Turkey","TR",0.12,0.07,01699
-"A.16.02.009","Capers buds","Rest of World","RoW",0.274,0.07,01699
-"A.16.02.010","Caraway fruit","India","IN",0.175,0.07,01654
-"A.16.02.010","Caraway fruit","Syrian Arab Republic","SY",0.302,0.07,01654
-"A.16.02.010","Caraway fruit","Rest of World","RoW",0.523,0.07,01654
-"A.16.02.011","Cardamom fruit","India","IN",0.606,0.07,01699
-"A.16.02.011","Cardamom fruit","Turkey","TR",0.12,0.07,01699
-"A.16.02.011","Cardamom fruit","Rest of World","RoW",0.274,0.07,01699
-"A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","India","IN",0.606,0.07,01699
-"A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","Turkey","TR",0.12,0.07,01699
-"A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","Rest of World","RoW",0.274,0.07,01699
-"A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","Indonesia","ID",0.641,0.07,01655
-"A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","Madagascar","MG",0.269,0.07,01655
-"A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","Rest of World","RoW",0.09,0.07,01655
-"A.16.02.015","Cloves (Syzygium aromaticum)","India","IN",0.606,0.07,01699
-"A.16.02.015","Cloves (Syzygium aromaticum)","Turkey","TR",0.12,0.07,01699
-"A.16.02.015","Cloves (Syzygium aromaticum)","Rest of World","RoW",0.274,0.07,01699
-"A.16.02.015","Cloves (Syzygium aromaticum)","Comoros","KM",0.277,0.07,01656
-"A.16.02.015","Cloves (Syzygium aromaticum)","Indonesia","ID",0.262,0.07,01656
-"A.16.02.015","Cloves (Syzygium aromaticum)","Madagascar","MG",0.426,0.07,01656
-"A.16.02.015","Cloves (Syzygium aromaticum)","Rest of World","RoW",0.035,0.07,01656
-"A.16.02.016","Coriander seed","India","IN",0.175,0.07,01654
-"A.16.02.016","Coriander seed","Syrian Arab Republic","SY",0.302,0.07,01654
-"A.16.02.016","Coriander seed","Rest of World","RoW",0.523,0.07,01654
-"A.16.02.017","Cumin seed","India","IN",0.175,0.07,01654
-"A.16.02.017","Cumin seed","Syrian Arab Republic","SY",0.302,0.07,01654
-"A.16.02.017","Cumin seed","Rest of World","RoW",0.523,0.07,01654
-"A.16.02.018","Dill seed (Anethum graveolens)","India","IN",0.175,0.07,01654
-"A.16.02.018","Dill seed (Anethum graveolens)","Syrian Arab Republic","SY",0.302,0.07,01654
-"A.16.02.018","Dill seed (Anethum graveolens)","Rest of World","RoW",0.523,0.07,01654
-"A.16.02.019","Fennel seed","India","IN",0.175,0.07,01654
-"A.16.02.019","Fennel seed","Syrian Arab Republic","SY",0.302,0.07,01654
-"A.16.02.019","Fennel seed","Rest of World","RoW",0.523,0.07,01654
-"A.16.02.020","Fenugreek seed","India","IN",0.606,0.07,01699
-"A.16.02.020","Fenugreek seed","Turkey","TR",0.12,0.07,01699
-"A.16.02.020","Fenugreek seed","Rest of World","RoW",0.274,0.07,01699
-"A.16.02.022","Ginger (Zingiber officinale)","India","IN",0.606,0.07,01699
-"A.16.02.022","Ginger (Zingiber officinale)","Turkey","TR",0.12,0.07,01699
-"A.16.02.022","Ginger (Zingiber officinale)","Rest of World","RoW",0.274,0.07,01699
-"A.16.02.022","Ginger (Zingiber officinale)","Rest of World","RoW",1,0.07,01657
-"A.16.02.024","Juniper berry","India","IN",0.606,0.07,01699
-"A.16.02.024","Juniper berry","Turkey","TR",0.12,0.07,01699
-"A.16.02.024","Juniper berry","Rest of World","RoW",0.274,0.07,01699
-"A.16.02.025","Mace aril","India","IN",0.606,0.07,01699
-"A.16.02.025","Mace aril","Turkey","TR",0.12,0.07,01699
-"A.16.02.025","Mace aril","Rest of World","RoW",0.274,0.07,01699
-"A.16.02.027","Nutmeg (Myristica fragans)","Guatemala","GT",0.184,0.07,01653
-"A.16.02.027","Nutmeg (Myristica fragans)","Indonesia","ID",0.663,0.07,01653
-"A.16.02.027","Nutmeg (Myristica fragans)","Rest of World","RoW",0.153,0.07,01653
-"A.16.02.027","Nutmeg (Myristica fragans)","India","IN",0.606,0.07,01699
-"A.16.02.027","Nutmeg (Myristica fragans)","Turkey","TR",0.12,0.07,01699
-"A.16.02.027","Nutmeg (Myristica fragans)","Rest of World","RoW",0.274,0.07,01699
-"A.16.02.028","Pepper, black and white (Piper nigrum)","India","IN",0.606,0.07,01699
-"A.16.02.028","Pepper, black and white (Piper nigrum)","Turkey","TR",0.12,0.07,01699
-"A.16.02.028","Pepper, black and white (Piper nigrum)","Rest of World","RoW",0.274,0.07,01699
-"A.16.02.028","Pepper, black and white (Piper nigrum)","Brazil","BR",0.39,0.07,01651
-"A.16.02.028","Pepper, black and white (Piper nigrum)","India","IN",0.116,0.07,01651
-"A.16.02.028","Pepper, black and white (Piper nigrum)","Indonesia","ID",0.334,0.07,01651
-"A.16.02.028","Pepper, black and white (Piper nigrum)","Rest of World","RoW",0.16,0.07,01651
-"A.16.02.029","Saffron","India","IN",0.606,0.07,01699
-"A.16.02.029","Saffron","Turkey","TR",0.12,0.07,01699
-"A.16.02.029","Saffron","Rest of World","RoW",0.274,0.07,01699
-"A.16.02.030","Tamarind","India","IN",0.606,0.07,01699
-"A.16.02.030","Tamarind","Turkey","TR",0.12,0.07,01699
-"A.16.02.030","Tamarind","Rest of World","RoW",0.274,0.07,01699
-"A.16.02.031","Turmeric roots","India","IN",0.606,0.07,01699
-"A.16.02.031","Turmeric roots","Turkey","TR",0.12,0.07,01699
-"A.16.02.031","Turmeric roots","Rest of World","RoW",0.274,0.07,01699
-"A.16.09.003","Vanilla pods (Vanilla fragrans syn. Vanilla planifolia)","India","IN",0.606,0.07,01699
-"A.16.09.003","Vanilla pods (Vanilla fragrans syn. Vanilla planifolia)","Turkey","TR",0.12,0.07,01699
-"A.16.09.003","Vanilla pods (Vanilla fragrans syn. Vanilla planifolia)","Rest of World","RoW",0.274,0.07,01699
-"A.16.09.003","Vanilla pods (Vanilla fragrans syn. Vanilla planifolia)","France","FR",0.805,0.017,01658
-"A.16.09.003","Vanilla pods (Vanilla fragrans syn. Vanilla planifolia)","Rest of World","RoW",0.195,0.017,01658
-"I.01.02.010.006","Quinoa grain","Bolivia","BO",0.805,0.06,01194
-"I.01.02.010.006","Quinoa grain","Peru","PE",0.188,0.06,01194
-"I.01.02.010.006","Quinoa grain","Rest of World","RoW",0.007,0.06,01194
-"I.07.01.006.001","Salmons","Rest of World","RoW",1,0.02,BF-48
-"I.07.01.006.002","Trouts","Rest of World","RoW",1,0.02,BF-49
-"I.07.01.015.001","Catfishes (freshwater)","Rest of World","RoW",1,0.02,BF-50
-"I.07.01.015.002","Wolffish","Rest of World","RoW",1,0.02,BF-51
-"I.07.01.017.001","Cod roe","Rest of World","RoW",1,0.02,BF-52
-"I.07.01.017.001","Cod roe","Rest of World","RoW",1,0.02,BF-53
-"I.07.01.017.001","Cod roe","Rest of World","RoW",1,0.02,BF-54
-"I.07.01.017.002","seed","Rest of World","RoW",1,0.02,BF-55
-"I.07.01.017.004","Haddock","Rest of World","RoW",1,0.02,BF-56
-"I.07.03.001.003","Lumpfish roe","Rest of World","RoW",1,0.02,BF-57
-"I.16.01.012","Marjoram","India","IN",0.606,0.07,01699
-"I.16.01.012","Marjoram","Turkey","TR",0.12,0.07,01699
-"I.16.01.012","Marjoram","Rest of World","RoW",0.274,0.07,01699
-"I.16.01.013","Oregano","India","IN",0.606,0.07,01699
-"I.16.01.013","Oregano","Turkey","TR",0.12,0.07,01699
-"I.16.01.013","Oregano","Rest of World","RoW",0.274,0.07,01699
-"I.16.01.014","Mints","India","IN",0.606,0.07,01699
-"I.16.01.014","Mints","Turkey","TR",0.12,0.07,01699
-"I.16.01.014","Mints","Rest of World","RoW",0.274,0.07,01699
-"I.16.01.015","Coriander leaves","India","IN",0.606,0.07,01699
-"I.16.01.015","Coriander leaves","Turkey","TR",0.12,0.07,01699
-"I.16.01.015","Coriander leaves","Rest of World","RoW",0.274,0.07,01699
-"I.16.01.016","Lovage leaves","India","IN",0.606,0.07,01699
-"I.16.01.016","Lovage leaves","Turkey","TR",0.12,0.07,01699
-"I.16.01.016","Lovage leaves","Rest of World","RoW",0.274,0.07,01699
-"I.16.01.017","Winter savory","India","IN",0.606,0.07,01699
-"I.16.01.017","Winter savory","Turkey","TR",0.12,0.07,01699
-"I.16.01.017","Winter savory","Rest of World","RoW",0.274,0.07,01699
+A.01.02.001.002,Durum wheat grain,France,FR,0.954,0.045,0111
+A.01.02.001.002,Durum wheat grain,Rest of World,RoW,0.046,0.045,0111
+A.01.02.001.003,Common wheat grain,France,FR,0.954,0.045,0111
+A.01.02.001.003,Common wheat grain,Rest of World,RoW,0.046,0.045,0111
+A.01.02.001.004,Durum wheat grain,France,FR,0.954,0.045,0111
+A.01.02.001.004,Durum wheat grain,Rest of World,RoW,0.046,0.045,0111
+A.01.02.001,Common wheat grain,France,FR,0.954,0.045,0111
+A.01.02.001,Common wheat grain,Rest of World,RoW,0.046,0.045,0111
+A.01.02.002.001,Barley grains,France,FR,0.987,0.045,0115
+A.01.02.002.001,Barley grains,Rest of World,RoW,0.013,0.045,0115
+A.01.02.003,Maize grain,France,FR,0.961,0.045,0112
+A.01.02.003,Maize grain,Rest of World,RoW,0.039,0.045,0112
+A.01.02.004,Rye grain,France,FR,0.99,0.045,0116
+A.01.02.004,Rye grain,Rest of World,RoW,0.01,0.045,0116
+A.01.02.005,Spelt grain,France,FR,0.954,0.045,0111
+A.01.02.005,Spelt grain,Rest of World,RoW,0.046,0.045,0111
+A.01.02.006,Buckwheat,France,FR,0.932,0.06,01192
+A.01.02.006,Buckwheat,Rest of World,RoW,0.068,0.06,01192
+A.01.02.007,Millet grain,Rest of World,RoW,1,0.045,01193
+A.01.02.007,Millet grain,France,FR,0.949,0.045,0118
+A.01.02.007,Millet grain,Rest of World,RoW,0.051,0.045,0118
+A.01.02.008,Oat grain,France,FR,0.931,0.045,0117
+A.01.02.008,Oat grain,Rest of World,RoW,0.069,0.045,0117
+A.01.02.009.007,Indian rice grain,France,FR,0.91,0.045,0113
+A.01.02.009.007,Indian rice grain,Rest of World,RoW,0.09,0.045,0113
+A.01.02.009,Rice grain,France,FR,0.91,0.045,0113
+A.01.02.009,Rice grain,Rest of World,RoW,0.09,0.045,0113
+A.01.02.010.002,Sorghum grain,France,FR,0.987,0.045,0114
+A.01.02.010.002,Sorghum grain,Rest of World,RoW,0.013,0.045,0114
+A.02.01.001,Arrowroots,France,FR,0.879,0.24,01599.10
+A.02.01.001,Arrowroots,Rest of World,RoW,0.121,0.24,01599.10
+A.02.01.002,Beetroots,France,FR,0.879,0.24,01599.10
+A.02.01.002,Beetroots,Rest of World,RoW,0.121,0.24,01599.10
+A.02.01.003,Carrots,France,FR,0.824,0.07,01251
+A.02.01.003,Carrots,Rest of World,RoW,0.176,0.07,01251
+A.02.01.004,Celeriacs,France,FR,0.879,0.24,01599.10
+A.02.01.004,Celeriacs,Rest of World,RoW,0.121,0.24,01599.10
+A.02.01.005,Horseradish roots,France,FR,0.879,0.24,01599.10
+A.02.01.005,Horseradish roots,Rest of World,RoW,0.121,0.24,01599.10
+A.02.01.006,Parsley roots,France,FR,0.879,0.24,01599.10
+A.02.01.006,Parsley roots,Rest of World,RoW,0.121,0.24,01599.10
+A.02.01.007,Parsnip roots,France,FR,0.879,0.24,01599.10
+A.02.01.007,Parsnip roots,Rest of World,RoW,0.121,0.24,01599.10
+A.02.01.008,Radishes,France,FR,0.786,0.07,01212
+A.02.01.008,Radishes,Rest of World,RoW,0.214,0.07,01212
+A.02.01.009,Salsifies,France,FR,0.544,0.06,01445
+A.02.01.009,Salsifies,Ukraine,UA,0.19,0.06,01445
+A.02.01.009,Salsifies,Rest of World,RoW,0.266,0.06,01445
+A.02.01.010,Swedes,France,FR,0.786,0.07,01212
+A.02.01.010,Swedes,Rest of World,RoW,0.214,0.07,01212
+A.02.01.012,Turnips,France,FR,0.824,0.07,01251
+A.02.01.012,Turnips,Rest of World,RoW,0.176,0.07,01251
+A.02.02.001,Garlic,France,FR,0.474,0.07,01252
+A.02.02.001,Garlic,Spain,ES,0.317,0.07,01252
+A.02.02.001,Garlic,Rest of World,RoW,0.209,0.07,01252
+A.02.02.002,Onions,France,FR,0.703,0.07,01253.02
+A.02.02.002,Onions,Netherlands,NL,0.118,0.07,01253.02
+A.02.02.002,Onions,Rest of World,RoW,0.179,0.07,01253.02
+A.02.02.003,Shallots,France,FR,0.703,0.07,01253.02
+A.02.02.003,Shallots,Netherlands,NL,0.118,0.07,01253.02
+A.02.02.003,Shallots,Rest of World,RoW,0.179,0.07,01253.02
+A.02.02.004,Spring onions,France,FR,0.703,0.07,01253.02
+A.02.02.004,Spring onions,Netherlands,NL,0.118,0.07,01253.02
+A.02.02.004,Spring onions,Rest of World,RoW,0.179,0.07,01253.02
+A.02.02.005,Chives,France,FR,0.703,0.07,01253.02
+A.02.02.005,Chives,Netherlands,NL,0.118,0.07,01253.02
+A.02.02.005,Chives,Rest of World,RoW,0.179,0.07,01253.02
+A.02.03.001,Tomatoes,France,FR,0.313,0.07,01234
+A.02.03.001,Tomatoes,Italy,IT,0.217,0.07,01234
+A.02.03.001,Tomatoes,Morocco,MA,0.161,0.07,01234
+A.02.03.001,Tomatoes,Spain,ES,0.188,0.07,01234
+A.02.03.001,Tomatoes,Rest of World,RoW,0.122,0.07,01234
+A.02.03.002,Sweet peppers,France,FR,0.123,0.07,01231
+A.02.03.002,Sweet peppers,Morocco,MA,0.192,0.07,01231
+A.02.03.002,Sweet peppers,Spain,ES,0.603,0.07,01231
+A.02.03.002,Sweet peppers,Rest of World,RoW,0.082,0.07,01231
+A.02.03.003,Chilli pepper (Capsicum frutescens),France,FR,0.123,0.07,01231
+A.02.03.003,Chilli pepper (Capsicum frutescens),Morocco,MA,0.192,0.07,01231
+A.02.03.003,Chilli pepper (Capsicum frutescens),Spain,ES,0.603,0.07,01231
+A.02.03.003,Chilli pepper (Capsicum frutescens),Rest of World,RoW,0.082,0.07,01231
+A.02.03.003,Chilli pepper (Capsicum frutescens),France,FR,0.123,0.07,01652
+A.02.03.003,Chilli pepper (Capsicum frutescens),Morocco,MA,0.192,0.07,01652
+A.02.03.003,Chilli pepper (Capsicum frutescens),Spain,ES,0.603,0.07,01652
+A.02.03.003,Chilli pepper (Capsicum frutescens),Rest of World,RoW,0.082,0.07,01652
+A.02.03.004,Aubergines,France,FR,0.35,0.07,01233
+A.02.03.004,Aubergines,Spain,ES,0.589,0.07,01233
+A.02.03.004,Aubergines,Rest of World,RoW,0.061,0.07,01233
+A.02.03.005,Okra,Spain,ES,0.213,0.07,01359.90
+A.02.03.005,Okra,Rest of World,RoW,0.787,0.07,01359.90
+A.02.03.006,Cucumbers,France,FR,0.651,0.07,01232
+A.02.03.006,Cucumbers,Spain,ES,0.238,0.07,01232
+A.02.03.006,Cucumbers,Rest of World,RoW,0.112,0.07,01232
+A.02.03.007,Gherkins,France,FR,0.651,0.07,01232
+A.02.03.007,Gherkins,Spain,ES,0.238,0.07,01232
+A.02.03.007,Gherkins,Rest of World,RoW,0.112,0.07,01232
+A.02.03.008,Courgettes,France,FR,0.394,0.07,01235
+A.02.03.008,Courgettes,Morocco,MA,0.147,0.07,01235
+A.02.03.008,Courgettes,Spain,ES,0.399,0.07,01235
+A.02.03.008,Courgettes,Rest of World,RoW,0.06,0.07,01235
+A.02.03.009,Melons,France,FR,0.609,0.07,01229
+A.02.03.009,Melons,Morocco,MA,0.11,0.07,01229
+A.02.03.009,Melons,Spain,ES,0.242,0.07,01229
+A.02.03.009,Melons,Rest of World,RoW,0.039,0.07,01229
+A.02.03.010,Pumpkins,France,FR,0.394,0.07,01235
+A.02.03.010,Pumpkins,Morocco,MA,0.147,0.07,01235
+A.02.03.010,Pumpkins,Spain,ES,0.399,0.07,01235
+A.02.03.010,Pumpkins,Rest of World,RoW,0.06,0.07,01235
+A.02.03.011,Watermelons,France,FR,0.115,0.07,01221
+A.02.03.011,Watermelons,Italy,IT,0.131,0.07,01221
+A.02.03.011,Watermelons,Spain,ES,0.627,0.07,01221
+A.02.03.011,Watermelons,Rest of World,RoW,0.126,0.07,01221
+A.02.03.012,Sweet corn,France,FR,0.902,0.07,01290.01
+A.02.03.012,Sweet corn,Rest of World,RoW,0.098,0.07,01290.01
+A.02.04.001,Broccoli,France,FR,0.609,0.07,01213
+A.02.04.001,Broccoli,Morocco,MA,0.11,0.07,01213
+A.02.04.001,Broccoli,Spain,ES,0.242,0.07,01213
+A.02.04.001,Broccoli,Rest of World,RoW,0.039,0.07,01213
+A.02.04.002,Cauliflowers,France,FR,0.609,0.07,01213
+A.02.04.002,Cauliflowers,Morocco,MA,0.11,0.07,01213
+A.02.04.002,Cauliflowers,Spain,ES,0.242,0.07,01213
+A.02.04.002,Cauliflowers,Rest of World,RoW,0.039,0.07,01213
+A.02.04.003,Brussels sprouts,France,FR,0.786,0.07,01212
+A.02.04.003,Brussels sprouts,Rest of World,RoW,0.214,0.07,01212
+A.02.04.004,Head cabbages,France,FR,0.786,0.07,01212
+A.02.04.004,Head cabbages,Rest of World,RoW,0.214,0.07,01212
+A.02.04.005,Chinese cabbages,France,FR,0.786,0.07,01212
+A.02.04.005,Chinese cabbages,Rest of World,RoW,0.214,0.07,01212
+A.02.04.006,Kales and similar-,France,FR,0.786,0.07,01212
+A.02.04.006,Kales and similar-,Rest of World,RoW,0.214,0.07,01212
+A.02.04.007,Kohlrabies,France,FR,0.786,0.07,01212
+A.02.04.007,Kohlrabies,Rest of World,RoW,0.214,0.07,01212
+A.02.05.001,Lamb's lettuces,France,FR,0.719,0.07,01214
+A.02.05.001,Lamb's lettuces,Spain,ES,0.208,0.07,01214
+A.02.05.001,Lamb's lettuces,Rest of World,RoW,0.073,0.07,01214
+A.02.05.002,Head lettuces,France,FR,0.719,0.07,01214
+A.02.05.002,Head lettuces,Spain,ES,0.208,0.07,01214
+A.02.05.002,Head lettuces,Rest of World,RoW,0.073,0.07,01214
+A.02.05.003,Crisp lettuces,France,FR,0.719,0.07,01214
+A.02.05.003,Crisp lettuces,Spain,ES,0.208,0.07,01214
+A.02.05.003,Crisp lettuces,Rest of World,RoW,0.073,0.07,01214
+A.02.05.004,Escaroles,France,FR,0.719,0.07,01214
+A.02.05.004,Escaroles,Spain,ES,0.208,0.07,01214
+A.02.05.004,Escaroles,Rest of World,RoW,0.073,0.07,01214
+A.02.05.005,Cresses,France,FR,0.786,0.07,01212
+A.02.05.005,Cresses,Rest of World,RoW,0.214,0.07,01212
+A.02.05.006,Land cresses,France,FR,0.786,0.07,01212
+A.02.05.006,Land cresses,Rest of World,RoW,0.214,0.07,01212
+A.02.05.007,Roman rocket,France,FR,0.786,0.07,01212
+A.02.05.007,Roman rocket,Rest of World,RoW,0.214,0.07,01212
+A.02.05.010,Spinaches,France,FR,0.971,0.07,01215
+A.02.05.010,Spinaches,Rest of World,RoW,0.029,0.07,01215
+A.02.05.012,Purslanes,France,FR,0.971,0.07,01215
+A.02.05.012,Purslanes,Rest of World,RoW,0.029,0.07,01215
+A.02.05.013,Chards,France,FR,0.932,0.045,01801
+A.02.05.013,Chards,Rest of World,RoW,0.068,0.045,01801
+A.02.05.014,Grape leaves,Spain,ES,0.213,0.07,01359.90
+A.02.05.014,Grape leaves,Rest of World,RoW,0.787,0.07,01359.90
+A.02.05.015,Watercresses,France,FR,0.786,0.07,01212
+A.02.05.015,Watercresses,Rest of World,RoW,0.214,0.07,01212
+A.02.05.016,Witloofs,France,FR,0.719,0.07,01214
+A.02.05.016,Witloofs,Spain,ES,0.208,0.07,01214
+A.02.05.016,Witloofs,Rest of World,RoW,0.073,0.07,01214
+A.02.05.017,Oraches leaves,Spain,ES,0.213,0.07,01359.90
+A.02.05.017,Oraches leaves,Rest of World,RoW,0.787,0.07,01359.90
+A.02.05.019,Dandelions,France,FR,0.544,0.06,01445
+A.02.05.019,Dandelions,Ukraine,UA,0.19,0.06,01445
+A.02.05.019,Dandelions,Rest of World,RoW,0.266,0.06,01445
+A.02.05.020,Common nettle,France,FR,0.971,0.07,01215
+A.02.05.020,Common nettle,Rest of World,RoW,0.029,0.07,01215
+A.02.05.021,Garden sorrel,France,FR,0.971,0.07,01215
+A.02.05.021,Garden sorrel,Rest of World,RoW,0.029,0.07,01215
+A.02.05.022,Alfalfa sprouts,France,FR,0.157,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,USA,US,0.241,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Rest of World,RoW,0.602,0.06,01709.90
+A.02.06.001,Beans (with pods) and similar-,France,FR,0.157,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,USA,US,0.241,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Rest of World,RoW,0.602,0.06,01701
+A.02.06.002,Peas (with pods) and similar-,France,FR,0.985,0.06,01705
+A.02.06.002,Peas (with pods) and similar-,Rest of World,RoW,0.015,0.06,01705
+A.02.07.001,Asparagus,France,FR,0.578,0.07,01211
+A.02.07.001,Asparagus,Spain,ES,0.194,0.07,01211
+A.02.07.001,Asparagus,Rest of World,RoW,0.227,0.07,01211
+A.02.07.002,Cardoons,France,FR,0.544,0.06,01445
+A.02.07.002,Cardoons,Ukraine,UA,0.19,0.06,01445
+A.02.07.002,Cardoons,Rest of World,RoW,0.266,0.06,01445
+A.02.07.003,Celeries,France,FR,0.824,0.07,01251
+A.02.07.003,Celeries,Rest of World,RoW,0.176,0.07,01251
+A.02.07.004,Florence fennels,France,FR,0.824,0.07,01251
+A.02.07.004,Florence fennels,Rest of World,RoW,0.176,0.07,01251
+A.02.07.005,Globe artichokes,France,FR,0.711,0.07,01216
+A.02.07.005,Globe artichokes,Spain,ES,0.23,0.07,01216
+A.02.07.005,Globe artichokes,Rest of World,RoW,0.059,0.07,01216
+A.02.07.006,Leeks,France,FR,0.832,0.07,01254
+A.02.07.006,Leeks,Belgium,BE,0.118,0.07,01254
+A.02.07.006,Leeks,Rest of World,RoW,0.05,0.07,01254
+A.02.07.007,Rhubarbs,France,FR,0.932,0.045,01801
+A.02.07.007,Rhubarbs,Rest of World,RoW,0.068,0.045,01801
+A.02.07.008,Bamboo shoots,Spain,ES,0.213,0.07,01359.90
+A.02.07.008,Bamboo shoots,Rest of World,RoW,0.787,0.07,01359.90
+A.02.07.009,Palm hearts,Spain,ES,0.213,0.07,01359.90
+A.02.07.009,Palm hearts,Rest of World,RoW,0.787,0.07,01359.90
+A.02.08.001,Sugar beet (root) (Beta vulgaris),France,FR,0.932,0.045,01801
+A.02.08.001,Sugar beet (root) (Beta vulgaris),Rest of World,RoW,0.068,0.045,01801
+A.02.08.002,Sugar cane (Saccharum officinarum),Spain,ES,1,0.045,01802
+A.02.08.003,Chicory roots,France,FR,0.879,0.24,01599.10
+A.02.08.003,Chicory roots,Rest of World,RoW,0.121,0.24,01599.10
+A.02.09.001.001,Kombu,India,IN,0.606,0.07,01699
+A.02.09.001.001,Kombu,Turkey,TR,0.12,0.07,01699
+A.02.09.001.001,Kombu,Rest of World,RoW,0.274,0.07,01699
+A.02.09.001.002,Laver,India,IN,0.606,0.07,01699
+A.02.09.001.002,Laver,Turkey,TR,0.12,0.07,01699
+A.02.09.001.002,Laver,Rest of World,RoW,0.274,0.07,01699
+A.02.09.001.003,Wakame,India,IN,0.606,0.07,01699
+A.02.09.001.003,Wakame,Turkey,TR,0.12,0.07,01699
+A.02.09.001.003,Wakame,Rest of World,RoW,0.274,0.07,01699
+A.02.09.001,Carrageen mosses,India,IN,0.606,0.07,01699
+A.02.09.001,Carrageen mosses,Turkey,TR,0.12,0.07,01699
+A.02.09.001,Carrageen mosses,Rest of World,RoW,0.274,0.07,01699
+A.02.10.001,Teas  and similar-,India,IN,0.606,0.07,01699
+A.02.10.001,Teas  and similar-,Turkey,TR,0.12,0.07,01699
+A.02.10.001,Teas  and similar-,Rest of World,RoW,0.274,0.07,01699
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Sri Lanka,LK,0.151,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",India,IN,0.135,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Kenya,KE,0.141,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Rest of World,RoW,0.574,0.07,01620
+A.02.10.004,Mints,India,IN,0.606,0.07,01699
+A.02.10.004,Mints,Turkey,TR,0.12,0.07,01699
+A.02.10.004,Mints,Rest of World,RoW,0.274,0.07,01699
+A.02.10.009,Strawberry infusion leaves,India,IN,0.606,0.07,01699
+A.02.10.009,Strawberry infusion leaves,Turkey,TR,0.12,0.07,01699
+A.02.10.009,Strawberry infusion leaves,Rest of World,RoW,0.274,0.07,01699
+A.02.10.011,Maté (Ilex paraguariensis),Argentina,AR,0.43,0.07,01630
+A.02.10.011,Maté (Ilex paraguariensis),Brazil,BR,0.544,0.07,01630
+A.02.10.011,Maté (Ilex paraguariensis),Rest of World,RoW,0.026,0.07,01630
+A.02.10.013,Ginseng infusion roots,India,IN,0.606,0.07,01699
+A.02.10.013,Ginseng infusion roots,Turkey,TR,0.12,0.07,01699
+A.02.10.013,Ginseng infusion roots,Rest of World,RoW,0.274,0.07,01699
+A.02.11.001,Cocoa beans (fermented beans) (Theobroma cacao),Ghana,GH,0.245,0.07,01640
+A.02.11.001,Cocoa beans (fermented beans) (Theobroma cacao),Cote d'Ivoire,CI,0.497,0.07,01640
+A.02.11.001,Cocoa beans (fermented beans) (Theobroma cacao),Rest of World,RoW,0.258,0.07,01640
+A.02.12.001,"Coffee beans, green",Brazil,BR,0.336,0.07,01610
+A.02.12.001,"Coffee beans, green",Rest of World,RoW,0.664,0.07,01610
+A.02.15.001,Common mushrooms,France,FR,0.481,0.07,01270
+A.02.15.001,Common mushrooms,Netherlands,NL,0.234,0.07,01270
+A.02.15.001,Common mushrooms,Spain,ES,0.115,0.07,01270
+A.02.15.001,Common mushrooms,Rest of World,RoW,0.17,0.07,01270
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus),France,FR,0.481,0.07,01270
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Netherlands,NL,0.234,0.07,01270
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Spain,ES,0.115,0.07,01270
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Rest of World,RoW,0.17,0.07,01270
+A.02.15.003,Shiitake,France,FR,0.481,0.07,01270
+A.02.15.003,Shiitake,Netherlands,NL,0.234,0.07,01270
+A.02.15.003,Shiitake,Spain,ES,0.115,0.07,01270
+A.02.15.003,Shiitake,Rest of World,RoW,0.17,0.07,01270
+A.02.16.002,Honey mushroom,France,FR,0.481,0.07,01270
+A.02.16.002,Honey mushroom,Netherlands,NL,0.234,0.07,01270
+A.02.16.002,Honey mushroom,Spain,ES,0.115,0.07,01270
+A.02.16.002,Honey mushroom,Rest of World,RoW,0.17,0.07,01270
+A.02.16.003,Ceps,France,FR,0.481,0.07,01270
+A.02.16.003,Ceps,Netherlands,NL,0.234,0.07,01270
+A.02.16.003,Ceps,Spain,ES,0.115,0.07,01270
+A.02.16.003,Ceps,Rest of World,RoW,0.17,0.07,01270
+A.02.16.004,Truffles,France,FR,0.481,0.07,01270
+A.02.16.004,Truffles,Netherlands,NL,0.234,0.07,01270
+A.02.16.004,Truffles,Spain,ES,0.115,0.07,01270
+A.02.16.004,Truffles,Rest of World,RoW,0.17,0.07,01270
+A.02.16.005,Morels,France,FR,0.481,0.07,01270
+A.02.16.005,Morels,Netherlands,NL,0.234,0.07,01270
+A.02.16.005,Morels,Spain,ES,0.115,0.07,01270
+A.02.16.005,Morels,Rest of World,RoW,0.17,0.07,01270
+A.02.16.006,Chanterelles,France,FR,0.481,0.07,01270
+A.02.16.006,Chanterelles,Netherlands,NL,0.234,0.07,01270
+A.02.16.006,Chanterelles,Spain,ES,0.115,0.07,01270
+A.02.16.006,Chanterelles,Rest of World,RoW,0.17,0.07,01270
+A.02.16.007,Saffron milk cap,France,FR,0.481,0.07,01270
+A.02.16.007,Saffron milk cap,Netherlands,NL,0.234,0.07,01270
+A.02.16.007,Saffron milk cap,Spain,ES,0.115,0.07,01270
+A.02.16.007,Saffron milk cap,Rest of World,RoW,0.17,0.07,01270
+A.03.01.001,New potatoes,France,FR,0.854,0.24,01510
+A.03.01.001,New potatoes,Rest of World,RoW,0.146,0.24,01510
+A.03.01.002,Main-crop potatoes,France,FR,0.854,0.24,01510
+A.03.01.002,Main-crop potatoes,Rest of World,RoW,0.146,0.24,01510
+A.03.02.001,Sweet potatoes,Israel,IL,0.125,0.24,01530
+A.03.02.001,Sweet potatoes,Spain,ES,0.396,0.24,01530
+A.03.02.001,Sweet potatoes,USA,US,0.225,0.24,01530
+A.03.02.001,Sweet potatoes,Rest of World,RoW,0.254,0.24,01530
+A.03.02.002,Cassava root (Manihot esculenta),Costa Rica,CR,0.263,0.07,01520.01
+A.03.02.002,Cassava root (Manihot esculenta),Thailand,TH,0.579,0.07,01520.01
+A.03.02.002,Cassava root (Manihot esculenta),Rest of World,RoW,0.158,0.07,01520.01
+A.03.02.002,Cassava root (Manihot esculenta),France,FR,0.879,0.24,01599.10
+A.03.02.002,Cassava root (Manihot esculenta),Rest of World,RoW,0.121,0.24,01599.10
+A.03.02.004,Yams,France,FR,0.879,0.24,01599.10
+A.03.02.004,Yams,Rest of World,RoW,0.121,0.24,01599.10
+A.03.02.005,Jerusalem artichokes,France,FR,0.879,0.24,01599.10
+A.03.02.005,Jerusalem artichokes,Rest of World,RoW,0.121,0.24,01599.10
+A.04.01.001,Beans (fresh seeds without pods) and similar-,France,FR,0.157,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,USA,US,0.241,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Rest of World,RoW,0.602,0.06,01701
+A.04.01.002,Peas (without pods) and similar-,France,FR,0.966,0.07,01242
+A.04.01.002,Peas (without pods) and similar-,Rest of World,RoW,0.034,0.07,01242
+A.04.02.001,Beans (dry) and similar-,France,FR,0.157,0.06,01701
+A.04.02.001,Beans (dry) and similar-,USA,US,0.241,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Rest of World,RoW,0.602,0.06,01701
+A.04.02.002,Lentils (dry) and similar-,Canada,CA,0.266,0.06,01704
+A.04.02.002,Lentils (dry) and similar-,China,CN,0.237,0.06,01704
+A.04.02.002,Lentils (dry) and similar-,France,FR,0.431,0.06,01704
+A.04.02.002,Lentils (dry) and similar-,Rest of World,RoW,0.067,0.06,01704
+A.04.02.003,Peas (dry) and similar-,France,FR,0.985,0.06,01705
+A.04.02.003,Peas (dry) and similar-,Rest of World,RoW,0.015,0.06,01705
+A.04.02.004,Lupins (Lupinus spp.),France,FR,0.931,0.06,01709.02
+A.04.02.004,Lupins (Lupinus spp.),Rest of World,RoW,0.069,0.06,01709.02
+A.04.02.005,Chickpeas (dry),Argentina,AR,0.102,0.06,01703
+A.04.02.005,Chickpeas (dry),India,IN,0.504,0.06,01703
+A.04.02.005,Chickpeas (dry),Mexico,MX,0.137,0.06,01703
+A.04.02.005,Chickpeas (dry),Rest of World,RoW,0.257,0.06,01703
+A.04.02.007,Broad bean (Vicia faba),France,FR,0.931,0.06,01702
+A.04.02.007,Broad bean (Vicia faba),Rest of World,RoW,0.069,0.06,01702
+A.04.02.007,Broad bean (Vicia faba),France,FR,0.931,0.07,01243
+A.04.02.007,Broad bean (Vicia faba),Rest of World,RoW,0.069,0.07,01243
+A.04.02.008,Lima beans (dry),France,FR,0.157,0.06,01701
+A.04.02.008,Lima beans (dry),USA,US,0.241,0.06,01701
+A.04.02.008,Lima beans (dry),Rest of World,RoW,0.602,0.06,01701
+A.04.02.009,Mung bean sprouts,France,FR,0.157,0.06,01701
+A.04.02.009,Mung bean sprouts,France,FR,0.157,0.06,01701
+A.04.02.009,Mung bean sprouts,USA,US,0.241,0.06,01701
+A.04.02.009,Mung bean sprouts,USA,US,0.241,0.06,01701
+A.04.02.009,Mung bean sprouts,Rest of World,RoW,0.602,0.06,01701
+A.04.02.009,Mung bean sprouts,Rest of World,RoW,0.602,0.06,01701
+A.04.02.011,Black eyed peas (dry),France,FR,0.985,0.06,01705
+A.04.02.011,Black eyed peas (dry),Rest of World,RoW,0.015,0.06,01705
+A.04.02.012,Soyabeans for oil,Argentina,AR,0.131,0.06,0141
+A.04.02.012,Soyabeans for oil,Brazil,BR,0.551,0.06,0141
+A.04.02.012,Soyabeans for oil,Rest of World,RoW,0.319,0.06,0141
+A.04.02.014,Carobs,France,FR,0.157,0.06,01709.90
+A.04.02.014,Carobs,USA,US,0.241,0.06,01709.90
+A.04.02.014,Carobs,Rest of World,RoW,0.602,0.06,01709.90
+A.04.02.020,Yams,France,FR,0.879,0.24,01599.10
+A.04.02.020,Yams,Rest of World,RoW,0.121,0.24,01599.10
+A.04.02.021,Peanuts,Spain,ES,0.274,0.06,0142
+A.04.02.021,Peanuts,USA,US,0.584,0.06,0142
+A.04.02.021,Peanuts,Rest of World,RoW,0.142,0.06,0142
+A.04.03.001,Almonds sweet,Spain,ES,0.274,0.06,01371
+A.04.03.001,Almonds sweet,USA,US,0.584,0.06,01371
+A.04.03.001,Almonds sweet,Rest of World,RoW,0.142,0.06,01371
+A.04.03.002,Bitter almonds,Spain,ES,0.274,0.06,01371
+A.04.03.002,Bitter almonds,USA,US,0.584,0.06,01371
+A.04.03.002,Bitter almonds,Rest of World,RoW,0.142,0.06,01371
+A.04.03.003,Brazil nuts,Spain,ES,0.274,0.06,01377
+A.04.03.003,Brazil nuts,USA,US,0.584,0.06,01377
+A.04.03.003,Brazil nuts,Rest of World,RoW,0.142,0.06,01377
+A.04.03.004,Cashew nuts,India,IN,0.325,0.06,01372
+A.04.03.004,Cashew nuts,Cote d'Ivoire,CI,0.216,0.06,01372
+A.04.03.004,Cashew nuts,Rest of World,RoW,0.459,0.06,01372
+A.04.03.005,Chestnuts,France,FR,0.551,0.06,01373
+A.04.03.005,Chestnuts,Spain,ES,0.184,0.06,01373
+A.04.03.005,Chestnuts,Rest of World,RoW,0.265,0.06,01373
+A.04.03.006,Coconuts,French Polynesia,PF,0.107,0.06,01460
+A.04.03.006,Coconuts,Indonesia,ID,0.144,0.06,01460
+A.04.03.006,Coconuts,Philippines,PH,0.638,0.06,01460
+A.04.03.006,Coconuts,Rest of World,RoW,0.112,0.06,01460
+A.04.03.007,Hazelnuts,France,FR,0.285,0.06,01374
+A.04.03.007,Hazelnuts,Turkey,TR,0.581,0.06,01374
+A.04.03.007,Hazelnuts,Rest of World,RoW,0.134,0.06,01374
+A.04.03.008,Macadamias,Spain,ES,0.274,0.06,01371
+A.04.03.008,Macadamias,USA,US,0.584,0.06,01371
+A.04.03.008,Macadamias,Rest of World,RoW,0.142,0.06,01371
+A.04.03.009,Pecans,Spain,ES,0.274,0.06,01371
+A.04.03.009,Pecans,USA,US,0.584,0.06,01371
+A.04.03.009,Pecans,Rest of World,RoW,0.142,0.06,01371
+A.04.03.010,Pine nut kernels,Spain,ES,0.274,0.06,01371
+A.04.03.010,Pine nut kernels,USA,US,0.584,0.06,01371
+A.04.03.010,Pine nut kernels,Rest of World,RoW,0.142,0.06,01371
+A.04.03.011,Pistachios (Pistachia vera),Spain,ES,0.274,0.06,01371
+A.04.03.011,Pistachios (Pistachia vera),USA,US,0.584,0.06,01371
+A.04.03.011,Pistachios (Pistachia vera),Rest of World,RoW,0.142,0.06,01371
+A.04.03.011,Pistachios (Pistachia vera),Iran,IR,0.179,0.06,01375
+A.04.03.011,Pistachios (Pistachia vera),USA,US,0.756,0.06,01375
+A.04.03.011,Pistachios (Pistachia vera),Rest of World,RoW,0.066,0.06,01375
+A.04.03.012,Walnuts,France,FR,0.785,0.06,01376
+A.04.03.012,Walnuts,Rest of World,RoW,0.215,0.06,01376
+A.04.03.013,Kola nut (Cola spp.),Cote d'Ivoire,CI,0.948,0.06,01379.02
+A.04.03.013,Kola nut (Cola spp.),Rest of World,RoW,0.052,0.06,01379.02
+A.04.04.001,Linseeds,Canada,CA,0.281,0.06,01441
+A.04.04.001,Linseeds,France,FR,0.113,0.06,01441
+A.04.04.001,Linseeds,Kazakhstan,KZ,0.128,0.06,01441
+A.04.04.001,Linseeds,Russia,RU,0.337,0.06,01441
+A.04.04.001,Linseeds,Rest of World,RoW,0.141,0.06,01441
+A.04.04.003,Poppy seeds,France,FR,0.93,0.06,01448
+A.04.04.003,Poppy seeds,Rest of World,RoW,0.07,0.06,01448
+A.04.04.004,Sesame seed (Sesamum indicum syn. S. orientale),France,FR,0.275,0.06,01449.90
+A.04.04.004,Sesame seed (Sesamum indicum syn. S. orientale),Rest of World,RoW,0.725,0.06,01449.90
+A.04.04.004,Sesame seed (Sesamum indicum syn. S. orientale),India,IN,0.463,0.06,01444
+A.04.04.004,Sesame seed (Sesamum indicum syn. S. orientale),Rest of World,RoW,0.537,0.06,01444
+A.04.04.005,Sunflower seeds,France,FR,0.544,0.06,01445
+A.04.04.005,Sunflower seeds,Ukraine,UA,0.19,0.06,01445
+A.04.04.005,Sunflower seeds,Rest of World,RoW,0.266,0.06,01445
+A.04.04.006 ,Rape seed (Brassica napus),France,FR,0.696,0.06,01443
+A.04.04.006 ,Rape seed (Brassica napus),Rest of World,RoW,0.304,0.06,01443
+A.04.04.007,Mustard seed (Brassica nigra),Canada,CA,0.412,0.06,01442
+A.04.04.007,Mustard seed (Brassica nigra),France,FR,0.311,0.06,01442
+A.04.04.007,Mustard seed (Brassica nigra),Rest of World,RoW,0.277,0.06,01442
+A.04.04.007,Mustard seed (Brassica nigra),France,FR,0.275,0.06,01449.90
+A.04.04.007,Mustard seed (Brassica nigra),Rest of World,RoW,0.725,0.06,01449.90
+A.04.04.009,Pumpkin seeds,France,FR,0.275,0.06,01449.90
+A.04.04.009,Pumpkin seeds,Rest of World,RoW,0.725,0.06,01449.90
+A.04.04.010,Safflower (Carthamus tinctorius),India,IN,0.606,0.07,01699
+A.04.04.010,Safflower (Carthamus tinctorius),Turkey,TR,0.12,0.07,01699
+A.04.04.010,Safflower (Carthamus tinctorius),Rest of World,RoW,0.274,0.07,01699
+A.04.04.011,Borage (Borago officinalis),India,IN,0.606,0.07,01699
+A.04.04.011,Borage (Borago officinalis),Turkey,TR,0.12,0.07,01699
+A.04.04.011,Borage (Borago officinalis),Rest of World,RoW,0.274,0.07,01699
+A.04.04.013,Hempseed (Cannabis sativa),France,FR,0.275,0.06,01449.90
+A.04.04.013,Hempseed (Cannabis sativa),Rest of World,RoW,0.725,0.06,01449.90
+A.04.04.013,Hempseed (Cannabis sativa),France,FR,0.91,0.06,01929.02
+A.04.04.013,Hempseed (Cannabis sativa),Rest of World,RoW,0.09,0.06,01929.02
+A.04.05,Other oilseeds (including elsewhere non-listed seeds),France,FR,0.275,0.06,01449.90
+A.04.05,Other oilseeds (including elsewhere non-listed seeds),Rest of World,RoW,0.725,0.06,01449.90
+A.05.01.001,Grapefruits,Israel,IL,0.208,0.07,01321
+A.05.01.001,Grapefruits,South Africa,ZA,0.211,0.07,01321
+A.05.01.001,Grapefruits,Spain,ES,0.139,0.07,01321
+A.05.01.001,Grapefruits,USA,US,0.134,0.07,01321
+A.05.01.001,Grapefruits,Rest of World,RoW,0.308,0.07,01321
+A.05.01.002,Oranges,Brazil,BR,0.244,0.07,01323
+A.05.01.002,Oranges,Spain,ES,0.528,0.07,01323
+A.05.01.002,Oranges,Rest of World,RoW,0.228,0.07,01323
+A.05.01.003,Lemons,Argentina,AR,0.136,0.07,01322
+A.05.01.003,Lemons,Spain,ES,0.697,0.07,01322
+A.05.01.003,Lemons,Rest of World,RoW,0.167,0.07,01322
+A.05.01.004,Limes,Argentina,AR,0.136,0.07,01322
+A.05.01.004,Limes,Spain,ES,0.697,0.07,01322
+A.05.01.004,Limes,Rest of World,RoW,0.167,0.07,01322
+A.05.01.005,Mandarins and similar-,Spain,ES,0.773,0.07,01324
+A.05.01.005,Mandarins and similar-,Rest of World,RoW,0.227,0.07,01324
+A.05.01.006,Pomelo (Citrus grandis),Israel,IL,0.208,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),South Africa,ZA,0.211,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),Spain,ES,0.139,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),USA,US,0.134,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),Rest of World,RoW,0.308,0.07,01321
+A.05.02.001,Apples,France,FR,0.807,0.07,01341
+A.05.02.001,Apples,Rest of World,RoW,0.193,0.07,01341
+A.05.02.002,Pears,France,FR,0.535,0.07,01342.01
+A.05.02.002,Pears,Belgium,BE,0.108,0.07,01342.01
+A.05.02.002,Pears,Rest of World,RoW,0.357,0.07,01342.01
+A.05.02.003,Quinces,Spain,ES,0.518,0.06,01342.02
+A.05.02.003,Quinces,Turkey,TR,0.371,0.06,01342.02
+A.05.02.003,Quinces,Rest of World,RoW,0.111,0.06,01342.02
+A.05.02.004,Medlars,Spain,ES,0.213,0.07,01359.90
+A.05.02.004,Medlars,Rest of World,RoW,0.787,0.07,01359.90
+A.05.02.005,Loquats,Spain,ES,0.213,0.07,01359.90
+A.05.02.005,Loquats,Rest of World,RoW,0.787,0.07,01359.90
+A.05.02.007,Sorb fruits,France,FR,0.807,0.07,01341
+A.05.02.007,Sorb fruits,Rest of World,RoW,0.193,0.07,01341
+A.05.02.009,Nashi pears,France,FR,0.535,0.07,01342.01
+A.05.02.009,Nashi pears,Belgium,BE,0.108,0.07,01342.01
+A.05.02.009,Nashi pears,Rest of World,RoW,0.357,0.07,01342.01
+A.05.03.001,Apricots,France,FR,0.648,0.07,01343
+A.05.03.001,Apricots,Turkey,TR,0.248,0.07,01343
+A.05.03.001,Apricots,Rest of World,RoW,0.104,0.07,01343
+A.05.03.002,Plums,France,FR,0.891,0.07,01346
+A.05.03.002,Plums,Rest of World,RoW,0.109,0.07,01346
+A.05.03.003,Damsons,France,FR,0.891,0.07,01346
+A.05.03.003,Damsons,Rest of World,RoW,0.109,0.07,01346
+A.05.03.004,Mirabelles,France,FR,0.891,0.07,01346
+A.05.03.004,Mirabelles,Rest of World,RoW,0.109,0.07,01346
+A.05.03.005,Gages,France,FR,0.891,0.07,01346
+A.05.03.005,Gages,Rest of World,RoW,0.109,0.07,01346
+A.05.03.006,Cherries (sweet),France,FR,0.841,0.07,01344.02
+A.05.03.006,Cherries (sweet),Spain,ES,0.101,0.07,01344.02
+A.05.03.006,Cherries (sweet),Rest of World,RoW,0.058,0.07,01344.02
+A.05.03.007,Sour cherries,Rest of World,RoW,1,0.07,01344.01
+A.05.03.011,Peaches and similar-,France,FR,0.6,0.07,01345
+A.05.03.011,Peaches and similar-,Spain,ES,0.372,0.07,01345
+A.05.03.011,Peaches and similar-,Rest of World,RoW,0.029,0.07,01345
+A.05.04.001,Table grapes,France,FR,0.882,0.07,01330
+A.05.04.001,Table grapes,Rest of World,RoW,0.118,0.07,01330
+A.05.04.002,Wine grapes,France,FR,0.882,0.07,01330
+A.05.04.002,Wine grapes,Rest of World,RoW,0.118,0.07,01330
+A.05.04.003,Strawberries,France,FR,0.377,0.07,01354
+A.05.04.003,Strawberries,Spain,ES,0.479,0.07,01354
+A.05.04.003,Strawberries,Rest of World,RoW,0.144,0.07,01354
+A.05.04.004,Blackberries,France,FR,0.771,0.07,01353.01
+A.05.04.004,Blackberries,Spain,ES,0.129,0.07,01353.01
+A.05.04.004,Blackberries,Rest of World,RoW,0.1,0.07,01353.01
+A.05.04.006,Raspberries (red and yellow),France,FR,0.771,0.07,01353.01
+A.05.04.006,Raspberries (red and yellow),Spain,ES,0.129,0.07,01353.01
+A.05.04.006,Raspberries (red and yellow),Rest of World,RoW,0.1,0.07,01353.01
+A.05.04.008,Blueberries,France,FR,0.771,0.07,01355.01
+A.05.04.008,Blueberries,Spain,ES,0.129,0.07,01355.01
+A.05.04.008,Blueberries,Rest of World,RoW,0.1,0.07,01355.01
+A.05.04.009,Cranberries (Vaccinium macrocarpon),France,FR,0.771,0.07,01355.01
+A.05.04.009,Cranberries (Vaccinium macrocarpon),Spain,ES,0.129,0.07,01355.01
+A.05.04.009,Cranberries (Vaccinium macrocarpon),Rest of World,RoW,0.1,0.07,01355.01
+A.05.04.009,Cranberries (Vaccinium macrocarpon),Rest of World,RoW,1,0.07,01355.02
+A.05.04.010,"Currants (black, red and white)",France,FR,0.949,0.07,01351.01
+A.05.04.010,"Currants (black, red and white)",Rest of World,RoW,0.051,0.07,01351.01
+A.05.04.011,"Gooseberries (green, red and yellow)",Rest of World,RoW,1,0.07,01351.02
+A.05.04.012,Rose hips,India,IN,0.606,0.07,01699
+A.05.04.012,Rose hips,Turkey,TR,0.12,0.07,01699
+A.05.04.012,Rose hips,Rest of World,RoW,0.274,0.07,01699
+A.05.04.013,Mulberries (black and white),Turkey,TR,0.784,0.07,01315
+A.05.04.013,Mulberries (black and white),Rest of World,RoW,0.216,0.07,01315
+A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),France,FR,0.771,0.07,01355.01
+A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),Spain,ES,0.129,0.07,01355.01
+A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),Rest of World,RoW,0.1,0.07,01355.01
+A.05.04.015,Elderberries,France,FR,0.949,0.07,01351.01
+A.05.04.015,Elderberries,Rest of World,RoW,0.051,0.07,01351.01
+A.05.04.016,Cloudberries,France,FR,0.771,0.07,01353.01
+A.05.04.016,Cloudberries,Spain,ES,0.129,0.07,01353.01
+A.05.04.016,Cloudberries,Rest of World,RoW,0.1,0.07,01353.01
+A.05.04.017,Loganberry (Rubus loganobaccus),France,FR,0.771,0.07,01355.01
+A.05.04.017,Loganberry (Rubus loganobaccus),Spain,ES,0.129,0.07,01355.01
+A.05.04.017,Loganberry (Rubus loganobaccus),Rest of World,RoW,0.1,0.07,01355.01
+A.05.04.022,Bilberries,France,FR,0.771,0.07,01355.01
+A.05.04.022,Bilberries,Spain,ES,0.129,0.07,01355.01
+A.05.04.022,Bilberries,Rest of World,RoW,0.1,0.07,01355.01
+A.05.04.026,Lingonberry (Vaccinium vitis-idaea),France,FR,0.771,0.07,01355.01
+A.05.04.026,Lingonberry (Vaccinium vitis-idaea),Spain,ES,0.129,0.07,01355.01
+A.05.04.026,Lingonberry (Vaccinium vitis-idaea),Rest of World,RoW,0.1,0.07,01355.01
+A.05.04.029,Ground cherries (physalis etc.),France,FR,0.313,0.07,01234
+A.05.04.029,Ground cherries (physalis etc.),Italy,IT,0.217,0.07,01234
+A.05.04.029,Ground cherries (physalis etc.),Morocco,MA,0.161,0.07,01234
+A.05.04.029,Ground cherries (physalis etc.),Spain,ES,0.188,0.07,01234
+A.05.04.029,Ground cherries (physalis etc.),Rest of World,RoW,0.122,0.07,01234
+A.05.04.030,Sea buckthorns,France,FR,0.949,0.07,01351.01
+A.05.04.030,Sea buckthorns,Rest of World,RoW,0.051,0.07,01351.01
+A.05.05.001,Olives for oil production,Italy,IT,0.126,0.06,01450
+A.05.05.001,Olives for oil production,Spain,ES,0.55,0.06,01450
+A.05.05.001,Olives for oil production,Rest of World,RoW,0.324,0.06,01450
+A.05.05.002,Palm nuts (palmoil kernels),France,FR,0.275,0.06,01491.02
+A.05.05.002,Palm nuts (palmoil kernels),Rest of World,RoW,0.725,0.06,01491.02
+A.05.05.003,Palmfruit (Elaeis guineensis),Malaysia,MY,0.3,0.06,01491.01
+A.05.05.003,Palmfruit (Elaeis guineensis),Indonesia,ID,0.7,0.06,01491.01
+A.05.06.001,Dates,Algeria,DZ,0.334,0.07,01314
+A.05.06.001,Dates,Tunisia,TN,0.554,0.07,01314
+A.05.06.001,Dates,Rest of World,RoW,0.112,0.07,01314
+A.05.06.002,Figs,Turkey,TR,0.784,0.07,01315
+A.05.06.002,Figs,Rest of World,RoW,0.216,0.07,01315
+A.05.06.003,Table olives,Italy,IT,0.126,0.06,01450
+A.05.06.003,Table olives,Spain,ES,0.55,0.06,01450
+A.05.06.003,Table olives,Rest of World,RoW,0.324,0.06,01450
+A.05.06.004,Kumquats,Argentina,AR,0.136,0.07,01322
+A.05.06.004,Kumquats,Spain,ES,0.697,0.07,01322
+A.05.06.004,Kumquats,Rest of World,RoW,0.167,0.07,01322
+A.05.06.005,Carambolas,Spain,ES,0.213,0.07,01359.90
+A.05.06.005,Carambolas,Rest of World,RoW,0.787,0.07,01359.90
+A.05.06.006,Persimmon (Sharon fruit) (Diospyros kaki),Spain,ES,0.946,0.07,01359.01
+A.05.06.006,Persimmon (Sharon fruit) (Diospyros kaki),Rest of World,RoW,0.054,0.07,01359.01
+A.05.06.006,Persimmon (Sharon fruit) (Diospyros kaki),France,FR,0.313,0.07,01234
+A.05.06.006,Persimmon (Sharon fruit) (Diospyros kaki),Italy,IT,0.217,0.07,01234
+A.05.06.006,Persimmon (Sharon fruit) (Diospyros kaki),Morocco,MA,0.161,0.07,01234
+A.05.06.006,Persimmon (Sharon fruit) (Diospyros kaki),Spain,ES,0.188,0.07,01234
+A.05.06.006,Persimmon (Sharon fruit) (Diospyros kaki),Rest of World,RoW,0.122,0.07,01234
+A.05.06.008,"Kiwi fruits (green, red, yellow)",France,FR,0.526,0.07,01352
+A.05.06.008,"Kiwi fruits (green, red, yellow)",Italy,IT,0.203,0.07,01352
+A.05.06.008,"Kiwi fruits (green, red, yellow)",New Zealand,NZ,0.159,0.07,01352
+A.05.06.008,"Kiwi fruits (green, red, yellow)",Rest of World,RoW,0.112,0.07,01352
+A.05.06.009,Litchis,Spain,ES,0.213,0.07,01359.90
+A.05.06.009,Litchis,Rest of World,RoW,0.787,0.07,01359.90
+A.05.06.010,Passionfruits,Spain,ES,0.213,0.07,01359.90
+A.05.06.010,Passionfruits,Rest of World,RoW,0.787,0.07,01359.90
+A.05.06.011,Prickly pears,Spain,ES,0.213,0.07,01359.90
+A.05.06.011,Prickly pears,Rest of World,RoW,0.787,0.07,01359.90
+A.05.06.013,American persimmons,France,FR,0.313,0.07,01234
+A.05.06.013,American persimmons,Italy,IT,0.217,0.07,01234
+A.05.06.013,American persimmons,Morocco,MA,0.161,0.07,01234
+A.05.06.013,American persimmons,Spain,ES,0.188,0.07,01234
+A.05.06.013,American persimmons,Rest of World,RoW,0.122,0.07,01234
+A.05.06.014,Avocados,Chile,CL,0.131,0.07,01311
+A.05.06.014,Avocados,Israel,IL,0.165,0.07,01311
+A.05.06.014,Avocados,Peru,PE,0.253,0.07,01311
+A.05.06.014,Avocados,Spain,ES,0.208,0.07,01311
+A.05.06.014,Avocados,Rest of World,RoW,0.242,0.07,01311
+A.05.06.015,Bananas (Musa × paradisica),Cameroon,CM,0.2,0.07,01312
+A.05.06.015,Bananas (Musa × paradisica),Colombia,CO,0.13,0.07,01312
+A.05.06.015,Bananas (Musa × paradisica),Cote d'Ivoire,CI,0.228,0.07,01312
+A.05.06.015,Bananas (Musa × paradisica),Suriname,SR,0.139,0.07,01312
+A.05.06.015,Bananas (Musa × paradisica),Rest of World,RoW,0.302,0.07,01312
+A.05.06.016,Mangoes,Brazil,BR,0.335,0.07,01316
+A.05.06.016,Mangoes,Israel,IL,0.118,0.07,01316
+A.05.06.016,Mangoes,Cote d'Ivoire,CI,0.107,0.07,01316
+A.05.06.016,Mangoes,Peru,PE,0.236,0.07,01316
+A.05.06.016,Mangoes,Rest of World,RoW,0.204,0.07,01316
+A.05.06.017,Papayas,Brazil,BR,0.804,0.07,01317
+A.05.06.017,Papayas,Thailand,TH,0.128,0.07,01317
+A.05.06.017,Papayas,Rest of World,RoW,0.068,0.07,01317
+A.05.06.018,Granate apples,Spain,ES,0.213,0.07,01359.90
+A.05.06.018,Granate apples,Rest of World,RoW,0.787,0.07,01359.90
+A.05.06.019,Wild sweetsops,Spain,ES,0.213,0.07,01359.90
+A.05.06.019,Wild sweetsops,Rest of World,RoW,0.787,0.07,01359.90
+A.05.06.020,Guavas,Brazil,BR,0.335,0.07,01316
+A.05.06.020,Guavas,Israel,IL,0.118,0.07,01316
+A.05.06.020,Guavas,Cote d'Ivoire,CI,0.107,0.07,01316
+A.05.06.020,Guavas,Peru,PE,0.236,0.07,01316
+A.05.06.020,Guavas,Rest of World,RoW,0.204,0.07,01316
+A.05.06.021,Pineapples,Costa Rica,CR,0.455,0.07,01318
+A.05.06.021,Pineapples,Thailand,TH,0.193,0.07,01318
+A.05.06.021,Pineapples,Rest of World,RoW,0.352,0.07,01318
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Spain,ES,0.213,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Rest of World,RoW,0.787,0.07,01359.90
+A.05.06.029,Papayas,Brazil,BR,0.804,0.07,01317
+A.05.06.029,Papayas,Thailand,TH,0.128,0.07,01317
+A.05.06.029,Papayas,Rest of World,RoW,0.068,0.07,01317
+A.05.06.030,Chayote (Sechium edule),Spain,ES,0.213,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Rest of World,RoW,0.787,0.07,01359.90
+A.05.06.034,Longans,Spain,ES,0.213,0.07,01359.90
+A.05.06.034,Longans,Rest of World,RoW,0.787,0.07,01359.90
+A.06.01.001,Bovine muscle,France,FR,0.82,0.057,21111.02
+A.06.01.001,Bovine muscle,Rest of World,RoW,0.18,0.057,21111.02
+A.06.01.002,Calf fresh meat,France,FR,0.82,0.057,21111.02
+A.06.01.002,Calf fresh meat,Rest of World,RoW,0.18,0.057,21111.02
+A.06.01.003,Pig muscle,France,FR,0.8,0.057,21113.02
+A.06.01.003,Pig muscle,Spain,ES,0.108,0.057,21113.02
+A.06.01.003,Pig muscle,Rest of World,RoW,0.092,0.057,21113.02
+A.06.01.004,Sheep muscle,France,FR,0.522,0.057,21115
+A.06.01.004,Sheep muscle,New Zealand,NZ,0.115,0.057,21115
+A.06.01.004,Sheep muscle,United Kingdom,GB,0.17,0.057,21115
+A.06.01.004,Sheep muscle,Rest of World,RoW,0.193,0.057,21115
+A.06.01.005,Goat muscle,France,FR,0.942,0.057,21116
+A.06.01.005,Goat muscle,Rest of World,RoW,0.058,0.057,21116
+A.06.01.006,Equine muscle,Argentina,AR,0.101,0.057,21118.01
+A.06.01.006,Equine muscle,Canada,CA,0.151,0.057,21118.01
+A.06.01.006,Equine muscle,France,FR,0.277,0.057,21118.01
+A.06.01.006,Equine muscle,Mexico,MX,0.141,0.057,21118.01
+A.06.01.006,Equine muscle,Rest of World,RoW,0.329,0.057,21118.01
+A.06.01.007,Rabbit fresh meat,France,FR,0.962,0.057,21114
+A.06.01.007,Rabbit fresh meat,Rest of World,RoW,0.038,0.057,21114
+A.06.02.001,Chicken meat (Gallus domesticus),France,FR,0.761,0.057,21121
+A.06.02.001,Chicken meat (Gallus domesticus),Rest of World,RoW,0.239,0.057,21121
+A.06.02.002,Turkey fresh meat,France,FR,0.913,0.057,21124
+A.06.02.002,Turkey fresh meat,Rest of World,RoW,0.087,0.057,21124
+A.06.02.003,Duck fresh meat,France,FR,0.959,0.057,21122
+A.06.02.003,Duck fresh meat,Rest of World,RoW,0.041,0.057,21122
+A.06.02.004,Goose fresh meat,France,FR,0.585,0.057,21123
+A.06.02.004,Goose fresh meat,Hungary,HU,0.235,0.057,21123
+A.06.02.004,Goose fresh meat,Poland,PL,0.177,0.057,21123
+A.06.02.004,Goose fresh meat,Rest of World,RoW,0.003,0.057,21123
+A.06.02.005,Pigeon fresh meat,Rest of World,RoW,1,0.057,21170.01
+A.06.02.006,Guinea-fowl fresh meat,France,FR,0.761,0.057,21121
+A.06.02.006,Guinea-fowl fresh meat,Rest of World,RoW,0.239,0.057,21121
+A.06.02.007,Ratites fresh meat,Germany,DE,0.116,0.057,21170.02
+A.06.02.007,Ratites fresh meat,New Zealand,NZ,0.226,0.057,21170.02
+A.06.02.007,Ratites fresh meat,Spain,ES,0.387,0.057,21170.02
+A.06.02.007,Ratites fresh meat,United Kingdom,GB,0.103,0.057,21170.02
+A.06.02.007,Ratites fresh meat,Rest of World,RoW,0.167,0.057,21170.02
+A.06.03.001,Wild boar fresh meat,Germany,DE,0.116,0.057,21170.02
+A.06.03.001,Wild boar fresh meat,New Zealand,NZ,0.226,0.057,21170.02
+A.06.03.001,Wild boar fresh meat,Spain,ES,0.387,0.057,21170.02
+A.06.03.001,Wild boar fresh meat,United Kingdom,GB,0.103,0.057,21170.02
+A.06.03.001,Wild boar fresh meat,Rest of World,RoW,0.167,0.057,21170.02
+A.06.03.002,"Deer, red fresh meat",Germany,DE,0.116,0.057,21170.02
+A.06.03.002,"Deer, red fresh meat",New Zealand,NZ,0.226,0.057,21170.02
+A.06.03.002,"Deer, red fresh meat",Spain,ES,0.387,0.057,21170.02
+A.06.03.002,"Deer, red fresh meat",United Kingdom,GB,0.103,0.057,21170.02
+A.06.03.002,"Deer, red fresh meat",Rest of World,RoW,0.167,0.057,21170.02
+A.06.03.003,European moose meat,Germany,DE,0.116,0.057,21170.02
+A.06.03.003,European moose meat,New Zealand,NZ,0.226,0.057,21170.02
+A.06.03.003,European moose meat,Spain,ES,0.387,0.057,21170.02
+A.06.03.003,European moose meat,United Kingdom,GB,0.103,0.057,21170.02
+A.06.03.003,European moose meat,Rest of World,RoW,0.167,0.057,21170.02
+A.06.03.004,Reindeer meat,Germany,DE,0.116,0.057,21170.02
+A.06.03.004,Reindeer meat,New Zealand,NZ,0.226,0.057,21170.02
+A.06.03.004,Reindeer meat,Spain,ES,0.387,0.057,21170.02
+A.06.03.004,Reindeer meat,United Kingdom,GB,0.103,0.057,21170.02
+A.06.03.004,Reindeer meat,Rest of World,RoW,0.167,0.057,21170.02
+A.06.03.006,Hare fresh meat,France,FR,0.962,0.057,21114
+A.06.03.006,Hare fresh meat,Rest of World,RoW,0.038,0.057,21114
+A.06.04.001,Pheasant fresh meat,Germany,DE,0.116,0.057,21170.02
+A.06.04.001,Pheasant fresh meat,New Zealand,NZ,0.226,0.057,21170.02
+A.06.04.001,Pheasant fresh meat,Spain,ES,0.387,0.057,21170.02
+A.06.04.001,Pheasant fresh meat,United Kingdom,GB,0.103,0.057,21170.02
+A.06.04.001,Pheasant fresh meat,Rest of World,RoW,0.167,0.057,21170.02
+A.06.04.003,Mallard fresh meat,Germany,DE,0.116,0.057,21170.02
+A.06.04.003,Mallard fresh meat,New Zealand,NZ,0.226,0.057,21170.02
+A.06.04.003,Mallard fresh meat,Spain,ES,0.387,0.057,21170.02
+A.06.04.003,Mallard fresh meat,United Kingdom,GB,0.103,0.057,21170.02
+A.06.04.003,Mallard fresh meat,Rest of World,RoW,0.167,0.057,21170.02
+A.06.04.004,Partridge fresh meat,Germany,DE,0.116,0.057,21170.02
+A.06.04.004,Partridge fresh meat,New Zealand,NZ,0.226,0.057,21170.02
+A.06.04.004,Partridge fresh meat,Spain,ES,0.387,0.057,21170.02
+A.06.04.004,Partridge fresh meat,United Kingdom,GB,0.103,0.057,21170.02
+A.06.04.004,Partridge fresh meat,Rest of World,RoW,0.167,0.057,21170.02
+A.06.04.005,Quail fresh meat,Germany,DE,0.116,0.057,21170.02
+A.06.04.005,Quail fresh meat,New Zealand,NZ,0.226,0.057,21170.02
+A.06.04.005,Quail fresh meat,Spain,ES,0.387,0.057,21170.02
+A.06.04.005,Quail fresh meat,United Kingdom,GB,0.103,0.057,21170.02
+A.06.04.005,Quail fresh meat,Rest of World,RoW,0.167,0.057,21170.02
+A.07.01.001,Herring roe,Rest of World,RoW,1,0.02,BF-01
+A.07.01.001,Herring roe,Rest of World,RoW,1,0.02,BF-02
+A.07.01.002,Sprat,Rest of World,RoW,1,0.02,BF-03
+A.07.01.003,European sardine,Rest of World,RoW,1,0.02,BF-04
+A.07.01.004,Anchovies,Rest of World,RoW,1,0.02,BF-05
+A.07.01.007,Char,Rest of World,RoW,1,0.02,BF-06
+A.07.01.008,Smelt,Rest of World,RoW,1,0.02,BF-07
+A.07.01.009,Whitefishes or coregonus,Rest of World,RoW,1,0.02,BF-08
+A.07.01.010,Perch,Rest of World,RoW,1,0.02,BF-09
+A.07.01.011,Sea bass,Rest of World,RoW,1,0.02,BF-10
+A.07.01.013,Mackerel,Rest of World,RoW,1,0.02,BF-11
+A.07.01.014,Tuna and bonito (generic),Rest of World,RoW,1,0.02,BF-12
+A.07.01.016,Mullets,Rest of World,RoW,1,0.02,BF-13
+A.07.01.018,Hakes,Rest of World,RoW,1,0.02,BF-14
+A.07.01.019,Flounders,Rest of World,RoW,1,0.02,BF-15
+A.07.01.020,Halibut,Rest of World,RoW,1,0.02,BF-16
+A.07.01.021,Plaice,Rest of World,RoW,1,0.02,BF-17
+A.07.01.022,Sole,Rest of World,RoW,1,0.02,BF-18
+A.07.01.024,Carps,Rest of World,RoW,1,0.02,BF-19
+A.07.01.026,Freshwater bream - Europe,Rest of World,RoW,1,0.02,BF-20
+A.07.01.027,River eels,Rest of World,RoW,1,0.02,BF-21
+A.07.01.029,Anglerfish and monkfish,Rest of World,RoW,1,0.02,BF-22
+A.07.01.030,Sharks,Rest of World,RoW,1,0.02,BF-23
+A.07.01.031,Rays,Rest of World,RoW,1,0.02,BF-24
+A.07.01.032,Sturgeon roe,Rest of World,RoW,1,0.02,BF-25
+A.07.01.033,Bonito,Rest of World,RoW,1,0.02,BF-26
+A.07.01.035,Sardines and sardine-type fishes,Rest of World,RoW,1,0.02,BF-27
+A.07.01.036,Swordfish,Rest of World,RoW,1,0.02,BF-28
+A.07.04.001,Freshwater crabs,Rest of World,RoW,1,0.02,BF-29
+A.07.04.002,Lobsters,Rest of World,RoW,1,0.02,BF-30
+A.07.04.003,"Lobster, norway",Rest of World,RoW,1,0.02,BF-31
+A.07.04.004,"Prawn, giant tiger",Rest of World,RoW,1,0.02,BF-32
+A.07.04.005,White shrimp,Rest of World,RoW,1,0.02,BF-33
+A.07.04.006,Spiny and rock lobsters,Rest of World,RoW,1,0.02,BF-34
+A.07.04.007,Freshwater crayfishes,Rest of World,RoW,1,0.02,BF-35
+A.07.05.001,Squids,Rest of World,RoW,1,0.02,BF-36
+A.07.05.002,Octopuses,Rest of World,RoW,1,0.02,BF-37
+A.07.05.003,Cuttlefishes,Rest of World,RoW,1,0.02,BF-38
+A.07.05.005,Clams,Rest of World,RoW,1,0.02,BF-39
+A.07.05.006,Cockles,Rest of World,RoW,1,0.02,BF-40
+A.07.05.007,Mussels,Rest of World,RoW,1,0.02,BF-41
+A.07.05.008,Oysters,Rest of World,RoW,1,0.02,BF-42
+A.07.05.010,"Scallops, pectens",Rest of World,RoW,1,0.02,BF-43
+A.07.05.013,"Water snails, conches and whelks",Rest of World,RoW,1,0.02,BF-45
+A.07.05.013,"Water snails, conches and whelks",Rest of World,RoW,1,0.02,BF-45
+A.07.05.014,"Water snails, conches and whelks",Rest of World,RoW,1,0.02,BF-45
+A.07.05.014,"Water snails, conches and whelks",Rest of World,RoW,1,0.02,BF-45
+A.07.06.001,Frogs (legs),Rest of World,RoW,1,0.02,BF-46
+A.07.06.004,Snails,Rest of World,RoW,1,0.02,BF-47
+A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",France,FR,0.805,0.017,02211
+A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",Rest of World,RoW,0.195,0.017,02211
+A.08.01.001.002,Cow milk,France,FR,0.805,0.017,02211
+A.08.01.001.002,Cow milk,Rest of World,RoW,0.195,0.017,02211
+A.08.01.002,Sheep milk,France,FR,1,0.017,02291
+A.08.01.003,Water buffalo milk,Madagascar,MG,0.939,0.07,02212
+A.08.01.003,Water buffalo milk,Rest of World,RoW,0.061,0.07,02212
+A.08.01.005,Goat milk,France,FR,1,0.017,02292
+A.08.01.007,Ass milk,France,FR,0.805,0.017,02211
+A.08.01.007,Ass milk,Rest of World,RoW,0.195,0.017,02211
+A.09.01.001,Hen eggs,France,FR,0.919,0.017,0231
+A.09.01.001,Hen eggs,Rest of World,RoW,0.081,0.017,0231
+A.09.01.005,Duck eggs,Rest of World,RoW,1,0.017,0232
+A.09.01.006,Goose eggs,Rest of World,RoW,1,0.017,0232
+A.09.01.007,Quail eggs,Rest of World,RoW,1,0.017,0232
+A.10.07,Honey,France,FR,0.293,0.06,02910
+A.10.07,Honey,Rest of World,RoW,0.707,0.06,02910
+A.16.01.001,Chervil,India,IN,0.175,0.07,01654
+A.16.01.001,Chervil,Syrian Arab Republic,SY,0.302,0.07,01654
+A.16.01.001,Chervil,Rest of World,RoW,0.523,0.07,01654
+A.16.01.002,Chives,India,IN,0.606,0.07,01699
+A.16.01.002,Chives,Turkey,TR,0.12,0.07,01699
+A.16.01.002,Chives,Rest of World,RoW,0.274,0.07,01699
+A.16.01.003,Dill leaves,India,IN,0.606,0.07,01699
+A.16.01.003,Dill leaves,Turkey,TR,0.12,0.07,01699
+A.16.01.003,Dill leaves,Rest of World,RoW,0.274,0.07,01699
+A.16.01.004,Celery leaves,India,IN,0.606,0.07,01699
+A.16.01.004,Celery leaves,Turkey,TR,0.12,0.07,01699
+A.16.01.004,Celery leaves,Rest of World,RoW,0.274,0.07,01699
+A.16.01.005,Parsley,India,IN,0.606,0.07,01699
+A.16.01.005,Parsley,Turkey,TR,0.12,0.07,01699
+A.16.01.005,Parsley,Rest of World,RoW,0.274,0.07,01699
+A.16.01.006,Sage,India,IN,0.606,0.07,01699
+A.16.01.006,Sage,Turkey,TR,0.12,0.07,01699
+A.16.01.006,Sage,Rest of World,RoW,0.274,0.07,01699
+A.16.01.007,Rosemary,India,IN,0.606,0.07,01699
+A.16.01.007,Rosemary,Turkey,TR,0.12,0.07,01699
+A.16.01.007,Rosemary,Rest of World,RoW,0.274,0.07,01699
+A.16.01.008,Thyme,India,IN,0.606,0.07,01699
+A.16.01.008,Thyme,Turkey,TR,0.12,0.07,01699
+A.16.01.008,Thyme,Rest of World,RoW,0.274,0.07,01699
+A.16.01.009,Basil,India,IN,0.606,0.07,01699
+A.16.01.009,Basil,Turkey,TR,0.12,0.07,01699
+A.16.01.009,Basil,Rest of World,RoW,0.274,0.07,01699
+A.16.01.010,Laurel,India,IN,0.606,0.07,01699
+A.16.01.010,Laurel,Turkey,TR,0.12,0.07,01699
+A.16.01.010,Laurel,Rest of World,RoW,0.274,0.07,01699
+A.16.01.011,Tarragon,India,IN,0.606,0.07,01699
+A.16.01.011,Tarragon,Turkey,TR,0.12,0.07,01699
+A.16.01.011,Tarragon,Rest of World,RoW,0.274,0.07,01699
+A.16.02.004,Allspice fruit,India,IN,0.606,0.07,01699
+A.16.02.004,Allspice fruit,Turkey,TR,0.12,0.07,01699
+A.16.02.004,Allspice fruit,Rest of World,RoW,0.274,0.07,01699
+A.16.02.006,Anise seed,India,IN,0.175,0.07,01654
+A.16.02.006,Anise seed,Syrian Arab Republic,SY,0.302,0.07,01654
+A.16.02.006,Anise seed,Rest of World,RoW,0.523,0.07,01654
+A.16.02.008,Black caraway seed,India,IN,0.175,0.07,01654
+A.16.02.008,Black caraway seed,Syrian Arab Republic,SY,0.302,0.07,01654
+A.16.02.008,Black caraway seed,Rest of World,RoW,0.523,0.07,01654
+A.16.02.009,Capers buds,India,IN,0.606,0.07,01699
+A.16.02.009,Capers buds,Turkey,TR,0.12,0.07,01699
+A.16.02.009,Capers buds,Rest of World,RoW,0.274,0.07,01699
+A.16.02.010,Caraway fruit,India,IN,0.175,0.07,01654
+A.16.02.010,Caraway fruit,Syrian Arab Republic,SY,0.302,0.07,01654
+A.16.02.010,Caraway fruit,Rest of World,RoW,0.523,0.07,01654
+A.16.02.011,Cardamom fruit,India,IN,0.606,0.07,01699
+A.16.02.011,Cardamom fruit,Turkey,TR,0.12,0.07,01699
+A.16.02.011,Cardamom fruit,Rest of World,RoW,0.274,0.07,01699
+A.16.02.014,Cinnamon (Cinnamonum verum syn. C. zeylanicum),India,IN,0.606,0.07,01699
+A.16.02.014,Cinnamon (Cinnamonum verum syn. C. zeylanicum),Turkey,TR,0.12,0.07,01699
+A.16.02.014,Cinnamon (Cinnamonum verum syn. C. zeylanicum),Rest of World,RoW,0.274,0.07,01699
+A.16.02.014,Cinnamon (Cinnamonum verum syn. C. zeylanicum),Indonesia,ID,0.641,0.07,01655
+A.16.02.014,Cinnamon (Cinnamonum verum syn. C. zeylanicum),Madagascar,MG,0.269,0.07,01655
+A.16.02.014,Cinnamon (Cinnamonum verum syn. C. zeylanicum),Rest of World,RoW,0.09,0.07,01655
+A.16.02.015,Cloves (Syzygium aromaticum),India,IN,0.606,0.07,01699
+A.16.02.015,Cloves (Syzygium aromaticum),Turkey,TR,0.12,0.07,01699
+A.16.02.015,Cloves (Syzygium aromaticum),Rest of World,RoW,0.274,0.07,01699
+A.16.02.015,Cloves (Syzygium aromaticum),Comoros,KM,0.277,0.07,01656
+A.16.02.015,Cloves (Syzygium aromaticum),Indonesia,ID,0.262,0.07,01656
+A.16.02.015,Cloves (Syzygium aromaticum),Madagascar,MG,0.426,0.07,01656
+A.16.02.015,Cloves (Syzygium aromaticum),Rest of World,RoW,0.035,0.07,01656
+A.16.02.016,Coriander seed,India,IN,0.175,0.07,01654
+A.16.02.016,Coriander seed,Syrian Arab Republic,SY,0.302,0.07,01654
+A.16.02.016,Coriander seed,Rest of World,RoW,0.523,0.07,01654
+A.16.02.017,Cumin seed,India,IN,0.175,0.07,01654
+A.16.02.017,Cumin seed,Syrian Arab Republic,SY,0.302,0.07,01654
+A.16.02.017,Cumin seed,Rest of World,RoW,0.523,0.07,01654
+A.16.02.018,Dill seed (Anethum graveolens),India,IN,0.175,0.07,01654
+A.16.02.018,Dill seed (Anethum graveolens),Syrian Arab Republic,SY,0.302,0.07,01654
+A.16.02.018,Dill seed (Anethum graveolens),Rest of World,RoW,0.523,0.07,01654
+A.16.02.019,Fennel seed,India,IN,0.175,0.07,01654
+A.16.02.019,Fennel seed,Syrian Arab Republic,SY,0.302,0.07,01654
+A.16.02.019,Fennel seed,Rest of World,RoW,0.523,0.07,01654
+A.16.02.020,Fenugreek seed,India,IN,0.606,0.07,01699
+A.16.02.020,Fenugreek seed,Turkey,TR,0.12,0.07,01699
+A.16.02.020,Fenugreek seed,Rest of World,RoW,0.274,0.07,01699
+A.16.02.022,Ginger (Zingiber officinale),India,IN,0.606,0.07,01699
+A.16.02.022,Ginger (Zingiber officinale),Turkey,TR,0.12,0.07,01699
+A.16.02.022,Ginger (Zingiber officinale),Rest of World,RoW,0.274,0.07,01699
+A.16.02.022,Ginger (Zingiber officinale),Rest of World,RoW,1,0.07,01657
+A.16.02.024,Juniper berry,India,IN,0.606,0.07,01699
+A.16.02.024,Juniper berry,Turkey,TR,0.12,0.07,01699
+A.16.02.024,Juniper berry,Rest of World,RoW,0.274,0.07,01699
+A.16.02.025,Mace aril,India,IN,0.606,0.07,01699
+A.16.02.025,Mace aril,Turkey,TR,0.12,0.07,01699
+A.16.02.025,Mace aril,Rest of World,RoW,0.274,0.07,01699
+A.16.02.027,Nutmeg (Myristica fragans),Guatemala,GT,0.184,0.07,01653
+A.16.02.027,Nutmeg (Myristica fragans),Indonesia,ID,0.663,0.07,01653
+A.16.02.027,Nutmeg (Myristica fragans),Rest of World,RoW,0.153,0.07,01653
+A.16.02.027,Nutmeg (Myristica fragans),India,IN,0.606,0.07,01699
+A.16.02.027,Nutmeg (Myristica fragans),Turkey,TR,0.12,0.07,01699
+A.16.02.027,Nutmeg (Myristica fragans),Rest of World,RoW,0.274,0.07,01699
+A.16.02.028,"Pepper, black and white (Piper nigrum)",India,IN,0.606,0.07,01699
+A.16.02.028,"Pepper, black and white (Piper nigrum)",Turkey,TR,0.12,0.07,01699
+A.16.02.028,"Pepper, black and white (Piper nigrum)",Rest of World,RoW,0.274,0.07,01699
+A.16.02.028,"Pepper, black and white (Piper nigrum)",Brazil,BR,0.39,0.07,01651
+A.16.02.028,"Pepper, black and white (Piper nigrum)",India,IN,0.116,0.07,01651
+A.16.02.028,"Pepper, black and white (Piper nigrum)",Indonesia,ID,0.334,0.07,01651
+A.16.02.028,"Pepper, black and white (Piper nigrum)",Rest of World,RoW,0.16,0.07,01651
+A.16.02.029,Saffron,India,IN,0.606,0.07,01699
+A.16.02.029,Saffron,Turkey,TR,0.12,0.07,01699
+A.16.02.029,Saffron,Rest of World,RoW,0.274,0.07,01699
+A.16.02.030,Tamarind,India,IN,0.606,0.07,01699
+A.16.02.030,Tamarind,Turkey,TR,0.12,0.07,01699
+A.16.02.030,Tamarind,Rest of World,RoW,0.274,0.07,01699
+A.16.02.031,Turmeric roots,India,IN,0.606,0.07,01699
+A.16.02.031,Turmeric roots,Turkey,TR,0.12,0.07,01699
+A.16.02.031,Turmeric roots,Rest of World,RoW,0.274,0.07,01699
+A.16.09.003,Vanilla pods (Vanilla fragrans syn. Vanilla planifolia),India,IN,0.606,0.07,01699
+A.16.09.003,Vanilla pods (Vanilla fragrans syn. Vanilla planifolia),Turkey,TR,0.12,0.07,01699
+A.16.09.003,Vanilla pods (Vanilla fragrans syn. Vanilla planifolia),Rest of World,RoW,0.274,0.07,01699
+A.16.09.003,Vanilla pods (Vanilla fragrans syn. Vanilla planifolia),France,FR,0.805,0.017,01658
+A.16.09.003,Vanilla pods (Vanilla fragrans syn. Vanilla planifolia),Rest of World,RoW,0.195,0.017,01658
+I.01.02.010.006,Quinoa grain,Bolivia,BO,0.805,0.06,01194
+I.01.02.010.006,Quinoa grain,Peru,PE,0.188,0.06,01194
+I.01.02.010.006,Quinoa grain,Rest of World,RoW,0.007,0.06,01194
+I.07.01.006.001,Salmons,Rest of World,RoW,1,0.02,BF-48
+I.07.01.006.002,Trouts,Rest of World,RoW,1,0.02,BF-49
+I.07.01.015.001,Catfishes (freshwater),Rest of World,RoW,1,0.02,BF-50
+I.07.01.015.002,Wolffish,Rest of World,RoW,1,0.02,BF-51
+I.07.01.017.001,Cod roe,Rest of World,RoW,1,0.02,BF-52
+I.07.01.017.001,Cod roe,Rest of World,RoW,1,0.02,BF-53
+I.07.01.017.001,Cod roe,Rest of World,RoW,1,0.02,BF-54
+I.07.01.017.002,seed,Rest of World,RoW,1,0.02,BF-55
+I.07.01.017.004,Haddock,Rest of World,RoW,1,0.02,BF-56
+I.07.03.001.003,Lumpfish roe,Rest of World,RoW,1,0.02,BF-57
+I.16.01.012,Marjoram,India,IN,0.606,0.07,01699
+I.16.01.012,Marjoram,Turkey,TR,0.12,0.07,01699
+I.16.01.012,Marjoram,Rest of World,RoW,0.274,0.07,01699
+I.16.01.013,Oregano,India,IN,0.606,0.07,01699
+I.16.01.013,Oregano,Turkey,TR,0.12,0.07,01699
+I.16.01.013,Oregano,Rest of World,RoW,0.274,0.07,01699
+I.16.01.014,Mints,India,IN,0.606,0.07,01699
+I.16.01.014,Mints,Turkey,TR,0.12,0.07,01699
+I.16.01.014,Mints,Rest of World,RoW,0.274,0.07,01699
+I.16.01.015,Coriander leaves,India,IN,0.606,0.07,01699
+I.16.01.015,Coriander leaves,Turkey,TR,0.12,0.07,01699
+I.16.01.015,Coriander leaves,Rest of World,RoW,0.274,0.07,01699
+I.16.01.016,Lovage leaves,India,IN,0.606,0.07,01699
+I.16.01.016,Lovage leaves,Turkey,TR,0.12,0.07,01699
+I.16.01.016,Lovage leaves,Rest of World,RoW,0.274,0.07,01699
+I.16.01.017,Winter savory,India,IN,0.606,0.07,01699
+I.16.01.017,Winter savory,Turkey,TR,0.12,0.07,01699
+I.16.01.017,Winter savory,Rest of World,RoW,0.274,0.07,01699
+A.X1.01.01,Cultured Meat (Bos. Spp.),Rest of World,RoW,1,0.057,NF-01
+A.X1.02.01,Microbial Milk (T. reesei),Rest of World,RoW,1,0.017,NF-02
+A.X1.03.01,Microbial Ovalbumin (T. reesei),Rest of World,RoW,1,0.017,NF-03
+A.X1.01.02,Microbial Protein (Solein),Rest of World,RoW,1,0.017,NF-04
+A.X1.01.03,Mycoprotein (Quorn),Rest of World,RoW,1,0.057,NF-05
+A.X1.04.01,Microbial Fat (yeast - M. pulcherrima),Rest of World,RoW,1,0.06,NF-06
