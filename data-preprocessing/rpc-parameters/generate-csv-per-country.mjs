@@ -10,19 +10,16 @@
  * The only input it takes is the list of countries to use generate csvs for.
  */
 
-import * as fs from "fs";
 import * as path from "path";
 import url from "url";
 
 import { readCsv, roundToPrecision, uniq } from "../utils.mjs";
 
 import countryCodes from "./country-codes.json" assert { type: "json" };
+import countryNames from "../rpc-origin-country-code-names.json" assert { type: "json" };
 
-const ROW_THRESHOLD = 0.1;
 const RESULT_PRECISION = 3;
-
 const DEBUG_PRINT_ITEMNAMES = false;
-
 const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
 
 // Avoid misspelling between our countries
@@ -85,7 +82,10 @@ function getFoodItemShares(matrix, country) {
     )
     .map((x) => ({
       ...x,
-      producerCountry: countryCodes[x.producerCountry] || (x.producerCountry !== "NA" ? console.log(x.producerCountry) : "NA") || "NA",
+      producerCountry:
+        countryCodes[x.producerCountry] ||
+        (x.producerCountry !== "NA" ? console.log(x.producerCountry) : "NA") ||
+        "NA",
     }))
     .filter(
       (x) => x.producerCountry !== "NA" && x.itemName !== "NA" && x.amount > 0
@@ -131,12 +131,10 @@ function getFoodItemShares(matrix, country) {
   Object.keys(allProportions).forEach((itemName) => {
     const result = {};
 
-    // Step 3a: Only transfer value if larger than threshold
+    // Step 3a: Trasnfer all values
     Object.entries(allProportions[itemName]).forEach(([country, value]) => {
-      if (value > ROW_THRESHOLD) {
-        result[country] = value;
-        _countries.add(country);
-      }
+      result[country] = value;
+      _countries.add(country);
     });
 
     // Steb 3b: Add whatever is left of 100% as RoW
@@ -185,7 +183,11 @@ function createCountryWastesMap(rows) {
  * @param {string[]} args
  */
 function main(args) {
-  const [...countries] = args;
+  const [consumerCountry, oldFilePath] = args;
+
+  const rpcOriginWasteRows = readCsv(path.resolve(DIRNAME, oldFilePath)).slice(
+    1
+  );
 
   // Input file: csv of column with category (as defined in rpc) and waste
   // Create an object with { [country: string]: { [category: string]: number } }
@@ -202,6 +204,10 @@ function main(args) {
     ","
   ).slice(1);
 
+  const rpcToSuaCodesCsv = readCsv(
+    path.resolve(DIRNAME, "./rpc-to-sua.csv")
+  ).slice(1);
+
   // NOTE that the trade matrix uses ; as delimiter
   const matrix = readCsv(path.resolve(DIRNAME, "./trade-matrix.csv"), ";");
 
@@ -212,15 +218,24 @@ function main(args) {
     return;
   }
 
-  /** @type {Object.<string, Object.<string, Object.<string, number>>>}*/
-  const sharesPerCountryAndItem = Object.fromEntries(
-    countries.map((c) => [c, getFoodItemShares(matrix, c)])
-  );
+  /** @type {Object.<string, Object.<string, number>>}*/
+  const sharesPerItem = getFoodItemShares(matrix, consumerCountry);
+  /** @type Array<string | number>[] */
+  const newDataRows = [];
 
-  /** @type Object.<string, (string | number)[][]> */
-  const rpcParametersPerCountry = Object.fromEntries(
-    countries.map((c) => [c, []])
+  const rpcToSua = Object.fromEntries(
+    rpcToSuaCodesCsv.map(([_foodEx2Code, rpcCode, _rpcName, suaCode]) => [
+      rpcCode,
+      suaCode,
+    ])
   );
+  const suaToRpcs = {};
+  rpcToSuaCodesCsv.forEach(([_foodEx2Code, rpcCode, rpcName, suaCode]) => {
+    if (!suaToRpcs[suaCode]) {
+      suaToRpcs[suaCode] = [];
+    }
+    suaToRpcs[suaCode].push(rpcCode);
+  });
 
   /**
    * The part of script where we put all parts together.
@@ -244,57 +259,86 @@ function main(args) {
       return;
     }
 
-    // For each country, we extract the share and waste for this specific food
-    countries.forEach((consumerCountry) => {
-      const shares = sharesPerCountryAndItem[consumerCountry][itemName] || {
-        RoW: 1,
-      };
+    const shares = sharesPerItem[itemName] || { RoW: 1 };
 
-      let waste = wasteFactorsMap[consumerCountry][category];
-      if (!waste) {
-        console.warn(
-          `WARN (${i}): No waste found for category "${category}" (item "${itemName}").`
-        );
-        category = "Other";
-        waste = wasteFactorsMap[consumerCountry][category];
-      }
+    let waste = wasteFactorsMap[consumerCountry][category];
+    if (!waste) {
+      console.warn(
+        `WARN (${i}): No waste found for category "${category}" (item "${itemName}").`
+      );
+      category = "Other";
+      waste = wasteFactorsMap[consumerCountry][category];
+    }
 
-      // And we store in the final results as a list, to be made into a csv.
-      Object.entries(shares).forEach(([prodCountry, share]) => {
-        rpcParametersPerCountry[consumerCountry].push([
-          suaCode,
-          suaName,
-          category,
-          prodCountry,
-          share,
-          waste,
-          0, // organic
-        ]);
-      });
+    // And we store in the final results as a list, to be made into a csv.
+    Object.entries(shares).forEach(([prodCountry, share]) => {
+      newDataRows.push([
+        suaCode,
+        suaName,
+        category,
+        prodCountry,
+        share,
+        waste,
+        0, // organic
+      ]);
     });
   });
 
-  countries.forEach((consumerCountry) => {
-    ALL_COUNTRY_OVERRIDES.forEach((row) => {
-      rpcParametersPerCountry[consumerCountry].push(row);
-    });
+  ALL_COUNTRY_OVERRIDES.forEach((row) => {
+    newDataRows.push(row);
   });
 
-  const HEADER =
-    "SUA Code,SUA Name,Category,Producer Country,Share,Waste,Organic";
+  // End of old part
 
-  countries.forEach((country) => {
-    const body = rpcParametersPerCountry[country]
-      .map((x) => x.map((val) => maybeQuote(val)).join(","))
-      .join("\n");
+  const splicedData = rpcOriginWasteRows.map((row) => {
+    const isRoW = row[3] === "RoW";
+    if (!isRoW) return [row];
 
-    const data = HEADER + "\n" + body;
+    const [rpcCode, rpcName] = row;
 
-    fs.writeFileSync(
-      path.resolve(DIRNAME, "./csv-out", `${country}-rpc.csv`),
-      data
+    const suaCode = rpcToSua[rpcCode];
+    if (!suaCode) {
+      throw new Error(
+        "No matching sua-code found for rpc-code " + rpcCode + "."
+      );
+      return [row]; // No matching sua-code? Meh
+    }
+
+    const data = newDataRows.filter((x) => x[0] === suaCode);
+    // No replacement data
+    const rowCandidates = data.filter(
+      ([_code, _name, _cat, _prodCountry, share]) =>
+        /** @type {number} */ (share) <= 0.1
     );
-  });
+    if (rowCandidates.length === 0) return [row];
+
+    return rowCandidates.map(
+      ([suaCode, _suaName, _category, prodCountry, share, waste, _zero]) => [
+        rpcCode,
+        rpcName,
+        countryNames[prodCountry],
+        prodCountry,
+        share,
+        waste,
+        suaCode,
+      ]
+    );
+  }).flat(1);
+
+  const HEADER = "RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code";
+
+  const body = splicedData
+    .map((x) => x.map((val) => maybeQuote(val)).join(","))
+    .join("\n");
+
+  const data = HEADER + "\n" + body;
+
+  console.log(data)
+
+  // fs.writeFileSync(
+  //   path.resolve(DIRNAME, "./csv-out", `${consumerCountry}-rpc.csv`),
+  //   data
+  // );
 }
 
 main(process.argv.slice(2));
