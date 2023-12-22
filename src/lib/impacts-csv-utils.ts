@@ -27,11 +27,11 @@ export const AGGREGATE_HEADERS = [
   "Nitrous oxide, total",
 
   // Raw Materials GHGs
-  "Carbon footprint",
-  "Carbon dioxide",
-  "Methane, fossil",
-  "Methane, biogenic",
-  "Nitrous oxide",
+  "Carbon footprint, primary production",
+  "Carbon dioxide, primary production",
+  "Methane, fossil, primary production",
+  "Methane, biogenic, primary production",
+  "Nitrous oxide, primary production",
 
   // Key indicators - raw materials
   "Land",
