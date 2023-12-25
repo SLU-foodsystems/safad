@@ -58,3 +58,8 @@ export function roundToPrecision(number, decimalPoints = 2) {
  * @param {(string | number | Symbol)[]} xs
  */
 export const uniq = (xs) => [...new Set(xs)];
+
+/**
+ * @param {number[]} numbers
+ */
+export const sum = (numbers) => numbers.reduce((a, b) => a + b, 0);
