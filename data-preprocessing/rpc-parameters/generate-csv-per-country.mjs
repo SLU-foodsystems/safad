@@ -223,14 +223,11 @@ function main(args) {
   /** @type Array<string | number>[] */
   const newDataRows = [];
 
-  const rpcToSua = Object.fromEntries(
-    rpcToSuaCodesCsv.map(([_foodEx2Code, rpcCode, _rpcName, suaCode]) => [
-      rpcCode,
-      suaCode,
-    ])
-  );
+  const rpcToSua = {};
   const suaToRpcs = {};
-  rpcToSuaCodesCsv.forEach(([_foodEx2Code, rpcCode, rpcName, suaCode]) => {
+  rpcToSuaCodesCsv.forEach(([_foodEx2Code, rpcCode, _rpcName, suaCode]) => {
+    rpcToSua[rpcCode] = suaCode;
+
     if (!suaToRpcs[suaCode]) {
       suaToRpcs[suaCode] = [];
     }
@@ -290,42 +287,54 @@ function main(args) {
 
   // End of old part
 
-  const splicedData = rpcOriginWasteRows.map((row) => {
-    const isRoW = row[3] === "RoW";
-    if (!isRoW) return [row];
+  let nRowCandidates = 0;
+  const splicedData = rpcOriginWasteRows
+    .map((row) => {
+      const isRoW = row[3] === "RoW";
+      if (!isRoW) return [row];
 
-    const [rpcCode, rpcName] = row;
-
-    const suaCode = rpcToSua[rpcCode];
-    if (!suaCode) {
-      throw new Error(
-        "No matching sua-code found for rpc-code " + rpcCode + "."
-      );
-      return [row]; // No matching sua-code? Meh
-    }
-
-    const data = newDataRows.filter((x) => x[0] === suaCode);
-    // No replacement data
-    const rowCandidates = data.filter(
-      ([_code, _name, _cat, _prodCountry, share]) =>
-        /** @type {number} */ (share) <= 0.1
-    );
-    if (rowCandidates.length === 0) return [row];
-
-    return rowCandidates.map(
-      ([suaCode, _suaName, _category, prodCountry, share, waste, _zero]) => [
+      const [
         rpcCode,
         rpcName,
-        countryNames[prodCountry],
-        prodCountry,
-        share,
-        waste,
-        suaCode,
-      ]
-    );
-  }).flat(1);
+        _countryName,
+        _countryCode,
+        _share,
+        _waste,
+        suaCode_,
+      ] = row;
 
-  const HEADER = "RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code";
+      let suaCode = suaCode_ || rpcToSua[rpcCode];
+      if (!suaCode) {
+        throw new Error(
+          `No matching sua-code found for rpc-code "${rpcCode}".`
+        );
+      }
+
+      const data = newDataRows.filter((x) => x[0] === suaCode);
+      // No replacement data
+      const rowCandidates = data.filter(
+        ([_code, _name, _cat, _prodCountry, share]) =>
+          /** @type {number} */ (share) <= 0.1
+      );
+      nRowCandidates += rowCandidates.length;
+      if (rowCandidates.length === 0) return [row];
+
+      return rowCandidates.map(
+        ([suaCode, _suaName, _category, prodCountry, share, waste, _zero]) => [
+          rpcCode,
+          rpcName,
+          countryNames[prodCountry],
+          prodCountry,
+          share,
+          waste,
+          suaCode,
+        ]
+      );
+    })
+    .flat(1);
+
+  const HEADER =
+    "RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code";
 
   const body = splicedData
     .map((x) => x.map((val) => maybeQuote(val)).join(","))
@@ -333,7 +342,9 @@ function main(args) {
 
   const data = HEADER + "\n" + body;
 
-  console.log(data)
+  console.error("nRowCandidates", nRowCandidates);
+
+  console.log(data);
 
   // fs.writeFileSync(
   //   path.resolve(DIRNAME, "./csv-out", `${consumerCountry}-rpc.csv`),
