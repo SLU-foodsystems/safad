@@ -7,6 +7,14 @@ export function average(numbers: number[]) {
   return sum(numbers) / numbers.length;
 }
 
+export function weightedArithmeticMean(valueFrequencyPairs: [number, number][]) {
+  if (valueFrequencyPairs.length === 0) return 0;
+  const weightedSums = sum(valueFrequencyPairs.map(([w, x]) => w * x));
+  const sumOfWeights = sum(valueFrequencyPairs.map(([w, _x]) => w));
+  if (sumOfWeights === 0) return 0; // Undefined, let's be safe with 0?
+  return weightedSums / sumOfWeights;
+}
+
 export function inputValueToNumber(value: string): number {
   // Exit early if null or empty string
   if (!value) return NaN;
