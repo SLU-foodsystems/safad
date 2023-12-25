@@ -41,7 +41,7 @@ function csvToArr(str, delim = ",") {
 
 export function readCsv(fpath, delim = ",") {
   const fileContent = fs.readFileSync(fpath, { encoding: "utf8" });
-  return csvToArr(fileContent, delim).filter(x => x.length > 1);
+  return csvToArr(fileContent, delim).filter((x) => x.length > 1);
 }
 
 /**
