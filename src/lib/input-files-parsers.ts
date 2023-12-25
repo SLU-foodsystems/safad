@@ -1,5 +1,5 @@
 import { ENV_IMPACTS_ZERO } from "@/lib/constants";
-import { parseCsvFile, roundToPrecision } from "@/lib/utils";
+import { parseCsvFile, roundToPrecision, vectorsSum } from "@/lib/utils";
 
 const asNumber = (str: string, elseValue = 0): number => {
   const maybeNumber = Number.parseFloat((str || "").trim());
@@ -158,14 +158,9 @@ export function parseFootprintsRpcs(csvString: string) {
     if (Object.keys(factorsPerOrigin).includes("RoW")) return;
 
     const numberOfOrigins = Object.values(factorsPerOrigin).length;
-    const average = Object.values(factorsPerOrigin)
-      // Sum all values together
-      .reduce(
-        (acc, factors) => acc.map((x, i) => x + factors[i]),
-        ENV_IMPACTS_ZERO
-      )
-      // divide by the number of origins to get an average
-      .map((x: number) => x / numberOfOrigins);
+    const average = vectorsSum(Object.values(factorsPerOrigin)).map(
+      (x: number) => x / numberOfOrigins
+    );
 
     structured[rpcCode].RoW = average;
   });
