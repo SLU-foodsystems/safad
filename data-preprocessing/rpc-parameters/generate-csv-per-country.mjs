@@ -13,7 +13,7 @@
 import * as path from "path";
 import url from "url";
 
-import { readCsv, roundToPrecision, uniq } from "../utils.mjs";
+import { readCsv, roundToPrecision, sum, uniq } from "../utils.mjs";
 
 import countryCodes from "./country-codes.json" assert { type: "json" };
 import countryNames from "../rpc-origin-country-code-names.json" assert { type: "json" };
@@ -82,10 +82,7 @@ function getFoodItemShares(matrix, country) {
     )
     .map((x) => ({
       ...x,
-      producerCountry:
-        countryCodes[x.producerCountry] ||
-        (x.producerCountry !== "NA" ? console.log(x.producerCountry) : "NA") ||
-        "NA",
+      producerCountry: countryCodes[x.producerCountry] || "NA",
     }))
     .filter(
       (x) => x.producerCountry !== "NA" && x.itemName !== "NA" && x.amount > 0
@@ -138,7 +135,7 @@ function getFoodItemShares(matrix, country) {
     });
 
     // Steb 3b: Add whatever is left of 100% as RoW
-    const importsSum = Object.values(result).reduce((a, b) => a + b, 0);
+    const importsSum = sum(Object.values(result));
     result.RoW = Math.max(0, 1 - importsSum);
 
     // Step 3c: Round to precision to avoid too many decimal points
@@ -221,16 +218,15 @@ function main(args) {
   /** @type {Object.<string, Object.<string, number>>}*/
   const sharesPerItem = getFoodItemShares(matrix, consumerCountry);
   /** @type Array<string | number>[] */
-  const newDataRows = [];
+  const fullKastnerDataRows = [];
 
-  const rpcToSua = Object.fromEntries(
-    rpcToSuaCodesCsv.map(([_foodEx2Code, rpcCode, _rpcName, suaCode]) => [
-      rpcCode,
-      suaCode,
-    ])
-  );
+  const rpcToSua = {};
   const suaToRpcs = {};
-  rpcToSuaCodesCsv.forEach(([_foodEx2Code, rpcCode, rpcName, suaCode]) => {
+  rpcToSuaCodesCsv.forEach(([_foodEx2Code, rpcCode, _rpcName, suaCode]) => {
+    // Add rpcToSua codes: many-to-one
+    rpcToSua[rpcCode] = suaCode;
+
+    // Add suaToRpcs codes: one-to-many
     if (!suaToRpcs[suaCode]) {
       suaToRpcs[suaCode] = [];
     }
@@ -272,7 +268,7 @@ function main(args) {
 
     // And we store in the final results as a list, to be made into a csv.
     Object.entries(shares).forEach(([prodCountry, share]) => {
-      newDataRows.push([
+      fullKastnerDataRows.push([
         suaCode,
         suaName,
         category,
@@ -285,47 +281,108 @@ function main(args) {
   });
 
   ALL_COUNTRY_OVERRIDES.forEach((row) => {
-    newDataRows.push(row);
+    fullKastnerDataRows.push(row);
   });
 
   // End of old part
 
-  const splicedData = rpcOriginWasteRows.map((row) => {
-    const isRoW = row[3] === "RoW";
-    if (!isRoW) return [row];
-
-    const [rpcCode, rpcName] = row;
-
-    const suaCode = rpcToSua[rpcCode];
-    if (!suaCode) {
-      throw new Error(
-        "No matching sua-code found for rpc-code " + rpcCode + "."
-      );
-      return [row]; // No matching sua-code? Meh
+  // Prepare for removing duplicates
+  const rpcSuaPairs = new Set();
+  rpcOriginWasteRows.forEach(
+    ([rpcCode, _name, _country, _country2, _share, _waste, suaCode]) => {
+      rpcSuaPairs.add(rpcCode + "|" + suaCode);
     }
+  );
+  const suasPerRpc = {};
+  [...rpcSuaPairs]
+    .map((x) => x.split("|"))
+    .forEach(([rpc, sua]) => {
+      if (!suasPerRpc[rpc]) {
+        suasPerRpc[rpc] = [];
+      }
+      suasPerRpc[rpc].push(sua);
+    });
+  const rpcToSuaDupes = Object.fromEntries(
+    Object.entries(suasPerRpc).filter(([_k, v]) => v.length > 1)
+  );
 
-    const data = newDataRows.filter((x) => x[0] === suaCode);
-    // No replacement data
-    const rowCandidates = data.filter(
-      ([_code, _name, _cat, _prodCountry, share]) =>
-        /** @type {number} */ (share) <= 0.1
-    );
-    if (rowCandidates.length === 0) return [row];
+  let nRowCandidates = 0;
+  const splicedData = rpcOriginWasteRows
+    // Remove duplicates
+    .filter(
+      ([
+        rpcCode,
+        _rpcName,
+        _countryName,
+        _countryCode,
+        _share,
+        _waste,
+        suaCode,
+      ]) => {
+        if (!rpcToSuaDupes[rpcCode]) return true;
+        const expectedSuaCode = rpcToSua[rpcCode];
+        return expectedSuaCode.includes(suaCode);
+      }
+    )
+    .map((row) => {
+      const isRoW = row[3] === "RoW";
+      if (!isRoW) return [row];
 
-    return rowCandidates.map(
-      ([suaCode, _suaName, _category, prodCountry, share, waste, _zero]) => [
+      const [
         rpcCode,
         rpcName,
-        countryNames[prodCountry],
+        _countryName,
+        _countryCode,
+        _share,
+        _waste,
+        suaCode_,
+      ] = row;
+
+      const suaCode = rpcToSua[rpcCode] || suaCode_;
+      if (!suaCode) {
+        throw new Error(
+          `No matching sua-code found for rpc-code "${rpcCode}".`
+        );
+      }
+
+      const data = fullKastnerDataRows.filter((x) => x[0] === suaCode);
+      const rowCandidates = data.filter(
+        ([_suaCode, _name, _cat, _prodCountry, share]) =>
+          /** @type {number} */ (share) <= 0.1
+      );
+      nRowCandidates += rowCandidates.length;
+      // No replacement data
+      if (rowCandidates.length === 0) return [row];
+
+      return rowCandidates.map(
+        ([suaCode, _suaName, _category, prodCountry, share, waste, _zero]) => [
+          rpcCode,
+          rpcName,
+          countryNames[prodCountry],
+          prodCountry,
+          share,
+          waste,
+          suaCode,
+        ]
+      );
+    })
+    .flat(1)
+    // Finally, we go over all rows again, regardless if they're new or old, and
+    // make sure we use the sua-code in rpcToSua, overwriting previous values.
+    .map(
+      ([rpcCode, rpcName, countryName, prodCountry, share, waste, suaCode]) => [
+        rpcCode,
+        rpcName,
+        countryName,
         prodCountry,
         share,
         waste,
-        suaCode,
+        rpcToSua[rpcCode] || suaCode,
       ]
     );
-  }).flat(1);
 
-  const HEADER = "RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code";
+  const HEADER =
+    "RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code";
 
   const body = splicedData
     .map((x) => x.map((val) => maybeQuote(val)).join(","))
@@ -333,7 +390,7 @@ function main(args) {
 
   const data = HEADER + "\n" + body;
 
-  console.log(data)
+  console.log(data);
 
   // fs.writeFileSync(
   //   path.resolve(DIRNAME, "./csv-out", `${consumerCountry}-rpc.csv`),
