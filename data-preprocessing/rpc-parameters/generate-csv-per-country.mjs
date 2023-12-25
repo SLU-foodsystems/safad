@@ -13,7 +13,7 @@
 import * as path from "path";
 import url from "url";
 
-import { readCsv, roundToPrecision, uniq } from "../utils.mjs";
+import { readCsv, roundToPrecision, sum, uniq } from "../utils.mjs";
 
 import countryCodes from "./country-codes.json" assert { type: "json" };
 import countryNames from "../rpc-origin-country-code-names.json" assert { type: "json" };
@@ -82,10 +82,7 @@ function getFoodItemShares(matrix, country) {
     )
     .map((x) => ({
       ...x,
-      producerCountry:
-        countryCodes[x.producerCountry] ||
-        (x.producerCountry !== "NA" ? console.log(x.producerCountry) : "NA") ||
-        "NA",
+      producerCountry: countryCodes[x.producerCountry] || "NA",
     }))
     .filter(
       (x) => x.producerCountry !== "NA" && x.itemName !== "NA" && x.amount > 0
@@ -138,7 +135,7 @@ function getFoodItemShares(matrix, country) {
     });
 
     // Steb 3b: Add whatever is left of 100% as RoW
-    const importsSum = Object.values(result).reduce((a, b) => a + b, 0);
+    const importsSum = sum(Object.values(result));
     result.RoW = Math.max(0, 1 - importsSum);
 
     // Step 3c: Round to precision to avoid too many decimal points
@@ -226,8 +223,10 @@ function main(args) {
   const rpcToSua = {};
   const suaToRpcs = {};
   rpcToSuaCodesCsv.forEach(([_foodEx2Code, rpcCode, _rpcName, suaCode]) => {
+    // Add rpcToSua codes: many-to-one
     rpcToSua[rpcCode] = suaCode;
 
+    // Add suaToRpcs codes: one-to-many
     if (!suaToRpcs[suaCode]) {
       suaToRpcs[suaCode] = [];
     }
@@ -303,7 +302,7 @@ function main(args) {
         suaCode_,
       ] = row;
 
-      let suaCode = suaCode_ || rpcToSua[rpcCode];
+      const suaCode = rpcToSua[rpcCode] || suaCode_;
       if (!suaCode) {
         throw new Error(
           `No matching sua-code found for rpc-code "${rpcCode}".`
@@ -331,7 +330,20 @@ function main(args) {
         ]
       );
     })
-    .flat(1);
+    .flat(1)
+    // Finally, we go over all rows again, regardless if they're new or old, and
+    // make sure we use the sua-code in rpcToSua, overwriting previous values.
+    .map(
+      ([rpcCode, rpcName, countryName, prodCountry, share, waste, suaCode]) => [
+        rpcCode,
+        rpcName,
+        countryName,
+        prodCountry,
+        share,
+        waste,
+        rpcToSua[rpcCode] || suaCode,
+      ]
+    );
 
   const HEADER =
     "RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code";
@@ -341,8 +353,6 @@ function main(args) {
     .join("\n");
 
   const data = HEADER + "\n" + body;
-
-  console.error("nRowCandidates", nRowCandidates);
 
   console.log(data);
 
