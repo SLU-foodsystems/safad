@@ -1,4 +1,3 @@
-import { ENV_IMPACTS_ZERO } from "@/lib/constants";
 import { parseCsvFile, roundToPrecision, vectorsSum } from "@/lib/utils";
 
 const asNumber = (str: string, elseValue = 0): number => {
