@@ -98,7 +98,7 @@ class ResultsEngine {
   private getRpcFootprints(
     rpcCode: string,
     amountGram: number
-  ): null | number[] {
+  ): number[] | null {
     if (!this.footprintsRpcsMerged) {
       throw new Error("getEnvImpact called before sheets were assigned.");
     }
