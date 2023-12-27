@@ -86,7 +86,8 @@ const Descriptions = {
     "Emissions factors for different types of packaging.",
   emissionsFactorsTransport:
     "Emissions factors for transports between different countries.",
-  slvRecipesFile: "An alternative recipe file containing recipes used by the Swedish Food Agency. This file defines for which recipes footprints are calculated for, what ingredients they contain and in what amounts (as determined by SFA). This file is complemented by SAFAD IP Recipes.csv file to break non-RPC items down to RPC-level.",
+  slvRecipesFile:
+    "An alternative recipe file containing recipes used by the Swedish Food Agency. This file defines for which recipes footprints are calculated for, what ingredients they contain and in what amounts (as determined by SFA). This file is complemented by SAFAD IP Recipes.csv file to break non-RPC items down to RPC-level.",
 };
 
 export default defineComponent({
@@ -267,7 +268,8 @@ export default defineComponent({
     this.loading = true;
 
     // Load all default files
-    const configureResultsEnginePromise = DefaultInputFiles.configureResultsEngine(this.RE, this.countryCode);
+    const configureResultsEnginePromise =
+      DefaultInputFiles.configureResultsEngine(this.RE, this.countryCode);
 
     this.footprintsRpcsFile = initFileInterface({
       defaultName: "SAFAD ID Footprints RPC.csv",
@@ -376,22 +378,28 @@ export default defineComponent({
 
       <br />
 
-      <p>The Sustainability Assessment of Foods and Diets (SAFAD) tool allows
-      for sustainability assessments of foods and diets for 9 European countries
-      (France, Germany, Greece, Hungary, Ireland, Italy, Poland, Spain and
-      Sweden). To generate footprints for a diet or for foods using default
-      values, choose the country of interest in the drop-down menu. Footprint
-      files are then ready to be downloaded.</p>
+      <p>
+        The Sustainability Assessment of Foods and Diets (SAFAD) tool allows for
+        sustainability assessments of foods and diets for 9 European countries
+        (France, Germany, Greece, Hungary, Ireland, Italy, Poland, Spain and
+        Sweden). To generate footprints for a diet or for foods using default
+        values, choose the country of interest in the drop-down menu. Footprint
+        files are then ready to be downloaded.
+      </p>
 
-      <p>In the SAFAD tool, input data (Input, parameter, and emission factor
-      files) can easily be configured. To configure a file, download the default
-      file using the Download Copy button. Once configured, the custom file can
-      be uploaded using the Upload Custom file. The custom file must be in the
-      same format and uploaded as a .csv file. When all custom files are
-      uploaded, the new footprint for the diet or foods can be downloaded.</p>
+      <p>
+        In the SAFAD tool, input data (Input, parameter, and emission factor
+        files) can easily be configured. To configure a file, download the
+        default file using the Download Copy button. Once configured, the custom
+        file can be uploaded using the Upload Custom file. The custom file must
+        be in the same format and uploaded as a .csv file. When all custom files
+        are uploaded, the new footprint for the diet or foods can be downloaded.
+      </p>
 
-      <p>To learn more about a file’s function, press the Info button situated
-      next to the file's name.</p>
+      <p>
+        To learn more about a file’s function, press the Info button situated
+        next to the file's name.
+      </p>
     </header>
     <div class="stack u-tac start-page-wrap">
       <h3>Country</h3>
@@ -404,16 +412,27 @@ export default defineComponent({
       </select>
       <br />
       <h3>Download Output Data</h3>
-      <section class="download-section stack" :class="{ 'is-loading': loading }">
+      <section
+        class="download-section stack"
+        :class="{ 'is-loading': loading }"
+      >
         <div class="stack">
           <div class="cluster cluster--between">
             <span class="cluster">
-              <img src="@/assets/bar-chart.svg"
-                width="2253" height="2250" loading="lazy">
+              <img
+                src="@/assets/bar-chart.svg"
+                width="2253"
+                height="2250"
+                loading="lazy"
+              />
               <h2>Download footprints of foods</h2>
             </span>
-            <button class="button button--accent"
-              @click="downloadFootprintsOfFoods">Download</button>
+            <button
+              class="button button--accent"
+              @click="downloadFootprintsOfFoods"
+            >
+              Download
+            </button>
           </div>
           <p>
             Download a csv file with the impacts per kg of each food-item in the
@@ -423,12 +442,20 @@ export default defineComponent({
         <div class="stack">
           <div class="cluster cluster--between">
             <span class="cluster">
-              <img src="@/assets/pie-chart.svg"
-                width="2253" height="2250" loading="lazy">
+              <img
+                src="@/assets/pie-chart.svg"
+                width="2253"
+                height="2250"
+                loading="lazy"
+              />
               <h2>Download footprints of diet</h2>
             </span>
-            <button class="button button--accent"
-              @click="downloadFootprintsOfDiets">Download</button>
+            <button
+              class="button button--accent"
+              @click="downloadFootprintsOfDiets"
+            >
+              Download
+            </button>
           </div>
           <p>
             Download a csv file with the impacts of the foods and their amounts
@@ -442,26 +469,35 @@ export default defineComponent({
         <div class="stack" style="background: #dbe3f2">
           <div class="cluster cluster--between">
             <span class="cluster">
-              <img src="@/assets/horizontal-stacked-bar-chart.svg"
-                width="2253" height="2250" loading="lazy">
+              <img
+                src="@/assets/horizontal-stacked-bar-chart.svg"
+                width="2253"
+                height="2250"
+                loading="lazy"
+              />
               <h2>Download footprints based off of SLV Data</h2>
             </span>
-            <button class="button button--accent"
-              @click="downloadFootprintsOfSLVRecipes">Download</button>
+            <button
+              class="button button--accent"
+              @click="downloadFootprintsOfSLVRecipes"
+            >
+              Download
+            </button>
           </div>
           <p>
-            Download a csv file with the impacts of recipes used by the <abbr
-              title="Svenska Livsmedelsverket">SLV</abbr> (Swedish Food Agency).
+            Download a csv file with the impacts of recipes used by the
+            <abbr title="Svenska Livsmedelsverket">SLV</abbr> (Swedish Food
+            Agency).
           </p>
-        <FileSelector
-          file-label="SLV Recipes"
-          @setFile="(p: SetFilePayload) => setFile(p, slvRecipesFile)"
-          @reset="() => resetFile(slvRecipesFile!)"
-          @download="() => downloadFile(slvRecipesFile!)"
-          :fileName="slvRecipesFile?.name || slvRecipesFile?.defaultName"
-          :state="slvRecipesFile?.state || 'default'"
-          :file-description="Descriptions.slvRecipesFile"
-        />
+          <FileSelector
+            file-label="SLV Recipes"
+            @setFile="(p: SetFilePayload) => setFile(p, slvRecipesFile)"
+            @reset="() => resetFile(slvRecipesFile!)"
+            @download="() => downloadFile(slvRecipesFile!)"
+            :fileName="slvRecipesFile?.name || slvRecipesFile?.defaultName"
+            :state="slvRecipesFile?.state || 'default'"
+            :file-description="Descriptions.slvRecipesFile"
+          />
         </div>
       </section>
       <h3>Input Data</h3>
@@ -662,7 +698,7 @@ header {
   }
 
   &.is-loading::after {
-    content: 'Loading...';
+    content: "Loading...";
     position: absolute;
     display: flex;
     width: 100%;
