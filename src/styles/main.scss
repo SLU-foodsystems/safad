@@ -64,22 +64,6 @@ hr {
   height: 2px;
   background: $gray;
   border: 0;
-
-  &[data-text] {
-    position: relative;
-
-    &::after {
-      content: attr(data-text);
-      position: absolute;
-      padding: 0.25em 1.5em;
-      background: white;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 0.875em;
-      color: #aaa;
-    }
-  }
 }
 
 /*
