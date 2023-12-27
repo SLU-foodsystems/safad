@@ -17,9 +17,8 @@ import namesJson from "@/data/rpc-names.json";
 const categoryNames = categoryNamesJson as Record<string, string>;
 const names = namesJson as Record<string, string>;
 
-
 export const AGGREGATE_HEADERS = [
- // Aggregate over rpcs, processes, and packaging
+  // Aggregate over rpcs, processes, and packaging
   "Carbon footprint, total",
   "Carbon dioxide, total",
   "Methane, fossil, total",
@@ -92,9 +91,10 @@ export const DETAILED_RESULTS_HEADER = [
   "L1 Category",
   "L2 Category",
   "Amount (g)",
-  ...AGGREGATE_HEADERS.map(x => `"${x}"`),
+  ...AGGREGATE_HEADERS.map((x) => `"${x}"`),
   "Processes",
   "Packeting",
+  "RPCs with missing data",
 ];
 
 const getCategoryName = (code: string, level: number) => {
@@ -190,8 +190,25 @@ export function labeledImpacts(
 ): string[] {
   const [rpcImpacts, processImpacts, packagingImpacts, transportEmissions] =
     impacts;
+
   const processes = listAllProcesses(processImpacts).join("$");
   const packeting = listAllProcesses(packagingImpacts).join("$");
+
+  const missingRpcImpacts = Object.entries(rpcImpacts).filter(
+    (kv) => kv[1] === null
+  );
+
+  const aggregatedImpacts: string[] =
+    missingRpcImpacts.length > 0
+      ? AGGREGATE_HEADERS.map((_) => "NA")
+      : aggregateImpacts(
+          rpcImpacts as Record<string, number[]>,
+          processImpacts,
+          packagingImpacts,
+          transportEmissions
+        ).map((x) => x.toString());
+
+  const failingRpcs = missingRpcImpacts.map(([code]) => code).join("$");
 
   return [
     code,
@@ -199,14 +216,10 @@ export function labeledImpacts(
     maybeQuoteValue(getCategoryName(code, 1)),
     maybeQuoteValue(getCategoryName(code, 2)),
     amount.toFixed(2),
-    ...aggregateImpacts(
-      rpcImpacts,
-      processImpacts,
-      packagingImpacts,
-      transportEmissions
-    ).map((x) => x.toString()),
+    ...aggregatedImpacts,
     processes,
     packeting,
+    failingRpcs,
   ];
 }
 
@@ -220,20 +233,20 @@ export function labeledAndFilteredImpacts(
     .filter((x): x is string[] => x !== null);
 }
 
-export function getDietBreakdown(disaggregatedDiet: [string, number, Diet][]): string[][] {
+export function getDietBreakdown(
+  disaggregatedDiet: [string, number, Diet][]
+): string[][] {
   const rows: string[][] = [];
   disaggregatedDiet.forEach(([code, amount, rpcs]) => {
     rpcs.forEach(([rpcCode, rpcAmount]) => {
-      rows.push(
-        [
-          code,
-          `"${names[code]}"`,
-          String(amount),
-          rpcCode,
-          `"${names[rpcCode]}"`,
-          String(rpcAmount),
-        ]
-      );
+      rows.push([
+        code,
+        `"${names[code]}"`,
+        String(amount),
+        rpcCode,
+        `"${names[rpcCode]}"`,
+        String(rpcAmount),
+      ]);
     });
   });
   return rows;

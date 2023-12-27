@@ -240,7 +240,6 @@ class ResultsEngine {
           rpc,
           this.getRpcFootprints(rpc, amountGram),
         ])
-        .filter((x) => x[1] !== null)
     );
 
     // Per-process impacts
@@ -290,9 +289,11 @@ class ResultsEngine {
   }
 
   public computeImpactsDetailed(diet: Diet): [string, number, ImpactsTuple][] {
-    return diet
-      .map((entry) => [entry[0], entry[1], this.computeImpacts([entry])])
-      .filter((x): x is [string, number, ImpactsTuple] => x[2] !== null);
+    return diet.map((entry) => [
+      entry[0], // Code
+      entry[1], // Amount
+      this.computeImpacts([entry]),
+    ]);
   }
 
   public computeImpactsOfRecipe(): [string, number, ImpactsTuple][] {
@@ -310,7 +311,9 @@ class ResultsEngine {
       });
     });
 
-    const fauxDiet: Diet = [...codesInRecipes].sort().map(code => [code, 1000]);
+    const fauxDiet: Diet = [...codesInRecipes]
+      .sort()
+      .map((code) => [code, 1000]);
     return this.computeImpactsDetailed(fauxDiet);
   }
 
@@ -321,7 +324,12 @@ class ResultsEngine {
     const [rpcImpacts, processImpacts, packagingImpacts, transportImpacts] =
       impacts;
 
-    const rpcImpactsByCategory = aggregateRpcCategories(rpcImpacts, 1);
+    const nonNullRpcImpacts: Record<string, number[]> = Object.fromEntries(
+      Object.entries(rpcImpacts).filter(
+        (kv): kv is [string, number[]] => kv[1] !== null
+      )
+    );
+    const rpcImpactsByCategory = aggregateRpcCategories(nonNullRpcImpacts, 1);
     const processImpactsByCategory = mapValues(
       processImpacts,
       (perCategoryProcesses) => vectorsSum(Object.values(perCategoryProcesses))
