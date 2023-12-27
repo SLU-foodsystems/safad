@@ -103,6 +103,7 @@ export default defineComponent({
       countryCode: "SE",
       diet: [] as Diet,
       includeBreakdownFile: false,
+      loading: false,
 
       slvRecipes: [] as SlvRecipeComponent[],
 
@@ -136,18 +137,24 @@ export default defineComponent({
   },
 
   watch: {
-    countryCode() {
+    async countryCode() {
       this.RE.setCountryCode(this.countryCode);
 
+      let promises = [];
+
+      this.loading = true;
       if (this.rpcOriginWasteFile?.state === "default") {
-        this.resetFile(this.rpcOriginWasteFile);
+        promises.push(this.resetFile(this.rpcOriginWasteFile));
       }
       if (this.wasteRetailAndConsumerFile?.state === "default") {
-        this.resetFile(this.wasteRetailAndConsumerFile);
+        promises.push(this.resetFile(this.wasteRetailAndConsumerFile));
       }
       if (this.dietFile?.state === "default") {
-        this.resetFile(this.dietFile);
+        promises.push(this.resetFile(this.dietFile));
       }
+
+      await Promise.all(promises);
+      this.loading = false;
     },
   },
 
@@ -252,12 +259,15 @@ export default defineComponent({
     },
   },
 
-  beforeMount() {
+  async beforeMount() {
     if (!(this.RE instanceof ResultsEngine)) {
       return;
     }
 
-    DefaultInputFiles.configureResultsEngine(this.RE, this.countryCode);
+    this.loading = true;
+
+    // Load all default files
+    const configureResultsEnginePromise = DefaultInputFiles.configureResultsEngine(this.RE, this.countryCode);
 
     this.footprintsRpcsFile = initFileInterface({
       defaultName: "SAFAD ID Footprints RPC.csv",
@@ -341,9 +351,13 @@ export default defineComponent({
 
     // SLV Recipes also needs to be set to initial value, as not handled by the
     // configureResultsEngine utility.
-    this.slvRecipesFile.getDefault(this.countryCode).then((data) => {
+    await this.slvRecipesFile.getDefault(this.countryCode).then((data) => {
       this.slvRecipesFile?.setter(this.slvRecipesFile.parser(data));
     });
+
+    await configureResultsEnginePromise;
+
+    this.loading = false;
   },
 });
 </script>
@@ -390,7 +404,7 @@ export default defineComponent({
       </select>
       <br />
       <h3>Download Output Data</h3>
-      <section class="download-section stack">
+      <section class="download-section stack" :class="{ 'is-loading': loading }">
         <div class="stack">
           <div class="cluster cluster--between">
             <span class="cluster">
@@ -625,6 +639,7 @@ header {
 
 .download-section {
   text-align: left;
+  position: relative;
 
   > div {
     background: white;
@@ -644,6 +659,24 @@ header {
   }
   p {
     font-size: 1.125em;
+  }
+
+  &.is-loading::after {
+    content: 'Loading...';
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(white, 0.75);
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
   }
 }
 
