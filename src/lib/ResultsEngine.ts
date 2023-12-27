@@ -110,8 +110,8 @@ class ResultsEngine {
     }
 
     if (!this.footprintsRpcsMerged[rpcCode]) {
-      // console.warn(`Missing factors for ${rpcCode}.`);
-      return ENV_IMPACTS_ZERO;
+      console.warn(`Missing factors for ${rpcCode}.`);
+      return null;
     }
 
     return this.footprintsRpcsMerged[rpcCode].map(
