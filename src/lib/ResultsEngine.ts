@@ -180,53 +180,45 @@ class ResultsEngine {
     this.preparationProcessesAndPackaging = processesAndPackaging;
   }
 
-  public computeImpacts(diet: Diet): null | ImpactsTuple {
+  public computeImpacts(diet: Diet): ImpactsTuple {
     if (!this.footprintsRpcsPerOrigin) {
-      console.error(
+      throw new Error(
         "Compute called when no environmentalFactorsSheet was set."
       );
-      return null;
     }
 
     if (!this.foodsRecipes) {
-      console.error("Compute called without foodsRecipes.");
-      return null;
+      throw new Error("Compute called without foodsRecipes.");
     }
 
     if (!this.wasteRetailAndConsumer) {
-      console.error(
+      throw new Error(
         "Compute called without retail- and consumer waste factors set."
       );
-      return null;
     }
 
     if (!this.rpcOriginWaste) {
-      console.error("Compute called when no rpcParameters were set.");
-      return null;
+      throw new Error("Compute called when no rpcParameters were set.");
     }
 
     if (!this.countryCode || !this.processEnvFactors) {
-      console.error("Compute called when no country or process was set.");
-      return null;
+      throw new Error("Compute called when no country or process was set.");
     }
 
     if (!this.emissionsFactorsPackaging) {
-      console.error(
+      throw new Error(
         "Compute called without emissions factors for packaging set."
       );
-      return null;
     }
 
     if (!this.emissionsFactorsTransport) {
-      console.error(
+      throw new Error(
         "Compute called without emissions factors for transport set."
       );
-      return null;
     }
 
     if (!this.preparationProcessesAndPackaging) {
-      console.error("Compute called without processes and packaging set.");
-      return null;
+      throw new Error("Compute called without processes and packaging set.");
     }
 
     const dietWithWaste = adjustDietForWaste(diet, this.wasteRetailAndConsumer);
