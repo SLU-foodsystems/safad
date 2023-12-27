@@ -142,13 +142,22 @@ export async function generateSlvResults(
       );
       if (totalImpacts === null) return null;
 
+      const rpcImpacts = totalImpacts;
       let totalProcessImpacts = totalImpacts[1];
-      const totalImpactsVector = aggregateImpacts(
-        totalImpacts[0],
-        addProcesses(totalProcessImpacts, slvProcesses, RE),
-        totalImpacts[2],
-        totalImpacts[3]
-      ).map((x) => x.toString());
+
+      const missingRpcImpacts = Object.entries(rpcImpacts).filter(
+        (kv) => kv[1] === null
+      );
+
+      const totalImpactsVector: string[] =
+        missingRpcImpacts.length > 0
+          ? AGGREGATE_HEADERS.map((_) => "NA")
+          : aggregateImpacts(
+              totalImpacts[0] as Record<string, number[]>,
+              addProcesses(totalProcessImpacts, slvProcesses, RE),
+              totalImpacts[2],
+              totalImpacts[3]
+            ).map((x) => x.toString());
 
       const slvName = ingredients[0][0];
 

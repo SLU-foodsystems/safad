@@ -39,7 +39,7 @@ declare global {
   }
 
   type ImpactsTuple = [
-    Record<string, number[]>,
+    Record<string, number[] | null>,
     NestedRecord<string, number[]>,
     NestedRecord<string, number[]>,
     Record<string, number[]>,
