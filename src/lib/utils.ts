@@ -158,7 +158,20 @@ export const nthIndexOf = (
  * e.g. 'hello, world, 3, "foo, bar", 10' ->
  *      [['hello', 'world', 3, 'foo, bar', 10]]
  */
-export function parseCsvFile(fileContent: string, delim = ",") {
+interface ParseCsvFileOptions {
+  delimiter: string;
+  trim: boolean;
+}
+export function parseCsvFile(
+  fileContent: string,
+  optionOverrides: Partial<ParseCsvFileOptions> = {}
+) {
+  const options: ParseCsvFileOptions = {
+    delimiter: ",",
+    trim: true,
+    ...optionOverrides,
+  };
+
   let line = [""];
   const ret = [line];
   let quote = false;
@@ -170,7 +183,7 @@ export function parseCsvFile(fileContent: string, delim = ",") {
     if (!quote) {
       const cellIsEmpty = line[line.length - 1].length === 0;
       if (cur === '"' && cellIsEmpty) quote = true;
-      else if (cur === delim) line.push("");
+      else if (cur === options.delimiter) line.push("");
       else if (cur === "\r" && next === "\n") {
         line = [""];
         ret.push(line);
@@ -187,6 +200,11 @@ export function parseCsvFile(fileContent: string, delim = ",") {
       else line[line.length - 1] += cur;
     }
   }
+
+  if (options.trim) {
+    return ret.map((row) => row.map((cell) => (cell || "").trim()));
+  }
+
   return ret;
 }
 
