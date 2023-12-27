@@ -6,6 +6,7 @@ import * as InputFileParsers from "@/lib/input-files-parsers";
 import ResultsEngine from "@/lib/ResultsEngine";
 
 import FileSelector from "@/components/FileSelector.vue";
+import LoadingOverlay from "@/components/LoadingOverlay.vue";
 import { downloadAsPlaintext } from "@/lib/csv-io";
 import { stringifyCsvData } from "@/lib/utils";
 import {
@@ -91,7 +92,7 @@ const Descriptions = {
 };
 
 export default defineComponent({
-  components: { FileSelector },
+  components: { FileSelector, LoadingOverlay },
 
   data() {
     return {
@@ -104,7 +105,7 @@ export default defineComponent({
       countryCode: "SE",
       diet: [] as Diet,
       includeBreakdownFile: false,
-      loading: false,
+      isLoading: false,
 
       slvRecipes: [] as SlvRecipeComponent[],
 
@@ -143,7 +144,7 @@ export default defineComponent({
 
       let promises = [];
 
-      this.loading = true;
+      this.isLoading = true;
       if (this.rpcOriginWasteFile?.state === "default") {
         promises.push(this.resetFile(this.rpcOriginWasteFile));
       }
@@ -155,7 +156,7 @@ export default defineComponent({
       }
 
       await Promise.all(promises);
-      this.loading = false;
+      this.isLoading = false;
     },
   },
 
@@ -265,7 +266,7 @@ export default defineComponent({
       return;
     }
 
-    this.loading = true;
+    this.isLoading = true;
 
     // Load all default files
     const configureResultsEnginePromise =
@@ -359,7 +360,7 @@ export default defineComponent({
 
     await configureResultsEnginePromise;
 
-    this.loading = false;
+    this.isLoading = false;
   },
 });
 </script>
@@ -412,10 +413,7 @@ export default defineComponent({
       </select>
       <br />
       <h3>Download Output Data</h3>
-      <section
-        class="download-section stack"
-        :class="{ 'is-loading': loading }"
-      >
+      <section class="download-section stack">
         <div class="stack">
           <div class="cluster cluster--between">
             <span class="cluster">
@@ -499,6 +497,8 @@ export default defineComponent({
             :file-description="Descriptions.slvRecipesFile"
           />
         </div>
+
+        <LoadingOverlay :show="isLoading" />
       </section>
       <h3>Input Data</h3>
 
@@ -695,24 +695,6 @@ header {
   }
   p {
     font-size: 1.125em;
-  }
-
-  &.is-loading::after {
-    content: "Loading...";
-    position: absolute;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-
-    align-items: center;
-    justify-content: center;
-
-    background: rgba(white, 0.75);
-    font-size: 1.5em;
-    font-weight: bold;
-    text-align: center;
   }
 }
 

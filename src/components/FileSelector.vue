@@ -1,8 +1,11 @@
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
 
+import LoadingOverlay from "./LoadingOverlay.vue";
 
 export default defineComponent({
+  components: { LoadingOverlay },
+
   props: {
     state: {
       type: String as PropType<"default" | "custom">,
@@ -15,6 +18,7 @@ export default defineComponent({
 
   data() {
     return {
+      isLoading: false,
       showInfo: false,
     };
   },
@@ -54,11 +58,14 @@ export default defineComponent({
       const fileName = file.name || "";
       const reader = new FileReader();
 
+      this.isLoading = true;
       reader.addEventListener("error", (...args) => {
         // TODO: Handle errors
+        this.isLoading = false;
         console.error(...args);
       });
       reader.addEventListener("load", () => {
+        this.isLoading = false;
         this.$emit("set-file", {
           name: fileName,
           data: reader.result as string | "",
@@ -99,6 +106,7 @@ export default defineComponent({
         <button class="button button--slim" @click="download">Download Copy</button>
       </div>
     </div>
+    <LoadingOverlay :show="isLoading" />
   </div>
 </template>
 
@@ -111,6 +119,7 @@ export default defineComponent({
   background: white;
   padding: 1em;
   text-align: left;
+  position: relative;
 
   $base-box-shadow: 0 0.3em 0.75em -0.65em rgba(black, 0.5);
   box-shadow: $base-box-shadow;
