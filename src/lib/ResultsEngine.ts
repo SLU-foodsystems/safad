@@ -314,7 +314,7 @@ class ResultsEngine {
 
     const fauxDiet: Diet = [...codesInRecipes]
       .sort()
-      .filter(code => getRpcCodeLevel(code) > 2)
+      .filter(code => getRpcCodeLevel(code) > 1)
       .map((code) => [code, 1000]);
     return this.computeImpactsDetailed(fauxDiet);
   }
