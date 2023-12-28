@@ -4,7 +4,7 @@ import {
   getProcessEnvFactors,
 } from "./process-emissions";
 
-import flattenEnvironmentalFactors from "./env-impact-aggregator";
+import flattenRpcFootprints from "./env-impact-aggregator";
 import {
   aggregateBy,
   aggregateRpcCategories,
@@ -16,6 +16,8 @@ import {
 
 import computeTransportEmissions from "./transport-emissions";
 import adjustDietForWaste from "./waste-retail-consumer-adjuster";
+import originWasteFactorsRestOfWorldAggregator from "./origin-waste-factors-row-aggregator";
+import { ROW_THRESHOLD } from "./constants";
 
 /**
  * Ties all parts of computing the results into a singleton.
@@ -24,7 +26,9 @@ class ResultsEngine {
   footprintsRpcsPerOrigin: null | RpcFootprintsByOrigin = null;
   footprintsRpcsMerged: null | RpcFootprints = null;
 
+  rpcOriginWasteFull: null | RpcOriginWaste = null;
   rpcOriginWaste: null | RpcOriginWaste = null;
+
   foodsRecipes: null | FoodsRecipes = null;
 
   countryCode: null | string = null;
@@ -59,7 +63,32 @@ class ResultsEngine {
     this.setFoodsRecipes = this.setFoodsRecipes.bind(this);
   }
 
-  private recomputeEnvFootprints() {
+  private recomputeOriginAndWasteFactorsWithRoW() {
+    if (!this.rpcOriginWasteFull) {
+      console.info(
+        "Method recomputeOriginAndWasteFactorsWithRoW called before rpcOriginWasteFull was set."
+      );
+      return;
+    }
+
+    if (!this.footprintsRpcsPerOrigin) {
+      console.info(
+        "Method rpcOriginWasteFull called before rpcOriginWasteFull was set."
+      );
+      return;
+    }
+
+    this.rpcOriginWaste = originWasteFactorsRestOfWorldAggregator(
+      this.rpcOriginWasteFull,
+      mapValues(
+        this.footprintsRpcsPerOrigin,
+        (obj) => new Set(Object.keys(obj))
+      ),
+      ROW_THRESHOLD
+    );
+  }
+
+  private recomputeFlattenedRpcFootprints() {
     if (!this.footprintsRpcsPerOrigin) {
       console.info(
         "Method recomputeEnvFootprints called before env factors file was set."
@@ -74,7 +103,7 @@ class ResultsEngine {
       return;
     }
 
-    this.footprintsRpcsMerged = flattenEnvironmentalFactors(
+    this.footprintsRpcsMerged = flattenRpcFootprints(
       this.footprintsRpcsPerOrigin,
       this.rpcOriginWaste
     );
@@ -82,7 +111,22 @@ class ResultsEngine {
 
   public setFootprintsRpcs(footprintsRpcsPerOrigin: RpcFootprintsByOrigin) {
     this.footprintsRpcsPerOrigin = footprintsRpcsPerOrigin;
-    this.recomputeEnvFootprints();
+
+    if (this.rpcOriginWasteFull) {
+      this.recomputeOriginAndWasteFactorsWithRoW();
+      this.recomputeFlattenedRpcFootprints();
+    }
+  }
+
+  // Set the rpc-factors, i.e. the origin of each rpc, its share, and its
+  // production waste.
+  public setRpcOriginWaste(rpcOriginWasteFull: RpcOriginWaste) {
+    this.rpcOriginWasteFull = rpcOriginWasteFull;
+
+    if (this.footprintsRpcsPerOrigin) {
+      this.recomputeOriginAndWasteFactorsWithRoW();
+      this.recomputeFlattenedRpcFootprints();
+    }
   }
 
   public setWasteRetailAndConsumer(
@@ -93,31 +137,6 @@ class ResultsEngine {
 
   public setFoodsRecipes(foodsRecipes: FoodsRecipes) {
     this.foodsRecipes = foodsRecipes;
-  }
-
-  private getRpcFootprints(
-    rpcCode: string,
-    amountGram: number
-  ): number[] | null {
-    if (!this.footprintsRpcsMerged) {
-      throw new Error("getEnvImpact called before sheets were assigned.");
-    }
-
-    if (!this.footprintsRpcsMerged[rpcCode]) {
-      console.warn(`Missing factors for ${rpcCode}.`);
-      return null;
-    }
-
-    return this.footprintsRpcsMerged[rpcCode].map(
-      (x) => (x * amountGram) / 1000
-    );
-  }
-
-  // Set the rpc-factors, i.e. the origin of each rpc, its share, and its
-  // production waste.
-  public setRpcOriginWaste(rpcOriginWaste: RpcOriginWaste) {
-    this.rpcOriginWaste = rpcOriginWaste;
-    this.recomputeEnvFootprints();
   }
 
   private attemptUpdateProcessEmissionsFactors() {
@@ -172,6 +191,24 @@ class ResultsEngine {
     processesAndPackaging: Record<string, string[]>
   ) {
     this.preparationProcessesAndPackaging = processesAndPackaging;
+  }
+
+  private getRpcFootprints(
+    rpcCode: string,
+    amountGram: number
+  ): number[] | null {
+    if (!this.footprintsRpcsMerged) {
+      throw new Error("getEnvImpact called before sheets were assigned.");
+    }
+
+    if (!this.footprintsRpcsMerged[rpcCode]) {
+      console.warn(`Missing factors for ${rpcCode}.`);
+      return null;
+    }
+
+    return this.footprintsRpcsMerged[rpcCode].map(
+      (x) => (x * amountGram) / 1000
+    );
   }
 
   public computeImpacts(diet: Diet): ImpactsTuple {
@@ -229,11 +266,10 @@ class ResultsEngine {
     );
 
     const rpcImpacts = Object.fromEntries(
-      rpcAmounts
-        .map(([rpc, amountGram]) => [
-          rpc,
-          this.getRpcFootprints(rpc, amountGram),
-        ])
+      rpcAmounts.map(([rpc, amountGram]) => [
+        rpc,
+        this.getRpcFootprints(rpc, amountGram),
+      ])
     );
 
     // Per-process impacts

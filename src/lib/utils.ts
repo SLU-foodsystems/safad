@@ -147,9 +147,15 @@ export const replaceKeys = <V>(
 
 export const mapValues = <V, T>(
   object: Record<string, V>,
-  fn: (x: V) => T
+  fn: ((v: V, k: string) => T)
 ): Record<string, T> =>
-  Object.fromEntries(Object.entries(object).map(([k, v]) => [k, fn(v)]));
+  Object.fromEntries(Object.entries(object).map(([k, v]) => [k, fn(v, k)]));
+
+export const filterObject = <V>(
+  object: Record<string, V>,
+  fn: ((k: string, v: V) => boolean)
+): Record<string, V> =>
+  Object.fromEntries(Object.entries(object).filter(([k, v]) => [k, fn(k, v)]));
 
 /**
  * Wraps a string in double quotes if it contains a delimiter (default: comma).

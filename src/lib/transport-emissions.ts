@@ -45,7 +45,7 @@ export default function computeTransportEmissions(
 
         const emissionsFactors = transportEmissionsFactors[originCode];
         if (!emissionsFactors) {
-          console.error(`Emissions factors missing for origin ${originCode}`);
+          console.error(`Emissions factors missing for origin ${originCode}. RPC code is ${rpcCode}.`);
           return null;
         }
 
