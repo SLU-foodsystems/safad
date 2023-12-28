@@ -76,6 +76,35 @@ export function aggregateBy<T>(
   return result;
 }
 
+/**
+ * Recursive function to find the nth index of a substring in a string.
+ */
+export const nthIndexOf = (
+  string: string,
+  searchString: string,
+  nth: number,
+  fromIndex = 0
+): number => {
+  const index = string.indexOf(searchString, fromIndex);
+
+  if (index === -1) {
+    return -1;
+  }
+
+  if (nth === 0) {
+    return index;
+  }
+
+  return nthIndexOf(string, searchString, nth - 1, index + 1);
+};
+
+/**
+ * Extracts the part of the code corresponding to a given level, replacing I
+ * with A for a coherent category handling.
+ * E.g.: (A.01.02.003, 2) -> A.01.02
+ *       (A.01.02.003, 4) -> A.01.02.003
+ *       (I.01.02.003, 2) -> A.01.02
+ */
 export function getRpcCodeSubset(code: string, level: number) {
   if (!code) return "";
   const idx = nthIndexOf(code, ".", level);
@@ -110,7 +139,6 @@ export const mapValues = <V, T>(
 ): Record<string, T> =>
   Object.fromEntries(Object.entries(object).map(([k, v]) => [k, fn(v)]));
 
-
 /**
  * Wraps a string in double quotes if it contains a delimiter (default: comma).
  * This is useful when printing CSV files, to avoid breaking the format.
@@ -129,28 +157,6 @@ export const listAllProcesses = (data: NestedRecord<string, number[]>) =>
       .map((obj) => Object.keys(obj))
       .flat(1)
   );
-
-/**
- * Recursive function to find the nth index of a substring in a string.
- */
-export const nthIndexOf = (
-  string: string,
-  searchString: string,
-  nth: number,
-  fromIndex = 0
-): number => {
-  const index = string.indexOf(searchString, fromIndex);
-
-  if (index === -1) {
-    return -1;
-  }
-
-  if (nth === 0) {
-    return index;
-  }
-
-  return nthIndexOf(string, searchString, nth - 1, index + 1);
-};
 
 /**
  * Split a csv-document into a 2d-array, while ignoring any delimiter-
