@@ -3,7 +3,7 @@
  * each with a code and an amount (in grams).
  */
 
-import { getRpcCodeSubset } from "@/lib/utils";
+import { getRpcCodeLevel, getRpcCodeSubset } from "@/lib/utils";
 
 // TODO: Ideally we would take these two as parameters instead.
 const TRANSPORTLESS_PROCESSES = [
@@ -23,9 +23,6 @@ const TRANSPORTLESS_PROCESSES = [
 ];
 
 const TRANSPORTLESS_PROCESS_EXCEPTION = ["F28.A0BZV", "F28.A07GG"];
-
-// Get the 'level' of a given food given its id
-const getLevel = (str: string) => str.split(".").length - 1;
 
 /**
  * Helper function to check if a combination of processes should be considered
@@ -97,7 +94,7 @@ function reduceToRpcs(
   }
 
   let newRecordedSpecials = recordedSpecials;
-  const componentCodeLevel = getLevel(componentCode);
+  const componentCodeLevel = getRpcCodeLevel(componentCode);
 
   // Helper function to record the processes and packaging contributions for a
   // given level
