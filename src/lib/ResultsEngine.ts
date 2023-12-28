@@ -9,6 +9,7 @@ import flattenEnvironmentalFactors from "./env-impact-aggregator";
 import {
   aggregateBy,
   aggregateRpcCategories,
+  getRpcCodeLevel,
   mapValues,
   vectorSum,
   vectorsSum,
@@ -313,6 +314,7 @@ class ResultsEngine {
 
     const fauxDiet: Diet = [...codesInRecipes]
       .sort()
+      .filter(code => getRpcCodeLevel(code) > 2)
       .map((code) => [code, 1000]);
     return this.computeImpactsDetailed(fauxDiet);
   }
