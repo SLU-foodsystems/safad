@@ -1,5 +1,4 @@
 import reduceDiet from "./rpc-reducer";
-import { ENV_IMPACTS_ZERO } from "./constants";
 import {
   computeProcessImpacts,
   getProcessEnvFactors,
