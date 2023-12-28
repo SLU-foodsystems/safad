@@ -3,6 +3,8 @@ import {
   ENV_IMPACTS_ZERO,
   CO2E_CONV_FACTORS,
   TRANSPORT_EMISSIONS_ZERO,
+  N_PACKAGING_GHGS,
+  N_PROCESS_GHGS,
 } from "@/lib/constants";
 
 import {
@@ -158,7 +160,7 @@ export function aggregateImpacts(
     .flat(1);
 
   const totalProcessesEmissions = vectorsSum(processValues);
-  while (totalProcessesEmissions.length < 3) {
+  while (totalProcessesEmissions.length < N_PROCESS_GHGS) {
     totalProcessesEmissions.push(0);
   }
 
@@ -166,7 +168,7 @@ export function aggregateImpacts(
     .map((obj) => Object.values(obj))
     .flat(1);
   const totalPackagingEmissions = vectorsSum(packagingValues);
-  while (totalPackagingEmissions.length < 3) {
+  while (totalPackagingEmissions.length < N_PACKAGING_GHGS) {
     totalPackagingEmissions.push(0);
   }
 
