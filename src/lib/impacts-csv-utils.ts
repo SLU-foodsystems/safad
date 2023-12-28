@@ -166,7 +166,7 @@ export function aggregateImpacts(
     .map((obj) => Object.values(obj))
     .flat(1);
   const totalPackagingEmissions = vectorsSum(packagingValues);
-  while (totalPackagingEmissions.length < 2) {
+  while (totalPackagingEmissions.length < 3) {
     totalPackagingEmissions.push(0);
   }
 
