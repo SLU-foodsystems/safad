@@ -23,28 +23,25 @@ import { ROW_THRESHOLD } from "./constants";
  * Ties all parts of computing the results into a singleton.
  */
 class ResultsEngine {
-  footprintsRpcsPerOrigin: null | RpcFootprintsByOrigin = null;
-  footprintsRpcsMerged: null | RpcFootprints = null;
+  footprintsRpcsPerOrigin?: RpcFootprintsByOrigin;
+  footprintsRpcsMerged?: RpcFootprints;
 
-  rpcOriginWasteFull: null | RpcOriginWaste = null;
-  rpcOriginWaste: null | RpcOriginWaste = null;
+  rpcOriginWasteFull?: RpcOriginWaste;
+  rpcOriginWaste?: RpcOriginWaste = undefined;
 
-  foodsRecipes: null | FoodsRecipes = null;
+  foodsRecipes?: FoodsRecipes;
 
-  countryCode: null | string = null;
-  processEnvFactors: null | Record<string, number[]> = null;
+  countryCode?: string;
+  processEnvFactors?: Record<string, number[]>;
 
-  emissionsFactorsPackaging: null | Record<string, number[]> = null;
-  emissionsFactorsEnergy: null | Record<
-    string,
-    number[] | Record<string, number[]>
-  > = null;
-  emissionsFactorsTransport: null | NestedRecord<string, number[]> = null;
+  emissionsFactorsPackaging?: Record<string, number[]>;
+  emissionsFactorsEnergy?: Record<string, number[] | Record<string, number[]>>;
+  emissionsFactorsTransport?: NestedRecord<string, number[]>;
 
-  processesEnergyDemands: null | Record<string, number[]> = null;
-  preparationProcessesAndPackaging: null | Record<string, string[]> = null;
+  processesEnergyDemands?: Record<string, number[]>;
+  preparationProcessesAndPackaging?: Record<string, string[]>;
 
-  wasteRetailAndConsumer: null | Record<string, number[]> = null;
+  wasteRetailAndConsumer?: Record<string, number[]>;
 
   constructor() {
     // JavaScript needs this so that we can pass references directly to the
