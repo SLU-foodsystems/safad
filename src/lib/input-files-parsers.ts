@@ -202,6 +202,9 @@ export function parseRpcOriginWaste(csvString: string) {
       acc,
       [rpcCode, _name, _originName, originCode, originShare, productionWaste]
     ) => {
+      // Avoid empty rows
+      if (!rpcCode) return acc;
+
       // First time we see this RPC code? Add an empty object, which we will
       // populate with one obj per origin
       if (!(rpcCode in acc)) {
