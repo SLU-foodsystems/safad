@@ -58,6 +58,7 @@ class ResultsEngine {
       this.setPrepProcessesAndPackaging.bind(this);
     this.setWasteRetailAndConsumer = this.setWasteRetailAndConsumer.bind(this);
     this.setFoodsRecipes = this.setFoodsRecipes.bind(this);
+    this.computeImpacts = this.computeImpacts.bind(this);
   }
 
   private recomputeOriginAndWasteFactorsWithRoW() {
@@ -254,7 +255,7 @@ class ResultsEngine {
     const [
       rpcAmounts,
       processesAmounts,
-      packetingAmounts,
+      packagingAmounts,
       transportlessAmounts,
     ] = reduceDiet(
       dietWithWaste,
@@ -275,17 +276,19 @@ class ResultsEngine {
       this.processEnvFactors
     );
 
+    const emissionsFactorsPackaging = this.emissionsFactorsPackaging;
+
     // Map the packetingAmounts to their respective emission factors
-    const packagingEnvImpacts = mapValues(packetingAmounts, (amounts) =>
+    const packagingEnvImpacts = mapValues(packagingAmounts, (amounts) =>
       Object.fromEntries(
-        Object.entries(amounts).map(([packetingId, amount]) => [
-          packetingId,
-          this.emissionsFactorsPackaging![packetingId].map(
-            (x) => (x * amount) / 1000
-          ),
+        Object.entries(amounts).map(([packagingId, amount]) => [
+          packagingId,
+          emissionsFactorsPackaging[packagingId].map((x) => (x * amount) / 1e3),
         ])
       )
     );
+
+    const { rpcOriginWaste, emissionsFactorsTransport, countryCode } = this;
 
     // Transport impacts
     const transportEnvImpactsEntries = rpcAmounts
@@ -294,9 +297,9 @@ class ResultsEngine {
         computeTransportEmissions(
           rpcCode,
           amount - (transportlessAmounts[rpcCode] || 0),
-          this.rpcOriginWaste!,
-          this.emissionsFactorsTransport![this.countryCode!],
-          this.countryCode!
+          rpcOriginWaste,
+          emissionsFactorsTransport[countryCode],
+          countryCode
         ),
       ])
       .filter((pair): pair is [string, number[]] => pair[1] !== null);
