@@ -103,12 +103,6 @@ class ResultsEngine {
       throw new Error("getEnvImpact called before sheets were assigned.");
     }
 
-    if (!this.rpcOriginWaste) {
-      throw new Error(
-        "getEnvImpact called before rpcParameters were assigned."
-      );
-    }
-
     if (!this.footprintsRpcsMerged[rpcCode]) {
       console.warn(`Missing factors for ${rpcCode}.`);
       return null;
