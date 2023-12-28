@@ -6,6 +6,8 @@ export const ENV_IMPACTS_ZERO = zeroes(N_ENV_IMPACTS);
 export const N_PROCESS_GHGS = 3;
 export const PROCESS_EMISSIONS_ZERO = zeroes(N_PROCESS_GHGS);
 
+export const N_PACKAGING_GHGS = 3;
+
 export const N_TRANSPORT_GHGS = 4;
 export const TRANSPORT_EMISSIONS_ZERO = zeroes(N_TRANSPORT_GHGS);
 
