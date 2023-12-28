@@ -113,6 +113,10 @@ export function getRpcCodeSubset(code: string, level: number) {
   return subset.replace("I", "A");
 }
 
+export function getRpcCodeLevel(code: string) {
+  return code ? code.split(".").length - 1 : 0;
+}
+
 /**
  * Aggergate or sum over rpc categories to the fist level (e.g. A01).
  */
