@@ -111,7 +111,6 @@ export function parseProcessesPackaging(
 
 export function parseFootprintsRpcs(csvString: string) {
   const data = parseCsvFile(csvString).slice(1);
-  const EXPECTED_LENGTH = 16;
 
   const structured = {} as RpcFootprintsByOrigin;
 
@@ -143,10 +142,6 @@ export function parseFootprintsRpcs(csvString: string) {
 
         // Store values, as number
         structured[rpcCode][originCode] = impactsStr.map((x) => asNumber(x, 0));
-
-        while (structured[rpcCode][originCode].length < EXPECTED_LENGTH) {
-          structured[rpcCode][originCode].push(0);
-        }
       }
     );
 
