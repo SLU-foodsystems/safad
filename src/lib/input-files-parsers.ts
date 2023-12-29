@@ -136,14 +136,13 @@ export function parseFootprintsRpcs(csvString: string) {
           structured[rpcCode] = {};
         }
 
+        // Handle if someone inputs ROW, row, roW or any other case variant
         if (originCode.toLowerCase().trim() === "row") {
           originCode = "RoW";
         }
 
-        structured[rpcCode][originCode] = impactsStr.map((x) => {
-          const val = parseFloat(x);
-          return Number.isNaN(val) ? 0 : val;
-        });
+        // Store values, as number
+        structured[rpcCode][originCode] = impactsStr.map((x) => asNumber(x, 0));
 
         while (structured[rpcCode][originCode].length < EXPECTED_LENGTH) {
           structured[rpcCode][originCode].push(0);
