@@ -34,25 +34,16 @@ function computeRestOfWorldWaste(
  */
 export default function originWasteFactorsRestOfWorldAggregator(
   originWasteFactors: RpcOriginWaste,
-  countriesWithEnvDataPerRpc: Record<string, Set<string>>,
-  rowThreshold: number
+  countriesWithEnvDataPerRpc: Record<string, Set<string>>
 ): RpcOriginWaste {
-  if (rowThreshold < 0 || rowThreshold > 1) {
-    throw new Error(
-      "Unexpected RoW-threshold provided. Should be between 0-1, was " +
-        rowThreshold
-    );
-  }
-
   return mapValues(originWasteFactors, (originWasteFactorsPerRpc, rpcCode) => {
     const countriesWithEnvData =
       countriesWithEnvDataPerRpc[rpcCode] || new Set<string>();
 
     const [rowOriginFactors, nonRoWOriginFactors] = partition(
       Object.entries(originWasteFactorsPerRpc),
-      ([countryCode, [share]]) =>
-        countryCode === "RoW" ||
-        (!countriesWithEnvData.has(countryCode) && share < rowThreshold)
+      ([countryCode]) =>
+        countryCode === "RoW" || !countriesWithEnvData.has(countryCode)
     );
 
     // The sum of the shares that are not RoW
