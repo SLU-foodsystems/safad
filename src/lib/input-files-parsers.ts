@@ -151,11 +151,11 @@ export function parseFootprintsRpcs(csvString: string) {
     if (Object.keys(factorsPerOrigin).includes("RoW")) return;
 
     const numberOfOrigins = Object.values(factorsPerOrigin).length;
-    const average = vectorsSum(Object.values(factorsPerOrigin)).map(
+    const averages = vectorsSum(Object.values(factorsPerOrigin)).map(
       (x: number) => x / numberOfOrigins
     );
 
-    structured[rpcCode].RoW = average;
+    structured[rpcCode].RoW = averages;
   });
 
   return structured;
