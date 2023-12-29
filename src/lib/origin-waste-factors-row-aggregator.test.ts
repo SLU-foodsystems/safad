@@ -17,8 +17,7 @@ describe("origin-waste-factors-row-aggregator.ts", () => {
     };
     const results: RpcOriginWaste = originWasteFactorsRestOfWorldAggregator(
       rpcOriginWasteFactors,
-      { "A.01.02": new Set(), "I.02.04.006": new Set() },
-      0.1
+      { "A.01.02": new Set(["SE", "ES"]), "I.02.04.006": new Set(["EN", "FR"]) }
     );
 
     // Keys
@@ -50,8 +49,7 @@ describe("origin-waste-factors-row-aggregator.ts", () => {
 
     const result = originWasteFactorsRestOfWorldAggregator(
       rpcFactors,
-      { a: new Set(), b: new Set() },
-      0.1
+      { a: new Set(["se", "es"]), b: new Set(["en", "fr"]) }
     );
     expect(result).toHaveProperty("a");
     expect(result).toHaveProperty("b");
@@ -85,8 +83,7 @@ describe("origin-waste-factors-row-aggregator.ts", () => {
           RoW: [0.17, 0.15],
         },
       },
-      { a: new Set(["se", "fr", "es", "RoW"]) },
-      0.1
+      { a: new Set(["se", "fr", "es", "RoW"]) }
     );
 
     expect(result).toHaveProperty("a");
@@ -119,8 +116,7 @@ describe("origin-waste-factors-row-aggregator.ts", () => {
           de: [0.08, 0.2], // Should be grouped to RoW
         },
       },
-      { a: new Set(["se", "fr", "es"]) },
-      0.1
+      { a: new Set(["se", "fr", "es"]) }
     );
 
     expect(results).toHaveProperty("a");
