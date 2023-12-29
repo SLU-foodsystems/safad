@@ -9,7 +9,7 @@ function computeRestOfWorldWaste(
     originFactorsEntry: [string, [number, number]]
   ): [number, number] => originFactorsEntry[1];
 
-  // Case 1: No RoW or factors that fall below the threshold: use us a weigthed
+  // Case 1: No RoW or factors that fall below the threshold: use a weigthed
   // mean of the other wastes
   if (rowOriginFactors.length === 0) {
     return weightedArithmeticMean(nonRoWOriginFactors.map(getShareAndWaste));
