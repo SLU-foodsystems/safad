@@ -19,7 +19,7 @@ import { vectorsSum } from "./utils";
 //
 // Output:
 //  - (rpc -> env)
-export default function flattenEnvironmentalFactors(
+export default function flattenRpcFootprints(
   envImpactSheet: RpcFootprintsByOrigin,
   rpcOriginWaste: RpcOriginWaste
 ): RpcFootprints {
