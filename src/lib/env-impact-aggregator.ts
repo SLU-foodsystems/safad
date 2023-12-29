@@ -6,7 +6,6 @@
  * list of factors.
  */
 
-import { ROW_THRESHOLD } from "./constants";
 import { vectorsSum } from "./utils";
 
 // TODO: This function could also take a diet and compute the env impact
