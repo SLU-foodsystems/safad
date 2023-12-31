@@ -17,7 +17,6 @@ import {
 import computeTransportEmissions from "./transport-emissions";
 import adjustDietForWaste from "./waste-retail-consumer-adjuster";
 import originWasteFactorsRestOfWorldAggregator from "./origin-waste-factors-row-aggregator";
-import { ROW_THRESHOLD } from "./constants";
 
 /**
  * Ties all parts of computing the results into a singleton.
@@ -81,8 +80,7 @@ class ResultsEngine {
       mapValues(
         this.footprintsRpcsPerOrigin,
         (obj) => new Set(Object.keys(obj))
-      ),
-      ROW_THRESHOLD
+      )
     );
   }
 
