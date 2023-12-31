@@ -155,7 +155,7 @@ export const filterObject = <V>(
   object: Record<string, V>,
   fn: ((k: string, v: V) => boolean)
 ): Record<string, V> =>
-  Object.fromEntries(Object.entries(object).filter(([k, v]) => [k, fn(k, v)]));
+  Object.fromEntries(Object.entries(object).filter(([k, v]) => fn(k, v)));
 
 /**
  * Wraps a string in double quotes if it contains a delimiter (default: comma).

@@ -47,5 +47,20 @@ describe("utils.ts", () => {
     expect(getRpcCodeSubset(str, 3)).toEqual("A.03.001.002");
     expect(getRpcCodeSubset(str, 4)).toEqual("A.03.001.002.123");
     expect(getRpcCodeSubset(str, 5)).toEqual("A.03.001.002.123");
-  })
+  });
+
+  test("filterObject", () => {
+    const obj = {
+      a: 1,
+      b: 2,
+      c: 3,
+      d: 4,
+      e: 5,
+    };
+
+    expect(filterObject(obj, (_k, v) => v % 2 === 0)).toEqual({
+      b: 2,
+      d: 4,
+    });
+  });
 });
