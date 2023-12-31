@@ -1,11 +1,11 @@
 import { describe, test, expect } from "vitest";
-import flattenEnvFactorsSheet from "./env-impact-aggregator";
+import flattenEnvFactorsSheet from "./footprints-rpc-flattener";
 import { N_ENV_IMPACTS } from "./constants";
 
 const constEnvFactors = (x: number) =>
   Array.from({ length: N_ENV_IMPACTS }).map((_) => x);
 
-describe("env-impact-aggregator.ts", () => {
+describe("footprints-rpc-flattener.ts", () => {
   test("basic functionality", () => {
     const rpcFactors: RpcOriginWaste = {
       a: {
