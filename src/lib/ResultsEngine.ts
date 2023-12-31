@@ -4,7 +4,7 @@ import {
   getProcessEnvFactors,
 } from "./process-emissions";
 
-import flattenRpcFootprints from "./env-impact-aggregator";
+import flattenRpcFootprints from "./footprints-rpc-flattener";
 import {
   aggregateBy,
   aggregateRpcCategories,
