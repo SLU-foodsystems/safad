@@ -27,6 +27,7 @@ interface FileInterface<T> {
   name: string;
   defaultName: string;
   data: null | string;
+  comment: string;
   getDefault: (country: string) => Promise<string>;
   parser: (data: string) => T;
   setter: (data: T) => void;
@@ -40,6 +41,7 @@ const initFileInterface = <T,>(
 ): FileInterface<T> => ({
   state: "default",
   name: "",
+  comment: "",
   data: null,
   ...partialFileInterface,
 });
@@ -232,6 +234,14 @@ export default defineComponent({
       } else {
         downloadAsPlaintext(fileInterface.data || "", fileInterface.name);
       }
+    },
+
+    async setComment<T>(
+      comment: string,
+      fileInterface: FileInterface<T> | null
+    ) {
+      if (!fileInterface) return;
+      fileInterface.comment = comment;
     },
   },
 
@@ -468,6 +478,7 @@ export default defineComponent({
           <FileSelector
             file-label="SLV Recipes"
             @setFile="(p: SetFilePayload) => setFile(p, slvRecipesFile)"
+            @setComment="(x: string) => setComment(x, slvRecipesFile)"
             @reset="() => resetFile(slvRecipesFile!)"
             @download="() => downloadFile(slvRecipesFile!)"
             :fileName="slvRecipesFile?.name || slvRecipesFile?.defaultName"
@@ -483,6 +494,7 @@ export default defineComponent({
       <FileSelector
         file-label="Footprints RPC"
         @setFile="(p: SetFilePayload) => setFile(p, footprintsRpcsFile)"
+        @setComment="(x: string) => setComment(x, footprintsRpcsFile)"
         @reset="() => resetFile(footprintsRpcsFile!)"
         @download="() => downloadFile(footprintsRpcsFile!)"
         :file-name="footprintsRpcsFile?.name || footprintsRpcsFile?.defaultName"
@@ -493,6 +505,7 @@ export default defineComponent({
       <FileSelector
         file-label="Diet"
         @setFile="(p: SetFilePayload) => setFile(p, dietFile)"
+        @setComment="(x: string) => setComment(x, dietFile)"
         @reset="() => resetFile(dietFile!)"
         @download="() => downloadFile(dietFile!)"
         :fileName="dietFile?.name || dietFile?.defaultName"
@@ -505,6 +518,7 @@ export default defineComponent({
       <FileSelector
         file-label="Foods Recipes"
         @setFile="(p: SetFilePayload) => setFile(p, foodsRecipesFile!)"
+        @setComment="(x: string) => setComment(x, foodsRecipesFile!)"
         @reset="() => resetFile(foodsRecipesFile!)"
         @download="() => downloadFile(foodsRecipesFile!)"
         :fileName="foodsRecipesFile?.name || foodsRecipesFile?.defaultName"
@@ -515,6 +529,7 @@ export default defineComponent({
       <FileSelector
         file-label="RPC Origin & Waste"
         @setFile="(p: SetFilePayload) => setFile(p, rpcOriginWasteFile)"
+        @setComment="(x: string) => setComment(x, rpcOriginWasteFile)"
         @reset="() => resetFile(rpcOriginWasteFile!)"
         @download="() => downloadFile(rpcOriginWasteFile!)"
         :fileName="rpcOriginWasteFile?.name || rpcOriginWasteFile?.defaultName"
@@ -525,6 +540,7 @@ export default defineComponent({
       <FileSelector
         file-label="Processes Energy Demands"
         @setFile="(p: SetFilePayload) => setFile(p, processesEnergyDemandsFile)"
+        @setComment="(x: string) => setComment(x, processesEnergyDemandsFile)"
         @reset="() => resetFile(processesEnergyDemandsFile!)"
         @download="() => downloadFile(processesEnergyDemandsFile!)"
         :fileName="
@@ -541,6 +557,9 @@ export default defineComponent({
           (p: SetFilePayload) =>
             setFile(p, preparationProcessesAndPackagingFile)
         "
+        @setComment="
+          (x: string) => setComment(x, preparationProcessesAndPackagingFile)
+        "
         @reset="() => resetFile(preparationProcessesAndPackagingFile!)"
         @download="() => downloadFile(preparationProcessesAndPackagingFile!)"
         :fileName="
@@ -553,6 +572,7 @@ export default defineComponent({
       <FileSelector
         file-label="Consumer- and Retail wastes"
         @setFile="(p: SetFilePayload) => setFile(p, wasteRetailAndConsumerFile)"
+        @setComment="(x: string) => setComment(x, wasteRetailAndConsumerFile)"
         @reset="() => resetFile(wasteRetailAndConsumerFile!)"
         @download="() => downloadFile(wasteRetailAndConsumerFile!)"
         :fileName="
@@ -569,6 +589,9 @@ export default defineComponent({
         @setFile="
           (p: SetFilePayload) => setFile(p, emissionsFactorsPackagingFile)
         "
+        @setComment="
+          (x: string) => setComment(x, emissionsFactorsPackagingFile)
+        "
         @reset="() => resetFile(emissionsFactorsPackagingFile!)"
         @download="() => downloadFile(emissionsFactorsPackagingFile!)"
         :fileName="
@@ -581,6 +604,7 @@ export default defineComponent({
       <FileSelector
         file-label="Emissions Factors Energy"
         @setFile="(p: SetFilePayload) => setFile(p, emissionsFactorsEnergyFile)"
+        @setComment="(x: string) => setComment(x, emissionsFactorsEnergyFile)"
         @reset="() => resetFile(emissionsFactorsEnergyFile!)"
         @download="() => downloadFile(emissionsFactorsEnergyFile!)"
         :fileName="
@@ -594,6 +618,9 @@ export default defineComponent({
         file-label="Emissions Factors Transport"
         @setFile="
           (p: SetFilePayload) => setFile(p, emissionsFactorsTransportFile)
+        "
+        @setComment="
+          (x: string) => setComment(x, emissionsFactorsTransportFile)
         "
         @reset="() => resetFile(emissionsFactorsTransportFile!)"
         @download="() => downloadFile(emissionsFactorsTransportFile!)"
