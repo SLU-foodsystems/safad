@@ -17,29 +17,6 @@ import {
 import reduceDietToRpcs from "./lib/rpc-reducer";
 import { generateSlvResults } from "./lib/slv-results-generator";
 
-const LL_COUNTRY_CODES: string[] = [
-  "FR",
-  "DE",
-  "GR",
-  "HU",
-  "IE",
-  "IT",
-  "ES",
-  "SE",
-];
-
-const LL_COUNTRY_NAMES: Record<string, string> = {
-  FR: "France",
-  DE: "Germany",
-  GR: "Greece",
-  HU: "Hungary",
-  IE: "Ireland",
-  IT: "Italy",
-  PL: "Poland",
-  ES: "Spain",
-  SE: "Sweden",
-};
-
 interface SetFilePayload {
   data: string;
   name: string;
@@ -96,9 +73,6 @@ export default defineComponent({
 
   data() {
     return {
-      LL_COUNTRY_CODES,
-      LL_COUNTRY_NAMES,
-
       Descriptions,
 
       RE: new ResultsEngine() as ResultsEngine,
@@ -405,11 +379,15 @@ export default defineComponent({
     <div class="stack u-tac start-page-wrap">
       <h3>Country</h3>
       <select v-model="countryCode">
-        <option
-          v-for="code in LL_COUNTRY_CODES"
-          :value="code"
-          v-text="LL_COUNTRY_NAMES[code]"
-        />
+        <option value="FR">France</option>
+        <option value="DE">Germany</option>
+        <option value="GR">Greece</option>
+        <option value="HU">Hungary</option>
+        <option value="IE">Ireland</option>
+        <option value="IT">Italy</option>
+        <option value="PL">Poland</option>
+        <option value="ES">Spain</option>
+        <option value="SE">Sweden</option>
       </select>
       <br />
       <h3>Download Output Data</h3>
