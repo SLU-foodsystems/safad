@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, type PropType } from 'vue';
+import { defineComponent, type PropType } from "vue";
 
 import LoadingOverlay from "./LoadingOverlay.vue";
 
@@ -18,22 +18,41 @@ export default defineComponent({
 
   data() {
     return {
+      showComment: false,
       isLoading: false,
       showInfo: false,
+
+      comment: "",
     };
   },
 
   emits: {
-    download() { return true; },
-    reset() { return true; },
-    ["set-file"](_payload: { data: string; name: string; }) {
+    download() {
+      return true;
+    },
+    reset() {
+      return true;
+    },
+    ["set-file"](_payload: { data: string; name: string }) {
+      return true;
+    },
+    ["set-comment"](_message: string) {
       return true;
     },
   },
 
   computed: {
-    buttonText() {
-      return this.state === "default" ? "Upload custom file" : "Reset to default";
+    fileButtonText() {
+      return this.state === "default"
+        ? "Upload custom file"
+        : "Reset to default";
+    },
+    commentToggleButtonText() {
+      if (this.showComment) {
+        return "Hide comment";
+      }
+
+      return this.comment.trim() === "" ? "Add comment" : "Edit comment";
     },
   },
 
@@ -80,38 +99,84 @@ export default defineComponent({
 
     toggleInfo() {
       this.showInfo = !this.showInfo;
-    }
+    },
+
+    toggleComment() {
+      this.showComment = !this.showComment;
+      if (this.showComment) {
+        (this.$refs.commentTextarea as HTMLTextAreaElement)?.focus();
+      }
+    },
+
+    onCommentChange() {
+      this.$emit("set-comment", this.comment);
+    },
   },
 });
-
 </script>
 
 <template>
-  <div class="file-selector-box" :class="{ 'file-selector-box--custom': state === 'custom' }">
+  <div
+    class="file-selector-box"
+    :class="{ 'file-selector-box--custom': state === 'custom' }"
+  >
     <input hidden type="file" ref="fileInput" @change="onFileInputChange" />
 
-    <div class="cluster expander-toggle-row">
-      <h4>{{ fileLabel }}</h4>
-      <button class="expander-toggle" :data-expanded="showInfo" @click="toggleInfo" v-if="fileDescription">Info</button>
-    </div>
     <div class="info-text" :aria-hidden="!showInfo" :hidden="!showInfo">
       {{ fileDescription }}
     </div>
+
     <div class="cluster cluster--between">
-      <i v-if="state === 'default'">{{ fileName }} (Default)</i>
-      <span v-else v-text="fileName" />
+      <div class="stack stack-s">
+        <h4>{{ fileLabel }}</h4>
+        <i v-if="state === 'default'">{{ fileName }} (Default)</i>
+        <span v-else v-text="fileName" />
+
+        <div class="cluster cluster--m-gap">
+          <button
+            class="expander-toggle"
+            :data-expanded="showInfo"
+            @click="toggleInfo"
+            v-if="fileDescription"
+          >
+            {{ showInfo ? "Hide" : "Show" }} Info
+          </button>
+          <button
+            class="expander-toggle"
+            :data-expanded="showComment"
+            @click="toggleComment"
+            v-if="fileDescription"
+          >{{ commentToggleButtonText }}
+
+          </button>
+          <button class="expander-toggle" @click="download">
+            Download file
+          </button>
+        </div>
+        <div v-if="showComment">
+          <label>Comment on file:</label>
+          <textarea
+            placeholder="Add a comment for future reference."
+            @change="onCommentChange"
+            v-model="comment"
+            ref="commentTextarea"
+          />
+        </div>
+      </div>
 
       <div class="cluster">
-        <button class="button button--slim button--accent" @click="onButtonClick" v-text="buttonText" />
-        <button class="button button--slim" @click="download">Download Copy</button>
+        <button
+          class="button button--slim button--accent"
+          @click="onButtonClick"
+          v-text="fileButtonText"
+        />
       </div>
     </div>
     <LoadingOverlay :show="isLoading" />
   </div>
 </template>
 
-
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../styles/_constants";
 
 .file-selector-box {
@@ -125,25 +190,40 @@ export default defineComponent({
   box-shadow: $base-box-shadow;
 
   &--custom {
-    box-shadow: $base-box-shadow, -0.25em 0 0 $blue_sky;
+    box-shadow:
+      $base-box-shadow,
+      -0.25em 0 0 $blue_sky;
+  }
+
+  h4 {
+    font-weight: bold;
+    margin-bottom: 0;
   }
 }
 
-h4 {
-  font-weight: bold;
+textarea {
+  width: 30em;
+  max-width: 100%;
+  font-size: 0.875em;
 }
 
-.expander-toggle-row h4 {
-  margin-bottom: 0;
+label {
+  font-size: 0.875em;
+  font-weight: bold;
 }
 
 .expander-toggle {
   display: inline-block;
   font-size: 0.875em;
   border-radius: 1em;
-  padding: 0.25em 0.5em;
+  padding: 0.25em 0.66em;
   background: $lightgray;
   border: 1px solid $gray_feather;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.5;
+  }
   &:focus {
     outline: 2px solid black;
   }
@@ -156,4 +236,3 @@ h4 {
   font-style: italic;
 }
 </style>
-
