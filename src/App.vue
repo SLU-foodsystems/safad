@@ -8,14 +8,18 @@ import ResultsEngine from "@/lib/ResultsEngine";
 import FileSelector from "@/components/FileSelector.vue";
 import LoadingOverlay from "@/components/LoadingOverlay.vue";
 import { downloadAsPlaintext } from "@/lib/csv-io";
-import { stringifyCsvData } from "@/lib/utils";
+import { filterObject, stringifyCsvData } from "@/lib/utils";
 import {
   labeledAndFilteredImpacts,
   DETAILED_RESULTS_HEADER,
+  START_INDEX_KEY_INDICATORS,
   getDietBreakdown,
+  aggregateImpacts,
 } from "@/lib/impacts-csv-utils";
 import reduceDietToRpcs from "./lib/rpc-reducer";
 import { generateSlvResults } from "./lib/slv-results-generator";
+import { PLANETARY_BOUNDARY_LIMITS } from "./lib/constants";
+import BoundariesChart from "./lib/charts/BoundariesChart";
 
 const LL_COUNTRY_CODES: string[] = [
   "FR",
@@ -67,6 +71,15 @@ const initFileInterface = <T,>(
   ...partialFileInterface,
 });
 
+const names: Record<string, string> = {
+  co2e: "Carbon Footprint",
+  p: "New P Input",
+  n: "New N Input",
+  land: "Cropland Use",
+  h2o: "Blue Water Use",
+  biodiversity: "Biodiversity impact",
+};
+
 const Descriptions = {
   footprintsRpc:
     "File with footprints of all raw commodities (crops, animal products, blue and novel foods) from different production countries (without any waste, conversion or allocation).",
@@ -102,10 +115,13 @@ export default defineComponent({
       Descriptions,
 
       RE: new ResultsEngine() as ResultsEngine,
-      countryCode: "SE",
-      diet: [] as Diet,
-      includeBreakdownFile: false,
       isLoading: false,
+
+      diet: [] as Diet,
+
+      countryCode: "SE",
+      includeBreakdownFile: false,
+      includeCharts: true,
 
       slvRecipes: [] as SlvRecipeComponent[],
 
@@ -179,14 +195,14 @@ export default defineComponent({
     },
     async downloadFootprintsOfDiets() {
       if (!this.RE) return;
-      const detailedDietImpacts = labeledAndFilteredImpacts(
+      const labeledDietImpacts = labeledAndFilteredImpacts(
         this.RE.computeImpactsDetailed(this.diet)
       );
 
       const detailedDietImpactsCsv =
         DETAILED_RESULTS_HEADER.join(",") +
         "\n" +
-        stringifyCsvData(detailedDietImpacts);
+        stringifyCsvData(labeledDietImpacts);
 
       downloadAsPlaintext(
         detailedDietImpactsCsv,
@@ -210,6 +226,57 @@ export default defineComponent({
             stringifyCsvData(dietBreakdownRows),
           "SAFAD OS Breakdown per Food.csv"
         );
+      }
+
+      if (this.includeCharts) {
+        const [
+          rpcFootprints,
+          processEmissions,
+          packagingEmissions,
+          transportEmissions,
+        ] = this.RE.computeImpacts(this.diet);
+
+        if (rpcFootprints === null) return;
+
+        const aggregatedImpacts = aggregateImpacts(
+          filterObject(rpcFootprints, (_k, v) => v !== null) as Record<
+            string,
+            number[]
+          >,
+          processEmissions,
+          packagingEmissions,
+          transportEmissions
+        );
+        const keyIndicatorImpacts = {
+          co2e: aggregatedImpacts[0],
+          land: aggregatedImpacts[START_INDEX_KEY_INDICATORS],
+          n: aggregatedImpacts[START_INDEX_KEY_INDICATORS + 1],
+          p: aggregatedImpacts[START_INDEX_KEY_INDICATORS + 2],
+          h2o: aggregatedImpacts[START_INDEX_KEY_INDICATORS + 3],
+          biodiversity: aggregatedImpacts[START_INDEX_KEY_INDICATORS + 5],
+        };
+
+        type ChartDataPoint = { axis: string; value: number };
+        const chartData = Object.entries(keyIndicatorImpacts).map(
+          ([axis, absoluteValue]): ChartDataPoint | null => {
+            const limitValue = (
+              PLANETARY_BOUNDARY_LIMITS as Record<string, number>
+            )[axis];
+            if (!limitValue) {
+              throw new Error(`Can't find limit for axis ${axis}.`);
+            }
+
+            // TODO: Here, scaleup factor if we want
+            const value = absoluteValue / limitValue;
+
+            return { axis: names[axis], value };
+          }
+        );
+        console.log(chartData)
+
+        // Show Div
+        BoundariesChart(this.$refs.canvasEl as HTMLElement, [ chartData ], {});
+        //
       }
     },
 
@@ -459,10 +526,16 @@ export default defineComponent({
             Download a csv file with the impacts of the foods and their amounts
             listed in the diet file.
           </p>
-          <label class="cluster">
-            <input type="checkbox" v-model="includeBreakdownFile" />
-            Include Breakdown File
-          </label>
+          <div class="cluster">
+            <label class="cluster">
+              <input type="checkbox" v-model="includeBreakdownFile" />
+              Include Breakdown File
+            </label>
+            <label class="cluster">
+              <input type="checkbox" v-model="includeCharts" />
+              Include planetary boundaries chart
+            </label>
+          </div>
         </div>
         <div class="stack" style="background: #dbe3f2">
           <div class="cluster cluster--between">
@@ -497,6 +570,7 @@ export default defineComponent({
             :file-description="Descriptions.slvRecipesFile"
           />
         </div>
+        <div ref="canvasEl"></div>
 
         <LoadingOverlay :show="isLoading" />
       </section>

@@ -15,7 +15,7 @@ type RadarDataPoint = { axis: string; value: number };
 type RadarData = RadarDataPoint[][];
 
 export default function BoundariesChart(
-  id: string,
+  id: HTMLElement,
   data: RadarData,
   options: Partial<Config>
 ) {

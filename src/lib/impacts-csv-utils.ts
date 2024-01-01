@@ -19,6 +19,8 @@ import namesJson from "@/data/rpc-names.json";
 const categoryNames = categoryNamesJson as Record<string, string>;
 const names = namesJson as Record<string, string>;
 
+export const START_INDEX_KEY_INDICATORS = 10;
+
 export const AGGREGATE_HEADERS = [
   // Aggregate over rpcs, processes, and packaging
   "Carbon footprint, total",
