@@ -123,11 +123,11 @@ export function expandedImpacts(
   );
 
   const combinedEmissions = [
-    rpcFootprints[0] + processCO2e + packagingCO2e, // CO2e
-    rpcFootprints[1] + processEmissions[0], // CO2
-    rpcFootprints[2] + processEmissions[1], // FCH4
-    rpcFootprints[3], // biogenic CH4, which is not emitted from processes
-    rpcFootprints[4] + processEmissions[2], // N2O
+    rpcFootprints[0] + processCO2e + packagingCO2e + transportEmissions[0], // CO2e
+    rpcFootprints[1] + processEmissions[0] + transportEmissions[1], // CO2
+    rpcFootprints[2] + processEmissions[1] + transportEmissions[2], // CH4, Fossil
+    rpcFootprints[3], // biogenic CH4
+    rpcFootprints[4] + processEmissions[2] + transportEmissions[3], // N2O
   ];
 
   return [
