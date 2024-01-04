@@ -6,18 +6,15 @@ const asNumber = (str: string, elseValue = 0): number => {
 };
 
 export function parseEmissionsFactorsPackaging(csvString: string) {
-  const array = parseCsvFile(csvString)
-    // Remove any empty rows
-    .filter((row) => row.some((cell) => cell.length > 0))
-    .slice(1, 10);
-
-  // TODO: Check if missing rows
-  // TODO: Check if invalid packaging types
+  const rows = parseCsvFile(csvString)
+    .slice(1) // Drop header
+    // Remove empty rows
+    .filter((row) => row.some((cell) => cell.length > 0));
 
   return Object.fromEntries(
-    array.map(([pType, ...efs]) => [
-      pType,
-      efs.map((x) => Number.parseFloat(x)),
+    rows.map(([packagingCode, _packagingName, ...efs]) => [
+      packagingCode,
+      efs.map((x) => asNumber(x)),
     ])
   );
 }
