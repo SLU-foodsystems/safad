@@ -9,8 +9,8 @@ describe("expandedImpacts adds together footprints", () => {
   const processEmissions = [100, 200, 300];
   // co2, FCH4, BCH4, N2O
   const packagingEmissions = [10, 20, 30, 40];
-  // co2e, co2, FCH4, N2O
-  const transportEmissions = [1, 2, 3, 4];
+  // co2, FCH4, N2O
+  const transportEmissions = [1, 2, 3];
 
   const actual = expandedImpacts(
     rpcFootprints,
@@ -29,7 +29,10 @@ describe("expandedImpacts adds together footprints", () => {
       packagingEmissions[1] * CO2E_CONV_FACTORS.FCH4 +
       packagingEmissions[2] * CO2E_CONV_FACTORS.BCH4 +
       packagingEmissions[3] * CO2E_CONV_FACTORS.N2O;
-    const transportCO2e = transportEmissions[0];
+    const transportCO2e =
+      transportEmissions[0] +
+      transportEmissions[1] * CO2E_CONV_FACTORS.FCH4 +
+      transportEmissions[2] * CO2E_CONV_FACTORS.N2O;
 
     const expectedCO2e =
       rpcFootprints[0] + processCO2e + packagingCO2e + transportCO2e;
@@ -41,7 +44,7 @@ describe("expandedImpacts adds together footprints", () => {
       rpcFootprints[1] +
       processEmissions[0] +
       packagingEmissions[0] +
-      transportEmissions[1];
+      transportEmissions[0];
     expect(actual[1]).toEqual(expectedCO2);
   });
 
@@ -50,7 +53,7 @@ describe("expandedImpacts adds together footprints", () => {
       rpcFootprints[2] +
       processEmissions[1] +
       packagingEmissions[1] +
-      transportEmissions[2];
+      transportEmissions[1];
     expect(actual[2]).toEqual(expected);
   });
 
@@ -64,7 +67,7 @@ describe("expandedImpacts adds together footprints", () => {
       rpcFootprints[4] +
       processEmissions[2] +
       packagingEmissions[3] +
-      transportEmissions[3];
+      transportEmissions[2];
     expect(actual[4]).toEqual(expected);
   });
 });
