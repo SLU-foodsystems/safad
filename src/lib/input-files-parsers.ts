@@ -235,14 +235,6 @@ export function parseFoodsRecipes(recipesCsvStr: string) {
     });
   }
 
-  function removeNullSelfReferences(obj: FoodsRecipes) {
-    Object.entries(obj).forEach(([id, _values]) => {
-      obj[id] = obj[id].filter(
-        ([foodCode, process]) => foodCode !== id || process.length > 0
-      );
-    });
-  }
-
   const recipes: FoodsRecipes = {};
 
   parseCsvFile(recipesCsvStr)
@@ -292,7 +284,6 @@ export function parseFoodsRecipes(recipesCsvStr: string) {
     );
 
   removeCorruptValues(recipes);
-  removeNullSelfReferences(recipes);
   deleteEmptyValues(recipes);
 
   return recipes;
