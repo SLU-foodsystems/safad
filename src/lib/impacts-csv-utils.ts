@@ -111,24 +111,34 @@ export function expandedImpacts(
   packagingEmissions: number[],
   transportEmissions: number[] // Include co2e in their impacts, while packaging and processes do not
 ) {
-  const processCO2e = sum(
-    ["CO2", "FCH4", "N2O"].map(
-      (ghg, i) => (processEmissions[i] || 0) * CO2E_CONV_FACTORS[ghg]
-    )
-  );
+  const toCo2e = (emissions: number[]) => (ghgName: string, i: number) =>
+    (emissions[i] || 0) * CO2E_CONV_FACTORS[ghgName];
+
+  const processCO2e = sum(["CO2", "FCH4", "N2O"].map(toCo2e(processEmissions)));
 
   const packagingCO2e = sum(
-    ["CO2", "FCH4", "BCH4", "N2O"].map(
-      (ghg, i) => (packagingEmissions[i] || 0) * CO2E_CONV_FACTORS[ghg]
-    )
+    ["CO2", "FCH4", "BCH4", "N2O"].map(toCo2e(packagingEmissions))
+  );
+
+  const transportCO2e = sum(
+    ["CO2", "FCH4", "N2O"].map(toCo2e(transportEmissions))
   );
 
   const combinedEmissions = [
-    rpcFootprints[0] + processCO2e + packagingCO2e + transportEmissions[0], // CO2e
-    rpcFootprints[1] + processEmissions[0] + packagingEmissions[0] + transportEmissions[1], // CO2
-    rpcFootprints[2] + processEmissions[1] + packagingEmissions[1] + transportEmissions[2], // Fossil CH4
+    rpcFootprints[0] + processCO2e + packagingCO2e + transportCO2e, // CO2e
+    rpcFootprints[1] +
+      processEmissions[0] +
+      packagingEmissions[0] +
+      transportEmissions[0], // CO2
+    rpcFootprints[2] +
+      processEmissions[1] +
+      packagingEmissions[1] +
+      transportEmissions[1], // Fossil CH4
     rpcFootprints[3] + packagingEmissions[2], // Biogenic CH4
-    rpcFootprints[4] + processEmissions[2] + packagingEmissions[3] + transportEmissions[3], // N2O
+    rpcFootprints[4] +
+      processEmissions[2] +
+      packagingEmissions[3] +
+      transportEmissions[2], // N2O
   ];
 
   return [
@@ -138,6 +148,7 @@ export function expandedImpacts(
     ...processEmissions,
     packagingCO2e,
     ...packagingEmissions,
+    transportCO2e,
     ...transportEmissions,
   ];
 }
