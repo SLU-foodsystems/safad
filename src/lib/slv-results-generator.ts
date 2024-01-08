@@ -142,7 +142,7 @@ export async function generateSlvResults(
       );
       if (totalImpacts === null) return null;
 
-      const rpcImpacts = totalImpacts;
+      const rpcImpacts = totalImpacts[0];
       let totalProcessImpacts = totalImpacts[1];
 
       const missingRpcImpacts = Object.entries(rpcImpacts).filter(
