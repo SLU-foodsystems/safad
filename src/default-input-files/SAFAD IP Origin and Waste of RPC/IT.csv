@@ -3306,18 +3306,19 @@ A.02.14.012,"Hops (dried), including hop pellets and unconcentrated powder (Humu
 A.10.02.002.002,Aspartam,Rest of World,RoW,1,0,MI-02
 A.10.02.002.003,Acesulfame K,Rest of World,RoW,1,0,MI-03
 A.10.02.002.004,Sucralose,Rest of World,RoW,1,0,MI-04
-A.16.04.001,Salt,Rest of World,RoW,1,0,MI-05
-A.16.04.015,Yeast extract,Rest of World,RoW,1,0,MI-06
-A.16.04.016,Monosodium glutamate,Rest of World,RoW,1,0,MI-07
-A.16.09.008,Liquorice (Glycyrrhiza glabra),Rest of World,RoW,1,0,MI-08
-A.16.10.001,Yeast,Rest of World,RoW,1,0,MI-09
-A.16.10.002,Sodium bicarbonate,Rest of World,RoW,1,0,MI-10
-A.16.10.007,Gum,Rest of World,RoW,1,0,MI-11
-A.16.10.008,Gelatine,Rest of World,RoW,1,0,MI-12
-A.16.10.009,Cream of tartar,Rest of World,RoW,1,0,MI-13
-I.02.08.004,Agave tequilana,Rest of World,RoW,1,0,MI-14
-I.02.08.005,Maples (trunk sap),Rest of World,RoW,1,0,MI-15
-I.16.09.009,Citric acid,Rest of World,RoW,1,0,MI-16
-I.16.09.011,Caffeine,Rest of World,RoW,1,0,MI-17
-I.16.09.012,Caramel color,Rest of World,RoW,1,0,MI-18
-I.16.09.013,Phosphoric acid,Rest of World,RoW,1,0,MI-19
+A.15.01,Tap water,Rest of World,RoW,1,0,MI-05
+A.16.04.001,Salt,Rest of World,RoW,1,0,MI-06
+A.16.04.015,Yeast extract,Rest of World,RoW,1,0,MI-07
+A.16.04.016,Monosodium glutamate,Rest of World,RoW,1,0,MI-08
+A.16.09.008,Liquorice (Glycyrrhiza glabra),Rest of World,RoW,1,0,MI-09
+A.16.10.001,Yeast,Rest of World,RoW,1,0,MI-10
+A.16.10.002,Sodium bicarbonate,Rest of World,RoW,1,0,MI-11
+A.16.10.007,Gum,Rest of World,RoW,1,0,MI-12
+A.16.10.008,Gelatine,Rest of World,RoW,1,0,MI-13
+A.16.10.009,Cream of tartar,Rest of World,RoW,1,0,MI-14
+I.02.08.004,Agave tequilana,Rest of World,RoW,1,0,MI-15
+I.02.08.005,Maples (trunk sap),Rest of World,RoW,1,0,MI-16
+I.16.09.009,Citric acid,Rest of World,RoW,1,0,MI-17
+I.16.09.011,Caffeine,Rest of World,RoW,1,0,MI-18
+I.16.09.012,Caramel color,Rest of World,RoW,1,0,MI-19
+I.16.09.013,Phosphoric acid,Rest of World,RoW,1,0,MI-20
