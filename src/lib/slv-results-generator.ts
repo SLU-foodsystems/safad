@@ -9,7 +9,7 @@ import { parseCsvFile, stringifyCsvData } from "./utils";
 
 const headerStr =
   "SLV Code,SLV Name,Ingredient Code,Ingredient Name,L1 Name,L2 Name,Gross Amount (g),Net Amount (g)," +
-  AGGREGATE_HEADERS.join(",") +
+  AGGREGATE_HEADERS.map((x) => (x.includes(",") ? `"${x}"` : x)).join(",") +
   ",Processes,Packaging";
 
 import foodexTranslationTableUrl from "@/data/foodex-code-translations.csv?url";
