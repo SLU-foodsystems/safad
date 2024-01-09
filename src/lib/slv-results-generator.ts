@@ -5,12 +5,21 @@ import {
   aggregateImpacts,
   labeledImpacts,
 } from "@/lib/impacts-csv-utils";
-import { parseCsvFile, stringifyCsvData } from "./utils";
+import { parseCsvFile } from "./utils";
 
-const headerStr =
-  "SLV Code,SLV Name,Ingredient Code,Ingredient Name,L1 Name,L2 Name,Gross Amount (g),Net Amount (g)," +
-  AGGREGATE_HEADERS.map((x) => (x.includes(",") ? `"${x}"` : x)).join(",") +
-  ",Processes,Packaging";
+export const SLV_RESULTS_HEADER = [
+  "SLV Code",
+  "SLV Name",
+  "Ingredient Code",
+  "Ingredient Name",
+  "L1 Name",
+  "L2 Name",
+  "Gross Amount (g)",
+  "Net Amount (g)",
+  ...AGGREGATE_HEADERS,
+  "Processes",
+  "Packaging",
+];
 
 import foodexTranslationTableUrl from "@/data/foodex-code-translations.csv?url";
 
@@ -55,7 +64,7 @@ const addProcesses = (
 export async function generateSlvResults(
   slvRecipeData: SlvRecipeComponent[],
   RE: ResultsEngine
-) {
+): Promise<string[][]> {
   const foodEx2ToFoodEx1Matchings = parseSlvFoodExTranslationFile(
     await fetch(foodexTranslationTableUrl).then((res) => {
       if (!res.ok) {
@@ -86,7 +95,7 @@ export async function generateSlvResults(
     }
   );
 
-  const rows: (string | null)[] = Object.entries(results).map(
+  const rows: (string[][] | null)[] = Object.entries(results).map(
     ([slvCode, ingredients]) => {
       const BASE_AMOUNT = 1000; // grams, = 1 kg
 
@@ -161,7 +170,7 @@ export async function generateSlvResults(
 
       const slvName = ingredients[0][0];
 
-      return stringifyCsvData([
+      return [
         [
           slvCode,
           slvName,
@@ -176,9 +185,9 @@ export async function generateSlvResults(
           "",
         ],
         ...ingredientRows,
-      ]);
+      ];
     }
   );
 
-  return headerStr + "\n" + rows.filter((x) => x !== null).join("\n");
+  return rows.filter((x): x is string[][] => x !== null).flat(1);
 }

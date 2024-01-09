@@ -7,7 +7,9 @@ export function average(numbers: number[]) {
   return sum(numbers) / numbers.length;
 }
 
-export function weightedArithmeticMean(valueFrequencyPairs: [number, number][]) {
+export function weightedArithmeticMean(
+  valueFrequencyPairs: [number, number][]
+) {
   if (valueFrequencyPairs.length === 0) return 0;
   const weightedSums = sum(valueFrequencyPairs.map(([w, x]) => w * x));
   const sumOfWeights = sum(valueFrequencyPairs.map(([w, _x]) => w));
@@ -161,13 +163,27 @@ export const filterObject = <V>(
  * Wraps a string in double quotes if it contains a delimiter (default: comma).
  * This is useful when printing CSV files, to avoid breaking the format.
  */
-export const maybeQuoteValue = (str: string, delim = ","): string =>
+const maybeQuoteValue = (str: string, delim = ","): string =>
   str && str.includes(delim) ? `"${str}"` : str;
 
 export const uniq = <T>(xs: T[]) => [...new Set(xs)];
 
-export const stringifyCsvData = (data: string[][]) =>
-  data.map((row) => row.join(",")).join("\n");
+/**
+ * Flattens a string[][] to a csv-string, (optionally) quoting any fields that
+ * contain the delimiter.
+ */
+export const stringifyCsvData = (
+  data: string[][],
+  smartQuote = true,
+  delim = ","
+) =>
+  data
+    .map((row) =>
+      row
+        .map((x) => smartQuote ? maybeQuoteValue(x || "") : x)
+        .join(delim)
+    )
+    .join("\n");
 
 export const listAllProcesses = (data: NestedRecord<string, number[]>) =>
   uniq(

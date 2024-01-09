@@ -7,11 +7,7 @@ import {
   N_PROCESS_GHGS,
 } from "@/lib/constants";
 
-import {
-  getRpcCodeSubset,
-  listAllProcesses,
-  maybeQuoteValue,
-} from "@/lib/utils";
+import { getRpcCodeSubset, listAllProcesses } from "@/lib/utils";
 
 import categoryNamesJson from "@/data/category-names.json";
 import namesJson from "@/data/rpc-names.json";
@@ -94,7 +90,7 @@ export const DETAILED_RESULTS_HEADER = [
   "L1 Category",
   "L2 Category",
   "Amount (g)",
-  ...AGGREGATE_HEADERS.map((x) => `"${x}"`),
+  ...AGGREGATE_HEADERS,
   "Processes",
   "Packeting",
   "RPCs with missing data",
@@ -226,9 +222,9 @@ export function labeledImpacts(
 
   return [
     code,
-    maybeQuoteValue(names[code] || "NAME NOT FOUND"),
-    maybeQuoteValue(getCategoryName(code, 1)),
-    maybeQuoteValue(getCategoryName(code, 2)),
+    names[code] || "NAME NOT FOUND",
+    getCategoryName(code, 1),
+    getCategoryName(code, 2),
     amount.toFixed(2),
     ...aggregatedImpacts,
     processes,
@@ -255,10 +251,10 @@ export function getDietBreakdown(
     rpcs.forEach(([rpcCode, rpcAmount]) => {
       rows.push([
         code,
-        `"${names[code]}"`,
+        names[code],
         String(amount),
         rpcCode,
-        `"${names[rpcCode]}"`,
+        names[rpcCode],
         String(rpcAmount),
       ]);
     });

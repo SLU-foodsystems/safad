@@ -15,7 +15,10 @@ import {
   getDietBreakdown,
 } from "@/lib/impacts-csv-utils";
 import reduceDietToRpcs from "./lib/rpc-reducer";
-import { generateSlvResults } from "./lib/slv-results-generator";
+import {
+  generateSlvResults,
+  SLV_RESULTS_HEADER,
+} from "./lib/slv-results-generator";
 
 interface SetFilePayload {
   data: string;
@@ -143,10 +146,10 @@ export default defineComponent({
         this.RE.computeImpactsOfRecipe()
       );
 
-      const impactsOfRecipeCsv =
-        DETAILED_RESULTS_HEADER.join(",") +
-        "\n" +
-        stringifyCsvData(impactsOfRecipe);
+      const impactsOfRecipeCsv = stringifyCsvData([
+        DETAILED_RESULTS_HEADER,
+        ...impactsOfRecipe,
+      ]);
 
       downloadAsPlaintext(
         impactsOfRecipeCsv,
@@ -159,10 +162,10 @@ export default defineComponent({
         this.RE.computeImpactsDetailed(this.diet)
       );
 
-      const detailedDietImpactsCsv =
-        DETAILED_RESULTS_HEADER.join(",") +
-        "\n" +
-        stringifyCsvData(detailedDietImpacts);
+      const detailedDietImpactsCsv = stringifyCsvData([
+        DETAILED_RESULTS_HEADER,
+        ...detailedDietImpacts,
+      ]);
 
       downloadAsPlaintext(
         detailedDietImpactsCsv,
@@ -181,9 +184,16 @@ export default defineComponent({
             )[0],
           ])
         );
+        const breakdownFileHeader = [
+          "Food Code",
+          "Food Name",
+          "Food Amount (g)",
+          "RPC Code",
+          "RPC Name",
+          "RPC Amount (g)",
+        ];
         downloadAsPlaintext(
-          "Food Code,Food Name,Food Amount (g),RPC Code,RPC Name,RPC Amount (g)\n" +
-            stringifyCsvData(dietBreakdownRows),
+          stringifyCsvData([breakdownFileHeader, ...dietBreakdownRows]),
           "SAFAD OS Breakdown per Food.csv"
         );
       }
@@ -192,12 +202,12 @@ export default defineComponent({
     async downloadFootprintsOfSLVRecipes() {
       if (!this.RE) return;
 
-      const slvResultsCsv = await generateSlvResults(
+      const slvResultsRows = await generateSlvResults(
         this.slvRecipes,
         this.RE as ResultsEngine
       );
       downloadAsPlaintext(
-        slvResultsCsv,
+        stringifyCsvData([SLV_RESULTS_HEADER, ...slvResultsRows]),
         "SAFAD OR Footprints per SLV Food.csv"
       );
     },
