@@ -149,13 +149,13 @@ export const replaceKeys = <V>(
 
 export const mapValues = <V, T>(
   object: Record<string, V>,
-  fn: ((v: V, k: string) => T)
+  fn: (v: V, k: string) => T
 ): Record<string, T> =>
   Object.fromEntries(Object.entries(object).map(([k, v]) => [k, fn(v, k)]));
 
 export const filterObject = <V>(
   object: Record<string, V>,
-  fn: ((k: string, v: V) => boolean)
+  fn: (k: string, v: V) => boolean
 ): Record<string, V> =>
   Object.fromEntries(Object.entries(object).filter(([k, v]) => fn(k, v)));
 
