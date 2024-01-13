@@ -26,7 +26,7 @@ class ResultsEngine {
   footprintsRpcsMerged?: RpcFootprints;
 
   rpcOriginWasteFull?: RpcOriginWaste;
-  rpcOriginWaste?: RpcOriginWaste = undefined;
+  rpcOriginWaste?: RpcOriginWaste;
 
   foodsRecipes?: FoodsRecipes;
 
