@@ -236,7 +236,7 @@ A.02.01.001,Arrowroots,Ghana,GH,0.011,0.24,01599.10
 A.02.01.001,Arrowroots,Honduras,HN,0.001,0.24,01599.10
 A.02.01.001,Arrowroots,Indonesia,ID,0.005,0.24,01599.10
 A.02.01.001,Arrowroots,Cote d'Ivoire,CI,0.035,0.24,01599.10
-A.02.01.001,Arrowroots,Myanmar,MM,0.001,0.24,01599.10
+A.02.01.001,Arrowroots,Jamaica,JM,0.001,0.24,01599.10
 A.02.01.001,Arrowroots,Malawi,MW,0.002,0.24,01599.10
 A.02.01.001,Arrowroots,Mexico,MX,0.004,0.24,01599.10
 A.02.01.001,Arrowroots,Morocco,MA,0.001,0.24,01599.10
@@ -257,7 +257,7 @@ A.02.01.002,Beetroots,Ghana,GH,0.011,0.24,01599.10
 A.02.01.002,Beetroots,Honduras,HN,0.001,0.24,01599.10
 A.02.01.002,Beetroots,Indonesia,ID,0.005,0.24,01599.10
 A.02.01.002,Beetroots,Cote d'Ivoire,CI,0.035,0.24,01599.10
-A.02.01.002,Beetroots,Myanmar,MM,0.001,0.24,01599.10
+A.02.01.002,Beetroots,Jamaica,JM,0.001,0.24,01599.10
 A.02.01.002,Beetroots,Malawi,MW,0.002,0.24,01599.10
 A.02.01.002,Beetroots,Mexico,MX,0.004,0.24,01599.10
 A.02.01.002,Beetroots,Morocco,MA,0.001,0.24,01599.10
@@ -288,7 +288,7 @@ A.02.01.004,Celeriacs,Ghana,GH,0.011,0.24,01599.10
 A.02.01.004,Celeriacs,Honduras,HN,0.001,0.24,01599.10
 A.02.01.004,Celeriacs,Indonesia,ID,0.005,0.24,01599.10
 A.02.01.004,Celeriacs,Cote d'Ivoire,CI,0.035,0.24,01599.10
-A.02.01.004,Celeriacs,Myanmar,MM,0.001,0.24,01599.10
+A.02.01.004,Celeriacs,Jamaica,JM,0.001,0.24,01599.10
 A.02.01.004,Celeriacs,Malawi,MW,0.002,0.24,01599.10
 A.02.01.004,Celeriacs,Mexico,MX,0.004,0.24,01599.10
 A.02.01.004,Celeriacs,Morocco,MA,0.001,0.24,01599.10
@@ -309,7 +309,7 @@ A.02.01.005,Horseradish roots,Ghana,GH,0.011,0.24,01599.10
 A.02.01.005,Horseradish roots,Honduras,HN,0.001,0.24,01599.10
 A.02.01.005,Horseradish roots,Indonesia,ID,0.005,0.24,01599.10
 A.02.01.005,Horseradish roots,Cote d'Ivoire,CI,0.035,0.24,01599.10
-A.02.01.005,Horseradish roots,Myanmar,MM,0.001,0.24,01599.10
+A.02.01.005,Horseradish roots,Jamaica,JM,0.001,0.24,01599.10
 A.02.01.005,Horseradish roots,Malawi,MW,0.002,0.24,01599.10
 A.02.01.005,Horseradish roots,Mexico,MX,0.004,0.24,01599.10
 A.02.01.005,Horseradish roots,Morocco,MA,0.001,0.24,01599.10
@@ -330,7 +330,7 @@ A.02.01.006,Parsley roots,Ghana,GH,0.011,0.24,01599.10
 A.02.01.006,Parsley roots,Honduras,HN,0.001,0.24,01599.10
 A.02.01.006,Parsley roots,Indonesia,ID,0.005,0.24,01599.10
 A.02.01.006,Parsley roots,Cote d'Ivoire,CI,0.035,0.24,01599.10
-A.02.01.006,Parsley roots,Myanmar,MM,0.001,0.24,01599.10
+A.02.01.006,Parsley roots,Jamaica,JM,0.001,0.24,01599.10
 A.02.01.006,Parsley roots,Malawi,MW,0.002,0.24,01599.10
 A.02.01.006,Parsley roots,Mexico,MX,0.004,0.24,01599.10
 A.02.01.006,Parsley roots,Morocco,MA,0.001,0.24,01599.10
@@ -351,7 +351,7 @@ A.02.01.007,Parsnip roots,Ghana,GH,0.011,0.24,01599.10
 A.02.01.007,Parsnip roots,Honduras,HN,0.001,0.24,01599.10
 A.02.01.007,Parsnip roots,Indonesia,ID,0.005,0.24,01599.10
 A.02.01.007,Parsnip roots,Cote d'Ivoire,CI,0.035,0.24,01599.10
-A.02.01.007,Parsnip roots,Myanmar,MM,0.001,0.24,01599.10
+A.02.01.007,Parsnip roots,Jamaica,JM,0.001,0.24,01599.10
 A.02.01.007,Parsnip roots,Malawi,MW,0.002,0.24,01599.10
 A.02.01.007,Parsnip roots,Mexico,MX,0.004,0.24,01599.10
 A.02.01.007,Parsnip roots,Morocco,MA,0.001,0.24,01599.10
@@ -441,7 +441,7 @@ A.02.03.001,Tomatoes,Germany,DE,0.001,0.07,01234
 A.02.03.001,Tomatoes,Italy,IT,0.033,0.07,01234
 A.02.03.001,Tomatoes,Netherlands,NL,0.003,0.07,01234
 A.02.03.001,Tomatoes,North Macedonia,MK,0.002,0.07,01234
-A.02.03.001,Tomatoes,Poland,PL,0.002,0.07,01234
+A.02.03.001,Tomatoes,Portugal,PT,0.002,0.07,01234
 A.02.03.001,Tomatoes,Spain,ES,0.005,0.07,01234
 A.02.03.001,Tomatoes,Turkey,TR,0.001,0.07,01234
 A.02.03.001,Tomatoes,USA,US,0.004,0.07,01234
@@ -791,7 +791,7 @@ A.02.08.003,Chicory roots,Ghana,GH,0.011,0.24,01599.10
 A.02.08.003,Chicory roots,Honduras,HN,0.001,0.24,01599.10
 A.02.08.003,Chicory roots,Indonesia,ID,0.005,0.24,01599.10
 A.02.08.003,Chicory roots,Cote d'Ivoire,CI,0.035,0.24,01599.10
-A.02.08.003,Chicory roots,Myanmar,MM,0.001,0.24,01599.10
+A.02.08.003,Chicory roots,Jamaica,JM,0.001,0.24,01599.10
 A.02.08.003,Chicory roots,Malawi,MW,0.002,0.24,01599.10
 A.02.08.003,Chicory roots,Mexico,MX,0.004,0.24,01599.10
 A.02.08.003,Chicory roots,Morocco,MA,0.001,0.24,01599.10
@@ -1114,7 +1114,7 @@ A.02.15.001,Common mushrooms,Hungary,HU,0.023,0.07,01270
 A.02.15.001,Common mushrooms,Italy,IT,0.012,0.07,01270
 A.02.15.001,Common mushrooms,Republic of Korea,KR,0.001,0.07,01270
 A.02.15.001,Common mushrooms,Lithuania,LT,0.001,0.07,01270
-A.02.15.001,Common mushrooms,Poland,PL,0.001,0.07,01270
+A.02.15.001,Common mushrooms,Portugal,PT,0.001,0.07,01270
 A.02.15.001,Common mushrooms,Romania,RO,0.001,0.07,01270
 A.02.15.001,Common mushrooms,Spain,ES,0.036,0.07,01270
 A.02.15.001,Common mushrooms,Turkey,TR,0.003,0.07,01270
@@ -1131,7 +1131,7 @@ A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Hungary,HU,0.023,0.07,01270
 A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Italy,IT,0.012,0.07,01270
 A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Republic of Korea,KR,0.001,0.07,01270
 A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Lithuania,LT,0.001,0.07,01270
-A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Poland,PL,0.001,0.07,01270
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Portugal,PT,0.001,0.07,01270
 A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Romania,RO,0.001,0.07,01270
 A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Spain,ES,0.036,0.07,01270
 A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Turkey,TR,0.003,0.07,01270
@@ -1148,7 +1148,7 @@ A.02.15.003,Shiitake,Hungary,HU,0.023,0.07,01270
 A.02.15.003,Shiitake,Italy,IT,0.012,0.07,01270
 A.02.15.003,Shiitake,Republic of Korea,KR,0.001,0.07,01270
 A.02.15.003,Shiitake,Lithuania,LT,0.001,0.07,01270
-A.02.15.003,Shiitake,Poland,PL,0.001,0.07,01270
+A.02.15.003,Shiitake,Portugal,PT,0.001,0.07,01270
 A.02.15.003,Shiitake,Romania,RO,0.001,0.07,01270
 A.02.15.003,Shiitake,Spain,ES,0.036,0.07,01270
 A.02.15.003,Shiitake,Turkey,TR,0.003,0.07,01270
@@ -1165,7 +1165,7 @@ A.02.16.002,Honey mushroom,Hungary,HU,0.023,0.07,01270
 A.02.16.002,Honey mushroom,Italy,IT,0.012,0.07,01270
 A.02.16.002,Honey mushroom,Republic of Korea,KR,0.001,0.07,01270
 A.02.16.002,Honey mushroom,Lithuania,LT,0.001,0.07,01270
-A.02.16.002,Honey mushroom,Poland,PL,0.001,0.07,01270
+A.02.16.002,Honey mushroom,Portugal,PT,0.001,0.07,01270
 A.02.16.002,Honey mushroom,Romania,RO,0.001,0.07,01270
 A.02.16.002,Honey mushroom,Spain,ES,0.036,0.07,01270
 A.02.16.002,Honey mushroom,Turkey,TR,0.003,0.07,01270
@@ -1182,7 +1182,7 @@ A.02.16.003,Ceps,Hungary,HU,0.023,0.07,01270
 A.02.16.003,Ceps,Italy,IT,0.012,0.07,01270
 A.02.16.003,Ceps,Republic of Korea,KR,0.001,0.07,01270
 A.02.16.003,Ceps,Lithuania,LT,0.001,0.07,01270
-A.02.16.003,Ceps,Poland,PL,0.001,0.07,01270
+A.02.16.003,Ceps,Portugal,PT,0.001,0.07,01270
 A.02.16.003,Ceps,Romania,RO,0.001,0.07,01270
 A.02.16.003,Ceps,Spain,ES,0.036,0.07,01270
 A.02.16.003,Ceps,Turkey,TR,0.003,0.07,01270
@@ -1199,7 +1199,7 @@ A.02.16.004,Truffles,Hungary,HU,0.023,0.07,01270
 A.02.16.004,Truffles,Italy,IT,0.012,0.07,01270
 A.02.16.004,Truffles,Republic of Korea,KR,0.001,0.07,01270
 A.02.16.004,Truffles,Lithuania,LT,0.001,0.07,01270
-A.02.16.004,Truffles,Poland,PL,0.001,0.07,01270
+A.02.16.004,Truffles,Portugal,PT,0.001,0.07,01270
 A.02.16.004,Truffles,Romania,RO,0.001,0.07,01270
 A.02.16.004,Truffles,Spain,ES,0.036,0.07,01270
 A.02.16.004,Truffles,Turkey,TR,0.003,0.07,01270
@@ -1216,7 +1216,7 @@ A.02.16.005,Morels,Hungary,HU,0.023,0.07,01270
 A.02.16.005,Morels,Italy,IT,0.012,0.07,01270
 A.02.16.005,Morels,Republic of Korea,KR,0.001,0.07,01270
 A.02.16.005,Morels,Lithuania,LT,0.001,0.07,01270
-A.02.16.005,Morels,Poland,PL,0.001,0.07,01270
+A.02.16.005,Morels,Portugal,PT,0.001,0.07,01270
 A.02.16.005,Morels,Romania,RO,0.001,0.07,01270
 A.02.16.005,Morels,Spain,ES,0.036,0.07,01270
 A.02.16.005,Morels,Turkey,TR,0.003,0.07,01270
@@ -1233,7 +1233,7 @@ A.02.16.006,Chanterelles,Hungary,HU,0.023,0.07,01270
 A.02.16.006,Chanterelles,Italy,IT,0.012,0.07,01270
 A.02.16.006,Chanterelles,Republic of Korea,KR,0.001,0.07,01270
 A.02.16.006,Chanterelles,Lithuania,LT,0.001,0.07,01270
-A.02.16.006,Chanterelles,Poland,PL,0.001,0.07,01270
+A.02.16.006,Chanterelles,Portugal,PT,0.001,0.07,01270
 A.02.16.006,Chanterelles,Romania,RO,0.001,0.07,01270
 A.02.16.006,Chanterelles,Spain,ES,0.036,0.07,01270
 A.02.16.006,Chanterelles,Turkey,TR,0.003,0.07,01270
@@ -1250,7 +1250,7 @@ A.02.16.007,Saffron milk cap,Hungary,HU,0.023,0.07,01270
 A.02.16.007,Saffron milk cap,Italy,IT,0.012,0.07,01270
 A.02.16.007,Saffron milk cap,Republic of Korea,KR,0.001,0.07,01270
 A.02.16.007,Saffron milk cap,Lithuania,LT,0.001,0.07,01270
-A.02.16.007,Saffron milk cap,Poland,PL,0.001,0.07,01270
+A.02.16.007,Saffron milk cap,Portugal,PT,0.001,0.07,01270
 A.02.16.007,Saffron milk cap,Romania,RO,0.001,0.07,01270
 A.02.16.007,Saffron milk cap,Spain,ES,0.036,0.07,01270
 A.02.16.007,Saffron milk cap,Turkey,TR,0.003,0.07,01270
@@ -1311,7 +1311,7 @@ A.03.02.002,Cassava root (Manihot esculenta),Ghana,GH,0.011,0.24,01599.10
 A.03.02.002,Cassava root (Manihot esculenta),Honduras,HN,0.001,0.24,01599.10
 A.03.02.002,Cassava root (Manihot esculenta),Indonesia,ID,0.005,0.24,01599.10
 A.03.02.002,Cassava root (Manihot esculenta),Cote d'Ivoire,CI,0.035,0.24,01599.10
-A.03.02.002,Cassava root (Manihot esculenta),Myanmar,MM,0.001,0.24,01599.10
+A.03.02.002,Cassava root (Manihot esculenta),Jamaica,JM,0.001,0.24,01599.10
 A.03.02.002,Cassava root (Manihot esculenta),Malawi,MW,0.002,0.24,01599.10
 A.03.02.002,Cassava root (Manihot esculenta),Mexico,MX,0.004,0.24,01599.10
 A.03.02.002,Cassava root (Manihot esculenta),Morocco,MA,0.001,0.24,01599.10
@@ -1332,7 +1332,7 @@ A.03.02.004,Yams,Ghana,GH,0.011,0.24,01599.10
 A.03.02.004,Yams,Honduras,HN,0.001,0.24,01599.10
 A.03.02.004,Yams,Indonesia,ID,0.005,0.24,01599.10
 A.03.02.004,Yams,Cote d'Ivoire,CI,0.035,0.24,01599.10
-A.03.02.004,Yams,Myanmar,MM,0.001,0.24,01599.10
+A.03.02.004,Yams,Jamaica,JM,0.001,0.24,01599.10
 A.03.02.004,Yams,Malawi,MW,0.002,0.24,01599.10
 A.03.02.004,Yams,Mexico,MX,0.004,0.24,01599.10
 A.03.02.004,Yams,Morocco,MA,0.001,0.24,01599.10
@@ -1353,7 +1353,7 @@ A.03.02.005,Jerusalem artichokes,Ghana,GH,0.011,0.24,01599.10
 A.03.02.005,Jerusalem artichokes,Honduras,HN,0.001,0.24,01599.10
 A.03.02.005,Jerusalem artichokes,Indonesia,ID,0.005,0.24,01599.10
 A.03.02.005,Jerusalem artichokes,Cote d'Ivoire,CI,0.035,0.24,01599.10
-A.03.02.005,Jerusalem artichokes,Myanmar,MM,0.001,0.24,01599.10
+A.03.02.005,Jerusalem artichokes,Jamaica,JM,0.001,0.24,01599.10
 A.03.02.005,Jerusalem artichokes,Malawi,MW,0.002,0.24,01599.10
 A.03.02.005,Jerusalem artichokes,Mexico,MX,0.004,0.24,01599.10
 A.03.02.005,Jerusalem artichokes,Morocco,MA,0.001,0.24,01599.10
@@ -1601,7 +1601,7 @@ A.04.02.020,Yams,Ghana,GH,0.011,0.24,01599.10
 A.04.02.020,Yams,Honduras,HN,0.001,0.24,01599.10
 A.04.02.020,Yams,Indonesia,ID,0.005,0.24,01599.10
 A.04.02.020,Yams,Cote d'Ivoire,CI,0.035,0.24,01599.10
-A.04.02.020,Yams,Myanmar,MM,0.001,0.24,01599.10
+A.04.02.020,Yams,Jamaica,JM,0.001,0.24,01599.10
 A.04.02.020,Yams,Malawi,MW,0.002,0.24,01599.10
 A.04.02.020,Yams,Mexico,MX,0.004,0.24,01599.10
 A.04.02.020,Yams,Morocco,MA,0.001,0.24,01599.10
@@ -1936,7 +1936,7 @@ A.05.02.002,Pears,Germany,DE,0.001,0.07,01342.01
 A.05.02.002,Pears,Israel,IL,0.001,0.07,01342.01
 A.05.02.002,Pears,Italy,IT,0.013,0.07,01342.01
 A.05.02.002,Pears,Netherlands,NL,0.004,0.07,01342.01
-A.05.02.002,Pears,Poland,PL,0.001,0.07,01342.01
+A.05.02.002,Pears,Portugal,PT,0.001,0.07,01342.01
 A.05.02.002,Pears,South Africa,ZA,0.012,0.07,01342.01
 A.05.02.002,Pears,Spain,ES,0.024,0.07,01342.01
 A.05.02.002,Pears,Turkey,TR,0.001,0.07,01342.01
@@ -1979,7 +1979,7 @@ A.05.02.009,Nashi pears,Germany,DE,0.001,0.07,01342.01
 A.05.02.009,Nashi pears,Israel,IL,0.001,0.07,01342.01
 A.05.02.009,Nashi pears,Italy,IT,0.013,0.07,01342.01
 A.05.02.009,Nashi pears,Netherlands,NL,0.004,0.07,01342.01
-A.05.02.009,Nashi pears,Poland,PL,0.001,0.07,01342.01
+A.05.02.009,Nashi pears,Portugal,PT,0.001,0.07,01342.01
 A.05.02.009,Nashi pears,South Africa,ZA,0.012,0.07,01342.01
 A.05.02.009,Nashi pears,Spain,ES,0.024,0.07,01342.01
 A.05.02.009,Nashi pears,Turkey,TR,0.001,0.07,01342.01
@@ -2102,7 +2102,7 @@ A.05.04.004,Blackberries,Latvia,LV,0.003,0.07,01353.01
 A.05.04.004,Blackberries,Lithuania,LT,0.004,0.07,01353.01
 A.05.04.004,Blackberries,Morocco,MA,0.025,0.07,01353.01
 A.05.04.004,Blackberries,Peru,PE,0.014,0.07,01353.01
-A.05.04.004,Blackberries,Poland,PL,0.011,0.07,01353.01
+A.05.04.004,Blackberries,Portugal,PT,0.011,0.07,01353.01
 A.05.04.004,Blackberries,Romania,RO,0.004,0.07,01353.01
 A.05.04.004,Blackberries,Sweden,SE,0.001,0.07,01353.01
 A.05.04.004,Blackberries,Ukraine,UA,0.003,0.07,01353.01
@@ -2118,7 +2118,7 @@ A.05.04.006,Raspberries (red and yellow),Latvia,LV,0.003,0.07,01353.01
 A.05.04.006,Raspberries (red and yellow),Lithuania,LT,0.004,0.07,01353.01
 A.05.04.006,Raspberries (red and yellow),Morocco,MA,0.025,0.07,01353.01
 A.05.04.006,Raspberries (red and yellow),Peru,PE,0.014,0.07,01353.01
-A.05.04.006,Raspberries (red and yellow),Poland,PL,0.011,0.07,01353.01
+A.05.04.006,Raspberries (red and yellow),Portugal,PT,0.011,0.07,01353.01
 A.05.04.006,Raspberries (red and yellow),Romania,RO,0.004,0.07,01353.01
 A.05.04.006,Raspberries (red and yellow),Sweden,SE,0.001,0.07,01353.01
 A.05.04.006,Raspberries (red and yellow),Ukraine,UA,0.003,0.07,01353.01
@@ -2134,7 +2134,7 @@ A.05.04.008,Blueberries,Latvia,LV,0.003,0.07,01355.01
 A.05.04.008,Blueberries,Lithuania,LT,0.004,0.07,01355.01
 A.05.04.008,Blueberries,Morocco,MA,0.025,0.07,01355.01
 A.05.04.008,Blueberries,Peru,PE,0.014,0.07,01355.01
-A.05.04.008,Blueberries,Poland,PL,0.011,0.07,01355.01
+A.05.04.008,Blueberries,Portugal,PT,0.011,0.07,01355.01
 A.05.04.008,Blueberries,Romania,RO,0.004,0.07,01355.01
 A.05.04.008,Blueberries,Sweden,SE,0.001,0.07,01355.01
 A.05.04.008,Blueberries,Ukraine,UA,0.003,0.07,01355.01
@@ -2150,7 +2150,7 @@ A.05.04.009,Cranberries (Vaccinium macrocarpon),Latvia,LV,0.003,0.07,01355.01
 A.05.04.009,Cranberries (Vaccinium macrocarpon),Lithuania,LT,0.004,0.07,01355.01
 A.05.04.009,Cranberries (Vaccinium macrocarpon),Morocco,MA,0.025,0.07,01355.01
 A.05.04.009,Cranberries (Vaccinium macrocarpon),Peru,PE,0.014,0.07,01355.01
-A.05.04.009,Cranberries (Vaccinium macrocarpon),Poland,PL,0.011,0.07,01355.01
+A.05.04.009,Cranberries (Vaccinium macrocarpon),Portugal,PT,0.011,0.07,01355.01
 A.05.04.009,Cranberries (Vaccinium macrocarpon),Romania,RO,0.004,0.07,01355.01
 A.05.04.009,Cranberries (Vaccinium macrocarpon),Sweden,SE,0.001,0.07,01355.01
 A.05.04.009,Cranberries (Vaccinium macrocarpon),Ukraine,UA,0.003,0.07,01355.01
@@ -2214,7 +2214,7 @@ A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),Latvia,LV,0.003,0
 A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),Lithuania,LT,0.004,0.07,01355.01
 A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),Morocco,MA,0.025,0.07,01355.01
 A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),Peru,PE,0.014,0.07,01355.01
-A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),Poland,PL,0.011,0.07,01355.01
+A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),Portugal,PT,0.011,0.07,01355.01
 A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),Romania,RO,0.004,0.07,01355.01
 A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),Sweden,SE,0.001,0.07,01355.01
 A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),Ukraine,UA,0.003,0.07,01355.01
@@ -2244,7 +2244,7 @@ A.05.04.016,Cloudberries,Latvia,LV,0.003,0.07,01353.01
 A.05.04.016,Cloudberries,Lithuania,LT,0.004,0.07,01353.01
 A.05.04.016,Cloudberries,Morocco,MA,0.025,0.07,01353.01
 A.05.04.016,Cloudberries,Peru,PE,0.014,0.07,01353.01
-A.05.04.016,Cloudberries,Poland,PL,0.011,0.07,01353.01
+A.05.04.016,Cloudberries,Portugal,PT,0.011,0.07,01353.01
 A.05.04.016,Cloudberries,Romania,RO,0.004,0.07,01353.01
 A.05.04.016,Cloudberries,Sweden,SE,0.001,0.07,01353.01
 A.05.04.016,Cloudberries,Ukraine,UA,0.003,0.07,01353.01
@@ -2260,7 +2260,7 @@ A.05.04.017,Loganberry (Rubus loganobaccus),Latvia,LV,0.003,0.07,01355.01
 A.05.04.017,Loganberry (Rubus loganobaccus),Lithuania,LT,0.004,0.07,01355.01
 A.05.04.017,Loganberry (Rubus loganobaccus),Morocco,MA,0.025,0.07,01355.01
 A.05.04.017,Loganberry (Rubus loganobaccus),Peru,PE,0.014,0.07,01355.01
-A.05.04.017,Loganberry (Rubus loganobaccus),Poland,PL,0.011,0.07,01355.01
+A.05.04.017,Loganberry (Rubus loganobaccus),Portugal,PT,0.011,0.07,01355.01
 A.05.04.017,Loganberry (Rubus loganobaccus),Romania,RO,0.004,0.07,01355.01
 A.05.04.017,Loganberry (Rubus loganobaccus),Sweden,SE,0.001,0.07,01355.01
 A.05.04.017,Loganberry (Rubus loganobaccus),Ukraine,UA,0.003,0.07,01355.01
@@ -2276,7 +2276,7 @@ A.05.04.022,Bilberries,Latvia,LV,0.003,0.07,01355.01
 A.05.04.022,Bilberries,Lithuania,LT,0.004,0.07,01355.01
 A.05.04.022,Bilberries,Morocco,MA,0.025,0.07,01355.01
 A.05.04.022,Bilberries,Peru,PE,0.014,0.07,01355.01
-A.05.04.022,Bilberries,Poland,PL,0.011,0.07,01355.01
+A.05.04.022,Bilberries,Portugal,PT,0.011,0.07,01355.01
 A.05.04.022,Bilberries,Romania,RO,0.004,0.07,01355.01
 A.05.04.022,Bilberries,Sweden,SE,0.001,0.07,01355.01
 A.05.04.022,Bilberries,Ukraine,UA,0.003,0.07,01355.01
@@ -2292,7 +2292,7 @@ A.05.04.026,Lingonberry (Vaccinium vitis-idaea),Latvia,LV,0.003,0.07,01355.01
 A.05.04.026,Lingonberry (Vaccinium vitis-idaea),Lithuania,LT,0.004,0.07,01355.01
 A.05.04.026,Lingonberry (Vaccinium vitis-idaea),Morocco,MA,0.025,0.07,01355.01
 A.05.04.026,Lingonberry (Vaccinium vitis-idaea),Peru,PE,0.014,0.07,01355.01
-A.05.04.026,Lingonberry (Vaccinium vitis-idaea),Poland,PL,0.011,0.07,01355.01
+A.05.04.026,Lingonberry (Vaccinium vitis-idaea),Portugal,PT,0.011,0.07,01355.01
 A.05.04.026,Lingonberry (Vaccinium vitis-idaea),Romania,RO,0.004,0.07,01355.01
 A.05.04.026,Lingonberry (Vaccinium vitis-idaea),Sweden,SE,0.001,0.07,01355.01
 A.05.04.026,Lingonberry (Vaccinium vitis-idaea),Ukraine,UA,0.003,0.07,01355.01
@@ -2305,7 +2305,7 @@ A.05.04.029,Ground cherries (physalis etc.),Germany,DE,0.001,0.07,01234
 A.05.04.029,Ground cherries (physalis etc.),Italy,IT,0.033,0.07,01234
 A.05.04.029,Ground cherries (physalis etc.),Netherlands,NL,0.003,0.07,01234
 A.05.04.029,Ground cherries (physalis etc.),North Macedonia,MK,0.002,0.07,01234
-A.05.04.029,Ground cherries (physalis etc.),Poland,PL,0.002,0.07,01234
+A.05.04.029,Ground cherries (physalis etc.),Portugal,PT,0.002,0.07,01234
 A.05.04.029,Ground cherries (physalis etc.),Spain,ES,0.005,0.07,01234
 A.05.04.029,Ground cherries (physalis etc.),Turkey,TR,0.001,0.07,01234
 A.05.04.029,Ground cherries (physalis etc.),USA,US,0.004,0.07,01234
@@ -2382,7 +2382,7 @@ A.05.06.013,American persimmons,Germany,DE,0.001,0.07,01234
 A.05.06.013,American persimmons,Italy,IT,0.033,0.07,01234
 A.05.06.013,American persimmons,Netherlands,NL,0.003,0.07,01234
 A.05.06.013,American persimmons,North Macedonia,MK,0.002,0.07,01234
-A.05.06.013,American persimmons,Poland,PL,0.002,0.07,01234
+A.05.06.013,American persimmons,Portugal,PT,0.002,0.07,01234
 A.05.06.013,American persimmons,Spain,ES,0.005,0.07,01234
 A.05.06.013,American persimmons,Turkey,TR,0.001,0.07,01234
 A.05.06.013,American persimmons,USA,US,0.004,0.07,01234
@@ -2582,7 +2582,7 @@ A.06.02.001,Chicken meat (Gallus domesticus),Hungary,HU,0.004,0.057,21121
 A.06.02.001,Chicken meat (Gallus domesticus),Italy,IT,0.044,0.057,21121
 A.06.02.001,Chicken meat (Gallus domesticus),Netherlands,NL,0.055,0.057,21121
 A.06.02.001,Chicken meat (Gallus domesticus),Czechia,CZ,0.001,0.057,21121
-A.06.02.001,Chicken meat (Gallus domesticus),Poland,PL,0.003,0.057,21121
+A.06.02.001,Chicken meat (Gallus domesticus),Portugal,PT,0.003,0.057,21121
 A.06.02.001,Chicken meat (Gallus domesticus),Romania,RO,0.01,0.057,21121
 A.06.02.001,Chicken meat (Gallus domesticus),Spain,ES,0.001,0.057,21121
 A.06.02.001,Chicken meat (Gallus domesticus),Sweden,SE,0.001,0.057,21121
@@ -2604,7 +2604,7 @@ A.06.02.002,Turkey fresh meat,Hungary,HU,0.015,0.057,21124
 A.06.02.002,Turkey fresh meat,Ireland,IE,0.001,0.057,21124
 A.06.02.002,Turkey fresh meat,Israel,IL,0.001,0.057,21124
 A.06.02.002,Turkey fresh meat,Lithuania,LT,0.001,0.057,21124
-A.06.02.002,Turkey fresh meat,Poland,PL,0.031,0.057,21124
+A.06.02.002,Turkey fresh meat,Portugal,PT,0.031,0.057,21124
 A.06.02.002,Turkey fresh meat,Spain,ES,0.009,0.057,21124
 A.06.02.002,Turkey fresh meat,United Kingdom,GB,0.062,0.057,21124
 A.06.02.002,Turkey fresh meat,Belgium,BE,0.001,0.057,21124
@@ -2669,7 +2669,7 @@ A.06.02.006,Guinea-fowl fresh meat,Hungary,HU,0.004,0.057,21121
 A.06.02.006,Guinea-fowl fresh meat,Italy,IT,0.044,0.057,21121
 A.06.02.006,Guinea-fowl fresh meat,Netherlands,NL,0.055,0.057,21121
 A.06.02.006,Guinea-fowl fresh meat,Czechia,CZ,0.001,0.057,21121
-A.06.02.006,Guinea-fowl fresh meat,Poland,PL,0.003,0.057,21121
+A.06.02.006,Guinea-fowl fresh meat,Portugal,PT,0.003,0.057,21121
 A.06.02.006,Guinea-fowl fresh meat,Romania,RO,0.01,0.057,21121
 A.06.02.006,Guinea-fowl fresh meat,Spain,ES,0.001,0.057,21121
 A.06.02.006,Guinea-fowl fresh meat,Sweden,SE,0.001,0.057,21121
@@ -2757,7 +2757,7 @@ A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",Lithuania,LT,0.0
 A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",Netherlands,NL,0.096,0.017,02211
 A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",New Zealand,NZ,0.003,0.017,02211
 A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",Czechia,CZ,0.006,0.017,02211
-A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",Poland,PL,0.004,0.017,02211
+A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",Portugal,PT,0.004,0.017,02211
 A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",Romania,RO,0.029,0.017,02211
 A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",Slovenia,SI,0.003,0.017,02211
 A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",Slovakia,SK,0.002,0.017,02211
@@ -2787,7 +2787,7 @@ A.08.01.001.002,Cow milk,Lithuania,LT,0.003,0.017,02211
 A.08.01.001.002,Cow milk,Netherlands,NL,0.096,0.017,02211
 A.08.01.001.002,Cow milk,New Zealand,NZ,0.003,0.017,02211
 A.08.01.001.002,Cow milk,Czechia,CZ,0.006,0.017,02211
-A.08.01.001.002,Cow milk,Poland,PL,0.004,0.017,02211
+A.08.01.001.002,Cow milk,Portugal,PT,0.004,0.017,02211
 A.08.01.001.002,Cow milk,Romania,RO,0.029,0.017,02211
 A.08.01.001.002,Cow milk,Slovenia,SI,0.003,0.017,02211
 A.08.01.001.002,Cow milk,Slovakia,SK,0.002,0.017,02211
@@ -2828,7 +2828,7 @@ A.08.01.007,Ass milk,Lithuania,LT,0.003,0.017,02211
 A.08.01.007,Ass milk,Netherlands,NL,0.096,0.017,02211
 A.08.01.007,Ass milk,New Zealand,NZ,0.003,0.017,02211
 A.08.01.007,Ass milk,Czechia,CZ,0.006,0.017,02211
-A.08.01.007,Ass milk,Poland,PL,0.004,0.017,02211
+A.08.01.007,Ass milk,Portugal,PT,0.004,0.017,02211
 A.08.01.007,Ass milk,Romania,RO,0.029,0.017,02211
 A.08.01.007,Ass milk,Slovenia,SI,0.003,0.017,02211
 A.08.01.007,Ass milk,Slovakia,SK,0.002,0.017,02211
@@ -2857,7 +2857,7 @@ A.09.01.001,Hen eggs,Turkey,TR,0.001,0.017,0231
 A.09.01.001,Hen eggs,Belgium,BE,0.019,0.017,0231
 A.09.01.001,Hen eggs,Rest of World,RoW,0.01,0.017,0231
 A.09.01.005,Duck eggs,Bulgaria,BG,0.23,0.017,0232
-A.09.01.005,Duck eggs,Poland,PL,0.124,0.017,0232
+A.09.01.005,Duck eggs,Portugal,PT,0.124,0.017,0232
 A.09.01.005,Duck eggs,Romania,RO,0.238,0.017,0232
 A.09.01.005,Duck eggs,Spain,ES,0.138,0.017,0232
 A.09.01.005,Duck eggs,United Kingdom,GB,0.181,0.017,0232
@@ -2868,7 +2868,7 @@ A.09.01.005,Duck eggs,Pakistan,PK,0.001,0.017,0232
 A.09.01.005,Duck eggs,Thailand,TH,0.002,0.017,0232
 A.09.01.005,Duck eggs,Rest of World,RoW,0.042,0.017,0232
 A.09.01.006,Goose eggs,Bulgaria,BG,0.23,0.017,0232
-A.09.01.006,Goose eggs,Poland,PL,0.124,0.017,0232
+A.09.01.006,Goose eggs,Portugal,PT,0.124,0.017,0232
 A.09.01.006,Goose eggs,Romania,RO,0.238,0.017,0232
 A.09.01.006,Goose eggs,Spain,ES,0.138,0.017,0232
 A.09.01.006,Goose eggs,United Kingdom,GB,0.181,0.017,0232
@@ -2879,7 +2879,7 @@ A.09.01.006,Goose eggs,Pakistan,PK,0.001,0.017,0232
 A.09.01.006,Goose eggs,Thailand,TH,0.002,0.017,0232
 A.09.01.006,Goose eggs,Rest of World,RoW,0.042,0.017,0232
 A.09.01.007,Quail eggs,Bulgaria,BG,0.23,0.017,0232
-A.09.01.007,Quail eggs,Poland,PL,0.124,0.017,0232
+A.09.01.007,Quail eggs,Portugal,PT,0.124,0.017,0232
 A.09.01.007,Quail eggs,Romania,RO,0.238,0.017,0232
 A.09.01.007,Quail eggs,Spain,ES,0.138,0.017,0232
 A.09.01.007,Quail eggs,United Kingdom,GB,0.181,0.017,0232
@@ -2903,7 +2903,7 @@ A.10.07,Honey,Guatemala,GT,0.001,0.06,02910
 A.10.07,Honey,Hungary,HU,0.005,0.06,02910
 A.10.07,Honey,Italy,IT,0.001,0.06,02910
 A.10.07,Honey,Mexico,MX,0.006,0.06,02910
-A.10.07,Honey,Poland,PL,0.001,0.06,02910
+A.10.07,Honey,Portugal,PT,0.001,0.06,02910
 A.10.07,Honey,Romania,RO,0.002,0.06,02910
 A.10.07,Honey,Spain,ES,0.02,0.06,02910
 A.10.07,Honey,Thailand,TH,0.001,0.06,02910

@@ -16,7 +16,6 @@ import url from "url";
 import { readCsv, roundToPrecision, sum, uniq } from "../utils.mjs";
 
 import countryCodes from "./country-codes.json" assert { type: "json" };
-import countryNames from "../rpc-origin-country-code-names.json" assert { type: "json" };
 
 const RESULT_PRECISION = 3;
 const DEBUG_PRINT_ITEMNAMES = false;
@@ -284,102 +283,122 @@ function main(args) {
     fullKastnerDataRows.push(row);
   });
 
-  // End of old part
+  const FLOPPED_COUNTRIES_NEW_VALUES = ["PT", "GF", "JM"];
+  const FLOPPED_COUNTRIES_PREV_VALUES = ["PL", "GH", "MM"];
+  const FLOPPED_COUNTRIES_OLD_TO_NEW = {
+    PL: "PT",
+    GH: "GF",
+    MM: "JM",
+  };
+  const FLOPPED_COUNTRIES_NEW_TO_OLD = {
+    PT: "PL",
+    GF: "GH",
+    JM: "MM",
+  };
+  const FLOPPED_COUNTRIES_OLD_TO_NEW_NAMES = {
+    Poland: "Portugal",
+    Ghana: "French Guiana",
+    Myanmar: "Jamaica",
+  };
 
-  // Prepare for removing duplicates
-  const rpcSuaPairs = new Set();
+  const correctedEntries = fullKastnerDataRows.filter(
+    ([_suaCode, _suaName, _category, country]) =>
+      FLOPPED_COUNTRIES_NEW_VALUES.includes(/** @type {string}*/ (country))
+  );
+
+  const countriesWhereSuaFloppedIn = {};
+  correctedEntries.forEach(([suaCode, _suaName, _cat, country]) => {
+    if (!countriesWhereSuaFloppedIn[suaCode]) {
+      countriesWhereSuaFloppedIn[suaCode] = [];
+    }
+
+    countriesWhereSuaFloppedIn[suaCode].push(
+      FLOPPED_COUNTRIES_NEW_TO_OLD[country]
+    );
+  });
+
+  const floppedSuas = new Set(correctedEntries.map((x) => x[0]));
+
+  // Check for duplicates
+  const hits = new Set();
   rpcOriginWasteRows.forEach(
-    ([rpcCode, _name, _country, _country2, _share, _waste, suaCode]) => {
-      rpcSuaPairs.add(rpcCode + "|" + suaCode);
+    ([
+      rpcCode,
+      _rpcName,
+      _countryName,
+      countryCode,
+      _share,
+      _waste,
+      suaCode,
+    ]) => {
+      if (!floppedSuas.has(suaCode)) return;
+      if (!floppedSuas.has(suaCode)) return;
+      const key = rpcCode + "|" + suaCode + "|" + countryCode;
+      if (!hits.has(key)) hits.add(key);
+      else {
+        throw new Error("NOO!\t\t" + consumerCountry + " : " + key);
+      }
     }
   );
-  const suasPerRpc = {};
-  [...rpcSuaPairs]
-    .map((x) => x.split("|"))
-    .forEach(([rpc, sua]) => {
-      if (!suasPerRpc[rpc]) {
-        suasPerRpc[rpc] = [];
-      }
-      suasPerRpc[rpc].push(sua);
-    });
-  const rpcToSuaDupes = Object.fromEntries(
-    Object.entries(suasPerRpc).filter(([_k, v]) => v.length > 1)
-  );
 
-  let nRowCandidates = 0;
-  const splicedData = rpcOriginWasteRows
-    // Remove duplicates
-    .filter(
+  const splicedData = rpcOriginWasteRows.map((row) => {
+    const [rpcCode, rpcName, countryName, countryCode, share, waste, suaCode] =
+      row;
+    // First, we check if it's a relevant SUA-code, i.e. a block where there's
+    // an issue at all
+    if (!floppedSuas.has(suaCode)) return row;
+    // Second, we check if this specific country is involved, e.g. if it's
+    // Poland
+    if (!FLOPPED_COUNTRIES_PREV_VALUES.includes(countryCode)) return row;
+
+    // Third, now make sure that it's a relevant match for this specific
+    // sua-country pair, e.g. (01212,Poland), not (01212, Ghana)
+    if (!countriesWhereSuaFloppedIn[suaCode].includes(countryCode)) {
+      return row;
+    }
+
+    const correctedEntryMatches = correctedEntries.filter(
       ([
-        rpcCode,
-        _rpcName,
-        _countryName,
-        _countryCode,
-        _share,
-        _waste,
-        suaCode,
-      ]) => {
-        if (!rpcToSuaDupes[rpcCode]) return true;
-        const expectedSuaCode = rpcToSua[rpcCode];
-        return expectedSuaCode.includes(suaCode);
-      }
-    )
-    .map((row) => {
-      const isRoW = row[3] === "RoW";
-      if (!isRoW) return [row];
-
-      const [
-        rpcCode,
-        rpcName,
-        _countryName,
-        _countryCode,
-        _share,
-        _waste,
-        suaCode_,
-      ] = row;
-
-      const suaCode = rpcToSua[rpcCode] || suaCode_;
-      if (!suaCode) {
-        throw new Error(
-          `No matching sua-code found for rpc-code "${rpcCode}".`
-        );
-      }
-
-      const data = fullKastnerDataRows.filter((x) => x[0] === suaCode);
-      const rowCandidates = data.filter(
-        ([_suaCode, _name, _cat, _prodCountry, share]) =>
-          /** @type {number} */ (share) <= 0.1
-      );
-      nRowCandidates += rowCandidates.length;
-      // No replacement data
-      if (rowCandidates.length === 0) return [row];
-
-      return rowCandidates.map(
-        ([suaCode, _suaName, _category, prodCountry, share, waste, _zero]) => [
-          rpcCode,
-          rpcName,
-          countryNames[prodCountry],
-          prodCountry,
-          share,
-          waste,
-          suaCode,
-        ]
-      );
-    })
-    .flat(1)
-    // Finally, we go over all rows again, regardless if they're new or old, and
-    // make sure we use the sua-code in rpcToSua, overwriting previous values.
-    .map(
-      ([rpcCode, rpcName, countryName, prodCountry, share, waste, suaCode]) => [
-        rpcCode,
-        rpcName,
-        countryName,
-        prodCountry,
-        share,
-        waste,
-        rpcToSua[rpcCode] || suaCode,
-      ]
+        expectedSuaCode,
+        _suaName,
+        _category,
+        prodCountryCode,
+        expectedShare,
+        expectedWaste,
+      ]) =>
+        // Check that country and sua match
+        expectedSuaCode === suaCode &&
+        FLOPPED_COUNTRIES_NEW_TO_OLD[prodCountryCode] === countryCode &&
+        // and that it's the 'wrong' one we correct, not the actual value
+        // (i.e. that it says Poland but should be Portugal)
+        waste === String(expectedWaste) &&
+        share === String(expectedShare)
     );
+
+    if (correctedEntryMatches.length !== 1) {
+      console.log("");
+      console.log(row);
+      console.log("");
+      console.log(correctedEntryMatches);
+      console.log("");
+      console.log(correctedEntries.join("\n"));
+      throw new Error("err");
+    }
+
+    const correctedName = FLOPPED_COUNTRIES_OLD_TO_NEW_NAMES[countryName];
+    if (!correctedName) {
+      throw new Error("No name found for " + countryName);
+    }
+    return [
+      rpcCode,
+      rpcName,
+      correctedName,
+      FLOPPED_COUNTRIES_OLD_TO_NEW[countryCode],
+      share,
+      waste,
+      suaCode,
+    ];
+  });
 
   const HEADER =
     "RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code";
@@ -391,11 +410,6 @@ function main(args) {
   const data = HEADER + "\n" + body;
 
   console.log(data);
-
-  // fs.writeFileSync(
-  //   path.resolve(DIRNAME, "./csv-out", `${consumerCountry}-rpc.csv`),
-  //   data
-  // );
 }
 
 main(process.argv.slice(2));
