@@ -48,6 +48,7 @@ export const AGGREGATE_HEADERS = [
   "Energy primary production (CO2e)",
   "Land use change (CO2e)",
   "Enteric fermentation (CO2e)",
+  "Manure management (CO2e)",
   "Mineral fertiliser production (CO2)",
   "Capital goods (CO2)",
   "Energy primary production (CO2)",
