@@ -438,5 +438,85 @@ describe("RPC reducer", () => {
       expect(transportless).toHaveProperty("A.01.qux");
       expect(transportless["A.01.qux"]).toEqual(2300);
     });
+
+    test("Case C: Ratio but yield is 1, one step", () => {
+      const recipes: FoodsRecipes = {
+        "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1]],
+        "A.16.02.028": [["A.16.02.028", [], 1, 1]],
+      };
+      const diet: Diet = [["I.19.04.002.002", 1000]];
+
+      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+        diet,
+        recipes,
+        {}
+      );
+
+      expect(transportless).toEqual({});
+    });
+
+    test.only("Case C: Ratio and yield, one step", () => {
+      const recipes: FoodsRecipes = {
+        "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1.5]],
+        "A.16.02.028": [["A.16.02.028", [], 1, 1]],
+      };
+      const diet: Diet = [["I.19.04.002.002", 1000]];
+
+      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+        diet,
+        recipes,
+        {}
+      );
+
+      expect(transportless).toEqual({
+        "A.16.02.028": 2,
+      });
+    });
+
+    /**
+     * This one took me quite some time to wrap my head around.
+     *
+     * do not want to record/adjust the transport ratio when the yield is 1. For
+     * example, we have a falafel recipe that requires 4% (0.004) of paprika.
+     * This paprika had a "transportless" process, but yield was 1 - so it
+     * shouldn't register as transportless
+     */
+    test("Case C: Ratio but yield is 1, multi-step", () => {
+      const recipes: FoodsRecipes = {
+        "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1]],
+        "A.16.02.028": [["A.16.foo", ["F28.A07KG"], 1, 10]],
+        "A.16.foo": [["A.16.bar", ["F28.A07KG"], 0.5, 1.1]],
+      };
+      const diet: Diet = [["I.19.04.002.002", 1000]];
+
+      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+        diet,
+        recipes,
+        {}
+      );
+
+      expect(transportless).toEqual({
+        "A.16.foo": 36,
+        "A.16.bar": 18,
+      });
+    });
+
+    test("Case D: Ratio but yield is 1, one step", () => {
+      const recipes: FoodsRecipes = {
+        "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 10]],
+        "A.16.02.028": [["A.16.02.028", [], 1, 1]],
+      };
+      const diet: Diet = [["I.19.04.002.002", 1000]];
+
+      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+        diet,
+        recipes,
+        {}
+      );
+
+      expect(transportless).toEqual({
+        "A.16.02.028": 36,
+      });
+    });
   });
 });
