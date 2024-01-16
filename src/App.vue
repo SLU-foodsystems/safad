@@ -7,7 +7,8 @@ import ResultsEngine from "@/lib/ResultsEngine";
 
 import FileSelector from "@/components/FileSelector.vue";
 import LoadingOverlay from "@/components/LoadingOverlay.vue";
-import { downloadAsPlaintext } from "@/lib/csv-io";
+// import { downloadAsPlaintext } from "@/lib/csv-io";
+const downloadAsPlaintext = console.log;
 import { stringifyCsvData } from "@/lib/utils";
 import {
   labeledAndFilteredImpacts,

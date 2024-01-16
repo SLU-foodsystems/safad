@@ -79,8 +79,13 @@ function reduceToRpcs(
   preparationProcesses: Record<string, string[]>,
   recordedSpecials: Set<string>,
   recordTransportlessAmount: (rcpCode: string, amount: number) => void,
-  transportlessYieldAdjustment: number = 1
+  transportlessYieldAdjustment: number = 1,
+  nesting = 0
 ): Diet {
+  const log = (...args: any[]) =>
+    console.log("--".repeat(nesting) || "o", ...args);
+  log("START", componentCode, amount, "TL ADJ =", transportlessYieldAdjustment);
+
   const subcomponents = recipes[componentCode];
   if (!subcomponents) {
     if (transportlessYieldAdjustment !== 1) {
@@ -90,6 +95,7 @@ function reduceToRpcs(
         amount * (1 - 1 / transportlessYieldAdjustment)
       );
     }
+    log("STOP A", componentCode, amount);
     return [[componentCode, amount]];
   }
 
@@ -118,6 +124,8 @@ function reduceToRpcs(
   recordPPContributionHelper(3);
   recordPPContributionHelper(2);
 
+  log("Got subcomponents!")
+
   return subcomponents
     .map(([subcomponentCode, processes, ratio, yieldFactor]): Diet => {
       // HERE: check if process is one of the 'inverse-transport' processes.
@@ -139,7 +147,13 @@ function reduceToRpcs(
       if (isTransportlessProcess(processes)) {
         // We have to take in the yield into account here as well, otherwise the
         // logic won't branch.
-        newTransportYield *= yieldFactor * ratio;
+        log(
+          "Updating transportyield ratio",
+          subcomponentCode,
+          yieldFactor,
+          ratio
+        );
+        newTransportYield *= yieldFactor;
       }
 
       // Some recipes will include references back to themselves, in which
@@ -153,6 +167,7 @@ function reduceToRpcs(
             netAmount * (1 - 1 / newTransportYield)
           );
         }
+        log("STOP B", subcomponentCode, netAmount);
         return [[subcomponentCode, netAmount]];
       }
 
@@ -164,7 +179,8 @@ function reduceToRpcs(
         preparationProcesses,
         newRecordedSpecials,
         recordTransportlessAmount,
-        newTransportYield
+        newTransportYield,
+        nesting + 1
       );
     })
     .flat(1);
@@ -207,6 +223,7 @@ export default function reduceDietToRpcs(
   };
 
   const recordTransportless = (rpcCode: string, amount: number) => {
+    console.log("Recording transportless", rpcCode, amount);
     transportlessMap[rpcCode] = (transportlessMap[rpcCode] || 0) + amount;
   };
 
