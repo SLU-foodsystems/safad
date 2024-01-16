@@ -378,9 +378,32 @@ describe("RPC reducer", () => {
     describe("A transportless process appears in map for complex recipes", () => {
       test("Case A: Three steps, process in the middle", () => {
         const recipes: FoodsRecipes = {
+          // No change
           "A.01.foo": [["A.01.bar", [], 1, 1]],
+          // yield is 4x, but transportless: so 3000 should be transportless
           "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1, 4]],
+          // Yield is 1.5, but not ransportless, so should remain 3000
           "A.01.baz": [["A.01.qux", [], 1, 1.5]],
+        };
+        const diet: Diet = [["A.01.foo", 1000]];
+
+        const [rpcs, _processes, _packaging, transportless] = reduceDiet(
+          diet,
+          recipes,
+          {}
+        );
+
+        expect(rpcs).toEqual([["A.01.qux", 6000]]);
+        expect(transportless).toEqual({ "A.01.qux": 3000 });
+      });
+    });
+
+    describe("All steps transportless", () => {
+      test("Case B: Three steps, with processes on each", () => {
+        const recipes: FoodsRecipes = {
+          "A.01.foo": [["A.01.bar", ["F28.A0C00"], 1.0, 1.1]],
+          "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1.0, 4]],
+          "A.01.baz": [["A.01.qux", ["F28.A0C0B"], 1.0, 1.5]],
         };
         const diet: Diet = [["A.01.foo", 1000]];
 
@@ -390,132 +413,125 @@ describe("RPC reducer", () => {
           {}
         );
 
+        // The amount from yields is 6600
+        // But in each step, some yields are added that should not be transported.
+        // 1000 -> 1100 = 100
+        // 1100 -> 4400 = 3300
+        // 4400 -> 6600 = 2200 -> total to subtract = 5600
+        // OR: despite 6600 in yield, we only transport 1000
         expect(transportless).toHaveProperty("A.01.qux");
-        expect(transportless["A.01.qux"]).toEqual(4500);
+        expect(transportless["A.01.qux"]).toEqual(5600);
+      });
+
+      test("Case B: Three steps, with processes and ratios", () => {
+        const recipes: FoodsRecipes = {
+          // 1000 transported, of 1100  (delta = 100)
+          "A.01.foo": [["A.01.bar", ["F28.A0C00"], 1.0, 1.1]],
+          // 550 transported, of 2200 (delta = 1650)
+          "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 0.5, 4]],
+          // 2200 transported, of 3300 (delta = 1150)
+          "A.01.baz": [["A.01.qux", ["F28.A0C0B"], 1.0, 1.5]],
+        };
+        const diet: Diet = [["A.01.foo", 1000]];
+
+        const [rpcs, _processes, _packaging, transportless] = reduceDiet(
+          diet,
+          recipes,
+          {}
+        );
+
+        expect(rpcs).toEqual([["A.01.qux", 3300]]);
+
+        // The amount from yields is 3300
+        // But in each step, some yields are added that should not be transported.
+        expect(transportless).toEqual({ "A.01.qux": 2850 });
       });
     });
 
-    test("Case B: Three steps, with processes on each", () => {
-      const recipes: FoodsRecipes = {
-        "A.01.foo": [["A.01.bar", ["F28.A0C00"], 1.0, 1.1]],
-        "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1.0, 4]],
-        "A.01.baz": [["A.01.qux", ["F28.A0C0B"], 1.0, 1.5]],
-      };
-      const diet: Diet = [["A.01.foo", 1000]];
+    describe("Transportless, mixing ratio and yield", () => {
+      test("Case C: Ratio but yield is 1, one step", () => {
+        const recipes: FoodsRecipes = {
+          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1]],
+          "A.16.02.028": [["A.16.02.028", [], 1, 1]],
+        };
+        const diet: Diet = [["I.19.04.002.002", 1000]];
 
-      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
-        diet,
-        recipes,
-        {}
-      );
+        const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+          diet,
+          recipes,
+          {}
+        );
 
-      // The amount from yields is 6600
-      // But in each step, some yields are added that should not be transported.
-      // 1000 -> 1100 = 100
-      // 1100 -> 4400 = 3300
-      // 4400 -> 6600 = 2200 -> total to subtract = 5600
-      // OR: despite 6600 in yield, we only transport 1000
-      expect(transportless).toHaveProperty("A.01.qux");
-      expect(transportless["A.01.qux"]).toEqual(5600);
-    });
-
-    test("Case B: Three steps, with processes and ratios", () => {
-      const recipes: FoodsRecipes = {
-        "A.01.foo": [["A.01.bar", ["F28.A0C00"], 1.0, 1.1]],
-        "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 0.5, 4]],
-        "A.01.baz": [["A.01.qux", ["F28.A0C0B"], 1.0, 1.5]],
-      };
-      const diet: Diet = [["A.01.foo", 1000]];
-
-      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
-        diet,
-        recipes,
-        {}
-      );
-
-      // The amount from yields is 6600
-      // But in each step, some yields are added that should not be transported.
-      expect(transportless).toHaveProperty("A.01.qux");
-      expect(transportless["A.01.qux"]).toEqual(2300);
-    });
-
-    test("Case C: Ratio but yield is 1, one step", () => {
-      const recipes: FoodsRecipes = {
-        "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1]],
-        "A.16.02.028": [["A.16.02.028", [], 1, 1]],
-      };
-      const diet: Diet = [["I.19.04.002.002", 1000]];
-
-      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
-        diet,
-        recipes,
-        {}
-      );
-
-      expect(transportless).toEqual({});
-    });
-
-    test.only("Case C: Ratio and yield, one step", () => {
-      const recipes: FoodsRecipes = {
-        "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1.5]],
-        "A.16.02.028": [["A.16.02.028", [], 1, 1]],
-      };
-      const diet: Diet = [["I.19.04.002.002", 1000]];
-
-      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
-        diet,
-        recipes,
-        {}
-      );
-
-      expect(transportless).toEqual({
-        "A.16.02.028": 2,
+        expect(transportless).toEqual({});
       });
-    });
 
-    /**
-     * This one took me quite some time to wrap my head around.
-     *
-     * do not want to record/adjust the transport ratio when the yield is 1. For
-     * example, we have a falafel recipe that requires 4% (0.004) of paprika.
-     * This paprika had a "transportless" process, but yield was 1 - so it
-     * shouldn't register as transportless
-     */
-    test("Case C: Ratio but yield is 1, multi-step", () => {
-      const recipes: FoodsRecipes = {
-        "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1]],
-        "A.16.02.028": [["A.16.foo", ["F28.A07KG"], 1, 10]],
-        "A.16.foo": [["A.16.bar", ["F28.A07KG"], 0.5, 1.1]],
-      };
-      const diet: Diet = [["I.19.04.002.002", 1000]];
+      test("Case C: Ratio and yield, one step", () => {
+        const recipes: FoodsRecipes = {
+          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1.5]],
+          "A.16.02.028": [["A.16.02.028", [], 1, 1]],
+        };
+        const diet: Diet = [["I.19.04.002.002", 1000]];
 
-      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
-        diet,
-        recipes,
-        {}
-      );
+        const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+          diet,
+          recipes,
+          {}
+        );
 
-      expect(transportless).toEqual({
-        "A.16.foo": 36,
-        "A.16.bar": 18,
+        expect(transportless).toEqual({
+          "A.16.02.028": 2,
+        });
       });
-    });
 
-    test("Case D: Ratio but yield is 1, one step", () => {
-      const recipes: FoodsRecipes = {
-        "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 10]],
-        "A.16.02.028": [["A.16.02.028", [], 1, 1]],
-      };
-      const diet: Diet = [["I.19.04.002.002", 1000]];
+      /**
+       * This one took me quite some time to wrap my head around.
+       *
+       * do not want to record/adjust the transport ratio when the yield is 1. For
+       * example, we have a falafel recipe that requires 4% (0.004) of paprika.
+       * This paprika had a "transportless" process, but yield was 1 - so it
+       * shouldn't register as transportless
+       */
+      test("Case C: Ratio but yield is 1, multi-step", () => {
+        const recipes: FoodsRecipes = {
+          // 1000 -> 4, 0 is transportess
+          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1]],
+          // 4 -> 40, = 36 is transportless
+          "A.16.02.028": [["A.16.foo", ["F28.A07KG"], 1, 10]],
+          // out of 40, 20 is needed (ratio = 0.5), which is 22 after yield. So,
+          // 2 is transportless
+          "A.16.foo": [["A.16.bar", ["F28.A07KG"], 0.5, 1.1]],
+        };
+        const diet: Diet = [["I.19.04.002.002", 1000]];
 
-      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
-        diet,
-        recipes,
-        {}
-      );
+        const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+          diet,
+          recipes,
+          {}
+        );
 
-      expect(transportless).toEqual({
-        "A.16.02.028": 36,
+        expect(transportless).toEqual({
+          "A.16.bar": 38,
+        });
+      });
+
+      test("Case D: Ratio but yield is 1, one step", () => {
+        const recipes: FoodsRecipes = {
+          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 10]],
+          "A.16.02.028": [["A.16.02.028", [], 1, 1]],
+        };
+        const diet: Diet = [["I.19.04.002.002", 1000]];
+
+        const [rpcs, _processes, _packaging, transportless] = reduceDiet(
+          diet,
+          recipes,
+          {}
+        );
+
+        expect(rpcs).toEqual([["A.16.02.028", 40]]);
+
+        expect(transportless).toEqual({
+          "A.16.02.028": 36,
+        });
       });
     });
   });
