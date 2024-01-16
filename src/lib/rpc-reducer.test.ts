@@ -156,15 +156,14 @@ describe("RPC reducer", () => {
     const diet: Diet = [["a", baseAmount]];
 
     const [rpcs, _facets] = reduceDiet(diet, recipes, {});
-    expect(rpcs).toHaveLength(2);
     // RPC 1
-    expect(rpcs[0][0]).toEqual("rpc1");
-    expect(rpcs[0][1]).toEqual(
-      baseAmount * 0.8 * 1 * 0.5 * 3 + baseAmount * 0.2 * 10 * 1 * 1.7
-    );
-    // RPC 2
-    expect(rpcs[1][0]).toEqual("rpc2");
-    expect(rpcs[1][1]).toBeCloseTo(baseAmount * 0.8 * 1 * 0.5 * 2);
+    expect(rpcs).toEqual([
+      [
+        "rpc1",
+        baseAmount * 0.8 * 1 * 0.5 * 3 + baseAmount * 0.2 * 10 * 1 * 1.7,
+      ],
+      ["rpc2", baseAmount * 0.8 * 1 * 0.5 * 2],
+    ]);
   });
 
   test("Handles combined facets", () => {
@@ -177,8 +176,7 @@ describe("RPC reducer", () => {
     const [rpcs, processes] = reduceDiet(diet, recipes, {});
     expect(rpcs).toHaveLength(1);
     // RPC 1
-    expect(rpcs[0][0]).toEqual("A.01.123");
-    expect(rpcs[0][1]).toEqual(100 * 0.8 * 10);
+    expect(rpcs).toEqual([["A.01.123", 100 * 0.8 * 10]]);
 
     // We should add netAmount for all three facets
     expect(Object.keys(processes["A.01"])).toHaveLength(3);
@@ -198,16 +196,17 @@ describe("RPC reducer", () => {
     const diet: Diet = [["A.01", 100]];
 
     const [rpcs, processes] = reduceDiet(diet, recipes, {});
-    expect(rpcs).toHaveLength(2);
-    // RPC 1
-    expect(rpcs[0][0]).toEqual("A.01");
-    expect(rpcs[0][1]).toEqual(100 * 0.2 * 10);
-    // RPC 2
-    expect(rpcs[1][0]).toEqual("A.02");
-    expect(rpcs[1][1]).toBeCloseTo(100 * 0.8 * 1);
+    expect(rpcs).toEqual([
+      ["A.01", 100 * 0.2 * 10],
+      ["A.02", 100 * 0.8 * 1],
+    ]);
 
-    expect(processes["A.01"].facetA).toEqual(100 * 0.2);
-    expect(processes["A.01"].facetB).toEqual(100 * 0.8);
+    expect(processes).toEqual({
+      "A.01": {
+        facetA: 100 * 0.2,
+        facetB: 100 * 0.8,
+      },
+    });
   });
 
   describe("Preparation processes", () => {
@@ -226,8 +225,7 @@ describe("RPC reducer", () => {
         preparationProcesses
       );
 
-      expect(processes["A.19"]).toHaveProperty("F28.A07GY");
-      expect(processes["A.19"]["F28.A07GY"]).toEqual(1000);
+      expect(processes).toEqual({ "A.19": { "F28.A07GY": 1000 } });
     });
     test("Direct: Adds processes to diet entered > L3 level", () => {
       // pizza derivative
@@ -243,8 +241,7 @@ describe("RPC reducer", () => {
         preparationProcesses
       );
 
-      expect(processes["A.19"]).toHaveProperty("F28.A07GY");
-      expect(processes["A.19"]["F28.A07GY"]).toEqual(1234);
+      expect(processes).toEqual({ "A.19": { "F28.A07GY": 1234 } });
     });
 
     test("Indirect: Adds processes to diet entered > L3 level", () => {
@@ -264,8 +261,7 @@ describe("RPC reducer", () => {
         preparationProcesses
       );
 
-      expect(processes["A.19"]).toHaveProperty("F28.A07GY");
-      expect(processes["A.19"]["F28.A07GY"]).toEqual(1000 * 0.5 * 3);
+      expect(processes).toEqual({ "A.19": { "F28.A07GY": 1000 * 0.5 * 3 } });
     });
   });
 
@@ -302,8 +298,7 @@ describe("RPC reducer", () => {
         preparationProcesses
       );
 
-      expect(packaging["A.19"]).toHaveProperty("P1");
-      expect(packaging["A.19"]["P1"]).toEqual(1234);
+      expect(packaging).toEqual({ "A.19": { P1: 1234 } });
     });
 
     test("Indirect: Adds processes to diet entered > L2 level", () => {
@@ -341,8 +336,7 @@ describe("RPC reducer", () => {
         {}
       );
 
-      expect(transportless).toHaveProperty("A.01.example");
-      expect(transportless["A.01.example"]).toEqual(4000);
+      expect(transportless).toEqual({ "A.01.example": 4000 });
     });
 
     test("The exception of polished rice does not appear in map", () => {
@@ -419,8 +413,7 @@ describe("RPC reducer", () => {
         // 1100 -> 4400 = 3300
         // 4400 -> 6600 = 2200 -> total to subtract = 5600
         // OR: despite 6600 in yield, we only transport 1000
-        expect(transportless).toHaveProperty("A.01.qux");
-        expect(transportless["A.01.qux"]).toEqual(5600);
+        expect(transportless).toEqual({ "A.01.qux": 5600 });
       });
 
       test("Case B: Three steps, with processes and ratios", () => {
