@@ -248,8 +248,7 @@ class ResultsEngine {
       throw new Error("Compute called without processes and packaging set.");
     }
 
-    // const dietWithWaste = adjustDietForWaste(diet, this.wasteRetailAndConsumer);
-    const dietWithWaste = diet;
+    const dietWithWaste = adjustDietForWaste(diet, this.wasteRetailAndConsumer);
 
     const [
       rpcAmounts,
@@ -290,19 +289,6 @@ class ResultsEngine {
 
     const { rpcOriginWaste, emissionsFactorsTransport, countryCode } = this;
 
-    rpcAmounts.forEach(([rpcCode, amount]) => {
-      const tlAmount = transportlessAmounts[rpcCode];
-      if (tlAmount < 0) {
-        console.log("-----");
-        console.log(rpcCode, tlAmount);
-        console.log("-----");
-      } else if (tlAmount) {
-        console.log(rpcCode, tlAmount, amount);
-      } else {
-        console.log(rpcCode, "had no TL", amount);
-      }
-    });
-
     // Transport impacts
     const transportEnvImpactsEntries = rpcAmounts
       .map(([rpcCode, amount]) => [
@@ -316,8 +302,6 @@ class ResultsEngine {
         ),
       ])
       .filter((pair): pair is [string, number[]] => pair[1] !== null);
-
-    console.log(transportEnvImpactsEntries);
 
     const transportEnvImpacts = aggregateBy<number[]>(
       transportEnvImpactsEntries,
@@ -356,7 +340,7 @@ class ResultsEngine {
       });
     });
 
-    const fauxDiet: Diet = ["I.19.04.002.002"]
+    const fauxDiet: Diet = [...codesInRecipes]
       .sort()
       .filter((code) => getRpcCodeLevel(code) > 1)
       .map((code) => [code, 1000]);
