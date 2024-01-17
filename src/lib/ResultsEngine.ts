@@ -260,7 +260,6 @@ class ResultsEngine {
       this.foodsRecipes,
       this.preparationProcessesAndPackaging
     );
-    console.log(rpcAmounts, transportlessAmounts)
 
     const rpcImpacts = Object.fromEntries(
       rpcAmounts.map(([rpc, amountGram]) => [
