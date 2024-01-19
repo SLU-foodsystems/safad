@@ -376,7 +376,7 @@ describe("RPC reducer", () => {
           "A.01.foo": [["A.01.bar", [], 1, 1]],
           // yield is 4x, but transportless: so 3000 should be transportless
           "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1, 4]],
-          // Yield is 1.5, but not ransportless, so should remain 3000
+          // Yield is 1.5, but not transportless, so should remain 3000
           "A.01.baz": [["A.01.qux", [], 1, 1.5]],
         };
         const diet: Diet = [["A.01.foo", 1000]];
