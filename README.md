@@ -27,6 +27,9 @@ processes, and packeting.
 - [input-files-parsers.ts](./src/lib/input-files-parsers.ts):
 - [origin-waste-row-factors.ts](./src/lib/origin-waste-row-factors.ts):
 
+One way to better understand what is going on in each file may be to look at the
+test files (same names, but ending with `.test.ts` instead of just `.ts`).
+
 ## Technologies
 
 The front-end uses [Vue](vuejs.org/) as the main framework, together with
@@ -60,3 +63,8 @@ npm run dev
 npm run build
 ```
 
+### Run tests
+
+```sh
+npm run test
+```
