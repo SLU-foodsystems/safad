@@ -1,42 +1,48 @@
-# SLU Plan'Eat
+# SLU SAFAD
 
-A web-based tool to benchmark environmental impacts of diets.
+| Sustainability Assessment of Foods and Diets
+
+A web-based implementation of the SAFAD model developed by Röös et al. (in
+press) to benchmark sustainability impacts of diets.
 
 ## Project Structure
 
-The project has two distinct parts:
+The project relies on extensive processing of the input data, some of which can
+be found in the `./data-preprocessing/` directory. The majority, however, are
+internal R-scripts and excel documents, as described in the above-mentioned
+paper.
 
-- a set of static scripts, all in `./data-preprocessing/`
-- a front-end webapp that uses the output of the static scripts
+The implementation of the website, along with [the input
+files](./src/default-input-files/) can be found in the [`./src/`](./src/)
+directory, with the main logic being inside the [`./src/lib/`](./src/lib)
+folder.
+
+Some important files are:
+
+- [rpc-reducer.ts](./src/lib/rpc-reducer.ts): The logic that breaks down a food
+to its fundamental ingredients (and their amounts), along with transport,
+processes, and packeting.
+- [impact-csv-utils.ts](./src/lib/impacts-csv-utils.ts):
+- [ResultsManager.ts](./src/lib/ResultsManager.ts):
+- [input-files-parsers.ts](./src/lib/input-files-parsers.ts):
+- [origin-waste-row-factors.ts](./src/lib/origin-waste-row-factors.ts):
 
 ## Technologies
 
-- The front-end uses [Vue](vuejs.org/) as the main framework, together with
-TypeScript.
+The front-end uses [Vue](vuejs.org/) as the main framework, together with
+TypeScript. These tools all require Node.js and a package-management system
+(e.g. npm).
 
+### Tooling
 
-## Front-End tooling
+#### Recommended IDE Setup
 
-### Recommended IDE Setup
+[VSCode](https://code.visualstudio.com/) +
+[Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and
+disable Vetur) + [TypeScript Vue Plugin
+(Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-### Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-### Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-### Project Setup
+#### Project Setup
 
 ```sh
 npm install
