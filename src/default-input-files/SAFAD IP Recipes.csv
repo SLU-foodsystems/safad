@@ -1844,7 +1844,7 @@
 "A.08.06.006","Acidophilus milk","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0CQZ","PROCESS=Fermentation",100,1,1.25,1
 "A.08.06.007","Kefir","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0CQZ","PROCESS=Fermentation",100,1,1.25,1
 "A.08.06.008","Buttermilk","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07MH$F02.A06BC","PROCESS=Churning, PART-NATURE=Buttermilk (as part-nature)",100,1,1.08,0.01
-"A.08.06.014","Filmjï¿½lk","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0CQZ","PROCESS=Fermentation",100,1,1.25,1
+"A.08.06.014","Filmjölk","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0CQZ","PROCESS=Fermentation",100,1,1.25,1
 "A.08.06.015","Viili","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0CQZ","PROCESS=Fermentation",100,1,1.25,1
 "A.08.07.001","Lactose","A.08.07.001","Lactose","F28.A0C0R","PROCESS=Processed",100,1,1,1
 "A.08.07.002","Milk protein","A.08.07.002","Milk protein","F28.A0C0R","PROCESS=Processed",100,1,1,1
@@ -4828,20 +4828,20 @@
 "I.19.04.002.001","Beans in tomato sauce","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.78,1,1,1
 "I.19.04.002.001","Beans in tomato sauce","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",16.22,1,1,1
 "I.19.04.002.001","Beans in tomato sauce","I.16.08.010.009","Tomato sauce","To be further disaggregated (d)",,56,1,1,1
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
+"I.19.04.002.002","Falafel","A.16.10.003","Baking powder","To be further disaggregated (d)",,0.4,1,1,1
+"I.19.04.002.002","Falafel","A.01.04.007.001","Breadcrumbs","To be further disaggregated (d)",,13.6,1,1,1
+"I.19.04.002.002","Falafel","A.04.02.005","Chick pea (Cicer arietinum)","F28.A0BYP","PROCESS=Canning / jarring",52.5,1,0.41,1
+"I.19.04.002.002","Falafel","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1
+"I.19.04.002.002","Falafel","A.16.02.017","Cumin seed (Cuminum cyminum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.5,1,1,1
+"I.19.04.002.002","Falafel","A.02.02.001","Garlic, bulb (Allium sativum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",3.7,1,1,1
+"I.19.04.002.002","Falafel","A.12.01.010","Juice, Lemon","To be further disaggregated (d)",,1.9,1,1,1
+"I.19.04.002.002","Falafel","A.11.04.007","Oil, frying, blend","To be further disaggregated (d)",,1.9,1,1,1
+"I.19.04.002.002","Falafel","A.11.04.008","Olive oil","To be further disaggregated (d)",,1.7,1,1,1
+"I.19.04.002.002","Falafel","A.02.02.002","Onions, bulb (Allium cepa)","F28.A07GR","PROCESS=Frying",12.4,1,1.61,1
+"I.19.04.002.002","Falafel","A.16.01.005","Parsley, herb (Petroselinum crispum)","F28.A07XD","PROCESS=Unspecified",3.7,1,1,1
 "I.19.04.002.002","Falafel","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.4,1,1,1
-,,,,,,,,,
-,,,,,,,,,
+"I.19.04.002.002","Falafel","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.6,1,1,1
+"I.19.04.002.002","Falafel","A.09.01.001","Whole egg, chicken","F28.A07XD","PROCESS=Unspecified",6.5,1,1,1
 "I.19.04.002.003","Soya sausage / pattie","A.01.06.001.011","Oat flakes","To be further disaggregated (d)",,4.23,1,1,1
 "I.19.04.002.003","Soya sausage / pattie","A.02.02.002","Onions, bulb (Allium cepa)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",9.5,1,1.17,1
 "I.19.04.002.003","Soya sausage / pattie","I.16.01.013","Origano","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.75,1,6,1
