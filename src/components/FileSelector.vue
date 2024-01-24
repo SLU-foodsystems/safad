@@ -14,6 +14,10 @@ export default defineComponent({
     fileLabel: String,
     fileName: String,
     fileDescription: String,
+    lastModified: {
+      type: String,
+      required: true,
+    },
   },
 
   data() {
@@ -120,16 +124,24 @@ export default defineComponent({
     class="file-selector-box"
     :class="{ 'file-selector-box--custom': state === 'custom' }"
   >
-    <input hidden type="file" ref="fileInput" @change="onFileInputChange" />
-
-    <div class="info-text" :aria-hidden="!showInfo" :hidden="!showInfo">
-      {{ fileDescription }}
-    </div>
+    <input
+      hidden
+      type="file"
+      ref="fileInput"
+      accept=".csv"
+      @change="onFileInputChange"
+    />
 
     <div class="cluster cluster--between">
       <div class="stack stack-s">
         <h4>{{ fileLabel }}</h4>
-        <i v-if="state === 'default'">{{ fileName }} (Default)</i>
+        <span v-if="state === 'default'"
+          >{{ fileName }}
+          <span style="opacity: 0.6"
+            >(default, last modified {{ lastModified }})
+          </span>
+        </span>
+
         <span v-else v-text="fileName" />
 
         <div class="cluster cluster--m-gap">
@@ -146,8 +158,8 @@ export default defineComponent({
             :data-expanded="showComment"
             @click="toggleComment"
             v-if="fileDescription"
-          >{{ commentToggleButtonText }}
-
+          >
+            {{ commentToggleButtonText }}
           </button>
           <button class="expander-toggle" @click="download">
             Download file
@@ -171,6 +183,9 @@ export default defineComponent({
           v-text="fileButtonText"
         />
       </div>
+    </div>
+    <div class="info-text" :aria-hidden="!showInfo" :hidden="!showInfo">
+      {{ fileDescription }}
     </div>
     <LoadingOverlay :show="isLoading" />
   </div>
