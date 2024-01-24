@@ -93,7 +93,7 @@ export const DETAILED_RESULTS_HEADER = [
   "Amount (g)",
   ...AGGREGATE_HEADERS,
   "Processes",
-  "Packeting",
+  "Packaging",
   "RPCs with missing data",
 ];
 
@@ -203,7 +203,7 @@ export function labeledImpacts(
     impacts;
 
   const processes = listAllProcesses(processImpacts).join("$");
-  const packeting = listAllProcesses(packagingImpacts).join("$");
+  const packaging = listAllProcesses(packagingImpacts).join("$");
 
   const missingRpcImpacts = Object.entries(rpcImpacts).filter(
     (kv) => kv[1] === null
@@ -229,7 +229,7 @@ export function labeledImpacts(
     amount.toFixed(2),
     ...aggregatedImpacts,
     processes,
-    packeting,
+    packaging,
     failingRpcs,
   ];
 }

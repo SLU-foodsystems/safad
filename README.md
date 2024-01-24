@@ -21,7 +21,7 @@ Some important files are:
 
 - [rpc-reducer.ts](./src/lib/rpc-reducer.ts): The logic that breaks down a food
 to its fundamental ingredients (and their amounts), along with transport,
-processes, and packeting.
+processes, and packaging.
 - [impact-csv-utils.ts](./src/lib/impacts-csv-utils.ts):
 - [ResultsManager.ts](./src/lib/ResultsManager.ts):
 - [input-files-parsers.ts](./src/lib/input-files-parsers.ts):
