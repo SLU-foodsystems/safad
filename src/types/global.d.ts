@@ -1,6 +1,9 @@
 export {};
 
 declare global {
+  // Env variable
+  readonly var INPUT_FILE_MDATES: Record<string, string>;
+
   // Helper type
   type ValueOf<T> = T[keyof T];
 
@@ -56,13 +59,18 @@ declare global {
 
   interface InputFile<T> {
     state: "default" | "custom";
-    name: string;
-    defaultName: string;
-    data?: string;
     comment: string;
+    defaultName: string;
 
     getDefault: (country: string) => Promise<string>;
     parser: (data: string) => T;
     setter: (data: T) => void;
+
+    // Default-only
+    lastModified: (country: string) => string;
+
+    // Custom-only
+    name: string;
+    data?: string;
   }
 }
