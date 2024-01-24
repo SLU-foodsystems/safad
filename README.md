@@ -22,9 +22,13 @@ Some important files are:
 - [rpc-reducer.ts](./src/lib/rpc-reducer.ts): The logic that breaks down a food
 to its fundamental ingredients (and their amounts), along with transport,
 processes, and packaging.
-- [impact-csv-utils.ts](./src/lib/impacts-csv-utils.ts):
-- [ResultsManager.ts](./src/lib/ResultsManager.ts):
-- [input-files-parsers.ts](./src/lib/input-files-parsers.ts):
+- [input-files-parsers.ts](./src/lib/input-files-parsers.ts): Parsing of csv
+files to internal data formats. Useful to see which columns are used.
+- [impact-csv-utils.ts](./src/lib/impacts-csv-utils.ts): Converting the internal
+representations of results to csv-files, where e.g. headings are set and
+columns defined.
+- [ResultsEngine.ts](./src/lib/ResultsEngine.ts): Strings together most of the
+logic to compute impacts of foods.
 - [origin-waste-row-factors.ts](./src/lib/origin-waste-row-factors.ts):
 
 One way to better understand what is going on in each file may be to look at the
@@ -33,8 +37,9 @@ test files (same names, but ending with `.test.ts` instead of just `.ts`).
 ## Technologies
 
 The front-end uses [Vue](vuejs.org/) as the main framework, together with
-TypeScript. These tools all require Node.js and a package-management system
-(e.g. npm).
+TypeScript. These tools all require a working installation of
+[node](https://nodejs.org/en) and a package-management system (e.g. npm,
+included when installing node).
 
 ### Tooling
 
