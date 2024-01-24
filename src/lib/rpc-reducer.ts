@@ -135,8 +135,8 @@ function reduceToRpcs(
       );
 
       if (isTransportlessProcess(processes)) {
-        const preProcessAmount = amount*ratio;
-        newTransportAmount += netAmount - preProcessAmount
+        const preProcessAmount = amount * ratio;
+        newTransportAmount += netAmount - preProcessAmount;
       }
 
       // Some recipes will include references back to themselves, in which
