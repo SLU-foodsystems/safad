@@ -100,12 +100,12 @@ function reduceToRpcs(
     if (componentCodeLevel < level) return;
 
     const levelCode = getRpcCodeSubset(componentCode, level);
-    if (recordedSpecials.has(levelCode)) return;
+    if (newRecordedSpecials.has(levelCode)) return;
     // TODO: Split up specials and iterate over them
     const specials = preparationProcesses[levelCode];
     if (!specials || specials.length === 0) return;
 
-    newRecordedSpecials = new Set([levelCode, ...recordedSpecials]);
+    newRecordedSpecials = new Set([levelCode, ...newRecordedSpecials]);
     specials.forEach((special) => {
       recordProcessOrPackagingContribution(levelCode, special, amount);
     });
