@@ -276,7 +276,7 @@ class ResultsEngine {
 
     const emissionsFactorsPackaging = this.emissionsFactorsPackaging;
 
-    // Map the packetingAmounts to their respective emission factors
+    // Map the packagingAmounts to their respective emission factors
     const packagingEnvImpacts = mapValues(packagingAmounts, (amounts) =>
       Object.fromEntries(
         Object.entries(amounts).map(([packagingId, amount]) => [
