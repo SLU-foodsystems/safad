@@ -192,8 +192,9 @@ export default function reduceDietToRpcs(
   ) => {
     const level1Category = getRpcCodeSubset(code, 1);
     // We use 'real' facets for processing, but made-up ones for packaging. The
-    // made-up ones are just e.g. "P1", i.e. length of 2.
-    const map = facet.length === 2 ? packagingMap : processesMap;
+    // made-up ones are just e.g. "P1" or "P18", i.e. length of 2 or 3.
+    const isPackagingFacet = /^P\d(\d)?$/.test(facet);
+    const map = isPackagingFacet ? packagingMap : processesMap;
     if (!(level1Category in map)) {
       map[level1Category] = {};
     }
