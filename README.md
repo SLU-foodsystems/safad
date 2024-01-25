@@ -36,6 +36,8 @@ something like:
 
 Be careful to keep the quotes (i.e. `"1.0.1"` and not `1.0.1`) and the comma at
 the end of the line (i.e. `"version": "1.0.1",` and not `"version": "1.0.1"`).
+After this, press "Commit changes" and add a short note to why the version was
+changed (e.g. 'Update version after recipe changes').
 
 ![Screenshot of location of edit button](./docs/github-howto-edit.png)
 
