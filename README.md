@@ -5,7 +5,7 @@
 A web-based implementation of the SAFAD model developed by Röös et al. (in
 press) to benchmark sustainability impacts of diets.
 
-## Common Tasks: How To
+## Instructions for common maintenance tasks
 
 ### Upload new input files
 
