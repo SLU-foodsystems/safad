@@ -5,6 +5,44 @@
 A web-based implementation of the SAFAD model developed by Röös et al. (in
 press) to benchmark sustainability impacts of diets.
 
+## Common Tasks: How To
+
+### Upload new input files
+
+**From GitHub.com:** Go to [`src/default-input-files`](src/default-input-files)
+and, in the top-right corner, press the "Add File" button and select "Upload
+files". You will then be redirected to a page where you can upload the new files
+which will replace the old files. Remember that the name of the file is
+important, as is the order of the columns in the file. Files that you do not
+upload will remain unchanged (e.g. if you upload `SAFAD IP Recipes.csv`, that
+file will be replaced, and all other files remain unchanged).
+
+![Screenshot of location of Upload button](./docs/github-howto-upload-file.png)
+
+**From CLI:** Update the file in `./src/default-input-files/`, stage, commit and
+push.
+
+### Update the version
+
+**From GitHub.com:** Open the file [`package.json`](package.json) and press
+the edit-button (a pen). In this json file, you can change the row that reads
+something like:
+
+```json
+{
+  "version": "1.0.1",
+}
+```
+
+Be careful to keep the quotes (i.e. `"1.0.1"` and not `1.0.1`) and the comma at
+the end of the line (i.e. `"version": "1.0.1",` and not `"version": "1.0.1"`).
+
+![Screenshot of location of edit button](./docs/github-howto-edit.png)
+
+**From CLI:** Either edit package.json directly, or use `npm version
+[patch|minor|major]`.
+
+
 ## Project Structure
 
 The project relies on extensive processing of the input data, some of which can
