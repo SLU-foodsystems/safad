@@ -179,9 +179,7 @@ export const stringifyCsvData = (
 ) =>
   data
     .map((row) =>
-      row
-        .map((x) => smartQuote ? maybeQuoteValue(x || "") : x)
-        .join(delim)
+      row.map((x) => (smartQuote ? maybeQuoteValue(x || "") : x)).join(delim)
     )
     .join("\n");
 
