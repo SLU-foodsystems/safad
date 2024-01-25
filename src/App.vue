@@ -70,6 +70,7 @@ export default defineComponent({
   data() {
     return {
       Descriptions,
+      versionString: __APP_VERSION__,
 
       RE: new ResultsEngine() as ResultsEngine,
       countryCode: "SE",
@@ -370,11 +371,16 @@ export default defineComponent({
     <header class="stack start-page-wrap">
       <div class="cluster cluster--center">
         <img src="@/assets/slu-logo.svg" class="start-page__logo" />
-        <h1>
-          The
-          <abbr title="Sustainability Assesment of Foods and Diets">SAFAD</abbr>
-          tool by SLU
-        </h1>
+        <div>
+          <h1>
+            The
+            <abbr title="Sustainability Assesment of Foods and Diets"
+              >SAFAD</abbr
+            >
+            tool by SLU
+          </h1>
+          <span class="u-faded">Version: {{ versionString }}</span>
+        </div>
       </div>
 
       <br />
