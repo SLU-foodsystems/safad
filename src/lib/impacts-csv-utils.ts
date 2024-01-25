@@ -10,10 +10,9 @@ import {
 import { getRpcCodeSubset, listAllProcesses } from "@/lib/utils";
 
 import categoryNamesJson from "@/data/category-names.json";
-import namesJson from "@/data/rpc-names.json";
+import rpcNames from "@/lib/rpc-names";
 
 const categoryNames = categoryNamesJson as Record<string, string>;
-const names = namesJson as Record<string, string>;
 
 export const AGGREGATE_HEADERS = [
   // Aggregate over rpcs, processes, and packaging
@@ -223,7 +222,7 @@ export function labeledImpacts(
 
   return [
     code,
-    names[code] || "NAME NOT FOUND",
+    rpcNames[code] || "NAME NOT FOUND",
     getCategoryName(code, 1),
     getCategoryName(code, 2),
     amount.toFixed(2),
@@ -252,10 +251,10 @@ export function getDietBreakdown(
     rpcs.forEach(([rpcCode, rpcAmount]) => {
       rows.push([
         code,
-        names[code],
+        rpcNames[code],
         String(amount),
         rpcCode,
-        names[rpcCode],
+        rpcNames[rpcCode],
         String(rpcAmount),
       ]);
     });
