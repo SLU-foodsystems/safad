@@ -25,28 +25,17 @@ interface SetFilePayload {
   name: string;
 }
 
-interface FileInterface<T> {
-  state: "default" | "custom";
-  name: string;
-  defaultName: string;
-  data: null | string;
-  comment: string;
-  getDefault: (country: string) => Promise<string>;
-  parser: (data: string) => T;
-  setter: (data: T) => void;
-}
-
-const initFileInterface = <T,>(
-  partialFileInterface: Pick<
-    FileInterface<T>,
+const initInputFile = <T,>(
+  partialInputFile: Pick<
+    InputFile<T>,
     "defaultName" | "getDefault" | "parser" | "setter"
   >
-): FileInterface<T> => ({
+): InputFile<T> => ({
   state: "default",
   name: "",
   comment: "",
-  data: null,
-  ...partialFileInterface,
+  data: undefined,
+  ...partialInputFile,
 });
 
 const Descriptions = {
@@ -88,32 +77,32 @@ export default defineComponent({
 
       slvRecipes: [] as SlvRecipeComponent[],
 
-      emissionsFactorsPackagingFile: null as null | FileInterface<
+      emissionsFactorsPackagingFile: null as null | InputFile<
         Record<string, number[]>
       >,
-      emissionsFactorsEnergyFile: null as null | FileInterface<
+      emissionsFactorsEnergyFile: null as null | InputFile<
         Record<string, number[] | Record<string, number[]>>
       >,
-      emissionsFactorsTransportFile: null as null | FileInterface<
+      emissionsFactorsTransportFile: null as null | InputFile<
         NestedRecord<string, number[]>
       >,
 
-      foodsRecipesFile: null as null | FileInterface<FoodsRecipes>,
-      rpcOriginWasteFile: null as null | FileInterface<RpcOriginWaste>,
-      processesEnergyDemandsFile: null as null | FileInterface<
+      foodsRecipesFile: null as null | InputFile<FoodsRecipes>,
+      rpcOriginWasteFile: null as null | InputFile<RpcOriginWaste>,
+      processesEnergyDemandsFile: null as null | InputFile<
         Record<string, number[]>
       >,
-      preparationProcessesAndPackagingFile: null as null | FileInterface<
+      preparationProcessesAndPackagingFile: null as null | InputFile<
         Record<string, string[]>
       >,
-      wasteRetailAndConsumerFile: null as null | FileInterface<
+      wasteRetailAndConsumerFile: null as null | InputFile<
         Record<string, number[]>
       >,
 
-      footprintsRpcsFile: null as null | FileInterface<RpcFootprintsByOrigin>,
-      dietFile: null as null | FileInterface<Diet>,
+      footprintsRpcsFile: null as null | InputFile<RpcFootprintsByOrigin>,
+      dietFile: null as null | InputFile<Diet>,
 
-      slvRecipesFile: null as null | FileInterface<SlvRecipeComponent[]>,
+      slvRecipesFile: null as null | InputFile<SlvRecipeComponent[]>,
     };
   },
 
@@ -212,7 +201,7 @@ export default defineComponent({
       );
     },
 
-    async resetFile<T>(fileInterface: FileInterface<T>) {
+    async resetFile<T>(fileInterface: InputFile<T>) {
       if (!fileInterface) return;
 
       fileInterface.setter(
@@ -220,12 +209,12 @@ export default defineComponent({
       );
       fileInterface.name = "";
       fileInterface.state = "default";
-      fileInterface.data = null;
+      fileInterface.data = undefined;
     },
 
     async setFile<T>(
       payload: SetFilePayload,
-      fileInterface: FileInterface<T> | null
+      fileInterface: InputFile<T> | null
     ) {
       if (!fileInterface) return;
 
@@ -235,7 +224,7 @@ export default defineComponent({
       fileInterface.data = payload.data;
     },
 
-    async downloadFile<T>(fileInterface: FileInterface<T>) {
+    async downloadFile<T>(fileInterface: InputFile<T>) {
       if (fileInterface.state === "default") {
         downloadAsPlaintext(
           await fileInterface.getDefault(this.countryCode),
@@ -248,7 +237,7 @@ export default defineComponent({
 
     async setComment<T>(
       comment: string,
-      fileInterface: FileInterface<T> | null
+      fileInterface: InputFile<T> | null
     ) {
       if (!fileInterface) return;
       fileInterface.comment = comment;
@@ -266,14 +255,14 @@ export default defineComponent({
     const configureResultsEnginePromise =
       DefaultInputFiles.configureResultsEngine(this.RE, this.countryCode);
 
-    this.footprintsRpcsFile = initFileInterface({
+    this.footprintsRpcsFile = initInputFile({
       defaultName: "SAFAD ID Footprints RPC.csv",
       getDefault: DefaultInputFiles.raw.footprintsRpcs,
       parser: InputFileParsers.parseFootprintsRpcs,
       setter: this.RE.setFootprintsRpcs,
     });
 
-    this.dietFile = initFileInterface({
+    this.dietFile = initInputFile({
       defaultName: "SAFAD ID Diet Spec.csv",
       getDefault: DefaultInputFiles.raw.diet,
       parser: InputFileParsers.parseDiet,
@@ -287,57 +276,57 @@ export default defineComponent({
       this.dietFile?.setter(this.dietFile.parser(diet));
     });
 
-    this.foodsRecipesFile = initFileInterface({
+    this.foodsRecipesFile = initInputFile({
       defaultName: "SAFAD IP Recipes.csv",
       getDefault: DefaultInputFiles.raw.foodsRecipes,
       parser: InputFileParsers.parseFoodsRecipes,
       setter: this.RE.setFoodsRecipes,
     });
-    this.rpcOriginWasteFile = initFileInterface({
+    this.rpcOriginWasteFile = initInputFile({
       defaultName: "SAFAD IP Origin and Waste of RPC.csv",
       getDefault: DefaultInputFiles.raw.rpcOriginWaste,
       parser: InputFileParsers.parseRpcOriginWaste,
       setter: this.RE.setRpcOriginWaste,
     });
-    this.processesEnergyDemandsFile = initFileInterface({
+    this.processesEnergyDemandsFile = initInputFile({
       defaultName: "SAFAD IP Energy Proc.csv",
       getDefault: DefaultInputFiles.raw.processesEnergyDemands,
       parser: InputFileParsers.parseEmissionsFactorsPackaging,
       setter: this.RE.setEmissionsFactorsPackaging,
     });
-    this.preparationProcessesAndPackagingFile = initFileInterface({
+    this.preparationProcessesAndPackagingFile = initInputFile({
       defaultName: "SAFAD IP Prep Proc and Pack.csv",
       getDefault: DefaultInputFiles.raw.preparationProcessesAndPackaging,
       parser: InputFileParsers.parseProcessesPackaging,
       setter: this.RE.setPrepProcessesAndPackaging,
     });
-    this.wasteRetailAndConsumerFile = initFileInterface({
+    this.wasteRetailAndConsumerFile = initInputFile({
       defaultName: "SAFAD IP Waste Retail and Cons.csv",
       getDefault: DefaultInputFiles.raw.wasteRetailAndConsumer,
       parser: InputFileParsers.parseWasteRetailAndConsumer,
       setter: this.RE.setWasteRetailAndConsumer,
     });
 
-    this.emissionsFactorsEnergyFile = initFileInterface({
+    this.emissionsFactorsEnergyFile = initInputFile({
       defaultName: "SAFAD IEF Energy.csv",
       getDefault: DefaultInputFiles.raw.emissionsFactorsEnergy,
       parser: InputFileParsers.parseEmissionsFactorsEnergy,
       setter: this.RE.setEmissionsFactorsEnergy,
     });
-    this.emissionsFactorsPackagingFile = initFileInterface({
+    this.emissionsFactorsPackagingFile = initInputFile({
       defaultName: "SAFAD IEF Packaging.csv",
       getDefault: DefaultInputFiles.raw.emissionsFactorsPackaging,
       parser: InputFileParsers.parseEmissionsFactorsPackaging,
       setter: this.RE.setEmissionsFactorsPackaging,
     });
-    this.emissionsFactorsTransportFile = initFileInterface({
+    this.emissionsFactorsTransportFile = initInputFile({
       defaultName: "SAFAD IEF Transport.csv",
       getDefault: DefaultInputFiles.raw.emissionsFactorsTransport,
       parser: InputFileParsers.parseEmissionsFactorsTransport,
       setter: this.RE.setEmissionsFactorsTransport,
     });
 
-    this.slvRecipesFile = initFileInterface({
+    this.slvRecipesFile = initInputFile({
       defaultName: "SAFAD IS SLV Recipes.csv",
       getDefault: DefaultInputFiles.raw.slvRecipes,
       parser: InputFileParsers.parseSlvRecipes,
