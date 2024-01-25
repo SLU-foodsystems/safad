@@ -16,7 +16,7 @@ export default defineComponent({
     fileDescription: String,
     lastModified: {
       type: String,
-      required: true,
+      default: "",
     },
   },
 
