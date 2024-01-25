@@ -15,12 +15,16 @@
   },
   "dependencies": {
     "d3": "^7.8.5",
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.1",
     "vue": "^3.4.15"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.7.1",
     "@tsconfig/node20": "^20.1.2",
     "@types/d3": "^7.4.3",
+    "@types/file-saver": "^2.0.7",
+    "@types/jszip": "^3.4.1",
     "@types/node": "^20.11.6",
     "@vitejs/plugin-vue": "^5.0.3",
     "@vue/eslint-config-prettier": "^9.0.0",

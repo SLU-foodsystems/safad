@@ -8,7 +8,7 @@ import ResultsEngine from "@/lib/ResultsEngine";
 import FileSelector from "@/components/FileSelector.vue";
 import LoadingOverlay from "@/components/LoadingOverlay.vue";
 import { downloadAsPlaintext } from "@/lib/csv-io";
-import { stringifyCsvData } from "@/lib/utils";
+import { padLeft, stringifyCsvData } from "@/lib/utils";
 import {
   labeledAndFilteredImpacts,
   DETAILED_RESULTS_HEADER,
@@ -19,6 +19,8 @@ import {
   generateSlvResults,
   SLV_RESULTS_HEADER,
 } from "./lib/slv-results-generator";
+
+import MetaFile from "./lib/MetaFile";
 
 const inputFileModificationDates = __INPUT_FILE_MDATES__;
 
@@ -77,6 +79,8 @@ export default defineComponent({
       diet: [] as Diet,
       includeBreakdownFile: false,
       isLoading: false,
+
+      metaFileHandler: new MetaFile() as MetaFile,
 
       slvRecipes: [] as SlvRecipeComponent[],
 
@@ -248,6 +252,79 @@ export default defineComponent({
       if (!fileInterface) return;
       fileInterface.comment = comment;
     },
+
+    async downloadZip() {
+      const fileSaverImport = import("file-saver");
+      const { default: JSZip } = await import("jszip");
+      const zip = new JSZip();
+      const { saveAs } = await fileSaverImport;
+
+      const addFile = async (f: InputFile<any>) => {
+        const data =
+          f.state === "default"
+            ? await f.getDefault(this.countryCode)
+            : f.data || "";
+        const name = f.name || f.defaultName;
+        zip.file(name, data);
+      };
+
+      const files: InputFile<any>[] = [
+        this.dietFile!,
+        this.emissionsFactorsEnergyFile!,
+        this.emissionsFactorsPackagingFile!,
+        this.emissionsFactorsTransportFile!,
+        this.foodsRecipesFile!,
+        this.footprintsRpcsFile!,
+        this.preparationProcessesAndPackagingFile!,
+        this.processesEnergyDemandsFile!,
+        this.rpcOriginWasteFile!,
+        this.slvRecipesFile!,
+        this.wasteRetailAndConsumerFile!,
+      ];
+      const addFilePromises = files.map((f) => addFile(f));
+
+      zip.file("info.txt", this.metaFileHandler.toString());
+
+      if (this.countryCode === "SE") {
+        const slvResultsRows = await generateSlvResults(
+          this.slvRecipes,
+          this.RE as ResultsEngine
+        );
+        const data = stringifyCsvData([SLV_RESULTS_HEADER, ...slvResultsRows]);
+        zip.file("SAFAD OR Footprints per SLV Food.csv", data);
+      }
+
+      const impactsOfRecipe = labeledAndFilteredImpacts(
+        this.RE.computeImpactsOfRecipe()
+      );
+      const impactsOfRecipeCsv = stringifyCsvData([
+        DETAILED_RESULTS_HEADER,
+        ...impactsOfRecipe,
+      ]);
+
+      zip.file("SAFAD OR Footprints per Food.csv", impactsOfRecipeCsv);
+
+      const detailedDietImpacts = labeledAndFilteredImpacts(
+        this.RE.computeImpactsDetailed(this.diet)
+      );
+      const detailedDietImpactsCsv = stringifyCsvData([
+        DETAILED_RESULTS_HEADER,
+        ...detailedDietImpacts,
+      ]);
+
+      zip.file("SAFAD OR Footprints per Diet.csv", detailedDietImpactsCsv);
+
+      await Promise.allSettled(addFilePromises);
+
+      const content: Blob = await zip.generateAsync({ type: "blob" });
+      const d = new Date();
+      const date = [
+        d.getFullYear(),
+        padLeft(d.getMonth() + 1, 2),
+        padLeft(d.getDate(), 2),
+      ].join("-");
+      saveAs(content, `SAFAD Output ${date}.zip`);
+    },
   },
 
   async beforeMount() {
@@ -367,6 +444,21 @@ export default defineComponent({
     // configureResultsEngine utility.
     await this.slvRecipesFile.getDefault(this.countryCode).then((data) => {
       this.slvRecipesFile?.setter(this.slvRecipesFile.parser(data));
+    });
+
+    this.metaFileHandler.setInputFileInterfaces({
+      emissionsFactorsPackagingFile: this.emissionsFactorsPackagingFile,
+      emissionsFactorsEnergyFile: this.emissionsFactorsEnergyFile,
+      emissionsFactorsTransportFile: this.emissionsFactorsTransportFile,
+      foodsRecipesFile: this.foodsRecipesFile,
+      rpcOriginWasteFile: this.rpcOriginWasteFile,
+      processesEnergyDemandsFile: this.processesEnergyDemandsFile,
+      preparationProcessesAndPackagingFile:
+        this.preparationProcessesAndPackagingFile,
+      wasteRetailAndConsumerFile: this.wasteRetailAndConsumerFile,
+      footprintsRpcsFile: this.footprintsRpcsFile,
+      dietFile: this.dietFile,
+      slvRecipesFile: this.slvRecipesFile,
     });
 
     await configureResultsEnginePromise;
@@ -518,6 +610,26 @@ export default defineComponent({
             :file-description="Descriptions.slvRecipesFile"
             :last-modified="slvRecipesFile?.lastModified(countryCode)"
           />
+        </div>
+        <div class="stack">
+          <div class="cluster cluster--between">
+            <span class="cluster">
+              <img
+                src="@/assets/zip.svg"
+                width="2253"
+                height="2250"
+                loading="lazy"
+              />
+              <h2>Download complete package of files</h2>
+            </span>
+            <button class="button button--accent" @click="downloadZip">
+              Download
+            </button>
+          </div>
+          <p>
+            Download a zip-file with all input- and output files bundled
+            together.
+          </p>
         </div>
 
         <LoadingOverlay :show="isLoading" />
