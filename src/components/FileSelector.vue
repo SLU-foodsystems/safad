@@ -138,7 +138,7 @@ export default defineComponent({
         <span v-if="state === 'default'"
           >{{ fileName }}
           <span style="opacity: 0.6"
-            >(default, last modified {{ lastModified }})
+            >(default, last updated {{ lastModified }})
           </span>
         </span>
 
