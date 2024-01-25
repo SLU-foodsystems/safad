@@ -228,7 +228,7 @@ export default defineComponent({
         name: payload.name,
         state: "custom",
         data: payload.data,
-      })
+      });
     },
 
     async downloadFile<T>(fileInterface: InputFile<T>) {
@@ -242,10 +242,7 @@ export default defineComponent({
       }
     },
 
-    async setComment<T>(
-      comment: string,
-      fileInterface: InputFile<T> | null
-    ) {
+    async setComment<T>(comment: string, fileInterface: InputFile<T> | null) {
       if (!fileInterface) return;
       fileInterface.comment = comment;
     },
@@ -267,7 +264,8 @@ export default defineComponent({
       getDefault: DefaultInputFiles.raw.footprintsRpcs,
       parser: InputFileParsers.parseFootprintsRpcs,
       setter: this.RE.setFootprintsRpcs,
-      lastModified: () => inputFileModificationDates["SAFAD ID Footprints RPC.csv"],
+      lastModified: () =>
+        inputFileModificationDates["SAFAD ID Footprints RPC.csv"],
     });
 
     this.dietFile = initInputFile({
@@ -277,7 +275,8 @@ export default defineComponent({
       setter: (data: Diet) => {
         this.diet = data;
       },
-      lastModified: (country: string) => inputFileModificationDates[`SAFAD ID Diet Spec/${country}.csv`],
+      lastModified: (country: string) =>
+        inputFileModificationDates[`SAFAD ID Diet Spec/${country}.csv`],
     });
     // Diet needs to be handled explicitly, as it's not managed in the
     // "configureResultsEngine" builder function
@@ -297,28 +296,36 @@ export default defineComponent({
       getDefault: DefaultInputFiles.raw.rpcOriginWaste,
       parser: InputFileParsers.parseRpcOriginWaste,
       setter: this.RE.setRpcOriginWaste,
-      lastModified: (country: string) => inputFileModificationDates[`SAFAD IP Origin and Waste of RPC/${country}.csv`],
+      lastModified: (country: string) =>
+        inputFileModificationDates[
+          `SAFAD IP Origin and Waste of RPC/${country}.csv`
+        ],
     });
     this.processesEnergyDemandsFile = initInputFile({
       defaultName: "SAFAD IP Energy Proc.csv",
       getDefault: DefaultInputFiles.raw.processesEnergyDemands,
       parser: InputFileParsers.parseEmissionsFactorsPackaging,
       setter: this.RE.setEmissionsFactorsPackaging,
-      lastModified: () => inputFileModificationDates["SAFAD IP Energy Proc.csv"],
+      lastModified: () =>
+        inputFileModificationDates["SAFAD IP Energy Proc.csv"],
     });
     this.preparationProcessesAndPackagingFile = initInputFile({
       defaultName: "SAFAD IP Prep Proc and Pack.csv",
       getDefault: DefaultInputFiles.raw.preparationProcessesAndPackaging,
       parser: InputFileParsers.parseProcessesPackaging,
       setter: this.RE.setPrepProcessesAndPackaging,
-      lastModified: () => inputFileModificationDates["SAFAD IP Prep Proc and Pack.csv"],
+      lastModified: () =>
+        inputFileModificationDates["SAFAD IP Prep Proc and Pack.csv"],
     });
     this.wasteRetailAndConsumerFile = initInputFile({
       defaultName: "SAFAD IP Waste Retail and Cons.csv",
       getDefault: DefaultInputFiles.raw.wasteRetailAndConsumer,
       parser: InputFileParsers.parseWasteRetailAndConsumer,
       setter: this.RE.setWasteRetailAndConsumer,
-      lastModified: (country: string) => inputFileModificationDates[`SAFAD IP Waste Retail and Cons/${country}.csv`],
+      lastModified: (country: string) =>
+        inputFileModificationDates[
+          `SAFAD IP Waste Retail and Cons/${country}.csv`
+        ],
     });
 
     this.emissionsFactorsEnergyFile = initInputFile({
@@ -350,7 +357,8 @@ export default defineComponent({
       setter: (data: SlvRecipeComponent[]) => {
         this.slvRecipes = data;
       },
-      lastModified: () => inputFileModificationDates["SAFAD IS SLV Recipes.csv"],
+      lastModified: () =>
+        inputFileModificationDates["SAFAD IS SLV Recipes.csv"],
     });
 
     // SLV Recipes also needs to be set to initial value, as not handled by the
@@ -596,7 +604,9 @@ export default defineComponent({
         "
         :state="preparationProcessesAndPackagingFile?.state || 'default'"
         :file-description="Descriptions.prepProcAndPack"
-        :last-modified="preparationProcessesAndPackagingFile?.lastModified(countryCode)"
+        :last-modified="
+          preparationProcessesAndPackagingFile?.lastModified(countryCode)
+        "
       />
       <FileSelector
         file-label="Consumer- and Retail wastes"
@@ -630,7 +640,9 @@ export default defineComponent({
         "
         :state="emissionsFactorsPackagingFile?.state || 'default'"
         :file-description="Descriptions.emissionsFactorsPackaging"
-        :last-modified="emissionsFactorsPackagingFile?.lastModified(countryCode)"
+        :last-modified="
+          emissionsFactorsPackagingFile?.lastModified(countryCode)
+        "
       />
       <FileSelector
         file-label="Emissions Factors Energy"
@@ -662,7 +674,9 @@ export default defineComponent({
         "
         :state="emissionsFactorsTransportFile?.state || 'default'"
         :file-description="Descriptions.emissionsFactorsTransport"
-        :last-modified="emissionsFactorsTransportFile?.lastModified(countryCode)"
+        :last-modified="
+          emissionsFactorsTransportFile?.lastModified(countryCode)
+        "
       />
     </div>
   </section>
