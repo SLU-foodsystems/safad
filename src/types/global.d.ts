@@ -54,4 +54,15 @@ declare global {
     netShare: number;
   }
 
+  interface InputFile<T> {
+    state: "default" | "custom";
+    name: string;
+    defaultName: string;
+    data?: string;
+    comment: string;
+
+    getDefault: (country: string) => Promise<string>;
+    parser: (data: string) => T;
+    setter: (data: T) => void;
+  }
 }
