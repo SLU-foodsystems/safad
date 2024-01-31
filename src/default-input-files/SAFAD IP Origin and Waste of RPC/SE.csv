@@ -4338,7 +4338,8 @@ A.06.04.005,Quail fresh meat,New Zealand,NZ,0.04,0.057,21170.02
 A.06.04.005,Quail fresh meat,Spain,ES,0.002,0.057,21170.02
 A.06.04.005,Quail fresh meat,United Kingdom,GB,0.001,0.057,21170.02
 A.06.04.005,Quail fresh meat,Rest of World,RoW,0.004,0.057,21170.02
-A.07.01.001,Herring roe,Rest of World,RoW,1,0.02,BF-01
+A.07.01.001,Herrings,Rest of World,RoW,1,0.02,BF-01
+I.07.03.001.002,Herring roe,Rest of World,RoW,1,0.02,BF-02
 A.07.01.002,Sprat,Rest of World,RoW,1,0.02,BF-03
 A.07.01.003,European sardine,Rest of World,RoW,1,0.02,BF-04
 A.07.01.004,Anchovies,Rest of World,RoW,1,0.02,BF-05
@@ -4380,12 +4381,20 @@ A.07.05.006,Cockles,Rest of World,RoW,1,0.02,BF-40
 A.07.05.007,Mussels,Rest of World,RoW,1,0.02,BF-41
 A.07.05.008,Oysters,Rest of World,RoW,1,0.02,BF-42
 A.07.05.010,"Scallops, pectens",Rest of World,RoW,1,0.02,BF-43
-A.07.05.013,"Water snails, conches and whelks",Rest of World,RoW,1,0.02,BF-44
-A.07.05.013,"Water snails, conches and whelks",Rest of World,RoW,1,0.02,BF-44
-A.07.05.014,"Water snails, conches and whelks",Rest of World,RoW,1,0.02,BF-44
-A.07.05.014,"Water snails, conches and whelks",Rest of World,RoW,1,0.02,BF-44
+A.07.05.013,"Whelk (Buccinum undatum, Fusus antiquus)",Rest of World,RoW,1,0.02,BF-44
+A.07.05.014,Winkle (Littorina littorea),Rest of World,RoW,1,0.02,BF-44
 A.07.06.001,Frogs (legs),Rest of World,RoW,1,0.02,BF-45
 A.07.06.004,Snails,Rest of World,RoW,1,0.02,BF-46
+I.07.01.006.001,Salmons,Rest of World,RoW,1,0.02,BF-47
+I.07.01.006.002,Trouts,Rest of World,RoW,1,0.02,BF-48
+I.07.01.015.001,Catfishes (freshwater),Rest of World,RoW,1,0.02,BF-49
+I.07.01.015.002,Wolffish,Rest of World,RoW,1,0.02,BF-50
+I.07.01.017.001,Cod,Rest of World,RoW,1,0.02,BF-51
+I.07.03.002.001,Cod liver,Rest of World,RoW,1,0.02,BF-52
+I.07.03.001.001,Cod roe,Rest of World,RoW,1,0.02,BF-53
+I.07.01.017.002,seed,Rest of World,RoW,1,0.02,BF-54
+I.07.01.017.004,Haddock,Rest of World,RoW,1,0.02,BF-55
+I.07.03.001.003,Lumpfish roe,Rest of World,RoW,1,0.02,BF-56
 A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",Sweden,SE,0.706,0.017,02211
 A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",Austria,AT,0.012,0.017,02211
 A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",Cyprus,CY,0.001,0.017,02211
