@@ -20,7 +20,7 @@ import {
   SLV_RESULTS_HEADER,
 } from "./lib/slv-results-generator";
 
-const inputFileModificationDates = INPUT_FILE_MDATES;
+const inputFileModificationDates = __INPUT_FILE_MDATES__;
 
 interface SetFilePayload {
   data: string;
