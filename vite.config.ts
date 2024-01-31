@@ -36,6 +36,6 @@ export default defineConfig({
   },
   define: {
     __INPUT_FILE_MDATES__: await statCsvFiles("./src/default-input-files/"),
-    __APP_VERSION__: JSON.stringify(process.env.npm_package_version),
+    __APP_VERSION__: await getFullVersion(),
   },
 });
