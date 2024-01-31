@@ -253,3 +253,8 @@ export function roundToPrecision(number: number, decimalPoints = 2) {
   const k = 10 ** decimalPoints;
   return Math.round(number * k) / k;
 }
+
+export const padLeft = (number: number | string, minLen: number): string =>
+  minLen > 0 && String(number).length < minLen
+    ? ("0".repeat(minLen) + number).slice(-1 * minLen)
+    : String(number);
