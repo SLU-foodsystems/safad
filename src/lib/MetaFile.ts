@@ -15,6 +15,23 @@ const fileInterfaceToString = (f: InputFile<any>) => {
 
 const sep = (char: string, len = 30) => char.repeat(len);
 
+// Tag function to pad all numbers with an additional zero where needed
+const padStrings = (
+  strings: TemplateStringsArray,
+  ...vars: (number | string)[]
+) => String.raw(strings, ...vars.map((x: number | string) => padLeft(x, 2)));
+
+const dateString = (d: Date = new Date()) => {
+  const YYYY = d.getFullYear();
+  const M = d.getMonth() + 1;
+  const D = d.getDate();
+
+  const HH = d.getHours();
+  const MM = d.getMinutes();
+
+  return padStrings`${YYYY}-${M}-${D} ${HH}:${MM}`;
+};
+
 type InputFileKeys =
   | "emissionsFactorsPackagingFile"
   | "emissionsFactorsEnergyFile"
@@ -37,25 +54,6 @@ export default class MetaFile {
     this.inputFileInterfaces = dict;
   }
 
-  private dateString() {
-    const d = new Date();
-    const YYYY = d.getFullYear();
-    const M = d.getMonth() + 1;
-    const D = d.getDate();
-
-    const HH = d.getHours();
-    const MM = d.getMinutes();
-
-    // Tag function to pad all numbers with an additional zero where needed
-    const pad = (
-      strings: TemplateStringsArray,
-      ...vars: (number | string)[]
-    ) =>
-      String.raw(strings, ...vars.map((x: number | string) => padLeft(x, 2)));
-
-    return pad`${YYYY}-${M}-${D} ${HH}:${MM}`;
-  }
-
   toString(): string {
     const f = this.inputFileInterfaces; // shortcut.
     if (!f) return "Error."; // TODO: Give better fallback
@@ -63,7 +61,7 @@ export default class MetaFile {
     return [
       "SAFAD Export Data",
       "",
-      "Date: " + this.dateString(),
+      "Date: " + dateString(),
       `Version: ${this.version}`,
       "",
       "Files:",
@@ -80,7 +78,7 @@ export default class MetaFile {
       "",
       "Input Parameter Files:",
       sep("-"),
-      "Recipes:" + fileInterfaceToString(f.foodsRecipesFile),
+      "Recipes: " + fileInterfaceToString(f.foodsRecipesFile),
       "Origin and Waste of RPC: " + fileInterfaceToString(f.rpcOriginWasteFile),
       "Energy demands of processes: " +
         fileInterfaceToString(f.processesEnergyDemandsFile),
