@@ -530,6 +530,27 @@ export default defineComponent({
           <div class="cluster cluster--between">
             <span class="cluster">
               <img
+                src="@/assets/zip.svg"
+                width="2253"
+                height="2250"
+                loading="lazy"
+              />
+              <h2>Download complete package of files</h2>
+            </span>
+            <button class="button button--accent" @click="downloadZip">
+              Download
+            </button>
+          </div>
+          <p>
+            Download a zip-file with all input- and output files bundled
+            together.
+          </p>
+        </div>
+
+        <div class="stack">
+          <div class="cluster cluster--between">
+            <span class="cluster">
+              <img
                 src="@/assets/bar-chart.svg"
                 width="2253"
                 height="2250"
@@ -610,26 +631,6 @@ export default defineComponent({
             :file-description="Descriptions.slvRecipesFile"
             :last-modified="slvRecipesFile?.lastModified(countryCode)"
           />
-        </div>
-        <div class="stack">
-          <div class="cluster cluster--between">
-            <span class="cluster">
-              <img
-                src="@/assets/zip.svg"
-                width="2253"
-                height="2250"
-                loading="lazy"
-              />
-              <h2>Download complete package of files</h2>
-            </span>
-            <button class="button button--accent" @click="downloadZip">
-              Download
-            </button>
-          </div>
-          <p>
-            Download a zip-file with all input- and output files bundled
-            together.
-          </p>
         </div>
 
         <LoadingOverlay :show="isLoading" />
