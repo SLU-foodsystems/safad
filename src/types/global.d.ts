@@ -2,7 +2,7 @@ export {};
 
 declare global {
   // Env variable
-  readonly var INPUT_FILE_MDATES: Record<string, string>;
+  readonly var __INPUT_FILE_MDATES__: Record<string, string>;
   readonly var __APP_VERSION__: string;
 
   // Helper type
