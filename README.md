@@ -24,26 +24,17 @@ push.
 
 ### Update the version
 
-**From GitHub.com:** Open the file [`package.json`](package.json) and press
-the edit-button (a pen). In this json file, you can change the row that reads
-something like:
+The version consists of two component: one "major" and one "minor" version,
+separated by a period. Example: `1.34`, where `1` is the major and `34` is the
+minor version.
 
-```json
-{
-  "version": "1.0.1",
-}
-```
+The major version is defined explicitly, while the minor version is increased by
+1 each time a commit is made, starting from a specific date.
 
-Be careful to keep the quotes (i.e. `"1.0.1"` and not `1.0.1`) and the comma at
-the end of the line (i.e. `"version": "1.0.1",` and not `"version": "1.0.1"`).
-After this, press "Commit changes" and add a short note to why the version was
-changed (e.g. 'Update version after recipe changes').
-
-![Screenshot of location of edit button](./docs/github-howto-edit.png)
-
-**From CLI:** Either edit package.json directly, or use `npm version
-[patch|minor|major]`.
-
+To change it, you will need to edit the file `vite.config.ts`, where the
+variable. You can do this directly from github.com, using the built-in editor
+([go to the file](./vite.config.ts) and press the edit-button in the top-right
+corner, which is a pen-icon).
 
 ## Project Structure
 
