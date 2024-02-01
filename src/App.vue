@@ -1,12 +1,12 @@
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { ref, watch, onMounted } from "vue";
 
 import * as DefaultInputFiles from "@/lib/default-input-files";
 import * as InputFileParsers from "@/lib/input-files-parsers";
+
+import MetaFile from "@/lib/MetaFile";
 import ResultsEngine from "@/lib/ResultsEngine";
 
-import FileSelector from "@/components/FileSelector.vue";
-import LoadingOverlay from "@/components/LoadingOverlay.vue";
 import { downloadAsPlaintext } from "@/lib/csv-io";
 import { padLeft, stringifyCsvData } from "@/lib/utils";
 import {
@@ -14,33 +14,19 @@ import {
   DETAILED_RESULTS_HEADER,
   getDietBreakdown,
 } from "@/lib/impacts-csv-utils";
-import reduceDietToRpcs from "./lib/rpc-reducer";
+import reduceDietToRpcs from "@/lib/rpc-reducer";
 import {
   generateSlvResults,
   SLV_RESULTS_HEADER,
-} from "./lib/slv-results-generator";
+} from "@/lib/slv-results-generator";
 
-import MetaFile from "./lib/MetaFile";
+import { resetFile, initInputFile } from "@/lib/file-interface-utils";
+
+import FileSelector from "@/components/FileSelector.vue";
+import LoadingOverlay from "@/components/LoadingOverlay.vue";
 
 const inputFileModificationDates = __INPUT_FILE_MDATES__;
-
-interface SetFilePayload {
-  data: string;
-  name: string;
-}
-
-const initInputFile = <T,>(
-  partialInputFile: Pick<
-    InputFile<T>,
-    "defaultName" | "getDefault" | "parser" | "setter" | "lastModified"
-  >
-): InputFile<T> => ({
-  state: "default",
-  name: "",
-  comment: "",
-  data: undefined,
-  ...partialInputFile,
-});
+const versionString = __APP_VERSION__;
 
 const Descriptions = {
   footprintsRpc:
@@ -66,405 +52,341 @@ const Descriptions = {
     "An alternative recipe file containing recipes used by the Swedish Food Agency. This file defines for which recipes footprints are calculated for, what ingredients they contain and in what amounts (as determined by SFA). This file is complemented by SAFAD IP Recipes.csv file to break non-RPC items down to RPC-level.",
 };
 
-export default defineComponent({
-  components: { FileSelector, LoadingOverlay },
+const RE = new ResultsEngine();
 
-  data() {
-    return {
-      Descriptions,
-      versionString: __APP_VERSION__,
+const countryCode = ref("SE");
+const diet = ref<Diet>([]);
+const includeBreakdownFile = ref(false);
+const isLoading = ref(false);
+// Needs to be separate, as they're not managed by the ResultsEngine
+const slvRecipes = ref<SlvRecipeComponent[]>([]);
 
-      RE: new ResultsEngine() as ResultsEngine,
-      countryCode: "SE",
-      diet: [] as Diet,
-      includeBreakdownFile: false,
-      isLoading: false,
+const footprintsRpcsFile = ref(
+  initInputFile({
+    defaultName: "SAFAD ID Footprints RPC.csv",
+    getDefault: DefaultInputFiles.raw.footprintsRpcs,
+    parser: InputFileParsers.parseFootprintsRpcs,
+    setter: RE.setFootprintsRpcs,
+    lastModified: () =>
+      inputFileModificationDates["SAFAD ID Footprints RPC.csv"],
+  })
+);
 
-      metaFileHandler: new MetaFile() as MetaFile,
-
-      slvRecipes: [] as SlvRecipeComponent[],
-
-      emissionsFactorsPackagingFile: null as null | InputFile<
-        Record<string, number[]>
-      >,
-      emissionsFactorsEnergyFile: null as null | InputFile<
-        Record<string, number[] | Record<string, number[]>>
-      >,
-      emissionsFactorsTransportFile: null as null | InputFile<
-        NestedRecord<string, number[]>
-      >,
-
-      foodsRecipesFile: null as null | InputFile<FoodsRecipes>,
-      rpcOriginWasteFile: null as null | InputFile<RpcOriginWaste>,
-      processesEnergyDemandsFile: null as null | InputFile<
-        Record<string, number[]>
-      >,
-      preparationProcessesAndPackagingFile: null as null | InputFile<
-        Record<string, string[]>
-      >,
-      wasteRetailAndConsumerFile: null as null | InputFile<
-        Record<string, number[]>
-      >,
-
-      footprintsRpcsFile: null as null | InputFile<RpcFootprintsByOrigin>,
-      dietFile: null as null | InputFile<Diet>,
-
-      slvRecipesFile: null as null | InputFile<SlvRecipeComponent[]>,
-    };
-  },
-
-  watch: {
-    async countryCode() {
-      this.RE.setCountryCode(this.countryCode);
-
-      const promises = [];
-
-      this.isLoading = true;
-      if (this.rpcOriginWasteFile?.state === "default") {
-        promises.push(this.resetFile(this.rpcOriginWasteFile));
-      }
-      if (this.wasteRetailAndConsumerFile?.state === "default") {
-        promises.push(this.resetFile(this.wasteRetailAndConsumerFile));
-      }
-      if (this.dietFile?.state === "default") {
-        promises.push(this.resetFile(this.dietFile));
-      }
-
-      await Promise.all(promises);
-      this.isLoading = false;
+const dietFile = ref(
+  initInputFile<Diet>({
+    defaultName: "SAFAD ID Diet Spec.csv",
+    getDefault: DefaultInputFiles.raw.diet,
+    parser: InputFileParsers.parseDiet,
+    setter: (data: Diet) => {
+      diet.value = data;
     },
-  },
+    lastModified: (country: string) =>
+      inputFileModificationDates[`SAFAD ID Diet Spec/${country}.csv`],
+  })
+);
 
-  methods: {
-    async downloadFootprintsOfFoods() {
-      if (!this.RE) return;
-      const impactsOfRecipe = labeledAndFilteredImpacts(
-        this.RE.computeImpactsOfRecipe()
-      );
+const foodsRecipesFile = ref(
+  initInputFile({
+    defaultName: "SAFAD IP Recipes.csv",
+    getDefault: DefaultInputFiles.raw.foodsRecipes,
+    parser: InputFileParsers.parseFoodsRecipes,
+    setter: RE.setFoodsRecipes,
+    lastModified: () => inputFileModificationDates[`SAFAD IP Recipes.csv`],
+  })
+);
+const rpcOriginWasteFile = ref(
+  initInputFile({
+    defaultName: "SAFAD IP Origin and Waste of RPC.csv",
+    getDefault: DefaultInputFiles.raw.rpcOriginWaste,
+    parser: InputFileParsers.parseRpcOriginWaste,
+    setter: RE.setRpcOriginWaste,
+    lastModified: (country: string) =>
+      inputFileModificationDates[
+        `SAFAD IP Origin and Waste of RPC/${country}.csv`
+      ],
+  })
+);
+const processesEnergyDemandsFile = ref(
+  initInputFile({
+    defaultName: "SAFAD IP Energy Proc.csv",
+    getDefault: DefaultInputFiles.raw.processesEnergyDemands,
+    parser: InputFileParsers.parseEmissionsFactorsPackaging,
+    setter: RE.setEmissionsFactorsPackaging,
+    lastModified: () => inputFileModificationDates["SAFAD IP Energy Proc.csv"],
+  })
+);
+const preparationProcessesAndPackagingFile = ref(
+  initInputFile({
+    defaultName: "SAFAD IP Prep Proc and Pack.csv",
+    getDefault: DefaultInputFiles.raw.preparationProcessesAndPackaging,
+    parser: InputFileParsers.parseProcessesPackaging,
+    setter: RE.setPrepProcessesAndPackaging,
+    lastModified: () =>
+      inputFileModificationDates["SAFAD IP Prep Proc and Pack.csv"],
+  })
+);
+const wasteRetailAndConsumerFile = ref(
+  initInputFile({
+    defaultName: "SAFAD IP Waste Retail and Cons.csv",
+    getDefault: DefaultInputFiles.raw.wasteRetailAndConsumer,
+    parser: InputFileParsers.parseWasteRetailAndConsumer,
+    setter: RE.setWasteRetailAndConsumer,
+    lastModified: (country: string) =>
+      inputFileModificationDates[
+        `SAFAD IP Waste Retail and Cons/${country}.csv`
+      ],
+  })
+);
 
-      const impactsOfRecipeCsv = stringifyCsvData([
-        DETAILED_RESULTS_HEADER,
-        ...impactsOfRecipe,
-      ]);
+const emissionsFactorsEnergyFile = ref(
+  initInputFile({
+    defaultName: "SAFAD IEF Energy.csv",
+    getDefault: DefaultInputFiles.raw.emissionsFactorsEnergy,
+    parser: InputFileParsers.parseEmissionsFactorsEnergy,
+    setter: RE.setEmissionsFactorsEnergy,
+    lastModified: () => inputFileModificationDates["SAFAD IEF Energy.csv"],
+  })
+);
+const emissionsFactorsPackagingFile = ref(
+  initInputFile({
+    defaultName: "SAFAD IEF Packaging.csv",
+    getDefault: DefaultInputFiles.raw.emissionsFactorsPackaging,
+    parser: InputFileParsers.parseEmissionsFactorsPackaging,
+    setter: RE.setEmissionsFactorsPackaging,
+    lastModified: () => inputFileModificationDates["SAFAD IEF Packaging.csv"],
+  })
+);
+const emissionsFactorsTransportFile = ref(
+  initInputFile({
+    defaultName: "SAFAD IEF Transport.csv",
+    getDefault: DefaultInputFiles.raw.emissionsFactorsTransport,
+    parser: InputFileParsers.parseEmissionsFactorsTransport,
+    setter: RE.setEmissionsFactorsTransport,
+    lastModified: () => inputFileModificationDates["SAFAD IEF Transport.csv"],
+  })
+);
 
-      downloadAsPlaintext(
-        impactsOfRecipeCsv,
-        "SAFAD OR Footprints per Food.csv"
-      );
+const slvRecipesFile = ref(
+  initInputFile({
+    defaultName: "SAFAD IS SLV Recipes.csv",
+    getDefault: DefaultInputFiles.raw.slvRecipes,
+    parser: InputFileParsers.parseSlvRecipes,
+    setter: (data: SlvRecipeComponent[]) => {
+      slvRecipes.value = data;
     },
-    async downloadFootprintsOfDiets() {
-      if (!this.RE) return;
-      const detailedDietImpacts = labeledAndFilteredImpacts(
-        this.RE.computeImpactsDetailed(this.diet)
-      );
+    lastModified: () => inputFileModificationDates["SAFAD IS SLV Recipes.csv"],
+  })
+);
 
-      const detailedDietImpactsCsv = stringifyCsvData([
-        DETAILED_RESULTS_HEADER,
-        ...detailedDietImpacts,
-      ]);
+/**
+ * Whenever the countryCode dropdown is changed, we need to
+ * - Update the ResultsEngine
+ * - Re-load all country-dependant files
+ */
+watch(countryCode, async () => {
+  RE.setCountryCode(countryCode.value);
 
-      downloadAsPlaintext(
-        detailedDietImpactsCsv,
-        "SAFAD OR Footprints per Diet.csv"
-      );
+  const promises = [];
 
-      if (this.includeBreakdownFile) {
-        const dietBreakdownRows = getDietBreakdown(
-          this.diet.map(([code, amount]): [string, number, Diet] => [
-            code,
-            amount,
-            reduceDietToRpcs(
-              [[code, amount]],
-              this.RE.foodsRecipes!,
-              this.RE.preparationProcessesAndPackaging!
-            )[0],
-          ])
-        );
-        const breakdownFileHeader = [
-          "Food Code",
-          "Food Name",
-          "Food Amount (g)",
-          "RPC Code",
-          "RPC Name",
-          "RPC Amount (g)",
-        ];
-        downloadAsPlaintext(
-          stringifyCsvData([breakdownFileHeader, ...dietBreakdownRows]),
-          "SAFAD OS Breakdown per Food.csv"
-        );
-      }
-    },
+  isLoading.value = true;
+  if (rpcOriginWasteFile.value?.state === "default") {
+    promises.push(resetFile(countryCode.value, rpcOriginWasteFile.value));
+  }
+  if (wasteRetailAndConsumerFile.value?.state === "default") {
+    promises.push(
+      resetFile(countryCode.value, wasteRetailAndConsumerFile.value)
+    );
+  }
+  if (dietFile.value?.state === "default") {
+    promises.push(resetFile(countryCode.value, dietFile.value));
+  }
 
-    async downloadFootprintsOfSLVRecipes() {
-      if (!this.RE) return;
+  await Promise.all(promises);
+  isLoading.value = false;
+});
 
-      const slvResultsRows = await generateSlvResults(
-        this.slvRecipes,
-        this.RE as ResultsEngine
-      );
-      downloadAsPlaintext(
-        stringifyCsvData([SLV_RESULTS_HEADER, ...slvResultsRows]),
-        "SAFAD OR Footprints per SLV Food.csv"
-      );
-    },
+/**
+ * Methods
+ */
 
-    async resetFile<T>(fileInterface: InputFile<T> | null) {
-      if (!fileInterface) return;
+const downloadFootprintsOfFoods = async () => {
+  const impactsOfRecipe = labeledAndFilteredImpacts(
+    RE.computeImpactsOfRecipe()
+  );
 
-      fileInterface.setter(
-        fileInterface.parser(await fileInterface.getDefault(this.countryCode))
-      );
-      Object.assign(fileInterface, {
-        name: undefined,
-        state: "default",
-        data: undefined,
-      });
-    },
+  const impactsOfRecipeCsv = stringifyCsvData([
+    DETAILED_RESULTS_HEADER,
+    ...impactsOfRecipe,
+  ]);
 
-    async setFile<T>(
-      payload: SetFilePayload,
-      fileInterface: InputFile<T> | null
-    ) {
-      if (!fileInterface) return;
+  downloadAsPlaintext(impactsOfRecipeCsv, "SAFAD OR Footprints per Food.csv");
+};
 
-      fileInterface.setter(fileInterface.parser(payload.data));
-      Object.assign(fileInterface, {
-        name: payload.name,
-        state: "custom",
-        data: payload.data,
-      });
-    },
+const downloadFootprintsOfDiets = () => {
+  const detailedDietImpacts = labeledAndFilteredImpacts(
+    RE.computeImpactsDetailed(diet.value)
+  );
 
-    async downloadFile<T>(fileInterface: InputFile<T> | null) {
-      if (!fileInterface) return;
+  const detailedDietImpactsCsv = stringifyCsvData([
+    DETAILED_RESULTS_HEADER,
+    ...detailedDietImpacts,
+  ]);
 
-      if (fileInterface.state === "default") {
-        downloadAsPlaintext(
-          await fileInterface.getDefault(this.countryCode),
-          fileInterface.defaultName
-        );
-      } else {
-        downloadAsPlaintext(fileInterface.data || "", fileInterface.name);
-      }
-    },
+  downloadAsPlaintext(
+    detailedDietImpactsCsv,
+    "SAFAD OR Footprints per Diet.csv"
+  );
 
-    async setComment<T>(comment: string, fileInterface: InputFile<T> | null) {
-      if (!fileInterface) return;
-      fileInterface.comment = comment;
-    },
+  if (includeBreakdownFile.value) {
+    const dietBreakdownRows = getDietBreakdown(
+      diet.value.map(([code, amount]): [string, number, Diet] => [
+        code,
+        amount,
+        reduceDietToRpcs(
+          [[code, amount]],
+          RE.foodsRecipes!,
+          RE.preparationProcessesAndPackaging!
+        )[0],
+      ])
+    );
+    const breakdownFileHeader = [
+      "Food Code",
+      "Food Name",
+      "Food Amount (g)",
+      "RPC Code",
+      "RPC Name",
+      "RPC Amount (g)",
+    ];
+    downloadAsPlaintext(
+      stringifyCsvData([breakdownFileHeader, ...dietBreakdownRows]),
+      "SAFAD OS Breakdown per Food.csv"
+    );
+  }
+};
 
-    async downloadZip() {
-      const fileSaverImport = import("file-saver");
-      const { default: JSZip } = await import("jszip");
-      const zip = new JSZip();
-      const { saveAs } = await fileSaverImport;
+const downloadFootprintsOfSLVRecipes = async () => {
+  if (!RE) return;
 
-      const addFile = async (f: InputFile<any>) => {
-        const data =
-          f.state === "default"
-            ? await f.getDefault(this.countryCode)
-            : f.data || "";
-        const name = f.name || f.defaultName;
-        zip.file(name, data);
-      };
+  const slvResultsRows = await generateSlvResults(slvRecipes.value, RE);
+  downloadAsPlaintext(
+    stringifyCsvData([SLV_RESULTS_HEADER, ...slvResultsRows]),
+    "SAFAD OR Footprints per SLV Food.csv"
+  );
+};
 
-      const files: InputFile<any>[] = [
-        this.dietFile!,
-        this.emissionsFactorsEnergyFile!,
-        this.emissionsFactorsPackagingFile!,
-        this.emissionsFactorsTransportFile!,
-        this.foodsRecipesFile!,
-        this.footprintsRpcsFile!,
-        this.preparationProcessesAndPackagingFile!,
-        this.processesEnergyDemandsFile!,
-        this.rpcOriginWasteFile!,
-        this.slvRecipesFile!,
-        this.wasteRetailAndConsumerFile!,
-      ];
-      const addFilePromises = files.map((f) => addFile(f));
+const metaFileHandler = new MetaFile();
+metaFileHandler.setInputFileInterfaces({
+  emissionsFactorsPackagingFile: emissionsFactorsPackagingFile.value,
+  emissionsFactorsEnergyFile: emissionsFactorsEnergyFile.value,
+  emissionsFactorsTransportFile: emissionsFactorsTransportFile.value,
+  foodsRecipesFile: foodsRecipesFile.value,
+  rpcOriginWasteFile: rpcOriginWasteFile.value,
+  processesEnergyDemandsFile: processesEnergyDemandsFile.value,
+  preparationProcessesAndPackagingFile:
+    preparationProcessesAndPackagingFile.value,
+  wasteRetailAndConsumerFile: wasteRetailAndConsumerFile.value,
+  footprintsRpcsFile: footprintsRpcsFile.value,
+  dietFile: dietFile.value,
+  slvRecipesFile: slvRecipesFile.value,
+});
 
-      zip.file("info.txt", this.metaFileHandler.toString());
+const downloadZip = async () => {
+  const fileSaverImport = import("file-saver");
+  const { default: JSZip } = await import("jszip");
+  const zip = new JSZip();
+  const { saveAs } = await fileSaverImport;
 
-      if (this.countryCode === "SE") {
-        const slvResultsRows = await generateSlvResults(
-          this.slvRecipes,
-          this.RE as ResultsEngine
-        );
-        const data = stringifyCsvData([SLV_RESULTS_HEADER, ...slvResultsRows]);
-        zip.file("SAFAD OR Footprints per SLV Food.csv", data);
-      }
+  const addFile = async (f: InputFile<any>) => {
+    const data =
+      f.state === "default"
+        ? await f.getDefault(countryCode.value)
+        : f.data || "";
+    const name = f.name || f.defaultName;
+    zip.file(name, data);
+  };
 
-      const impactsOfRecipe = labeledAndFilteredImpacts(
-        this.RE.computeImpactsOfRecipe()
-      );
-      const impactsOfRecipeCsv = stringifyCsvData([
-        DETAILED_RESULTS_HEADER,
-        ...impactsOfRecipe,
-      ]);
+  const files: InputFile<any>[] = [
+    dietFile.value!,
+    emissionsFactorsEnergyFile.value!,
+    emissionsFactorsPackagingFile.value!,
+    emissionsFactorsTransportFile.value!,
+    foodsRecipesFile.value!,
+    footprintsRpcsFile.value!,
+    preparationProcessesAndPackagingFile.value!,
+    processesEnergyDemandsFile.value!,
+    rpcOriginWasteFile.value!,
+    slvRecipesFile.value!,
+    wasteRetailAndConsumerFile.value!,
+  ];
+  const addFilePromises = files.map((f) => addFile(f));
 
-      zip.file("SAFAD OR Footprints per Food.csv", impactsOfRecipeCsv);
+  zip.file("info.txt", metaFileHandler.toString());
 
-      const detailedDietImpacts = labeledAndFilteredImpacts(
-        this.RE.computeImpactsDetailed(this.diet)
-      );
-      const detailedDietImpactsCsv = stringifyCsvData([
-        DETAILED_RESULTS_HEADER,
-        ...detailedDietImpacts,
-      ]);
+  if (countryCode.value === "SE") {
+    const slvResultsRows = await generateSlvResults(slvRecipes.value, RE);
+    const data = stringifyCsvData([SLV_RESULTS_HEADER, ...slvResultsRows]);
+    zip.file("SAFAD OR Footprints per SLV Food.csv", data);
+  }
 
-      zip.file("SAFAD OR Footprints per Diet.csv", detailedDietImpactsCsv);
+  const impactsOfRecipe = labeledAndFilteredImpacts(
+    RE.computeImpactsOfRecipe()
+  );
+  const impactsOfRecipeCsv = stringifyCsvData([
+    DETAILED_RESULTS_HEADER,
+    ...impactsOfRecipe,
+  ]);
 
-      await Promise.allSettled(addFilePromises);
+  zip.file("SAFAD OR Footprints per Food.csv", impactsOfRecipeCsv);
 
-      const content: Blob = await zip.generateAsync({ type: "blob" });
-      const d = new Date();
-      const date = [
-        d.getFullYear(),
-        padLeft(d.getMonth() + 1, 2),
-        padLeft(d.getDate(), 2),
-      ].join("-");
-      saveAs(content, `SAFAD Output ${date}.zip`);
-    },
-  },
+  const detailedDietImpacts = labeledAndFilteredImpacts(
+    RE.computeImpactsDetailed(diet.value)
+  );
+  const detailedDietImpactsCsv = stringifyCsvData([
+    DETAILED_RESULTS_HEADER,
+    ...detailedDietImpacts,
+  ]);
 
-  async beforeMount() {
-    if (!(this.RE instanceof ResultsEngine)) {
-      return;
-    }
+  zip.file("SAFAD OR Footprints per Diet.csv", detailedDietImpactsCsv);
 
-    this.isLoading = true;
+  await Promise.allSettled(addFilePromises);
 
-    // Load all default files
-    const configureResultsEnginePromise =
-      DefaultInputFiles.configureResultsEngine(this.RE, this.countryCode);
+  const content: Blob = await zip.generateAsync({ type: "blob" });
+  const d = new Date();
+  const date = [
+    d.getFullYear(),
+    padLeft(d.getMonth() + 1, 2),
+    padLeft(d.getDate(), 2),
+  ].join("-");
+  saveAs(content, `SAFAD Output ${date}.zip`);
+};
 
-    this.footprintsRpcsFile = initInputFile({
-      defaultName: "SAFAD ID Footprints RPC.csv",
-      getDefault: DefaultInputFiles.raw.footprintsRpcs,
-      parser: InputFileParsers.parseFootprintsRpcs,
-      setter: this.RE.setFootprintsRpcs,
-      lastModified: () =>
-        inputFileModificationDates["SAFAD ID Footprints RPC.csv"],
-    });
+onMounted(async () => {
+  isLoading.value = true;
 
-    this.dietFile = initInputFile({
-      defaultName: "SAFAD ID Diet Spec.csv",
-      getDefault: DefaultInputFiles.raw.diet,
-      parser: InputFileParsers.parseDiet,
-      setter: (data: Diet) => {
-        this.diet = data;
-      },
-      lastModified: (country: string) =>
-        inputFileModificationDates[`SAFAD ID Diet Spec/${country}.csv`],
-    });
-    // Diet needs to be handled explicitly, as it's not managed in the
-    // "configureResultsEngine" builder function
-    this.dietFile.getDefault(this.countryCode).then((diet) => {
-      this.dietFile?.setter(this.dietFile.parser(diet));
-    });
+  const promises: Promise<any>[] = [];
 
-    this.foodsRecipesFile = initInputFile({
-      defaultName: "SAFAD IP Recipes.csv",
-      getDefault: DefaultInputFiles.raw.foodsRecipes,
-      parser: InputFileParsers.parseFoodsRecipes,
-      setter: this.RE.setFoodsRecipes,
-      lastModified: () => inputFileModificationDates[`SAFAD IP Recipes.csv`],
-    });
-    this.rpcOriginWasteFile = initInputFile({
-      defaultName: "SAFAD IP Origin and Waste of RPC.csv",
-      getDefault: DefaultInputFiles.raw.rpcOriginWaste,
-      parser: InputFileParsers.parseRpcOriginWaste,
-      setter: this.RE.setRpcOriginWaste,
-      lastModified: (country: string) =>
-        inputFileModificationDates[
-          `SAFAD IP Origin and Waste of RPC/${country}.csv`
-        ],
-    });
-    this.processesEnergyDemandsFile = initInputFile({
-      defaultName: "SAFAD IP Energy Proc.csv",
-      getDefault: DefaultInputFiles.raw.processesEnergyDemands,
-      parser: InputFileParsers.parseEmissionsFactorsPackaging,
-      setter: this.RE.setEmissionsFactorsPackaging,
-      lastModified: () =>
-        inputFileModificationDates["SAFAD IP Energy Proc.csv"],
-    });
-    this.preparationProcessesAndPackagingFile = initInputFile({
-      defaultName: "SAFAD IP Prep Proc and Pack.csv",
-      getDefault: DefaultInputFiles.raw.preparationProcessesAndPackaging,
-      parser: InputFileParsers.parseProcessesPackaging,
-      setter: this.RE.setPrepProcessesAndPackaging,
-      lastModified: () =>
-        inputFileModificationDates["SAFAD IP Prep Proc and Pack.csv"],
-    });
-    this.wasteRetailAndConsumerFile = initInputFile({
-      defaultName: "SAFAD IP Waste Retail and Cons.csv",
-      getDefault: DefaultInputFiles.raw.wasteRetailAndConsumer,
-      parser: InputFileParsers.parseWasteRetailAndConsumer,
-      setter: this.RE.setWasteRetailAndConsumer,
-      lastModified: (country: string) =>
-        inputFileModificationDates[
-          `SAFAD IP Waste Retail and Cons/${country}.csv`
-        ],
-    });
+  promises.push(
+    DefaultInputFiles.configureResultsEngine(RE, countryCode.value)
+  );
+  // SLV Recipes also needs to be set to initial value, as not handled by the
+  // configureResultsEngine utility.
+  promises.push(
+    slvRecipesFile.value.getDefault(countryCode.value).then((data: string) => {
+      slvRecipesFile.value?.setter(slvRecipesFile.value.parser(data));
+    })
+  );
 
-    this.emissionsFactorsEnergyFile = initInputFile({
-      defaultName: "SAFAD IEF Energy.csv",
-      getDefault: DefaultInputFiles.raw.emissionsFactorsEnergy,
-      parser: InputFileParsers.parseEmissionsFactorsEnergy,
-      setter: this.RE.setEmissionsFactorsEnergy,
-      lastModified: () => inputFileModificationDates["SAFAD IEF Energy.csv"],
-    });
-    this.emissionsFactorsPackagingFile = initInputFile({
-      defaultName: "SAFAD IEF Packaging.csv",
-      getDefault: DefaultInputFiles.raw.emissionsFactorsPackaging,
-      parser: InputFileParsers.parseEmissionsFactorsPackaging,
-      setter: this.RE.setEmissionsFactorsPackaging,
-      lastModified: () => inputFileModificationDates["SAFAD IEF Packaging.csv"],
-    });
-    this.emissionsFactorsTransportFile = initInputFile({
-      defaultName: "SAFAD IEF Transport.csv",
-      getDefault: DefaultInputFiles.raw.emissionsFactorsTransport,
-      parser: InputFileParsers.parseEmissionsFactorsTransport,
-      setter: this.RE.setEmissionsFactorsTransport,
-      lastModified: () => inputFileModificationDates["SAFAD IEF Transport.csv"],
-    });
+  // Diet needs to be handled explicitly, as it's not managed in the
+  // "configureResultsEngine" builder function
+  promises.push(
+    dietFile.value.getDefault(countryCode.value).then((diet: string) => {
+      dietFile.value?.setter(dietFile.value.parser(diet));
+    })
+  );
 
-    this.slvRecipesFile = initInputFile({
-      defaultName: "SAFAD IS SLV Recipes.csv",
-      getDefault: DefaultInputFiles.raw.slvRecipes,
-      parser: InputFileParsers.parseSlvRecipes,
-      setter: (data: SlvRecipeComponent[]) => {
-        this.slvRecipes = data;
-      },
-      lastModified: () =>
-        inputFileModificationDates["SAFAD IS SLV Recipes.csv"],
-    });
+  await Promise.all(promises);
 
-    // SLV Recipes also needs to be set to initial value, as not handled by the
-    // configureResultsEngine utility.
-    await this.slvRecipesFile.getDefault(this.countryCode).then((data) => {
-      this.slvRecipesFile?.setter(this.slvRecipesFile.parser(data));
-    });
-
-    this.metaFileHandler.setInputFileInterfaces({
-      emissionsFactorsPackagingFile: this.emissionsFactorsPackagingFile,
-      emissionsFactorsEnergyFile: this.emissionsFactorsEnergyFile,
-      emissionsFactorsTransportFile: this.emissionsFactorsTransportFile,
-      foodsRecipesFile: this.foodsRecipesFile,
-      rpcOriginWasteFile: this.rpcOriginWasteFile,
-      processesEnergyDemandsFile: this.processesEnergyDemandsFile,
-      preparationProcessesAndPackagingFile:
-        this.preparationProcessesAndPackagingFile,
-      wasteRetailAndConsumerFile: this.wasteRetailAndConsumerFile,
-      footprintsRpcsFile: this.footprintsRpcsFile,
-      dietFile: this.dietFile,
-      slvRecipesFile: this.slvRecipesFile,
-    });
-
-    await configureResultsEnginePromise;
-
-    this.isLoading = false;
-  },
+  isLoading.value = false;
 });
 </script>
 
@@ -622,14 +544,9 @@ export default defineComponent({
           </p>
           <FileSelector
             file-label="SLV Recipes"
-            @setFile="(p: SetFilePayload) => setFile(p, slvRecipesFile)"
-            @setComment="(x: string) => setComment(x, slvRecipesFile)"
-            @reset="() => resetFile(slvRecipesFile)"
-            @download="() => downloadFile(slvRecipesFile)"
-            :fileName="slvRecipesFile?.name || slvRecipesFile?.defaultName"
-            :state="slvRecipesFile?.state || 'default'"
+            :country-code="countryCode"
+            :file-interface="slvRecipesFile"
             :file-description="Descriptions.slvRecipesFile"
-            :last-modified="slvRecipesFile?.lastModified(countryCode)"
           />
         </div>
 
@@ -639,159 +556,72 @@ export default defineComponent({
 
       <FileSelector
         file-label="Footprints RPC"
-        @setFile="(p: SetFilePayload) => setFile(p, footprintsRpcsFile)"
-        @setComment="(x: string) => setComment(x, footprintsRpcsFile)"
-        @reset="() => resetFile(footprintsRpcsFile)"
-        @download="() => downloadFile(footprintsRpcsFile)"
-        :file-name="footprintsRpcsFile?.name || footprintsRpcsFile?.defaultName"
-        :state="footprintsRpcsFile?.state || 'default'"
+        :country-code="countryCode"
+        :file-interface="footprintsRpcsFile"
         :file-description="Descriptions.footprintsRpc"
-        :last-modified="footprintsRpcsFile?.lastModified(countryCode)"
       />
 
       <FileSelector
         file-label="Diet"
-        @setFile="(p: SetFilePayload) => setFile(p, dietFile)"
-        @setComment="(x: string) => setComment(x, dietFile)"
-        @reset="() => resetFile(dietFile)"
-        @download="() => downloadFile(dietFile)"
-        :fileName="dietFile?.name || dietFile?.defaultName"
-        :state="dietFile?.state || 'default'"
+        :country-code="countryCode"
+        :file-interface="dietFile"
         :file-description="Descriptions.diet"
-        :last-modified="dietFile?.lastModified(countryCode)"
       />
 
       <h3>Parameter Files</h3>
 
       <FileSelector
         file-label="Foods Recipes"
-        @setFile="(p: SetFilePayload) => setFile(p, foodsRecipesFile!)"
-        @setComment="(x: string) => setComment(x, foodsRecipesFile!)"
-        @reset="() => resetFile(foodsRecipesFile)"
-        @download="() => downloadFile(foodsRecipesFile)"
-        :fileName="foodsRecipesFile?.name || foodsRecipesFile?.defaultName"
-        :state="foodsRecipesFile?.state || 'default'"
+        :country-code="countryCode"
+        :file-interface="foodsRecipesFile"
         :file-description="Descriptions.recipes"
-        :last-modified="foodsRecipesFile?.lastModified(countryCode)"
       />
 
       <FileSelector
+        :country-code="countryCode"
         file-label="RPC Origin & Waste"
-        @setFile="(p: SetFilePayload) => setFile(p, rpcOriginWasteFile)"
-        @setComment="(x: string) => setComment(x, rpcOriginWasteFile)"
-        @reset="() => resetFile(rpcOriginWasteFile)"
-        @download="() => downloadFile(rpcOriginWasteFile)"
-        :fileName="rpcOriginWasteFile?.name || rpcOriginWasteFile?.defaultName"
-        :state="rpcOriginWasteFile?.state || 'default'"
+        :fileInterface="rpcOriginWasteFile"
         :file-description="Descriptions.rpcOriginWaste"
-        :last-modified="rpcOriginWasteFile?.lastModified(countryCode)"
       />
 
       <FileSelector
         file-label="Processes Energy Demands"
-        @setFile="(p: SetFilePayload) => setFile(p, processesEnergyDemandsFile)"
-        @setComment="(x: string) => setComment(x, processesEnergyDemandsFile)"
-        @reset="() => resetFile(processesEnergyDemandsFile)"
-        @download="() => downloadFile(processesEnergyDemandsFile)"
-        :fileName="
-          processesEnergyDemandsFile?.name ||
-          processesEnergyDemandsFile?.defaultName
-        "
-        :state="processesEnergyDemandsFile?.state || 'default'"
+        :country-code="countryCode"
+        :file-interface="processesEnergyDemandsFile"
         :file-description="Descriptions.processesEnergyDemands"
-        :last-modified="processesEnergyDemandsFile?.lastModified(countryCode)"
       />
 
       <FileSelector
         file-label="Preparation Processes and Packaging"
-        @setFile="
-          (p: SetFilePayload) =>
-            setFile(p, preparationProcessesAndPackagingFile)
-        "
-        @setComment="
-          (x: string) => setComment(x, preparationProcessesAndPackagingFile)
-        "
-        @reset="() => resetFile(preparationProcessesAndPackagingFile)"
-        @download="() => downloadFile(preparationProcessesAndPackagingFile)"
-        :fileName="
-          preparationProcessesAndPackagingFile?.name ||
-          preparationProcessesAndPackagingFile?.defaultName
-        "
-        :state="preparationProcessesAndPackagingFile?.state || 'default'"
+        :country-code="countryCode"
+        :file-interface="preparationProcessesAndPackagingFile"
         :file-description="Descriptions.prepProcAndPack"
-        :last-modified="
-          preparationProcessesAndPackagingFile?.lastModified(countryCode)
-        "
       />
       <FileSelector
         file-label="Consumer- and Retail wastes"
-        @setFile="(p: SetFilePayload) => setFile(p, wasteRetailAndConsumerFile)"
-        @setComment="(x: string) => setComment(x, wasteRetailAndConsumerFile)"
-        @reset="() => resetFile(wasteRetailAndConsumerFile)"
-        @download="() => downloadFile(wasteRetailAndConsumerFile)"
-        :fileName="
-          wasteRetailAndConsumerFile?.name ||
-          wasteRetailAndConsumerFile?.defaultName
-        "
-        :state="wasteRetailAndConsumerFile?.state || 'default'"
+        :country-code="countryCode"
+        :file-interface="wasteRetailAndConsumerFile"
         :file-description="Descriptions.wasteRetailAndConsumer"
-        :last-modified="wasteRetailAndConsumerFile?.lastModified(countryCode)"
       />
 
       <h3>Emissions Factors</h3>
       <FileSelector
         file-label="Emissions Factors Packaging"
-        @setFile="
-          (p: SetFilePayload) => setFile(p, emissionsFactorsPackagingFile)
-        "
-        @setComment="
-          (x: string) => setComment(x, emissionsFactorsPackagingFile)
-        "
-        @reset="() => resetFile(emissionsFactorsPackagingFile)"
-        @download="() => downloadFile(emissionsFactorsPackagingFile)"
-        :fileName="
-          emissionsFactorsPackagingFile?.name ||
-          emissionsFactorsPackagingFile?.defaultName
-        "
-        :state="emissionsFactorsPackagingFile?.state || 'default'"
+        :country-code="countryCode"
+        :file-interface="emissionsFactorsPackagingFile"
         :file-description="Descriptions.emissionsFactorsPackaging"
-        :last-modified="
-          emissionsFactorsPackagingFile?.lastModified(countryCode)
-        "
       />
       <FileSelector
         file-label="Emissions Factors Energy"
-        @setFile="(p: SetFilePayload) => setFile(p, emissionsFactorsEnergyFile)"
-        @setComment="(x: string) => setComment(x, emissionsFactorsEnergyFile)"
-        @reset="() => resetFile(emissionsFactorsEnergyFile)"
-        @download="() => downloadFile(emissionsFactorsEnergyFile)"
-        :fileName="
-          emissionsFactorsEnergyFile?.name ||
-          emissionsFactorsEnergyFile?.defaultName
-        "
-        :state="emissionsFactorsEnergyFile?.state || 'default'"
+        :country-code="countryCode"
+        :file-interface="emissionsFactorsEnergyFile"
         :file-description="Descriptions.emissionsFactorsEnergy"
-        :last-modified="emissionsFactorsEnergyFile?.lastModified(countryCode)"
       />
       <FileSelector
         file-label="Emissions Factors Transport"
-        @setFile="
-          (p: SetFilePayload) => setFile(p, emissionsFactorsTransportFile)
-        "
-        @setComment="
-          (x: string) => setComment(x, emissionsFactorsTransportFile)
-        "
-        @reset="() => resetFile(emissionsFactorsTransportFile)"
-        @download="() => downloadFile(emissionsFactorsTransportFile)"
-        :fileName="
-          emissionsFactorsTransportFile?.name ||
-          emissionsFactorsTransportFile?.defaultName
-        "
-        :state="emissionsFactorsTransportFile?.state || 'default'"
+        :country-code="countryCode"
+        :file-interface="emissionsFactorsTransportFile"
         :file-description="Descriptions.emissionsFactorsTransport"
-        :last-modified="
-          emissionsFactorsTransportFile?.lastModified(countryCode)
-        "
       />
     </div>
   </section>
