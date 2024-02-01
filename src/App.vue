@@ -12,6 +12,7 @@ import { padLeft, stringifyCsvData } from "@/lib/utils";
 import {
   labeledAndFilteredImpacts,
   DETAILED_RESULTS_HEADER,
+  BREAKDOWN_RESULTS_HEADER,
   getDietBreakdown,
 } from "@/lib/impacts-csv-utils";
 import reduceDietToRpcs from "@/lib/rpc-reducer";
@@ -245,16 +246,8 @@ const downloadFootprintsOfDiets = () => {
         )[0],
       ])
     );
-    const breakdownFileHeader = [
-      "Food Code",
-      "Food Name",
-      "Food Amount (g)",
-      "RPC Code",
-      "RPC Name",
-      "RPC Amount (g)",
-    ];
     downloadAsPlaintext(
-      stringifyCsvData([breakdownFileHeader, ...dietBreakdownRows]),
+      stringifyCsvData([BREAKDOWN_RESULTS_HEADER, ...dietBreakdownRows]),
       "SAFAD OS Breakdown per Food.csv"
     );
   }
@@ -302,17 +295,17 @@ const downloadZip = async () => {
   };
 
   const files: InputFile<any>[] = [
-    dietFile.value!,
-    emissionsFactorsEnergyFile.value!,
-    emissionsFactorsPackagingFile.value!,
-    emissionsFactorsTransportFile.value!,
-    foodsRecipesFile.value!,
-    footprintsRpcsFile.value!,
-    preparationProcessesAndPackagingFile.value!,
-    processesEnergyDemandsFile.value!,
-    rpcOriginWasteFile.value!,
-    slvRecipesFile.value!,
-    wasteRetailAndConsumerFile.value!,
+    dietFile.value,
+    emissionsFactorsEnergyFile.value,
+    emissionsFactorsPackagingFile.value,
+    emissionsFactorsTransportFile.value,
+    foodsRecipesFile.value,
+    footprintsRpcsFile.value,
+    preparationProcessesAndPackagingFile.value,
+    processesEnergyDemandsFile.value,
+    rpcOriginWasteFile.value,
+    slvRecipesFile.value,
+    wasteRetailAndConsumerFile.value,
   ];
   const addFilePromises = files.map((f) => addFile(f));
 
@@ -346,7 +339,7 @@ const downloadZip = async () => {
 
   await Promise.allSettled(addFilePromises);
 
-  const content: Blob = await zip.generateAsync({ type: "blob" });
+  const content = await zip.generateAsync({ type: "blob" });
   const d = new Date();
   const date = [
     d.getFullYear(),
