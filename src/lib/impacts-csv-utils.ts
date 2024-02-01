@@ -243,6 +243,15 @@ export function labeledAndFilteredImpacts(
     .filter((x): x is string[] => x !== null);
 }
 
+export const BREAKDOWN_RESULTS_HEADER = [
+  "Food Code",
+  "Food Name",
+  "Food Amount (g)",
+  "RPC Code",
+  "RPC Name",
+  "RPC Amount (g)",
+];
+
 export function getDietBreakdown(
   disaggregatedDiet: [string, number, Diet][]
 ): string[][] {
