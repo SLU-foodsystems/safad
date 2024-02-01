@@ -2,22 +2,27 @@
 import { defineComponent, type PropType } from "vue";
 
 import LoadingOverlay from "./LoadingOverlay.vue";
+import {
+  setFile,
+  downloadFile,
+  resetFile,
+  setComment,
+} from "@/lib/file-interface-utils";
 
 export default defineComponent({
   components: { LoadingOverlay },
 
   props: {
-    state: {
-      type: String as PropType<"default" | "custom">,
+    fileInterface: {
+      type: Object as PropType<InputFile<any>>,
       required: true,
     },
-    fileLabel: String,
-    fileName: String,
-    fileDescription: String,
-    lastModified: {
+    countryCode: {
       type: String,
-      default: "",
+      required: true,
     },
+    fileDescription: String,
+    fileLabel: String,
   },
 
   data() {
@@ -30,24 +35,9 @@ export default defineComponent({
     };
   },
 
-  emits: {
-    download() {
-      return true;
-    },
-    reset() {
-      return true;
-    },
-    ["set-file"](_payload: { data: string; name: string }) {
-      return true;
-    },
-    ["set-comment"](_message: string) {
-      return true;
-    },
-  },
-
   computed: {
     fileButtonText() {
-      return this.state === "default"
+      return this.fileInterface.state === "default"
         ? "Upload custom file"
         : "Reset to default";
     },
@@ -58,16 +48,22 @@ export default defineComponent({
 
       return this.comment.trim() === "" ? "Add comment" : "Edit comment";
     },
+    fileName() {
+      return this.fileInterface.name || this.fileInterface.defaultName || "";
+    },
+    lastModified() {
+      return this.fileInterface.lastModified(this.countryCode);
+    },
   },
 
   methods: {
     onButtonClick() {
-      if (this.state === "default") {
+      if (this.fileInterface.state === "default") {
         // Trigger click on @file input
         // If successful, trigger event with data
         (this.$refs.fileInput as HTMLInputElement)?.click();
       } else {
-        this.$emit("reset");
+        resetFile(this.countryCode, this.fileInterface);
       }
     },
 
@@ -89,16 +85,19 @@ export default defineComponent({
       });
       reader.addEventListener("load", () => {
         this.isLoading = false;
-        this.$emit("set-file", {
-          name: fileName,
-          data: reader.result as string | "",
-        });
+        setFile(
+          {
+            name: fileName,
+            data: reader.result as string | "",
+          },
+          this.fileInterface
+        );
       });
       reader.readAsText(file);
     },
 
     download() {
-      this.$emit("download");
+      downloadFile(this.countryCode, this.fileInterface);
     },
 
     toggleInfo() {
@@ -113,7 +112,7 @@ export default defineComponent({
     },
 
     onCommentChange() {
-      this.$emit("set-comment", this.comment);
+      setComment(this.comment, this.fileInterface);
     },
   },
 });
@@ -122,7 +121,7 @@ export default defineComponent({
 <template>
   <div
     class="file-selector-box"
-    :class="{ 'file-selector-box--custom': state === 'custom' }"
+    :class="{ 'file-selector-box--custom': fileInterface.state === 'custom' }"
   >
     <input
       hidden
@@ -135,7 +134,7 @@ export default defineComponent({
     <div class="cluster cluster--between">
       <div class="stack stack-s">
         <h4>{{ fileLabel }}</h4>
-        <span v-if="state === 'default'"
+        <span v-if="fileInterface.state === 'default'"
           >{{ fileName }}
           <span style="opacity: 0.6"
             >(default, last updated {{ lastModified }})
