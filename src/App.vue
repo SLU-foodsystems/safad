@@ -28,6 +28,8 @@ import LoadingOverlay from "@/components/LoadingOverlay.vue";
 const MDATES = __INPUT_FILE_MDATES__;
 const APP_VERSION = __APP_VERSION__;
 
+// TODO: These should be in a separate file, so that theyre easier for others to
+// modify
 const Descriptions = {
   footprintsRpc:
     "File with footprints of all raw commodities (crops, animal products, blue and novel foods) from different production countries (without any waste, conversion or allocation).",
