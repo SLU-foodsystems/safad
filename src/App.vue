@@ -25,8 +25,8 @@ import { resetFile, initInputFile } from "@/lib/file-interface-utils";
 import FileSelector from "@/components/FileSelector.vue";
 import LoadingOverlay from "@/components/LoadingOverlay.vue";
 
-const inputFileModificationDates = __INPUT_FILE_MDATES__;
-const versionString = __APP_VERSION__;
+const MDATES = __INPUT_FILE_MDATES__;
+const APP_VERSION = __APP_VERSION__;
 
 const Descriptions = {
   footprintsRpc:
@@ -67,8 +67,7 @@ const footprintsRpcsFile = ref(
     getDefault: DefaultInputFiles.raw.footprintsRpcs,
     parser: InputFileParsers.parseFootprintsRpcs,
     setter: RE.setFootprintsRpcs,
-    lastModified: () =>
-      inputFileModificationDates["SAFAD ID Footprints RPC.csv"],
+    lastModified: () => MDATES["SAFAD ID Footprints RPC.csv"],
   })
 );
 
@@ -81,7 +80,7 @@ const dietFile = ref(
       diet.value = data;
     },
     lastModified: (country: string) =>
-      inputFileModificationDates[`SAFAD ID Diet Spec/${country}.csv`],
+      MDATES[`SAFAD ID Diet Spec/${country}.csv`],
   })
 );
 
@@ -91,7 +90,7 @@ const foodsRecipesFile = ref(
     getDefault: DefaultInputFiles.raw.foodsRecipes,
     parser: InputFileParsers.parseFoodsRecipes,
     setter: RE.setFoodsRecipes,
-    lastModified: () => inputFileModificationDates[`SAFAD IP Recipes.csv`],
+    lastModified: () => MDATES[`SAFAD IP Recipes.csv`],
   })
 );
 const rpcOriginWasteFile = ref(
@@ -101,9 +100,7 @@ const rpcOriginWasteFile = ref(
     parser: InputFileParsers.parseRpcOriginWaste,
     setter: RE.setRpcOriginWaste,
     lastModified: (country: string) =>
-      inputFileModificationDates[
-        `SAFAD IP Origin and Waste of RPC/${country}.csv`
-      ],
+      MDATES[`SAFAD IP Origin and Waste of RPC/${country}.csv`],
   })
 );
 const processesEnergyDemandsFile = ref(
@@ -112,7 +109,7 @@ const processesEnergyDemandsFile = ref(
     getDefault: DefaultInputFiles.raw.processesEnergyDemands,
     parser: InputFileParsers.parseEmissionsFactorsPackaging,
     setter: RE.setEmissionsFactorsPackaging,
-    lastModified: () => inputFileModificationDates["SAFAD IP Energy Proc.csv"],
+    lastModified: () => MDATES["SAFAD IP Energy Proc.csv"],
   })
 );
 const preparationProcessesAndPackagingFile = ref(
@@ -121,8 +118,7 @@ const preparationProcessesAndPackagingFile = ref(
     getDefault: DefaultInputFiles.raw.preparationProcessesAndPackaging,
     parser: InputFileParsers.parseProcessesPackaging,
     setter: RE.setPrepProcessesAndPackaging,
-    lastModified: () =>
-      inputFileModificationDates["SAFAD IP Prep Proc and Pack.csv"],
+    lastModified: () => MDATES["SAFAD IP Prep Proc and Pack.csv"],
   })
 );
 const wasteRetailAndConsumerFile = ref(
@@ -132,9 +128,7 @@ const wasteRetailAndConsumerFile = ref(
     parser: InputFileParsers.parseWasteRetailAndConsumer,
     setter: RE.setWasteRetailAndConsumer,
     lastModified: (country: string) =>
-      inputFileModificationDates[
-        `SAFAD IP Waste Retail and Cons/${country}.csv`
-      ],
+      MDATES[`SAFAD IP Waste Retail and Cons/${country}.csv`],
   })
 );
 
@@ -144,7 +138,7 @@ const emissionsFactorsEnergyFile = ref(
     getDefault: DefaultInputFiles.raw.emissionsFactorsEnergy,
     parser: InputFileParsers.parseEmissionsFactorsEnergy,
     setter: RE.setEmissionsFactorsEnergy,
-    lastModified: () => inputFileModificationDates["SAFAD IEF Energy.csv"],
+    lastModified: () => MDATES["SAFAD IEF Energy.csv"],
   })
 );
 const emissionsFactorsPackagingFile = ref(
@@ -153,7 +147,7 @@ const emissionsFactorsPackagingFile = ref(
     getDefault: DefaultInputFiles.raw.emissionsFactorsPackaging,
     parser: InputFileParsers.parseEmissionsFactorsPackaging,
     setter: RE.setEmissionsFactorsPackaging,
-    lastModified: () => inputFileModificationDates["SAFAD IEF Packaging.csv"],
+    lastModified: () => MDATES["SAFAD IEF Packaging.csv"],
   })
 );
 const emissionsFactorsTransportFile = ref(
@@ -162,7 +156,7 @@ const emissionsFactorsTransportFile = ref(
     getDefault: DefaultInputFiles.raw.emissionsFactorsTransport,
     parser: InputFileParsers.parseEmissionsFactorsTransport,
     setter: RE.setEmissionsFactorsTransport,
-    lastModified: () => inputFileModificationDates["SAFAD IEF Transport.csv"],
+    lastModified: () => MDATES["SAFAD IEF Transport.csv"],
   })
 );
 
@@ -174,7 +168,7 @@ const slvRecipesFile = ref(
     setter: (data: SlvRecipeComponent[]) => {
       slvRecipes.value = data;
     },
-    lastModified: () => inputFileModificationDates["SAFAD IS SLV Recipes.csv"],
+    lastModified: () => MDATES["SAFAD IS SLV Recipes.csv"],
   })
 );
 
@@ -403,7 +397,7 @@ onMounted(async () => {
             >
             tool by SLU
           </h1>
-          <span class="u-faded">Version: {{ versionString }}</span>
+          <span class="u-faded">Version: {{ APP_VERSION }}</span>
         </div>
       </div>
 
