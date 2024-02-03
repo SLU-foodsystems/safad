@@ -4427,12 +4427,32 @@ I.16.01.014,Mints,Rest of World,RoW,1,0.07,01699
 I.16.01.015,Coriander leaves,Rest of World,RoW,1,0.07,01699
 I.16.01.016,Lovage leaves,Rest of World,RoW,1,0.07,01699
 I.16.01.017,Winter savory,Rest of World,RoW,1,0.07,01699
-A.X1.01.01,Cultured Meat (Bos. Spp.),Rest of World,RoW,1,0.057,NF-01
-A.X1.02.01,Microbial Milk (T. reesei),Rest of World,RoW,1,0.017,NF-02
-A.X1.03.01,Microbial Ovalbumin (T. reesei),Rest of World,RoW,1,0.017,NF-03
-A.X1.01.02,Microbial Protein (Solein),Rest of World,RoW,1,0.017,NF-04
-A.X1.01.03,Mycoprotein (Quorn),Rest of World,RoW,1,0.057,NF-05
-A.X1.04.01,Microbial Fat (yeast - M. pulcherrima),Rest of World,RoW,1,0.06,NF-06
+A.X1.01.01,Cultured Meat (Bos. Spp.),Israel,IL,0.25,0.057,NF-01
+A.X1.01.01,Cultured Meat (Bos. Spp.),Netherlands,NL,0.25,0.057,NF-01
+A.X1.01.01,Cultured Meat (Bos. Spp.),Sweden,SE,0.25,0.057,NF-01
+A.X1.01.01,Cultured Meat (Bos. Spp.),USA,US,0.25,0.057,NF-01
+A.X1.02.01,Microbial Milk (T. reesei),Denmark,DK,0.2,0.017,NF-02
+A.X1.02.01,Microbial Milk (T. reesei),Germany,DE,0.2,0.017,NF-02
+A.X1.02.01,Microbial Milk (T. reesei),Sweden,SE,0.2,0.017,NF-02
+A.X1.02.01,Microbial Milk (T. reesei),Switzerland,CH,0.2,0.017,NF-02
+A.X1.02.01,Microbial Milk (T. reesei),USA,US,0.2,0.017,NF-02
+A.X1.03.01,Microbial Ovalbumin (T. reesei),Denmark,DK,0.2,0.017,NF-03
+A.X1.03.01,Microbial Ovalbumin (T. reesei),Germany,DE,0.2,0.017,NF-03
+A.X1.03.01,Microbial Ovalbumin (T. reesei),Sweden,SE,0.2,0.017,NF-03
+A.X1.03.01,Microbial Ovalbumin (T. reesei),Switzerland,CH,0.2,0.017,NF-03
+A.X1.03.01,Microbial Ovalbumin (T. reesei),USA,US,0.2,0.017,NF-03
+A.X1.01.02,Microbial Protein (Solein),Finland,FI,0.5,0.017,NF-04
+A.X1.01.02,Microbial Protein (Solein),Sweden,SE,0.5,0.017,NF-04
+A.X1.01.03,Mycoprotein (Quorn),UK,GB,1,0.057,NF-05
+A.X1.04.01,Microbial Fat (yeast - M. pulcherrima),Israel,IL,0.25,0.017,NF-06
+A.X1.04.01,Microbial Fat (yeast - M. pulcherrima),Netherlands,NL,0.25,0.017,NF-06
+A.X1.04.01,Microbial Fat (yeast - M. pulcherrima),Sweden,SE,0.25,0.017,NF-06
+A.X1.04.01,Microbial Fat (yeast - M. pulcherrima),USA,US,0.25,0.017,NF-06
+A.X1.04.02,Algae Fat (Schizochytrium),Denmark,DK,0.2,0.017,NF-07
+A.X1.04.02,Algae Fat (Schizochytrium),Germany,DE,0.2,0.017,NF-07
+A.X1.04.02,Algae Fat (Schizochytrium),Sweden,SE,0.2,0.017,NF-07
+A.X1.04.02,Algae Fat (Schizochytrium),Switzerland,CH,0.2,0.017,NF-07
+A.X1.04.02,Algae Fat (Schizochytrium),USA,US,0.2,0.017,NF-07
 A.02.14.012,"Hops (dried), including hop pellets and unconcentrated powder (Humulus lupulus)",Rest of World,RoW,1,0,MI-01
 A.10.02.002.002,Aspartam,Rest of World,RoW,1,0,MI-02
 A.10.02.002.003,Acesulfame K,Rest of World,RoW,1,0,MI-03
