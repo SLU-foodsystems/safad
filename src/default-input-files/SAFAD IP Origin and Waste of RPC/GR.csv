@@ -2920,6 +2920,13 @@ A.10.07,Honey,Ukraine,UA,0.004,0.06,02910
 A.10.07,Honey,Uruguay,UY,0.001,0.06,02910
 A.10.07,Honey,Serbia,RS,0.001,0.06,02910
 A.10.07,Honey,Rest of World,RoW,0.032,0.06,02910
+A.15,Drinking water (water without any additives except carbon dioxide),Rest of World,RoW,1,0,MI-06
+A.15.01,Tap water,Rest of World,RoW,1,0,MI-07
+A.15.02,Well water,Rest of World,RoW,1,0,MI-08
+A.15.03,Bottled water,Rest of World,RoW,1,0,MI-09
+A.15.03.001,Still mineral water,Rest of World,RoW,1,0,MI-10
+A.15.03.002,Carbonated mineral water,Rest of World,RoW,1,0,MI-11
+A.15.04,Water ice (for consumption),Rest of World,RoW,1,0,MI-12
 A.16.01.001,Chervil,Greece,GR,0.633,0.07,01654
 A.16.01.001,Chervil,India,IN,0.123,0.07,01654
 A.16.01.001,Chervil,Syrian Arab Republic,SY,0.129,0.07,01654
@@ -3995,23 +4002,23 @@ A.02.14.012,"Hops (dried), including hop pellets and unconcentrated powder (Humu
 A.10.02.002.002,Aspartam,Rest of World,RoW,1,0,MI-02
 A.10.02.002.003,Acesulfame K,Rest of World,RoW,1,0,MI-03
 A.10.02.002.004,Sucralose,Rest of World,RoW,1,0,MI-04
-A.15.01,Tap water,Rest of World,RoW,1,0,MI-05
-A.16.04.001,Salt,Rest of World,RoW,1,0,MI-06
-A.16.04.015,Yeast extract,Rest of World,RoW,1,0,MI-07
-A.16.04.016,Monosodium glutamate,Rest of World,RoW,1,0,MI-08
-A.16.09.008,Liquorice (Glycyrrhiza glabra),Rest of World,RoW,1,0,MI-09
-A.16.10.001,Yeast,Rest of World,RoW,1,0,MI-10
-A.16.10.002,Sodium bicarbonate,Rest of World,RoW,1,0,MI-11
-A.16.10.007,Gum,Rest of World,RoW,1,0,MI-12
-A.16.10.008,Gelatine,Rest of World,RoW,1,0,MI-13
-A.16.10.009,Cream of tartar,Rest of World,RoW,1,0,MI-14
-I.02.08.004,Agave tequilana,Rest of World,RoW,1,0,MI-15
-I.02.08.005,Maples (trunk sap),Rest of World,RoW,1,0,MI-16
-I.16.09.009,Citric acid,Rest of World,RoW,1,0,MI-17
-I.16.09.011,Caffeine,Rest of World,RoW,1,0,MI-18
-I.16.09.012,Caramel color,Rest of World,RoW,1,0,MI-19
-I.16.09.013,Phosphoric acid,Rest of World,RoW,1,0,MI-20
-A.18.02.006,Fiber supplements,Rest of World,RoW,1,0,MI-21
+A.16.04.001,Salt,Rest of World,RoW,1,0,MI-12
+A.16.04.015,Yeast extract,Rest of World,RoW,1,0,MI-13
+A.16.04.016,Monosodium glutamate,Rest of World,RoW,1,0,MI-14
+A.16.09.008,Liquorice (Glycyrrhiza glabra),Rest of World,RoW,1,0,MI-15
+A.16.10.001,Yeast,Rest of World,RoW,1,0,MI-16
+A.16.10.002,Sodium bicarbonate,Rest of World,RoW,1,0,MI-17
+A.16.10.007,Gum,Rest of World,RoW,1,0,MI-18
+A.16.10.008,Gelatine,Rest of World,RoW,1,0,MI-19
+A.16.10.009,Cream of tartar,Rest of World,RoW,1,0,MI-20
+I.02.08.004,Agave tequilana,Rest of World,RoW,1,0,MI-21
+I.02.08.005,Maples (trunk sap),Rest of World,RoW,1,0,MI-22
+I.16.09.009,Citric acid,Rest of World,RoW,1,0,MI-23
+I.16.09.011,Caffeine,Rest of World,RoW,1,0,MI-24
+I.16.09.012,Caramel color,Rest of World,RoW,1,0,MI-25
+I.16.09.013,Phosphoric acid,Rest of World,RoW,1,0,MI-26
+A.18.02.006,Fiber supplements,Rest of World,RoW,1,0,MI-27
+A.10.02.001.007,Hydrogenated starch hydrolysates,Rest of World,RoW,1,0,MI-28
 A.10.02.001.007,Hydrogenated starch hydrolysates,Rest of World,RoW,1,0,MI-22
 A.05.05.003,Palmfruit (Elaeis guineensis),Malaysia,MY,0.3,0.06,01491.01
 A.05.05.003,Palmfruit (Elaeis guineensis),Indonesia,ID,0.7,0.06,01491.01
