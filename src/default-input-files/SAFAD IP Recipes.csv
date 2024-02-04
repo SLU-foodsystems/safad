@@ -919,6 +919,10 @@
 "A.02.04.005","Chinese cabbage (Brassica pekinensis)","A.02.04.005","Chinese cabbage (Brassica pekinensis)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.04.006","Kale (Brassica oleracea convar. Acephalea)","A.02.04.006","Kale (Brassica oleracea convar. Acephalea)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.04.007","Kohlrabi (Brassica oleracea convar. acephala, var. gongylodes)","A.02.04.007","Kohlrabi (Brassica oleracea convar. acephala, var. gongylodes)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
+"A.02.05","Leaf vegetables","A.02.05.002","Lettuce, excluding Iceberg-type lettuce (Lactuca sativa)",,,25,1,1,1
+"A.02.05","Leaf vegetables","A.02.05.003","Iceberg-type lettuce",,,25,1,1,1
+"A.02.05","Leaf vegetables","A.02.05.007","Rocket, Rucola (Eruca sativa, Diplotaxis spec.)",,,25,1,1,1
+"A.02.05","Leaf vegetables","A.02.05.010","Spinach (fresh) (Spinacia oleracea)",,,25,1,1,1
 "A.02.05.001","Lamb's lettuce (Valerianella locusta)","A.02.05.001","Lamb's lettuce (Valerianella locusta)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.05.002","Lettuce, excluding Iceberg-type lettuce (Lactuca sativa)","A.02.05.002","Lettuce, excluding Iceberg-type lettuce (Lactuca sativa)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.05.003","Iceberg-type lettuce","A.02.05.003","Iceberg-type lettuce","F28.A07XD","PROCESS=Unspecified",100,1,1,1
@@ -955,6 +959,7 @@
 "A.02.09.001.001","Kombu (Laminaria spp.)","A.02.09.001.001","Kombu (Laminaria spp.)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.09.001.002","Laver (Porphyra spp.)","A.02.09.001.002","Laver (Porphyra spp.)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.09.001.003","Wakame (Undaria spp)","A.02.09.001.003","Wakame (Undaria spp)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
+"A.02.10","Tea and herbs for infusions (Solid)","A.02.10.001","Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis)",,,100,1,1,1
 "A.02.10.001","Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis)","A.02.10.001","Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.10.004","Peppermint (Mentha Ã— piperita)","A.02.10.004","Peppermint (Mentha Ã— piperita)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,7,1
 "A.02.10.009","Strawberry leaves (Fragaria Ã— ananassa)","A.02.10.009","Strawberry leaves (Fragaria Ã— ananassa)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,1,1
@@ -1551,6 +1556,11 @@
 "A.06.09.005.009","Vienna Sausage","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",12.7,1,1,1
 "A.06.09.005.009","Vienna Sausage","A.06.01.002","Veal meat","F28.A07GG","PROCESS=Cooking in water",25.5,1,1.43,1
 "A.06.09.005.009","Vienna Sausage","A.10.01.001","White sugar","To be further disaggregated (d)",,0.2,1,1,1
+"A.06.09.006","Dry sausage","A.06.09.006.001","Italian-type salami",,,20,1,1,1
+"A.06.09.006","Dry sausage","A.06.09.006.003","Beerwurst",,,20,1,1,1
+"A.06.09.006","Dry sausage","A.06.09.006.005","Cooked salami",,,20,1,1,1
+"A.06.09.006","Dry sausage","A.06.09.006.008","German salami",,,20,1,1,1
+"A.06.09.006","Dry sausage","A.06.09.006.010","Chorizo",,,20,1,1,1
 "A.06.09.006.001","Italian-type salami","A.06.01.001","Beef meat (Bos spp.)","F28.A07KD","PROCESS=Curing",28.9,1,2.17,1
 "A.06.09.006.001","Italian-type salami","I.16.02.033","Garlic, dried","To be further disaggregated (d)",,0.3,1,1,1
 "A.06.09.006.001","Italian-type salami","A.10.01.008","Glucose","To be further disaggregated (d)",,0.2,1,1,1
@@ -2155,6 +2165,7 @@
 "A.11.03.002","Coconut fat","A.04.03.006","Coconuts (Cocos nucifera)","F28.A0C02$F02.A068M","PROCESS=Oil production, PART-NATURE=Vegetable fats and oils (as part-nature)",100,1,7.81,0.85
 "A.11.03.003","Cocoa butter","A.02.11.001","Cocoa beans (fermented beans) (Theobroma cacao)","F28.A07HC$F28.A07LA$F28.A0C02$F02.A068M","PROCESS=Toasting / coffee roasting, PROCESS=Grinding / milling / crushing, PROCESS=Oil production, PART-NATURE=Vegetable fats and oils (as part-nature)",100,1,2.66,0.38
 "A.11.03.004","Palm fat","A.05.05.003","Palmfruit (Elaeis guineensis)","F28.A0C02$F02.A068M","PROCESS=Oil production, PART-NATURE=Vegetable fats and oils (as part-nature)",100,1,5.26,0.85
+"A.11.04","Vegetable oil","A.11.04.007","Oil, frying, blend",,,100,1,1,1
 "A.11.04.001","Almond oil","A.04.03.001","Almond, sweet (Prunus amygalus dulcis)","F28.A0C02$F02.A068M","PROCESS=Oil production, PART-NATURE=Vegetable fats and oils (as part-nature)",100,1,2.22,0.85
 "A.11.04.002","Coconut oil","A.04.03.006","Coconuts (Cocos nucifera)","F28.A0C02$F02.A068M","PROCESS=Oil production, PART-NATURE=Vegetable fats and oils (as part-nature)",100,1,7.81,0.85
 "A.11.04.003","Corn oil","A.01.02.003","Corn grain","F28.A0C03$F28.A0C02$F02.A068A","PROCESS=Grain milling, PROCESS=Oil production, PART-NATURE=Germ (as part-nature)",100,1,37,0.85
@@ -2856,6 +2867,11 @@
 "A.16.08.004","Butter sauce","A.12.01.010","Juice, Lemon","To be further disaggregated (d)",,5.6,1,1,1
 "A.16.08.004","Butter sauce","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.66,1,1,1
 "A.16.08.004","Butter sauce","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",60.64,1,1,1
+"A.16.09","Flavourings or essences","A.16.09.001","Almond essence",,,20,1,1,1
+"A.16.09","Flavourings or essences","A.16.09.002","Vanilla essence",,,20,1,1,1
+"A.16.09","Flavourings or essences","A.16.09.003","Vanilla pods (Vanilla fragrans syn. Vanilla planifolia)",,,20,1,1,1
+"A.16.09","Flavourings or essences","A.16.09.004","Orange essence",,,20,1,1,1
+"A.16.09","Flavourings or essences","A.16.09.005","Lemon essence",,,20,1,1,1
 "A.16.09.001","Almond essence","A.04.03.001","Almond, sweet (Prunus amygalus dulcis)","F28.A07MJ","PROCESS=Extraction",100,1,1,1
 "A.16.09.002","Vanilla essence","A.16.09.003","Vanilla pods (Vanilla fragrans syn. Vanilla planifolia)","F28.A07MJ","PROCESS=Extraction",100,1,1,1
 "A.16.09.003","Vanilla pods (Vanilla fragrans syn. Vanilla planifolia)","A.16.09.003","Vanilla pods (Vanilla fragrans syn. Vanilla planifolia)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,1,1
