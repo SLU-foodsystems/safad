@@ -14,6 +14,7 @@ import {
   DETAILED_RESULTS_HEADER,
   BREAKDOWN_RESULTS_HEADER,
   getDietBreakdown,
+  aggregateImpacts,
 } from "@/lib/impacts-csv-utils";
 import reduceDietToRpcs from "@/lib/rpc-reducer";
 import {
@@ -25,6 +26,8 @@ import { resetFile, initInputFile } from "@/lib/file-interface-utils";
 
 import FileSelector from "@/components/FileSelector.vue";
 import LoadingOverlay from "@/components/LoadingOverlay.vue";
+import CarbonFootprintsGraph from "@/components/CarbonFootprintsGraph.vue";
+import { rpcNames } from "./lib/efsa-names";
 
 const APP_VERSION = __APP_VERSION__;
 
@@ -364,6 +367,33 @@ const downloadZip = async () => {
   saveAs(content, `SAFAD Output ${date}.zip`);
 };
 
+const carbonFootprintsData = ref<[string, number[]][]>([]);
+
+const computeCarbonFootprintsData = () => {
+  const data = [
+    "I.19.01.003.017", // Lasagna
+    "A.19.01.002.003", // Pizza
+    "I.19.01.001.018", // Pierogi, with vegetables
+    "A.19.10.001", // Vegetable/herb soup
+  ]
+    .map((foodCode) => {
+      const impacts = RE.computeImpacts([[foodCode, 1000]]);
+      if (Object.values(impacts[0]).some((v) => v === null)) {
+        return null;
+      }
+      return [foodCode, aggregateImpacts(
+        impacts[0] as Record<string, number[]>,
+        impacts[1],
+        impacts[2],
+        impacts[3]
+      )];
+    })
+    .filter((x): x is [string, number[]] => x !== null)
+  .map(([code, impacts]): [string, number[]] => [rpcNames[code], impacts]);
+
+  carbonFootprintsData.value = data;
+};
+
 onMounted(async () => {
   isLoading.value = true;
 
@@ -389,6 +419,13 @@ onMounted(async () => {
   );
 
   await Promise.all(promises);
+
+  // 1. List all foods we want to verify
+  // 2. For each, get the _sum_ of the footprints (maybe add method to RE?)
+  // 3. Create a mapper function to convert each item to an object with each of
+  // the variables (map [label: string] -> index)
+
+  computeCarbonFootprintsData();
 
   isLoading.value = false;
 });
@@ -484,8 +521,36 @@ onMounted(async () => {
       </div>
     </div>
 
-    <br />
-    <br />
+    <div class="page-wrap stack">
+      <section class="stack">
+        <h2 class="u-tac">Impacts from Foods and Diets</h2>
+        <div class="results-grid-large">
+          <div class="results-grid-large__graph">
+            <h3>Carbon footprint preview</h3>
+            <CarbonFootprintsGraph :data="carbonFootprintsData" />
+          </div>
+          <div class="results-grid-large__aside stack">
+            <h3>Download output data</h3>
+            <p>
+               Download a csv file with the impacts per kg of each food-item in the recipes list.
+            </p>
+            <button
+              class="button button--accent"
+              @click="downloadFootprintsOfFoods"
+            >
+              Download footprints of foods - EFSA recipes
+            </button>
+            <button
+              class="button button--accent"
+              @click="downloadFootprintsOfSLVRecipes"
+            >
+              Download footprints of foods - SFA recipes
+            </button>
+          </div>
+        </div>
+        <div class="results-grid-small"></div>
+      </section>
+    </div>
 
     <div class="stack u-tac start-page-wrap">
       <h3>Download Output Data</h3>
@@ -724,8 +789,18 @@ onMounted(async () => {
   }
 }
 
-.sfa-container {
-  padding: 1em;
-  background: rgba($yellow_sunshine, 0.4);
+.results-grid-large {
+  display: grid;
+  grid-template-columns: 1fr 20em;
+  gap: 1em;
+
+  @media (max-width: $measure--wide) {
+    grid-template-columns: 1fr;
+
+    .button {
+      margin-right: 1em;
+
+    }
+  }
 }
 </style>
