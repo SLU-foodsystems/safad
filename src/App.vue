@@ -381,60 +381,74 @@ onMounted(async () => {
 
 <template>
   <section class="start-page">
-    <header class="stack start-page-wrap">
-      <div class="cluster cluster--center">
-        <img src="@/assets/slu-logo.svg" class="start-page__logo" />
+    <header class="top-bar">
+      <div class="page-wrap cluster cluster--between">
+        <div class="cluster">
+          <a class="top-bar__logo" href="#">
+            <img src="@/assets/slu-logo.svg" width="848" height="848" />
+          </a>
+          <nav class="cluster">
+            <a href="#0">Home</a>
+            <a href="#0">About</a>
+            <a href="#0">Support</a>
+            <a href="#0">Publications</a>
+          </nav>
+        </div>
+
+        <a
+          class="top-bar__planeat-logo"
+          href="https://planeat-project.eu/"
+          target="_blank"
+        >
+          <img
+            src="@/assets/planeat-logo.png"
+            width="543"
+            height="142"
+            alt="Plan'Eat"
+          />
+        </a>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="hero__inner page-wrap">
         <div>
-          <h1>
-            The
-            <abbr title="Sustainability Assesment of Foods and Diets"
-              >SAFAD</abbr
-            >
-            tool by SLU
-          </h1>
-          <span class="u-faded">Version: {{ APP_VERSION }}</span>
+          <h1>SAFAD<br />Sustainability Assesment of Foods and Diets</h1>
+          <p>
+            Calculate the impact using eight environmental indicators and
+            indicators for animal welfare and use of antibiotics.
+          </p>
         </div>
       </div>
+    </div>
+    <div class="info-bar">
+      <div class="page-wrap">
+        <div class="cluster cluster--between">
+          <div><strong>Version:</strong> {{ APP_VERSION }}</div>
+          <div class="country-select">
+            <label class="cluster">
+              <span>Country:</span>
+              <select v-model="countryCode">
+                <option value="FR">France</option>
+                <option value="DE">Germany</option>
+                <option value="GR">Greece</option>
+                <option value="HU">Hungary</option>
+                <option value="IE">Ireland</option>
+                <option value="IT">Italy</option>
+                <option value="PL">Poland</option>
+                <option value="ES">Spain</option>
+                <option value="SE">Sweden</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <br />
+    <br />
+    <br />
 
-      <p>
-        The Sustainability Assessment of Foods and Diets (SAFAD) tool allows for
-        sustainability assessments of foods and diets for 9 European countries
-        (France, Germany, Greece, Hungary, Ireland, Italy, Poland, Spain and
-        Sweden). To generate footprints for a diet or for foods using default
-        values, choose the country of interest in the drop-down menu. Footprint
-        files are then ready to be downloaded.
-      </p>
-
-      <p>
-        In the SAFAD tool, input data (Input, parameter, and emission factor
-        files) can easily be configured. To configure a file, download the
-        default file using the Download Copy button. Once configured, the custom
-        file can be uploaded using the Upload Custom file. The custom file must
-        be in the same format and uploaded as a .csv file. When all custom files
-        are uploaded, the new footprint for the diet or foods can be downloaded.
-      </p>
-
-      <p>
-        To learn more about a file’s function, press the Info button situated
-        next to the file's name.
-      </p>
-    </header>
     <div class="stack u-tac start-page-wrap">
-      <h3>Country</h3>
-      <select v-model="countryCode">
-        <option value="FR">France</option>
-        <option value="DE">Germany</option>
-        <option value="GR">Greece</option>
-        <option value="HU">Hungary</option>
-        <option value="IE">Ireland</option>
-        <option value="IT">Italy</option>
-        <option value="PL">Poland</option>
-        <option value="ES">Spain</option>
-        <option value="SE">Sweden</option>
-      </select>
-      <br />
       <h3>Download Output Data</h3>
       <section class="download-section stack">
         <div class="stack">
@@ -623,28 +637,10 @@ onMounted(async () => {
   display: block;
   overflow: auto;
 
-  background: $lightgray;
-
   height: 100%;
   width: 100%;
   padding: 0;
   padding-bottom: 2em;
-}
-
-header {
-  width: 100%;
-  padding: 2em 0;
-  margin-bottom: 2em;
-
-  h1 {
-    font-size: 1.5em;
-    margin-bottom: 0;
-  }
-
-  p {
-    text-align: left;
-    width: 100%;
-  }
 }
 
 .start-page__logo {
@@ -687,17 +683,5 @@ header {
 .slv-container {
   padding: 1em;
   background: rgba($yellow_sunshine, 0.4);
-}
-
-label {
-  --space: 0.5rem;
-  cursor: pointer;
-}
-
-select {
-  width: 20em;
-  margin-left: auto;
-  margin-right: auto;
-  flex-grow: 1;
 }
 </style>

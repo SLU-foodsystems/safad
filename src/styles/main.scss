@@ -150,14 +150,73 @@ p {
 
 #app {
   height: 100%;
+
+  background: $lightgray;
 }
 
 .page-wrap {
   width: 95%;
   max-width: $measure--wide;
-  max-width: 800px; // Temporary
   margin: 0 auto;
 }
+
+/*
+ * Top Bar
+ * =========================================== */
+
+
+.top-bar {
+  width: 100%;
+  padding: 1.5em 0;
+  background: white;
+
+  nav {
+    padding: 0 1em;
+  }
+}
+
+.top-bar__logo,
+.top-bar__planeat-logo {
+  display: inline-block;
+
+  img {
+    width: auto;
+    height: 3em;
+  }
+}
+
+.hero {
+  background: $green_forest;
+  color: white;
+}
+
+.hero__inner {
+  padding: 10em 0;
+  margin: 0 auto;
+
+  h1 {
+    font-weight: bold;
+  }
+}
+
+.info-bar {
+  border-bottom: 4px solid $gray;
+  padding: 2em 0;
+  background: white;
+  margin-bottom: 2em;
+
+  label {
+    font-weight: bold;
+  }
+
+  select {
+    width: 20em;
+    margin-left: auto;
+    margin-right: auto;
+    flex-grow: 1;
+  }
+}
+
 
 /*
  * Specifics
