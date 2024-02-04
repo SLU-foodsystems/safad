@@ -387,7 +387,7 @@ onMounted(async () => {
           <a class="top-bar__logo" href="#">
             <img src="@/assets/slu-logo.svg" width="848" height="848" />
           </a>
-          <nav class="cluster">
+          <nav class="cluster" hidden>
             <a href="#0">Home</a>
             <a href="#0">About</a>
             <a href="#0">Support</a>
