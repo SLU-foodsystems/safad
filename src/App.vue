@@ -414,9 +414,33 @@ onMounted(async () => {
       <div class="hero__inner page-wrap">
         <div>
           <h1>SAFAD<br />Sustainability Assesment of Foods and Diets</h1>
-          <p>
+          <h2>
             Calculate the impact using eight environmental indicators and
             indicators for animal welfare and use of antibiotics.
+          </h2>
+
+          <p>
+            The Sustainability Assessment of Foods and Diets (SAFAD) tool allows
+            for sustainability assessments of foods and diets for 9 European
+            countries (France, Germany, Greece, Hungary, Ireland, Italy, Poland,
+            Spain and Sweden). To generate footprints for a diet or for foods
+            using default values, choose the country of interest in the
+            drop-down menu. Footprint files are then ready to be downloaded.
+          </p>
+
+          <p>
+            In the SAFAD tool, input data (Input, parameter, and emission factor
+            files) can easily be configured. To configure a file, download the
+            default file using the Download Copy button. Once configured, the
+            custom file can be uploaded using the Upload Custom file. The custom
+            file must be in the same format and uploaded as a .csv file. When
+            all custom files are uploaded, the new footprint for the diet or
+            foods can be downloaded.
+          </p>
+
+          <p>
+            To learn more about a file’s function, press the Info button
+            situated next to the file's name.
           </p>
         </div>
       </div>
