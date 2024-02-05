@@ -337,6 +337,22 @@ const downloadZip = async () => {
 
   zip.file("SAFAD OR Footprints per Diet.csv", detailedDietImpactsCsv);
 
+  const dietBreakdownRows = getDietBreakdown(
+    diet.value.map(([code, amount]): [string, number, Diet] => [
+      code,
+      amount,
+      reduceDietToRpcs(
+        [[code, amount]],
+        RE.foodsRecipes!,
+        RE.preparationProcessesAndPackaging!
+      )[0],
+    ])
+  );
+  zip.file(
+    "SAFAD OS Breakdown per Food.csv",
+    stringifyCsvData([BREAKDOWN_RESULTS_HEADER, ...dietBreakdownRows])
+  );
+
   await Promise.allSettled(addFilePromises);
 
   const content = await zip.generateAsync({ type: "blob" });
