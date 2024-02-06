@@ -1,5 +1,13 @@
 import { parseCsvFile, roundToPrecision, vectorsSum } from "@/lib/utils";
 
+import processTranslationsCsv from "@/data/slv-to-efsa-processes.csv?raw";
+
+const SlvEfsaProcessTranslations: Record<string, string> = Object.fromEntries(
+  parseCsvFile(processTranslationsCsv)
+    .slice(1)
+    .map(([slvName, efsaCode]) => [slvName, efsaCode])
+);
+
 const asNumber = (str: string, elseValue = 0): number => {
   const maybeNumber = Number.parseFloat((str || "").trim());
   return Number.isNaN(maybeNumber) ? elseValue : maybeNumber;
@@ -152,7 +160,9 @@ export function parseEmissionsFactorsTransport(csvString: string) {
   return results;
 }
 
-export function parseProcessesEnergyDemands(csvString: string): Record<string, number[]> {
+export function parseProcessesEnergyDemands(
+  csvString: string
+): Record<string, number[]> {
   const csv = parseCsvFile(csvString).slice(1);
 
   // MaxCols with some margin for comments etc
@@ -480,18 +490,6 @@ export function parseSlvRecipes(recipesCsvStr: string): SlvRecipeComponent[] {
     throw new CsvValidationError(err);
   }
 
-  const processTranslations: Record<string, string> = {
-    "Juice drickfärdig": "F28.A07LN",
-    "Rå, tillagad": "F28.A0BA1",
-    Tillagad: "F28.A0BA1",
-    "Tillagad, adderad": "F28.A0BA1",
-    Pure: "F28.A0C6N",
-    Pulveriserat: "F28.A07KF",
-    "Juice koncentrerad": "F28.A07KF",
-    Torkad: "F28.A07KG",
-    Friterad: "F28.A07GV",
-  };
-
   return (
     data
       .map(
@@ -512,7 +510,7 @@ export function parseSlvRecipes(recipesCsvStr: string): SlvRecipeComponent[] {
           slvCode,
           slvName,
           foodEx2Code: i1FoodEx2Code,
-          process: processTranslations[i1ProcessName] || "",
+          process: SlvEfsaProcessTranslations[i1ProcessName] || "",
           grossShare: asNumber(i1Share, 0) / 100,
           netShare: asNumber(i1NetShare, 0) / 100,
         })
