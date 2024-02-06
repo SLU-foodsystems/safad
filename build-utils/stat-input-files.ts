@@ -40,19 +40,20 @@ export default async function statCsvFiles(csvBasePath: string) {
 
   const csvMatches =
     // For each of the file names, add the FileStats to it
-    matches.filter(
-      (fName) =>
-        path.extname(path.resolve(csvBasePath, fName)).toLowerCase() === ".csv"
-    );
+    matches
+      .map((relFilepath) => path.resolve(csvBasePath, relFilepath))
+      .filter((filepath) => path.extname(filepath).toLowerCase() === ".csv");
 
   const filesDatePairs = await Promise.all(
     // Use git to find out last-changed date
-    csvMatches.map(async (fName): Promise<[string, string]> => {
+    csvMatches.map(async (filepath): Promise<[string, string]> => {
+      // Filename, without any directory path
+      const fName = path.basename(filepath);
       try {
         // Format %ai gives output like: "2024-02-04 12:19:10 +0100"
 
         const { stdout, stderr } = await promisify(exec)(
-          `git log -n 1 --pretty=format:%ai "${csvBasePath}/${fName}"`
+          `git log -n 1 --pretty=format:%ai "${filepath}"`
         );
 
         if (stderr) throw new Error("stderr: " + stderr);
