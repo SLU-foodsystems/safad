@@ -1,5 +1,5 @@
-import * as Parsers from "./input-files-parsers";
-import type ResultsEngine from "./ResultsEngine";
+import * as Parsers from "@/lib/input-files-parsers";
+import type ResultsEngine from "@/lib/ResultsEngine";
 
 /**
  * Define all files we're importing, first the ones that are independent of

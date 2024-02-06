@@ -297,6 +297,7 @@ export function parseSlvRecipes(recipesCsvStr: string): SlvRecipeComponent[] {
     "Rå, tillagad": "F28.A0BA1",
     Tillagad: "F28.A0BA1",
     "Tillagad, adderad": "F28.A0BA1",
+    // TODO: Look into this
     "Pure ": "F28.A0C6N",
     Pulveriserat: "F28.A07KF",
     "Juice koncentrerad": "F28.A07KF",
