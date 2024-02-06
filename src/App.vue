@@ -104,7 +104,7 @@ const processesEnergyDemandsFile = ref(
   initInputFile({
     defaultName: () => "SAFAD IP Energy Proc.csv",
     getDefault: DefaultInputFiles.raw.processesEnergyDemands,
-    parser: InputFileParsers.parseEmissionsFactorsPackaging,
+    parser: InputFileParsers.parseProcessesEnergyDemands,
     setter: RE.setEmissionsFactorsPackaging,
   })
 );
