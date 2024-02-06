@@ -16,11 +16,12 @@ export const resetFile = async <T>(
   fileInterface.setter(
     fileInterface.parser(await fileInterface.getDefault(countryCode))
   );
-  Object.assign(fileInterface, {
-    name: undefined,
+  const overrides: Partial<InputFile<T>> = {
+    name: "",
     state: "default",
     data: undefined,
-  });
+  };
+  Object.assign(fileInterface, overrides);
 };
 
 export const setFile = async <T>(
