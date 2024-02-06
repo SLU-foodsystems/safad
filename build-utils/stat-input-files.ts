@@ -1,6 +1,8 @@
 import * as fs from "node:fs/promises";
 import * as path from "path";
+import { exec } from "node:child_process";
 import { type Stats } from "node:fs";
+import { promisify } from "node:util";
 
 /**
  * Pad a number with zeroes
@@ -36,21 +38,34 @@ export default async function statCsvFiles(csvBasePath: string) {
 
   const matches = await fs.readdir(csvBasePath, { recursive: true });
 
-  const filesMTimePairs = (
-    await Promise.all(
-      // For each of the file names, add the FileStats to it
-      matches.map(
-        async (fName): Promise<[string, Stats]> => [
-          fName,
-          await fs.stat(path.resolve(csvBasePath, fName)),
-        ]
-      )
-    )
-  )
-    // Filter out any directories
-    .filter(([_fName, stats]) => stats.isFile())
-    // And then keep only fileName and the last-modified time
-    .map(([fName, stat]) => [fName, dateToString(stat.mtime)]);
+  const csvMatches =
+    // For each of the file names, add the FileStats to it
+    matches.filter(
+      (fName) =>
+        path.extname(path.resolve(csvBasePath, fName)).toLowerCase() === ".csv"
+    );
 
-  return Object.fromEntries(filesMTimePairs);
+  const filesDatePairs = await Promise.all(
+    // Use git to find out last-changed date
+    csvMatches.map(async (fName): Promise<[string, string]> => {
+      try {
+        // Format %ai gives output like: "2024-02-04 12:19:10 +0100"
+
+        const { stdout, stderr } = await promisify(exec)(
+          `git log -n 1 --pretty=format:%ai "${csvBasePath}/${fName}"`
+        );
+
+        if (stderr) throw new Error("stderr: " + stderr);
+
+        const dateObj = new Date(stdout.trim());
+        return [fName, dateToString(dateObj)];
+      } catch (err) {
+        console.error(err);
+        // Fall-back to build-date
+        return [fName, dateToString(new Date())];
+      }
+    })
+  );
+
+  return Object.fromEntries(filesDatePairs);
 }
