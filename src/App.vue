@@ -26,7 +26,6 @@ import { resetFile, initInputFile } from "@/lib/file-interface-utils";
 import FileSelector from "@/components/FileSelector.vue";
 import LoadingOverlay from "@/components/LoadingOverlay.vue";
 
-const MDATES = __INPUT_FILE_MDATES__;
 const APP_VERSION = __APP_VERSION__;
 
 // TODO: These should be in a separate file, so that theyre easier for others to
@@ -66,112 +65,100 @@ const slvRecipes = ref<SlvRecipeComponent[]>([]);
 
 const footprintsRpcsFile = ref(
   initInputFile({
-    defaultName: "SAFAD ID Footprints RPC.csv",
+    defaultName: () => "SAFAD ID Footprints RPC.csv",
     getDefault: DefaultInputFiles.raw.footprintsRpcs,
     parser: InputFileParsers.parseFootprintsRpcs,
     setter: RE.setFootprintsRpcs,
-    lastModified: () => MDATES["SAFAD ID Footprints RPC.csv"],
   })
 );
 
 const dietFile = ref(
   initInputFile<Diet>({
-    defaultName: "SAFAD ID Diet Spec.csv",
+    defaultName: (country: string) => `SAFAD ID Diet Spec ${country}.csv`,
     getDefault: DefaultInputFiles.raw.diet,
     parser: InputFileParsers.parseDiet,
     setter: (data: Diet) => {
       diet.value = data;
     },
-    lastModified: (country: string) =>
-      MDATES[`SAFAD ID Diet Spec/${country}.csv`],
   })
 );
 
 const foodsRecipesFile = ref(
   initInputFile({
-    defaultName: "SAFAD IP Recipes.csv",
+    defaultName: () => "SAFAD IP Recipes.csv",
     getDefault: DefaultInputFiles.raw.foodsRecipes,
     parser: InputFileParsers.parseFoodsRecipes,
     setter: RE.setFoodsRecipes,
-    lastModified: () => MDATES[`SAFAD IP Recipes.csv`],
   })
 );
 const rpcOriginWasteFile = ref(
   initInputFile({
-    defaultName: "SAFAD IP Origin and Waste of RPC.csv",
+    defaultName: (country: string) =>
+      `SAFAD IP Origin and Waste of RPC ${country}.csv`,
     getDefault: DefaultInputFiles.raw.rpcOriginWaste,
     parser: InputFileParsers.parseRpcOriginWaste,
     setter: RE.setRpcOriginWaste,
-    lastModified: (country: string) =>
-      MDATES[`SAFAD IP Origin and Waste of RPC/${country}.csv`],
   })
 );
 const processesEnergyDemandsFile = ref(
   initInputFile({
-    defaultName: "SAFAD IP Energy Proc.csv",
+    defaultName: () => "SAFAD IP Energy Proc.csv",
     getDefault: DefaultInputFiles.raw.processesEnergyDemands,
     parser: InputFileParsers.parseEmissionsFactorsPackaging,
     setter: RE.setEmissionsFactorsPackaging,
-    lastModified: () => MDATES["SAFAD IP Energy Proc.csv"],
   })
 );
 const preparationProcessesAndPackagingFile = ref(
   initInputFile({
-    defaultName: "SAFAD IP Prep Proc and Pack.csv",
+    defaultName: () => "SAFAD IP Prep Proc and Pack.csv",
     getDefault: DefaultInputFiles.raw.preparationProcessesAndPackaging,
     parser: InputFileParsers.parseProcessesPackaging,
     setter: RE.setPrepProcessesAndPackaging,
-    lastModified: () => MDATES["SAFAD IP Prep Proc and Pack.csv"],
   })
 );
 const wasteRetailAndConsumerFile = ref(
   initInputFile({
-    defaultName: "SAFAD IP Waste Retail and Cons.csv",
+    defaultName: (country: string) =>
+      `SAFAD IP Waste Retail and Cons ${country}.csv`,
     getDefault: DefaultInputFiles.raw.wasteRetailAndConsumer,
     parser: InputFileParsers.parseWasteRetailAndConsumer,
     setter: RE.setWasteRetailAndConsumer,
-    lastModified: (country: string) =>
-      MDATES[`SAFAD IP Waste Retail and Cons/${country}.csv`],
   })
 );
 
 const emissionsFactorsEnergyFile = ref(
   initInputFile({
-    defaultName: "SAFAD IEF Energy.csv",
+    defaultName: () => "SAFAD IEF Energy.csv",
     getDefault: DefaultInputFiles.raw.emissionsFactorsEnergy,
     parser: InputFileParsers.parseEmissionsFactorsEnergy,
     setter: RE.setEmissionsFactorsEnergy,
-    lastModified: () => MDATES["SAFAD IEF Energy.csv"],
   })
 );
 const emissionsFactorsPackagingFile = ref(
   initInputFile({
-    defaultName: "SAFAD IEF Packaging.csv",
+    defaultName: () => "SAFAD IEF Packaging.csv",
     getDefault: DefaultInputFiles.raw.emissionsFactorsPackaging,
     parser: InputFileParsers.parseEmissionsFactorsPackaging,
     setter: RE.setEmissionsFactorsPackaging,
-    lastModified: () => MDATES["SAFAD IEF Packaging.csv"],
   })
 );
 const emissionsFactorsTransportFile = ref(
   initInputFile({
-    defaultName: "SAFAD IEF Transport.csv",
+    defaultName: () => "SAFAD IEF Transport.csv",
     getDefault: DefaultInputFiles.raw.emissionsFactorsTransport,
     parser: InputFileParsers.parseEmissionsFactorsTransport,
     setter: RE.setEmissionsFactorsTransport,
-    lastModified: () => MDATES["SAFAD IEF Transport.csv"],
   })
 );
 
 const slvRecipesFile = ref(
   initInputFile({
-    defaultName: "SAFAD IS SLV Recipes.csv",
+    defaultName: () => "SAFAD IS SLV Recipes.csv",
     getDefault: DefaultInputFiles.raw.slvRecipes,
     parser: InputFileParsers.parseSlvRecipes,
     setter: (data: SlvRecipeComponent[]) => {
       slvRecipes.value = data;
     },
-    lastModified: () => MDATES["SAFAD IS SLV Recipes.csv"],
   })
 );
 
@@ -290,7 +277,7 @@ const downloadZip = async () => {
       f.state === "default"
         ? await f.getDefault(countryCode.value)
         : f.data || "";
-    const name = f.name || f.defaultName;
+    const name = f.name || f.defaultName(countryCode.value);
     zip.file(name, data);
   };
 
