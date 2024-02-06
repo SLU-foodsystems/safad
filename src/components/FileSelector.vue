@@ -48,8 +48,12 @@ export default defineComponent({
 
       return this.comment.trim() === "" ? "Add comment" : "Edit comment";
     },
-    fileName() {
-      return this.fileInterface.name || this.fileInterface.defaultName || "";
+    fileName(): string {
+      return (
+        this.fileInterface.name ||
+        this.fileInterface.defaultName(this.countryCode) ||
+        ""
+      );
     },
     lastModified() {
       return this.fileInterface.lastModified(this.countryCode);

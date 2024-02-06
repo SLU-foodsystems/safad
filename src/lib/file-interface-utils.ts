@@ -1,5 +1,7 @@
 import { downloadAsPlaintext } from "./csv-io";
 
+const MDATES = __INPUT_FILE_MDATES__;
+
 interface SetFilePayload {
   data: string;
   name: string;
@@ -44,7 +46,7 @@ export const downloadFile = async <T>(
   if (fileInterface.state === "default") {
     downloadAsPlaintext(
       await fileInterface.getDefault(countryCode),
-      fileInterface.defaultName
+      fileInterface.defaultName(countryCode)
     );
   } else {
     downloadAsPlaintext(fileInterface.data || "", fileInterface.name);
@@ -62,12 +64,14 @@ export const setComment = async <T>(
 export const initInputFile = <T>(
   partialInputFile: Pick<
     InputFile<T>,
-    "defaultName" | "getDefault" | "parser" | "setter" | "lastModified"
+    "defaultName" | "getDefault" | "parser" | "setter"
   >
 ): InputFile<T> => ({
   state: "default",
   name: "",
   comment: "",
   data: undefined,
+  lastModified: (countryCode: string) =>
+    MDATES[partialInputFile.defaultName(countryCode)],
   ...partialInputFile,
 });

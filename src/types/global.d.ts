@@ -61,7 +61,7 @@ declare global {
   interface InputFile<T> {
     state: "default" | "custom";
     comment: string;
-    defaultName: string;
+    defaultName: (country: string) => string;
 
     getDefault: (country: string) => Promise<string>;
     parser: (data: string) => T;
