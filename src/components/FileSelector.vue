@@ -9,6 +9,11 @@ import {
   setComment,
 } from "@/lib/file-interface-utils";
 
+import {
+  CsvValidationError,
+  CsvValidationErrorType,
+} from "@/lib/input-files-parsers";
+
 export default defineComponent({
   components: { LoadingOverlay },
 
@@ -30,6 +35,7 @@ export default defineComponent({
       showComment: false,
       isLoading: false,
       showInfo: false,
+      error: null as CsvValidationErrorType | null,
 
       comment: "",
     };
@@ -59,10 +65,60 @@ export default defineComponent({
     lastModified() {
       return this.fileInterface.lastModified(this.countryCode);
     },
+
+    errorMessage() {
+      if (this.error === null) return "";
+
+      const baseErrorMessage = "Woops! Something was wrong with the csv file.";
+      const baseSuggestionMessage = "Make sure you uploaded the correct file.";
+      switch (this.error) {
+        case CsvValidationErrorType.MinRows:
+          return (
+            baseErrorMessage +
+            " The uploaded csv file looks unexpectedly short. " +
+            baseSuggestionMessage
+          );
+        case CsvValidationErrorType.MaxRows:
+          return (
+            baseErrorMessage +
+            " The uploaded csv file looks unexpectedly long. " +
+            baseSuggestionMessage
+          );
+        case CsvValidationErrorType.MinCols:
+          return (
+            "Woops! The uploaded csv file has too few columns. " +
+            baseSuggestionMessage +
+            " You can download the default file and compare, if you are " +
+            "unsure of the format."
+          );
+        case CsvValidationErrorType.MaxCols:
+          return (
+            baseErrorMessage +
+            " The csv file has too many columns. " +
+            baseSuggestionMessage +
+            " You can download the default file and compare, if you are " +
+            "unsure of the format."
+          );
+        case CsvValidationErrorType.SingleCol:
+          return (
+            baseErrorMessage +
+            " We only detected a single column in the file. " +
+            "Make sure you are using a comma (,) as the csv-file separator " +
+            "(not e.g. tab or semicolon), and that you uploaded the correct " +
+            "file. You can download the default file and compare, if you are " +
+            "unsure of the format."
+          );
+        case CsvValidationErrorType.Empty:
+          return "Woops! The csv file was empty. " + baseSuggestionMessage;
+        case CsvValidationErrorType.Unknown:
+          return baseErrorMessage + " " + baseSuggestionMessage;
+      }
+    },
   },
 
   methods: {
     onButtonClick() {
+      this.error = null;
       if (this.fileInterface.state === "default") {
         // Trigger click on @file input
         // If successful, trigger event with data
@@ -70,6 +126,10 @@ export default defineComponent({
       } else {
         resetFile(this.countryCode, this.fileInterface);
       }
+    },
+
+    onError(err: CsvValidationError) {
+      this.error = err.type;
     },
 
     onFileInputChange(event: Event) {
@@ -86,17 +146,30 @@ export default defineComponent({
       reader.addEventListener("error", (...args) => {
         // TODO: Handle errors
         this.isLoading = false;
+        this.onError(new CsvValidationError(CsvValidationErrorType.Unknown));
         console.error(...args);
       });
-      reader.addEventListener("load", () => {
+      reader.addEventListener("load", async () => {
         this.isLoading = false;
-        setFile(
-          {
-            name: fileName,
-            data: reader.result as string | "",
-          },
-          this.fileInterface
-        );
+        try {
+          // Must await here for error to be caught
+          await setFile(
+            {
+              name: fileName,
+              data: reader.result as string | "",
+            },
+            this.fileInterface
+          );
+        } catch (err) {
+          if (err instanceof CsvValidationError) {
+            this.onError(err);
+          } else {
+            this.onError(
+              new CsvValidationError(CsvValidationErrorType.Unknown)
+            );
+          }
+          resetFile(this.countryCode, this.fileInterface);
+        }
       });
       reader.readAsText(file);
     },
@@ -136,6 +209,10 @@ export default defineComponent({
       @change="onFileInputChange"
     />
 
+    <div class="error-message cluster" v-if="error">
+      <span class="error-message__icon" />
+      <span v-text="errorMessage" />
+    </div>
     <div class="cluster cluster--between">
       <div class="stack stack-s">
         <h4>{{ fileLabel }}</h4>
@@ -254,4 +331,36 @@ label {
   margin: 0.5em 0;
   font-style: italic;
 }
+
+.error-message {
+  width: 100%;
+  margin-bottom: $s-1;
+  padding: 0.75em;
+  flex-wrap: nowrap;
+
+  border-radius: 0.25em;
+  background: rgba($yellow, 0.1);
+  border: 2px solid rgba($yellow, 0.5);
+}
+
+.error-message__icon {
+  $size: 1.5rem;
+
+  vertical-align: middle;
+
+  width: $size;
+  height: $size;
+  flex: 0 0 $size;
+  border-radius: $size;
+
+  border: 2px solid currentColor;
+  font-size: 0.75em;
+  text-align: center;
+  font-weight: bold;
+
+  &::after {
+    content: "!";
+  }
+}
+
 </style>
