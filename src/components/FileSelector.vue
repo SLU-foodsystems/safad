@@ -55,6 +55,7 @@ export default defineComponent({
         ""
       );
     },
+    // Only valid when mode is default
     lastModified() {
       return this.fileInterface.lastModified(this.countryCode);
     },
