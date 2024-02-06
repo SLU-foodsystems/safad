@@ -411,50 +411,60 @@ export function parseFoodsRecipes(recipesCsvStr: string) {
     throw new CsvValidationError(err);
   }
 
-  data
-    .forEach(
-      ([
-        code,
-        _name,
+  const firstNRows = data.slice(0, 40);
+  const isMaybeCode = (code: string) =>
+    ["A", "I"].includes(code[0]) && code.includes(".");
+  const codesInFirstCol = firstNRows.every(([code]) => isMaybeCode(code));
+  const codesInThirdCol = firstNRows.every(([_0, _1, code]) =>
+    isMaybeCode(code)
+  );
+  if (!codesInFirstCol || !codesInThirdCol) {
+    throw new CsvValidationError(CsvValidationErrorType.Unknown);
+  }
+
+  data.forEach(
+    ([
+      code,
+      _name,
+      component,
+      _componentName,
+      facetStr,
+      _facetDescr,
+      perc,
+      prob,
+      yieldFactor,
+      allocationFactor,
+    ]) => {
+      if (code === "") return; // Empty row
+      const value = roundToPrecision(
+        (parseFloat(perc) * parseFloat(prob)) / 100,
+        3
+      );
+
+      const netYieldFactor =
+        (parseFloat(yieldFactor) || 1) * (parseFloat(allocationFactor) || 1);
+
+      if (value === 0) return;
+
+      const PROCESS_UNSPECIFIED = "F28.A07XD";
+      const processes = facetStr
+        .split("$")
+        .filter((f) => f.startsWith("F28.") && f !== PROCESS_UNSPECIFIED);
+
+      const entry: [string, string[], number, number] = [
         component,
-        _componentName,
-        facetStr,
-        _facetDescr,
-        perc,
-        prob,
-        yieldFactor,
-        allocationFactor,
-      ]) => {
-        if (code === "") return; // Empty row
-        const value = roundToPrecision(
-          (parseFloat(perc) * parseFloat(prob)) / 100,
-          3
-        );
+        processes,
+        value,
+        netYieldFactor || 1,
+      ];
 
-        const netYieldFactor =
-          (parseFloat(yieldFactor) || 1) * (parseFloat(allocationFactor) || 1);
-
-        if (value === 0) return;
-
-        const PROCESS_UNSPECIFIED = "F28.A07XD";
-        const processes = facetStr
-          .split("$")
-          .filter((f) => f.startsWith("F28.") && f !== PROCESS_UNSPECIFIED);
-
-        const entry: [string, string[], number, number] = [
-          component,
-          processes,
-          value,
-          netYieldFactor || 1,
-        ];
-
-        if (code in recipes) {
-          recipes[code].push(entry);
-        } else {
-          recipes[code] = [entry];
-        }
+      if (code in recipes) {
+        recipes[code].push(entry);
+      } else {
+        recipes[code] = [entry];
       }
-    );
+    }
+  );
 
   removeCorruptValues(recipes);
   deleteEmptyValues(recipes);
@@ -475,7 +485,7 @@ export function parseSlvRecipes(recipesCsvStr: string): SlvRecipeComponent[] {
     "Rå, tillagad": "F28.A0BA1",
     Tillagad: "F28.A0BA1",
     "Tillagad, adderad": "F28.A0BA1",
-    "Pure": "F28.A0C6N",
+    Pure: "F28.A0C6N",
     Pulveriserat: "F28.A07KF",
     "Juice koncentrerad": "F28.A07KF",
     Torkad: "F28.A07KG",
