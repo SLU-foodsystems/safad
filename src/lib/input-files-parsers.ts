@@ -71,18 +71,19 @@ function validateCsv(
 }
 
 export function parseEmissionsFactorsPackaging(csvString: string) {
-  const rows = parseCsvFile(csvString)
+  const csv = parseCsvFile(csvString)
     .slice(1) // Drop header
     // Remove empty rows
     .filter((row) => row.some((cell) => cell.length > 0));
 
-  const err = validateCsv(rows, { minCols: 6 });
+  // maxCols = 12 for some flexibility for comments etc
+  const err = validateCsv(csv, { minCols: 6, maxCols: 10 });
   if (err) {
     throw new CsvValidationError(err);
   }
 
   return Object.fromEntries(
-    rows.map(([packagingCode, _packagingName, ...efs]) => [
+    csv.map(([packagingCode, _packagingName, ...efs]) => [
       packagingCode,
       efs.map((x) => asNumber(x)),
     ])
@@ -95,7 +96,8 @@ export function parseEmissionsFactorsEnergy(csvString: string) {
   const emissionsFactors: Record<string, number[] | Record<string, number[]>> =
     { Electricity: {} };
 
-  const err = validateCsv(csv, { minCols: 6 });
+  // maxCols = 10 for some flexibility for comments etc
+  const err = validateCsv(csv, { minCols: 6, maxCols: 10 });
   if (err) {
     throw new CsvValidationError(err);
   }
@@ -116,7 +118,8 @@ export function parseEmissionsFactorsEnergy(csvString: string) {
 export function parseEmissionsFactorsTransport(csvString: string) {
   const csv = parseCsvFile(csvString).slice(1); // Drop Header
 
-  const err = validateCsv(csv, { minCols: 7 });
+  // maxCols = 12 for some flexibility for comments etc
+  const err = validateCsv(csv, { minCols: 7, maxCols: 12 });
   if (err) {
     throw new CsvValidationError(err);
   }
@@ -152,7 +155,8 @@ export function parseEmissionsFactorsTransport(csvString: string) {
 export function parseProcessesEnergyDemands(csvString: string) {
   const csv = parseCsvFile(csvString).slice(1);
 
-  const err = validateCsv(csv, { minCols: 13 });
+  // MaxCols with some margin for comments etc
+  const err = validateCsv(csv, { minCols: 13, maxCols: 18 });
   if (err) {
     throw new CsvValidationError(err);
   }
@@ -180,6 +184,18 @@ export function parseProcessesPackaging(
     throw new CsvValidationError(err);
   }
 
+  const firstNRows = data.slice(1, 20);
+  // A sanity-check that it's the right file
+  const l2CodesInFirstCol = firstNRows.every(
+    ([l2Code]) => l2Code.length === 7 && l2Code.match(/^(A|I)\..\d\.\d\d$/)
+  );
+  const l3CodesInThirdCol = firstNRows.every(
+    ([_0, _1, l3Code]) => l3Code.split(".").length === 4
+  );
+  if (!l2CodesInFirstCol || !l3CodesInThirdCol) {
+    throw new CsvValidationError(CsvValidationErrorType.Unknown);
+  }
+
   const splitFacetStr = (str: string) =>
     (str || "").split("$").filter((x) => x.length > 0 && x !== "NA");
 
@@ -201,6 +217,15 @@ export function parseFootprintsRpcs(csvString: string) {
   const err = validateCsv(data, { minCols: 44 });
   if (err) {
     throw new CsvValidationError(err);
+  }
+
+  const firstNRows = data.slice(1, 20);
+  // Sanity-check: let's not bee too strict on code format
+  const codesInFirstRow = firstNRows.every(
+    ([code]) => ["A", "I"].includes(code[0]) && code.includes(".")
+  );
+  if (!codesInFirstRow) {
+    throw new CsvValidationError(CsvValidationErrorType.Unknown);
   }
 
   const structured = {} as RpcFootprintsByOrigin;
@@ -253,15 +278,23 @@ export function parseFootprintsRpcs(csvString: string) {
 }
 
 export function parseWasteRetailAndConsumer(csvString: string) {
-  const data = parseCsvFile(csvString).slice(1);
+  const csv = parseCsvFile(csvString).slice(1);
 
-  const err = validateCsv(data, { minCols: 4 });
+  const err = validateCsv(csv, { minCols: 4 });
   if (err) {
     throw new CsvValidationError(err);
   }
 
+  const firstNRows = csv.slice(0, 10);
+  const codesInFirstCol = firstNRows.every(
+    ([code]) => ["A", "I"].includes(code[0]) && code.includes(".")
+  );
+  if (!codesInFirstCol) {
+    throw new CsvValidationError(CsvValidationErrorType.Unknown);
+  }
+
   return Object.fromEntries(
-    data.map(([code, _name, retailWaste, consumerWaste]) => [
+    csv.map(([code, _name, retailWaste, consumerWaste]) => [
       code,
       [asNumber(retailWaste), asNumber(consumerWaste)],
     ])
@@ -271,9 +304,20 @@ export function parseWasteRetailAndConsumer(csvString: string) {
 export function parseDiet(csvString: string): Diet {
   const data = parseCsvFile(csvString).slice(1);
 
-  const err = validateCsv(data, { minCols: 3 });
+  const err = validateCsv(data, { minCols: 3, maxCols: 5 });
   if (err) {
     throw new CsvValidationError(err);
+  }
+
+  const firstNRows = data.slice(0, 10);
+  const codesInFirstCol = firstNRows.every(
+    ([code]) => ["A", "I"].includes(code[0]) && code.includes(".")
+  );
+  const amountsInLastCol = firstNRows.every(
+    ([_0, _1, amount]) => !Number.isNaN(Number.parseFloat(amount))
+  );
+  if (!codesInFirstCol || !amountsInLastCol) {
+    throw new CsvValidationError(CsvValidationErrorType.Unknown);
   }
 
   return data.map(
@@ -287,6 +331,19 @@ export function parseRpcOriginWaste(csvString: string) {
   const err = validateCsv(parametersCsv, { minCols: 6 });
   if (err) {
     throw new CsvValidationError(err);
+  }
+
+  const firstNRows = parametersCsv.slice(0, 20);
+  const codesInFirstCol = firstNRows.every(
+    ([code]) => ["A", "I"].includes(code[0]) && code.includes(".")
+  );
+  const wasteCols = firstNRows.every(
+    ([_0, _1, _2, _3, w1, w2]) =>
+      !Number.isNaN(Number.parseFloat(w1)) &&
+      !Number.isNaN(Number.parseFloat(w2))
+  );
+  if (!codesInFirstCol || !wasteCols) {
+    throw new CsvValidationError(CsvValidationErrorType.Unknown);
   }
 
   // The CSV has each entry as a line. Even though they're probably sorted and
