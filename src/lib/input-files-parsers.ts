@@ -15,13 +15,13 @@ interface ValidateCsvOptions {
 }
 
 export enum CsvValidationErrorType {
-  MinRows,
-  MaxRows,
-  MinCols,
-  MaxCols,
-  SingleCol,
-  Empty,
-  Unknown
+  MinRows = "MIN_ROWS",
+  MaxRows = "MAX_ROWS",
+  MinCols = "MIN_COLS",
+  MaxCols = "MIN_ROWS",
+  SingleCol = "SINGLE_COL",
+  Empty = "EMPTY",
+  Unknown = "UNKNOWN",
 }
 
 export class CsvValidationError extends Error {
