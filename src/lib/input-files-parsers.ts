@@ -5,11 +5,81 @@ const asNumber = (str: string, elseValue = 0): number => {
   return Number.isNaN(maybeNumber) ? elseValue : maybeNumber;
 };
 
+interface ValidateCsvOptions {
+  minRows: number;
+  maxRows: number;
+  minCols: number;
+  maxCols: number;
+  checkNotEmpty: boolean;
+  checkSingleCol: boolean;
+}
+
+export enum CsvValidationErrorType {
+  MinRows,
+  MaxRows,
+  MinCols,
+  MaxCols,
+  SingleCol,
+  Empty,
+  Unknown
+}
+
+export class CsvValidationError extends Error {
+  public readonly type: CsvValidationErrorType;
+
+  constructor(type: CsvValidationErrorType) {
+    super("Csv Validation Error: " + type);
+    this.type = type;
+  }
+}
+
+function validateCsv(
+  csvData: string[][],
+  optionOverrides: Partial<ValidateCsvOptions>
+): CsvValidationErrorType | null {
+  const options: ValidateCsvOptions = {
+    minRows: -1,
+    minCols: -1,
+    maxRows: Number.POSITIVE_INFINITY,
+    maxCols: Number.POSITIVE_INFINITY,
+    checkNotEmpty: true,
+    checkSingleCol: true,
+    ...optionOverrides,
+  };
+
+  if (
+    (options.checkNotEmpty && csvData.length <= 1) ||
+    csvData.every((row) => row.length === 0)
+  ) {
+    return CsvValidationErrorType.Empty;
+  }
+
+  const nRows = csvData.length;
+  const nCols = Math.max(0, ...csvData.map((row) => row.length));
+
+  if (nRows < options.minRows) return CsvValidationErrorType.MinRows;
+  if (nRows > options.maxRows) return CsvValidationErrorType.MaxRows;
+
+  if (options.checkSingleCol && nCols <= 1) {
+    return CsvValidationErrorType.SingleCol;
+  }
+
+  if (nCols < options.minCols) return CsvValidationErrorType.MinCols;
+  if (nCols > options.maxCols) return CsvValidationErrorType.MaxCols;
+
+  return null;
+}
+
 export function parseEmissionsFactorsPackaging(csvString: string) {
   const rows = parseCsvFile(csvString)
     .slice(1) // Drop header
     // Remove empty rows
     .filter((row) => row.some((cell) => cell.length > 0));
+
+  const err = validateCsv(rows, { minCols: 6 });
+  if (err) {
+    throw new CsvValidationError(err);
+  }
 
   return Object.fromEntries(
     rows.map(([packagingCode, _packagingName, ...efs]) => [
@@ -25,23 +95,31 @@ export function parseEmissionsFactorsEnergy(csvString: string) {
   const emissionsFactors: Record<string, number[] | Record<string, number[]>> =
     { Electricity: {} };
 
-  csv
-    .map((row) => row.map((x) => x.trim()))
-    .forEach(([carrier, _country, countryCode, ...ghgsStrs]) => {
-      const ghgs = ghgsStrs.map((x) => (x ? parseFloat(x) : 0));
-      if (carrier === "Electricity") {
-        (emissionsFactors[carrier] as Record<string, number[]>)[countryCode] =
-          ghgs;
-      } else {
-        emissionsFactors[carrier] = ghgs;
-      }
-    });
+  const err = validateCsv(csv, { minCols: 6 });
+  if (err) {
+    throw new CsvValidationError(err);
+  }
+
+  csv.forEach(([carrier, _country, countryCode, ...ghgsStrs]) => {
+    const ghgs = ghgsStrs.map((x) => (x ? parseFloat(x) : 0));
+    if (carrier === "Electricity") {
+      (emissionsFactors[carrier] as Record<string, number[]>)[countryCode] =
+        ghgs;
+    } else {
+      emissionsFactors[carrier] = ghgs;
+    }
+  });
 
   return emissionsFactors;
 }
 
 export function parseEmissionsFactorsTransport(csvString: string) {
   const csv = parseCsvFile(csvString).slice(1); // Drop Header
+
+  const err = validateCsv(csv, { minCols: 7 });
+  if (err) {
+    throw new CsvValidationError(err);
+  }
 
   const results: NestedRecord<string, number[]> = {};
 
@@ -74,6 +152,11 @@ export function parseEmissionsFactorsTransport(csvString: string) {
 export function parseProcessesEnergyDemands(csvString: string) {
   const csv = parseCsvFile(csvString).slice(1);
 
+  const err = validateCsv(csv, { minCols: 13 });
+  if (err) {
+    throw new CsvValidationError(err);
+  }
+
   // TODO: ensure length of demandsStrs is correct
   return Object.fromEntries(
     csv.map(([code, _processName, _totalEnergy, _note, ...demandsStrs]) => {
@@ -91,6 +174,12 @@ export function parseProcessesPackaging(
   csvString: string
 ): Record<string, string[]> {
   const data = parseCsvFile(csvString).slice(1);
+
+  const err = validateCsv(data, { minCols: 9 });
+  if (err) {
+    throw new CsvValidationError(err);
+  }
+
   const splitFacetStr = (str: string) =>
     (str || "").split("$").filter((x) => x.length > 0 && x !== "NA");
 
@@ -108,6 +197,11 @@ export function parseProcessesPackaging(
 
 export function parseFootprintsRpcs(csvString: string) {
   const data = parseCsvFile(csvString).slice(1);
+
+  const err = validateCsv(data, { minCols: 44 });
+  if (err) {
+    throw new CsvValidationError(err);
+  }
 
   const structured = {} as RpcFootprintsByOrigin;
 
@@ -161,6 +255,11 @@ export function parseFootprintsRpcs(csvString: string) {
 export function parseWasteRetailAndConsumer(csvString: string) {
   const data = parseCsvFile(csvString).slice(1);
 
+  const err = validateCsv(data, { minCols: 4 });
+  if (err) {
+    throw new CsvValidationError(err);
+  }
+
   return Object.fromEntries(
     data.map(([code, _name, retailWaste, consumerWaste]) => [
       code,
@@ -172,6 +271,11 @@ export function parseWasteRetailAndConsumer(csvString: string) {
 export function parseDiet(csvString: string): Diet {
   const data = parseCsvFile(csvString).slice(1);
 
+  const err = validateCsv(data, { minCols: 3 });
+  if (err) {
+    throw new CsvValidationError(err);
+  }
+
   return data.map(
     ([code, _name, amount]): FoodEntry => [code, asNumber(amount)]
   );
@@ -179,6 +283,11 @@ export function parseDiet(csvString: string): Diet {
 
 export function parseRpcOriginWaste(csvString: string) {
   const parametersCsv = parseCsvFile(csvString).slice(1);
+
+  const err = validateCsv(parametersCsv, { minCols: 6 });
+  if (err) {
+    throw new CsvValidationError(err);
+  }
 
   // The CSV has each entry as a line. Even though they're probably sorted and
   // grouped together, we're not going to use that structure in this algorithm,
@@ -237,8 +346,15 @@ export function parseFoodsRecipes(recipesCsvStr: string) {
 
   const recipes: FoodsRecipes = {};
 
-  parseCsvFile(recipesCsvStr)
-    .slice(1) // drop header in csv file
+  // drop header in csv file
+  const data = parseCsvFile(recipesCsvStr).slice(1);
+
+  const err = validateCsv(data, { minCols: 10 });
+  if (err) {
+    throw new CsvValidationError(err);
+  }
+
+  data
     .forEach(
       ([
         code,
@@ -291,6 +407,11 @@ export function parseFoodsRecipes(recipesCsvStr: string) {
 
 export function parseSlvRecipes(recipesCsvStr: string): SlvRecipeComponent[] {
   const data: string[][] = parseCsvFile(recipesCsvStr).slice(1);
+
+  const err = validateCsv(data, { minCols: 10 }); // don't need the last 2
+  if (err) {
+    throw new CsvValidationError(err);
+  }
 
   const processTranslations: Record<string, string> = {
     "Juice drickfärdig": "F28.A07LN",
