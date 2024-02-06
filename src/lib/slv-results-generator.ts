@@ -99,17 +99,7 @@ export async function generateSlvResults(
     ([slvCode, ingredients]) => {
       const BASE_AMOUNT = 1000; // grams, = 1 kg
 
-      // Collect all slv-level processes
-      const slvProcesses: { [process: string]: number } = {};
-      ingredients.forEach(
-        ([_slvName, _code, process, grossShare, _netShare]) => {
-          if (!process) return;
-          slvProcesses[process] =
-            (slvProcesses[process] || 0) + grossShare * BASE_AMOUNT;
-        }
-      );
-
-      // Now, compute the impact of each diet element seperately
+      // First, compute the impact of each diet element seperately
       const ingredientRows = ingredients
         .map(([slvName, code, process, grossShare, netShare]) => {
           const grossAmount = grossShare * BASE_AMOUNT;
@@ -157,6 +147,16 @@ export async function generateSlvResults(
 
       const missingRpcImpacts = Object.entries(rpcImpacts).filter(
         (kv) => kv[1] === null
+      );
+      // Collect all slv-level processes, which we will add on top of what was
+      // found in the recipes
+      const slvProcesses: { [process: string]: number } = {};
+      ingredients.forEach(
+        ([_slvName, _code, process, grossShare, _netShare]) => {
+          if (!process) return;
+          slvProcesses[process] =
+            (slvProcesses[process] || 0) + grossShare * BASE_AMOUNT;
+        }
       );
 
       const totalImpactsVector: string[] =
