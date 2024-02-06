@@ -102,16 +102,17 @@ export async function generateSlvResults(
       // Collect all slv-level processes
       const slvProcesses: { [process: string]: number } = {};
       ingredients.forEach(
-        ([_slvName, _code, process, _grossShare, netShare]) => {
+        ([_slvName, _code, process, grossShare, _netShare]) => {
           if (!process) return;
           slvProcesses[process] =
-            (slvProcesses[process] || 0) + netShare * BASE_AMOUNT;
+            (slvProcesses[process] || 0) + grossShare * BASE_AMOUNT;
         }
       );
 
       // Now, compute the impact of each diet element seperately
       const ingredientRows = ingredients
         .map(([slvName, code, process, grossShare, netShare]) => {
+          const grossAmount = grossShare * BASE_AMOUNT;
           const netAmount = netShare * BASE_AMOUNT;
           const impacts = RE.computeImpacts([[code, netAmount]]);
 
@@ -120,7 +121,7 @@ export async function generateSlvResults(
           // Replace the process-impacts with one with our extra processes
           impacts[1] = addProcesses(
             impacts[1],
-            process ? { [process]: netAmount } : {},
+            process ? { [process]: grossAmount } : {},
             RE
           );
 
@@ -134,7 +135,7 @@ export async function generateSlvResults(
             name,
             l1Name,
             l2Name,
-            (grossShare * BASE_AMOUNT).toFixed(2),
+            grossAmount.toFixed(2),
             netAmount.toFixed(2),
             ...impactsVector,
           ];
