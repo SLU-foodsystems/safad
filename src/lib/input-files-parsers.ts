@@ -152,7 +152,7 @@ export function parseEmissionsFactorsTransport(csvString: string) {
   return results;
 }
 
-export function parseProcessesEnergyDemands(csvString: string) {
+export function parseProcessesEnergyDemands(csvString: string): Record<string, number[]> {
   const csv = parseCsvFile(csvString).slice(1);
 
   // MaxCols with some margin for comments etc

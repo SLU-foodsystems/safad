@@ -84,15 +84,16 @@ const dietFile = ref(
 );
 
 const foodsRecipesFile = ref(
-  initInputFile({
+  initInputFile<FoodsRecipes>({
     defaultName: () => "SAFAD IP Recipes.csv",
     getDefault: DefaultInputFiles.raw.foodsRecipes,
     parser: InputFileParsers.parseFoodsRecipes,
     setter: RE.setFoodsRecipes,
   })
 );
+
 const rpcOriginWasteFile = ref(
-  initInputFile({
+  initInputFile<RpcOriginWaste>({
     defaultName: (country: string) =>
       `SAFAD IP Origin and Waste of RPC ${country}.csv`,
     getDefault: DefaultInputFiles.raw.rpcOriginWaste,
@@ -101,7 +102,7 @@ const rpcOriginWasteFile = ref(
   })
 );
 const processesEnergyDemandsFile = ref(
-  initInputFile({
+  initInputFile<Record<string, number[]>>({
     defaultName: () => "SAFAD IP Energy Proc.csv",
     getDefault: DefaultInputFiles.raw.processesEnergyDemands,
     parser: InputFileParsers.parseProcessesEnergyDemands,
@@ -109,7 +110,7 @@ const processesEnergyDemandsFile = ref(
   })
 );
 const preparationProcessesAndPackagingFile = ref(
-  initInputFile({
+  initInputFile<Record<string, string[]>>({
     defaultName: () => "SAFAD IP Prep Proc and Pack.csv",
     getDefault: DefaultInputFiles.raw.preparationProcessesAndPackaging,
     parser: InputFileParsers.parseProcessesPackaging,
@@ -117,7 +118,7 @@ const preparationProcessesAndPackagingFile = ref(
   })
 );
 const wasteRetailAndConsumerFile = ref(
-  initInputFile({
+  initInputFile<Record<string, number[]>>({
     defaultName: (country: string) =>
       `SAFAD IP Waste Retail and Cons ${country}.csv`,
     getDefault: DefaultInputFiles.raw.wasteRetailAndConsumer,
@@ -127,7 +128,7 @@ const wasteRetailAndConsumerFile = ref(
 );
 
 const emissionsFactorsEnergyFile = ref(
-  initInputFile({
+  initInputFile<Record<string, number[] | Record<string, number[]>>>({
     defaultName: () => "SAFAD IEF Energy.csv",
     getDefault: DefaultInputFiles.raw.emissionsFactorsEnergy,
     parser: InputFileParsers.parseEmissionsFactorsEnergy,
@@ -135,7 +136,7 @@ const emissionsFactorsEnergyFile = ref(
   })
 );
 const emissionsFactorsPackagingFile = ref(
-  initInputFile({
+  initInputFile<Record<string, number[]>>({
     defaultName: () => "SAFAD IEF Packaging.csv",
     getDefault: DefaultInputFiles.raw.emissionsFactorsPackaging,
     parser: InputFileParsers.parseEmissionsFactorsPackaging,
@@ -143,7 +144,7 @@ const emissionsFactorsPackagingFile = ref(
   })
 );
 const emissionsFactorsTransportFile = ref(
-  initInputFile({
+  initInputFile<NestedRecord<string, number[]>>({
     defaultName: () => "SAFAD IEF Transport.csv",
     getDefault: DefaultInputFiles.raw.emissionsFactorsTransport,
     parser: InputFileParsers.parseEmissionsFactorsTransport,
@@ -152,7 +153,7 @@ const emissionsFactorsTransportFile = ref(
 );
 
 const slvRecipesFile = ref(
-  initInputFile({
+  initInputFile<SlvRecipeComponent[]>({
     defaultName: () => "SAFAD IS SLV Recipes.csv",
     getDefault: DefaultInputFiles.raw.slvRecipes,
     parser: InputFileParsers.parseSlvRecipes,
