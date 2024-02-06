@@ -13,7 +13,7 @@ import {
 } from "@/lib/constants";
 import { configureResultsEngine } from "@/lib/default-input-files";
 
-import categoryNamesJson from "@/data/category-names.json";
+import { categoryNames } from "../efsa-names";
 
 type LlCountryName =
   | "France"
@@ -37,8 +37,6 @@ const LL_COUNTRIES: LlCountryName[] = [
   "Sweden",
   "SwedenBaseline",
 ];
-
-const categoryNames = categoryNamesJson as Record<string, string>;
 
 export async function computeFootprintsForDiets(): Promise<
   [string, string[][]][]
