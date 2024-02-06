@@ -9,10 +9,7 @@ import {
 
 import { getRpcCodeSubset, listAllProcesses } from "@/lib/utils";
 
-import categoryNamesJson from "@/data/category-names.json";
-import rpcNames from "@/lib/rpc-names";
-
-const categoryNames = categoryNamesJson as Record<string, string>;
+import { rpcNames, categoryNames } from "@/lib/efsa-names";
 
 export const AGGREGATE_HEADERS = [
   // Aggregate over rpcs, processes, and packaging
