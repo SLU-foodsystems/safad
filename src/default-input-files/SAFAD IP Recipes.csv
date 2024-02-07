@@ -2538,6 +2538,11 @@
 "A.14.06.004","Vodka and vodka-like spirits","A.03.01.002","Main-crop potatoes","F28.A07MF","PROCESS=Distillation",100,0.5,4.65,0.91
 "A.14.06.004","Vodka and vodka-like spirits","A.01.02.001","Wheat grain","F28.A07MF","PROCESS=Distillation",100,0.5,1.47,0.91
 "A.14.06.005","Rum","A.02.08.002","Sugar cane (Saccharum officinarum)","F28.A07MF","PROCESS=Distillation",100,1,5,0.91
+I.14.06.009,Alcohol 40%,A.14.06.003,Gin,To be further disaggregated (d),,25,1,1,1
+I.14.06.009,Alcohol 40%,A.14.06.004,Vodka and vodka-like spirits,To be further disaggregated (d),,25,1,1,1
+I.14.06.009,Alcohol 40%,A.14.06.005,Rum,To be further disaggregated (d),,25,1,1,1
+I.14.06.009,Alcohol 40%,A.14.06.002,Whisky,To be further disaggregated (d),,25,1,1,1
+I.14.06.008,Alcohol 90 - 95%,I.14.06.009,Alcohol 40%,To be further disaggregated (d),,100,1,2,1
 "A.14.06.006","Spirits made from fruits","A.05.03.002","Plums (Prunus domestica)","F28.A07MF","PROCESS=Distillation",100,0.57,7.84,0.91
 "A.14.06.006","Spirits made from fruits","A.05.04.002","Wine grapes (Vitis euvitis)","F28.A07MF","PROCESS=Distillation",100,0.43,5.23,0.91
 "A.14.07.002","Punch","A.15.03.002","Carbonated mineral water","F28.A07XD","PROCESS=Unspecified",56.28,1,1,1
