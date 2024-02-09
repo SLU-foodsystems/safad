@@ -243,6 +243,8 @@ export function labeledAndFilteredImpacts(
 export const BREAKDOWN_RESULTS_HEADER = [
   "Food Code",
   "Food Name",
+  "L1 Category",
+  "L2 Category",
   "Food Amount (g)",
   "RPC Code",
   "RPC Name",
@@ -258,6 +260,8 @@ export function getDietBreakdown(
       rows.push([
         code,
         rpcNames[code],
+        getCategoryName(code, 1),
+        getCategoryName(code, 2),
         String(amount),
         rpcCode,
         rpcNames[rpcCode],
