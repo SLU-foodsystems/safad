@@ -102,7 +102,7 @@ function drawLegend(
 }
 
 export default function StackedBarChart(
-  containerSelector: string,
+  containerSelector: HTMLElement,
   data: DataPoint[],
   columns: string[],
   options: Partial<Config>
@@ -111,7 +111,7 @@ export default function StackedBarChart(
     margin: {
       top: 20,
       left: 20,
-      right: 40,
+      right: 20,
       bottom: 20,
     },
     width: 700,
@@ -176,7 +176,7 @@ export default function StackedBarChart(
   } else if (cfg.labelLayout === "offset") {
     xAxisG
       .selectAll(".tick:nth-child(odd) text")
-      .attr("transform", "translate(0, 16)")
+      .attr("transform", "translate(0, 16)");
   }
 
   // Add Y axis
@@ -197,6 +197,7 @@ export default function StackedBarChart(
       .attr("y", labelXPos)
       .style("transform", "rotate(-90deg)")
       .style("text-anchor", "middle")
+      .style("font-size", "0.75em")
       .html("kg CO2e per kg");
   }
 
