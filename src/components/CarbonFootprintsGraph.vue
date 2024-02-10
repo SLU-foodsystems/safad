@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { sum } from "@/lib/utils";
+import { debounce, sum } from "@/lib/utils";
 import StackedBarChart from "@/lib/charts/StackedBarChart";
-import { onMounted, watch } from "vue";
+import { useOnResize } from "@/lib/use-on-resize";
+import { onMounted, ref, watch } from "vue";
 
 // Code: aggregated impacts
 type GraphData = [string, number[]][];
@@ -26,8 +27,9 @@ const dataMap: Record<string, number> = {
   Transport: 50,
 };
 
+const canvasEl = ref<HTMLDivElement | null>(null);
 const drawChart = () => {
-  if (props.data.length === 0) return;
+  if (props.data.length === 0 || !canvasEl.value) return;
   const data = props.data.map(([code, impactsArr]: [string, number[]]) => {
     const impactsObj = Object.fromEntries(
       Object.entries(dataMap).map(([k, idx]) => [k, impactsArr[idx]])
@@ -48,16 +50,23 @@ const drawChart = () => {
     )
   );
 
-  StackedBarChart(".carbon-footprints-chart__canvas", data, columns, {
+  let [ width, height ] = [ 800, 500 ]
+  if (canvasEl.value) {
+    const svg = canvasEl.value.querySelector('svg');
+    if (svg) {
+      canvasEl.value.removeChild(svg);
+    }
+
+    const rect = canvasEl.value.getBoundingClientRect()
+
+    width = rect.width;
+    height = rect.width * 0.6;
+  }
+
+  StackedBarChart(canvasEl.value, data, columns, {
     maxValue,
-    width: 800,
-    height: 500,
-    margin: {
-      top: 20,
-      left: 50,
-      right: 20,
-      bottom: 20,
-    },
+    width,
+    height,
     labelLayout: "offset",
     axisLabels: {
       y: "kg CO<sup>2</sup>e per kg",
@@ -65,16 +74,13 @@ const drawChart = () => {
   });
 };
 
-watch(
-  () => props.data,
-  () => drawChart()
-);
+watch(() => props.data, drawChart);
 
 const labels = Object.keys(dataMap);
 
-onMounted(() => {
-  drawChart();
-});
+useOnResize(debounce(drawChart, 200));
+
+onMounted(() => drawChart());
 </script>
 
 <template>
@@ -82,7 +88,7 @@ onMounted(() => {
     <div class="carbon-footprints-chart__labels">
       <p v-for="label in labels" v-text="label"></p>
     </div>
-    <div class="carbon-footprints-chart__canvas"></div>
+    <div class="carbon-footprints-chart__canvas" ref="canvasEl"></div>
   </div>
 </template>
 
@@ -109,7 +115,7 @@ onMounted(() => {
 }
 .carbon-footprints-chart__canvas {
   flex-basis: auto;
-  flex-grow: 0;
+  flex-grow: 1;
   flex-shrink: 0;
 }
 </style>
