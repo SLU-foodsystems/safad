@@ -50,14 +50,14 @@ const drawChart = () => {
     )
   );
 
-  let [ width, height ] = [ 800, 500 ]
+  let [width, height] = [800, 500];
   if (canvasEl.value) {
-    const svg = canvasEl.value.querySelector('svg');
+    const svg = canvasEl.value.querySelector("svg");
     if (svg) {
       canvasEl.value.removeChild(svg);
     }
 
-    const rect = canvasEl.value.getBoundingClientRect()
+    const rect = canvasEl.value.getBoundingClientRect();
 
     width = rect.width;
     height = rect.width * 0.6;
