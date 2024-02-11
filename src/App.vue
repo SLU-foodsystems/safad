@@ -27,6 +27,7 @@ import { resetFile, initInputFile } from "@/lib/file-interface-utils";
 import FileSelector from "@/components/FileSelector.vue";
 import LoadingOverlay from "@/components/LoadingOverlay.vue";
 import CarbonFootprintsGraph from "@/components/CarbonFootprintsGraph.vue";
+import EnvFootprintCharts from "./components/EnvFootprintCharts.vue";
 import { rpcNames } from "./lib/efsa-names";
 
 const APP_VERSION = __APP_VERSION__;
@@ -381,15 +382,18 @@ const computeCarbonFootprintsData = () => {
       if (Object.values(impacts[0]).some((v) => v === null)) {
         return null;
       }
-      return [foodCode, aggregateImpacts(
-        impacts[0] as Record<string, number[]>,
-        impacts[1],
-        impacts[2],
-        impacts[3]
-      )];
+      return [
+        foodCode,
+        aggregateImpacts(
+          impacts[0] as Record<string, number[]>,
+          impacts[1],
+          impacts[2],
+          impacts[3]
+        ),
+      ];
     })
     .filter((x): x is [string, number[]] => x !== null)
-  .map(([code, impacts]): [string, number[]] => [rpcNames[code], impacts]);
+    .map(([code, impacts]): [string, number[]] => [rpcNames[code], impacts]);
 
   carbonFootprintsData.value = data;
 };
@@ -532,7 +536,8 @@ onMounted(async () => {
           <div class="results-grid-large__aside stack">
             <h3>Download output data</h3>
             <p>
-               Download a csv file with the impacts per kg of each food-item in the recipes list.
+              Download a csv file with the impacts per kg of each food-item in
+              the recipes list.
             </p>
             <button
               class="button button--accent"
@@ -548,7 +553,10 @@ onMounted(async () => {
             </button>
           </div>
         </div>
-        <div class="results-grid-small"></div>
+        <h3>Environmental Impacts</h3>
+        <div class="results-grid-small">
+          <EnvFootprintCharts :data="carbonFootprintsData" />
+        </div>
       </section>
     </div>
 
@@ -799,8 +807,13 @@ onMounted(async () => {
 
     .button {
       margin-right: 1em;
-
     }
   }
+}
+
+.results-grid-small {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
 }
 </style>
