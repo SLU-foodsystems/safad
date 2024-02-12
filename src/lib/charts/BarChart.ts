@@ -1,6 +1,5 @@
 //@ts-disable
 import * as d3 from "d3";
-import cmc from "./cmc-colors";
 
 const MAX_Y_AXIS_DIGITS = 5;
 
@@ -145,8 +144,6 @@ export default function BarChart(
       .style("font-size", "0.75em")
       .text(cfg.axisLabels.y);
   }
-
-  console.log(data)
 
   // Show the bars
   svg
