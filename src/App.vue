@@ -28,6 +28,7 @@ import FileSelector from "@/components/FileSelector.vue";
 import LoadingOverlay from "@/components/LoadingOverlay.vue";
 import CarbonFootprintsGraph from "@/components/CarbonFootprintsGraph.vue";
 import EnvFootprintCharts from "./components/EnvFootprintCharts.vue";
+import PlanetaryBoundariesChart from "@/components/PlanetaryBoundariesChart.vue";
 import { rpcNames } from "./lib/efsa-names";
 
 const APP_VERSION = __APP_VERSION__;
@@ -369,6 +370,7 @@ const downloadZip = async () => {
 };
 
 const carbonFootprintsData = ref<[string, number[]][]>([]);
+const dietFootprints = ref<number[]>([]);
 
 const computeCarbonFootprintsData = () => {
   const data = [
@@ -396,6 +398,19 @@ const computeCarbonFootprintsData = () => {
     .map(([code, impacts]): [string, number[]] => [rpcNames[code], impacts]);
 
   carbonFootprintsData.value = data;
+};
+
+const computeDietFootprints = () => {
+  if (!diet.value) return;
+  const [rpcFootprintsMaybeNull, ...rest] = RE.computeImpacts(diet.value);
+  // Filter out any NA-footprints
+  const rpcFootprints = Object.fromEntries(
+    Object.entries(rpcFootprintsMaybeNull).filter(
+      (kv): kv is [string, number[]] => kv[1] !== null
+    )
+  );
+  console.log("Input:", rpcFootprints, ...rest)
+  dietFootprints.value = aggregateImpacts(rpcFootprints, ...rest);
 };
 
 onMounted(async () => {
@@ -430,6 +445,7 @@ onMounted(async () => {
   // the variables (map [label: string] -> index)
 
   computeCarbonFootprintsData();
+  computeDietFootprints();
 
   isLoading.value = false;
 });
@@ -556,6 +572,15 @@ onMounted(async () => {
         <h3>Environmental Impacts</h3>
         <div class="results-grid-small">
           <EnvFootprintCharts :data="carbonFootprintsData" />
+        </div>
+      </section>
+
+      <section class="stack">
+        <div class="results-grid-large">
+          <div class="results-grid-large__graph">
+            <PlanetaryBoundariesChart :data="dietFootprints" />
+          </div>
+          <div class="results-grid-large__aside"></div>
         </div>
       </section>
     </div>

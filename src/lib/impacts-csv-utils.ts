@@ -182,6 +182,15 @@ export function aggregateImpacts(
       ? vectorsSum(Object.values(transportEmissions))
       : TRANSPORT_EMISSIONS_ZERO;
 
+  console.log(
+    "Pre expand",
+    totalRpcFootprints,
+    totalProcessesEmissions,
+    totalPackagingEmissions,
+    totalTransportEmissions
+
+  )
+
   return expandedImpacts(
     totalRpcFootprints,
     totalProcessesEmissions,

@@ -15,23 +15,21 @@ type RadarDataPoint = { axis: string; value: number };
 type RadarData = RadarDataPoint[][];
 
 export default function BoundariesChart(
-  id: string,
+  el: HTMLElement,
   data: RadarData,
   options: Partial<Config>
 ) {
-  const cfg: Config = Object.assign(
-    {
-      w: 800,
-      h: 800,
-      margin: { top: 200, right: 200, bottom: 200, left: 200 },
-      levels: 8,
-      maxValue: 1,
-      labelOffsetFactor: 1.05,
-      opacityCircles: 0.1,
-      slicePadding: 0.015,
-    },
-    options
-  );
+  const cfg: Config = {
+    w: 800,
+    h: 800,
+    margin: { top: 200, right: 200, bottom: 200, left: 200 },
+    levels: 8,
+    maxValue: 1,
+    labelOffsetFactor: 1.05,
+    opacityCircles: 0.1,
+    slicePadding: 0.015,
+    ...options,
+  };
 
   const axes = data[0].map((i) => i.axis); // Names of each axis
   const total = axes.length; // The number of different axes
@@ -48,11 +46,11 @@ export default function BoundariesChart(
   /////////////////////////////////////////////////////////
 
   // Remove whatever chart with the same id/class was present before
-  d3.select(id).select("svg").remove();
+  d3.select(el).select("svg").remove();
 
   // Initiate the radar chart SVG
   const svg = d3
-    .select(id)
+    .select(el)
     .append("svg")
     .attr("width", cfg.w + cfg.margin.left + cfg.margin.right)
     .attr("height", cfg.h + cfg.margin.top + cfg.margin.bottom);
