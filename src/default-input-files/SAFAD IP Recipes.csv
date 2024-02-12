@@ -1067,7 +1067,7 @@
 "A.04.02.013z","Pea Protein Isolate","A.04.01.002","Peas, green, without pods (Pisum sativum)","F28.NEW01","PROCESS=Protein Isolate, plant-protein",100,1,10,0.72
 "A.04.02.013a","Wheat Protein Isolate","A.01.02.001","Wheat grain","F28.NEW01","PROCESS=Protein Isolate, plant-protein",100,1,10,0.72
 "A.04.02.014","Carob fruit (Ceratonia siliqua)","A.04.02.014","Carob fruit (Ceratonia siliqua)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
-"A.04.02.019","Pigeon pea, (Cajanus cajan)","A.04.02.019","Pigeon pea, (Cajanus cajan)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
+"A.04.02.019","Pigeon pea, (Cajanus cajan)","A.04.02.005","Chick pea (Cicer arietinum)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.04.02.020","Yam bean (Pachyrrizus erosus)","A.04.02.020","Yam bean (Pachyrrizus erosus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.04.02.021","Peanut (Arachis hypogea)","A.04.02.021","Peanut (Arachis hypogea)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.04.03.001","Almond, sweet (Prunus amygalus dulcis)","A.04.03.001","Almond, sweet (Prunus amygalus dulcis)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
@@ -1087,6 +1087,7 @@
 "A.04.04.004","Sesame seed (Sesamum indicum syn. S. orientale)","A.04.04.004","Sesame seed (Sesamum indicum syn. S. orientale)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.04.04.005","Sunflower seed (Helianthus annuus)","A.04.04.005","Sunflower seed (Helianthus annuus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.04.04.007","Mustard seed (Brassica nigra)","A.04.04.007","Mustard seed (Brassica nigra)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
+"A.04.04.008","Cotton seed (Gossypium spp.)","A.04.04.001","Linseed (Linum usitatissimum)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.04.04.009","Pumpkin seeds (Cucurbita pepo var. oleifera)","A.04.04.009","Pumpkin seeds (Cucurbita pepo var. oleifera)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.04.04.010","Safflower (Carthamus tinctorius)","A.04.04.010","Safflower (Carthamus tinctorius)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.04.04.011","Borage (Borago officinalis)","A.04.04.011","Borage (Borago officinalis)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
@@ -2933,57 +2934,75 @@
 "A.16.10.008","Gelatine","A.16.10.008","Gelatine","F28.A0C0R","PROCESS=Processed",100,1,1,1
 "A.16.10.010","Glaze","A.10.01.006","Sugar, icing","To be further disaggregated (d)",,89.3,1,1,1
 "A.16.10.010","Glaze","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",10.7,1,1,1
-"A.17.01","Infant formulae, powder","A.17.01","Infant formulae, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",100,1,1,1
-"A.17.01.001","Infant formula, milk-based, powder","A.17.01.001","Infant formula, milk-based, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",100,1,1,1
-"A.17.01.002","Infant formula, hypoallergenic, powder","A.17.01.002","Infant formula, hypoallergenic, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",100,1,1,1
-"A.17.01.003","Infant formula, soya-based, powder","A.17.01.003","Infant formula, soya-based, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",100,1,1,1
-"A.17.01.004","Infant formula, milk and soya-based, powder","A.17.01.004","Infant formula, milk and soya-based, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",100,1,1,1
-"A.17.01.005","Infant formula, based on protein hydrolysates, powder","A.17.01.005","Infant formula, based on protein hydrolysates, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",100,1,1,1
-"A.17.02","Infant formulae, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,,,,
-"A.17.02","Infant formulae, liquid","A.17.01","Infant formulae, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",12.5,1,1,1
-"A.17.02.001","Infant formula, milk-based, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,,,,
-"A.17.02.001","Infant formula, milk-based, liquid","A.17.01.001","Infant formula, milk-based, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",12.5,1,1,1
-"A.17.02.002","Infant formula, hypoallergenic, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,,,,
-"A.17.02.002","Infant formula, hypoallergenic, liquid","A.17.01.002","Infant formula, hypoallergenic, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",12.5,1,1,1
-"A.17.02.003","Infant formula, soya-based, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,,,,
-"A.17.02.003","Infant formula, soya-based, liquid","A.17.01.003","Infant formula, soya-based, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",12.5,1,1,1
-"A.17.02.004","Infant formula, milk and soya-based, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,,,,
-"A.17.02.004","Infant formula, milk and soya-based, liquid","A.17.01.004","Infant formula, milk and soya-based, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",12.5,1,1,1
-"A.17.02.005","Infant formula, based on protein hydrolysates, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,,,,
-"A.17.02.005","Infant formula, based on protein hydrolysates, liquid","A.17.01.005","Infant formula, based on protein hydrolysates, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",12.5,1,1,1
-"A.17.03","Follow-on formulae, powder","A.17.03","Follow-on formulae, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",100,1,1,1
-"A.17.03.001","Follow-on formula, milk-based, powder","A.17.03.001","Follow-on formula, milk-based, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",100,1,1,1
-"A.17.03.005","Follow-on formula, based on protein hydrolysates, powder","A.17.03.005","Follow-on formula, based on protein hydrolysates, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",100,1,1,1
-"A.17.04","Follow-on formulae, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,,,,
-"A.17.04","Follow-on formulae, liquid","A.17.03","Follow-on formulae, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",12.5,1,1,1
-"A.17.04.001","Follow-on formula, milk-based, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,,,,
-"A.17.04.001","Follow-on formula, milk-based, liquid","A.17.03.001","Follow-on formula, milk-based, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",12.5,1,1,1
-"A.17.04.002","Follow-on formula, hypoallergenic, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,,,,
-"A.17.04.002","Follow-on formula, hypoallergenic, liquid","A.17.03.002","Follow-on formula, hypoallergenic, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",12.5,1,1,1
-"A.17.04.003","Follow-on formula, soya-based, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,,,,
-"A.17.04.003","Follow-on formula, soya-based, liquid","A.17.03.003","Follow-on formula, soya-based, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",12.5,1,1,1
-"A.17.04.005","Follow-on formula, based on protein hydrolysates, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,,,,
-"A.17.04.005","Follow-on formula, based on protein hydrolysates, liquid","A.17.03.005","Follow-on formula, based on protein hydrolysates, powder","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",12.5,1,1,1
-"A.17.05","Cereal-based food for infants and young children","A.17.05","Cereal-based food for infants and young children","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.05.001","Simple cereals which are or have to be reconstituted with milk or other appropriate nutritious liquids","A.17.05.001","Simple cereals which are or have to be reconstituted with milk or other appropriate nutritious liquids","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.05.002","Cereals with an added high protein food which are or have to be reconstituted with water or other protein-free liquid","A.17.05.002","Cereals with an added high protein food which are or have to be reconstituted with water or other protein-free liquid","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.05.003","Biscuits, rusks and cookies for children","A.17.05.003","Biscuits, rusks and cookies for children","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.05.004","Pasta for children","A.17.05.004","Pasta for children","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.06","Ready-to-eat meal for infants and young children","A.17.06","Ready-to-eat meal for infants and young children","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.06.001","Ready-to-eat meal for children, vegetable-based","A.17.06.001","Ready-to-eat meal for children, vegetable-based","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.06.002","Ready-to-eat meal for children, cereal-based","A.17.06.002","Ready-to-eat meal for children, cereal-based","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.06.003","Ready-to-eat meal for children, meat/fish-based","A.17.06.003","Ready-to-eat meal for children, meat/fish-based","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.06.004","Ready-to-eat meal for children, meat and vegetables","A.17.06.004","Ready-to-eat meal for children, meat and vegetables","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.06.005","Fruit purÃƒÂ©e for children","A.17.06.005","Fruit purÃƒÂ©e for children","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.07.001","Yoghurt for infants and young children","A.17.07.001","Yoghurt for infants and young children","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.07.002","Cheese preparations for infants and young children","A.17.07.002","Cheese preparations for infants and young children","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.07.003","Dessert and puddings for infants and young children","A.17.07.003","Dessert and puddings for infants and young children","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.08","Fruit juice and herbal tea for infants and young children","A.17.08","Fruit juice and herbal tea for infants and young children","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.08.001","Fruit juice for infants and young children","A.17.08.001","Fruit juice for infants and young children","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.08.002","Fruit nectar for infants and young children","A.17.08.002","Fruit nectar for infants and young children","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.08.003","Tee for infants and young children","A.17.08.003","Tee for infants and young children","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.17.08.004","Tee and juice mixture for infants and young children","A.17.08.004","Tee and juice mixture for infants and young children","F28.A0C0R","PROCESS=Processed",100,1,1,1
+"A.17.01","Infant formulae, powder","A.17.01.001","Infant formula, milk-based, powder","To be further disaggregated (d)",,75,1,1,1
+"A.17.01","Infant formulae, powder","A.17.01.003","Infant formula, soya-based, powder","To be further disaggregated (d)",,25,1,1,1
+"A.17.01.001","Infant formula, milk-based, powder","A.08.03.003.001","Milk powder, whole","To be further disaggregated (d)",,100,1,1,1
+"A.17.01.002","Infant formula, hypoallergenic, powder","A.08.03.003.001","Milk powder, whole","To be further disaggregated (d)",,100,1,1,1
+"A.17.01.003","Infant formula, soya-based, powder","A.04.02.013","Soya beans flour","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",100,1,1,1
+"A.17.01.004","Infant formula, milk and soya-based, powder","A.08.03.003.001","Milk powder, whole","To be further disaggregated (d)",,50,1,1,1
+"A.17.01.004","Infant formula, milk and soya-based, powder","A.04.02.013","Soya beans flour","F28.A0C0R$F03.A06JD","PROCESS=Processed, PHYSICAL-STATE=Powder",50,1,1,1
+"A.17.01.005","Infant formula, based on protein hydrolysates, powder","A.08.07.002","Milk protein","To be further disaggregated (d)",,100,1,1,1
+"A.17.02","Infant formulae, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,87.5,,,
+"A.17.02","Infant formulae, liquid","A.17.01","Infant formulae, powder","To be further disaggregated (d)",,12.5,1,1,1
+"A.17.02.001","Infant formula, milk-based, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,87.5,,,
+"A.17.02.001","Infant formula, milk-based, liquid","A.17.01.001","Infant formula, milk-based, powder","To be further disaggregated (d)",,12.5,1,1,1
+"A.17.02.002","Infant formula, hypoallergenic, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,87.5,,,
+"A.17.02.002","Infant formula, hypoallergenic, liquid","A.17.01.002","Infant formula, hypoallergenic, powder","To be further disaggregated (d)",,12.5,1,1,1
+"A.17.02.003","Infant formula, soya-based, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,87.5,,,
+"A.17.02.003","Infant formula, soya-based, liquid","A.17.01.003","Infant formula, soya-based, powder","To be further disaggregated (d)",,12.5,1,1,1
+"A.17.02.004","Infant formula, milk and soya-based, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,87.5,,,
+"A.17.02.004","Infant formula, milk and soya-based, liquid","A.17.01.004","Infant formula, milk and soya-based, powder","To be further disaggregated (d)",,12.5,1,1,1
+"A.17.02.005","Infant formula, based on protein hydrolysates, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,87.5,,,
+"A.17.02.005","Infant formula, based on protein hydrolysates, liquid","A.17.01.005","Infant formula, based on protein hydrolysates, powder","To be further disaggregated (d)",,12.5,1,1,1
+"A.17.03","Follow-on formulae, powder","A.17.03.001","Follow-on formula, milk-based, powder","To be further disaggregated (d)",,75,1,1,1
+"A.17.03","Follow-on formulae, powder","A.17.03.005","Follow-on formula, based on protein hydrolysates, powder","To be further disaggregated (d)",,25,,,
+"A.17.03.001","Follow-on formula, milk-based, powder","A.08.03.003.001","Milk powder, whole","To be further disaggregated (d)",,100,1,1,1
+"A.17.03.002","Follow-on formula, hypoallergenic, powder","A.08.03.003.001","Milk powder, whole","To be further disaggregated (d)",,100,1,1,1
+"A.17.03.003","Follow-on formula, soya-based, powder","A.04.02.013","Soya beans flour","To be further disaggregated (d)",,100,1,1,1
+"A.17.03.005","Follow-on formula, based on protein hydrolysates, powder","A.08.07.002","Milk protein","To be further disaggregated (d)",,100,1,1,1
+"A.17.04","Follow-on formulae, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,87.5,,,
+"A.17.04","Follow-on formulae, liquid","A.17.03","Follow-on formulae, powder",,,12.5,1,1,1
+"A.17.04.001","Follow-on formula, milk-based, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,87.5,,,
+"A.17.04.001","Follow-on formula, milk-based, liquid","A.17.03.001","Follow-on formula, milk-based, powder","To be further disaggregated (d)",,12.5,1,1,1
+"A.17.04.002","Follow-on formula, hypoallergenic, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,87.5,,,
+"A.17.04.002","Follow-on formula, hypoallergenic, liquid","A.17.03.002","Follow-on formula, hypoallergenic, powder","To be further disaggregated (d)",,12.5,1,1,1
+"A.17.04.003","Follow-on formula, soya-based, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,87.5,,,
+"A.17.04.003","Follow-on formula, soya-based, liquid","A.17.03.003","Follow-on formula, soya-based, powder","To be further disaggregated (d)",,12.5,1,1,1
+"A.17.04.005","Follow-on formula, based on protein hydrolysates, liquid","A.15","Drinking water (water without any additives except carbon dioxide",,,87.5,,,
+"A.17.04.005","Follow-on formula, based on protein hydrolysates, liquid","A.17.03.005","Follow-on formula, based on protein hydrolysates, powder","To be further disaggregated (d)",,12.5,1,1,1
+"A.17.05","Cereal-based food for infants and young children","A.17.05.001","Simple cereals which are or have to be reconstituted with milk or other appropriate nutritious liquids","To be further disaggregated (d)",,25,1,1,1
+"A.17.05","Cereal-based food for infants and young children","A.17.05.002","Cereals with an added high protein food which are or have to be reconstituted with water or other protein-free liquid","To be further disaggregated (d)",,25,1,1,1
+"A.17.05","Cereal-based food for infants and young children","A.17.05.003","Biscuits, rusks and cookies for children","To be further disaggregated (d)",,25,1,1,1
+"A.17.05","Cereal-based food for infants and young children","A.17.05.004","Pasta for children","To be further disaggregated (d)",,25,1,1,1
+"A.17.05.001","Simple cereals which are or have to be reconstituted with milk or other appropriate nutritious liquids","A.01.03.005.002","Oat flour","To be further disaggregated (d)",,100,1,1,1
+"A.17.05.002","Cereals with an added high protein food which are or have to be reconstituted with water or other protein-free liquid","A.08.03.003.001","Milk powder, whole","To be further disaggregated (d)",,50,1,1,1
+"A.17.05.002","Cereals with an added high protein food which are or have to be reconstituted with water or other protein-free liquid","A.01.03.005.002","Oat flour","To be further disaggregated (d)",,50,1,1,1
+"A.17.05.003","Biscuits, rusks and cookies for children","A.01.07.002.001","Biscuits, sweet, plain","To be further disaggregated (d)",,100,1,1,1
+"A.17.05.004","Pasta for children","I.01.05.016","Plain pasta, cooked","To be further disaggregated (d)",,100,1,1,1
+"A.17.06","Ready-to-eat meal for infants and young children","A.17.06.001","Ready-to-eat meal for children, vegetable-based","To be further disaggregated (d)",,20,1,1,1
+"A.17.06","Ready-to-eat meal for infants and young children","A.17.06.002","Ready-to-eat meal for children, cereal-based","To be further disaggregated (d)",,20,1,1,1
+"A.17.06","Ready-to-eat meal for infants and young children","A.17.06.003","Ready-to-eat meal for children, meat/fish-based","To be further disaggregated (d)",,20,1,1,1
+"A.17.06","Ready-to-eat meal for infants and young children","A.17.06.004","Ready-to-eat meal for children, meat and vegetables","To be further disaggregated (d)",,20,1,1,1
+"A.17.06","Ready-to-eat meal for infants and young children","A.17.06.005","Fruit purÃƒÂ©e for children","To be further disaggregated (d)",,20,1,1,1
+"A.17.06.001","Ready-to-eat meal for children, vegetable-based","A.19.07.001","Mixed vegetables, grilled","To be further disaggregated (d)",,100,1,1,1
+"A.17.06.002","Ready-to-eat meal for children, cereal-based","A.19.01.003.005","Pasta, cooked, vegetable filling","To be further disaggregated (d)",,50,1,1,1
+"A.17.06.002","Ready-to-eat meal for children, cereal-based","A.19.02.001","Rice and vegetables meal","To be further disaggregated (d)",,50,1,1,1
+"A.17.06.003","Ready-to-eat meal for children, meat/fish-based","A.19.06.002","Fish and rice meal","To be further disaggregated (d)",,50,1,1,1
+"A.17.06.003","Ready-to-eat meal for children, meat/fish-based","A.19.11.010","Prepared mixed egg/meat/fish/vegetable salad","To be further disaggregated (d)",,50,1,1,1
+"A.17.06.004","Ready-to-eat meal for children, meat and vegetables","A.19.02.003","Rice, meat, and vegetables meal","To be further disaggregated (d)",,100,1,1,1
+"A.17.06.005","Fruit purÃƒÂ©e for children","I.05.09.007.013","Fruit compote, Other","To be further disaggregated (d)",,100,1,1,1
+"A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","A.17.07.001","Yoghurt for infants and young children","To be further disaggregated (d)",,33.3333333333333,1,1,1
+"A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","A.17.07.002","Cheese preparations for infants and young children","To be further disaggregated (d)",,33.3333333333333,1,1,1
+"A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","A.17.07.003","Dessert and puddings for infants and young children","To be further disaggregated (d)",,33.3333333333333,1,1,1
+"A.17.07.001","Yoghurt for infants and young children","A.08.06.001.002","Yoghurt, cow milk, 1 - 3% fat","To be further disaggregated (d)",,100,1,1,1
+"A.17.07.002","Cheese preparations for infants and young children","A.08.08.080","Cheese, Gouda","To be further disaggregated (d)",,100,1,1,1
+"A.17.07.003","Dessert and puddings for infants and young children","I.20.02.001.008","Ice cream, milk-based, vanilla","To be further disaggregated (d)",,100,1,1,1
+"A.17.08","Fruit juice and herbal tea for infants and young children","A.17.08.004","Tee and juice mixture for infants and young children","To be further disaggregated (d)",,100,1,1,1
+"A.17.08.001","Fruit juice for infants and young children","A.12.04","Mixed fruit juice","To be further disaggregated (d)",,100,1,1,1
+"A.17.08.002","Fruit nectar for infants and young children","I.12.03.015","Nectar, Mixed fruit","To be further disaggregated (d)",,100,1,1,1
+"A.17.08.003","Tee for infants and young children","A.13.02.004","Herbal tea, infusion","To be further disaggregated (d)",,100,1,1,1
+"A.17.08.004","Tee and juice mixture for infants and young children","A.12.04","Mixed fruit juice","To be further disaggregated (d)",,50,1,1,1
+"A.17.08.004","Tee and juice mixture for infants and young children","A.13.02.004","Herbal tea, infusion","To be further disaggregated (d)",,50,1,1,1
 "A.18","Products for special nutritional use","A.18","Products for special nutritional use","F28.A0C0R","PROCESS=Processed",100,1,1,1
 "A.18.01","Food for weight reduction","A.18.01","Food for weight reduction","F28.A0C0R","PROCESS=Processed",100,1,1,1
 "A.18.01.001","Products presented as a replacement for the whole of the daily diet","A.18.01.001","Products presented as a replacement for the whole of the daily diet","F28.A0C0R","PROCESS=Processed",100,1,1,1
@@ -3413,7 +3432,7 @@
 "I.01.02.002.003","Barley, cooked","A.01.02.002.001","Barley grain, whole","F28.A07GG","PROCESS=Cooking in water",100,1,0.4,1
 "I.01.02.009.008","Rice, cooked, polished","A.01.02.009","Rice","F28.A0BZV$F28.A07GG","PROCESS=Polishing, PROCESS=Cooking in water",100,1,0.38,1
 "I.01.02.009.009","Rice, cooked, unpolished","A.01.02.009","Rice","F28.A07GG","PROCESS=Cooking in water",100,1,0.34,1
-"I.01.02.010.005","Amaranth grain","I.01.02.010.005","Amaranth grain","F28.A07XD","PROCESS=Unspecified",100,1,1,1
+"I.01.02.010.005","Amaranth grain","I.01.02.010.006","Quinoa grain","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "I.01.02.010.006","Quinoa grain","I.01.02.010.006","Quinoa grain","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "I.01.03.008.008","Gluten-free flour","A.04.02.006","Chick pea flour","To be further disaggregated (d)",,10,1,1,1
 "I.01.03.008.008","Gluten-free flour","A.01.03.004.001","Corn flour","To be further disaggregated (d)",,15,1,1,1
@@ -3769,7 +3788,7 @@
 "I.07.01.015.002","Wolf-fish (Anarhichas)","I.07.01.015.002","Wolf-fish  (Anarhichas lupus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "I.07.01.017.001","Cod (Gadus morhua)","I.07.01.017.001","Cod (Gadus morhua)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "I.07.01.017.002","Whiting (Merlangius merlangus)","I.07.01.017.002","Whiting (Merlangius merlangus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
-"I.07.01.017.003","Coalfish (Pollachius virens)","I.07.01.017.003","Coalfish (Pollachius virens)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
+"I.07.01.017.003","Coalfish (Pollachius virens)","I.07.01.017.001","Cod (Gadus morhua)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "I.07.01.017.004","Haddock (Melanogrammus aeglefinus)","I.07.01.017.004","Haddock (Melanogrammus aeglefinus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "I.07.02.004.001","Fish paste, Anchovy","A.07.01.004","Anchovy (Engraulis)","F28.A07XD","PROCESS=Unspecified",66.6,1,1,1
 "I.07.02.004.001","Fish paste, Anchovy","A.11.04.013","Rapeseed oil","To be further disaggregated (d)",,16.7,1,1,1
