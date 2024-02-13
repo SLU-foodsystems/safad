@@ -2590,7 +2590,7 @@
 "A.14.07.002","Punch","A.10.06.005","Sugar beet syrup","To be further disaggregated (d)",,10,1,1,1
 "A.14.07.003","Alcopop","I.14.06.009","Alcohol 40%","F28.A0C0R","PROCESS=Processed",13.3,1,1,1
 "A.14.07.003","Alcopop","A.13.01.002","Soft drink, flavoured","To be further disaggregated (p)",,86.7,1,1,1
-"A.15","Drinking water (water without any additives except carbon dioxide",,,,,,,,
+"A.15","Drinking water (water without any additives except carbon dioxide","A.15","Drinking water (water without any additives except carbon dioxide",,,100,1,1,1
 "A.15.01","Tap water","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.15.02","Well water","A.15.02","Well water","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.15.03","Bottled water","A.15.03","Bottled water","F28.A07XD","PROCESS=Unspecified",100,1,1,1
