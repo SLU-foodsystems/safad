@@ -447,12 +447,12 @@ export function parseFoodsRecipes(recipesCsvStr: string) {
     ]) => {
       if (code === "") return; // Empty row
       const value = roundToPrecision(
-        (parseFloat(perc) * parseFloat(prob)) / 100,
+        (asNumber(perc, 100) * asNumber(prob, 100)) / 100,
         3
       );
 
       const netYieldFactor =
-        (parseFloat(yieldFactor) || 1) * (parseFloat(allocationFactor) || 1);
+        asNumber(yieldFactor, 1) * asNumber(allocationFactor, 1);
 
       if (value === 0) return;
 
