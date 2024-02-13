@@ -575,13 +575,27 @@ onMounted(async () => {
       </section>
 
       <section class="stack">
-        <div class="results-grid-large">
+        <h2>Impacts from Diet</h2>
+        <div class="results-grid-large results-grid-large--alt">
           <div class="results-grid-large__graph">
+            <h3>Impacts in relation to the planetary boundaries</h3>
             <PlanetaryBoundariesChart :data="dietFootprints" />
           </div>
-          <div class="results-grid-large__aside"></div>
+          <div class="results-grid-large__aside stack">
+            <h3>Diet: Riksmaten 2010/2011, average diet of adults in Sweden</h3>
+            <button class="button button--accent"
+              @click="downloadFootprintsOfDiets">Download footprints of diet</button>
+            <label class="cluster">
+              <input type="checkbox" v-model="includeBreakdownFile" />
+              Include Breakdown File
+            </label>
+          </div>
         </div>
       </section>
+    </div>
+
+    <div class="u-tac">
+      <h2>Configure Files</h2>
     </div>
 
     <div class="stack u-tac start-page-wrap">
@@ -822,8 +836,9 @@ onMounted(async () => {
 }
 
 .results-grid-large {
+  --aside-width: 20em;
   display: grid;
-  grid-template-columns: 1fr 20em;
+  grid-template-columns: 1fr var(--aside-width);
   gap: 1em;
 
   @media (max-width: $measure--wide) {
@@ -835,9 +850,14 @@ onMounted(async () => {
   }
 }
 
+.results-grid-large--alt {
+  --aside-width: minmax(20em, 1fr);
+}
+
 .results-grid-small {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1em;
 }
+
 </style>
