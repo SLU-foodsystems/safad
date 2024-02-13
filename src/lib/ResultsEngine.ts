@@ -202,6 +202,11 @@ class ResultsEngine {
       return null;
     }
 
+    if (Number.isNaN(amountGram)) {
+      console.error(`getRpcFootprints recieved NaN amount for code ${rpcCode}.`);
+      return null;
+    }
+
     return this.footprintsRpcsMerged[rpcCode].map(
       (x) => (x * amountGram) / 1000
     );
