@@ -178,33 +178,6 @@ const sfaRecipesFile = ref(
 );
 
 /**
- * Whenever the countryCode dropdown is changed, we need to
- * - Update the ResultsEngine
- * - Re-load all country-dependant files
- */
-watch(countryCode, async () => {
-  RE.setCountryCode(countryCode.value);
-
-  const promises = [];
-
-  isLoading.value = true;
-  if (rpcOriginWasteFile.value?.state === "default") {
-    promises.push(resetFile(countryCode.value, rpcOriginWasteFile.value));
-  }
-  if (wasteRetailAndConsumerFile.value?.state === "default") {
-    promises.push(
-      resetFile(countryCode.value, wasteRetailAndConsumerFile.value)
-    );
-  }
-  if (dietFile.value?.state === "default") {
-    promises.push(resetFile(countryCode.value, dietFile.value));
-  }
-
-  await Promise.all(promises);
-  isLoading.value = false;
-});
-
-/**
  * Methods
  */
 
@@ -411,6 +384,38 @@ const computeDietFootprints = () => {
   );
   dietFootprints.value = aggregateImpacts(rpcFootprints, ...rest);
 };
+
+/**
+ * Whenever the countryCode dropdown is changed, we need to
+ * - Update the ResultsEngine
+ * - Re-load all country-dependant files
+ */
+watch(countryCode, async () => {
+  RE.setCountryCode(countryCode.value);
+
+  const promises = [];
+
+  isLoading.value = true;
+  if (rpcOriginWasteFile.value?.state === "default") {
+    promises.push(resetFile(countryCode.value, rpcOriginWasteFile.value));
+  }
+  if (wasteRetailAndConsumerFile.value?.state === "default") {
+    promises.push(
+      resetFile(countryCode.value, wasteRetailAndConsumerFile.value)
+    );
+  }
+  if (dietFile.value?.state === "default") {
+    promises.push(resetFile(countryCode.value, dietFile.value));
+  }
+
+  await Promise.all(promises);
+
+  computeCarbonFootprintsData();
+  computeDietFootprints();
+
+  isLoading.value = false;
+});
+
 
 onMounted(async () => {
   isLoading.value = true;
