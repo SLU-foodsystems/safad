@@ -767,8 +767,7 @@ onMounted(async () => {
   > div {
     background: white;
     padding: 1em;
-    $base-box-shadow: 0 0.3em 0.75em -0.65em rgba(black, 0.5);
-    box-shadow: $base-box-shadow;
+    outline: 2px solid $gray;
 
     img,
     svg {

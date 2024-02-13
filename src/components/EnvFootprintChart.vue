@@ -73,9 +73,6 @@ useOnResize(debounce(drawChart, 200));
 
 <style lang="scss">
 .env-footprint-graph {
-  background: white;
-  $base-box-shadow: 0 0.3em 0.75em -0.65em rgba(black, 0.5);
-  box-shadow: $base-box-shadow;
   padding: 0.5em;
   text-align: center;
 
