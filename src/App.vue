@@ -622,56 +622,6 @@ onMounted(async () => {
           </p>
         </div>
 
-        <div class="stack">
-          <div class="cluster cluster--between">
-            <span class="cluster">
-              <img
-                src="@/assets/bar-chart.svg"
-                width="2253"
-                height="2250"
-                loading="lazy"
-              />
-              <h2>Download footprints of foods</h2>
-            </span>
-            <button
-              class="button button--accent"
-              @click="downloadFootprintsOfFoods"
-            >
-              Download
-            </button>
-          </div>
-          <p>
-            Download a csv file with the impacts per kg of each food-item in the
-            recipes list.
-          </p>
-        </div>
-        <div class="stack">
-          <div class="cluster cluster--between">
-            <span class="cluster">
-              <img
-                src="@/assets/pie-chart.svg"
-                width="2253"
-                height="2250"
-                loading="lazy"
-              />
-              <h2>Download footprints of diet</h2>
-            </span>
-            <button
-              class="button button--accent"
-              @click="downloadFootprintsOfDiets"
-            >
-              Download
-            </button>
-          </div>
-          <p>
-            Download a csv file with the impacts of the foods and their amounts
-            listed in the diet file.
-          </p>
-          <label class="cluster">
-            <input type="checkbox" v-model="includeBreakdownFile" />
-            Include Breakdown File
-          </label>
-        </div>
         <div class="stack" style="background: #dbe3f2">
           <div class="cluster cluster--between">
             <span class="cluster">
