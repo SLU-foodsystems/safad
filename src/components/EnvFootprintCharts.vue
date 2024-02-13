@@ -60,9 +60,7 @@ const charts = [
   },
 ];
 
-
 charts.forEach((c, i) => c.color = colors[i]);
-
 </script>
 
 <template>

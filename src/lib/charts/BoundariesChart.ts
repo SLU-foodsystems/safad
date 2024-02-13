@@ -1,9 +1,9 @@
 import * as d3 from "d3";
 
 interface Config {
-  w: number; // Width of the circle
-  h: number; // Height of the circle
-  margin: { top: number; right: number; bottom: number; left: number }; // The margins of the SVG
+  width: number; // Width of the circle
+  height: number; // Height of the circle
+  padding: { top: number; right: number; bottom: number; left: number }; // The margins of the SVG
   levels: number; // How many levels or inner circles should there be drawn
   maxValue: number; // What is the value that the biggest circle will represent
   labelOffsetFactor: number; // How much farther than the radius of the outer circle should the labels be placed
@@ -20,12 +20,12 @@ export default function BoundariesChart(
   options: Partial<Config>
 ) {
   const cfg: Config = {
-    w: 800,
-    h: 800,
-    margin: { top: 200, right: 200, bottom: 200, left: 200 },
+    width: 600,
+    height: 600,
+    padding: { top: 16, right: 16, bottom: 16, left: 16 },
     levels: 8,
     maxValue: 1,
-    labelOffsetFactor: 1.05,
+    labelOffsetFactor: 1.10,
     opacityCircles: 0.1,
     slicePadding: 0.015,
     ...options,
@@ -34,7 +34,10 @@ export default function BoundariesChart(
   const axes = data[0].map((i) => i.axis); // Names of each axis
   const total = axes.length; // The number of different axes
 
-  const radius = Math.min(cfg.w / 2, cfg.h / 2); // Radius of the outermost circle
+  const innerWidth = cfg.width - cfg.padding.left - cfg.padding.right;
+  const innerHeight = cfg.height - cfg.padding.top - cfg.padding.bottom;
+
+  const radius = Math.min(innerWidth, innerHeight) / 2; // Radius of the outermost circle
   const angleSlice = (Math.PI * 2) / total; // The width in radians of each "slice"
   const anglePadding = cfg.slicePadding * Math.PI * 2;
 
@@ -52,22 +55,15 @@ export default function BoundariesChart(
   const svg = d3
     .select(el)
     .append("svg")
-    .attr("width", cfg.w + cfg.margin.left + cfg.margin.right)
-    .attr("height", cfg.h + cfg.margin.top + cfg.margin.bottom);
+    .attr("width", cfg.width)
+    .attr("height", cfg.height);
 
   const defs = svg.append("defs");
 
   // Append a g element
   const root = svg
     .append("g")
-    .attr(
-      "transform",
-      "translate(" +
-        (cfg.w / 2 + cfg.margin.left) +
-        "," +
-        (cfg.h / 2 + cfg.margin.top) +
-        ")"
-    );
+    .attr("transform", `translate(${cfg.width / 2}, ${cfg.height / 2})`);
 
   /////////////////////////////////////////////////////////
   ////////////////////// Gradients ////////////////////////
@@ -80,7 +76,11 @@ export default function BoundariesChart(
     .attr("cx", "0")
     .attr("cy", "0")
     .attr("gradientUnits", "userSpaceOnUse")
-    .attr("r", (GRADIENT_SCALEUP_FACTOR * Math.max(cfg.w, cfg.h)) / 2);
+    .attr(
+      "r",
+      // Should cover the canvas, thus max rather than min
+      (GRADIENT_SCALEUP_FACTOR * Math.max(innerWidth, innerHeight)) / 2
+    );
 
   // scale the gradient, with
   (
@@ -162,31 +162,6 @@ export default function BoundariesChart(
     .style("stroke", "white")
     .style("stroke-width", "2px");
 
-  // Append the labels at each axis
-  const labels = axis.append("text");
-
-  const labelArc = d3
-    .arc<string>()
-    .innerRadius(rScale(cfg.maxValue * cfg.labelOffsetFactor))
-    .outerRadius(rScale(cfg.maxValue * cfg.labelOffsetFactor))
-    .startAngle((_d, i) => angleSlice * (i + 0.5) + anglePadding)
-    .endAngle((_d, i) => angleSlice * (i + 1.5) - anglePadding);
-
-  labels
-    .append("path")
-    .attr("d", labelArc)
-    .attr("id", (_d, i) => `label-path-${i}`);
-
-  labels
-    .append("textPath")
-    .style("dominant-baseline", "central")
-    .style("font-size", "16px")
-    .style("font-weight", "bold")
-    .attr("text-anchor", "middle")
-    .attr("startOffset", "25%")
-    .attr("xlink:href", (_d, i) => "#label-path-" + i) // map text to helper path
-    .text((d) => d);
-
   /////////////////////////////////////////////////////////
   ///////////// Draw the radar chart blobs ////////////////
   /////////////////////////////////////////////////////////
@@ -229,4 +204,40 @@ export default function BoundariesChart(
     .attr("fill", "none")
     .attr("stroke", "black")
     .attr("stroke-width", "2px");
+
+  /////////////////////////////////////////////////////////
+  ///////// Draw labels on top of radar-gradients /////////
+  /////////////////////////////////////////////////////////
+
+  const labelAxis = root
+    .append("g")
+    .selectAll(".label-axis")
+    .data(axes)
+    .enter()
+    .append("g");
+
+  // Append the labels at each axis
+  const labels = labelAxis.append("text");
+
+  const labelArc = d3
+    .arc<string>()
+    .innerRadius(rScale(cfg.maxValue * cfg.labelOffsetFactor))
+    .outerRadius(rScale(cfg.maxValue * cfg.labelOffsetFactor))
+    .startAngle((_d, i) => angleSlice * (i + 0.5) + anglePadding)
+    .endAngle((_d, i) => angleSlice * (i + 1.5) - anglePadding);
+
+  labels
+    .append("path")
+    .attr("d", labelArc)
+    .attr("id", (_d, i) => `label-path-${i}`);
+
+  labels
+    .append("textPath")
+    .style("dominant-baseline", "central")
+    .style("font-size", "16px")
+    .style("font-weight", "bold")
+    .attr("text-anchor", "middle")
+    .attr("startOffset", "25%")
+    .attr("xlink:href", (_d, i) => "#label-path-" + i) // map text to helper path
+    .text((d) => d);
 }
