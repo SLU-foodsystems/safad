@@ -50,6 +50,7 @@ const drawChart = () => {
     )
   );
 
+  // Standard values
   let [width, height] = [800, 500];
   if (canvasEl.value) {
     const svg = canvasEl.value.querySelector("svg");

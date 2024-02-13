@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import BoundariesChart from "@/lib/charts/BoundariesChart";
 import { PLANETARY_BOUNDARY_LIMITS } from "@/lib/constants";
+import { useOnResize } from "@/lib/use-on-resize";
 import { onMounted, ref, watch } from "vue";
 
 const props = defineProps<{
@@ -39,10 +40,26 @@ const pickData = (data: number[]) => [
 const drawChart = () => {
   if (!el.value || !props.data) return;
 
+  // Standard values
+  const svg = el.value.querySelector("svg");
+  if (svg) {
+    el.value.removeChild(svg);
+  }
+
+  const rect = el.value.getBoundingClientRect();
+  const width = Math.floor(rect.width);
+  const height = Math.floor(rect.width); // Square
+
   const data = pickData(props.data);
-  BoundariesChart(el.value, [data], {});
+  const pad = Math.max(32, width / 8);
+  BoundariesChart(el.value, [data], {
+    width,
+    height,
+    padding: { top: pad, right: pad, bottom: pad, left: pad },
+  });
 };
 
+useOnResize(drawChart);
 watch(() => props.data, drawChart);
 
 onMounted(drawChart);
@@ -51,3 +68,22 @@ onMounted(drawChart);
 <template>
   <div class="planetary-boundaries-chart" ref="el" />
 </template>
+
+<style lang="scss" scoped>
+.planetary-boundaries-chart {
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: inset 0 0 1.5em 1em white;
+  }
+}
+</style>
