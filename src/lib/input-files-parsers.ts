@@ -111,7 +111,7 @@ export function parseEmissionsFactorsEnergy(csvString: string) {
   }
 
   csv.forEach(([carrier, _country, countryCode, ...ghgsStrs]) => {
-    const ghgs = ghgsStrs.map((x) => (x ? parseFloat(x) : 0));
+    const ghgs = ghgsStrs.map((x) => (x ? asNumber(x, 0) : 0));
     if (carrier === "Electricity") {
       (emissionsFactors[carrier] as Record<string, number[]>)[countryCode] =
         ghgs;
@@ -146,8 +146,7 @@ export function parseEmissionsFactorsTransport(csvString: string) {
       ]) => {
         // Convert all GHG factors to numbers, falling back to 0 if missing
         const ghgs = ghgsStrs
-          .map((x) => (x ? parseFloat(x) : 0))
-          .map((x) => (Number.isNaN(x) ? 0 : x));
+          .map((x) => (x ? asNumber(x, 0) : 0));
 
         if (!(consumptionCountryCode in results)) {
           results[consumptionCountryCode] = {};
@@ -175,10 +174,7 @@ export function parseProcessesEnergyDemands(
   return Object.fromEntries(
     csv.map(([code, _processName, _totalEnergy, _note, ...demandsStrs]) => {
       // Covnert from strings to numbers
-      const demands = demandsStrs.map((x) => {
-        const val = Number.parseFloat(x) || 0;
-        return Number.isNaN(x) ? 0 : val;
-      });
+      const demands = demandsStrs.map((x) => asNumber(x, 0))
       return [code, demands];
     })
   );
