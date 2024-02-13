@@ -409,7 +409,6 @@ const computeDietFootprints = () => {
       (kv): kv is [string, number[]] => kv[1] !== null
     )
   );
-  console.log("Input:", rpcFootprints, ...rest)
   dietFootprints.value = aggregateImpacts(rpcFootprints, ...rest);
 };
 
