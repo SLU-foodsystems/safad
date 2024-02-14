@@ -105,8 +105,11 @@ A.01.02.008,Oat grain,United Kingdom,GB,0.001,0.045,0117
 A.01.02.008,Oat grain,Belgium,BE,0.001,0.045,0117
 A.01.02.008,Oat grain,Serbia,RS,0.005,0.045,0117
 A.01.02.008,Oat grain,Rest of World,RoW,0.002,0.045,0117
-A.01.02.009.007,Indian rice grain,Rest of World,RoW,1,0.045,0113
-A.01.02.009,Rice grain,Rest of World,RoW,1,0.045,0113
+A.01.02.009.007,Indian rice grain,India,IN,1,0.045,0113
+A.01.02.009,Rice grain,India,IN,0.24,0.045,0113
+A.01.02.009,Rice grain,Thailand,TH,0.19,0.045,0113
+A.01.02.009,Rice grain,Viet Nam,VN,0.12,0.045,0113
+A.01.02.009,Rice grain,Rest of World,RoW,0.45,0.045,0113
 A.01.02.010.002,Sorghum grain,Hungary,HU,0.969,0.045,0114
 A.01.02.010.002,Sorghum grain,Argentina,AR,0.002,0.045,0114
 A.01.02.010.002,Sorghum grain,France,FR,0.007,0.045,0114
@@ -4489,7 +4492,4 @@ A.18.02.006,Fiber supplements,Rest of World,RoW,1,0,MI-27
 A.10.02.001.007,Hydrogenated starch hydrolysates,Rest of World,RoW,1,0,MI-28
 A.05.05.003,Palmfruit (Elaeis guineensis),Malaysia,MY,0.3,0.06,01491.01
 A.05.05.003,Palmfruit (Elaeis guineensis),Indonesia,ID,0.7,0.06,01491.01
-A.01.02.009,Rice grain,India,IN,0.24,0.045,0113
-A.01.02.009,Rice grain,Thailand,TH,0.19,0.045,0113
-A.01.02.009,Rice grain,Viet Nam,VN,0.12,0.045,0113
-A.01.02.009,Rice grain,Rest of World,RoW,0.45,0.045,0113
+
