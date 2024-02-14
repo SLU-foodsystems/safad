@@ -10,6 +10,7 @@ interface Config {
   minValue: number;
   innerPadding: number;
   labelLayout: "normal" | "slanted" | "offset";
+  drawLegend: boolean;
 
   axisLabels?: {
     // x: string; // TODO: Not implemented
@@ -120,6 +121,8 @@ export default function StackedBarChart(
     minValue: 0,
     innerPadding: 0.2,
     labelLayout: "normal",
+
+    drawLegend: false,
     ...options,
   };
 
@@ -129,6 +132,11 @@ export default function StackedBarChart(
   } else if (cfg.labelLayout === "offset") {
     // TODO: this is an arbitrary offset
     cfg.margin.bottom += 20;
+  }
+
+  const legendWidth = 270;
+  if (cfg.drawLegend) {
+    cfg.margin.right += legendWidth;
   }
 
   if (cfg.axisLabels?.y) {
@@ -233,8 +241,10 @@ export default function StackedBarChart(
     .attr("height", (d) => yAxis(d[0]) - yAxis(d[1]))
     .attr("width", xAxis.bandwidth());
 
-  // drawLegend(svg, columns, color, {
-  //   x: innerWidth,
-  //   y: 0,
-  // });
+  if (cfg.drawLegend) {
+    drawLegend(svg, columns, color, {
+      x: innerWidth,
+      y: 0,
+    });
+  }
 }

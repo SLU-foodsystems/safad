@@ -15,6 +15,7 @@ import {
   BREAKDOWN_RESULTS_HEADER,
   getDietBreakdown,
   aggregateImpacts,
+  aggregateImpactsByCategory,
 } from "@/lib/impacts-csv-utils";
 import reduceDietToRpcs from "@/lib/rpc-reducer";
 import {
@@ -27,8 +28,10 @@ import { resetFile, initInputFile } from "@/lib/file-interface-utils";
 import FileSelector from "@/components/FileSelector.vue";
 import LoadingOverlay from "@/components/LoadingOverlay.vue";
 import CarbonFootprintsGraph from "@/components/CarbonFootprintsGraph.vue";
-import EnvFootprintCharts from "./components/EnvFootprintCharts.vue";
+import EnvFootprintCharts from "@/components/EnvFootprintCharts.vue";
 import PlanetaryBoundariesChart from "@/components/PlanetaryBoundariesChart.vue";
+import ImpactsPerCategoryChart from "@/components/ImpactsPerCategoryChart.vue";
+
 import { rpcNames } from "./lib/efsa-names";
 
 const APP_VERSION = __APP_VERSION__;
@@ -343,7 +346,8 @@ const downloadZip = async () => {
 };
 
 const carbonFootprintsData = ref<[string, number[]][]>([]);
-const dietFootprints = ref<number[]>([]);
+const dietTotalFootprints = ref<number[]>([]);
+const dietCategoryFootprints = ref<{ [key: string]: number[] }>({});
 
 const computeCarbonFootprintsData = () => {
   const data = [
@@ -373,7 +377,7 @@ const computeCarbonFootprintsData = () => {
   carbonFootprintsData.value = data;
 };
 
-const computeDietFootprints = () => {
+const computeDietTotalFootprints = () => {
   if (!diet.value) return;
   const [rpcFootprintsMaybeNull, ...rest] = RE.computeImpacts(diet.value);
   // Filter out any NA-footprints
@@ -382,7 +386,14 @@ const computeDietFootprints = () => {
       (kv): kv is [string, number[]] => kv[1] !== null
     )
   );
-  dietFootprints.value = aggregateImpacts(rpcFootprints, ...rest);
+  dietTotalFootprints.value = aggregateImpacts(rpcFootprints, ...rest);
+};
+const computeDietCategoryFootprints = () => {
+  if (!diet.value) return;
+
+  dietCategoryFootprints.value = aggregateImpactsByCategory(
+    ...RE.computeImpacts(diet.value)
+  );
 };
 
 /**
@@ -411,11 +422,11 @@ watch(countryCode, async () => {
   await Promise.all(promises);
 
   computeCarbonFootprintsData();
-  computeDietFootprints();
+  computeDietTotalFootprints();
+  computeDietCategoryFootprints();
 
   isLoading.value = false;
 });
-
 
 onMounted(async () => {
   isLoading.value = true;
@@ -449,7 +460,8 @@ onMounted(async () => {
   // the variables (map [label: string] -> index)
 
   computeCarbonFootprintsData();
-  computeDietFootprints();
+  computeDietTotalFootprints();
+  computeDietCategoryFootprints();
 
   isLoading.value = false;
 });
@@ -588,17 +600,30 @@ onMounted(async () => {
         <div class="results-grid-large results-grid-large--alt">
           <div class="results-grid-large__graph">
             <h3>Impacts in relation to the planetary boundaries</h3>
-            <PlanetaryBoundariesChart :data="dietFootprints" />
+            <PlanetaryBoundariesChart :data="dietTotalFootprints" />
           </div>
           <div class="results-grid-large__aside stack">
             <h3>Diet: Riksmaten 2010/2011, average diet of adults in Sweden</h3>
-            <button class="button button--accent"
-              @click="downloadFootprintsOfDiets">Download footprints of diet</button>
+            <button
+              class="button button--accent"
+              @click="downloadFootprintsOfDiets"
+            >
+              Download footprints of diet
+            </button>
             <label class="cluster">
               <input type="checkbox" v-model="includeBreakdownFile" />
               Include Breakdown File
             </label>
           </div>
+        </div>
+
+        <h3 class="hr-header hr-header--right-only">
+          <span>Contributions to impacts from different food groups</span>
+        </h3>
+        <div>
+          <ImpactsPerCategoryChart
+            :impactsPerCategory="dietCategoryFootprints"
+          />
         </div>
       </section>
 
@@ -811,5 +836,4 @@ onMounted(async () => {
   grid-template-columns: repeat(4, 1fr);
   gap: 1em;
 }
-
 </style>
