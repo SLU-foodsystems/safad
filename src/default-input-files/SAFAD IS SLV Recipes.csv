@@ -1,4 +1,4 @@
-﻿Livsmedelsnummer,Livsmedelsnamn,Råvara nivå 1,Andel,Inkluderar,Tillagningsprocess  nivå 1,Konverteringsfaktor nivå 1,Publikation nivå 1,Foodex2 nivå 1,Rå mängd beräknad,Beräkning rå mängd,Råvara nivå 2,Tillagningsprocess nivå 2,Konverteringsfaktor nivå 2,Publikation nivå 2,Foodex2 nivå 2,Kommentar
+﻿A.06.12.002,Livsmedelsnamn,Råvara nivå 1,Andel,Inkluderar,Tillagningsprocess  nivå 1,Konverteringsfaktor nivå 1,Publikation nivå 1,Foodex2 nivå 1,Rå mängd beräknad,Beräkning rå mängd,Råvara nivå 2,Tillagningsprocess nivå 2,Konverteringsfaktor nivå 2,Publikation nivå 2,Foodex2 nivå 2,Kommentar
 4,Kokosfett,Fett matfettsblandning,100,"kokosolja, kokosfett",Rå,1,SLV - Riktlinjer för livsmedel,A037M,100,"100 * 1,00",Kokosnöt,Juice drickfärdig,2.8,"Guidance document on the conversion of foods coded according to FoodEx into raw agricultural commodities (RACs), EU project ACROPOLIS WP2, Deliverable 2.2, Polly E. Boon, June 2011 ",A014K,
 21,Majonnäs fett 90% ,Olja rapsolja,78,,Rå,1,SLV - Riktlinjer för livsmedel,A036V,78,"78 * 1,00",Raps,Juice drickfärdig,2.4,"Guidance document on the conversion of foods coded according to FoodEx into raw agricultural commodities (RACs), EU project ACROPOLIS WP2, Deliverable 2.2, Polly E. Boon, June 2011 ",A015M,
 21,Majonnäs fett 90% ,Äggula,8,,Rå,1,SLV - Riktlinjer för livsmedel,A031S,8,"8 * 1,00",,,,,,Faktor = logisk slutledning
@@ -2674,7 +2674,7 @@ NB! Med ändrad Foodex-kod för socker, stämmer det inte alltid att råvara niv
 2571,Exotisk frukt,Granatäpple,5,,Rå,1,SLV - Riktlinjer för livsmedel,A01LH,5,"5 * 1,00",,,,,,Faktor = logisk slutledning
 2571,Exotisk frukt,Litchi,5,,Rå,1,SLV - Riktlinjer för livsmedel,A01JV,5,"5 * 1,00",,,,,,
 2571,Exotisk frukt,Guava,5,,Rå,1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A01LN,5,"5 * 1,00",,,,,,
-2571,Exotisk frukt,Cherimoya,5,,Rå,1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A01LJ,5,"5 * 1,00",,,,,,
+2571,Exotisk frukt,Cherimoya,5,,Rå,1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A01LJ_R,5,"5 * 1,00",,,,,,
 2571,Exotisk frukt,Kumquat,5,,Rå,1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A01HJ,5,"5 * 1,00",,,,,,
 2571,Exotisk frukt,"Exotisk frukt,liten, icke ätbart skal",3,"kaktusfikon, drakfrukt, pitahaya ","Rå, tillagad ",1,Användarhjälp - Riktlinjer för beräknade livsmedel,A01HM,3,"3 * 1,00",,,,,,Faktor = logisk slutledning
 2571,Exotisk frukt,Carambole stjärnfrukt,2,,Rå,1,SLV - Riktlinjer för livsmedel,A01HM,2,"2 * 1,00",,,,,,Faktor = logisk slutledning
@@ -3544,7 +3544,7 @@ NB! Med ändrad Foodex-kod för socker, stämmer det inte alltid att råvara niv
 3652,Ost sojabaserad hårdost,Övrigt,2,"Salt, kryddor, bakpulver, hjorthornssalt, surdegspulver etc","Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A042Z_R,2,"2 * 1,00",,,,,,"Här lägger vi övriga ingredienser som inte behöver egen kod. Bara några exempel är nämnda under""inkluderar"", men komplettera gärna listan."
 3652,Ost sojabaserad hårdost,Vinäger ,1,"Äppelcidervinäger, rödvinsvinäger, Ättiksyra","Rå, tillagad ",1,-,A044M,1,"1 * 1,00",,,,,,Faktor = logisk slutledning
 3680,Vegetarisk paj med quornfärs,Vatten,21,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A03DL,21,"21 * 1,00",,,,,,Faktor=logiskt slutledning
-3680,Vegetarisk paj med quornfärs,Quorn,17,,"Rå, tillagad ",1,-,A03TG,17,"17 * 1,00",,,,,,Faktor = logisk slutledning
+3680,Vegetarisk paj med quornfärs,Quorn,17,,"Rå, tillagad ",1,-,AX13A,17,"17 * 1,00",,,,,,Faktor = logisk slutledning
 3680,Vegetarisk paj med quornfärs,"Vete, siktat",12,,"Tillagad, adderad",1,-,A003Y,12,"12 * 1,00",,,,,,Faktor = logisk slutledning
 3680,Vegetarisk paj med quornfärs,Paprika ,11,,"Tillagad, adderad",1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00JA,11,"11 * 1,00",,,,,,
 3680,Vegetarisk paj med quornfärs,Fett matfettsblandning,8,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A04RT,8,"8 * 1,00",,,,,,Faktor = logisk slutledning
@@ -3560,7 +3560,7 @@ Faktor för nivå 2 beräknad utifrån att 100g mjölk med fetthalt 4% ger 10 g 
 3683,Pirog vegetarisk quorn el soja,"Vete, siktat",25,,"Tillagad, adderad",1,-,A003Y,25,"25 * 1,00",,,,,,Faktor = logisk slutledning
 3683,Pirog vegetarisk quorn el soja,Vatten,20,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A03DL,20,"20 * 1,00",,,,,,Faktor=logiskt slutledning
 3683,Pirog vegetarisk quorn el soja,Fett matfettsblandning,19,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A04RT,19,"19 * 1,00",,,,,,Faktor = logisk slutledning
-3683,Pirog vegetarisk quorn el soja,Quorn,10,,"Rå, tillagad ",1,-,A03TG,10,"10 * 1,00",,,,,,Faktor = logisk slutledning
+3683,Pirog vegetarisk quorn el soja,Quorn,10,,"Rå, tillagad ",1,-,AX13A,10,"10 * 1,00",,,,,,Faktor = logisk slutledning
 3683,Pirog vegetarisk quorn el soja,"Lök (gul, röd)",6,,"Tillagad, adderad",1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00HC,6,"6 * 1,00",,,,,,
 3683,Pirog vegetarisk quorn el soja,Oliver,4,,"Rå, tillagad ",1,SLV - Riktlinjer för livsmedel,A01HH,4,"4 * 1,00",,,,,,Faktor=logisk slutledning.
 3683,Pirog vegetarisk quorn el soja,Tomat ,4,Soltorkad tomat,Torkad,9,"Guidance document on the conversion of foods coded according to FoodEx into raw agricultural commodities (RACs), EU project ACROPOLIS WP2, Deliverable 2.2, Polly E. Boon, June 2011 ",A00HQ,36,"4 * 9,00",,,,,,
@@ -4749,7 +4749,7 @@ Faktor för nivå 2 beräknad utifrån en torrsubstans i mjölk på 13% och en t
 5703,Vegetarisk lasagne,Ost (hårdost),6,"Ystade hårdostar, kittost, mögelost","Rå, tillagad ",1,-,A02VA,6,"6 * 1,00",,,,,,Faktor = logisk slutledning
 5703,Vegetarisk lasagne,Vatten,7,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A03DL,7,"7 * 1,00",,,,,,Faktor=logiskt slutledning
 5703,Vegetarisk lasagne,"Lök (gul, röd)",7,,"Tillagad, adderad",1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00HC,7,"7 * 1,00",,,,,,
-5703,Vegetarisk lasagne,Quorn,6,,"Rå, tillagad ",1,-,A03TG,6,"6 * 1,00",,,,,,Faktor = logisk slutledning
+5703,Vegetarisk lasagne,Quorn,6,,"Rå, tillagad ",1,-,AX13A,6,"6 * 1,00",,,,,,Faktor = logisk slutledning
 5703,Vegetarisk lasagne,Tomat krossad,13,"tomatkross, krossad tomat, ",Tillagad,1.2,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00HQ,15.6,"13 * 1,20",,,,,,Faktor beräknad 40% tomatjuice och 60% tomat tillagad.
 5703,Vegetarisk lasagne,Fett vegetabiliskt fett och olja,3,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A036V,3,"3 * 1,00",,,,,,Faktor = logisk slutledning
 5703,Vegetarisk lasagne,sojaprotein,2,"Sojaproteinisolat, sojaproteinkoncentrat",Torkad,3.1,Produktionsteknologi för ätbart mjöl och proteinprodukter från sojabönor (1992) Berk Z,A015P,6.2,"2 * 3,10",,,,,,OBS: faktorn konverterar till torkad sojaböna
@@ -4758,7 +4758,7 @@ Faktor för nivå 2 beräknad utifrån en torrsubstans i mjölk på 13% och en t
 5703,Vegetarisk lasagne,Salt,0,"Havssalt, mineralsalt","Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A042P,0,"0 * 1,00",,,,,,Faktor = logisk slutledning
 5704,Vegetarisk moussaka,Aubergine ,33,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A00JD,33,"33 * 1,00",,,,,,Faktor = logisk slutledning
 5704,Vegetarisk moussaka,"Mjölk fett 1-2,5 %",11,,"Rå, tillagad ",1,-,A02LZ,11,"11 * 1,00",,,,,,Faktor = logisk slutledning
-5704,Vegetarisk moussaka,Quorn,6,,"Rå, tillagad ",1,-,A03TG,6,"6 * 1,00",,,,,,Faktor = logisk slutledning
+5704,Vegetarisk moussaka,Quorn,6,,"Rå, tillagad ",1,-,AX13A,6,"6 * 1,00",,,,,,Faktor = logisk slutledning
 5704,Vegetarisk moussaka,"Lök (gul, röd)",11,,"Tillagad, adderad",1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00HC,11,"11 * 1,00",,,,,,
 5704,Vegetarisk moussaka,"Mjölk fett > 2,5%",5,,"Rå, tillagad ",1,-,A02LY,5,"5 * 1,00",,,,,,Faktor = logisk slutledning
 5704,Vegetarisk moussaka,Mjölk fett < 1 %,3,,"Rå, tillagad ",1,-,A02MA,3,"3 * 1,00",,,,,,Faktor = logisk slutledning
@@ -4777,7 +4777,7 @@ Faktor för nivå 2 beräknad utifrån en torrsubstans i mjölk på 13% och en t
 5704,Vegetarisk moussaka,Olja solrosolja,0,,"Tillagad, adderad",1,Användarhjälp - Riktlinjer för beräknade livsmedel,A037D,0,"0 * 1,00",Solrosfrön,Juice drickfärdig,2.5,"Guidance document on the conversion of foods coded according to FoodEx into raw agricultural commodities (RACs), EU project ACROPOLIS WP2, Deliverable 2.2, Polly E. Boon, June 2011 ",A015L,
 5704,Vegetarisk moussaka,Vitlök,0,,"Tillagad, adderad",1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00GZ,0,"0 * 1,00",,,,,,
 5705,Vegetarisk schnitzel ,Vatten,30,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A03DL,30,"30 * 1,00",,,,,,Faktor=logiskt slutledning
-5705,Vegetarisk schnitzel ,Quorn,24,,"Rå, tillagad ",1,-,A03TG,24,"24 * 1,00",,,,,,Faktor = logisk slutledning
+5705,Vegetarisk schnitzel ,Quorn,24,,"Rå, tillagad ",1,-,AX13A,24,"24 * 1,00",,,,,,Faktor = logisk slutledning
 5705,Vegetarisk schnitzel ,"Vete, siktat",12,,"Tillagad, adderad",1,-,A003Y,12,"12 * 1,00",,,,,,Faktor = logisk slutledning
 5705,Vegetarisk schnitzel ,Citron,8,,Juice drickfärdig,1.6,"Guidance document on the conversion of foods coded according to FoodEx into raw agricultural commodities (RACs), EU project ACROPOLIS WP2, Deliverable 2.2, Polly E. Boon, June 2011 ",A01BY,12.8,"8 * 1,60",,,,,,
 5705,Vegetarisk schnitzel ,sojaprotein,8,"Sojaproteinisolat, sojaproteinkoncentrat",Torkad,3.1,Produktionsteknologi för ätbart mjöl och proteinprodukter från sojabönor (1992) Berk Z,A015P,24.8,"8 * 3,10",,,,,,OBS: faktorn konverterar till torkad sojaböna
@@ -4795,7 +4795,7 @@ Faktor för nivå 2 beräknad utifrån en torrsubstans i mjölk på 13% och en t
 5706,Vegetarisk pyttipanna,Potatis,12,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A00ZX,12,"12 * 1,00",,,,,,Faktor = logisk slutledning
 5706,Vegetarisk pyttipanna,Morot,10,,"Tillagad, adderad",1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00QH,10,"10 * 1,00",,,,,,
 5706,Vegetarisk pyttipanna,Kålrot,10,,"Tillagad, adderad",1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00RD,10,"10 * 1,00",,,,,,
-5706,Vegetarisk pyttipanna,Quorn,4,,"Rå, tillagad ",1,-,A03TG,4,"4 * 1,00",,,,,,Faktor = logisk slutledning
+5706,Vegetarisk pyttipanna,Quorn,4,,"Rå, tillagad ",1,-,AX13A,4,"4 * 1,00",,,,,,Faktor = logisk slutledning
 5706,Vegetarisk pyttipanna,"Lök (gul, röd)",8,,"Tillagad, adderad",1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00HC,8,"8 * 1,00",,,,,,
 5706,Vegetarisk pyttipanna,Vatten,4,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A03DL,4,"4 * 1,00",,,,,,Faktor=logiskt slutledning
 5706,Vegetarisk pyttipanna,"Lök (gul, röd)",10,,Tillagad,1.2,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00HC,12,"10 * 1,20",,,,,,Faktor för kokt
@@ -4807,10 +4807,10 @@ Faktor för nivå 2 beräknad utifrån en torrsubstans i mjölk på 13% och en t
 5706,Vegetarisk pyttipanna,Övrigt,1,"Salt, kryddor, bakpulver, hjorthornssalt, surdegspulver etc","Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A042Z_R,1,"1 * 1,00",,,,,,"Här lägger vi övriga ingredienser som inte behöver egen kod. Bara några exempel är nämnda under""inkluderar"", men komplettera gärna listan."
 5706,Vegetarisk pyttipanna,Salt,0,"Havssalt, mineralsalt","Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A042P,0,"0 * 1,00",,,,,,Faktor = logisk slutledning
 5706,Vegetarisk pyttipanna,Persilja,0,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A00YE,0,"0 * 1,00",,,,,,Faktor=logisk slutledning
-5709,Vegetarisk filé bitar,Quorn,50,,"Rå, tillagad ",1,-,A03TG,50,"50 * 1,00",,,,,,Faktor = logisk slutledning
+5709,Vegetarisk filé bitar,Quorn,50,,"Rå, tillagad ",1,-,AX13A,50,"50 * 1,00",,,,,,Faktor = logisk slutledning
 5709,Vegetarisk filé bitar,Vatten,38,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A03DL,38,"38 * 1,00",,,,,,Faktor=logiskt slutledning
 5709,Vegetarisk filé bitar,Sojamjöl,12,"Avfettat sojamjöl, sojamjöl med fett",Torkad,1.3,Produktionsteknologi för ätbart mjöl och proteinprodukter från sojabönor (1992) Berk Z,A015P,15.6,"12 * 1,30",,,,,,OBS faktorn konverterar till torkad sojaböna
-5710,Vegetariska nuggets,Quorn,30,,"Rå, tillagad ",1,-,A03TG,30,"30 * 1,00",,,,,,Faktor = logisk slutledning
+5710,Vegetariska nuggets,Quorn,30,,"Rå, tillagad ",1,-,AX13A,30,"30 * 1,00",,,,,,Faktor = logisk slutledning
 5710,Vegetariska nuggets,Vatten,30,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A03DL,30,"30 * 1,00",,,,,,Faktor=logiskt slutledning
 5710,Vegetariska nuggets,"Vete, siktat",10,,"Tillagad, adderad",1,-,A003Y,10,"10 * 1,00",,,,,,Faktor = logisk slutledning
 5710,Vegetariska nuggets,sojaprotein,6,"Sojaproteinisolat, sojaproteinkoncentrat",Torkad,3.1,Produktionsteknologi för ätbart mjöl och proteinprodukter från sojabönor (1992) Berk Z,A015P,18.6,"6 * 3,10",,,,,,OBS: faktorn konverterar till torkad sojaböna
@@ -4828,7 +4828,7 @@ Faktor för nivå 2 beräknad utifrån en torrsubstans i mjölk på 13% och en t
 5710,Vegetariska nuggets,Vetegluten,4,Gluten,Tillagad,10,LCI data for the calculation tool Feedprint for greenhouse gas emissions of feed production and utilization (2012) Zeist et al,A004B,40,"4 * 10,00",,,,,,Vetegluten är en relativt vanlig brödingrediens.
 5711,Vegetariska bollar,Bönor utan balja,39,"bondböna, jackböna, limaböna",Tillagad,0.4,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A012S,15.6,"39 * 0,40",,,,,,
 5711,Vegetariska bollar,Ärter utan skida (utgångsläge torkad),18,"gul ärtor, grön ärta, kikärt",Tillagad,0.4,"Retentionsfaktorer för beräknade livsmedel, näringsämnen/Bognar ",A013J,7.2,"18 * 0,40",,,,,,
-5711,Vegetariska bollar,Quorn,14,,"Rå, tillagad ",1,-,A03TG,14,"14 * 1,00",,,,,,Faktor = logisk slutledning
+5711,Vegetariska bollar,Quorn,14,,"Rå, tillagad ",1,-,AX13A,14,"14 * 1,00",,,,,,Faktor = logisk slutledning
 5711,Vegetariska bollar,"Vete, stärkelse",4,,"Tillagad, adderad",1,"Food in Europe - production, processing and composition, ed Aldén KI och Algers A",A004M,4,"4 * 1,00","Vete, fullkorn",Pulveriserat,1.5,"Food in Europe - production, processing and composition, ed Aldén KI och Algers A",A004B,Råvaran på nivå 2 är satt som vetekorn. Utbytet för att få vetestärkelse är 65%. 
 5711,Vegetariska bollar,Övrigt,4,"Salt, kryddor, bakpulver, hjorthornssalt, surdegspulver etc","Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A042Z_R,4,"4 * 1,00",,,,,,"Här lägger vi övriga ingredienser som inte behöver egen kod. Bara några exempel är nämnda under""inkluderar"", men komplettera gärna listan."
 5711,Vegetariska bollar,Vatten,3,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A03DL,3,"3 * 1,00",,,,,,Faktor=logiskt slutledning
@@ -4844,14 +4844,14 @@ Faktor för nivå 2 beräknad utifrån en torrsubstans i mjölk på 13% och en t
 "
 5712,Vegetarisk färssås,Bönor utan balja,14,"bondböna, jackböna, limaböna",Tillagad,0.4,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A012S,5.6,"14 * 0,40",,,,,,
 5712,Vegetarisk färssås,"Lök (gul, röd)",19,,"Tillagad, adderad",1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00HC,19,"19 * 1,00",,,,,,
-5712,Vegetarisk färssås,Quorn,13,,"Rå, tillagad ",1,-,A03TG,13,"13 * 1,00",,,,,,Faktor = logisk slutledning
+5712,Vegetarisk färssås,Quorn,13,,"Rå, tillagad ",1,-,AX13A,13,"13 * 1,00",,,,,,Faktor = logisk slutledning
 5712,Vegetarisk färssås,Tomat krossad,28,"tomatkross, krossad tomat, ",Tillagad,1.2,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00HQ,33.6,"28 * 1,20",,,,,,Faktor beräknad 40% tomatjuice och 60% tomat tillagad.
 5712,Vegetarisk färssås,Vatten,10,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A03DL,10,"10 * 1,00",,,,,,Faktor=logiskt slutledning
 5712,Vegetarisk färssås,Paprika ,8,,"Tillagad, adderad",1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00JA,8,"8 * 1,00",,,,,,
 5712,Vegetarisk färssås,sojaprotein,4,"Sojaproteinisolat, sojaproteinkoncentrat",Torkad,3.1,Produktionsteknologi för ätbart mjöl och proteinprodukter från sojabönor (1992) Berk Z,A015P,12.4,"4 * 3,10",,,,,,OBS: faktorn konverterar till torkad sojaböna
 5712,Vegetarisk färssås,Tomat ,3,,Pure ,3.2,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00HQ,9.6,"3 * 3,20",,,,,,
 5712,Vegetarisk färssås,Övrigt,1,"Salt, kryddor, bakpulver, hjorthornssalt, surdegspulver etc","Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A042Z_R,1,"1 * 1,00",,,,,,"Här lägger vi övriga ingredienser som inte behöver egen kod. Bara några exempel är nämnda under""inkluderar"", men komplettera gärna listan."
-5713,"Vegetarisk gryta, quorn eller soja",Quorn,9,,"Rå, tillagad ",1,-,A03TG,9,"9 * 1,00",,,,,,Faktor = logisk slutledning
+5713,"Vegetarisk gryta, quorn eller soja",Quorn,9,,"Rå, tillagad ",1,-,AX13A,9,"9 * 1,00",,,,,,Faktor = logisk slutledning
 5713,"Vegetarisk gryta, quorn eller soja",Squash,13,,"Tillagad, adderad",1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00JR,13,"13 * 1,00",,,,,,
 5713,"Vegetarisk gryta, quorn eller soja",Tomat krossad,28,"tomatkross, krossad tomat, ",Tillagad,1.2,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00HQ,33.6,"28 * 1,20",,,,,,Faktor beräknad 40% tomatjuice och 60% tomat tillagad.
 5713,"Vegetarisk gryta, quorn eller soja",Paprika ,8,,"Tillagad, adderad",1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00JA,8,"8 * 1,00",,,,,,
@@ -4871,7 +4871,7 @@ Faktor för nivå 2 beräknad utifrån en torrsubstans i mjölk på 13% och en t
 5714,Vegetarisk biff,Ärter utan skida (utgångsläge torkad),19,"gul ärtor, grön ärta, kikärt",Tillagad,0.4,"Retentionsfaktorer för beräknade livsmedel, näringsämnen/Bognar ",A013J,7.6,"19 * 0,40",,,,,,
 5714,Vegetarisk biff,Bönor utan balja,9,"bondböna, jackböna, limaböna",Tillagad,0.4,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A012S,3.6,"9 * 0,40",,,,,,
 5714,Vegetarisk biff,"Ägg, höna",11,Helt ägg höna,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A031G,11,"11 * 1,00",,,,,,Faktor = logisk slutledning
-5714,Vegetarisk biff,Quorn,15,,"Rå, tillagad ",1,-,A03TG,15,"15 * 1,00",,,,,,Faktor = logisk slutledning
+5714,Vegetarisk biff,Quorn,15,,"Rå, tillagad ",1,-,AX13A,15,"15 * 1,00",,,,,,Faktor = logisk slutledning
 5714,Vegetarisk biff,Potatis,8,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A00ZX,8,"8 * 1,00",,,,,,Faktor = logisk slutledning
 5714,Vegetarisk biff,"Lök (gul, röd)",6,,"Tillagad, adderad",1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00HC,6,"6 * 1,00",,,,,,
 5714,Vegetarisk biff,Rotselleri,6,,"Tillagad, adderad",1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00QJ,6,"6 * 1,00",,,,,,
@@ -4887,7 +4887,7 @@ Faktor för nivå 2 beräknad utifrån en torrsubstans i mjölk på 13% och en t
 5714,Vegetarisk biff,Purjolök,1,,"Tillagad, adderad",1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00SB,1,"1 * 1,00",,,,,,
 5714,Vegetarisk biff,"Vete, siktat",1,,"Tillagad, adderad",1,-,A003Y,1,"1 * 1,00",,,,,,Faktor = logisk slutledning
 5714,Vegetarisk biff,Salt,1,"Havssalt, mineralsalt","Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A042P,1,"1 * 1,00",,,,,,Faktor = logisk slutledning
-5715,Vegetarisk färs,Quorn,42,,"Rå, tillagad ",1,-,A03TG,42,"42 * 1,00",,,,,,Faktor = logisk slutledning
+5715,Vegetarisk färs,Quorn,42,,"Rå, tillagad ",1,-,AX13A,42,"42 * 1,00",,,,,,Faktor = logisk slutledning
 5715,Vegetarisk färs,Vatten,34,,"Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A03DL,34,"34 * 1,00",,,,,,Faktor=logiskt slutledning
 5715,Vegetarisk färs,sojaprotein,8,"Sojaproteinisolat, sojaproteinkoncentrat",Torkad,3.1,Produktionsteknologi för ätbart mjöl och proteinprodukter från sojabönor (1992) Berk Z,A015P,24.8,"8 * 3,10",,,,,,OBS: faktorn konverterar till torkad sojaböna
 5715,Vegetarisk färs,"Mjölk fett > 2,5%",6,,"Rå, tillagad ",1,-,A02LY,6,"6 * 1,00",,,,,,Faktor = logisk slutledning
