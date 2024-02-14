@@ -162,3 +162,8 @@
 "A.20.01","Snack food"
 "A.20.02","Ices and desserts"
 "A.20.03","Other foods (foods which cannot be included in any other group)"
+"A.X1", "Novel foods"
+"A.X1.01", "Novel meat alternatives"
+"A.X1.02", "Novel milk alternatives"
+"A.X1.03", "Novel egg alternatives"
+"A.X1.04", "Novel fat alternatives"
