@@ -2,6 +2,17 @@
 import * as d3 from "d3";
 import cmc from "./cmc-colors";
 
+type DataPoint = {
+  [k: string]: number | string;
+};
+
+interface LegendConfig {
+  padding: number;
+  labelHeight: number;
+  circleRadius: number;
+  width: number;
+}
+
 interface Config {
   margin: { top: number; right: number; bottom: number; left: number };
   width: number;
@@ -16,17 +27,6 @@ interface Config {
     // x: string; // TODO: Not implemented
     y: string;
   };
-}
-
-type DataPoint = {
-  [k: string]: number | string;
-};
-
-interface LegendConfig {
-  padding: number;
-  labelHeight: number;
-  circleRadius: number;
-  width: number;
 }
 
 function drawLegend(
@@ -137,6 +137,9 @@ export default function StackedBarChart(
   const legendWidth = 270;
   if (cfg.drawLegend) {
     cfg.margin.right += legendWidth;
+
+    const minHeight = 26 * (columns.length + 1);
+    cfg.height = Math.max(minHeight, cfg.height);
   }
 
   if (cfg.axisLabels?.y) {
@@ -178,7 +181,7 @@ export default function StackedBarChart(
 
   if (cfg.labelLayout === "slanted") {
     xAxisG
-      .selectAll("")
+      .selectAll(".tick text")
       .attr("transform", "translate(10,0) rotate(-45)")
       .style("text-anchor", "end");
   } else if (cfg.labelLayout === "offset") {

@@ -597,12 +597,12 @@ onMounted(async () => {
         <h2 class="hr-header">
           <span>Impacts from Diet</span>
         </h2>
-        <div class="results-grid-large results-grid-large--alt">
-          <div class="results-grid-large__graph">
+        <div class="cluster">
+          <div class="stack planetary-boundaries-chart-container">
             <h3>Impacts in relation to the planetary boundaries</h3>
             <PlanetaryBoundariesChart :data="dietTotalFootprints" />
           </div>
-          <div class="results-grid-large__aside stack">
+          <div class="stack">
             <h3>Diet: Riksmaten 2010/2011, average diet of adults in Sweden</h3>
             <button
               class="button button--accent"
@@ -847,10 +847,6 @@ onMounted(async () => {
   }
 }
 
-.results-grid-large--alt {
-  --aside-width: minmax(20em, 1fr);
-}
-
 .results-grid-small {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
@@ -859,5 +855,12 @@ onMounted(async () => {
   @media only screen and (max-width: 20em) {
     display: block;
   }
+}
+
+.planetary-boundaries-chart-container {
+  flex-basis: 40em;
+  flex-grow: 0;
+  flex-shrink: 1;
+  max-width: 100%;
 }
 </style>
