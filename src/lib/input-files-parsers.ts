@@ -1,11 +1,11 @@
 import { parseCsvFile, roundToPrecision, vectorsSum } from "@/lib/utils";
 
-import processTranslationsCsv from "@/data/slv-to-efsa-processes.csv?raw";
+import processTranslationsCsv from "@/data/sfa-to-efsa-processes.csv?raw";
 
-const SlvEfsaProcessTranslations: Record<string, string> = Object.fromEntries(
+const SfaEfsaProcessTranslations: Record<string, string> = Object.fromEntries(
   parseCsvFile(processTranslationsCsv)
     .slice(1)
-    .map(([slvName, efsaCode]) => [slvName, efsaCode])
+    .map(([sfaName, efsaCode]) => [sfaName, efsaCode])
 );
 
 const asNumber = (str: string, elseValue = 0): number => {
@@ -478,7 +478,7 @@ export function parseFoodsRecipes(recipesCsvStr: string) {
   return recipes;
 }
 
-export function parseSlvRecipes(recipesCsvStr: string): SlvRecipeComponent[] {
+export function parseSfaRecipes(recipesCsvStr: string): SfaRecipeComponent[] {
   const data: string[][] = parseCsvFile(recipesCsvStr).slice(1);
 
   const err = validateCsv(data, { minCols: 10 }); // don't need the last 2
@@ -490,8 +490,8 @@ export function parseSlvRecipes(recipesCsvStr: string): SlvRecipeComponent[] {
     data
       .map(
         ([
-          slvCode,
-          slvName,
+          sfaCode,
+          sfaName,
           _i1Name,
           i1Share,
           _i1Desc,
@@ -503,10 +503,10 @@ export function parseSlvRecipes(recipesCsvStr: string): SlvRecipeComponent[] {
           _i1NetAmountDesc,
           _i2Name,
         ]) => ({
-          slvCode,
-          slvName,
+          sfaCode,
+          sfaName,
           foodEx2Code: i1FoodEx2Code,
-          process: SlvEfsaProcessTranslations[i1ProcessName] || "",
+          process: SfaEfsaProcessTranslations[i1ProcessName] || "",
           grossShare: asNumber(i1Share, 0) / 100,
           netShare: asNumber(i1NetShare, 0) / 100,
         })

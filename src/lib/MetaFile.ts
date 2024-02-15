@@ -43,7 +43,7 @@ type InputFileKeys =
   | "wasteRetailAndConsumerFile"
   | "footprintsRpcsFile"
   | "dietFile"
-  | "slvRecipesFile";
+  | "sfaRecipesFile";
 
 export default class MetaFile {
   private readonly version = __APP_VERSION__;
@@ -91,7 +91,7 @@ export default class MetaFile {
       sep("-"),
       "Footprints of RPCs:" + fileInterfaceToString(f.footprintsRpcsFile),
       "Diet: " + fileInterfaceToString(f.dietFile),
-      "SLV Recipes: " + fileInterfaceToString(f.slvRecipesFile),
+      "SFA Recipes: " + fileInterfaceToString(f.sfaRecipesFile),
     ].join("\n");
   }
 }

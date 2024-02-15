@@ -49,9 +49,9 @@ declare global {
     Record<string, number[]>,
   ];
 
-  interface SlvRecipeComponent {
-    slvCode: string;
-    slvName: string;
+  interface SfaRecipeComponent {
+    sfaCode: string;
+    sfaName: string;
     foodEx2Code: string;
     process: string;
     grossShare: number;

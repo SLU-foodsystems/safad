@@ -7,9 +7,9 @@ import {
 } from "@/lib/impacts-csv-utils";
 import { parseCsvFile } from "./utils";
 
-export const SLV_RESULTS_HEADER = [
-  "SLV Code",
-  "SLV Name",
+export const SFA_RESULTS_HEADER = [
+  "SFA Code",
+  "SFA Name",
   "Ingredient Code",
   "Ingredient Name",
   "L1 Name",
@@ -23,7 +23,7 @@ export const SLV_RESULTS_HEADER = [
 
 import foodexTranslationTableUrl from "@/data/foodex-code-translations.csv?url";
 
-function parseSlvFoodExTranslationFile(csvString: string) {
+function parseSfaFoodExTranslationFile(csvString: string) {
   const mappings: Record<string, string> = {};
   parseCsvFile(csvString)
     .slice(1)
@@ -47,25 +47,25 @@ const addProcesses = (
 
   const impactsCopy = { ...processImpacts };
 
-  // Compte the env. impacts of the additional, slv processes. This is
+  // Compte the env. impacts of the additional, SFA processes. This is
   // a bit hacky, as we're reaching into the RE for its
   // processEnvFactors. Sorry about that :)
-  const slvProcessesImpacts = computeProcessImpacts(
+  const sfaProcessesImpacts = computeProcessImpacts(
     { foo: processAmounts },
     RE.processEnvFactors!
   ).foo;
 
   // The key "A.00" does not matter - that information is not used,
   // but it's needed for the structure (i.e. { [string]: impacts })
-  Object.assign(impactsCopy, { "A.00": slvProcessesImpacts });
+  Object.assign(impactsCopy, { "A.00": sfaProcessesImpacts });
   return impactsCopy;
 };
 
-export async function generateSlvResults(
-  slvRecipeData: SlvRecipeComponent[],
+export async function generateSfaResults(
+  sfaRecipeData: SfaRecipeComponent[],
   RE: ResultsEngine
 ): Promise<string[][]> {
-  const foodEx2ToFoodEx1Matchings = parseSlvFoodExTranslationFile(
+  const foodEx2ToFoodEx1Matchings = parseSfaFoodExTranslationFile(
     await fetch(foodexTranslationTableUrl).then((res) => {
       if (!res.ok) {
         console.error("File not found for foodex code translation table.");
@@ -78,15 +78,15 @@ export async function generateSlvResults(
   const results: Record<string, [string, string, string, number, number][]> =
     {};
 
-  // First, we group all data by the SLV code, i.e. slv and then ingredients
-  slvRecipeData.forEach(
-    ({ slvCode, slvName, foodEx2Code, process, grossShare, netShare }) => {
-      if (!results[slvCode]) {
-        results[slvCode] = [];
+  // First, we group all data by the SFA code, i.e. SFA and then ingredients
+  sfaRecipeData.forEach(
+    ({ sfaCode, sfaName, foodEx2Code, process, grossShare, netShare }) => {
+      if (!results[sfaCode]) {
+        results[sfaCode] = [];
       }
 
-      results[slvCode].push([
-        slvName,
+      results[sfaCode].push([
+        sfaName,
         foodEx2ToFoodEx1Matchings[foodEx2Code],
         process,
         grossShare,
@@ -96,12 +96,12 @@ export async function generateSlvResults(
   );
 
   const rows: (string[][] | null)[] = Object.entries(results).map(
-    ([slvCode, ingredients]) => {
+    ([sfaCode, ingredients]) => {
       const BASE_AMOUNT = 1000; // grams, = 1 kg
 
       // First, compute the impact of each diet element seperately
       const ingredientRows = ingredients
-        .map(([slvName, code, process, grossShare, netShare]) => {
+        .map(([sfaName, code, process, grossShare, netShare]) => {
           const grossAmount = grossShare * BASE_AMOUNT;
           const netAmount = netShare * BASE_AMOUNT;
           const impacts = RE.computeImpacts([[code, netAmount]]);
@@ -119,8 +119,8 @@ export async function generateSlvResults(
             labeledImpacts(code, netAmount, impacts);
 
           return [
-            slvCode,
-            slvName,
+            sfaCode,
+            sfaName,
             code,
             name,
             l1Name,
@@ -135,7 +135,7 @@ export async function generateSlvResults(
       // And, for good measure, we compute the total impacts as well: the sum of
       // the disaggregate items
       const totalImpacts = RE.computeImpacts(
-        ingredients.map(([_slvName, code, _process, _grossShare, netShare]) => [
+        ingredients.map(([_sfaName, code, _process, _grossShare, netShare]) => [
           code,
           netShare * BASE_AMOUNT,
         ])
@@ -148,14 +148,14 @@ export async function generateSlvResults(
       const missingRpcImpacts = Object.entries(rpcImpacts).filter(
         (kv) => kv[1] === null
       );
-      // Collect all slv-level processes, which we will add on top of what was
+      // Collect all SFA-level processes, which we will add on top of what was
       // found in the recipes
-      const slvProcesses: { [process: string]: number } = {};
+      const sfaProcesses: { [process: string]: number } = {};
       ingredients.forEach(
-        ([_slvName, _code, process, grossShare, _netShare]) => {
+        ([_sfaName, _code, process, grossShare, _netShare]) => {
           if (!process) return;
-          slvProcesses[process] =
-            (slvProcesses[process] || 0) + grossShare * BASE_AMOUNT;
+          sfaProcesses[process] =
+            (sfaProcesses[process] || 0) + grossShare * BASE_AMOUNT;
         }
       );
 
@@ -164,18 +164,18 @@ export async function generateSlvResults(
           ? AGGREGATE_HEADERS.map((_) => "NA")
           : aggregateImpacts(
               totalImpacts[0] as Record<string, number[]>,
-              addProcesses(totalProcessImpacts, slvProcesses, RE),
+              addProcesses(totalProcessImpacts, sfaProcesses, RE),
               totalImpacts[2],
               totalImpacts[3]
             ).map((x) => x.toString());
 
-      const slvName = ingredients[0][0];
+      const sfaName = ingredients[0][0];
 
       return [
         [
-          slvCode,
-          slvName,
-          slvCode,
+          sfaCode,
+          sfaName,
+          sfaCode,
           "(total)",
           "",
           "",

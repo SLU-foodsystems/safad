@@ -12,7 +12,7 @@ import processesEnergyDemandsUrl from "@/default-input-files/SAFAD IP Energy Pro
 import preparationProcessesAndPackagingUrl from "@/default-input-files/SAFAD IP Prep Proc and Pack.csv?url";
 import footprintsRpcsUrl from "@/default-input-files/SAFAD ID Footprints RPC.csv?url";
 import foodsRecipesUrl from "@/default-input-files/SAFAD IP Recipes.csv?url";
-import slvRecipesUrl from "@/default-input-files/SAFAD IS SLV Recipes.csv?url";
+import sfaRecipesUrl from "@/default-input-files/SAFAD IS SFA Recipes.csv?url";
 
 // Per country
 const wasteRetailAndConsumerUrls = import.meta.glob(
@@ -80,7 +80,7 @@ export const raw = {
     fetchCountrySpecificFile(countryCode, dietsUrls),
   rpcOriginWaste: (countryCode: string) =>
     fetchCountrySpecificFile(countryCode, rpcOriginWasteUrls),
-  slvRecipes: () => fetchFile(slvRecipesUrl),
+  sfaRecipes: () => fetchFile(sfaRecipesUrl),
 };
 
 export const parsed = {
