@@ -772,20 +772,40 @@ onMounted(async () => {
         :file-description="Descriptions.emissionsFactorsTransport"
       />
     </div>
+
+    <footer class="page-footer">
+      <div class="page-wrap page-footer__content stack">
+        <img
+          src="@/assets/planeat-logo-white.png"
+          alt="Plan'Eat"
+          width="543"
+          height="142"
+        />
+        <p>
+          PLAN’EAT is a Horizon Europe research project, bringing together 24
+          partners and running from September 2022 to 2026.
+        </p>
+      </div>
+    </footer>
   </section>
 </template>
 
 <style lang="scss" scoped>
 @import "styles/constants";
 
-.start-page {
-  display: block;
-  overflow: auto;
+.page-footer {
+  padding: 2em 0;
+  margin-top: 2em;
+  background: $green_forest;
+  color: white;
+}
 
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  padding-bottom: 2em;
+.page-footer__content {
+  img {
+    width: auto;
+    color: white;
+    height: 2em;
+  }
 }
 
 .download-section {
