@@ -125,6 +125,13 @@ export default defineComponent({
         (this.$refs.fileInput as HTMLInputElement)?.click();
       } else {
         resetFile(this.countryCode, this.fileInterface);
+        // Reset the DOM input element as well
+        const { fileInput } = this.$refs as {
+          fileInput: null | HTMLInputElement;
+        };
+        if (fileInput) {
+          fileInput.value = "";
+        }
       }
     },
 
