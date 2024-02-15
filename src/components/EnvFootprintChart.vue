@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { debounce, sum } from "@/lib/utils";
 import { useOnResize } from "@/lib/use-on-resize";
-import { ref, watch } from "vue";
+import { onMounted, ref, watch } from "vue";
 import BarChart from "@/lib/charts/BarChart";
 
 // Code: aggregated impacts
@@ -62,6 +62,8 @@ watch(
 );
 
 useOnResize(debounce(drawChart, 200));
+
+onMounted(() => drawChart());
 </script>
 
 <template>
