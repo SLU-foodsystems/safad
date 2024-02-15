@@ -4,6 +4,7 @@ import {
   getRpcCodeSubset,
   nthIndexOf,
   filterObject,
+  parseCsvFile,
 } from "./utils";
 
 describe("utils.ts", () => {
@@ -61,6 +62,62 @@ describe("utils.ts", () => {
     expect(filterObject(obj, (_k, v) => v % 2 === 0)).toEqual({
       b: 2,
       d: 4,
+    });
+  });
+
+  describe("parseCsvFile", () => {
+    test("sanity check", () => {
+      expect(parseCsvFile("a,b,c\n1,2,3\nfoo bar,,")).toEqual([
+        ["a", "b", "c"],
+        ["1", "2", "3"],
+        ["foo bar", "", ""],
+      ]);
+    });
+
+    test("it handles uneven lengths", () => {
+      expect(parseCsvFile("a,b,c,d,e,f\n1,2,3")).toEqual([
+        ["a", "b", "c", "d", "e", "f"],
+        ["1", "2", "3"],
+      ]);
+    });
+
+    test("it handles quoted values with nested delimiters", () => {
+      expect(parseCsvFile('a,"hello, world",c')).toEqual([
+        ["a", "hello, world", "c"],
+      ]);
+    });
+
+    test("it trims values", () => {
+      expect(parseCsvFile("\t\ta, b,c \n1, 22  ,3 ")).toEqual([
+        ["a", "b", "c"],
+        ["1", "22", "3"],
+      ]);
+    });
+
+    test("it can avoid trimming values", () => {
+      expect(parseCsvFile("\t\ta, b,c \n1, 22  ,3 ", { trim: false })).toEqual([
+        ["\t\ta", " b", "c "],
+        ["1", " 22  ", "3 "],
+      ]);
+    });
+
+    test("it handles other delimiters", () => {
+      expect(
+        parseCsvFile("a;b;c\n1;2;3\nfoo bar;;", {
+          delimiter: ";",
+        })
+      ).toEqual([
+        ["a", "b", "c"],
+        ["1", "2", "3"],
+        ["foo bar", "", ""],
+      ]);
+    });
+
+    test("it handles multi-line values", () => {
+      expect(parseCsvFile('Hello,World,"Good\nBye"\n1,2,3')).toEqual([
+        ["Hello", "World", "Good\nBye"],
+        ["1", "2", "3"],
+      ]);
     });
   });
 });
