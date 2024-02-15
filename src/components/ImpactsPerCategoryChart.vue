@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import StackedBarChart from "@/lib/charts/StackedBarChart";
 import { categoryNames } from "@/lib/efsa-names";
+import { useOnResize } from "@/lib/use-on-resize";
 import { sum } from "@/lib/utils";
 import { onMounted, ref, watch } from "vue";
 
@@ -69,6 +70,9 @@ const drawChart = () => {
   const width = rect.width;
   const height = rect.width * 0.45;
 
+  const labelLayout =
+    width < 1200 ? (width < 900 ? "slanted" : "offset") : "normal";
+
   StackedBarChart(
     el.value,
     data,
@@ -79,9 +83,13 @@ const drawChart = () => {
       maxValue: 100,
       drawLegend: true,
       axisLabels: { y: "%" },
+
+      labelLayout,
     }
   );
 };
+
+useOnResize(() => drawChart());
 
 watch(() => props.impactsPerCategory, drawChart);
 
