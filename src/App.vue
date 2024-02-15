@@ -545,9 +545,11 @@ onMounted(async () => {
       </div>
     </div>
 
-    <div class="page-wrap stack">
-      <section class="stack">
-        <h2 class="u-tac">Impacts from Foods and Diets</h2>
+    <div class="page-wrap stack stack-l">
+      <section class="stack stack-l">
+        <h2 class="hr-header">
+          <span>Impacts from foods</span>
+        </h2>
         <div class="results-grid-large">
           <div class="results-grid-large__graph">
             <h3>Carbon footprint preview</h3>
@@ -579,8 +581,10 @@ onMounted(async () => {
         </div>
       </section>
 
-      <section class="stack">
-        <h2>Impacts from Diet</h2>
+      <section class="stack stack-l">
+        <h2 class="hr-header">
+          <span>Impacts from Diet</span>
+        </h2>
         <div class="results-grid-large results-grid-large--alt">
           <div class="results-grid-large__graph">
             <h3>Impacts in relation to the planetary boundaries</h3>
@@ -597,14 +601,13 @@ onMounted(async () => {
           </div>
         </div>
       </section>
-    </div>
 
-    <div class="u-tac">
-      <h2>Configure Files</h2>
-    </div>
-
-    <div class="stack u-tac start-page-wrap">
-      <h3>Download Output Data</h3>
+      <h2 class="hr-header">
+        <span>Configure Files</span>
+      </h2>
+      <h3 class="hr-header hr-header--right-only">
+        <span>Download Output Data</span>
+      </h3>
       <section class="download-section stack">
         <div class="stack">
           <div class="cluster cluster--between">
@@ -659,7 +662,10 @@ onMounted(async () => {
 
         <LoadingOverlay :show="isLoading" />
       </section>
-      <h3>Input Data</h3>
+
+      <h3 class="hr-header hr-header--right-only">
+        <span>Input Data</span>
+      </h3>
 
       <FileSelector
         file-label="Footprints RPC"
@@ -675,7 +681,9 @@ onMounted(async () => {
         :file-description="Descriptions.diet"
       />
 
-      <h3>Parameter Files</h3>
+      <h3 class="hr-header hr-header--right-only">
+        <span>Parameter Files</span>
+      </h3>
 
       <FileSelector
         file-label="Foods Recipes"
@@ -717,7 +725,9 @@ onMounted(async () => {
         :file-description="Descriptions.wasteRetailAndConsumer"
       />
 
-      <h3>Emissions Factors</h3>
+      <h3 class="hr-header hr-header--right-only">
+        <span>Emissions Factors</span>
+      </h3>
       <FileSelector
         file-label="Emissions Factors Packaging"
         :country-code="countryCode"
@@ -751,18 +761,6 @@ onMounted(async () => {
   width: 100%;
   padding: 0;
   padding-bottom: 2em;
-}
-
-.start-page__logo {
-  width: auto;
-  height: 3em;
-}
-
-.start-page-wrap {
-  width: auto;
-  margin: 0 auto;
-  width: 60em;
-  max-width: 95%;
 }
 
 .download-section {

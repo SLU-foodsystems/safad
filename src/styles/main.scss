@@ -126,6 +126,41 @@ p {
   margin-bottom: 0.75em;
 }
 
+.hr-header {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  > * {
+    flex: 0 0 auto;
+    margin: 0 auto;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    height: 4px;
+    background: $gray;
+    flex-grow: 1;
+    flex-basis: auto;
+  }
+
+  &.hr-header--right-only {
+    text-align: left;
+    &::before {
+      content: none;
+    }
+  }
+
+  &.hr-header--left-only {
+    text-align: right;
+    &::after {
+      content: none;
+    }
+  }
+}
+
 /*
  * Layout Primitives
  * =========================================== */
