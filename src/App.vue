@@ -853,7 +853,11 @@ onMounted(async () => {
 
 .results-grid-small {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
   gap: 1em;
+
+  @media only screen and (max-width: 20em) {
+    display: block;
+  }
 }
 </style>

@@ -55,14 +55,15 @@ export default function BarChart(
     ...options,
   };
 
+  const APPROX_CHAR_WIDTH = 6;
+  const SLANTED_LABEL_MARGIN = 70;
+
   if (cfg.labelLayout === "slanted") {
     // TODO: this is an arbitrary offset
-    cfg.margin.bottom += 100;
+    cfg.margin.bottom += SLANTED_LABEL_MARGIN;
   } else if (cfg.labelLayout === "offset") {
     cfg.margin.bottom += 20;
   }
-
-  const APPROX_CHAR_WIDTH = 6;
 
   // +1 for decimal-point(s)
   const yTickFormat = getYTickFormat(
@@ -118,7 +119,7 @@ export default function BarChart(
 
   if (cfg.labelLayout === "slanted") {
     xAxisG
-      .selectAll("")
+      .selectAll(".tick text")
       .attr("transform", "translate(10,0) rotate(-45)")
       .style("text-anchor", "end");
   } else if (cfg.labelLayout === "offset") {
@@ -132,7 +133,11 @@ export default function BarChart(
   // TODO: Only implemented y-label
   if (cfg.axisLabels && cfg.axisLabels.y) {
     const labelXPos = -15 - yTickCharLen * APPROX_CHAR_WIDTH;
-    const labelYPos = cfg.height / -2 + cfg.margin.top;
+    let labelYPos = cfg.height / -2 + cfg.margin.top;
+
+    if (cfg.labelLayout === "slanted") {
+      labelYPos += SLANTED_LABEL_MARGIN / 2;
+    }
 
     // Axis labels
     svg
@@ -156,6 +161,6 @@ export default function BarChart(
     // @ts-ignore-next-line
     .attr("x", (d) => xAxisScaler(d.category))
     .attr("y", (d) => yAxisScaler(d.value))
-    .attr("height", (d) => innerHeight- yAxisScaler(d.value))
+    .attr("height", (d) => innerHeight - yAxisScaler(d.value))
     .attr("width", xAxisScaler.bandwidth());
 }
