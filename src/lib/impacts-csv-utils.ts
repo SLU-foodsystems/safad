@@ -1,4 +1,4 @@
-import { sum, vectorsSum } from "@/lib/utils";
+import { filterObject, sum, uniq, vectorsSum } from "@/lib/utils";
 import {
   ENV_IMPACTS_ZERO,
   CO2E_CONV_FACTORS,
@@ -187,6 +187,41 @@ export function aggregateImpacts(
     totalProcessesEmissions,
     totalPackagingEmissions,
     totalTransportEmissions
+  );
+}
+
+export function aggregateImpactsByCategory(
+  rpcFootprints: Record<string, number[] | null>,
+  processEmissions: NestedRecord<string, number[]>,
+  packagingEmissions: NestedRecord<string, number[]>,
+  transportEmissions: Record<string, number[]>
+) {
+  const nonNullRpcImpacts: Record<string, number[]> = Object.fromEntries(
+    Object.entries(rpcFootprints).filter(
+      (kv): kv is [string, number[]] => kv[1] !== null
+    )
+  );
+
+  const getL1Keys = (obj: Record<string, any>): string[] =>
+    Object.keys(obj).map((code) => getRpcCodeSubset(code, 1));
+
+  const l1Codes = uniq([
+    ...getL1Keys(nonNullRpcImpacts),
+    ...Object.keys(processEmissions),
+    ...Object.keys(packagingEmissions),
+    ...getL1Keys(transportEmissions),
+  ]).sort();
+
+  return Object.fromEntries(
+    l1Codes.map((l1Code) => [
+      l1Code,
+      aggregateImpacts(
+        filterObject(nonNullRpcImpacts, (k) => k.startsWith(l1Code)),
+        { [l1Code]: processEmissions[l1Code] || {} },
+        { [l1Code]: packagingEmissions[l1Code] || {} },
+        filterObject(transportEmissions, (k) => k.startsWith(l1Code))
+      ),
+    ])
   );
 }
 
