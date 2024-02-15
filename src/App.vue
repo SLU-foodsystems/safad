@@ -567,7 +567,7 @@ onMounted(async () => {
             </button>
             <button
               class="button button--accent"
-              @click="downloadFootprintsOfSLVRecipes"
+              @click="downloadFootprintsOfSfaRecipes"
             >
               Download footprints of foods - SFA recipes
             </button>
