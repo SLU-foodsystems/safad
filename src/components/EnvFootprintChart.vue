@@ -15,40 +15,35 @@ const props = defineProps<{
   yLabel: string;
 }>();
 
+const truncate = (text: string, length = 20) =>
+  text.length > length ? text.slice(0, length) + "..." : text;
+
 const el = ref<HTMLDivElement | null>(null);
 const drawChart = () => {
   if (!el.value) return;
   if (props.data.length === 0) return;
 
-  const data = props.data.map(([code, impactsArr]: [string, number[]]) => ({
-    category: code,
+  const data = props.data.map(([label, impactsArr]: [string, number[]]) => ({
+    category: truncate(label),
     value: impactsArr[props.index],
   }));
 
-  const maxValue = Math.max(
-    0,
-    ...data.map((obj) =>
-      sum(Object.values(obj).filter((v): v is number => typeof v === "number"))
-    )
-  );
+  const maxValue = Math.max(0, ...data.map((obj) => obj.value));
 
-  let [width, height] = [800, 500];
-  if (el.value) {
-    const svg = el.value.querySelector("svg");
-    if (svg) {
-      el.value.removeChild(svg);
-    }
-
-    const rect = el.value.getBoundingClientRect();
-    width = rect.width;
-    height = rect.width * 0.8;
+  const svg = el.value.querySelector("svg");
+  if (svg) {
+    el.value.removeChild(svg);
   }
+
+  const rect = el.value.getBoundingClientRect();
+  const width = rect.width;
+  const height = rect.width * 0.9;
 
   BarChart(el.value, data, {
     maxValue,
     width,
     height,
-    labelLayout: "offset",
+    labelLayout: "slanted",
     color: props.color,
     axisLabels: {
       y: props.yLabel,
@@ -82,5 +77,4 @@ onMounted(() => drawChart());
     font-weight: bold;
   }
 }
-
 </style>
