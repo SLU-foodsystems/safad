@@ -27,7 +27,7 @@ import { resetFile, initInputFile } from "@/lib/file-interface-utils";
 
 import FileSelector from "@/components/FileSelector.vue";
 import LoadingOverlay from "@/components/LoadingOverlay.vue";
-import CarbonFootprintsGraph from "@/components/CarbonFootprintsGraph.vue";
+import CarbonFootprintsChart from "@/components/CarbonFootprintsChart.vue";
 import EnvFootprintCharts from "@/components/EnvFootprintCharts.vue";
 import PlanetaryBoundariesChart from "@/components/PlanetaryBoundariesChart.vue";
 import ImpactsPerCategoryChart from "@/components/ImpactsPerCategoryChart.vue";
@@ -565,7 +565,7 @@ onMounted(async () => {
         <div class="results-grid-large">
           <div class="results-grid-large__graph">
             <h3>Carbon footprint preview</h3>
-            <CarbonFootprintsGraph :data="carbonFootprintsData" />
+            <CarbonFootprintsChart :data="carbonFootprintsData" />
           </div>
           <div class="results-grid-large__aside stack">
             <h3>Download output data</h3>
