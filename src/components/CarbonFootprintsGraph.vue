@@ -87,7 +87,8 @@ onMounted(() => drawChart());
 <template>
   <div class="carbon-footprints-chart">
     <div class="carbon-footprints-chart__labels">
-      <p v-for="label in labels" v-text="label"></p>
+      <p><strong>Emissions Source</strong></p>
+      <p v-for="label in labels" v-text="label" data-color="#f0f"></p>
     </div>
     <div class="carbon-footprints-chart__canvas" ref="canvasEl"></div>
   </div>
@@ -106,9 +107,25 @@ onMounted(() => drawChart());
   flex-grow: 0;
   flex-shrink: 1;
   min-width: 10em;
+  font-size: 0.85em;
 
   p {
     margin-bottom: 0.5em;
+    &[data-color] {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+
+      &::before {
+        $size: 1.25em;
+        content: "";
+        display: inline-block;
+        width: $size;
+        height: $size;
+        background: gray;
+        border-radius: $size;
+      }
+    }
   }
 }
 .carbon-footprints-chart__canvas {
