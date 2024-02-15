@@ -362,40 +362,6 @@ class ResultsEngine {
       .map((code) => [code, 1000]);
     return this.computeImpactsDetailed(fauxDiet);
   }
-
-  public computeImpactsByCategory(diet: Diet) {
-    const impacts = this.computeImpacts(diet);
-    if (!impacts) return null;
-
-    const [rpcImpacts, processImpacts, packagingImpacts, transportImpacts] =
-      impacts;
-
-    const nonNullRpcImpacts: Record<string, number[]> = Object.fromEntries(
-      Object.entries(rpcImpacts).filter(
-        (kv): kv is [string, number[]] => kv[1] !== null
-      )
-    );
-    const rpcImpactsByCategory = aggregateRpcCategories(nonNullRpcImpacts, 1);
-    const processImpactsByCategory = mapValues(
-      processImpacts,
-      (perCategoryProcesses) => vectorsSum(Object.values(perCategoryProcesses))
-    );
-    const packagingImpactsByCategory = mapValues(
-      packagingImpacts,
-      (perCategoryPackaging) => vectorsSum(Object.values(perCategoryPackaging))
-    );
-    const transportImpactsByCategory = aggregateRpcCategories(
-      transportImpacts,
-      1
-    );
-
-    return [
-      rpcImpactsByCategory,
-      processImpactsByCategory,
-      packagingImpactsByCategory,
-      transportImpactsByCategory,
-    ];
-  }
 }
 
 export default ResultsEngine;
