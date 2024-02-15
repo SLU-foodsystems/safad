@@ -30,7 +30,7 @@ interface LegendConfig {
 }
 
 function drawLegend(
-  root: d3.Selection<any, unknown, HTMLElement, any>,
+  root: d3.Selection<SVGGElement, unknown, null, any>,
   labels: string[],
   color: d3.ScaleOrdinal<string, string, never>,
   rect: { x: number; y: number },
