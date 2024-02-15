@@ -17,9 +17,9 @@ import {
 } from "@/lib/impacts-csv-utils";
 import reduceDietToRpcs from "@/lib/rpc-reducer";
 import {
-  generateSlvResults,
-  SLV_RESULTS_HEADER,
-} from "@/lib/slv-results-generator";
+  generateSfaResults,
+  SFA_RESULTS_HEADER,
+} from "@/lib/sfa-results-generator";
 
 import { resetFile, initInputFile } from "@/lib/file-interface-utils";
 
@@ -50,7 +50,7 @@ const Descriptions = {
     "Emissions factors for different types of packaging.",
   emissionsFactorsTransport:
     "Emissions factors for transports between different countries.",
-  slvRecipesFile:
+  sfaRecipesFile:
     "An alternative recipe file containing recipes used by the Swedish Food Agency. This file defines for which recipes footprints are calculated for, what ingredients they contain and in what amounts (as determined by SFA). This file is complemented by SAFAD IP Recipes.csv file to break non-RPC items down to RPC-level.",
 };
 
@@ -61,7 +61,7 @@ const diet = ref<Diet>([]);
 const includeBreakdownFile = ref(false);
 const isLoading = ref(false);
 // Needs to be separate, as they're not managed by the ResultsEngine
-const slvRecipes = ref<SlvRecipeComponent[]>([]);
+const sfaRecipes = ref<SfaRecipeComponent[]>([]);
 
 const footprintsRpcsFile = ref(
   initInputFile({
@@ -152,13 +152,13 @@ const emissionsFactorsTransportFile = ref(
   })
 );
 
-const slvRecipesFile = ref(
-  initInputFile<SlvRecipeComponent[]>({
-    defaultName: () => "SAFAD IS SLV Recipes.csv",
-    getDefault: DefaultInputFiles.raw.slvRecipes,
-    parser: InputFileParsers.parseSlvRecipes,
-    setter: (data: SlvRecipeComponent[]) => {
-      slvRecipes.value = data;
+const sfaRecipesFile = ref(
+  initInputFile<SfaRecipeComponent[]>({
+    defaultName: () => "SAFAD IS SFA Recipes.csv",
+    getDefault: DefaultInputFiles.raw.sfaRecipes,
+    parser: InputFileParsers.parseSfaRecipes,
+    setter: (data: SfaRecipeComponent[]) => {
+      sfaRecipes.value = data;
     },
   })
 );
@@ -241,13 +241,13 @@ const downloadFootprintsOfDiets = () => {
   }
 };
 
-const downloadFootprintsOfSLVRecipes = async () => {
+const downloadFootprintsOfSfaRecipes = async () => {
   if (!RE) return;
 
-  const slvResultsRows = await generateSlvResults(slvRecipes.value, RE);
+  const sfaResultsRows = await generateSfaResults(sfaRecipes.value, RE);
   downloadAsPlaintext(
-    stringifyCsvData([SLV_RESULTS_HEADER, ...slvResultsRows]),
-    "SAFAD OR Footprints per SLV Food.csv"
+    stringifyCsvData([SFA_RESULTS_HEADER, ...sfaResultsRows]),
+    "SAFAD OR Footprints per SFA Food.csv"
   );
 };
 
@@ -264,7 +264,7 @@ metaFileHandler.setInputFileInterfaces({
   wasteRetailAndConsumerFile: wasteRetailAndConsumerFile.value,
   footprintsRpcsFile: footprintsRpcsFile.value,
   dietFile: dietFile.value,
-  slvRecipesFile: slvRecipesFile.value,
+  sfaRecipesFile: sfaRecipesFile.value,
 });
 
 const downloadZip = async () => {
@@ -292,7 +292,7 @@ const downloadZip = async () => {
     preparationProcessesAndPackagingFile.value,
     processesEnergyDemandsFile.value,
     rpcOriginWasteFile.value,
-    slvRecipesFile.value,
+    sfaRecipesFile.value,
     wasteRetailAndConsumerFile.value,
   ];
   const addFilePromises = files.map((f) => addFile(f));
@@ -300,9 +300,9 @@ const downloadZip = async () => {
   zip.file("info.txt", metaFileHandler.toString());
 
   if (countryCode.value === "SE") {
-    const slvResultsRows = await generateSlvResults(slvRecipes.value, RE);
-    const data = stringifyCsvData([SLV_RESULTS_HEADER, ...slvResultsRows]);
-    zip.file("SAFAD OR Footprints per SLV Food.csv", data);
+    const sfaResultsRows = await generateSfaResults(sfaRecipes.value, RE);
+    const data = stringifyCsvData([SFA_RESULTS_HEADER, ...sfaResultsRows]);
+    zip.file("SAFAD OR Footprints per SFA Food.csv", data);
   }
 
   const impactsOfRecipe = labeledAndFilteredImpacts(
@@ -361,11 +361,11 @@ onMounted(async () => {
   promises.push(
     DefaultInputFiles.configureResultsEngine(RE, countryCode.value)
   );
-  // SLV Recipes also needs to be set to initial value, as not handled by the
+  // SFA Recipes also needs to be set to initial value, as not handled by the
   // configureResultsEngine utility.
   promises.push(
-    slvRecipesFile.value.getDefault(countryCode.value).then((data: string) => {
-      slvRecipesFile.value?.setter(slvRecipesFile.value.parser(data));
+    sfaRecipesFile.value.getDefault(countryCode.value).then((data: string) => {
+      sfaRecipesFile.value?.setter(sfaRecipesFile.value.parser(data));
     })
   );
 
@@ -559,25 +559,24 @@ onMounted(async () => {
                 height="2250"
                 loading="lazy"
               />
-              <h2>Download footprints based off of SLV Data</h2>
+              <h2>Download footprints based off of SFA Data</h2>
             </span>
             <button
               class="button button--accent"
-              @click="downloadFootprintsOfSLVRecipes"
+              @click="downloadFootprintsOfSfaRecipes"
             >
               Download
             </button>
           </div>
           <p>
             Download a csv file with the impacts of recipes used by the
-            <abbr title="Svenska Livsmedelsverket">SLV</abbr> (Swedish Food
-            Agency).
+            <abbr title="Swedish Food Authority">SFA</abbr>
           </p>
           <FileSelector
-            file-label="SLV Recipes"
+            file-label="SFA Recipes"
             :country-code="countryCode"
-            :file-interface="slvRecipesFile"
-            :file-description="Descriptions.slvRecipesFile"
+            :file-interface="sfaRecipesFile"
+            :file-description="Descriptions.sfaRecipesFile"
           />
         </div>
 
@@ -708,7 +707,7 @@ onMounted(async () => {
   }
 }
 
-.slv-container {
+.sfa-container {
   padding: 1em;
   background: rgba($yellow_sunshine, 0.4);
 }
