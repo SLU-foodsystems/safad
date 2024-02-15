@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, watch, onMounted } from "vue";
+import { ref, watch, onMounted, computed } from "vue";
 
 import * as DefaultInputFiles from "@/lib/default-input-files";
 import * as InputFileParsers from "@/lib/input-files-parsers";
@@ -33,6 +33,21 @@ import PlanetaryBoundariesChart from "@/components/PlanetaryBoundariesChart.vue"
 import ImpactsPerCategoryChart from "@/components/ImpactsPerCategoryChart.vue";
 
 import { rpcNames } from "./lib/efsa-names";
+import dietNamesJson from "@/data/diet-names.json";
+
+const dietNames = dietNamesJson as Record<
+  string,
+  {
+    country: string;
+    surveyName: string;
+    ageClass: string;
+  }
+>;
+
+const readableDietName = (countryCode: string) => {
+  const data = dietNames[countryCode];
+  return `${data.surveyName}, average diet of ${data.ageClass.toLowerCase()} in ${data.country}`;
+};
 
 const APP_VERSION = __APP_VERSION__;
 
@@ -396,6 +411,8 @@ const computeDietCategoryFootprints = () => {
   );
 };
 
+const dietName = computed(() => readableDietName(countryCode.value));
+
 /**
  * Whenever the countryCode dropdown is changed, we need to
  * - Update the ResultsEngine
@@ -597,13 +614,13 @@ onMounted(async () => {
         <h2 class="hr-header">
           <span>Impacts from Diet</span>
         </h2>
-        <div class="cluster">
-          <div class="stack planetary-boundaries-chart-container">
+        <div class="cluster planetary-boundaries-section">
+          <div class="stack">
             <h3>Impacts in relation to the planetary boundaries</h3>
             <PlanetaryBoundariesChart :data="dietTotalFootprints" />
           </div>
           <div class="stack">
-            <h3>Diet: Riksmaten 2010/2011, average diet of adults in Sweden</h3>
+            <h3><strong>Diet:</strong> {{ dietName }}</h3>
             <button
               class="button button--accent"
               @click="downloadFootprintsOfDiets"
@@ -857,10 +874,15 @@ onMounted(async () => {
   }
 }
 
-.planetary-boundaries-chart-container {
-  flex-basis: 40em;
-  flex-grow: 0;
-  flex-shrink: 1;
-  max-width: 100%;
+.planetary-boundaries-section {
+  > div:first-child {
+    flex-basis: 40em;
+    flex-grow: 0;
+    flex-shrink: 1;
+    max-width: 100%;
+  }
+  > div:last-child {
+    flex: 1 1 20em;
+  }
 }
 </style>
