@@ -13,7 +13,7 @@
 "A.01.02.005.002","Spelt grain, unrippen","A.01.02.005","Spelt grain","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.01.02.006","Buckwheat grain","A.01.02.006","Buckwheat grain","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.01.02.007","Millet grain","A.01.02.007","Millet grain","F28.A07XD","PROCESS=Unspecified",100,1,1,1
-"A.01.02.008","Oats, grain","A.01.02.008","Oats, grain","F28.A07XD","PROCESS=Unspecified",100,1,1,1
+"A.01.02.008","Oats, grain","A.01.02.008","Oats, grain","Oats, grain","PROCESS=Unspecified",100,1,1,1
 "A.01.02.009.001","Rice, brown","A.01.02.009","Rice","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.01.02.009.002","Rice, long-grain","A.01.02.009","Rice","F28.A0BZV","PROCESS=Polishing",100,1,1.11,0.91
 "A.01.02.009.003","Rice, mixed","A.01.02.009.001","Rice, brown","To be further disaggregated (d)",,25,1,1,1
@@ -2590,7 +2590,7 @@
 "A.14.07.002","Punch","A.10.06.005","Sugar beet syrup","To be further disaggregated (d)",,10,1,1,1
 "A.14.07.003","Alcopop","I.14.06.009","Alcohol 40%","F28.A0C0R","PROCESS=Processed",13.3,1,1,1
 "A.14.07.003","Alcopop","A.13.01.002","Soft drink, flavoured","To be further disaggregated (p)",,86.7,1,1,1
-"A.15","Drinking water (water without any additives except carbon dioxide","A.15","Drinking water (water without any additives except carbon dioxide",,,100,1,1,1
+"A.15","Drinking water (water without any additives except carbon dioxide",,,,,,,,
 "A.15.01","Tap water","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.15.02","Well water","A.15.02","Well water","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.15.03","Bottled water","A.15.03","Bottled water","F28.A07XD","PROCESS=Unspecified",100,1,1,1
@@ -3003,10 +3003,10 @@
 "A.17.08.003","Tee for infants and young children","A.13.02.004","Herbal tea, infusion","To be further disaggregated (d)",,100,1,1,1
 "A.17.08.004","Tee and juice mixture for infants and young children","A.12.04","Mixed fruit juice","To be further disaggregated (d)",,50,1,1,1
 "A.17.08.004","Tee and juice mixture for infants and young children","A.13.02.004","Herbal tea, infusion","To be further disaggregated (d)",,50,1,1,1
-"A.18","Products for special nutritional use","A.18","Products for special nutritional use","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.01","Food for weight reduction","A.18.01","Food for weight reduction","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.01.001","Products presented as a replacement for the whole of the daily diet","A.18.01.001","Products presented as a replacement for the whole of the daily diet","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.01.002","Products presented as a replacement for one or more meals of the daily diet","A.18.01.002","Products presented as a replacement for one or more meals of the daily diet","F28.A0C0R","PROCESS=Processed",100,1,1,1
+"A.18","Products for special nutritional use","A.18","Products for special nutritional use",,,100,1,1,1
+"A.18.01","Food for weight reduction","A.19.01.002.008","Pizza and pizza-like pies, cheese, meat, mushrooms, and vegetables",,,100,1,1,1
+"A.18.01.001","Products presented as a replacement for the whole of the daily diet","A.19.01.002.008","Pizza and pizza-like pies, cheese, meat, mushrooms, and vegetables",,,100,1,1,1
+"A.18.01.002","Products presented as a replacement for one or more meals of the daily diet","A.19.01.002.008","Pizza and pizza-like pies, cheese, meat, mushrooms, and vegetables",,,100,1,1,1
 "A.18.02","Dietary supplements","A.18.02","Dietary supplements","F28.A0C0R","PROCESS=Processed",100,1,1,1
 "A.18.02.001","Vitamin supplements","A.18.02.001","Vitamin supplements","F28.A0C0R","PROCESS=Processed",100,1,1,1
 "A.18.02.002","Mineral supplements","A.18.02.002","Mineral supplements","F28.A0C0R","PROCESS=Processed",100,1,1,1
@@ -3020,19 +3020,20 @@
 "A.18.02.010","Yeast based supplement","A.18.02.010","Yeast based supplement","F28.A0C0R","PROCESS=Processed",100,1,1,1
 "A.18.02.011","Algae formula (e.g. Spirulina, Chlorella)","A.18.02.011","Algae formula (e.g. Spirulina, Chlorella)","F28.A0C0R","PROCESS=Processed",100,1,1,1
 "A.18.02.012","Pollen-based supplement","A.18.02.012","Pollen-based supplement","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.03","Food for sports people (labelled as such)","A.18.03","Food for sports people (labelled as such)","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.03.001","Carbohydrate-rich energy food products for sports people","A.18.03.001","Carbohydrate-rich energy food products for sports people","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.03.002","Carbohydrate-electrolyte solutions for sports people","A.18.03.002","Carbohydrate-electrolyte solutions for sports people","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.03.003","Protein and protein components for sports people","A.18.03.003","Protein and protein components for sports people","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.03.005","Carnitine-based supplement for sports people","A.18.03.005","Carnitine-based supplement for sports people","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.04.001","Fine bakery products for diabetics","A.18.04.001","Fine bakery products for diabetics","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.04.003","Chocolate and chocolate products for diabetics","A.18.04.003","Chocolate and chocolate products for diabetics","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.04.004","Confectionary for diabetics","A.18.04.004","Confectionary for diabetics","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.04.005","Fruit-based beverages for diabetics","A.18.04.005","Fruit-based beverages for diabetics","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.04.006","Alcohol-free beverages for diabetics (excluding fruit-based beverages)","A.18.04.006","Alcohol-free beverages for diabetics (excluding fruit-based beverages)","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.04.008","Jam, marmalade and other fruit spreads for diabetics","A.18.04.008","Jam, marmalade and other fruit spreads for diabetics","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.04.009","Milk products for diabetics","A.18.04.009","Milk products for diabetics","F28.A0C0R","PROCESS=Processed",100,1,1,1
-"A.18.04.012","Beer for diabetics","A.18.04.012","Beer for diabetics","F28.A0C0R","PROCESS=Processed",100,1,1,1
+"A.18.03","Food for sports people (labelled as such)","A.18.03.001","Carbohydrate-rich energy food products for sports people","To be further disaggregated (d)",,50,1,1,1
+"A.18.03","Food for sports people (labelled as such)","A.18.03.003","Protein and protein components for sports people","To be further disaggregated (d)",,50,1,1,1
+"A.18.03.001","Carbohydrate-rich energy food products for sports people","I.01.05.016","Plain pasta, cooked","To be further disaggregated (d)",,100,1,1,1
+"A.18.03.002","Carbohydrate-electrolyte solutions for sports people","I.01.05.016","Plain pasta, cooked","To be further disaggregated (d)",,100,1,1,1
+"A.18.03.003","Protein and protein components for sports people","A.08.07.002","Milk protein",,,100,1,1,1
+"A.18.03.005","Carnitine-based supplement for sports people","A.18.03.005","Carnitine-based supplement for sports people","To be further disaggregated (d)",,100,1,1,1
+"A.18.04.001","Fine bakery products for diabetics","A.01.07.002.010","Biscuits, oat meal","To be further disaggregated (d)",,100,1,1,1
+"A.18.04.003","Chocolate and chocolate products for diabetics","I.10.03.013.002","Dietetic milk chocolate","To be further disaggregated (d)",,100,1,1,1
+"A.18.04.004","Confectionary for diabetics","A.10.04.001","Candies, with sugar","To be further disaggregated (d)",,100,1,1,1
+"A.18.04.005","Fruit-based beverages for diabetics","A.12.01.002","Juice, Orange","To be further disaggregated (d)",,100,1,1,1
+"A.18.04.006","Alcohol-free beverages for diabetics (excluding fruit-based beverages)","A.14.01.004","Beer, alcohol-free","To be further disaggregated (d)",,100,1,1,1
+"A.18.04.008","Jam, marmalade and other fruit spreads for diabetics","I.05.08.001.021","Jam, Berries","To be further disaggregated (d)",,100,1,1,1
+"A.18.04.009","Milk products for diabetics","A.08.01.001.003","Cow milk, 1 - 2.9% fat (semi-skimmed milk)","To be further disaggregated (d)",,100,1,1,1
+"A.18.04.012","Beer for diabetics","A.14.01.002","Beer, regular","To be further disaggregated (d)",,100,1,1,1
 "A.18.05","Medical food (are specially formulated and intended for the dietary management of a disease that has distinctive nutritional needs that cannot be met by normal diet alone",,,,,,,,
 "A.18.05.001","Nutritionally complete formulas","A.18.05.001","Nutritionally complete formulas","F28.A0C0R","PROCESS=Processed",100,1,1,1
 "A.18.05.002","Nutritionally incomplete formulas","A.18.05.002","Nutritionally incomplete formulas","F28.A0C0R","PROCESS=Processed",100,1,1,1
@@ -3420,7 +3421,7 @@
 "A.20.02.007","Granita","I.12.01.024","Juice, Strawberry","To be further disaggregated (d)",,41,0.26,1,1
 "A.20.02.007","Granita","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",34,1,1,1
 "A.20.02.007","Granita","A.10.01.001","White sugar","To be further disaggregated (d)",,15,1,1,1
-"A.20.03","Other foods (foods which cannot be included in any other group)","A.20.03","Other foods (foods which cannot be included in any other group)","F28.A0C0R","PROCESS=Processed",100,1,1,1
+"A.20.03","Other foods (foods which cannot be included in any other group)","A.19.01.002.008","Pizza and pizza-like pies, cheese, meat, mushrooms, and vegetables","To be further disaggregated (d)",,100,1,1,1
 "A.X1.01.01","Cultured Meat (Bos. Spp.)","A.X1.01.01","Cultured Meat (Bos. Spp.)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.X1.01.02","Microbial Protein (Solein)","A.X1.01.02","Microbial Protein (Solein)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.X1.01.03","Mycoprotein (Quorn)","A.X1.01.03","Mycoprotein (Quorn)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
