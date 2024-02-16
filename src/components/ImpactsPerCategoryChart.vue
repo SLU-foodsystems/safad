@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import StackedBarChart from "@/lib/charts/StackedBarChart";
 import { categoryNames } from "@/lib/efsa-names";
+import { aggregateHeaderIndex } from "@/lib/impacts-csv-utils";
 import { useOnResize } from "@/lib/use-on-resize";
 import { sum } from "@/lib/utils";
 import { onMounted, ref, watch } from "vue";
@@ -12,17 +13,17 @@ const props = defineProps<{
 const el = ref<HTMLDivElement | null>(null);
 
 const dataMap: [string, number][] = [
-  ["Carbon footprint", 0],
-  ["Land use", 10],
-  ["New N input", 11],
-  ["New P input", 12],
-  ["Blue water use", 13],
-  ["Pesticides use", 14],
-  ["Biodiversity impact", 15],
-  ["Ammonia emissions", 16],
-  // ["Processing", 41],
-  // ["Packaging", 45],
-  // ["Transport", 50],
+  ["Carbon footprint", aggregateHeaderIndex("Carbon footprint, total")],
+  ["Land use", aggregateHeaderIndex("Land")],
+  ["New N input", aggregateHeaderIndex("N input")],
+  ["New P input", aggregateHeaderIndex("P input")],
+  ["Blue water use", aggregateHeaderIndex("Water")],
+  ["Pesticides use", aggregateHeaderIndex("Pesticides")],
+  ["Biodiversity impact", aggregateHeaderIndex("Biodiversity")],
+  ["Ammonia emissions", aggregateHeaderIndex("Ammonia")],
+  // ["Processing", aggregateHeaderIndex("Processing")],
+  // ["Packaging", aggregateHeaderIndex("Packaging")],
+  // ["Transport", aggregateHeaderIndex("Transport")],
 ];
 
 const neatName = (metric: string) => {

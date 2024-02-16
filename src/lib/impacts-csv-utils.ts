@@ -79,7 +79,7 @@ export const AGGREGATE_HEADERS = [
   "Transports (kg CO2)",
   "Transports (kg CH4, fossil)",
   "Transports (kg N2O)",
-];
+] as const;
 
 export const DETAILED_RESULTS_HEADER = [
   "Code",
@@ -93,10 +93,25 @@ export const DETAILED_RESULTS_HEADER = [
   "RPCs with missing data",
 ];
 
+export const BREAKDOWN_RESULTS_HEADER = [
+  "Food Code",
+  "Food Name",
+  "L1 Category",
+  "L2 Category",
+  "Food Amount (g)",
+  "RPC Code",
+  "RPC Name",
+  "RPC Amount (g)",
+];
+
 const getCategoryName = (code: string, level: number) => {
   const levelCode = getRpcCodeSubset(code, level, true);
   return categoryNames[levelCode] || `NOT FOUND (${levelCode})`;
 };
+
+export const aggregateHeaderIndex = (
+  header: (typeof AGGREGATE_HEADERS)[number]
+) => AGGREGATE_HEADERS.indexOf(header);
 
 export function expandedImpacts(
   rpcFootprints: number[],
@@ -274,17 +289,6 @@ export function labeledAndFilteredImpacts(
     )
     .filter((x): x is string[] => x !== null);
 }
-
-export const BREAKDOWN_RESULTS_HEADER = [
-  "Food Code",
-  "Food Name",
-  "L1 Category",
-  "L2 Category",
-  "Food Amount (g)",
-  "RPC Code",
-  "RPC Name",
-  "RPC Amount (g)",
-];
 
 export function getDietBreakdown(
   disaggregatedDiet: [string, number, Diet][]
