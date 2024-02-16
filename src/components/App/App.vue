@@ -1,9 +1,7 @@
 <script lang="ts" setup>
-import { ref, watch, onMounted, computed } from "vue";
+import { ref, watch, onMounted } from "vue";
 
 import * as DefaultInputFiles from "@/lib/default-input-files";
-import * as InputFileParsers from "@/lib/input-files-parsers";
-
 import MetaFile from "@/lib/MetaFile";
 import ResultsEngine from "@/lib/ResultsEngine";
 
@@ -14,8 +12,6 @@ import {
   DETAILED_RESULTS_HEADER,
   BREAKDOWN_RESULTS_HEADER,
   getDietBreakdown,
-  aggregateImpacts,
-  aggregateImpactsByCategory,
 } from "@/lib/impacts-csv-utils";
 import reduceDietToRpcs from "@/lib/rpc-reducer";
 import {
@@ -23,7 +19,7 @@ import {
   SFA_RESULTS_HEADER,
 } from "@/lib/sfa-results-generator";
 
-import { resetFile, initInputFile } from "@/lib/file-interface-utils";
+import { resetFile } from "@/lib/file-interface-utils";
 
 import FileSelector from "@/components/FileSelector.vue";
 import LoadingOverlay from "@/components/LoadingOverlay.vue";
@@ -32,22 +28,9 @@ import EnvFootprintCharts from "@/components/EnvFootprintCharts.vue";
 import PlanetaryBoundariesChart from "@/components/PlanetaryBoundariesChart.vue";
 import ImpactsPerCategoryChart from "@/components/ImpactsPerCategoryChart.vue";
 
-import { rpcNames } from "./lib/efsa-names";
-import dietNamesJson from "@/data/diet-names.json";
-
-const dietNames = dietNamesJson as Record<
-  string,
-  {
-    country: string;
-    surveyName: string;
-    ageClass: string;
-  }
->;
-
-const readableDietName = (countryCode: string) => {
-  const data = dietNames[countryCode];
-  return `${data.surveyName}, average diet of ${data.ageClass.toLowerCase()} in ${data.country}`;
-};
+import setupCharts from "./charts";
+import initFileInterfaces from "./init-file-interfaces";
+import readableDietName from "./readable-diet-name";
 
 const APP_VERSION = __APP_VERSION__;
 
@@ -81,119 +64,27 @@ const Descriptions = {
 const RE = new ResultsEngine();
 
 const countryCode = ref("SE");
-const diet = ref<Diet>([]);
 const includeBreakdownFile = ref(false);
 const isLoading = ref(false);
-// Needs to be separate, as they're not managed by the ResultsEngine
-const sfaRecipes = ref<SfaRecipeComponent[]>([]);
 
-const footprintsRpcsFile = ref(
-  initInputFile({
-    defaultName: () => "SAFAD ID Footprints RPC.csv",
-    getDefault: DefaultInputFiles.raw.footprintsRpcs,
-    parser: InputFileParsers.parseFootprintsRpcs,
-    setter: RE.setFootprintsRpcs,
-  })
-);
+const {
+  diet,
+  sfaRecipes,
+  footprintsRpcsFile,
+  dietFile,
+  foodsRecipesFile,
+  rpcOriginWasteFile,
+  processesEnergyDemandsFile,
+  preparationProcessesFile,
+  packagingCodesFile,
+  wasteRetailAndConsumerFile,
+  emissionsFactorsEnergyFile,
+  emissionsFactorsPackagingFile,
+  emissionsFactorsTransportFile,
+  sfaRecipesFile,
+} = initFileInterfaces(RE);
 
-const dietFile = ref(
-  initInputFile<Diet>({
-    defaultName: (country: string) => `SAFAD ID Diet Spec ${country}.csv`,
-    getDefault: DefaultInputFiles.raw.diet,
-    parser: InputFileParsers.parseDiet,
-    setter: (data: Diet) => {
-      diet.value = data;
-    },
-  })
-);
-
-const foodsRecipesFile = ref(
-  initInputFile<FoodsRecipes>({
-    defaultName: () => "SAFAD IP Recipes.csv",
-    getDefault: DefaultInputFiles.raw.foodsRecipes,
-    parser: InputFileParsers.parseFoodsRecipes,
-    setter: RE.setFoodsRecipes,
-  })
-);
-
-const rpcOriginWasteFile = ref(
-  initInputFile<RpcOriginWaste>({
-    defaultName: (country: string) =>
-      `SAFAD IP Origin and Waste of RPC ${country}.csv`,
-    getDefault: DefaultInputFiles.raw.rpcOriginWaste,
-    parser: InputFileParsers.parseRpcOriginWaste,
-    setter: RE.setRpcOriginWaste,
-  })
-);
-const processesEnergyDemandsFile = ref(
-  initInputFile<Record<string, number[]>>({
-    defaultName: () => "SAFAD IP Energy Proc.csv",
-    getDefault: DefaultInputFiles.raw.processesEnergyDemands,
-    parser: InputFileParsers.parseProcessesEnergyDemands,
-    setter: RE.setProcessesEnergyDemands,
-  })
-);
-const preparationProcessesFile = ref(
-  initInputFile<Record<string, string[]>>({
-    defaultName: () => "SAFAD IP Preparation Processes.csv",
-    getDefault: DefaultInputFiles.raw.preparationProcesses,
-    parser: InputFileParsers.parsePreparationProcesses,
-    setter: RE.setPreparationProcesses,
-  })
-);
-const packagingCodesFile = ref(
-  initInputFile<Record<string, string>>({
-    defaultName: () => "SAFAD IP Packaging.csv",
-    getDefault: DefaultInputFiles.raw.packagingCodes,
-    parser: InputFileParsers.parsePackagingCodes,
-    setter: RE.setPackagingCodes,
-  })
-);
-const wasteRetailAndConsumerFile = ref(
-  initInputFile<Record<string, number[]>>({
-    defaultName: (country: string) =>
-      `SAFAD IP Waste Retail and Cons ${country}.csv`,
-    getDefault: DefaultInputFiles.raw.wasteRetailAndConsumer,
-    parser: InputFileParsers.parseWasteRetailAndConsumer,
-    setter: RE.setWasteRetailAndConsumer,
-  })
-);
-
-const emissionsFactorsEnergyFile = ref(
-  initInputFile<Record<string, number[] | Record<string, number[]>>>({
-    defaultName: () => "SAFAD IEF Energy.csv",
-    getDefault: DefaultInputFiles.raw.emissionsFactorsEnergy,
-    parser: InputFileParsers.parseEmissionsFactorsEnergy,
-    setter: RE.setEmissionsFactorsEnergy,
-  })
-);
-const emissionsFactorsPackagingFile = ref(
-  initInputFile<Record<string, number[]>>({
-    defaultName: () => "SAFAD IP Packaging.csv",
-    getDefault: DefaultInputFiles.raw.emissionsFactorsPackaging,
-    parser: InputFileParsers.parseEmissionsFactorsPackaging,
-    setter: RE.setEmissionsFactorsPackaging,
-  })
-);
-const emissionsFactorsTransportFile = ref(
-  initInputFile<NestedRecord<string, number[]>>({
-    defaultName: () => "SAFAD IEF Transport.csv",
-    getDefault: DefaultInputFiles.raw.emissionsFactorsTransport,
-    parser: InputFileParsers.parseEmissionsFactorsTransport,
-    setter: RE.setEmissionsFactorsTransport,
-  })
-);
-
-const sfaRecipesFile = ref(
-  initInputFile<SfaRecipeComponent[]>({
-    defaultName: () => "SAFAD IS SFA Recipes.csv",
-    getDefault: DefaultInputFiles.raw.sfaRecipes,
-    parser: InputFileParsers.parseSfaRecipes,
-    setter: (data: SfaRecipeComponent[]) => {
-      sfaRecipes.value = data;
-    },
-  })
-);
+const dietName = readableDietName(countryCode);
 
 /**
  * Methods
@@ -257,8 +148,7 @@ const downloadFootprintsOfSfaRecipes = async () => {
   );
 };
 
-const metaFileHandler = new MetaFile();
-metaFileHandler.setInputFileInterfaces({
+const metaFileHandler = new MetaFile({
   emissionsFactorsPackagingFile: emissionsFactorsPackagingFile.value,
   emissionsFactorsEnergyFile: emissionsFactorsEnergyFile.value,
   emissionsFactorsTransportFile: emissionsFactorsTransportFile.value,
@@ -360,58 +250,12 @@ const downloadZip = async () => {
   saveAs(content, `SAFAD Output ${date}.zip`);
 };
 
-const carbonFootprintsData = ref<[string, number[]][]>([]);
-const dietTotalFootprints = ref<number[]>([]);
-const dietCategoryFootprints = ref<{ [key: string]: number[] }>({});
-
-const computeCarbonFootprintsData = () => {
-  const data = [
-    "I.19.01.003.017", // Lasagna
-    "A.19.01.002.003", // Pizza
-    "I.19.01.001.018", // Pierogi, with vegetables
-    "A.19.10.001", // Vegetable/herb soup
-  ]
-    .map((foodCode) => {
-      const impacts = RE.computeImpacts([[foodCode, 1000]]);
-      if (Object.values(impacts[0]).some((v) => v === null)) {
-        return null;
-      }
-      return [
-        foodCode,
-        aggregateImpacts(
-          impacts[0] as Record<string, number[]>,
-          impacts[1],
-          impacts[2],
-          impacts[3]
-        ),
-      ];
-    })
-    .filter((x): x is [string, number[]] => x !== null)
-    .map(([code, impacts]): [string, number[]] => [rpcNames[code], impacts]);
-
-  carbonFootprintsData.value = data;
-};
-
-const computeDietTotalFootprints = () => {
-  if (!diet.value) return;
-  const [rpcFootprintsMaybeNull, ...rest] = RE.computeImpacts(diet.value);
-  // Filter out any NA-footprints
-  const rpcFootprints = Object.fromEntries(
-    Object.entries(rpcFootprintsMaybeNull).filter(
-      (kv): kv is [string, number[]] => kv[1] !== null
-    )
-  );
-  dietTotalFootprints.value = aggregateImpacts(rpcFootprints, ...rest);
-};
-const computeDietCategoryFootprints = () => {
-  if (!diet.value) return;
-
-  dietCategoryFootprints.value = aggregateImpactsByCategory(
-    ...RE.computeImpacts(diet.value)
-  );
-};
-
-const dietName = computed(() => readableDietName(countryCode.value));
+const {
+  carbonFootprints,
+  dietFootprintsTotal,
+  dietFootprintsPerCategory,
+  recompute: recomputChartData,
+} = setupCharts(RE, diet);
 
 /**
  * Whenever the countryCode dropdown is changed, we need to
@@ -438,9 +282,7 @@ watch(countryCode, async () => {
 
   await Promise.all(promises);
 
-  computeCarbonFootprintsData();
-  computeDietTotalFootprints();
-  computeDietCategoryFootprints();
+  recomputChartData();
 
   isLoading.value = false;
 });
@@ -471,14 +313,7 @@ onMounted(async () => {
 
   await Promise.all(promises);
 
-  // 1. List all foods we want to verify
-  // 2. For each, get the _sum_ of the footprints (maybe add method to RE?)
-  // 3. Create a mapper function to convert each item to an object with each of
-  // the variables (map [label: string] -> index)
-
-  computeCarbonFootprintsData();
-  computeDietTotalFootprints();
-  computeDietCategoryFootprints();
+  recomputChartData();
 
   isLoading.value = false;
 });
@@ -582,7 +417,7 @@ onMounted(async () => {
         <div class="results-grid-large">
           <div class="results-grid-large__graph">
             <h3>Carbon footprint preview</h3>
-            <CarbonFootprintsChart :data="carbonFootprintsData" />
+            <CarbonFootprintsChart :data="carbonFootprints" />
           </div>
           <div class="results-grid-large__aside stack">
             <h3>Download output data</h3>
@@ -606,7 +441,7 @@ onMounted(async () => {
         </div>
         <h3>Environmental Impacts</h3>
         <div class="results-grid-small">
-          <EnvFootprintCharts :data="carbonFootprintsData" />
+          <EnvFootprintCharts :data="carbonFootprints" />
         </div>
       </section>
 
@@ -617,7 +452,7 @@ onMounted(async () => {
         <div class="cluster planetary-boundaries-section">
           <div class="stack">
             <h3>Impacts in relation to the planetary boundaries</h3>
-            <PlanetaryBoundariesChart :data="dietTotalFootprints" />
+            <PlanetaryBoundariesChart :data="dietFootprintsTotal" />
           </div>
           <div class="stack">
             <h3><strong>Diet:</strong> {{ dietName }}</h3>
@@ -639,7 +474,7 @@ onMounted(async () => {
         </h3>
         <div>
           <ImpactsPerCategoryChart
-            :impactsPerCategory="dietCategoryFootprints"
+            :impactsPerCategory="dietFootprintsPerCategory"
           />
         </div>
       </section>
@@ -802,13 +637,20 @@ onMounted(async () => {
           PLAN’EAT is a Horizon Europe research project, bringing together 24
           partners and running from September 2022 to 2026.
         </p>
+        <p>
+          Code is open-source and available
+          <a href="https://github.com/SLU-foodsystems/safad" target="_blank"
+            ref="noopener nofollow"
+            >here</a
+          >.
+        </p>
       </div>
     </footer>
   </section>
 </template>
 
 <style lang="scss" scoped>
-@import "styles/constants";
+@import "../../styles/constants";
 
 .page-footer {
   padding: 2em 0;
