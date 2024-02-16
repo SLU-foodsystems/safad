@@ -23,6 +23,7 @@ import { resetFile } from "@/lib/file-interface-utils";
 
 import FileSelector from "@/components/FileSelector.vue";
 import LoadingOverlay from "@/components/LoadingOverlay.vue";
+// Charts
 import CarbonFootprintsChart from "@/components/CarbonFootprintsChart.vue";
 import EnvFootprintCharts from "@/components/EnvFootprintCharts.vue";
 import PlanetaryBoundariesChart from "@/components/PlanetaryBoundariesChart.vue";
@@ -139,8 +140,6 @@ const downloadFootprintsOfDiets = () => {
 };
 
 const downloadFootprintsOfSfaRecipes = async () => {
-  if (!RE) return;
-
   const sfaResultsRows = await generateSfaResults(sfaRecipes.value, RE);
   downloadAsPlaintext(
     stringifyCsvData([SFA_RESULTS_HEADER, ...sfaResultsRows]),
@@ -193,7 +192,7 @@ const downloadZip = async () => {
   ];
   const addFilePromises = files.map((f) => addFile(f));
 
-  zip.file("info.txt", metaFileHandler.toString());
+  zip.file("SAFAD Info.txt", metaFileHandler.toString());
 
   if (countryCode.value === "SE") {
     const sfaResultsRows = await generateSfaResults(sfaRecipes.value, RE);
@@ -290,28 +289,19 @@ watch(countryCode, async () => {
 onMounted(async () => {
   isLoading.value = true;
 
-  const promises: Promise<any>[] = [];
-
-  promises.push(
-    DefaultInputFiles.configureResultsEngine(RE, countryCode.value)
-  );
-  // SFA Recipes also needs to be set to initial value, as not handled by the
-  // configureResultsEngine utility.
-  promises.push(
+  const tasks: Promise<any>[] = [
+    DefaultInputFiles.configureResultsEngine(RE, countryCode.value),
+    // SFA Recipes and the Diet needs to be set to initial value, as not handled by the
+    // configureResultsEngine utility.
     sfaRecipesFile.value.getDefault(countryCode.value).then((data: string) => {
       sfaRecipesFile.value?.setter(sfaRecipesFile.value.parser(data));
-    })
-  );
-
-  // Diet needs to be handled explicitly, as it's not managed in the
-  // "configureResultsEngine" builder function
-  promises.push(
+    }),
     dietFile.value.getDefault(countryCode.value).then((diet: string) => {
       dietFile.value?.setter(dietFile.value.parser(diet));
-    })
-  );
+    }),
+  ];
 
-  await Promise.all(promises);
+  await Promise.all(tasks);
 
   recomputChartData();
 
@@ -639,7 +629,9 @@ onMounted(async () => {
         </p>
         <p>
           Code is open-source and available
-          <a href="https://github.com/SLU-foodsystems/safad" target="_blank"
+          <a
+            href="https://github.com/SLU-foodsystems/safad"
+            target="_blank"
             ref="noopener nofollow"
             >here</a
           >.

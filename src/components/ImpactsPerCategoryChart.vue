@@ -26,7 +26,11 @@ const dataMap: [string, number][] = [
   // ["Transport", aggregateHeaderIndex("Transport")],
 ];
 
-const neatName = (metric: string) => {
+/**
+ * Shorten names by removing everything from the set of parenthesis, if there is
+ * one.
+ */
+const shortName = (metric: string) => {
   const fullName = categoryNames[metric];
   const parenthesisIdx = fullName.indexOf(" (");
   if (parenthesisIdx === -1) {
@@ -50,7 +54,7 @@ const formatData = (impactsPerCategory: Record<string, number[]>) => {
     category: metric,
     ...Object.fromEntries(
       l1Codes.map((code) => [
-        neatName(code),
+        shortName(code),
         impactsPerCategory[code][index] / (sumValues[metric] / 100),
       ])
     ),
@@ -90,7 +94,7 @@ const drawChart = () => {
   );
 };
 
-useOnResize(() => drawChart());
+useOnResize(drawChart);
 
 watch(() => props.impactsPerCategory, drawChart);
 

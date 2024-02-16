@@ -8,7 +8,6 @@ import {
 } from "@/lib/constants";
 
 import { getRpcCodeSubset, listAllProcesses } from "@/lib/utils";
-
 import { rpcNames, categoryNames } from "@/lib/efsa-names";
 
 export const AGGREGATE_HEADERS = [
