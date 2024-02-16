@@ -61,19 +61,17 @@ const charts = [
   },
 ];
 
-charts.forEach((c, i) => c.color = colors[i]);
+charts.forEach((c, i) => (c.color = colors[i]));
 </script>
 
 <template>
   <EnvFootprintChart
     v-for="chart in charts"
     :key="chart.title"
-
     :index="chart.index"
     :color="chart.color"
     :title="chart.title"
     :y-label="chart.yLabel"
-
     :data="props.data"
   />
 </template>
