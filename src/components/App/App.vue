@@ -5,6 +5,8 @@ import * as DefaultInputFiles from "@/lib/default-input-files";
 import MetaFile from "@/lib/MetaFile";
 import ResultsEngine from "@/lib/ResultsEngine";
 
+import { SAFAD_FILE_NAMES } from "@/lib/constants";
+import { resetFile } from "@/lib/file-interface-utils";
 import { downloadAsPlaintext } from "@/lib/csv-io";
 import { padLeft, stringifyCsvData } from "@/lib/utils";
 import {
@@ -18,8 +20,6 @@ import {
   generateSfaResults,
   SFA_RESULTS_HEADER,
 } from "@/lib/sfa-results-generator";
-
-import { resetFile } from "@/lib/file-interface-utils";
 
 import FileSelector from "@/components/FileSelector.vue";
 import LoadingOverlay from "@/components/LoadingOverlay.vue";
@@ -101,7 +101,10 @@ const downloadFootprintsOfFoods = async () => {
     ...impactsOfRecipe,
   ]);
 
-  downloadAsPlaintext(impactsOfRecipeCsv, "SAFAD OR Footprints per Food.csv");
+  downloadAsPlaintext(
+    impactsOfRecipeCsv,
+    SAFAD_FILE_NAMES.Output.FootprintsPerFood
+  );
 };
 
 const downloadFootprintsOfDiets = () => {
@@ -116,7 +119,7 @@ const downloadFootprintsOfDiets = () => {
 
   downloadAsPlaintext(
     detailedDietImpactsCsv,
-    "SAFAD OR Footprints per Diet.csv"
+    SAFAD_FILE_NAMES.Output.FootprintsPerDiet
   );
 
   if (includeBreakdownFile.value) {
@@ -134,7 +137,7 @@ const downloadFootprintsOfDiets = () => {
     );
     downloadAsPlaintext(
       stringifyCsvData([BREAKDOWN_RESULTS_HEADER, ...dietBreakdownRows]),
-      "SAFAD OS Breakdown per Food.csv"
+      SAFAD_FILE_NAMES.Output.BreakdownPerFood
     );
   }
 };
@@ -143,7 +146,7 @@ const downloadFootprintsOfSfaRecipes = async () => {
   const sfaResultsRows = await generateSfaResults(sfaRecipes.value, RE);
   downloadAsPlaintext(
     stringifyCsvData([SFA_RESULTS_HEADER, ...sfaResultsRows]),
-    "SAFAD OR Footprints per SFA Food.csv"
+    SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood
   );
 };
 
@@ -197,7 +200,7 @@ const downloadZip = async () => {
   if (countryCode.value === "SE") {
     const sfaResultsRows = await generateSfaResults(sfaRecipes.value, RE);
     const data = stringifyCsvData([SFA_RESULTS_HEADER, ...sfaResultsRows]);
-    zip.file("SAFAD OR Footprints per SFA Food.csv", data);
+    zip.file(SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood, data);
   }
 
   const impactsOfRecipe = labeledAndFilteredImpacts(
@@ -208,7 +211,7 @@ const downloadZip = async () => {
     ...impactsOfRecipe,
   ]);
 
-  zip.file("SAFAD OR Footprints per Food.csv", impactsOfRecipeCsv);
+  zip.file(SAFAD_FILE_NAMES.Output.FootprintsPerFood, impactsOfRecipeCsv);
 
   const detailedDietImpacts = labeledAndFilteredImpacts(
     RE.computeImpactsDetailed(diet.value)
@@ -218,7 +221,7 @@ const downloadZip = async () => {
     ...detailedDietImpacts,
   ]);
 
-  zip.file("SAFAD OR Footprints per Diet.csv", detailedDietImpactsCsv);
+  zip.file(SAFAD_FILE_NAMES.Output.FootprintsPerDiet, detailedDietImpactsCsv);
 
   const dietBreakdownRows = getDietBreakdown(
     diet.value.map(([code, amount]): [string, number, Diet] => [
@@ -233,7 +236,7 @@ const downloadZip = async () => {
     ])
   );
   zip.file(
-    "SAFAD OS Breakdown per Food.csv",
+    SAFAD_FILE_NAMES.Output.BreakdownPerFood,
     stringifyCsvData([BREAKDOWN_RESULTS_HEADER, ...dietBreakdownRows])
   );
 
