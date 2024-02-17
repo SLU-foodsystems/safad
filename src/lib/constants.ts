@@ -41,3 +41,29 @@ export const LL_COUNTRY_CODES: Record<string, string> = {
   Spain: "ES",
   Sweden: "SE",
 };
+
+export const SAFAD_FILE_NAMES = {
+  Input: {
+    FootprintsRpc: () => "SAFAD ID Footprints RPC.csv",
+    Diet: (country: string) => `SAFAD ID Diet Spec ${country}.csv`,
+    FoodsRecipes: () => "SAFAD IP Recipes.csv",
+    RpcOriginWaste: (country: string) =>
+      `SAFAD IP Origin and Waste of RPC ${country}.csv`,
+    ProcessesEnergyDemands: () => "SAFAD IP Energy Proc.csv",
+    PreparationProcesses: () => "SAFAD IP Preparation Processes.csv",
+    PackagingCodes: () => "SAFAD IP Packaging.csv",
+    WasteRetailAndConsumer: (country: string) =>
+      `SAFAD IP Waste Retail and Cons ${country}.csv`,
+
+    EmissionsFactorsEnergy: () => "SAFAD IEF Energy.csv",
+    EmissionsFactorsPackaging: () => "SAFAD IEF Packaging.csv",
+    EmissionsFactorsTransport: () => "SAFAD IEF Transport.csv",
+    SfaRecipes: () => "SAFAD IS SFA Recipes.csv",
+  },
+  Output: {
+    FootprintsPerFood: "SAFAD OR Footprints per Food.csv",
+    FootprintsPerDiet: "SAFAD OR Footprints per Diet.csv",
+    BreakdownPerFood: "SAFAD OS Breakdown per Food.csv",
+    FootprintsPerSfaFood: "SAFAD OR Footprints per SFA Food.csv",
+  },
+};

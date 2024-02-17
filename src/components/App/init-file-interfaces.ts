@@ -4,6 +4,7 @@ import { initInputFile } from "@/lib/file-interface-utils";
 
 import * as DefaultInputFiles from "@/lib/default-input-files";
 import * as InputFileParsers from "@/lib/input-files-parsers";
+import { SAFAD_FILE_NAMES } from "@/lib/constants";
 
 export default function initInputFiles(RE: ResultsEngine) {
   // Needs to be separate, as they're not managed by the ResultsEngine
@@ -16,7 +17,7 @@ export default function initInputFiles(RE: ResultsEngine) {
 
     footprintsRpcsFile: ref(
       initInputFile<RpcFootprintsByOrigin>({
-        defaultName: () => "SAFAD ID Footprints RPC.csv",
+        defaultName: SAFAD_FILE_NAMES.Input.FoodsRecipes,
         getDefault: DefaultInputFiles.raw.footprintsRpcs,
         parser: InputFileParsers.parseFootprintsRpcs,
         setter: RE.setFootprintsRpcs,
@@ -25,7 +26,7 @@ export default function initInputFiles(RE: ResultsEngine) {
 
     dietFile: ref(
       initInputFile<Diet>({
-        defaultName: (country: string) => `SAFAD ID Diet Spec ${country}.csv`,
+        defaultName: SAFAD_FILE_NAMES.Input.Diet,
         getDefault: DefaultInputFiles.raw.diet,
         parser: InputFileParsers.parseDiet,
         setter: (data: Diet) => {
@@ -36,7 +37,7 @@ export default function initInputFiles(RE: ResultsEngine) {
 
     foodsRecipesFile: ref(
       initInputFile<FoodsRecipes>({
-        defaultName: () => "SAFAD IP Recipes.csv",
+        defaultName: SAFAD_FILE_NAMES.Input.FoodsRecipes,
         getDefault: DefaultInputFiles.raw.foodsRecipes,
         parser: InputFileParsers.parseFoodsRecipes,
         setter: RE.setFoodsRecipes,
@@ -45,8 +46,7 @@ export default function initInputFiles(RE: ResultsEngine) {
 
     rpcOriginWasteFile: ref(
       initInputFile<RpcOriginWaste>({
-        defaultName: (country: string) =>
-          `SAFAD IP Origin and Waste of RPC ${country}.csv`,
+        defaultName: SAFAD_FILE_NAMES.Input.RpcOriginWaste,
         getDefault: DefaultInputFiles.raw.rpcOriginWaste,
         parser: InputFileParsers.parseRpcOriginWaste,
         setter: RE.setRpcOriginWaste,
@@ -54,7 +54,7 @@ export default function initInputFiles(RE: ResultsEngine) {
     ),
     processesEnergyDemandsFile: ref(
       initInputFile<Record<string, number[]>>({
-        defaultName: () => "SAFAD IP Energy Proc.csv",
+        defaultName: SAFAD_FILE_NAMES.Input.ProcessesEnergyDemands,
         getDefault: DefaultInputFiles.raw.processesEnergyDemands,
         parser: InputFileParsers.parseProcessesEnergyDemands,
         setter: RE.setProcessesEnergyDemands,
@@ -62,7 +62,7 @@ export default function initInputFiles(RE: ResultsEngine) {
     ),
     preparationProcessesFile: ref(
       initInputFile<Record<string, string[]>>({
-        defaultName: () => "SAFAD IP Preparation Processes.csv",
+        defaultName: SAFAD_FILE_NAMES.Input.PreparationProcesses,
         getDefault: DefaultInputFiles.raw.preparationProcesses,
         parser: InputFileParsers.parsePreparationProcesses,
         setter: RE.setPreparationProcesses,
@@ -70,7 +70,7 @@ export default function initInputFiles(RE: ResultsEngine) {
     ),
     packagingCodesFile: ref(
       initInputFile<Record<string, string>>({
-        defaultName: () => "SAFAD IP Packaging.csv",
+        defaultName: SAFAD_FILE_NAMES.Input.PackagingCodes,
         getDefault: DefaultInputFiles.raw.packagingCodes,
         parser: InputFileParsers.parsePackagingCodes,
         setter: RE.setPackagingCodes,
@@ -78,8 +78,7 @@ export default function initInputFiles(RE: ResultsEngine) {
     ),
     wasteRetailAndConsumerFile: ref(
       initInputFile<Record<string, number[]>>({
-        defaultName: (country: string) =>
-          `SAFAD IP Waste Retail and Cons ${country}.csv`,
+        defaultName: SAFAD_FILE_NAMES.Input.WasteRetailAndConsumer,
         getDefault: DefaultInputFiles.raw.wasteRetailAndConsumer,
         parser: InputFileParsers.parseWasteRetailAndConsumer,
         setter: RE.setWasteRetailAndConsumer,
@@ -88,7 +87,7 @@ export default function initInputFiles(RE: ResultsEngine) {
 
     emissionsFactorsEnergyFile: ref(
       initInputFile<Record<string, number[] | Record<string, number[]>>>({
-        defaultName: () => "SAFAD IEF Energy.csv",
+        defaultName: SAFAD_FILE_NAMES.Input.EmissionsFactorsEnergy,
         getDefault: DefaultInputFiles.raw.emissionsFactorsEnergy,
         parser: InputFileParsers.parseEmissionsFactorsEnergy,
         setter: RE.setEmissionsFactorsEnergy,
@@ -96,7 +95,7 @@ export default function initInputFiles(RE: ResultsEngine) {
     ),
     emissionsFactorsPackagingFile: ref(
       initInputFile<Record<string, number[]>>({
-        defaultName: () => "SAFAD IEF Packaging.csv",
+        defaultName: SAFAD_FILE_NAMES.Input.EmissionsFactorsPackaging,
         getDefault: DefaultInputFiles.raw.emissionsFactorsPackaging,
         parser: InputFileParsers.parseEmissionsFactorsPackaging,
         setter: RE.setEmissionsFactorsPackaging,
@@ -104,7 +103,7 @@ export default function initInputFiles(RE: ResultsEngine) {
     ),
     emissionsFactorsTransportFile: ref(
       initInputFile<NestedRecord<string, number[]>>({
-        defaultName: () => "SAFAD IEF Transport.csv",
+        defaultName: SAFAD_FILE_NAMES.Input.EmissionsFactorsTransport,
         getDefault: DefaultInputFiles.raw.emissionsFactorsTransport,
         parser: InputFileParsers.parseEmissionsFactorsTransport,
         setter: RE.setEmissionsFactorsTransport,
@@ -113,7 +112,7 @@ export default function initInputFiles(RE: ResultsEngine) {
 
     sfaRecipesFile: ref(
       initInputFile<SfaRecipeComponent[]>({
-        defaultName: () => "SAFAD IS SFA Recipes.csv",
+        defaultName: SAFAD_FILE_NAMES.Input.SfaRecipes,
         getDefault: DefaultInputFiles.raw.sfaRecipes,
         parser: InputFileParsers.parseSfaRecipes,
         setter: (data: SfaRecipeComponent[]) => {
