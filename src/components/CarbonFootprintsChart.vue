@@ -100,6 +100,10 @@ onMounted(() => drawChart());
   flex-direction: row-reverse;
   justify-content: flex-end;
   //padding: 1em;
+
+  @media (max-width: 40em) {
+    flex-direction: column;
+  }
 }
 
 .carbon-footprints-chart__labels {
