@@ -12,32 +12,49 @@ const props = defineProps<{
   data: GraphData;
 }>();
 
-const dataMap: Record<string, number> = {
-  "Capital goods": aggregateHeaderIndex("Capital goods (kg CO2e)"),
-  "Energy primary production": aggregateHeaderIndex(
-    "Energy primary production (kg CO2e)"
-  ),
-  "Enteric fermentation": aggregateHeaderIndex("Enteric fermentation (kg CO2e)"),
-  "Land use change": aggregateHeaderIndex("Land use change (kg CO2e)"),
-  "Manure management": aggregateHeaderIndex("Manure management (kg CO2e)"),
-  "Mineral fertiliser production": aggregateHeaderIndex(
-    "Mineral fertiliser production (kg CO2e)"
-  ),
-  "Primary production": aggregateHeaderIndex(
-    "Energy primary production (kg CO2e)"
-  ),
-  "Soil emissions": aggregateHeaderIndex("Soil emissions (kg CO2e)"),
-  Processing: aggregateHeaderIndex("Processing (kg CO2e)"),
-  Packaging: aggregateHeaderIndex("Packaging (kg CO2e)"),
-  Transport: aggregateHeaderIndex("Transports (kg CO2e)"),
-};
+type Color = string;
+const dataMap: [string, number, Color][] = [
+  ["Capital goods", aggregateHeaderIndex("Capital goods (kg CO2e)"), "#86cbed"],
+  [
+    "Enteric fermentation",
+    aggregateHeaderIndex("Enteric fermentation (kg CO2e)"),
+    "#a0b81a",
+  ],
+  [
+    "Land use change",
+    aggregateHeaderIndex("Land use change (kg CO2e)"),
+    "#00674c",
+  ],
+  [
+    "Manure management",
+    aggregateHeaderIndex("Manure management (kg CO2e)"),
+    "brown",
+  ],
+  [
+    "Mineral fertiliser production",
+    aggregateHeaderIndex("Mineral fertiliser production (kg CO2e)"),
+    "#d44543",
+  ],
+  [
+    "Energy, primary production",
+    aggregateHeaderIndex("Energy primary production (kg CO2e)"),
+    "#00757e",
+  ],
+  ["Soil emissions", aggregateHeaderIndex("Soil emissions (kg CO2e)"), "#999"],
+  ["Processing", aggregateHeaderIndex("Processing (kg CO2e)"), "#cdba6c"],
+  ["Packaging", aggregateHeaderIndex("Packaging (kg CO2e)"), "#7ad172"],
+  ["Transport", aggregateHeaderIndex("Transports (kg CO2e)"), "#111"],
+];
+
+const labels = dataMap.map((kv) => kv[0]);
+const colors = dataMap.map((kvc) => kvc[2]);
 
 const canvasEl = ref<HTMLDivElement | null>(null);
 const drawChart = () => {
   if (props.data.length === 0 || !canvasEl.value) return;
   const data = props.data.map(([code, impactsArr]: [string, number[]]) => {
     const impactsObj = Object.fromEntries(
-      Object.entries(dataMap).map(([k, idx]) => [k, impactsArr[idx]])
+      dataMap.map(([k, idx]) => [k, impactsArr[idx]])
     );
 
     return {
@@ -77,13 +94,11 @@ const drawChart = () => {
     axisLabels: {
       y: "kg CO<sup>2</sup>e per kg",
     },
+    legendColors: colors,
   });
 };
 
 watch(() => props.data, drawChart);
-
-const labels = Object.keys(dataMap);
-
 useOnResize(debounce(drawChart, 200));
 onMounted(drawChart);
 </script>
@@ -92,7 +107,10 @@ onMounted(drawChart);
   <div class="carbon-footprints-chart">
     <div class="carbon-footprints-chart__labels">
       <p><strong>Emissions Source</strong></p>
-      <p v-for="label in labels" v-text="label" data-color="#f0f"></p>
+      <p v-for="(label, i) in labels">
+        <span :style="{ background: colors[i] }" />
+        {{ label }}
+      </p>
     </div>
     <div class="carbon-footprints-chart__canvas" ref="canvasEl"></div>
   </div>
@@ -119,23 +137,22 @@ onMounted(drawChart);
 
   p {
     margin-bottom: 0.5em;
-    &[data-color] {
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
 
-      &::before {
-        $size: 1.25em;
-        content: "";
-        display: inline-block;
-        width: $size;
-        height: $size;
-        background: gray;
-        border-radius: $size;
-      }
+    > span {
+      $size: 1.25em;
+      content: "";
+      display: inline-block;
+      width: $size;
+      height: $size;
+      background: gray;
+      border-radius: $size;
     }
   }
 }
+
 .carbon-footprints-chart__canvas {
   flex-basis: auto;
   flex-grow: 1;
