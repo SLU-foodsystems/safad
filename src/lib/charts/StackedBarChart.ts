@@ -194,7 +194,7 @@ export default function StackedBarChart(
   // TODO: Only implemented y-label
   if (cfg.axisLabels && cfg.axisLabels.y) {
     const labelXPos = -30;
-    const labelYPos = cfg.height / -2 + cfg.margin.top;
+    const labelYPos = (cfg.height - cfg.margin.bottom - cfg.margin.top) / -2;
 
     // Axis labels
     svg
