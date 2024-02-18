@@ -1,6 +1,7 @@
 //@ts-disable
 import * as d3 from "d3";
 import cmc from "./cmc-colors";
+import { reversed } from "@/lib/utils";
 
 type DataPoint = {
   [k: string]: number | string;
@@ -223,7 +224,7 @@ export default function StackedBarChart(
   // Stack the data.
   // TODO: Typecast is ugly, but I can't figure out to get it working anyway
   // else right now.
-  const stackedData = d3.stack().keys(columns)(
+  const stackedData = d3.stack().keys(reversed(columns))(
     data as unknown as { [key: string]: number }[]
   );
 
