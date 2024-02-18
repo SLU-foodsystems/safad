@@ -92,7 +92,7 @@ const drawChart = () => {
     height,
     labelLayout: "offset",
     axisLabels: {
-      y: "kg CO<sup>2</sup>e per kg",
+      y: "kg CO2e per kg",
     },
     legendColors: colors,
   });

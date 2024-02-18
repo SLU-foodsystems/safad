@@ -203,7 +203,7 @@ export default function StackedBarChart(
       .style("transform", "rotate(-90deg)")
       .style("text-anchor", "middle")
       .style("font-size", "0.75em")
-      .html("kg CO2e per kg");
+      .text(cfg.axisLabels.y);
   }
 
   svg.append("g").call(d3.axisLeft(yAxis));
