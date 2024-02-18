@@ -3,6 +3,7 @@ import { debounce, sum } from "@/lib/utils";
 import StackedBarChart from "@/lib/charts/StackedBarChart";
 import { useOnResize } from "@/lib/use-on-resize";
 import { onMounted, ref, watch } from "vue";
+import { aggregateHeaderIndex } from "@/lib/impacts-csv-utils";
 
 // Code: aggregated impacts
 type GraphData = [string, number[]][];
@@ -11,20 +12,24 @@ const props = defineProps<{
   data: GraphData;
 }>();
 
-const BASE_OFFSET = 5 /*combined*/ + 14;
-// TODO: Alternatively, define labels and use index in header constant
 const dataMap: Record<string, number> = {
-  "Capital goods": BASE_OFFSET + 1,
-  "Energy primary production": BASE_OFFSET + 3,
-  "Enteric fermentation": BASE_OFFSET + 5,
-  "Land use change": BASE_OFFSET + 4,
-  "Manure management": BASE_OFFSET + 6,
-  "Mineral fertiliser production": BASE_OFFSET + 0,
-  "Primary production": 5,
-  "Soil emissions": BASE_OFFSET + 2,
-  Processing: 41,
-  Packaging: 45,
-  Transport: 50,
+  "Capital goods": aggregateHeaderIndex("Capital goods (kg CO2e)"),
+  "Energy primary production": aggregateHeaderIndex(
+    "Energy primary production (kg CO2e)"
+  ),
+  "Enteric fermentation": aggregateHeaderIndex("Enteric fermentation (kg CO2e)"),
+  "Land use change": aggregateHeaderIndex("Land use change (kg CO2e)"),
+  "Manure management": aggregateHeaderIndex("Manure management (kg CO2e)"),
+  "Mineral fertiliser production": aggregateHeaderIndex(
+    "Mineral fertiliser production (kg CO2e)"
+  ),
+  "Primary production": aggregateHeaderIndex(
+    "Energy primary production (kg CO2e)"
+  ),
+  "Soil emissions": aggregateHeaderIndex("Soil emissions (kg CO2e)"),
+  Processing: aggregateHeaderIndex("Processing (kg CO2e)"),
+  Packaging: aggregateHeaderIndex("Packaging (kg CO2e)"),
+  Transport: aggregateHeaderIndex("Transports (kg CO2e)"),
 };
 
 const canvasEl = ref<HTMLDivElement | null>(null);
