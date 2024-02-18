@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { debounce, sum } from "@/lib/utils";
+import { debounce, reversed, sum } from "@/lib/utils";
 import StackedBarChart from "@/lib/charts/StackedBarChart";
 import { useOnResize } from "@/lib/use-on-resize";
 import { onMounted, ref, watch } from "vue";
 import { aggregateHeaderIndex } from "@/lib/impacts-csv-utils";
+import { sample } from "@/lib/charts/cmc-colors";
 
 // Code: aggregated impacts
 type GraphData = [string, number[]][];
@@ -12,38 +13,65 @@ const props = defineProps<{
   data: GraphData;
 }>();
 
+const _colors = reversed(sample("Davos", 10));
 type Color = string;
 const dataMap: [string, number, Color][] = [
-  ["Capital goods", aggregateHeaderIndex("Capital goods (kg CO2e)"), "#86cbed"],
+  ["Capital goods", aggregateHeaderIndex("Capital goods (kg CO2e)"),
+    _colors[0],
+    // "#86cbed"
+  ],
   [
     "Enteric fermentation",
     aggregateHeaderIndex("Enteric fermentation (kg CO2e)"),
-    "#a0b81a",
+    // "#a0b81a",
+    _colors[1],
   ],
   [
     "Land use change",
     aggregateHeaderIndex("Land use change (kg CO2e)"),
-    "#00674c",
+    // "#00674c",
+    _colors[2],
   ],
   [
     "Manure management",
     aggregateHeaderIndex("Manure management (kg CO2e)"),
-    "brown",
+    // "brown",
+    _colors[3],
   ],
   [
     "Mineral fertiliser production",
     aggregateHeaderIndex("Mineral fertiliser production (kg CO2e)"),
-    "#d44543",
+    // "#d44543",
+    _colors[4],
   ],
   [
     "Energy, primary production",
     aggregateHeaderIndex("Energy primary production (kg CO2e)"),
-    "#00757e",
+    // "#00757e",
+    _colors[5],
   ],
-  ["Soil emissions", aggregateHeaderIndex("Soil emissions (kg CO2e)"), "#999"],
-  ["Processing", aggregateHeaderIndex("Processing (kg CO2e)"), "#cdba6c"],
-  ["Packaging", aggregateHeaderIndex("Packaging (kg CO2e)"), "#7ad172"],
-  ["Transport", aggregateHeaderIndex("Transports (kg CO2e)"), "#111"],
+  [
+    "Soil emissions",
+    aggregateHeaderIndex("Soil emissions (kg CO2e)"),
+    // "#999",
+    _colors[6],
+  ],
+  [
+    "Processing",
+    aggregateHeaderIndex("Processing (kg CO2e)"), // "#cdba6c",
+    _colors[7],
+  ],
+  [
+    "Packaging",
+    aggregateHeaderIndex("Packaging (kg CO2e)"), // "#7ad172",
+    _colors[8],
+  ],
+  [
+    "Transport",
+    aggregateHeaderIndex("Transports (kg CO2e)"),
+    // "#111",
+    _colors[9],
+  ],
 ];
 
 const labels = dataMap.map((kv) => kv[0]);
