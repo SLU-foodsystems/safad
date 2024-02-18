@@ -85,8 +85,7 @@ watch(() => props.data, drawChart);
 const labels = Object.keys(dataMap);
 
 useOnResize(debounce(drawChart, 200));
-
-onMounted(() => drawChart());
+onMounted(drawChart);
 </script>
 
 <template>
