@@ -87,7 +87,7 @@ const drawChart = () => {
       height,
       maxValue: 100,
       drawLegend: true,
-      axisLabels: { y: "%" },
+      axisLabels: { y: "Contribution, %" },
 
       labelLayout,
       legendTitle: "Food Categories",

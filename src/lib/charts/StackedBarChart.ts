@@ -214,7 +214,9 @@ export default function StackedBarChart(
   if (cfg.legendColors) {
     if (cfg.legendColors.length < columns.length) {
       console.warn(cfg.legendColors.length, columns.length, columns);
-      console.warn("legendColors array was too short, using default Davos color mode instead.");
+      console.warn(
+        "legendColors array was too short, using default Davos color mode instead."
+      );
     } else {
       colorDomain = cfg.legendColors;
     }
