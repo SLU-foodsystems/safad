@@ -24,6 +24,7 @@ interface Config {
 
   drawLegend: boolean;
   legendTitle: string;
+  legendColors?: string[]; // could also be function?
 
   labelLayout: "normal" | "slanted" | "offset";
   axisLabels?: {
@@ -208,9 +209,16 @@ export default function StackedBarChart(
   svg.append("g").call(d3.axisLeft(yAxis));
 
   // color palette = one color per subgroup
-  const color = d3
-    .scaleOrdinal(cmc.sample("Davos", columns.length))
-    .domain(columns);
+  let colorDomain = cmc.sample("Davos", columns.length);
+  if (cfg.legendColors) {
+    if (cfg.legendColors.length < columns.length) {
+      console.warn(cfg.legendColors.length, columns.length, columns);
+      console.warn("legendColors array was too short, using default Davos color mode instead.");
+    } else {
+      colorDomain = cfg.legendColors;
+    }
+  }
+  const color = d3.scaleOrdinal(colorDomain).domain(columns);
 
   // Stack the data.
   // TODO: Typecast is ugly, but I can't figure out to get it working anyway
