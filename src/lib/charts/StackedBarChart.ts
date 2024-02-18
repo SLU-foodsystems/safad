@@ -11,6 +11,7 @@ interface LegendConfig {
   labelHeight: number;
   circleRadius: number;
   width: number;
+  legendTitle: string;
 }
 
 interface Config {
@@ -20,9 +21,11 @@ interface Config {
   maxValue: number;
   minValue: number;
   innerPadding: number;
-  labelLayout: "normal" | "slanted" | "offset";
-  drawLegend: boolean;
 
+  drawLegend: boolean;
+  legendTitle: string;
+
+  labelLayout: "normal" | "slanted" | "offset";
   axisLabels?: {
     // x: string; // TODO: Not implemented
     y: string;
@@ -34,24 +37,15 @@ function drawLegend(
   labels: string[],
   color: d3.ScaleOrdinal<string, string, never>,
   rect: { x: number; y: number },
-  cfgOverrides: Partial<LegendConfig> = {}
+  cfg: LegendConfig
 ): { width: number; height: number } {
   const legendContainer = root
     .append("g")
     .attr("class", "legend")
     .style("transform", `translate(${rect.x}px, ${rect.y}px)`);
 
-  const legendCfg: LegendConfig = {
-    padding: 10,
-    labelHeight: 25,
-    circleRadius: 8,
-    width: 200,
-    ...cfgOverrides,
-  };
-
-  const height =
-    legendCfg.padding * 2 + (labels.length - 1) * legendCfg.labelHeight;
-  const width = legendCfg.width;
+  const height = cfg.padding * 2 + (labels.length - 1) * cfg.labelHeight;
+  const width = cfg.width;
 
   legendContainer.attr("width", `${width}px`).attr("height", `${height}px`);
 
@@ -62,9 +56,9 @@ function drawLegend(
     .data(labels)
     .enter()
     .append("circle")
-    .attr("cx", legendCfg.padding + legendCfg.circleRadius)
-    .attr("cy", (_d, i) => legendCfg.padding + (1 + i) * legendCfg.labelHeight)
-    .attr("r", legendCfg.circleRadius)
+    .attr("cx", cfg.padding + cfg.circleRadius)
+    .attr("cy", (_d, i) => cfg.padding + (1 + i) * cfg.labelHeight)
+    .attr("r", cfg.circleRadius)
     .style("fill", (d) => color(d));
 
   // Add labels
@@ -73,13 +67,10 @@ function drawLegend(
     .data(labels)
     .enter()
     .append("text")
-    .attr("x", legendCfg.padding + legendCfg.circleRadius * 2 + 10)
+    .attr("x", cfg.padding + cfg.circleRadius * 2 + 10)
     .attr(
       "y",
-      (_d, i) =>
-        legendCfg.padding +
-        legendCfg.circleRadius / 2 +
-        (1 + i) * legendCfg.labelHeight
+      (_d, i) => cfg.padding + cfg.circleRadius / 2 + (1 + i) * cfg.labelHeight
     )
     .style("fill", "#111")
     .text((d) => d)
@@ -89,11 +80,11 @@ function drawLegend(
   // add a legend title
   legendContainer
     .selectAll("labels")
-    .data(["Legend"])
+    .data([cfg.legendTitle])
     .enter()
     .append("text")
-    .attr("x", legendCfg.padding)
-    .attr("y", () => legendCfg.padding + legendCfg.circleRadius / 2)
+    .attr("x", cfg.padding)
+    .attr("y", () => cfg.padding + cfg.circleRadius / 2)
     .text((d) => d)
     .attr("text-anchor", "left")
     .style("font-weight", "bold")
@@ -120,9 +111,11 @@ export default function StackedBarChart(
     maxValue: 1,
     minValue: 0,
     innerPadding: 0.2,
-    labelLayout: "normal",
 
     drawLegend: false,
+    legendTitle: "Legend",
+
+    labelLayout: "normal",
     ...options,
   };
 
@@ -245,9 +238,21 @@ export default function StackedBarChart(
     .attr("width", xAxis.bandwidth());
 
   if (cfg.drawLegend) {
-    drawLegend(svg, columns, color, {
-      x: innerWidth,
-      y: 0,
-    });
+    drawLegend(
+      svg,
+      columns,
+      color,
+      {
+        x: innerWidth,
+        y: 0,
+      },
+      {
+        padding: 10,
+        labelHeight: 25,
+        circleRadius: 8,
+        width: 200,
+        legendTitle: cfg.legendTitle,
+      }
+    );
   }
 }

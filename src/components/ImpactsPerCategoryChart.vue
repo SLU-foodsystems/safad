@@ -90,6 +90,7 @@ const drawChart = () => {
       axisLabels: { y: "%" },
 
       labelLayout,
+      legendTitle: "Food Categories",
     }
   );
 };
