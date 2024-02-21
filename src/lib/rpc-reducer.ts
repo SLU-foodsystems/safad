@@ -101,7 +101,6 @@ function reduceToRpcs(
 
     const levelCode = getRpcCodeSubset(componentCode, level);
     if (newRecordedSpecials.has(levelCode)) return;
-    // TODO: Split up specials and iterate over them
     const specials = preparationProcesses[levelCode];
     if (!specials || specials.length === 0) return;
 
