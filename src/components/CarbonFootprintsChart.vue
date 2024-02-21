@@ -16,9 +16,24 @@ const props = defineProps<{
 type Color = string;
 const dataMap: [string, number, Color][] = [
   [
-    "Capital goods",
-    aggregateHeaderIndex("Capital goods (kg CO2e)"),
-    SLU_COLORS.Gray.Feather,
+    "Transport",
+    aggregateHeaderIndex("Transports (kg CO2e)"),
+    SLU_COLORS.Blue.Sky,
+  ],
+  [
+    "Packaging",
+    aggregateHeaderIndex("Packaging (kg CO2e)"), // "#7ad172",
+    SLU_COLORS.Blue.Cyan,
+  ],
+  [
+    "Processing",
+    aggregateHeaderIndex("Processing (kg CO2e)"), // "#cdba6c",
+    SLU_COLORS.Blue.Seabay,
+  ],
+  [
+    "Manure management",
+    aggregateHeaderIndex("Manure management (kg CO2e)"),
+    SLU_COLORS.Red.Apricot,
   ],
   [
     "Enteric fermentation",
@@ -31,14 +46,14 @@ const dataMap: [string, number, Color][] = [
     SLU_COLORS.Red.Plum,
   ],
   [
-    "Manure management",
-    aggregateHeaderIndex("Manure management (kg CO2e)"),
-    SLU_COLORS.Red.Apricot,
+    "Soil emissions",
+    aggregateHeaderIndex("Soil emissions (kg CO2e)"),
+    SLU_COLORS.Green.Chlorophyll,
   ],
   [
-    "Mineral fertiliser production",
-    aggregateHeaderIndex("Mineral fertiliser production (kg CO2e)"),
-    SLU_COLORS.Gray.Titan,
+    "Capital goods",
+    aggregateHeaderIndex("Capital goods (kg CO2e)"),
+    SLU_COLORS.Gray.Feather,
   ],
   [
     "Energy, primary production",
@@ -46,24 +61,9 @@ const dataMap: [string, number, Color][] = [
     SLU_COLORS.Gray.Concrete,
   ],
   [
-    "Soil emissions",
-    aggregateHeaderIndex("Soil emissions (kg CO2e)"),
-    SLU_COLORS.Green.Chlorophyll,
-  ],
-  [
-    "Processing",
-    aggregateHeaderIndex("Processing (kg CO2e)"), // "#cdba6c",
-    SLU_COLORS.Blue.Seabay,
-  ],
-  [
-    "Packaging",
-    aggregateHeaderIndex("Packaging (kg CO2e)"), // "#7ad172",
-    SLU_COLORS.Blue.Cyan,
-  ],
-  [
-    "Transport",
-    aggregateHeaderIndex("Transports (kg CO2e)"),
-    SLU_COLORS.Blue.Sky,
+    "Mineral fertiliser production",
+    aggregateHeaderIndex("Mineral fertiliser production (kg CO2e)"),
+    SLU_COLORS.Gray.Titan,
   ],
 ];
 
