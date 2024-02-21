@@ -18,7 +18,7 @@ const charts = [
   {
     index: aggregateHeaderIndex("Water (m3/kg)"),
     color: SLU_COLORS.Blue.Sky,
-    title: "Blue Water Use",
+    title: "Blue water use",
     yLabel: "L per kg",
   },
   {
