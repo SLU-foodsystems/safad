@@ -2,66 +2,68 @@
 import { aggregateHeaderIndex } from "@/lib/impacts-csv-utils";
 import EnvFootprintChart from "./EnvFootprintChart.vue";
 
-import { sample } from "@/lib/charts/cmc-colors";
+import SLU_COLORS from "@/lib/slu-colors";
 
 const props = defineProps<{
   data: [string, number[]][];
 }>();
 
-const colors = sample("Roma", 8);
-
 const charts = [
   {
     index: aggregateHeaderIndex("Cropland (m2*year/kg)"),
-    color: colors[0],
-    title: "Land",
+    color: SLU_COLORS.Green.Chlorophyll,
+    title: "Cropland use",
     yLabel: "m2 per year per kg",
   },
   {
     index: aggregateHeaderIndex("Water (m3/kg)"),
-    color: colors[3],
+    color: SLU_COLORS.Blue.Sky,
     title: "Blue Water Use",
     yLabel: "L per kg",
   },
   {
     index: aggregateHeaderIndex("New N input (kg N/kg)"),
-    color: colors[1],
+    color: SLU_COLORS.Blue.Cyan,
     title: "New N use",
     yLabel: "m3 per kg",
   },
   {
     index: aggregateHeaderIndex("New P input (kg P/kg)"),
-    color: colors[2],
+    color: SLU_COLORS.Blue.Seabay,
     title: "New P use",
     yLabel: "m3 per kg",
   },
   {
+    index: aggregateHeaderIndex("Ammonia (kg NH3/kg)"),
+    color: SLU_COLORS.Blue.OceanDepth,
+    title: "Ammonia",
+    yLabel: "m3 per kg",
+  },
+  {
     index: aggregateHeaderIndex("Pesticides (g a.i/kg)"),
-    color: colors[4],
+    color: SLU_COLORS.Red.Coral,
     title: "Pesticides",
     yLabel: "m3 per kg",
   },
   {
     index: aggregateHeaderIndex("Biodiversity (E/MSY/kg)"),
-    color: colors[5],
+    color: SLU_COLORS.Red.Apricot,
     title: "Biodiversity",
     yLabel: "m3 per kg",
   },
   {
-    index: aggregateHeaderIndex("Ammonia (kg NH3/kg)"),
-    color: colors[6],
-    title: "Ammonia",
-    yLabel: "m3 per kg",
+    index: aggregateHeaderIndex("Animal welfare (index)"),
+    color: SLU_COLORS.Green.Apple,
+    title: "Animal welfare index",
+    yLabel: "",
   },
   {
-    index: aggregateHeaderIndex("Animal welfare (index)"),
-    color: colors[7],
-    title: "Animal welfare",
-    yLabel: "m3 per kg",
+    index: aggregateHeaderIndex("Antibiotics (index)"),
+    color: SLU_COLORS.Green.Linden,
+    title: "Antibiotics use index",
+    yLabel: "",
   },
 ];
-
-charts.forEach((c, i) => (c.color = colors[i]));
 </script>
 
 <template>

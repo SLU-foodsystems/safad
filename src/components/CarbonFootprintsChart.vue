@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { debounce, reversed, sum } from "@/lib/utils";
+import { debounce, sum } from "@/lib/utils";
 import StackedBarChart from "@/lib/charts/StackedBarChart";
 import { useOnResize } from "@/lib/use-on-resize";
 import { onMounted, ref, watch } from "vue";
 import { aggregateHeaderIndex } from "@/lib/impacts-csv-utils";
-import { sample } from "@/lib/charts/cmc-colors";
+import SLU_COLORS from "@/lib/slu-colors";
 
 // Code: aggregated impacts
 type GraphData = [string, number[]][];
@@ -13,64 +13,57 @@ const props = defineProps<{
   data: GraphData;
 }>();
 
-const _colors = reversed(sample("Davos", 10));
 type Color = string;
 const dataMap: [string, number, Color][] = [
-  ["Capital goods", aggregateHeaderIndex("Capital goods (kg CO2e)"),
-    _colors[0],
-    // "#86cbed"
+  [
+    "Capital goods",
+    aggregateHeaderIndex("Capital goods (kg CO2e)"),
+    SLU_COLORS.Gray.Feather,
   ],
   [
     "Enteric fermentation",
     aggregateHeaderIndex("Enteric fermentation (kg CO2e)"),
-    // "#a0b81a",
-    _colors[1],
+    SLU_COLORS.Red.Coral,
   ],
   [
     "Land use change",
     aggregateHeaderIndex("Land use change (kg CO2e)"),
-    // "#00674c",
-    _colors[2],
+    SLU_COLORS.Red.Plum,
   ],
   [
     "Manure management",
     aggregateHeaderIndex("Manure management (kg CO2e)"),
-    // "brown",
-    _colors[3],
+    SLU_COLORS.Red.Apricot,
   ],
   [
     "Mineral fertiliser production",
     aggregateHeaderIndex("Mineral fertiliser production (kg CO2e)"),
-    // "#d44543",
-    _colors[4],
+    SLU_COLORS.Gray.Titan,
   ],
   [
     "Energy, primary production",
     aggregateHeaderIndex("Energy primary production (kg CO2e)"),
-    // "#00757e",
-    _colors[5],
+    SLU_COLORS.Gray.Concrete,
   ],
   [
     "Soil emissions",
     aggregateHeaderIndex("Soil emissions (kg CO2e)"),
-    // "#999",
-    _colors[6],
+    SLU_COLORS.Green.Chlorophyll,
   ],
   [
     "Processing",
     aggregateHeaderIndex("Processing (kg CO2e)"), // "#cdba6c",
-    _colors[7],
+    SLU_COLORS.Blue.Seabay,
   ],
   [
     "Packaging",
     aggregateHeaderIndex("Packaging (kg CO2e)"), // "#7ad172",
-    _colors[8],
+    SLU_COLORS.Blue.Cyan,
   ],
   [
     "Transport",
     aggregateHeaderIndex("Transports (kg CO2e)"),
-    // "#111",
-    _colors[9],
+    SLU_COLORS.Blue.Sky,
   ],
 ];
 
