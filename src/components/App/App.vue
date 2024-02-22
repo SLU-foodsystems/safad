@@ -255,8 +255,9 @@ const downloadZip = async () => {
 const {
   carbonFootprints,
   dietFootprintsTotal,
-  dietFootprintsPerCategory,
-  recompute: recomputChartData,
+  dietFootprintsPerRpcCategory,
+  dietFootprintsPerFoodsCategory,
+  recompute: updateChartData,
 } = setupCharts(RE, diet);
 
 /**
@@ -284,7 +285,7 @@ watch(countryCode, async () => {
 
   await Promise.all(promises);
 
-  recomputChartData();
+  updateChartData();
 
   isLoading.value = false;
 });
@@ -306,7 +307,7 @@ onMounted(async () => {
 
   await Promise.all(tasks);
 
-  recomputChartData();
+  updateChartData();
 
   isLoading.value = false;
 });
@@ -430,7 +431,7 @@ onMounted(async () => {
 
       <section class="stack stack-l">
         <h2 class="hr-header">
-          <span>Impacts from Diet</span>
+          <span>Impacts from diets</span>
         </h2>
         <div class="cluster planetary-boundaries-section">
           <div class="stack">
@@ -457,7 +458,15 @@ onMounted(async () => {
         </h3>
         <div>
           <ImpactsPerCategoryChart
-            :impactsPerCategory="dietFootprintsPerCategory"
+            :impactsPerCategory="dietFootprintsPerFoodsCategory"
+          />
+        </div>
+        <h3 class="hr-header hr-header--right-only">
+          <span>Contributions to impacts from different raw commodities</span>
+        </h3>
+        <div>
+          <ImpactsPerCategoryChart
+            :impactsPerCategory="dietFootprintsPerRpcCategory"
           />
         </div>
       </section>
