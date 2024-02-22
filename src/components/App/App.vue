@@ -394,7 +394,7 @@ onMounted(async () => {
             <CarbonFootprintsChart :data="carbonFootprints" />
           </div>
           <div class="results-grid-large__aside stack">
-            <h3>Download output data</h3>
+            <h3>Download footprints of foods</h3>
             <p>
               Download a csv file with the impacts per kg of each food-item in
               the recipes list.
