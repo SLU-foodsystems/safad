@@ -3,7 +3,14 @@
  * each with a code and an amount (in grams).
  */
 
-import { getRpcCodeLevel, getRpcCodeSubset } from "@/lib/utils";
+import { getRpcCodeLevel, getRpcCodeSubset, parseCsvFile } from "@/lib/utils";
+import packagingStopProcessesCsv from "@/data/packaging-stop-processes.csv?raw";
+
+const packagingStopProcesses = new Set(
+  parseCsvFile(packagingStopProcessesCsv).slice(1)
+    .filter(([_code, _name, stopCode]) => stopCode && stopCode.toLowerCase() === "yes")
+    .map(([code]) => code)
+);
 
 // TODO: Ideally we would take these two as parameters instead.
 const TRANSPORTLESS_PROCESSES = [
@@ -41,6 +48,9 @@ const isTransportlessProcess = (processes: string[]): boolean => {
   return processes.some((p) => TRANSPORTLESS_PROCESSES.includes(p));
 };
 
+const isPackagingStopCodeProcess = (processes: string[]): boolean =>
+  processes.some((p) => packagingStopProcesses.has(p));
+
 /**
  * Aggergate a list of rpcs and their amounts by grouping/summing any duplicate
  * entries.
@@ -69,22 +79,29 @@ function aggregateDuplicateRpcs(rpcs: Diet) {
  * It will also record any preparation processes and packaging.
  */
 function reduceToRpcs(
+  // Main input: Code and amount of the food to reduce
   [componentCode, amount]: FoodEntry,
+
+  // Static: same throughout recursion
+  recipes: FoodsRecipes,
+  preparationProcesses: Record<string, string[]>,
+
+  // Modifiers
+  recordTransportlessAmount: (rcpCode: string, amount: number) => void,
   recordProcessOrPackagingContribution: (
     code: string,
     facet: string,
-    amount: number
+    amount: number,
+    ignorePackaging?: boolean
   ) => void,
-  recipes: FoodsRecipes,
-  preparationProcesses: Record<string, string[]>,
-  recordedSpecials: Set<string>,
-  recordTransportlessAmount: (rcpCode: string, amount: number) => void,
+
+  // State variables
+  recordedSpecials: Set<string> = new Set(),
   transportlessAmount: number = 0,
-  nesting = 0
+  packagingStopCodeReached = false
 ): Diet {
   const subcomponents = recipes[componentCode];
   if (!subcomponents) {
-    // Not sure about this??
     if (transportlessAmount !== 0) {
       recordTransportlessAmount(componentCode, transportlessAmount);
     }
@@ -101,12 +118,13 @@ function reduceToRpcs(
 
     const levelCode = getRpcCodeSubset(componentCode, level);
     if (newRecordedSpecials.has(levelCode)) return;
-    const specials = preparationProcesses[levelCode];
+
+    let specials = preparationProcesses[levelCode];
     if (!specials || specials.length === 0) return;
 
     newRecordedSpecials = new Set([levelCode, ...newRecordedSpecials]);
     specials.forEach((special) => {
-      recordProcessOrPackagingContribution(levelCode, special, amount);
+      recordProcessOrPackagingContribution(levelCode, special, amount, packagingStopCodeReached);
     });
   };
 
@@ -138,6 +156,9 @@ function reduceToRpcs(
         newTransportAmount += netAmount - preProcessAmount;
       }
 
+      const stopCodeReached =
+        packagingStopCodeReached || isPackagingStopCodeProcess(processes);
+
       // Some recipes will include references back to themselves, in which
       // case we do not want to recurse any further additional process.
       // (otherwise, we'll get an infinite loop).
@@ -152,13 +173,13 @@ function reduceToRpcs(
       // Recurse!
       return reduceToRpcs(
         [subcomponentCode, netAmount],
-        recordProcessOrPackagingContribution,
         recipes,
         preparationProcesses,
-        newRecordedSpecials,
         recordTransportlessAmount,
+        recordProcessOrPackagingContribution,
+        newRecordedSpecials,
         newTransportAmount,
-        nesting + 1
+        stopCodeReached
       );
     })
     .flat(1);
@@ -182,23 +203,27 @@ export default function reduceDietToRpcs(
   const packagingMap: NestedRecord<string, number> = {};
   const transportlessMap: Record<string, number> = {};
 
-  // This is a helper function that will be called for all processes and
-  // packaging found when traversing the recipes, adding to the above two maps.
+  // Helper function  called for all processes and packaging found when
+  // traversing the recipes, adding to the above two maps under its L1 code.
   const recordProcessOrPackagingContribution = (
     code: string,
-    facet: string,
-    amount: number
+    facetOrPackagingCode: string,
+    amount: number,
+    ignorePackaging = false
   ) => {
     const level1Category = getRpcCodeSubset(code, 1);
     // We use 'real' facets for processing, but made-up ones for packaging. The
     // made-up ones are just e.g. "P1" or "P18", i.e. length of 2 or 3.
-    const isPackagingFacet = /^P\d(\d)?$/.test(facet);
+    const isPackagingFacet = /^P\d(\d)?$/.test(facetOrPackagingCode);
+    if (ignorePackaging && isPackagingFacet) return;
+
     const map = isPackagingFacet ? packagingMap : processesMap;
     if (!(level1Category in map)) {
       map[level1Category] = {};
     }
 
-    map[level1Category][facet] = (map[level1Category][facet] || 0) + amount;
+    map[level1Category][facetOrPackagingCode] =
+      (map[level1Category][facetOrPackagingCode] || 0) + amount;
   };
 
   const recordTransportless = (rpcCode: string, amount: number) => {
@@ -209,11 +234,10 @@ export default function reduceDietToRpcs(
     .map((rpcDerivative) =>
       reduceToRpcs(
         rpcDerivative,
-        recordProcessOrPackagingContribution,
         recipes,
         preparationAndPackagingList,
-        new Set(),
-        recordTransportless
+        recordTransportless,
+        recordProcessOrPackagingContribution
       )
     )
     .flat(1);

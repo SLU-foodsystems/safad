@@ -528,4 +528,77 @@ describe("RPC reducer", () => {
       });
     });
   });
+
+  // When encountering certain processes, we stop recording packaging. See
+  // @/data/packaging-stop-processes.csv for a list of the processes
+  describe("Packaging Stop-Codes", () => {
+    // For mango fruit juice, we want packaging on the juice but not the mangos
+    test("Mango fruit juice", () => {
+      const mangoFruitJuice: Diet = [["I.12.02.022", 1000]];
+      const recipe: FoodsRecipes = {
+        // Juice to mango
+        "I.12.02.022": [["A.05.06.016", ["F28.A07LN", "F28.A07KF"], 1, 30]],
+        // mango to itself
+        "A.05.06.016": [["A.05.06.016", [], 1, 1]],
+      };
+
+      const [_rpcAmounts, _processAmounts, packagingAmounts] = reduceDiet(
+        mangoFruitJuice,
+        recipe,
+        {
+          "A.12.02": ["P5"],
+          "A.05.06": ["P6"],
+        }
+      );
+
+      expect(packagingAmounts).toEqual({
+        "A.12": { P5: 1000 },
+      });
+    });
+    // Now we try the same, but without the processes: should get packaging on
+    // both
+    test("Mango fruit juice (w/o processes)", () => {
+      const mangoFruitJuice: Diet = [["I.12.02.022", 1000]];
+      const recipe: FoodsRecipes = {
+        // Juice to mango
+        "I.12.02.022": [["A.05.06.016", [], 1, 30]],
+        // mango to itself
+        "A.05.06.016": [["A.05.06.016", [], 1, 1]],
+      };
+
+      const [_rpcAmounts, _processAmounts, packagingAmounts] = reduceDiet(
+        mangoFruitJuice,
+        recipe,
+        {
+          "A.12.02": ["P5"],
+          "A.05.06": ["P6"],
+        }
+      );
+
+      expect(packagingAmounts).toEqual({
+        "A.05": { P6: 30000 },
+        "A.12": { P5: 1000 },
+      });
+    });
+    // However, when reducing mangos directly, without the stop process, we want
+    // packaging on the mangos
+    test("Only mangos", () => {
+      const mangos: Diet = [["A.05.06.016", 1000]];
+      const recipe: FoodsRecipes = {
+        // mango to itself
+        "A.05.06.016": [["A.05.06.016", [], 1, 1]],
+      };
+
+      const [_rpcAmounts, _processAmounts, packagingAmounts] = reduceDiet(
+        mangos,
+        recipe,
+        {
+          "A.12.02": ["P5"],
+          "A.05.06": ["P6"],
+        }
+      );
+
+      expect(packagingAmounts).toEqual({ "A.05": { P6: 1000 } });
+    });
+  });
 });
