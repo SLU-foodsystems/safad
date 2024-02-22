@@ -55,13 +55,11 @@ const charts = [
     index: aggregateHeaderIndex("Animal welfare (index)"),
     color: SLU_COLORS.Green.Apple,
     title: "Animal welfare index",
-    yLabel: "",
   },
   {
     index: aggregateHeaderIndex("Antibiotics (index)"),
     color: SLU_COLORS.Green.Linden,
     title: "Antibiotics use index",
-    yLabel: "",
   },
 ];
 </script>

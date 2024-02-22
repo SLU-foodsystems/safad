@@ -45,9 +45,7 @@ const drawChart = () => {
     height,
     labelLayout: "slanted",
     color: props.color,
-    axisLabels: {
-      y: props.yLabel,
-    },
+    axisLabels: props.yLabel ? { y: props.yLabel } : undefined,
   });
 };
 
