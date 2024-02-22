@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { debounce, sum } from "@/lib/utils";
+import { debounce } from "@/lib/utils";
 import { useOnResize } from "@/lib/use-on-resize";
 import { onMounted, ref, watch } from "vue";
 import BarChart from "@/lib/charts/BarChart";
