@@ -22,7 +22,6 @@ import {
 } from "@/lib/sfa-results-generator";
 
 import FileSelector from "@/components/FileSelector.vue";
-import LoadingOverlay from "@/components/LoadingOverlay.vue";
 // Charts
 import CarbonFootprintsChart from "@/components/CarbonFootprintsChart.vue";
 import EnvFootprintCharts from "@/components/EnvFootprintCharts.vue";
@@ -634,13 +633,6 @@ onMounted(async () => {
           n° 101061023. Views and opinions expressed are however those of the
           author(s) only and do not necessarily reflect those of the European
           Union.
-        </p>
-        <p>
-          All rights reserved. This website is protected by copyright. The
-          contents and information in this website, in particular text, drawings
-          and images it contains, are strictly confidential and may not be
-          altered or amended, copied, used or disclosed without the express
-          permission of the rights holder.
         </p>
         <img src="@/assets/eu-flag.svg" width="81" height="54" alt="EU Flag" />
         <p hidden>

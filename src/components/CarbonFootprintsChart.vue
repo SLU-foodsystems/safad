@@ -127,7 +127,7 @@ onMounted(drawChart);
 <template>
   <div class="carbon-footprints-chart">
     <div class="carbon-footprints-chart__labels">
-      <p><strong>Emissions Source</strong></p>
+      <p><strong>Lifecycle Stage</strong></p>
       <p v-for="(label, i) in labels">
         <span :style="{ background: colors[i] }" />
         {{ label }}
