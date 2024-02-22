@@ -7,8 +7,11 @@ import { getRpcCodeLevel, getRpcCodeSubset, parseCsvFile } from "@/lib/utils";
 import packagingStopProcessesCsv from "@/data/packaging-stop-processes.csv?raw";
 
 const packagingStopProcesses = new Set(
-  parseCsvFile(packagingStopProcessesCsv).slice(1)
-    .filter(([_code, _name, stopCode]) => stopCode && stopCode.toLowerCase() === "yes")
+  parseCsvFile(packagingStopProcessesCsv)
+    .slice(1)
+    .filter(
+      ([_code, _name, stopCode]) => stopCode && stopCode.toLowerCase() === "yes"
+    )
     .map(([code]) => code)
 );
 
@@ -124,7 +127,12 @@ function reduceToRpcs(
 
     newRecordedSpecials = new Set([levelCode, ...newRecordedSpecials]);
     specials.forEach((special) => {
-      recordProcessOrPackagingContribution(levelCode, special, amount, packagingStopCodeReached);
+      recordProcessOrPackagingContribution(
+        levelCode,
+        special,
+        amount,
+        packagingStopCodeReached
+      );
     });
   };
 
@@ -142,6 +150,7 @@ function reduceToRpcs(
       let newTransportAmount = transportlessAmount;
 
       // Record the output amount for processes
+      // This will always be a process, and never a packaging
       const processAmount = ratio * amount;
       processes.forEach((processId) =>
         recordProcessOrPackagingContribution(
