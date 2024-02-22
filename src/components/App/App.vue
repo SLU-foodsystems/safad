@@ -360,21 +360,6 @@ onMounted(async () => {
             using default values, choose the country of interest in the
             drop-down menu. Footprint files are then ready to be downloaded.
           </p>
-
-          <p>
-            In the SAFAD tool, input data (Input, parameter, and emission factor
-            files) can easily be configured. To configure a file, download the
-            default file using the Download Copy button. Once configured, the
-            custom file can be uploaded using the Upload Custom file. The custom
-            file must be in the same format and uploaded as a .csv file. When
-            all custom files are uploaded, the new footprint for the diet or
-            foods can be downloaded.
-          </p>
-
-          <p>
-            To learn more about a file’s function, press the Info button
-            situated next to the file's name.
-          </p>
         </div>
       </div>
     </div>
@@ -436,6 +421,16 @@ onMounted(async () => {
         <div class="results-grid-small">
           <EnvFootprintCharts :data="carbonFootprints" />
         </div>
+        <p>
+          Footprints shown here are for foods on the market of the choosen
+          country considering the origin of different raw commodities. For
+          example, a share of a commodity (e.g. wheat or tomateos) can be grown
+          domestically while the rest is imported. The footprint of the
+          commoditiy is therefore an average of the footprint from these
+          countries weighted according to the shares of the production taking
+          place in different countries. Footprints here also accounts for waste
+          in production, at the retailer and at the consumer.
+        </p>
       </section>
 
       <section class="stack stack-l">
@@ -473,66 +468,21 @@ onMounted(async () => {
       </section>
 
       <h2 class="hr-header">
-        <span>Configure Files</span>
+        <span>Configure Data</span>
       </h2>
-      <h3 class="hr-header hr-header--right-only">
-        <span>Download Output Data</span>
-      </h3>
-      <section class="download-section stack">
-        <div class="stack">
-          <div class="cluster cluster--between">
-            <span class="cluster">
-              <img
-                src="@/assets/zip.svg"
-                width="2253"
-                height="2250"
-                loading="lazy"
-              />
-              <h2>Download complete package of files</h2>
-            </span>
-            <button class="button button--accent" @click="downloadZip">
-              Download
-            </button>
-          </div>
-          <p>
-            Download a zip-file with all input- and output files bundled
-            together.
-          </p>
-        </div>
+      <p>
+        In the SAFAD tool, input data (Input, parameter, and emission factor
+        files) can easily be configured. To configure a file, download the
+        default file using the Download Copy button. Once configured, the custom
+        file can be uploaded using the Upload Custom file. The custom file must
+        be in the same format and uploaded as a .csv file. When all custom files
+        are uploaded, the new footprint for the diet or foods can be downloaded.
+      </p>
 
-        <div class="stack" style="background: #dbe3f2">
-          <div class="cluster cluster--between">
-            <span class="cluster">
-              <img
-                src="@/assets/horizontal-stacked-bar-chart.svg"
-                width="2253"
-                height="2250"
-                loading="lazy"
-              />
-              <h2>Download footprints based off of SFA Data</h2>
-            </span>
-            <button
-              class="button button--accent"
-              @click="downloadFootprintsOfSfaRecipes"
-            >
-              Download
-            </button>
-          </div>
-          <p>
-            Download a csv file with the impacts of recipes used by the
-            <abbr title="Swedish Food Authority">SFA</abbr>
-          </p>
-          <FileSelector
-            file-label="SFA Recipes"
-            :country-code="countryCode"
-            :file-interface="sfaRecipesFile"
-            :file-description="Descriptions.sfaRecipesFile"
-          />
-        </div>
-
-        <LoadingOverlay :show="isLoading" />
-      </section>
-
+      <p>
+        To learn more about a file’s function, press the Info button situated
+        next to the file's name.
+      </p>
       <h3 class="hr-header hr-header--right-only">
         <span>Input Data</span>
       </h3>
@@ -616,6 +566,31 @@ onMounted(async () => {
         :file-interface="emissionsFactorsTransportFile"
         :file-description="Descriptions.emissionsFactorsTransport"
       />
+      <h2 class="hr-header">
+        <span>Download complete data package</span>
+      </h2>
+      <section class="download-section stack">
+        <div class="stack">
+          <div class="cluster cluster--between">
+            <span class="cluster">
+              <img
+                src="@/assets/zip.svg"
+                width="2253"
+                height="2250"
+                loading="lazy"
+              />
+              <h2>Download complete package of files</h2>
+            </span>
+            <button class="button button--accent" @click="downloadZip">
+              Download
+            </button>
+          </div>
+          <p>
+            Download a zip-file with all input- and output files bundled
+            together.
+          </p>
+        </div>
+      </section>
     </div>
 
     <footer class="page-footer stack stack-l">
@@ -705,7 +680,6 @@ onMounted(async () => {
   position: relative;
 
   > div {
-    background: white;
     padding: 1em;
     outline: 2px solid $gray;
 
