@@ -346,20 +346,15 @@ onMounted(async () => {
     <div class="hero">
       <div class="hero__inner page-wrap">
         <div>
-          <h1>SAFAD<br />Sustainability Assessment of Foods and Diets</h1>
+          <img src="@/assets/people-cooking.png" width="1000" height="803"
+            alt="People cooking">
+        </div>
+        <div>
+          <h1>SAFAD<br />Sustainability Assessment of<br/>Foods and Diets</h1>
           <h2>
             Calculate the impact using eight environmental indicators and
             indicators for animal welfare and use of antibiotics.
           </h2>
-
-          <p>
-            The Sustainability Assessment of Foods and Diets (SAFAD) tool allows
-            for sustainability assessments of foods and diets for 9 European
-            countries (France, Germany, Greece, Hungary, Ireland, Italy, Poland,
-            Spain and Sweden). To generate footprints for a diet or for foods
-            using default values, choose the country of interest in the
-            drop-down menu. Footprint files are then ready to be downloaded.
-          </p>
         </div>
       </div>
     </div>

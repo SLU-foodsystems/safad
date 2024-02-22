@@ -226,11 +226,24 @@ p {
 }
 
 .hero__inner {
-  padding: 10em 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(20em, 1fr));
+
   margin: 0 auto;
+  padding: 8em 0;
+
+  gap: 2em;
+  align-items: center;
+
+  text-align: center;
 
   h1 {
     font-weight: bold;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
   }
 }
 
