@@ -1,4 +1,3 @@
-//@ts-disable
 import * as d3 from "d3";
 
 const MAX_Y_AXIS_DIGITS = 5;

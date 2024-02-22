@@ -49,14 +49,11 @@ const drawChart = () => {
   });
 };
 
-watch(
-  () => props.data,
-  () => drawChart()
-);
+watch(() => props.data, drawChart);
 
 useOnResize(debounce(drawChart, 200));
 
-onMounted(() => drawChart());
+onMounted(drawChart);
 </script>
 
 <template>
