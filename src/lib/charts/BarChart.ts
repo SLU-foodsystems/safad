@@ -73,9 +73,10 @@ export default function BarChart(
   );
   const yTickCharLen = yTickFormat(cfg.maxValue).length;
 
-  if (cfg.axisLabels?.y) {
-    cfg.margin.left += 25 + yTickCharLen * APPROX_CHAR_WIDTH;
-  }
+  // Add left-margin for the ticks
+  cfg.margin.left += 10 + yTickCharLen * APPROX_CHAR_WIDTH;
+  // And, if we have y-labels, for that too
+  if (cfg.axisLabels?.y) cfg.margin.left += 15;
 
   // set the dimensions and margins of the graph
   const innerWidth = cfg.width - cfg.margin.left - cfg.margin.right;
