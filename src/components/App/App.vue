@@ -347,14 +347,18 @@ onMounted(async () => {
     <div class="hero">
       <div class="hero__inner page-wrap">
         <div>
-          <img src="@/assets/people-cooking.svg" width="1000" height="803"
-            alt="People cooking">
+          <img
+            src="@/assets/people-cooking.svg"
+            width="1000"
+            height="803"
+            alt="People cooking"
+          />
         </div>
         <div>
-          <h1>SAFAD<br />Sustainability Assessment of<br/>Foods and Diets</h1>
+          <h1>SAFAD<br />Sustainability Assessment of<br />Foods and Diets</h1>
           <h2>
-            Calculate the impact using eight environmental indicators and
-            indicators for animal welfare and use of antibiotics.
+            Calculate the impact of foods and diets using eight environmental
+            indicators and indicators for animal welfare and use of antibiotics.
           </h2>
         </div>
       </div>
@@ -413,7 +417,9 @@ onMounted(async () => {
             </button>
           </div>
         </div>
-        <h3>Environmental Impacts</h3>
+        <h3 class="hr-header hr-header--right-only">
+          <span>Environmental Impacts</span>
+        </h3>
         <div class="results-grid-small">
           <EnvFootprintCharts :data="carbonFootprints" />
         </div>
@@ -438,18 +444,25 @@ onMounted(async () => {
             <h3>Impacts in relation to the planetary boundaries</h3>
             <PlanetaryBoundariesChart :data="dietFootprintsTotal" />
           </div>
-          <div class="stack">
+          <div class="stack diet-info-box">
             <h3><strong>Diet:</strong> {{ dietName }}</h3>
-            <button
-              class="button button--accent"
-              @click="downloadFootprintsOfDiets"
-            >
-              Download footprints of diet
-            </button>
-            <label class="cluster">
-              <input type="checkbox" v-model="includeBreakdownFile" />
-              Include Breakdown File
-            </label>
+            <p>
+              The footprints for the whole diet is calculated by multiplying the
+              amount of different food products with the footprints of the food
+              items.
+            </p>
+            <div class="cluster">
+              <button
+                class="button button--accent"
+                @click="downloadFootprintsOfDiets"
+              >
+                Download footprints of diet
+              </button>
+              <label class="cluster cluster--m-gap">
+                <input type="checkbox" v-model="includeBreakdownFile" />
+                Include Breakdown File
+              </label>
+            </div>
           </div>
         </div>
 
@@ -470,7 +483,10 @@ onMounted(async () => {
           />
         </div>
         <h3 class="hr-header hr-header--right-only">
-          <span>Contributions to the carbon footprint from different gases and lifecycle stages</span>
+          <span
+            >Contributions to the carbon footprint from different gases and
+            lifecycle stages</span
+          >
         </h3>
         <div class="diet-pie-charts">
           <DietPieCharts :diet-footprints="dietFootprintsTotal" />
@@ -483,15 +499,15 @@ onMounted(async () => {
       <p>
         In the SAFAD tool, input data (Input, parameter, and emission factor
         files) can easily be configured. To configure a file, download the
-        default file using the Download Copy button. Once configured, the custom
+        default file using the Download file button. Once configured, the custom
         file can be uploaded using the Upload Custom file. The custom file must
         be in the same format and uploaded as a .csv file. When all custom files
         are uploaded, the new footprint for the diet or foods can be downloaded.
       </p>
 
       <p>
-        To learn more about a file’s function, press the Info button situated
-        next to the file's name.
+        To learn more about a file’s function, press the Show Info button for
+        each file.
       </p>
       <h3 class="hr-header hr-header--right-only">
         <span>Input Data</span>
@@ -589,7 +605,7 @@ onMounted(async () => {
                 height="2250"
                 loading="lazy"
               />
-              <h2>Download complete package of files</h2>
+              <h2>Complete package of files</h2>
             </span>
             <button class="button button--accent" @click="downloadZip">
               Download
@@ -739,8 +755,10 @@ onMounted(async () => {
   }
 }
 
-
 .planetary-boundaries-section {
+  gap: 2em;
+  align-items: flex-start;
+
   > div:first-child {
     flex-basis: 40em;
     flex-grow: 0;
@@ -751,4 +769,11 @@ onMounted(async () => {
     flex: 1 1 20em;
   }
 }
+
+.diet-info-box {
+  padding: 1.5em;
+  border: 2px solid $gray;
+}
+
+
 </style>

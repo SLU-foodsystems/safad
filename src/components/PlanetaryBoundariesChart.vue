@@ -51,7 +51,7 @@ const drawChart = () => {
   const height = Math.floor(rect.width); // Square
 
   const data = pickData(props.data);
-  const pad = Math.max(32, width / 8);
+  const pad = Math.max(32, width / 5);
   BoundariesChart(el.value, [data], {
     width,
     height,
