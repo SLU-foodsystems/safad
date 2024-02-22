@@ -347,7 +347,7 @@ onMounted(async () => {
     <div class="hero">
       <div class="hero__inner page-wrap">
         <div>
-          <img src="@/assets/people-cooking.png" width="1000" height="803"
+          <img src="@/assets/people-cooking.svg" width="1000" height="803"
             alt="People cooking">
         </div>
         <div>
