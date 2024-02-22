@@ -618,19 +618,53 @@ onMounted(async () => {
       />
     </div>
 
-    <footer class="page-footer">
-      <div class="page-wrap page-footer__content stack">
-        <img
-          src="@/assets/planeat-logo-white.png"
-          alt="Plan'Eat"
-          width="543"
-          height="142"
-        />
+    <footer class="page-footer stack stack-l">
+      <div class="page-wrap page-footer__content">
+        <div class="stack">
+          <img
+            src="@/assets/slu-logo-bw.svg"
+            alt="Swedish Agricultural University"
+            width="200"
+            height="200"
+          />
+          <p>
+            Swedish University of Agricultural Sciences (SLU) is an academic
+            institution specializing in research and education in fields related
+            to agriculture, forestry, environmental sciences, and sustainable
+            development.
+          </p>
+        </div>
+        <div class="stack"></div>
+        <div class="stack">
+          <img
+            src="@/assets/planeat-logo-white.png"
+            alt="Plan'Eat"
+            width="543"
+            height="142"
+          />
+          <p>
+            PLAN’EAT is a Horizon Europe research project, bringing together 24
+            partners and running from September 2022 to 2026.
+          </p>
+        </div>
+      </div>
+      <div class="page-wrap u-tac">
         <p>
-          PLAN’EAT is a Horizon Europe research project, bringing together 24
-          partners and running from September 2022 to 2026.
+          The Plan’eat project has received funding from the European Union’s
+          Horizon Europe Research and Innovation programme under Grant Agreement
+          n° 101061023. Views and opinions expressed are however those of the
+          author(s) only and do not necessarily reflect those of the European
+          Union.
         </p>
         <p>
+          All rights reserved. This website is protected by copyright. The
+          contents and information in this website, in particular text, drawings
+          and images it contains, are strictly confidential and may not be
+          altered or amended, copied, used or disclosed without the express
+          permission of the rights holder.
+        </p>
+        <img src="@/assets/eu-flag.svg" width="81" height="54" alt="EU Flag" />
+        <p hidden>
           Code is open-source and available
           <a
             href="https://github.com/SLU-foodsystems/safad"
@@ -648,17 +682,21 @@ onMounted(async () => {
 @import "../../styles/constants";
 
 .page-footer {
-  padding: 2em 0;
+  padding: 4em 0;
   margin-top: 2em;
   background: $green_forest;
   color: white;
 }
 
 .page-footer__content {
+  display: grid;
+  gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+
   img {
     width: auto;
     color: white;
-    height: 2em;
+    height: 4em;
   }
 }
 

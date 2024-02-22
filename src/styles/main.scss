@@ -191,7 +191,8 @@ p {
 .page-wrap {
   width: 95%;
   max-width: $measure--wide;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*
