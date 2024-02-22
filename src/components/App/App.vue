@@ -24,6 +24,7 @@ import {
 import FileSelector from "@/components/FileSelector.vue";
 // Charts
 import CarbonFootprintsChart from "@/components/CarbonFootprintsChart.vue";
+import DietPieCharts from "@/components/DietPieCharts.vue";
 import EnvFootprintCharts from "@/components/EnvFootprintCharts.vue";
 import PlanetaryBoundariesChart from "@/components/PlanetaryBoundariesChart.vue";
 import ImpactsPerCategoryChart from "@/components/ImpactsPerCategoryChart.vue";
@@ -468,6 +469,12 @@ onMounted(async () => {
             :impactsPerCategory="dietFootprintsPerRpcCategory"
           />
         </div>
+        <h3 class="hr-header hr-header--right-only">
+          <span>Contributions to the carbon footprint from different gases and lifecycle stages</span>
+        </h3>
+        <div class="diet-pie-charts">
+          <DietPieCharts :diet-footprints="dietFootprintsTotal" />
+        </div>
       </section>
 
       <h2 class="hr-header">
@@ -718,6 +725,20 @@ onMounted(async () => {
     display: block;
   }
 }
+
+.diet-pie-charts {
+  align-items: center;
+  text-align: center;
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+
+  @media only screen and (max-width: 75em) {
+    display: block;
+  }
+}
+
 
 .planetary-boundaries-section {
   > div:first-child {
