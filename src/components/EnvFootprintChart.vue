@@ -12,7 +12,7 @@ const props = defineProps<{
   title: string;
   index: number;
   color: string;
-  yLabel: string;
+  yLabel?: string;
 }>();
 
 const truncate = (text: string, length = 20) =>
