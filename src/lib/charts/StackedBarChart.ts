@@ -102,12 +102,6 @@ export default function StackedBarChart(
   options: Partial<Config>
 ) {
   const cfg: Config = {
-    margin: {
-      top: 20,
-      left: 20,
-      right: 20,
-      bottom: 20,
-    },
     width: 700,
     height: 400,
     maxValue: 1,
@@ -119,13 +113,23 @@ export default function StackedBarChart(
 
     labelLayout: "normal",
     ...options,
+
+    // Nested items
+    margin: {
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      ...options.margin,
+    },
   };
 
+  cfg.margin.top += 10; // Avoid y-tick labels cutting off
+  cfg.margin.left += 20; // Needed for y-tick labels
+  cfg.margin.bottom += 20; // Needed for x-tick labels
   if (cfg.labelLayout === "slanted") {
-    // TODO: this is an arbitrary offset
     cfg.margin.bottom += 100;
   } else if (cfg.labelLayout === "offset") {
-    // TODO: this is an arbitrary offset
     cfg.margin.bottom += 20;
   }
 
