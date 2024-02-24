@@ -64,7 +64,6 @@ export default function BarChart(
     cfg.margin.bottom += 20;
   }
 
-  // +1 for decimal-point(s)
   const yTickFormat = getYTickFormat(
     cfg.maxValue,
     [cfg.minValue, cfg.maxValue],

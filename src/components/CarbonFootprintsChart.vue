@@ -93,19 +93,15 @@ const drawChart = () => {
     )
   );
 
-  // Standard values
-  let [width, height] = [800, 500];
-  if (canvasEl.value) {
-    const svg = canvasEl.value.querySelector("svg");
-    if (svg) {
-      canvasEl.value.removeChild(svg);
-    }
-
-    const rect = canvasEl.value.getBoundingClientRect();
-
-    width = rect.width;
-    height = rect.width * 0.6;
+  const svg = canvasEl.value.querySelector("svg");
+  if (svg) {
+    canvasEl.value.removeChild(svg);
   }
+
+  const rect = canvasEl.value.getBoundingClientRect();
+
+  const width = rect.width;
+  const height = rect.width * 0.6;
 
   StackedBarChart(canvasEl.value, data, columns, {
     maxValue,
