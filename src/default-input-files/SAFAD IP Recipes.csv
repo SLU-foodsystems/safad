@@ -359,7 +359,7 @@
 "A.01.06.001.010","Oat bran flakes, with fruits","A.04.03.001","Almond, sweet (Prunus amygalus dulcis)","F28.A07XD","PROCESS=Unspecified",0.56,1,1,1
 "A.01.06.001.010","Oat bran flakes, with fruits","A.04.03.006","Coconuts (Cocos nucifera)","F28.A07XD","PROCESS=Unspecified",2.24,1,1,1
 "A.01.06.001.010","Oat bran flakes, with fruits","A.05.07.006","Dried apples (Malus domesticus)","To be further disaggregated (d)",,1.12,1,1,1
-"A.01.06.001.010","Oat bran flakes, with fruits","A.05.07.008","Dried bananas (Musa Ã— paradisica)","To be further disaggregated (d)",,4.48,1,1,1
+"A.01.06.001.010","Oat bran flakes, with fruits","A.05.07.008","Dried bananas (Musa Ãƒâ€” paradisica)","To be further disaggregated (d)",,4.48,1,1,1
 "A.01.06.001.010","Oat bran flakes, with fruits","A.05.07.001","Dried vine fruits (currants, raisins and sultanas)","To be further disaggregated (d)",,11.94,1,1,1
 "A.01.06.001.010","Oat bran flakes, with fruits","A.04.03.007","Hazelnuts (Corylus avellana)","F28.A07XD","PROCESS=Unspecified",0.56,1,1,1
 "A.01.06.001.010","Oat bran flakes, with fruits","A.01.06.001.009","Oat bran flakes","To be further disaggregated (d)",,79.1,1,1,1
@@ -385,7 +385,7 @@
 "A.01.06.001.021","Wheat flakes with chocolate and honey","A.10.01.001","White sugar","To be further disaggregated (d)",,7.9,1,1,1
 "A.01.06.001.022","Wheat flakes with fruits and honey","A.04.03.006","Coconuts (Cocos nucifera)","F28.A07XD","PROCESS=Unspecified",1.5,1,1,1
 "A.01.06.001.022","Wheat flakes with fruits and honey","A.05.07.006","Dried apples (Malus domesticus)","To be further disaggregated (d)",,1.5,1,1,1
-"A.01.06.001.022","Wheat flakes with fruits and honey","A.05.07.008","Dried bananas (Musa Ã— paradisica)","To be further disaggregated (d)",,2,1,1,1
+"A.01.06.001.022","Wheat flakes with fruits and honey","A.05.07.008","Dried bananas (Musa Ãƒâ€” paradisica)","To be further disaggregated (d)",,2,1,1,1
 "A.01.06.001.022","Wheat flakes with fruits and honey","A.05.07.001","Dried vine fruits (currants, raisins and sultanas)","To be further disaggregated (d)",,15,1,1,1
 "A.01.06.001.022","Wheat flakes with fruits and honey","A.04.03.007","Hazelnuts (Corylus avellana)","F28.A07XD","PROCESS=Unspecified",1.5,1,1,1
 "A.01.06.001.022","Wheat flakes with fruits and honey","A.10.07","Honey","F28.A07XD","PROCESS=Unspecified",4.5,1,1,1
@@ -444,7 +444,7 @@
 "A.01.06.002.006","Muesli with fruits and nuts","A.04.03.006","Coconuts (Cocos nucifera)","F28.A07XD","PROCESS=Unspecified",2.4,1,1,1
 "A.01.06.002.006","Muesli with fruits and nuts","A.01.02.003","Corn grain","F28.A07LH","PROCESS=Flattening / rolling",10,1,1,1
 "A.01.06.002.006","Muesli with fruits and nuts","A.05.07.006","Dried apples (Malus domesticus)","To be further disaggregated (d)",,3,1,1,1
-"A.01.06.002.006","Muesli with fruits and nuts","A.05.07.008","Dried bananas (Musa Ã— paradisica)","To be further disaggregated (d)",,1.3,1,1,1
+"A.01.06.002.006","Muesli with fruits and nuts","A.05.07.008","Dried bananas (Musa Ãƒâ€” paradisica)","To be further disaggregated (d)",,1.3,1,1,1
 "A.01.06.002.006","Muesli with fruits and nuts","A.05.07.001","Dried vine fruits (currants, raisins and sultanas)","To be further disaggregated (d)",,12,1,1,1
 "A.01.06.002.006","Muesli with fruits and nuts","A.04.03.007","Hazelnuts (Corylus avellana)","F28.A07XD","PROCESS=Unspecified",0.5,1,1,1
 "A.01.06.002.006","Muesli with fruits and nuts","A.01.06.001.011","Oat flakes","To be further disaggregated (d)",,26,1,1,1
@@ -500,7 +500,7 @@
 "A.01.06.003.004","Cereal bar, with no added sugar","A.11.04.013","Rapeseed oil","To be further disaggregated (d)",,3.2,1,1,1
 "A.01.06.003.004","Cereal bar, with no added sugar","A.05.04.006","Raspberries (Rubus idaeus)","F28.A07KG","PROCESS=Drying (dehydration)",2,1,4,1
 "A.01.06.003.004","Cereal bar, with no added sugar","A.01.03.006.001","Rice flour","To be further disaggregated (d)",,1.9,1,1,1
-"A.01.06.003.004","Cereal bar, with no added sugar","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A07KG","PROCESS=Drying (dehydration)",2,1,4,1
+"A.01.06.003.004","Cereal bar, with no added sugar","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A07KG","PROCESS=Drying (dehydration)",2,1,4,1
 "A.01.06.004.001","Maize, popped","A.01.02.003","Corn grain","F28.A07LL","PROCESS=Puffing / expanding",100,1,1.08,0.91
 "A.01.06.004.003","Maize, popped, with sugar","A.01.03.004.001","Corn flour","To be further disaggregated (d)",,67,1,1,1
 "A.01.06.004.003","Maize, popped, with sugar","A.10.01.001","White sugar","To be further disaggregated (d)",,33,1,1,1
@@ -516,7 +516,7 @@
 "A.01.06.005.001","Breakfast cereals, mixed cereals and fruits","A.01.06.005.002","Breakfast cereals, mixed cereals and honey","To be further disaggregated (d)",,79.1,1,1,1
 "A.01.06.005.001","Breakfast cereals, mixed cereals and fruits","A.04.03.006","Coconuts (Cocos nucifera)","F28.A07XD","PROCESS=Unspecified",2.24,1,1,1
 "A.01.06.005.001","Breakfast cereals, mixed cereals and fruits","A.05.07.006","Dried apples (Malus domesticus)","To be further disaggregated (d)",,1.12,1,1,1
-"A.01.06.005.001","Breakfast cereals, mixed cereals and fruits","A.05.07.008","Dried bananas (Musa Ã— paradisica)","To be further disaggregated (d)",,4.48,1,1,1
+"A.01.06.005.001","Breakfast cereals, mixed cereals and fruits","A.05.07.008","Dried bananas (Musa Ãƒâ€” paradisica)","To be further disaggregated (d)",,4.48,1,1,1
 "A.01.06.005.001","Breakfast cereals, mixed cereals and fruits","A.05.07.001","Dried vine fruits (currants, raisins and sultanas)","To be further disaggregated (d)",,11.94,1,1,1
 "A.01.06.005.001","Breakfast cereals, mixed cereals and fruits","A.04.03.007","Hazelnuts (Corylus avellana)","F28.A07XD","PROCESS=Unspecified",0.56,1,1,1
 "A.01.06.005.002","Breakfast cereals, mixed cereals and honey","A.01.03.008.002","Barley flour","To be further disaggregated (d)",,16.4,1,1,1
@@ -537,7 +537,7 @@
 "A.01.06.005.004","Breakfast cereals, mixed cereals with honey and fruits","A.01.06.005.002","Breakfast cereals, mixed cereals and honey","To be further disaggregated (d)",,79.1,1,1,1
 "A.01.06.005.004","Breakfast cereals, mixed cereals with honey and fruits","A.04.03.006","Coconuts (Cocos nucifera)","F28.A07XD","PROCESS=Unspecified",2.24,1,1,1
 "A.01.06.005.004","Breakfast cereals, mixed cereals with honey and fruits","A.05.07.006","Dried apples (Malus domesticus)","To be further disaggregated (d)",,1.12,1,1,1
-"A.01.06.005.004","Breakfast cereals, mixed cereals with honey and fruits","A.05.07.008","Dried bananas (Musa Ã— paradisica)","To be further disaggregated (d)",,4.48,1,1,1
+"A.01.06.005.004","Breakfast cereals, mixed cereals with honey and fruits","A.05.07.008","Dried bananas (Musa Ãƒâ€” paradisica)","To be further disaggregated (d)",,4.48,1,1,1
 "A.01.06.005.004","Breakfast cereals, mixed cereals with honey and fruits","A.05.07.001","Dried vine fruits (currants, raisins and sultanas)","To be further disaggregated (d)",,11.94,1,1,1
 "A.01.06.005.004","Breakfast cereals, mixed cereals with honey and fruits","A.04.03.007","Hazelnuts (Corylus avellana)","F28.A07XD","PROCESS=Unspecified",0.56,1,1,1
 "A.01.06.005.005","Breakfast cereals, mixed cereals, fruits and chocolate","I.10.03.002.002","Bitter-sweet chocolate, plain","To be further disaggregated (d)",,6,1,1,1
@@ -648,10 +648,10 @@
 "A.01.07.001.017","Doughnuts","A.10.01.001","White sugar","To be further disaggregated (d)",,13.54,1,1,1
 "A.01.07.001.017","Doughnuts","A.09.01.001","Whole egg, chicken","F28.A07XD","PROCESS=Unspecified",2.71,1,1,1
 "A.01.07.001.017","Doughnuts","A.16.10.001","Yeast","F28.A07XD","PROCESS=Unspecified",0.54,1,1,1
-"A.01.07.001.018","Ã‰clair","A.10.05.002","Chocolate sauce","To be further disaggregated (d)",,10,1,1,1
-"A.01.07.001.018","Ã‰clair","I.01.07.001.049","Choux pastry","To be further disaggregated (d)",,53,1,1,1
-"A.01.07.001.018","Ã‰clair","I.20.02.004.001","Dessert cream","To be further disaggregated (d)",,37,0.25,1,1
-"A.01.07.001.018","Ã‰clair","I.20.02.004.002","Patisserie cream","To be further disaggregated (d)",,37,0.75,1,1
+"A.01.07.001.018","Ãƒâ€°clair","A.10.05.002","Chocolate sauce","To be further disaggregated (d)",,10,1,1,1
+"A.01.07.001.018","Ãƒâ€°clair","I.01.07.001.049","Choux pastry","To be further disaggregated (d)",,53,1,1,1
+"A.01.07.001.018","Ãƒâ€°clair","I.20.02.004.001","Dessert cream","To be further disaggregated (d)",,37,0.25,1,1
+"A.01.07.001.018","Ãƒâ€°clair","I.20.02.004.002","Patisserie cream","To be further disaggregated (d)",,37,0.75,1,1
 "A.01.07.001.020","Fruit cake","A.05.02.001","Apple (Malus domesticus)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",41.5,0.76,1.35,1
 "A.01.07.001.020","Fruit cake","A.05.07.001","Dried vine fruits (currants, raisins and sultanas)","To be further disaggregated (d)",,41.5,0.24,1,1
 "A.01.07.001.020","Fruit cake","A.01.07.001.034","Sponge cake","To be further disaggregated (d)",,58.5,1,1,1
@@ -723,7 +723,7 @@
 "A.01.07.001.030","Pyramid cake","A.01.03.001.003","Wheat flour, white","To be further disaggregated (d)",,7.44,1,1,1
 "A.01.07.001.030","Pyramid cake","A.10.01.001","White sugar","To be further disaggregated (d)",,20.1,1,1,1
 "A.01.07.001.030","Pyramid cake","A.09.01.001","Whole egg, chicken","F28.A07XD","PROCESS=Unspecified",18.31,1,1,1
-"A.01.07.001.031","Rhubarb flan","A.02.07.007","Rhubarb (Rheum Ã— hybridum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",56.4,1,1.02,1
+"A.01.07.001.031","Rhubarb flan","A.02.07.007","Rhubarb (Rheum Ãƒâ€” hybridum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",56.4,1,1.02,1
 "A.01.07.001.031","Rhubarb flan","I.01.07.001.051","Shortcrust pastry","To be further disaggregated (d)",,26.6,1,1,1
 "A.01.07.001.031","Rhubarb flan","A.10.01.001","White sugar","To be further disaggregated (d)",,17,1,1,1
 "A.01.07.001.032","Scone","A.16.10.003","Baking powder","To be further disaggregated (d)",,2.1,1,1,1
@@ -904,7 +904,7 @@
 "A.02.03.002","Peppers, paprika (Capsicum annuum, var. grossum and var. longum)","A.02.03.002","Peppers, paprika (Capsicum annuum, var. grossum and var. longum)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.03.003","Chilli pepper (Capsicum frutescens)","A.02.03.003","Chilli pepper (Capsicum frutescens)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.03.004","Aubergines (egg plants) (Solanum melongena)","A.02.03.004","Aubergines (egg plants) (Solanum melongena)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
-"A.02.03.005","Okra, ladyâ€™s fingers (Hibiscus esculentus)","A.02.03.005","Okra, ladyâ€™s fingers (Hibiscus esculentus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
+"A.02.03.005","Okra, ladyÃ¢â‚¬â„¢s fingers (Hibiscus esculentus)","A.02.03.005","Okra, ladyÃ¢â‚¬â„¢s fingers (Hibiscus esculentus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.03.006","Cucumbers (Cucumis sativus)","A.02.03.006","Cucumbers (Cucumis sativus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.03.007","Gherkins (Cucumis sativus)","A.02.03.007","Gherkins (Cucumis sativus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.03.008","Courgettes (Zucchini) (Cucurbita pepo var. melopepo)","A.02.03.008","Courgettes (Zucchini) (Cucurbita pepo var. melopepo)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
@@ -950,7 +950,7 @@
 "A.02.07.004","Fennel (Foeniculum vulgare)","A.02.07.004","Fennel (Foeniculum vulgare)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.07.005","Globe artichokes (Cynara scolymus)","A.02.07.005","Globe artichokes (Cynara scolymus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.07.006","Leek (Allium porrum)","A.02.07.006","Leek (Allium porrum)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
-"A.02.07.007","Rhubarb (Rheum Ã— hybridum)","A.02.07.007","Rhubarb (Rheum Ã— hybridum)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
+"A.02.07.007","Rhubarb (Rheum Ãƒâ€” hybridum)","A.02.07.007","Rhubarb (Rheum Ãƒâ€” hybridum)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.07.008","Bamboo shoots (Bambusa vulgaris)","A.02.07.008","Bamboo shoots (Bambusa vulgaris)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.07.009","Palm hearts (Euterpa oleracea, Cocos nucifera, Bactris gasipaes, Daemonorops schmidtiana)","A.02.07.009","Palm hearts (Euterpa oleracea, Cocos nucifera, Bactris gasipaes, Daemonorops schmidtiana)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.08.001","Sugar beet (root) (Beta vulgaris)","A.02.08.001","Sugar beet (root) (Beta vulgaris)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
@@ -961,8 +961,8 @@
 "A.02.09.001.003","Wakame (Undaria spp)","A.02.09.001.003","Wakame (Undaria spp)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.10","Tea and herbs for infusions (Solid)","A.02.10.001","Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis)",,,100,1,1,1
 "A.02.10.001","Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis)","A.02.10.001","Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
-"A.02.10.004","Peppermint (Mentha Ã— piperita)","A.02.10.004","Peppermint (Mentha Ã— piperita)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,7,1
-"A.02.10.009","Strawberry leaves (Fragaria Ã— ananassa)","A.02.10.009","Strawberry leaves (Fragaria Ã— ananassa)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,1,1
+"A.02.10.004","Peppermint (Mentha Ãƒâ€” piperita)","A.02.10.004","Peppermint (Mentha Ãƒâ€” piperita)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,7,1
+"A.02.10.009","Strawberry leaves (Fragaria Ãƒâ€” ananassa)","A.02.10.009","Strawberry leaves (Fragaria Ãƒâ€” ananassa)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,1,1
 "A.02.10.013","Ginseng root (Panax ginseng)","A.02.10.013","Ginseng root (Panax ginseng)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,1,1
 "A.02.11.002","Cocoa powder","A.02.11.001","Cocoa beans (fermented beans) (Theobroma cacao)","F28.A07HC$F28.A07LA$F28.A0C02$F02.A0EYD","PROCESS=Toasting / coffee roasting, PROCESS=Grinding / milling / crushing, PROCESS=Oil production, PART-NATURE=Derivatives of coffee, cocoa, tea and similar RPCs (as part-nature)",100,1,2.36,0.24
 "A.02.11.003","Cocoa beverage-preparation, powder","A.02.11.002","Cocoa powder","To be further disaggregated (d)",,41,1,1,1
@@ -987,28 +987,28 @@
 "A.02.14.001","Mushy peas (Pisum sativum)","A.04.01.002","Peas, green, without pods (Pisum sativum)","F28.A07GG$F28.A0C6N","PROCESS=Cooking in water, PROCESS=Pulping / mashing",81.2,1,1.1,1
 "A.02.14.001","Mushy peas (Pisum sativum)","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.6,1,1,1
 "A.02.14.001","Mushy peas (Pisum sativum)","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.6,1,1,1
-"A.02.14.002","Garlic purÃ©e","A.02.02.001","Garlic, bulb (Allium sativum)","F28.A07XD","PROCESS=Unspecified",55.56,1,1,1
-"A.02.14.002","Garlic purÃ©e","A.11.04.008","Olive oil","To be further disaggregated (d)",,35.25,1,1,1
-"A.02.14.002","Garlic purÃ©e","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",9.19,1,1,1
-"A.02.14.003","Tomato purÃ©e","A.02.03.001","Tomatoes (Lycopersicum esculentum)","F28.A0C6N","PROCESS=Pulping / mashing",100,1,3.33,1
-"A.02.14.004","Mixed vegetable purÃ©e","A.02.06.001","Beans, with pods (Phaseolus vulgaris)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",16,1,1.08,1
-"A.02.14.004","Mixed vegetable purÃ©e","A.02.01.003","Carrots (Daucus carota)","F28.A07GG$F28.A0C6N","PROCESS=Cooking in water, PROCESS=Pulping / mashing",10,1,1.06,1
-"A.02.14.004","Mixed vegetable purÃ©e","A.02.07.003","Celery (Apium graveolens var. dulce)","F28.A07GG$F28.A0C6N","PROCESS=Cooking in water, PROCESS=Pulping / mashing",2.5,1,0.96,1
-"A.02.14.004","Mixed vegetable purÃ©e","A.03.01.002","Main-crop potatoes","F28.A07GG$F28.A0C6N","PROCESS=Cooking in water, PROCESS=Pulping / mashing",29,1,1,1
-"A.02.14.004","Mixed vegetable purÃ©e","A.02.02.002","Onions, bulb (Allium cepa)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",2.5,1,1.17,1
-"A.02.14.004","Mixed vegetable purÃ©e","A.04.01.002","Peas, green, without pods (Pisum sativum)","F28.A07GG$F28.A0C6N","PROCESS=Cooking in water, PROCESS=Pulping / mashing",8,1,1.1,1
-"A.02.14.004","Mixed vegetable purÃ©e","A.01.03.006.001","Rice flour","To be further disaggregated (d)",,1,1,1,1
-"A.02.14.004","Mixed vegetable purÃ©e","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.08,1,1,1
-"A.02.14.004","Mixed vegetable purÃ©e","A.11.04.017","Sunflower oil","To be further disaggregated (d)",,2.1,1,1,1
-"A.02.14.004","Mixed vegetable purÃ©e","A.02.03.001","Tomatoes (Lycopersicum esculentum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",2,1,1.2,1
-"A.02.14.004","Mixed vegetable purÃ©e","I.19.10.011","Vegetable broth","To be further disaggregated (d)",,26.82,1,1,1
+"A.02.14.002","Garlic purÃƒÂ©e","A.02.02.001","Garlic, bulb (Allium sativum)","F28.A07XD","PROCESS=Unspecified",55.56,1,1,1
+"A.02.14.002","Garlic purÃƒÂ©e","A.11.04.008","Olive oil","To be further disaggregated (d)",,35.25,1,1,1
+"A.02.14.002","Garlic purÃƒÂ©e","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",9.19,1,1,1
+"A.02.14.003","Tomato purÃƒÂ©e","A.02.03.001","Tomatoes (Lycopersicum esculentum)","F28.A0C6N","PROCESS=Pulping / mashing",100,1,3.33,1
+"A.02.14.004","Mixed vegetable purÃƒÂ©e","A.02.06.001","Beans, with pods (Phaseolus vulgaris)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",16,1,1.08,1
+"A.02.14.004","Mixed vegetable purÃƒÂ©e","A.02.01.003","Carrots (Daucus carota)","F28.A07GG$F28.A0C6N","PROCESS=Cooking in water, PROCESS=Pulping / mashing",10,1,1.06,1
+"A.02.14.004","Mixed vegetable purÃƒÂ©e","A.02.07.003","Celery (Apium graveolens var. dulce)","F28.A07GG$F28.A0C6N","PROCESS=Cooking in water, PROCESS=Pulping / mashing",2.5,1,0.96,1
+"A.02.14.004","Mixed vegetable purÃƒÂ©e","A.03.01.002","Main-crop potatoes","F28.A07GG$F28.A0C6N","PROCESS=Cooking in water, PROCESS=Pulping / mashing",29,1,1,1
+"A.02.14.004","Mixed vegetable purÃƒÂ©e","A.02.02.002","Onions, bulb (Allium cepa)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",2.5,1,1.17,1
+"A.02.14.004","Mixed vegetable purÃƒÂ©e","A.04.01.002","Peas, green, without pods (Pisum sativum)","F28.A07GG$F28.A0C6N","PROCESS=Cooking in water, PROCESS=Pulping / mashing",8,1,1.1,1
+"A.02.14.004","Mixed vegetable purÃƒÂ©e","A.01.03.006.001","Rice flour","To be further disaggregated (d)",,1,1,1,1
+"A.02.14.004","Mixed vegetable purÃƒÂ©e","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.08,1,1,1
+"A.02.14.004","Mixed vegetable purÃƒÂ©e","A.11.04.017","Sunflower oil","To be further disaggregated (d)",,2.1,1,1,1
+"A.02.14.004","Mixed vegetable purÃƒÂ©e","A.02.03.001","Tomatoes (Lycopersicum esculentum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",2,1,1.2,1
+"A.02.14.004","Mixed vegetable purÃƒÂ©e","I.19.10.011","Vegetable broth","To be further disaggregated (d)",,26.82,1,1,1
 "A.02.14.005","Pickled vegetables","A.02.03.007","Gherkins (Cucumis sativus)","F28.A07KC","PROCESS=Pickling",100,1,1,1
 "A.02.14.006","Sauerkraut","A.02.04.004","Head cabbage (Brassica oleracea convar. capitata)","F28.A0CQZ","PROCESS=Fermentation",100,1,1,1
 "A.02.14.007","Sun-dried tomatoes","A.02.03.001","Tomatoes (Lycopersicum esculentum)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,20,1
 "A.02.14.008","Mashed vegetables","A.02.01.007","Parsnips (Pastinaca sativa)","F28.A07GG$F28.A0C6N","PROCESS=Cooking in water, PROCESS=Pulping / mashing",100,0.55,1.06,1
 "A.02.14.008","Mashed vegetables","A.02.03.002","Peppers, paprika (Capsicum annuum, var. grossum and var. longum)","F28.A07GG$F28.A0C6N","PROCESS=Cooking in water, PROCESS=Pulping / mashing",100,0.45,0.87,1
 "A.02.14.009","Coconut milk (Cocos nucifera)","A.04.03.006","Coconuts (Cocos nucifera)","F28.A07MJ","PROCESS=Extraction",100,1,1,1
-"A.02.14.010","Chestnut purÃ©e (Castanea vulgaris)","A.04.03.005","Chestnuts (Castanea sativa)","F28.A0C6N","PROCESS=Pulping / mashing",100,1,1,1
+"A.02.14.010","Chestnut purÃƒÂ©e (Castanea vulgaris)","A.04.03.005","Chestnuts (Castanea sativa)","F28.A0C6N","PROCESS=Pulping / mashing",100,1,1,1
 "A.02.14.011","Sesam paste (Tahini) (Sesamus indicum)","A.04.04.004","Sesame seed (Sesamum indicum syn. S. orientale)","F28.A0C6N","PROCESS=Pulping / mashing",100,1,1,1
 "A.02.15.001","Cultivated mushroom (syn. Button mushroom) (Agaricus bisporus)","A.02.15.001","Cultivated mushroom (syn. Button mushroom) (Agaricus bisporus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.02.15.002","Oyster mushroom (Pleurotus ostreatus)","A.02.15.002","Oyster mushroom (Pleurotus ostreatus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
@@ -1116,7 +1116,7 @@
 "A.05.03.011","Peaches (Prunus persica)","A.05.03.011","Peaches (Prunus persica)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.05.04.001","Table grapes (Vitis euvitis)","A.05.04.001","Table grapes (Vitis euvitis)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.05.04.002","Wine grapes (Vitis euvitis)","A.05.04.002","Wine grapes (Vitis euvitis)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
-"A.05.04.003","Strawberries (Fragaria Ã— ananassa)","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
+"A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.05.04.004","Blackberries (Rubus fruticosus)","A.05.04.004","Blackberries (Rubus fruticosus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.05.04.006","Raspberries (Rubus idaeus)","A.05.04.006","Raspberries (Rubus idaeus)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.05.04.008","Blueberries (Vaccinium corymbosum)","A.05.04.008","Blueberries (Vaccinium corymbosum)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
@@ -1147,7 +1147,7 @@
 "A.05.06.011","Prickly pear (cactus fruit) (Opuntia ficus-indica)","A.05.06.011","Prickly pear (cactus fruit) (Opuntia ficus-indica)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.05.06.013","American persimmon (Virginia kaki) (Diospyros virginiana)","A.05.06.013","American persimmon (Virginia kaki) (Diospyros virginiana)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.05.06.014","Avocados (Persea americana)","A.05.06.014","Avocados (Persea americana)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
-"A.05.06.015","Bananas (Musa Ã— paradisica)","A.05.06.015","Bananas (Musa Ã— paradisica)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
+"A.05.06.015","Bananas (Musa Ãƒâ€” paradisica)","A.05.06.015","Bananas (Musa Ãƒâ€” paradisica)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.05.06.016","Mangoes (Mangifera indica)","A.05.06.016","Mangoes (Mangifera indica)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.05.06.017","Papaya (Carica papaya)","A.05.06.017","Papaya (Carica papaya)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.05.06.018","Pomegranate (Punica granatum)","A.05.06.018","Pomegranate (Punica granatum)","F28.A07XD","PROCESS=Unspecified",100,1,1,1
@@ -1163,22 +1163,23 @@
 "A.05.07.001b","Dried blueberries","A.05.04.008","Blueberries (Vaccinium corymbosum)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,4,1
 "A.05.07.001c","Dried pineapple","A.05.06.021","Pineapples (Ananas comosus)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,5.67,1
 "A.05.07.001d","Dried papaya","A.05.06.017","Papaya (Carica papaya)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,5.67,1
-"A.05.07.001e","Dried strawberries","A.05.04.003","Strawberries (Fragaria � ananassa)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,4,1
+"A.05.07.001e","Dried strawberries","A.05.04.003","Strawberries (Fragaria × ananassa)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,4,1
+"A.05.07.001f","Dried raspberries","A.05.04.006","Raspberries (Rubus idaeus)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,4,1
 "A.05.07.002","Dried figs (Ficus carica)","A.05.06.002","Figs (Ficus carica)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,2.86,1
 "A.05.07.003","Dried prunes (Prunus domestica)","A.05.03.002","Plums (Prunus domestica)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,2.86,1
 "A.05.07.004","Dried apricots (Prunus armeniaca)","A.05.03.001","Apricots (Prunus armeniaca)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,3.45,1
 "A.05.07.005","Dried pears (Pyrus communis)","A.05.02.002","Pear (Pyrus communis)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,6.31,1
 "A.05.07.006","Dried apples (Malus domesticus)","A.05.02.001","Apple (Malus domesticus)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,8.33,1
 "A.05.07.007","Dried dates (Phoenix dactylifera)","A.05.06.001","Dates (Phoenix dactylifera)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,1,1
-"A.05.07.008","Dried bananas (Musa Ã— paradisica)","A.05.06.015","Bananas (Musa Ã— paradisica)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,3.4,1
+"A.05.07.008","Dried bananas (Musa Ãƒâ€” paradisica)","A.05.06.015","Bananas (Musa Ãƒâ€” paradisica)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,3.4,1
 "A.05.07.009","Dried mangoes (Mangifera indica)","A.05.06.016","Mangoes (Mangifera indica)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,5.67,1
-"A.05.08.001","Jam","A.05.08.001.001","Jam, Strawberries (Fragaria Ã— ananassa)","To be further disaggregated (d)",,20,1,1,1
+"A.05.08.001","Jam","A.05.08.001.001","Jam, Strawberries (Fragaria Ãƒâ€” ananassa)","To be further disaggregated (d)",,20,1,1,1
 "A.05.08.001","Jam","A.05.08.001.002","Jam, Raspberries (Rubus idaeus)","To be further disaggregated (d)",,20,1,1,1
 "A.05.08.001","Jam","A.05.08.001.003","Jam, Blackberries (Rubus fruticosus)","To be further disaggregated (d)",,20,1,1,1
 "A.05.08.001","Jam","A.05.08.001.016","Jam, Oranges (Citrus sinensis)","To be further disaggregated (d)",,20,1,1,1
 "A.05.08.001","Jam","A.05.08.001.009","Jam, Blueberries (Vaccinium corymbosum)","To be further disaggregated (d)",,20,1,1,1
-"A.05.08.001.001","Jam, Strawberries (Fragaria Ã— ananassa)","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",70,1,1.39,1
-"A.05.08.001.001","Jam, Strawberries (Fragaria Ã— ananassa)","A.10.01.001","White sugar","To be further disaggregated (d)",,30,1,1,1
+"A.05.08.001.001","Jam, Strawberries (Fragaria Ãƒâ€” ananassa)","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",70,1,1.39,1
+"A.05.08.001.001","Jam, Strawberries (Fragaria Ãƒâ€” ananassa)","A.10.01.001","White sugar","To be further disaggregated (d)",,30,1,1,1
 "A.05.08.001.002","Jam, Raspberries (Rubus idaeus)","A.05.04.006","Raspberries (Rubus idaeus)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",60,1,1.39,1
 "A.05.08.001.002","Jam, Raspberries (Rubus idaeus)","A.10.01.001","White sugar","To be further disaggregated (d)",,40,1,1,1
 "A.05.08.001.003","Jam, Blackberries (Rubus fruticosus)","A.05.04.004","Blackberries (Rubus fruticosus)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",45,1,1.67,1
@@ -1228,17 +1229,17 @@
 "A.05.09.002","Fruit salad","A.05.06.016","Mangoes (Mangifera indica)","F28.A07XD$F20.A07QF","PROCESS=Unspecified, PART-CONSUMED-ANALYSED=W/o peel",15,1,1,1
 "A.05.09.002","Fruit salad","A.02.03.009","Melons (Cucumis melo)","F28.A07XD","PROCESS=Unspecified",20,1,1,1
 "A.05.09.002","Fruit salad","A.05.06.021","Pineapples (Ananas comosus)","F28.A07XD$F20.A07QF","PROCESS=Unspecified, PART-CONSUMED-ANALYSED=W/o peel",21,1,1,1
-"A.05.09.002","Fruit salad","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A07XD","PROCESS=Unspecified",5,1,1,1
+"A.05.09.002","Fruit salad","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A07XD","PROCESS=Unspecified",5,1,1,1
 "A.05.09.002","Fruit salad","A.05.04.001","Table grapes (Vitis euvitis)","F28.A07XD","PROCESS=Unspecified",15,1,1,1
 "A.05.09.003","Fruit chips","A.11.04.002","Coconut oil","To be further disaggregated (d)",,30,1,1,1
-"A.05.09.003","Fruit chips","A.05.07.008","Dried bananas (Musa Ã— paradisica)","To be further disaggregated (d)",,60,1,1,1
+"A.05.09.003","Fruit chips","A.05.07.008","Dried bananas (Musa Ãƒâ€” paradisica)","To be further disaggregated (d)",,60,1,1,1
 "A.05.09.003","Fruit chips","A.10.01.001","White sugar","To be further disaggregated (d)",,10,1,1,1
-"A.05.09.004","Fruit, purÃ¨e","A.05.02.001","Apple (Malus domesticus)","F28.A0C6N","PROCESS=Pulping / mashing",50,1,1,1
-"A.05.09.004","Fruit, purÃ¨e","A.05.06.015","Bananas (Musa Ã— paradisica)","F28.A0C6N","PROCESS=Pulping / mashing",50,0.26,1,1
-"A.05.09.004","Fruit, purÃ¨e","A.05.06.016","Mangoes (Mangifera indica)","F28.A0C6N","PROCESS=Pulping / mashing",50,0.11,1,1
-"A.05.09.004","Fruit, purÃ¨e","A.05.03.011","Peaches (Prunus persica)","F28.A0C6N","PROCESS=Pulping / mashing",50,0.11,1,1
-"A.05.09.004","Fruit, purÃ¨e","A.05.02.002","Pear (Pyrus communis)","F28.A0C6N","PROCESS=Pulping / mashing",50,0.41,1,1
-"A.05.09.004","Fruit, purÃ¨e","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A0C6N","PROCESS=Pulping / mashing",50,0.11,1,1
+"A.05.09.004","Fruit, purÃƒÂ¨e","A.05.02.001","Apple (Malus domesticus)","F28.A0C6N","PROCESS=Pulping / mashing",50,1,1,1
+"A.05.09.004","Fruit, purÃƒÂ¨e","A.05.06.015","Bananas (Musa Ãƒâ€” paradisica)","F28.A0C6N","PROCESS=Pulping / mashing",50,0.26,1,1
+"A.05.09.004","Fruit, purÃƒÂ¨e","A.05.06.016","Mangoes (Mangifera indica)","F28.A0C6N","PROCESS=Pulping / mashing",50,0.11,1,1
+"A.05.09.004","Fruit, purÃƒÂ¨e","A.05.03.011","Peaches (Prunus persica)","F28.A0C6N","PROCESS=Pulping / mashing",50,0.11,1,1
+"A.05.09.004","Fruit, purÃƒÂ¨e","A.05.02.002","Pear (Pyrus communis)","F28.A0C6N","PROCESS=Pulping / mashing",50,0.41,1,1
+"A.05.09.004","Fruit, purÃƒÂ¨e","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A0C6N","PROCESS=Pulping / mashing",50,0.11,1,1
 "A.05.09.005","Fruit cocktail","A.05.03.011","Peaches (Prunus persica)","F28.A07XD","PROCESS=Unspecified",29,1,1,1
 "A.05.09.005","Fruit cocktail","A.05.02.002","Pear (Pyrus communis)","F28.A07XD","PROCESS=Unspecified",22,1,1,1
 "A.05.09.005","Fruit cocktail","A.05.06.021","Pineapples (Ananas comosus)","F28.A07XD$F20.A07QF","PROCESS=Unspecified, PART-CONSUMED-ANALYSED=W/o peel",4,1,1,1
@@ -1320,7 +1321,7 @@
 "A.05.09.007.012","Fruit compote, Mixed fruit","A.05.04.004","Blackberries (Rubus fruticosus)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",4,1,1.67,1
 "A.05.09.007.012","Fruit compote, Mixed fruit","A.05.04.008","Blueberries (Vaccinium corymbosum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",2,1,1.43,1
 "A.05.09.007.012","Fruit compote, Mixed fruit","A.05.04.006","Raspberries (Rubus idaeus)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",3,1,1.39,1
-"A.05.09.007.012","Fruit compote, Mixed fruit","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",16,1,1.39,1
+"A.05.09.007.012","Fruit compote, Mixed fruit","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",16,1,1.39,1
 "A.05.09.007.012","Fruit compote, Mixed fruit","A.10.01.001","White sugar","To be further disaggregated (d)",,5,1,1,1
 "A.05.09.008.001","Candied fruit, Cheery","A.10.06.004","Corn syrup","To be further disaggregated (d)",,49,1,1,1
 "A.05.09.008.001","Candied fruit, Cheery","A.05.03.006","Sweet cherry (Prunus avium)","F28.A07XD","PROCESS=Unspecified",51,1,1,1
@@ -1809,7 +1810,7 @@
 "A.08.02.002.001","Chocolate milkshake","A.08.01.001.003","Cow milk, 1 - 2.9% fat (semi-skimmed milk)","To be further disaggregated (d)",,87.7,1,1,1
 "A.08.02.002.001","Chocolate milkshake","I.10.03.008.002","Milk chocolate, plain","To be further disaggregated (d)",,1,1,1,1
 "A.08.02.002.001","Chocolate milkshake","A.10.01.001","White sugar","To be further disaggregated (d)",,9.3,1,1,1
-"A.08.02.002.002","Fruit milkshake","A.05.06.015","Bananas (Musa Ã— paradisica)","F28.A0C6N","PROCESS=Pulping / mashing",29.1,1,1,1
+"A.08.02.002.002","Fruit milkshake","A.05.06.015","Bananas (Musa Ãƒâ€” paradisica)","F28.A0C6N","PROCESS=Pulping / mashing",29.1,1,1,1
 "A.08.02.002.002","Fruit milkshake","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",41.2,1,1,1
 "A.08.02.002.002","Fruit milkshake","I.12.01.027","Juice, Blueberry","To be further disaggregated (d)",,19.8,1,1,1
 "A.08.02.002.002","Fruit milkshake","I.12.01.024","Juice, Strawberry","To be further disaggregated (d)",,9.9,1,1,1
@@ -1841,7 +1842,7 @@
 "A.08.04.001.005","Whey with fruit","A.05.06.016","Mangoes (Mangifera indica)","F28.A07MJ","PROCESS=Extraction",0.4,0.12,1,1
 "A.08.04.001.005","Whey with fruit","A.05.01.002","Oranges (Citrus sinensis)","F28.A07MJ","PROCESS=Extraction",0.4,0.3,1,1
 "A.08.04.001.005","Whey with fruit","A.05.06.010","Passion fruit (Passiflora edulis)","F28.A07MJ","PROCESS=Extraction",0.4,0.25,1,1
-"A.08.04.001.005","Whey with fruit","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A07MJ","PROCESS=Extraction",0.4,0.18,1,1
+"A.08.04.001.005","Whey with fruit","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A07MJ","PROCESS=Extraction",0.4,0.18,1,1
 "A.08.04.001.005","Whey with fruit","A.08.04.001.001","Whey, plain","To be further disaggregated (d)",,91.6,1,1,1
 "A.08.04.001.005","Whey with fruit","A.10.01.001","White sugar","To be further disaggregated (d)",,8,1,1,1
 "A.08.04.001.008","Whey with other ingredients","A.16.09.002","Vanilla essence","To be further disaggregated (d)",,0.4,1,1,1
@@ -1879,15 +1880,15 @@
 "A.08.06.001.002","Yoghurt, cow milk, 1 - 3% fat","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0CQZ","PROCESS=Fermentation",100,1,1.25,0.73
 "A.08.06.001.003","Yoghurt, cow milk, < 1% fat","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0CQZ","PROCESS=Fermentation",100,1,1.25,0.73
 "A.08.06.002.001","Yoghurt, cow milk, with fruit, > 3% fat","A.05.03.001","Apricots (Prunus armeniaca)","F28.A07XD","PROCESS=Unspecified",3.7,0.2,1,1
-"A.08.06.002.001","Yoghurt, cow milk, with fruit, > 3% fat","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A07XD","PROCESS=Unspecified",3.7,0.8,1,1
+"A.08.06.002.001","Yoghurt, cow milk, with fruit, > 3% fat","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A07XD","PROCESS=Unspecified",3.7,0.8,1,1
 "A.08.06.002.001","Yoghurt, cow milk, with fruit, > 3% fat","A.10.01.001","White sugar","To be further disaggregated (d)",,7.7,1,1,1
 "A.08.06.002.001","Yoghurt, cow milk, with fruit, > 3% fat","A.08.06.001.001","Yoghurt, cow milk, > 3% fat","To be further disaggregated (d)",,88.6,1,1,1
 "A.08.06.002.002","Yoghurt, cow milk, with fruit, 1 - 3% fat","A.05.03.001","Apricots (Prunus armeniaca)","F28.A07XD","PROCESS=Unspecified",3.7,0.2,1,1
-"A.08.06.002.002","Yoghurt, cow milk, with fruit, 1 - 3% fat","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A07XD","PROCESS=Unspecified",3.7,0.8,1,1
+"A.08.06.002.002","Yoghurt, cow milk, with fruit, 1 - 3% fat","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A07XD","PROCESS=Unspecified",3.7,0.8,1,1
 "A.08.06.002.002","Yoghurt, cow milk, with fruit, 1 - 3% fat","A.10.01.001","White sugar","To be further disaggregated (d)",,7.7,1,1,1
 "A.08.06.002.002","Yoghurt, cow milk, with fruit, 1 - 3% fat","A.08.06.001.002","Yoghurt, cow milk, 1 - 3% fat","To be further disaggregated (d)",,88.6,1,1,1
 "A.08.06.002.003","Yoghurt, cow milk, with fruit, < 1% fat","A.05.03.001","Apricots (Prunus armeniaca)","F28.A07XD","PROCESS=Unspecified",3.7,0.2,1,1
-"A.08.06.002.003","Yoghurt, cow milk, with fruit, < 1% fat","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A07XD","PROCESS=Unspecified",3.7,0.8,1,1
+"A.08.06.002.003","Yoghurt, cow milk, with fruit, < 1% fat","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A07XD","PROCESS=Unspecified",3.7,0.8,1,1
 "A.08.06.002.003","Yoghurt, cow milk, with fruit, < 1% fat","A.10.01.001","White sugar","To be further disaggregated (d)",,7.7,1,1,1
 "A.08.06.002.003","Yoghurt, cow milk, with fruit, < 1% fat","A.08.06.001.003","Yoghurt, cow milk, < 1% fat","To be further disaggregated (d)",,88.6,1,1,1
 "A.08.06.003","Yoghurt, sheep milk","A.08.01.002","Sheep milk","F28.A0CQZ","PROCESS=Fermentation",100,1,1.25,0.73
@@ -1896,7 +1897,7 @@
 "A.08.06.006","Acidophilus milk","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0CQZ","PROCESS=Fermentation",100,1,1.25,0.73
 "A.08.06.007","Kefir","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0CQZ","PROCESS=Fermentation",100,1,1.25,0.73
 "A.08.06.008","Buttermilk","A.08.05.001.004","Cream 40 % fat","F28.A07MH$F02.A06BC","PROCESS=Churning, PART-NATURE=Buttermilk (as part-nature)",100,1,2,0.09
-"A.08.06.014","Filmj�lk","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0CQZ","PROCESS=Fermentation",100,1,1.25,0.73
+"A.08.06.014","Filmjölk","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0CQZ","PROCESS=Fermentation",100,1,1.25,0.73
 "A.08.06.015","Viili","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0CQZ","PROCESS=Fermentation",100,1,1.25,0.73
 "A.08.07.001","Lactose","A.08.04.001.001","Whey, plain","F28.A0C0R$F28.A07MJ","PROCESS=Processed, PROCESS=Extraction",100,1,20,0.14
 "A.08.07.002","Milk protein","A.08.01.001.004","Cow milk, < 1% fat (skimmed milk)","F28.A0C0R$F28.A07MJ","PROCESS=Processed, PROCESS=Extraction",100,1,25,0.39
@@ -2025,8 +2026,8 @@
 "A.08.08.169","Cheese, Tomme de Savoie","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0C6E$F02.A06EX$F07.A073R","PROCESS=Cheesemaking, PART-NATURE=Cheese (as part-nature), FAT-CONTENT=28 % fat",100,1,8.12,0.94
 "A.08.08.170","Cheese, Torta del Casar","A.08.01.002","Sheep milk","F28.A0C6E$F02.A06EX$F07.A073Y","PROCESS=Cheesemaking, PART-NATURE=Cheese (as part-nature), FAT-CONTENT=33 % fat",100,1,5.94,0.94
 "A.08.08.171","Cheese, Trappist","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0C6E$F02.A06EX$F07.A073R","PROCESS=Cheesemaking, PART-NATURE=Cheese (as part-nature), FAT-CONTENT=28 % fat",100,1,8.12,0.94
-"A.08.08.176","Cheese, UrdÄƒ","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0C6E$F02.A06EX$F07.A072P","PROCESS=Cheesemaking, PART-NATURE=Cheese (as part-nature), FAT-CONTENT=9.4 % fat",100,0.5,2.73,0.94
-"A.08.08.176","Cheese, UrdÄƒ","A.08.01.002","Sheep milk","F28.A0C6E$F02.A06EX$F07.A072X","PROCESS=Cheesemaking, PART-NATURE=Cheese (as part-nature), FAT-CONTENT=10 % fat",100,0.5,1.8,0.94
+"A.08.08.176","Cheese, UrdÃ„Æ’","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0C6E$F02.A06EX$F07.A072P","PROCESS=Cheesemaking, PART-NATURE=Cheese (as part-nature), FAT-CONTENT=9.4 % fat",100,0.5,2.73,0.94
+"A.08.08.176","Cheese, UrdÃ„Æ’","A.08.01.002","Sheep milk","F28.A0C6E$F02.A06EX$F07.A072X","PROCESS=Cheesemaking, PART-NATURE=Cheese (as part-nature), FAT-CONTENT=10 % fat",100,0.5,1.8,0.94
 "A.08.08.178","Cheese, Vacherin Mont d'Or","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0C6E$F02.A06EX$F07.A073P","PROCESS=Cheesemaking, PART-NATURE=Cheese (as part-nature), FAT-CONTENT=26 % fat",100,1,7.54,0.94
 "A.08.08.183","Cheese, Wensleydale","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0C6E$F02.A06EX$F07.A073X","PROCESS=Cheesemaking, PART-NATURE=Cheese (as part-nature), FAT-CONTENT=32 % fat",100,1,9.28,0.94
 "A.08.08.184","Cheese, White Stilton","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0C6E$F02.A06EX$F07.A073V","PROCESS=Cheesemaking, PART-NATURE=Cheese (as part-nature), FAT-CONTENT=31 % fat",100,1,8.99,0.94
@@ -2131,8 +2132,8 @@
 "A.10.04.007","Fudge","A.11.01.001","Butter","To be further disaggregated (d)",,4.58,1,1,1
 "A.10.04.007","Fudge","A.08.03.002.002","Condensed milk 4% fat","To be further disaggregated (d)",,33.03,1,1,1
 "A.10.04.007","Fudge","I.10.03.008.002","Milk chocolate, plain","To be further disaggregated (d)",,62.4,1,1,1
-"A.10.04.008","DragÃ©e, sugar coated","A.10.02.001","Nutritive sweeteners (e.g., sorbitol, manitol)","To be further disaggregated (d)",,5,1,1,1
-"A.10.04.008","DragÃ©e, sugar coated","A.10.01.001","White sugar","To be further disaggregated (d)",,95,1,1,1
+"A.10.04.008","DragÃƒÂ©e, sugar coated","A.10.02.001","Nutritive sweeteners (e.g., sorbitol, manitol)","To be further disaggregated (d)",,5,1,1,1
+"A.10.04.008","DragÃƒÂ©e, sugar coated","A.10.01.001","White sugar","To be further disaggregated (d)",,95,1,1,1
 "A.10.04.009","Sugar cotton","A.10.01.001","White sugar","To be further disaggregated (d)",,100,1,1,1
 "A.10.04.010","Foamed sugar products (marshmallows)","A.09.01.003","Egg white, chicken","To be further disaggregated (d)",,10.37,1,1,1
 "A.10.04.010","Foamed sugar products (marshmallows)","A.16.10.008","Gelatine","F28.A0C0R","PROCESS=Processed",8.89,1,1,1
@@ -2292,6 +2293,7 @@
 "A.12.01.020","Juice, Passion fruit","A.05.06.010","Passion fruit (Passiflora edulis)","F28.A07LN","PROCESS=Juicing",100,1,1.85,1
 "A.12.01.021","Juice, Guava","A.05.06.020","Guava (Psidium guajava)","F28.A07LN","PROCESS=Juicing",100,1,5,1
 "A.12.02.002","Juice concentrate, Raspberries","A.05.04.006","Raspberries (Rubus idaeus)","F28.A07LN$F28.A07KF","PROCESS=Juicing, PROCESS=Concentration / evaporation",100,1,4.77,1
+"A.12.02.002a","Juice concentrate, Elderberries","A.05.04.015","Elderberries (Sambucus nigra)","F28.A07LN$F28.A07KF","PROCESS=Juicing, PROCESS=Concentration / evaporation",100,1,4.77,1
 "A.12.02.003","Juice concentrate, Blackberries","A.05.04.004","Blackberries (Rubus fruticosus)","F28.A07LN$F28.A07KF","PROCESS=Juicing, PROCESS=Concentration / evaporation",100,1,4.77,1
 "A.12.02.004","Juice concentrate, Currants (red)","A.05.04.010","Currants (red, black and white) (Ribes nigrum, Ribes rubrum)","F28.A07LN$F28.A07KF","PROCESS=Juicing, PROCESS=Concentration / evaporation",100,1,5.01,1
 "A.12.02.005","Juice concentrate, Currants (black)","A.05.04.010","Currants (red, black and white) (Ribes nigrum, Ribes rubrum)","F28.A07LN$F28.A07KF","PROCESS=Juicing, PROCESS=Concentration / evaporation",100,1,5.01,1
@@ -2321,7 +2323,7 @@
 "A.12.03.005","Nectar, Pineapple","A.12.01.004","Juice, Pineapple","To be further disaggregated (d)",,47,1,1,1
 "A.12.03.005","Nectar, Pineapple","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",47,1,1,1
 "A.12.03.005","Nectar, Pineapple","A.10.01.001","White sugar","To be further disaggregated (d)",,4,1,1,1
-"A.12.03.006","Nectar, Banana","A.05.06.015","Bananas (Musa Ã— paradisica)","F28.A0C6N","PROCESS=Pulping / mashing",30,1,1,1
+"A.12.03.006","Nectar, Banana","A.05.06.015","Bananas (Musa Ãƒâ€” paradisica)","F28.A0C6N","PROCESS=Pulping / mashing",30,1,1,1
 "A.12.03.006","Nectar, Banana","A.12.01.010","Juice, Lemon","To be further disaggregated (d)",,1,1,1,1
 "A.12.03.006","Nectar, Banana","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",63.1,1,1,1
 "A.12.03.006","Nectar, Banana","A.10.01.001","White sugar","To be further disaggregated (d)",,5.9,1,1,1
@@ -2436,7 +2438,7 @@
 "A.13.01.002.002","Soft drink, apple flavour","A.15.03.002","Carbonated mineral water","F28.A07XD","PROCESS=Unspecified",89.2,1,1,1
 "A.13.01.002.002","Soft drink, apple flavour","I.16.09.009","Citric acid","F28.A0C0R","PROCESS=Processed",0.3,1,1,1
 "A.13.01.002.002","Soft drink, apple flavour","A.10.01.001","White sugar","To be further disaggregated (d)",,10,1,1,1
-"A.13.01.002.004","Soft drink, banana flavour","A.05.06.015","Bananas (Musa Ã— paradisica)","F28.A07MJ","PROCESS=Extraction",0.5,1,1,1
+"A.13.01.002.004","Soft drink, banana flavour","A.05.06.015","Bananas (Musa Ãƒâ€” paradisica)","F28.A07MJ","PROCESS=Extraction",0.5,1,1,1
 "A.13.01.002.004","Soft drink, banana flavour","A.15.03.002","Carbonated mineral water","F28.A07XD","PROCESS=Unspecified",89.2,1,1,1
 "A.13.01.002.004","Soft drink, banana flavour","I.16.09.009","Citric acid","F28.A0C0R","PROCESS=Processed",0.3,1,1,1
 "A.13.01.002.004","Soft drink, banana flavour","A.10.01.001","White sugar","To be further disaggregated (d)",,10,1,1,1
@@ -2502,20 +2504,20 @@
 "A.13.02.006","Instant tea, liquid","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",90.9,1,1,1
 "A.13.03.001","Coffee drink, espresso","A.02.12.004","Coffee beans, roasted and ground","To be further disaggregated (d)",,14.3,1,1,1
 "A.13.03.001","Coffee drink, espresso","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",85.7,1,1,1
-"A.13.03.002","Coffee drink, cafÃ© amÃ©ricano","A.02.12.004","Coffee beans, roasted and ground","To be further disaggregated (d)",,5.6,1,1,1
-"A.13.03.002","Coffee drink, cafÃ© amÃ©ricano","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",94.4,1,1,1
+"A.13.03.002","Coffee drink, cafÃƒÂ© amÃƒÂ©ricano","A.02.12.004","Coffee beans, roasted and ground","To be further disaggregated (d)",,5.6,1,1,1
+"A.13.03.002","Coffee drink, cafÃƒÂ© amÃƒÂ©ricano","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",94.4,1,1,1
 "A.13.03.003","Coffee drink, cappuccino","A.02.12.004","Coffee beans, roasted and ground","To be further disaggregated (d)",,5.6,1,1,1
 "A.13.03.003","Coffee drink, cappuccino","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",60.8,1,1,1
 "A.13.03.003","Coffee drink, cappuccino","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",33.6,1,1,1
-"A.13.03.004","Coffee drink, cafÃ© macchiato","A.02.12.004","Coffee beans, roasted and ground","To be further disaggregated (d)",,14.3,1,1,1
-"A.13.03.004","Coffee drink, cafÃ© macchiato","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",28.6,1,1,1
-"A.13.03.004","Coffee drink, cafÃ© macchiato","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",57.1,1,1,1
+"A.13.03.004","Coffee drink, cafÃƒÂ© macchiato","A.02.12.004","Coffee beans, roasted and ground","To be further disaggregated (d)",,14.3,1,1,1
+"A.13.03.004","Coffee drink, cafÃƒÂ© macchiato","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",28.6,1,1,1
+"A.13.03.004","Coffee drink, cafÃƒÂ© macchiato","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",57.1,1,1,1
 "A.13.03.005","Iced coffee","A.02.12.004","Coffee beans, roasted and ground","To be further disaggregated (d)",,5.6,1,1,1
 "A.13.03.005","Iced coffee","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",60.8,1,1,1
 "A.13.03.005","Iced coffee","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",33.6,1,1,1
-"A.13.03.006","Coffee with milk (cafÃ© latte, cafÃ© au lait)","A.02.12.004","Coffee beans, roasted and ground","To be further disaggregated (d)",,5.6,1,1,1
-"A.13.03.006","Coffee with milk (cafÃ© latte, cafÃ© au lait)","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",60.8,1,1,1
-"A.13.03.006","Coffee with milk (cafÃ© latte, cafÃ© au lait)","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",33.6,1,1,1
+"A.13.03.006","Coffee with milk (cafÃƒÂ© latte, cafÃƒÂ© au lait)","A.02.12.004","Coffee beans, roasted and ground","To be further disaggregated (d)",,5.6,1,1,1
+"A.13.03.006","Coffee with milk (cafÃƒÂ© latte, cafÃƒÂ© au lait)","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",60.8,1,1,1
+"A.13.03.006","Coffee with milk (cafÃƒÂ© latte, cafÃƒÂ© au lait)","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",33.6,1,1,1
 "A.13.03.007","Instant coffee, liquid","A.02.12.006","Instant coffee, powder","To be further disaggregated (d)",,1.6,1,1,1
 "A.13.03.007","Instant coffee, liquid","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",98.4,1,1,1
 "A.13.04","Coffee imitates beverage","A.02.13.008","Mixture of coffee imitates","To be further disaggregated (d)",,6.25,1,1,1
@@ -2766,12 +2768,12 @@
 "A.16.05.005","Vinegar, apple","A.05.02.001","Apple (Malus domesticus)","F28.A07JZ","PROCESS=Bacteria fermentation",100,1,1,1
 "A.16.05.006","Tomato ketchup","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.8,1,1,1
 "A.16.05.006","Tomato ketchup","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",7.2,1,1,1
-"A.16.05.006","Tomato ketchup","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,65,1,1,1
+"A.16.05.006","Tomato ketchup","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,65,1,1,1
 "A.16.05.006","Tomato ketchup","A.16.05.004","Vinegar, wine","To be further disaggregated (d)",,12,1,1,1
 "A.16.05.006","Tomato ketchup","A.10.01.001","White sugar","To be further disaggregated (d)",,14,1,1,1
 "A.16.05.007","Barbecue sauce","I.16.03.003.001","Mixed spices, Barbecue","To be further disaggregated (d)",,5.88,1,1,1
 "A.16.05.007","Barbecue sauce","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.9,1,1,1
-"A.16.05.007","Barbecue sauce","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,54,1,1,1
+"A.16.05.007","Barbecue sauce","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,54,1,1,1
 "A.16.05.007","Barbecue sauce","A.16.05.004","Vinegar, wine","To be further disaggregated (d)",,5.88,1,1,1
 "A.16.05.007","Barbecue sauce","A.10.01.001","White sugar","To be further disaggregated (d)",,32.34,1,1,1
 "A.16.05.008","Tabasco sauce","A.02.03.003","Chilli pepper (Capsicum frutescens)","F28.A07XD","PROCESS=Unspecified",51,1,1,1
@@ -2780,7 +2782,7 @@
 "A.16.05.009","Horseradish sauce","A.02.01.005","Horseradish (Armoracia rusticana)","F28.A07XD","PROCESS=Unspecified",83,1,1,1
 "A.16.05.009","Horseradish sauce","A.11.04.013","Rapeseed oil","To be further disaggregated (d)",,13.6,1,1,1
 "A.16.05.009","Horseradish sauce","A.16.05.004","Vinegar, wine","To be further disaggregated (d)",,3.4,1,1,1
-"A.16.05.010","Mint sauce","A.02.10.004","Peppermint (Mentha Ã— piperita)","F28.A07XD","PROCESS=Unspecified",20,1,1,1
+"A.16.05.010","Mint sauce","A.02.10.004","Peppermint (Mentha Ãƒâ€” piperita)","F28.A07XD","PROCESS=Unspecified",20,1,1,1
 "A.16.05.010","Mint sauce","A.16.05.004","Vinegar, wine","To be further disaggregated (d)",,80,1,1,1
 "A.16.05.011","Soy sauce","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",14.4,1,1,1
 "A.16.05.011","Soy sauce","A.04.02.012","Soya beans (Glycine max)","F28.A0CQZ","PROCESS=Fermentation",16,1,0.29,1
@@ -2927,7 +2929,7 @@
 "A.16.08.002","Brown sauce (Gravy, Lyonnais sauce)","A.02.02.002","Onions, bulb (Allium cepa)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",4,1,1.17,1
 "A.16.08.002","Brown sauce (Gravy, Lyonnais sauce)","A.16.04.008","Stock cubes (bouillon cube)","To be further disaggregated (d)",,4,1,1,1
 "A.16.08.002","Brown sauce (Gravy, Lyonnais sauce)","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",51,1,1,1
-"A.16.08.002","Brown sauce (Gravy, Lyonnais sauce)","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,2,1,1,1
+"A.16.08.002","Brown sauce (Gravy, Lyonnais sauce)","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,2,1,1,1
 "A.16.08.004","Butter sauce","A.11.01.001","Butter","To be further disaggregated (d)",,21.6,1,1,1
 "A.16.08.004","Butter sauce","A.01.03.004.003","Corn starch","To be further disaggregated (d)",,2.5,1,1,1
 "A.16.08.004","Butter sauce","A.08.05.001.003","Cream 30 % fat","To be further disaggregated (d)",,9,1,1,1
@@ -3004,14 +3006,14 @@
 "A.17.06","Ready-to-eat meal for infants and young children","A.17.06.002","Ready-to-eat meal for children, cereal-based","To be further disaggregated (d)",,20,1,1,1
 "A.17.06","Ready-to-eat meal for infants and young children","A.17.06.003","Ready-to-eat meal for children, meat/fish-based","To be further disaggregated (d)",,20,1,1,1
 "A.17.06","Ready-to-eat meal for infants and young children","A.17.06.004","Ready-to-eat meal for children, meat and vegetables","To be further disaggregated (d)",,20,1,1,1
-"A.17.06","Ready-to-eat meal for infants and young children","A.17.06.005","Fruit purÃ©e for children","To be further disaggregated (d)",,20,1,1,1
+"A.17.06","Ready-to-eat meal for infants and young children","A.17.06.005","Fruit purÃƒÂ©e for children","To be further disaggregated (d)",,20,1,1,1
 "A.17.06.001","Ready-to-eat meal for children, vegetable-based","A.19.07.001","Mixed vegetables, grilled","To be further disaggregated (d)",,100,1,1,1
 "A.17.06.002","Ready-to-eat meal for children, cereal-based","A.19.01.003.005","Pasta, cooked, vegetable filling","To be further disaggregated (d)",,50,1,1,1
 "A.17.06.002","Ready-to-eat meal for children, cereal-based","A.19.02.001","Rice and vegetables meal","To be further disaggregated (d)",,50,1,1,1
 "A.17.06.003","Ready-to-eat meal for children, meat/fish-based","A.19.06.002","Fish and rice meal","To be further disaggregated (d)",,50,1,1,1
 "A.17.06.003","Ready-to-eat meal for children, meat/fish-based","A.19.11.010","Prepared mixed egg/meat/fish/vegetable salad","To be further disaggregated (d)",,50,1,1,1
 "A.17.06.004","Ready-to-eat meal for children, meat and vegetables","A.19.02.003","Rice, meat, and vegetables meal","To be further disaggregated (d)",,100,1,1,1
-"A.17.06.005","Fruit purÃ©e for children","I.05.09.007.013","Fruit compote, Other","To be further disaggregated (d)",,100,1,1,1
+"A.17.06.005","Fruit purÃƒÂ©e for children","I.05.09.007.013","Fruit compote, Other","To be further disaggregated (d)",,100,1,1,1
 "A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","A.17.07.001","Yoghurt for infants and young children","To be further disaggregated (d)",,33.3333333333333,1,1,1
 "A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","A.17.07.002","Cheese preparations for infants and young children","To be further disaggregated (d)",,33.3333333333333,1,1,1
 "A.17.07","Yoghurt, cheese and milk-based dessert for infants and young children","A.17.07.003","Dessert and puddings for infants and young children","To be further disaggregated (d)",,33.3333333333333,1,1,1
@@ -3089,7 +3091,7 @@
 "A.19.01.002.003","Pizza and pizza-like pies, cheese, and vegetables and fruits","I.06.08.016","Cooked Ham, Pork","To be further disaggregated (d)",,7,1,1,1
 "A.19.01.002.003","Pizza and pizza-like pies, cheese, and vegetables and fruits","A.05.06.021","Pineapples (Ananas comosus)","F28.A07XD$F20.A07QF","PROCESS=Unspecified, PART-CONSUMED-ANALYSED=W/o peel",14.1,1,1,1
 "A.19.01.002.003","Pizza and pizza-like pies, cheese, and vegetables and fruits","I.19.01.002.009","Pizza base, cooked","To be further disaggregated (d)",,45.8,1,1,1
-"A.19.01.002.003","Pizza and pizza-like pies, cheese, and vegetables and fruits","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,17.9,1,1,1
+"A.19.01.002.003","Pizza and pizza-like pies, cheese, and vegetables and fruits","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,17.9,1,1,1
 "A.19.01.002.004","Pizza and pizza-like pies, meat, and vegetables","I.19.01.002.021","Pizza, cheese-chicken","To be further disaggregated (d)",,100,0.37,1,1
 "A.19.01.002.004","Pizza and pizza-like pies, meat, and vegetables","I.19.01.002.020","Pizza, cheese-ham","To be further disaggregated (d)",,100,0.44,1,1
 "A.19.01.002.004","Pizza and pizza-like pies, meat, and vegetables","I.19.01.002.022","Pizza, cheese-salami","To be further disaggregated (d)",,100,0.19,1,1
@@ -3107,7 +3109,7 @@
 "A.19.01.002.008","Pizza and pizza-like pies, cheese, meat, mushrooms, and vegetables","A.02.04.002","Cauliflower (Brassica oleracea var. botrytis)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",6,1,1,1
 "A.19.01.002.008","Pizza and pizza-like pies, cheese, meat, mushrooms, and vegetables","A.02.03.002","Peppers, paprika (Capsicum annuum, var. grossum and var. longum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",9,1,1.15,1
 "A.19.01.002.008","Pizza and pizza-like pies, cheese, meat, mushrooms, and vegetables","A.19.01.002.007","Pizza and pizza-like pies, cheese, meat, and mushrooms","To be further disaggregated (d)",,62.2,1,1,1
-"A.19.01.002.008","Pizza and pizza-like pies, cheese, meat, mushrooms, and vegetables","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,10.8,1,1,1
+"A.19.01.002.008","Pizza and pizza-like pies, cheese, meat, mushrooms, and vegetables","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,10.8,1,1,1
 "A.19.01.003.001","Pasta, cooked, with vegetables","A.02.03.008","Courgettes (Zucchini) (Cucurbita pepo var. melopepo)","F28.A07GZ","PROCESS=Broiling/grilling",3.57,1,1.11,1
 "A.19.01.003.001","Pasta, cooked, with vegetables","A.02.02.002","Onions, bulb (Allium cepa)","F28.A07GZ","PROCESS=Broiling/grilling",3.57,1,1.17,1
 "A.19.01.003.001","Pasta, cooked, with vegetables","A.02.03.002","Peppers, paprika (Capsicum annuum, var. grossum and var. longum)","F28.A07GZ","PROCESS=Broiling/grilling",3.57,1,1.08,1
@@ -3191,7 +3193,7 @@
 "A.19.06.002","Fish and rice meal","A.11.01.001","Butter","To be further disaggregated (d)",,1,1,1,1
 "A.19.06.002","Fish and rice meal","A.08.08.065","Cheese, Emmental","To be further disaggregated (d)",,1.5,1,1,1
 "A.19.06.002","Fish and rice meal","A.08.08.129","Cheese, Parmigiano Reggiano","To be further disaggregated (d)",,0.6,1,1,1
-"A.19.06.002","Fish and rice meal","A.08.05.004","CrÃ¨me fraÃ®che","To be further disaggregated (p)",,6.8,1,1,1
+"A.19.06.002","Fish and rice meal","A.08.05.004","CrÃƒÂ¨me fraÃƒÂ®che","To be further disaggregated (p)",,6.8,1,1,1
 "A.19.06.002","Fish and rice meal","A.02.15.001","Cultivated mushroom (syn. Button mushroom) (Agaricus bisporus)","F28.A07GR","PROCESS=Frying",3.2,1,1.92,1
 "A.19.06.002","Fish and rice meal","I.08.08.192","Hard cheese (cheddar, emmental type)","To be further disaggregated (d)",,0.6,1,1,1
 "A.19.06.002","Fish and rice meal","A.07.05.007","Mussel (Mytilus edulis)","F28.A07GG","PROCESS=Cooking in water",5.6,1,1,1
@@ -3211,15 +3213,15 @@
 "A.19.07.001","Mixed vegetables, grilled","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.92,1,1,1
 "A.19.07.001","Mixed vegetables, grilled","A.11.04.017","Sunflower oil","To be further disaggregated (d)",,3,1,1,1
 "A.19.07.004","Mixed vegetables, boiled","I.19.07.004.001","Mixed vegetables, boiled, Broccoli-Carrots-Cauliflower",,,100,1,1,1
-"A.19.07.006","Vegetable soufflÃ©","A.02.07.001","Asparagus (Asparagus officinalis)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",23.74,1,1,1
-"A.19.07.006","Vegetable soufflÃ©","A.11.01.001","Butter","To be further disaggregated (d)",,4.2,1,1,1
-"A.19.07.006","Vegetable soufflÃ©","A.16.02.012","Cayenne pepper (Capsicum frutescens)","To be further disaggregated (d)",,0.73,1,1,1
-"A.19.07.006","Vegetable soufflÃ©","A.08.08.049","Cheese, Cheddar","To be further disaggregated (d)",,7,1,1,1
-"A.19.07.006","Vegetable soufflÃ©","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",32.82,1,1,1
-"A.19.07.006","Vegetable soufflÃ©","A.02.02.001","Garlic, bulb (Allium sativum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",0.21,1,1,1
-"A.19.07.006","Vegetable soufflÃ©","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.7,1,1,1
-"A.19.07.006","Vegetable soufflÃ©","A.01.03.001.003","Wheat flour, white","To be further disaggregated (d)",,2.1,1,1,1
-"A.19.07.006","Vegetable soufflÃ©","A.09.01.001","Whole egg, chicken","F28.A07GR","PROCESS=Frying",28.5,1,1.14,1
+"A.19.07.006","Vegetable soufflÃƒÂ©","A.02.07.001","Asparagus (Asparagus officinalis)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",23.74,1,1,1
+"A.19.07.006","Vegetable soufflÃƒÂ©","A.11.01.001","Butter","To be further disaggregated (d)",,4.2,1,1,1
+"A.19.07.006","Vegetable soufflÃƒÂ©","A.16.02.012","Cayenne pepper (Capsicum frutescens)","To be further disaggregated (d)",,0.73,1,1,1
+"A.19.07.006","Vegetable soufflÃƒÂ©","A.08.08.049","Cheese, Cheddar","To be further disaggregated (d)",,7,1,1,1
+"A.19.07.006","Vegetable soufflÃƒÂ©","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",32.82,1,1,1
+"A.19.07.006","Vegetable soufflÃƒÂ©","A.02.02.001","Garlic, bulb (Allium sativum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",0.21,1,1,1
+"A.19.07.006","Vegetable soufflÃƒÂ©","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.7,1,1,1
+"A.19.07.006","Vegetable soufflÃƒÂ©","A.01.03.001.003","Wheat flour, white","To be further disaggregated (d)",,2.1,1,1,1
+"A.19.07.006","Vegetable soufflÃƒÂ©","A.09.01.001","Whole egg, chicken","F28.A07GR","PROCESS=Frying",28.5,1,1.14,1
 "A.19.07.007","Ratatouille","A.02.03.004","Aubergines (egg plants) (Solanum melongena)","F28.A07GM","PROCESS=Stewing",15,1,1.08,1
 "A.19.07.007","Ratatouille","A.02.03.008","Courgettes (Zucchini) (Cucurbita pepo var. melopepo)","F28.A07GM","PROCESS=Stewing",9.33,1,1.11,1
 "A.19.07.007","Ratatouille","A.02.02.002","Onions, bulb (Allium cepa)","F28.A07GR","PROCESS=Frying",15,1,1.61,1
@@ -3435,7 +3437,7 @@
 "A.20.02.005","Sorbet","A.12.01.010","Juice, Lemon","To be further disaggregated (d)",,34.09,1,1,1
 "A.20.02.005","Sorbet","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",35.61,1,1,1
 "A.20.02.005","Sorbet","A.10.01.001","White sugar","To be further disaggregated (d)",,30.3,1,1,1
-"A.20.02.007","Granita","A.05.09.004","Fruit, purÃ¨e","To be further disaggregated (d)",,10,1,1,1
+"A.20.02.007","Granita","A.05.09.004","Fruit, purÃƒÂ¨e","To be further disaggregated (d)",,10,1,1,1
 "A.20.02.007","Granita","A.12.01.010","Juice, Lemon","To be further disaggregated (d)",,41,0.33,1,1
 "A.20.02.007","Granita","A.12.01.002","Juice, Orange","To be further disaggregated (d)",,41,0.24,1,1
 "A.20.02.007","Granita","I.12.01.022","Juice, Raspberry","To be further disaggregated (d)",,41,0.17,1,1
@@ -3606,7 +3608,7 @@
 "I.01.07.001.076","Beignets, plain","A.09.01.001","Whole egg, chicken","F28.A07XD","PROCESS=Unspecified",5.1,1,1,1
 "I.01.07.001.076","Beignets, plain","A.16.10.001","Yeast","F28.A07XD","PROCESS=Unspecified",0.11,1,1,1
 "I.01.07.001.077","Beignets, filled","A.05.02.001","Apple (Malus domesticus)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",16,0.53,1.35,1
-"I.01.07.001.077","Beignets, filled","A.05.06.015","Bananas (Musa Ã— paradisica)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",16,0.47,1.43,1
+"I.01.07.001.077","Beignets, filled","A.05.06.015","Bananas (Musa Ãƒâ€” paradisica)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",16,0.47,1.43,1
 "I.01.07.001.077","Beignets, filled","I.01.07.001.076","Beignets, plain","To be further disaggregated (d)",,84,1,1,1
 "I.01.07.001.078","Almond Macaroons","I.10.03.002.002","Bitter-sweet chocolate, plain","To be further disaggregated (d)",,13.5,1,1,1
 "I.01.07.001.078","Almond Macaroons","A.10.04.003","Marzipan","To be further disaggregated (d)",,86.5,1,1,1
@@ -3670,19 +3672,19 @@
 "I.04.03.015","Mixed nuts paste","A.04.02.021","Peanut (Arachis hypogea)","F28.A0C6N","PROCESS=Pulping / mashing",55,1,1.18,1
 "I.05.08.001.019","Jam, Apricot & blackberry & strawberry","A.05.08.001.011","Jam, Apricots (Prunus armeniaca)","To be further disaggregated (d)",,33.33,1,1,1
 "I.05.08.001.019","Jam, Apricot & blackberry & strawberry","A.05.08.001.003","Jam, Blackberries (Rubus fruticosus)","To be further disaggregated (d)",,33.33,1,1,1
-"I.05.08.001.019","Jam, Apricot & blackberry & strawberry","A.05.08.001.001","Jam, Strawberries (Fragaria Ã— ananassa)","To be further disaggregated (d)",,33.33,1,1,1
+"I.05.08.001.019","Jam, Apricot & blackberry & strawberry","A.05.08.001.001","Jam, Strawberries (Fragaria Ãƒâ€” ananassa)","To be further disaggregated (d)",,33.33,1,1,1
 "I.05.08.001.020","Jam, Apricot & peach","A.05.03.001","Apricots (Prunus armeniaca)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",43,1,1.43,1
 "I.05.08.001.020","Jam, Apricot & peach","A.05.03.011","Peaches (Prunus persica)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",22,1,1.43,1
 "I.05.08.001.020","Jam, Apricot & peach","A.10.01.001","White sugar","To be further disaggregated (d)",,35,1,1,1
 "I.05.08.001.021","Jam, Berries","A.05.04.010","Currants (red, black and white) (Ribes nigrum, Ribes rubrum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",9.6,1,1.43,1
 "I.05.08.001.021","Jam, Berries","A.05.04.006","Raspberries (Rubus idaeus)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",19.21,1,1.39,1
-"I.05.08.001.021","Jam, Berries","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",19.21,1,1.39,1
+"I.05.08.001.021","Jam, Berries","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",19.21,1,1.39,1
 "I.05.08.001.021","Jam, Berries","A.05.03.006","Sweet cherry (Prunus avium)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",19.21,1,1.43,1
 "I.05.08.001.021","Jam, Berries","A.10.01.001","White sugar","To be further disaggregated (d)",,32.77,1,1,1
-"I.05.08.003.001","Fruit spreads, Sirop de LiÃ¨ge","A.05.06.001","Dates (Phoenix dactylifera)","F28.A07XD","PROCESS=Unspecified",9.75,1,1,1
-"I.05.08.003.001","Fruit spreads, Sirop de LiÃ¨ge","I.12.02.016","Juice concentrate, Apple","To be further disaggregated (d)",,20.8,1,1,1
-"I.05.08.003.001","Fruit spreads, Sirop de LiÃ¨ge","I.12.02.018","Juice concentrate, Pear","To be further disaggregated (d)",,34.45,1,1,1
-"I.05.08.003.001","Fruit spreads, Sirop de LiÃ¨ge","A.10.01.001","White sugar","To be further disaggregated (d)",,35,1,1,1
+"I.05.08.003.001","Fruit spreads, Sirop de LiÃƒÂ¨ge","A.05.06.001","Dates (Phoenix dactylifera)","F28.A07XD","PROCESS=Unspecified",9.75,1,1,1
+"I.05.08.003.001","Fruit spreads, Sirop de LiÃƒÂ¨ge","I.12.02.016","Juice concentrate, Apple","To be further disaggregated (d)",,20.8,1,1,1
+"I.05.08.003.001","Fruit spreads, Sirop de LiÃƒÂ¨ge","I.12.02.018","Juice concentrate, Pear","To be further disaggregated (d)",,34.45,1,1,1
+"I.05.08.003.001","Fruit spreads, Sirop de LiÃƒÂ¨ge","A.10.01.001","White sugar","To be further disaggregated (d)",,35,1,1,1
 "I.05.08.003.002","Fruit spreads, Fig","A.05.06.002","Figs (Ficus carica)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",65,1,1.43,1
 "I.05.08.003.002","Fruit spreads, Fig","A.10.01.001","White sugar","To be further disaggregated (d)",,35,1,1,1
 "I.05.08.003.003","Fruit spreads, Lemon","A.11.01.001","Butter","To be further disaggregated (d)",,8,1,1,1
@@ -3695,7 +3697,7 @@
 "I.05.08.003.004","Fruit spreads, Jelly","A.10.01.001","White sugar","To be further disaggregated (d)",,30,1,1,1
 "I.05.09.007.013","Fruit compote, Other","A.05.02.003","Quince (Cydonia oblonga)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",90,0.18,1.51,1
 "I.05.09.007.013","Fruit compote, Other","A.05.04.006","Raspberries (Rubus idaeus)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",90,0.23,1.39,1
-"I.05.09.007.013","Fruit compote, Other","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",90,0.59,1.39,1
+"I.05.09.007.013","Fruit compote, Other","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",90,0.59,1.39,1
 "I.05.09.007.013","Fruit compote, Other","A.10.01.001","White sugar","To be further disaggregated (d)",,10,1,1,1
 "I.05.09.008.009","Candied fruit, Ginger","A.16.02.022","Ginger (Zingiber officinale)","F28.A07XD","PROCESS=Unspecified",25,1,1,1
 "I.05.09.008.009","Candied fruit, Ginger","A.10.01.001","White sugar","To be further disaggregated (d)",,75,1,1,1
@@ -3824,34 +3826,34 @@
 "I.07.02.004.004","Fish paste, Tuna","A.11.04.013","Rapeseed oil","To be further disaggregated (d)",,16.7,1,1,1
 "I.07.02.004.004","Fish paste, Tuna","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",16.7,1,1,1
 "I.07.02.004.004","Fish paste, Tuna","A.07.01.014","Tuna (Thunnus)","F28.A07GG","PROCESS=Cooking in water",66.6,1,1.25,1
-"I.07.02.005.001","Fish pÃ¢tÃ©, Mackerel","A.07.01.013","Mackeral (Scomber)","F28.A07GG","PROCESS=Cooking in water",58,1,1.1,1
-"I.07.02.005.001","Fish pÃ¢tÃ©, Mackerel","A.16.05.002","Mustard, mild","To be further disaggregated (d)",,16,1,1,1
-"I.07.02.005.001","Fish pÃ¢tÃ©, Mackerel","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",1,1,1,1
-"I.07.02.005.001","Fish pÃ¢tÃ©, Mackerel","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1,1,1,1
-"I.07.02.005.001","Fish pÃ¢tÃ©, Mackerel","A.08.05.003.004","Sour cream 20 % fat","To be further disaggregated (d)",,24,1,1,1
-"I.07.02.005.002","Fish pÃ¢tÃ©, Salmon","A.01.03.004.001","Corn flour","To be further disaggregated (d)",,2,1,1,1
-"I.07.02.005.002","Fish pÃ¢tÃ©, Salmon","A.08.05.001.002","Cream 20% fat","To be further disaggregated (d)",,16,1,1,1
-"I.07.02.005.002","Fish pÃ¢tÃ©, Salmon","A.12.01.010","Juice, Lemon","To be further disaggregated (d)",,3,1,1,1
-"I.07.02.005.002","Fish pÃ¢tÃ©, Salmon","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",2,1,1,1
-"I.07.02.005.002","Fish pÃ¢tÃ©, Salmon","A.08.08.001","Quark","To be further disaggregated (d)",,12,1,1,1
-"I.07.02.005.002","Fish pÃ¢tÃ©, Salmon","I.07.01.006.001","Salmon (Salmo salar)","F28.A07GG","PROCESS=Cooking in water",65,1,1.25,1
-"I.07.02.005.003","Fish pÃ¢tÃ©, Shellfish","A.07.05.010","Scallop (Pecten spp.)","F28.A07GG","PROCESS=Cooking in water",21,1,1.04,1
-"I.07.02.005.003","Fish pÃ¢tÃ©, Shellfish","A.07.04.005","Shrimps (Crangon crangon)","F28.A07GG","PROCESS=Cooking in water",46,1,1.05,1
-"I.07.02.005.003","Fish pÃ¢tÃ©, Shellfish","A.11.04.017","Sunflower oil","To be further disaggregated (d)",,33,1,1,1
-"I.07.02.005.004","Fish pÃ¢tÃ©, Tuna","I.07.01.017.001","Cod (Gadus morhua)","F28.A07GG","PROCESS=Cooking in water",19,1,1.3,1
-"I.07.02.005.004","Fish pÃ¢tÃ©, Tuna","A.16.06.005","Mayonnaise, 25 - 50% oil","To be further disaggregated (d)",,17,1,1,1
-"I.07.02.005.004","Fish pÃ¢tÃ©, Tuna","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.66,1,1,1
-"I.07.02.005.004","Fish pÃ¢tÃ©, Tuna","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",3.34,1,1,1
-"I.07.02.005.004","Fish pÃ¢tÃ©, Tuna","A.07.01.014","Tuna (Thunnus)","F28.A07GG","PROCESS=Cooking in water",60,1,1.25,1
+"I.07.02.005.001","Fish pÃƒÂ¢tÃƒÂ©, Mackerel","A.07.01.013","Mackeral (Scomber)","F28.A07GG","PROCESS=Cooking in water",58,1,1.1,1
+"I.07.02.005.001","Fish pÃƒÂ¢tÃƒÂ©, Mackerel","A.16.05.002","Mustard, mild","To be further disaggregated (d)",,16,1,1,1
+"I.07.02.005.001","Fish pÃƒÂ¢tÃƒÂ©, Mackerel","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",1,1,1,1
+"I.07.02.005.001","Fish pÃƒÂ¢tÃƒÂ©, Mackerel","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1,1,1,1
+"I.07.02.005.001","Fish pÃƒÂ¢tÃƒÂ©, Mackerel","A.08.05.003.004","Sour cream 20 % fat","To be further disaggregated (d)",,24,1,1,1
+"I.07.02.005.002","Fish pÃƒÂ¢tÃƒÂ©, Salmon","A.01.03.004.001","Corn flour","To be further disaggregated (d)",,2,1,1,1
+"I.07.02.005.002","Fish pÃƒÂ¢tÃƒÂ©, Salmon","A.08.05.001.002","Cream 20% fat","To be further disaggregated (d)",,16,1,1,1
+"I.07.02.005.002","Fish pÃƒÂ¢tÃƒÂ©, Salmon","A.12.01.010","Juice, Lemon","To be further disaggregated (d)",,3,1,1,1
+"I.07.02.005.002","Fish pÃƒÂ¢tÃƒÂ©, Salmon","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",2,1,1,1
+"I.07.02.005.002","Fish pÃƒÂ¢tÃƒÂ©, Salmon","A.08.08.001","Quark","To be further disaggregated (d)",,12,1,1,1
+"I.07.02.005.002","Fish pÃƒÂ¢tÃƒÂ©, Salmon","I.07.01.006.001","Salmon (Salmo salar)","F28.A07GG","PROCESS=Cooking in water",65,1,1.25,1
+"I.07.02.005.003","Fish pÃƒÂ¢tÃƒÂ©, Shellfish","A.07.05.010","Scallop (Pecten spp.)","F28.A07GG","PROCESS=Cooking in water",21,1,1.04,1
+"I.07.02.005.003","Fish pÃƒÂ¢tÃƒÂ©, Shellfish","A.07.04.005","Shrimps (Crangon crangon)","F28.A07GG","PROCESS=Cooking in water",46,1,1.05,1
+"I.07.02.005.003","Fish pÃƒÂ¢tÃƒÂ©, Shellfish","A.11.04.017","Sunflower oil","To be further disaggregated (d)",,33,1,1,1
+"I.07.02.005.004","Fish pÃƒÂ¢tÃƒÂ©, Tuna","I.07.01.017.001","Cod (Gadus morhua)","F28.A07GG","PROCESS=Cooking in water",19,1,1.3,1
+"I.07.02.005.004","Fish pÃƒÂ¢tÃƒÂ©, Tuna","A.16.06.005","Mayonnaise, 25 - 50% oil","To be further disaggregated (d)",,17,1,1,1
+"I.07.02.005.004","Fish pÃƒÂ¢tÃƒÂ©, Tuna","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.66,1,1,1
+"I.07.02.005.004","Fish pÃƒÂ¢tÃƒÂ©, Tuna","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",3.34,1,1,1
+"I.07.02.005.004","Fish pÃƒÂ¢tÃƒÂ©, Tuna","A.07.01.014","Tuna (Thunnus)","F28.A07GG","PROCESS=Cooking in water",60,1,1.25,1
 "I.07.03.001.001","Fish roe, Cod","I.07.01.017.001","Cod (Gadus morhua)","F28.A07XD$F02.A069Z","PROCESS=Unspecified, PART-NATURE=Roe (as part-nature)",100,1,1,1
 "I.07.03.001.002","Fish roe, Herring","A.07.01.001","Herring (Clupea)","F28.A07XD$F02.A069Z","PROCESS=Unspecified, PART-NATURE=Roe (as part-nature)",100,1,1,1
 "I.07.03.001.003","Fish roe, Lumpfish","I.07.03.001.003","Fish roe, Lumpfish","F28.A07XD$F02.A069Z","PROCESS=Unspecified, PART-NATURE=Roe (as part-nature)",100,1,1,1
 "I.07.03.001.004","Fish roe, Sturgeon","A.07.01.032","Acipenseriformes (sturgeons) (Chondrostei)","F28.A07XD$F02.A069Z","PROCESS=Unspecified, PART-NATURE=Roe (as part-nature)",100,1,1,1
 "I.07.03.002.001","Cod liver","I.07.01.017.001","Cod (Gadus morhua)","F28.A07XD$F02.A069M","PROCESS=Unspecified, PART-NATURE=Liver (as part-nature)",100,1,1,1
 "I.08.02.003","Fruit and dairy smoothie","A.05.02.001","Apple (Malus domesticus)","F28.A0C6N","PROCESS=Pulping / mashing",3,1,1,1
-"I.08.02.003","Fruit and dairy smoothie","A.05.06.015","Bananas (Musa Ã— paradisica)","F28.A0C6N","PROCESS=Pulping / mashing",3.6,1,1,1
+"I.08.02.003","Fruit and dairy smoothie","A.05.06.015","Bananas (Musa Ãƒâ€” paradisica)","F28.A0C6N","PROCESS=Pulping / mashing",3.6,1,1,1
 "I.08.02.003","Fruit and dairy smoothie","A.10.06.004","Corn syrup","To be further disaggregated (d)",,3.1,1,1,1
-"I.08.02.003","Fruit and dairy smoothie","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A0C6N","PROCESS=Pulping / mashing",8.4,1,1,1
+"I.08.02.003","Fruit and dairy smoothie","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A0C6N","PROCESS=Pulping / mashing",8.4,1,1,1
 "I.08.02.003","Fruit and dairy smoothie","A.10.01.001","White sugar","To be further disaggregated (d)",,4.4,1,1,1
 "I.08.02.003","Fruit and dairy smoothie","A.08.06.001.002","Yoghurt, cow milk, 1 - 3% fat","To be further disaggregated (d)",,77.5,1,1,1
 "I.08.08.187","Cheese, Cottage","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0C6E$F02.A06EX$F07.A070D","PROCESS=Cheesemaking, PART-NATURE=Cheese (as part-nature), FAT-CONTENT=4 % fat",100,1,1.16,0.94
@@ -3942,9 +3944,9 @@
 "I.10.03.006.010","Chocolate coated nut, caramel filling","I.10.03.008.002","Milk chocolate, plain","To be further disaggregated (d)",,40,1,1,1
 "I.10.03.006.010","Chocolate coated nut, caramel filling","A.10.04.014","Nougat","To be further disaggregated (d)",,20,1,1,1
 "I.10.03.006.010","Chocolate coated nut, caramel filling","A.04.02.021","Peanut (Arachis hypogea)","F28.A07XD","PROCESS=Unspecified",22,1,1,1
-"I.10.03.006.011","Chocolate coated nougat, caramel filling Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â ","A.10.04.005","Caramel, soft","To be further disaggregated (d)",,32,1,1,1
-"I.10.03.006.011","Chocolate coated nougat, caramel filling Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â ","I.10.03.008.002","Milk chocolate, plain","To be further disaggregated (d)",,40,1,1,1
-"I.10.03.006.011","Chocolate coated nougat, caramel filling Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â ","A.10.04.014","Nougat","To be further disaggregated (d)",,28,1,1,1
+"I.10.03.006.011","Chocolate coated nougat, caramel filling Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â ","A.10.04.005","Caramel, soft","To be further disaggregated (d)",,32,1,1,1
+"I.10.03.006.011","Chocolate coated nougat, caramel filling Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â ","I.10.03.008.002","Milk chocolate, plain","To be further disaggregated (d)",,40,1,1,1
+"I.10.03.006.011","Chocolate coated nougat, caramel filling Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â ","A.10.04.014","Nougat","To be further disaggregated (d)",,28,1,1,1
 "I.10.03.006.012","Chocolate coated biscuit, marshmallow filling","A.01.07.002.001","Biscuits, sweet, plain","To be further disaggregated (d)",,24,1,1,1
 "I.10.03.006.012","Chocolate coated biscuit, marshmallow filling","A.10.04.010","Foamed sugar products (marshmallows)","To be further disaggregated (d)",,36,1,1,1
 "I.10.03.006.012","Chocolate coated biscuit, marshmallow filling","I.10.03.008.002","Milk chocolate, plain","To be further disaggregated (d)",,40,1,1,1
@@ -3965,7 +3967,7 @@
 "I.10.03.007.004","Filled chocolate, flavoured cream","A.10.01.008","Glucose","To be further disaggregated (d)",,9.61,1,1,1
 "I.10.03.007.004","Filled chocolate, flavoured cream","I.12.01.024","Juice, Strawberry","To be further disaggregated (d)",,0.07,0.22,1,1
 "I.10.03.007.004","Filled chocolate, flavoured cream","I.10.03.008.002","Milk chocolate, plain","To be further disaggregated (d)",,50,0.67,1,1
-"I.10.03.007.004","Filled chocolate, flavoured cream","A.02.10.004","Peppermint (Mentha Ã— piperita)","F28.A07MJ","PROCESS=Extraction",0.07,0.25,1,1
+"I.10.03.007.004","Filled chocolate, flavoured cream","A.02.10.004","Peppermint (Mentha Ãƒâ€” piperita)","F28.A07MJ","PROCESS=Extraction",0.07,0.25,1,1
 "I.10.03.007.004","Filled chocolate, flavoured cream","A.14.06.005","Rum","To be further disaggregated (d)",,0.07,0.13,1,1
 "I.10.03.007.005","Filled chocolate, Caramel","A.10.04.005","Caramel, soft","To be further disaggregated (d)",,51,1,1,1
 "I.10.03.007.005","Filled chocolate, Caramel","I.10.03.008.002","Milk chocolate, plain","To be further disaggregated (d)",,49,1,1,1
@@ -4033,7 +4035,7 @@
 "I.10.06.007","Agave syrup","I.02.08.004","Agave tequilana","F28.A0C04$F02.A06EG","PROCESS=Sugar production, PART-NATURE=Syrup (as part-nature)",100,1,7,1
 "I.12.01.022","Juice, Raspberry","A.05.04.006","Raspberries (Rubus idaeus)","F28.A07LN","PROCESS=Juicing",100,1,1.59,1
 "I.12.01.023","Juice, Cherry","A.05.03.007","Sour cherry (Prunus cerasus)","F28.A07LN","PROCESS=Juicing",100,1,1.48,1
-"I.12.01.024","Juice, Strawberry","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A07LN","PROCESS=Juicing",100,1,1.59,1
+"I.12.01.024","Juice, Strawberry","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A07LN","PROCESS=Juicing",100,1,1.59,1
 "I.12.01.025","Juice, Mandarin","A.05.01.005","Mandarins (Citrus reticulata)","F28.A07LN","PROCESS=Juicing",100,1,2.22,1
 "I.12.01.026","Juice, kiwi","A.05.06.008","Kiwi (Actinidia deliciosa syn. A. chinensis)","F28.A07LN","PROCESS=Juicing",100,1,1.85,1
 "I.12.01.027","Juice, Blueberry","A.05.04.008","Blueberries (Vaccinium corymbosum)","F28.A07LN","PROCESS=Juicing",100,1,1.59,1
@@ -4046,7 +4048,7 @@
 "I.12.02.021","Juice concentrate, Passion fruit","A.05.06.010","Passion fruit (Passiflora edulis)","F28.A07LN$F28.A07KF","PROCESS=Juicing, PROCESS=Concentration / evaporation",100,1,5.55,1
 "I.12.02.022","Juice concentrate, Mango","A.05.06.016","Mangoes (Mangifera indica)","F28.A07LN$F28.A07KF","PROCESS=Juicing, PROCESS=Concentration / evaporation",100,1,30,1
 "I.12.02.023","Juice concentrate, Papaya","A.05.06.017","Papaya (Carica papaya)","F28.A07LN$F28.A07KF","PROCESS=Juicing, PROCESS=Concentration / evaporation",100,1,15,1
-"I.12.02.024","Juice concentrate, Mixed fruit","A.05.06.015","Bananas (Musa Ã— paradisica)","F28.A0C6N","PROCESS=Pulping / mashing",1,1,1,1
+"I.12.02.024","Juice concentrate, Mixed fruit","A.05.06.015","Bananas (Musa Ãƒâ€” paradisica)","F28.A0C6N","PROCESS=Pulping / mashing",1,1,1,1
 "I.12.02.024","Juice concentrate, Mixed fruit","I.12.02.016","Juice concentrate, Apple","To be further disaggregated (d)",,25,1,1,1
 "I.12.02.024","Juice concentrate, Mixed fruit","A.12.02.006","Juice concentrate, Gooseberries","To be further disaggregated (d)",,0.5,1,1,1
 "I.12.02.024","Juice concentrate, Mixed fruit","I.12.02.017","Juice concentrate, Lemon","To be further disaggregated (d)",,0.5,1,1,1
@@ -4236,7 +4238,7 @@
 "I.16.05.015.001","Cocktail sauce","A.16.01","Herbs","To be further disaggregated (d)",,1.3,1,1,1
 "I.16.05.015.001","Cocktail sauce","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.3,1,1,1
 "I.16.05.015.001","Cocktail sauce","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",10.1,1,1,1
-"I.16.05.015.001","Cocktail sauce","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,17,1,1,1
+"I.16.05.015.001","Cocktail sauce","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,17,1,1,1
 "I.16.05.015.001","Cocktail sauce","A.11.04","Vegetable oil","To be further disaggregated (p)",,48,1,1,1
 "I.16.05.015.001","Cocktail sauce","A.14.06.002","Whisky","To be further disaggregated (d)",,4,1,1,1
 "I.16.05.015.001","Cocktail sauce","A.10.01.001","White sugar","To be further disaggregated (d)",,9.3,1,1,1
@@ -4289,7 +4291,7 @@
 "I.16.08.003.001","Cream sauce, basic","A.11.04.013","Rapeseed oil","To be further disaggregated (d)",,8,1,1,1
 "I.16.08.003.001","Cream sauce, basic","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.47,1,1,1
 "I.16.08.003.001","Cream sauce, basic","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",55.03,1,1,1
-"I.16.08.003.001","Cream sauce, basic","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,4.7,1,1,1
+"I.16.08.003.001","Cream sauce, basic","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,4.7,1,1,1
 "I.16.08.003.001","Cream sauce, basic","A.10.01.001","White sugar","To be further disaggregated (d)",,1.4,1,1,1
 "I.16.08.003.002","Cream sauce, unspecified","A.05.02.001","Apple (Malus domesticus)","F28.A07XD","PROCESS=Unspecified",13.3,0.42,1,1
 "I.16.08.003.002","Cream sauce, unspecified","A.02.04.001","Broccoli (Brassica oleracea var. italica)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",13.3,0.28,0.9,1
@@ -4301,7 +4303,7 @@
 "I.16.08.003.003","Cream sauce, with sour cream","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.47,1,1,1
 "I.16.08.003.003","Cream sauce, with sour cream","A.08.05.003.004","Sour cream 20 % fat","To be further disaggregated (d)",,20,1,1,1
 "I.16.08.003.003","Cream sauce, with sour cream","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",55.03,1,1,1
-"I.16.08.003.003","Cream sauce, with sour cream","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,4.7,1,1,1
+"I.16.08.003.003","Cream sauce, with sour cream","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,4.7,1,1,1
 "I.16.08.003.003","Cream sauce, with sour cream","A.10.01.001","White sugar","To be further disaggregated (d)",,1.4,1,1,1
 "I.16.08.003.004","Curry sauce, with cream","A.01.03.004.003","Corn starch","To be further disaggregated (d)",,1,1,1,1
 "I.16.08.003.004","Curry sauce, with cream","A.08.05.001.002","Cream 20% fat","To be further disaggregated (d)",,98,1,1,1
@@ -4333,17 +4335,17 @@
 "I.16.08.003.011","Cream sauce, with herbs","A.08.05.003.004","Sour cream 20 % fat","To be further disaggregated (d)",,64.9,1,1,1
 "I.16.08.003.011","Cream sauce, with herbs","A.02.02.004","Spring onions, bulb (Allium cepa)","F28.A07XD","PROCESS=Unspecified",1.1,1,1,1
 "I.16.08.003.011","Cream sauce, with herbs","A.08.06.001.002","Yoghurt, cow milk, 1 - 3% fat","To be further disaggregated (d)",,32.4,1,1,1
-"I.16.08.005.001","Sauce bÃ©arnaise","A.01.03.004.003","Corn starch","To be further disaggregated (d)",,0.9,1,1,1
-"I.16.08.005.001","Sauce bÃ©arnaise","A.09.01.002","Egg yolk, chicken","To be further disaggregated (d)",,5.5,1,1,1
-"I.16.08.005.001","Sauce bÃ©arnaise","I.12.02.017","Juice concentrate, Lemon","To be further disaggregated (d)",,0.2,1,1,1
-"I.16.08.005.001","Sauce bÃ©arnaise","A.16.05.002","Mustard, mild","To be further disaggregated (d)",,8.7,1,1,1
-"I.16.08.005.001","Sauce bÃ©arnaise","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1
-"I.16.08.005.001","Sauce bÃ©arnaise","A.11.04.013","Rapeseed oil","To be further disaggregated (d)",,45,1,1,1
-"I.16.08.005.001","Sauce bÃ©arnaise","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.9,1,1,1
-"I.16.08.005.001","Sauce bÃ©arnaise","A.02.02.004","Spring onions, bulb (Allium cepa)","F28.A07XD","PROCESS=Unspecified",0.3,1,1,1
-"I.16.08.005.001","Sauce bÃ©arnaise","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",27.9,1,1,1
-"I.16.08.005.001","Sauce bÃ©arnaise","A.16.01.011","Tarragon, herb (Artemisia dracunculus)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.9,1,7,1
-"I.16.08.005.001","Sauce bÃ©arnaise","A.16.05.004","Vinegar, wine","To be further disaggregated (d)",,9.6,1,1,1
+"I.16.08.005.001","Sauce bÃƒÂ©arnaise","A.01.03.004.003","Corn starch","To be further disaggregated (d)",,0.9,1,1,1
+"I.16.08.005.001","Sauce bÃƒÂ©arnaise","A.09.01.002","Egg yolk, chicken","To be further disaggregated (d)",,5.5,1,1,1
+"I.16.08.005.001","Sauce bÃƒÂ©arnaise","I.12.02.017","Juice concentrate, Lemon","To be further disaggregated (d)",,0.2,1,1,1
+"I.16.08.005.001","Sauce bÃƒÂ©arnaise","A.16.05.002","Mustard, mild","To be further disaggregated (d)",,8.7,1,1,1
+"I.16.08.005.001","Sauce bÃƒÂ©arnaise","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1
+"I.16.08.005.001","Sauce bÃƒÂ©arnaise","A.11.04.013","Rapeseed oil","To be further disaggregated (d)",,45,1,1,1
+"I.16.08.005.001","Sauce bÃƒÂ©arnaise","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.9,1,1,1
+"I.16.08.005.001","Sauce bÃƒÂ©arnaise","A.02.02.004","Spring onions, bulb (Allium cepa)","F28.A07XD","PROCESS=Unspecified",0.3,1,1,1
+"I.16.08.005.001","Sauce bÃƒÂ©arnaise","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",27.9,1,1,1
+"I.16.08.005.001","Sauce bÃƒÂ©arnaise","A.16.01.011","Tarragon, herb (Artemisia dracunculus)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.9,1,7,1
+"I.16.08.005.001","Sauce bÃƒÂ©arnaise","A.16.05.004","Vinegar, wine","To be further disaggregated (d)",,9.6,1,1,1
 "I.16.08.005.002","Sauce hollandaise","A.11.01.001","Butter","To be further disaggregated (d)",,61.83,1,1,1
 "I.16.08.005.002","Sauce hollandaise","A.09.01.002","Egg yolk, chicken","To be further disaggregated (d)",,29.03,1,1,1
 "I.16.08.005.002","Sauce hollandaise","A.12.01.010","Juice, Lemon","To be further disaggregated (d)",,8.06,1,1,1
@@ -4412,7 +4414,7 @@
 "I.16.08.008.001","Bolognese sauce","A.02.02.002","Onions, bulb (Allium cepa)","F28.A07GR","PROCESS=Frying",4.1,1,1.61,1
 "I.16.08.008.001","Bolognese sauce","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GM","PROCESS=Stewing",9.3,1,1.52,1
 "I.16.08.008.001","Bolognese sauce","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.1,1,1,1
-"I.16.08.008.001","Bolognese sauce","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,32.8,1,1,1
+"I.16.08.008.001","Bolognese sauce","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,32.8,1,1,1
 "I.16.08.008.001","Bolognese sauce","A.14.02.001","Wine, white","To be further disaggregated (d)",,5,1,1,1
 "I.16.08.008.002","Carbonara sauce","A.06.08.007","Bacon","To be further disaggregated (d)",,35.69,1,1,1
 "I.16.08.008.002","Carbonara sauce","A.08.08.129","Cheese, Parmigiano Reggiano","To be further disaggregated (d)",,7.69,1,1,1
@@ -4498,7 +4500,7 @@
 "I.16.08.010.005","Peanut sauce","A.10.01.001","White sugar","To be further disaggregated (d)",,1.4,1,1,1
 "I.16.08.010.006","Pepper sauce","A.14.06.001","Brandy","To be further disaggregated (d)",,2,1,1,1
 "I.16.08.010.006","Pepper sauce","A.01.03.004.003","Corn starch","To be further disaggregated (d)",,1,1,1,1
-"I.16.08.010.006","Pepper sauce","A.08.05.004","CrÃ¨me fraÃ®che","To be further disaggregated (p)",,43,1,1,1
+"I.16.08.010.006","Pepper sauce","A.08.05.004","CrÃƒÂ¨me fraÃƒÂ®che","To be further disaggregated (p)",,43,1,1,1
 "I.16.08.010.006","Pepper sauce","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",2,1,1,1
 "I.16.08.010.006","Pepper sauce","A.01.03.006.004","Rice starch","To be further disaggregated (d)",,1,1,1,1
 "I.16.08.010.006","Pepper sauce","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",41,1,1,1
@@ -4506,7 +4508,7 @@
 "I.16.08.010.007","Sweet and sour sauce","A.01.03.004.003","Corn starch","To be further disaggregated (d)",,1.8,1,1,1
 "I.16.08.010.007","Sweet and sour sauce","A.05.06.021","Pineapples (Ananas comosus)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",16.7,1,1.43,1
 "I.16.08.010.007","Sweet and sour sauce","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",35.1,1,1,1
-"I.16.08.010.007","Sweet and sour sauce","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,12.5,1,1,1
+"I.16.08.010.007","Sweet and sour sauce","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,12.5,1,1,1
 "I.16.08.010.007","Sweet and sour sauce","A.16.05.004","Vinegar, wine","To be further disaggregated (d)",,11.8,1,1,1
 "I.16.08.010.007","Sweet and sour sauce","A.10.01.001","White sugar","To be further disaggregated (d)",,22.1,1,1,1
 "I.16.08.010.008","Sweet pepper sauce","A.02.03.002","Peppers, paprika (Capsicum annuum, var. grossum and var. longum)","F28.A07GR","PROCESS=Frying",80,1,1.67,1
@@ -4611,25 +4613,25 @@
 "I.19.01.002.010","Pizza, cheese-fish","A.08.08.120","Cheese, Mozzarella","To be further disaggregated (d)",,7,1,1,1
 "I.19.01.002.010","Pizza, cheese-fish","A.02.02.002","Onions, bulb (Allium cepa)","F28.A07GR","PROCESS=Frying",4.7,1,1.61,1
 "I.19.01.002.010","Pizza, cheese-fish","I.19.01.002.009","Pizza base, cooked","To be further disaggregated (d)",,46.5,1,1,1
-"I.19.01.002.010","Pizza, cheese-fish","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,26,1,1,1
+"I.19.01.002.010","Pizza, cheese-fish","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,26,1,1,1
 "I.19.01.002.010","Pizza, cheese-fish","A.07.01.014","Tuna (Thunnus)","F28.A07GY","PROCESS=Roasting",8.8,1,1.35,1
 "I.19.01.002.011","Pizza, cheese-shellfish","A.08.08.065","Cheese, Emmental","To be further disaggregated (d)",,9.94,1,1,1
 "I.19.01.002.011","Pizza, cheese-shellfish","A.07.05.007","Mussel (Mytilus edulis)","F28.A07GG","PROCESS=Cooking in water",9.6,1,1,1
 "I.19.01.002.011","Pizza, cheese-shellfish","I.19.01.002.009","Pizza base, cooked","To be further disaggregated (d)",,49,1,1,1
 "I.19.01.002.011","Pizza, cheese-shellfish","A.07.05.010","Scallop (Pecten spp.)","F28.A07XD","PROCESS=Unspecified",3.97,1,1,1
 "I.19.01.002.011","Pizza, cheese-shellfish","A.07.04.005","Shrimps (Crangon crangon)","F28.A07GY","PROCESS=Roasting",5.63,1,1.05,1
-"I.19.01.002.011","Pizza, cheese-shellfish","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,21.86,1,1,1
+"I.19.01.002.011","Pizza, cheese-shellfish","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,21.86,1,1,1
 "I.19.01.002.012","Laugengebaeck, cheese","A.08.08.065","Cheese, Emmental","To be further disaggregated (d)",,19.15,1,1,1
 "I.19.01.002.012","Laugengebaeck, cheese","A.20.01.006","Pretzels","To be further disaggregated (d)",,80.85,1,1,1
 "I.19.01.002.013","Pizza, cheese","A.08.08.120","Cheese, Mozzarella","To be further disaggregated (d)",,21.1,1,1,1
 "I.19.01.002.013","Pizza, cheese","I.19.01.002.009","Pizza base, cooked","To be further disaggregated (d)",,56.4,1,1,1
 "I.19.01.002.013","Pizza, cheese","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.4,1,1,1
-"I.19.01.002.013","Pizza, cheese","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,21.1,1,1,1
+"I.19.01.002.013","Pizza, cheese","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,21.1,1,1,1
 "I.19.01.002.014","Bread roll, cheese","A.11.01.001","Butter","To be further disaggregated (d)",,10,1,1,1
 "I.19.01.002.014","Bread roll, cheese","A.08.08.080","Cheese, Gouda","To be further disaggregated (d)",,30,1,1,1
 "I.19.01.002.014","Bread roll, cheese","A.01.04.001.010","Wheat rolls, white","To be further disaggregated (d)",,60,1,1,1
 "I.19.01.002.015","Pizza, tomato","I.19.01.002.009","Pizza base, cooked","To be further disaggregated (d)",,63.42,1,1,1
-"I.19.01.002.015","Pizza, tomato","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,28.57,1,1,1
+"I.19.01.002.015","Pizza, tomato","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,28.57,1,1,1
 "I.19.01.002.015","Pizza, tomato","A.02.03.001","Tomatoes (Lycopersicum esculentum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",8.01,1,1.2,1
 "I.19.01.002.016","Pizza, vegetarian","A.02.04.001","Broccoli (Brassica oleracea var. italica)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",5.4,1,0.9,1
 "I.19.01.002.016","Pizza, vegetarian","A.02.01.003","Carrots (Daucus carota)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",6.6,1,1.06,1
@@ -4639,7 +4641,7 @@
 "I.19.01.002.016","Pizza, vegetarian","A.02.03.002","Peppers, paprika (Capsicum annuum, var. grossum and var. longum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",9,1,1.15,1
 "I.19.01.002.016","Pizza, vegetarian","I.19.01.002.009","Pizza base, cooked","To be further disaggregated (d)",,27.05,1,1,1
 "I.19.01.002.016","Pizza, vegetarian","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.2,1,1,1
-"I.19.01.002.016","Pizza, vegetarian","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,10.8,1,1,1
+"I.19.01.002.016","Pizza, vegetarian","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,10.8,1,1,1
 "I.19.01.002.017","Pizza, cheese-spinach","A.08.08.129","Cheese, Parmigiano Reggiano","To be further disaggregated (d)",,7,1,1,1
 "I.19.01.002.017","Pizza, cheese-spinach","A.08.08.144","Cheese, Ricotta","To be further disaggregated (d)",,39.5,1,1,1
 "I.19.01.002.017","Pizza, cheese-spinach","A.02.02.002","Onions, bulb (Allium cepa)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",9.9,1,1.17,1
@@ -4649,7 +4651,7 @@
 "I.19.01.002.018","Pizza, cheese-tomato","A.08.08.064","Cheese, Edam","To be further disaggregated (d)",,3.1,1,1,1
 "I.19.01.002.018","Pizza, cheese-tomato","A.08.08.120","Cheese, Mozzarella","To be further disaggregated (d)",,22,1,1,1
 "I.19.01.002.018","Pizza, cheese-tomato","I.19.01.002.009","Pizza base, cooked","To be further disaggregated (d)",,47.5,1,1,1
-"I.19.01.002.018","Pizza, cheese-tomato","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,21.4,1,1,1
+"I.19.01.002.018","Pizza, cheese-tomato","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,21.4,1,1,1
 "I.19.01.002.018","Pizza, cheese-tomato","A.02.03.001","Tomatoes (Lycopersicum esculentum)","F28.A07XD","PROCESS=Unspecified",6,1,1,1
 "I.19.01.002.019","Laugengebaeck, cheese-onion","A.08.08.065","Cheese, Emmental","To be further disaggregated (d)",,18,1,1,1
 "I.19.01.002.019","Laugengebaeck, cheese-onion","A.02.02.002","Onions, bulb (Allium cepa)","F28.A07GR","PROCESS=Frying",6,1,1.61,1
@@ -4657,25 +4659,25 @@
 "I.19.01.002.020","Pizza, cheese-ham","A.08.08.120","Cheese, Mozzarella","To be further disaggregated (d)",,11.8,1,1,1
 "I.19.01.002.020","Pizza, cheese-ham","I.06.08.016","Cooked Ham, Pork","To be further disaggregated (d)",,11.8,1,1,1
 "I.19.01.002.020","Pizza, cheese-ham","I.19.01.002.009","Pizza base, cooked","To be further disaggregated (d)",,58.8,1,1,1
-"I.19.01.002.020","Pizza, cheese-ham","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,17.6,1,1,1
+"I.19.01.002.020","Pizza, cheese-ham","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,17.6,1,1,1
 "I.19.01.002.021","Pizza, cheese-chicken","A.08.08.120","Cheese, Mozzarella","To be further disaggregated (d)",,20.65,1,1,1
 "I.19.01.002.021","Pizza, cheese-chicken","A.06.02.001","Chicken meat (Gallus domesticus)","F28.A07GY","PROCESS=Roasting",13.42,1,1.33,1
 "I.19.01.002.021","Pizza, cheese-chicken","A.02.03.002","Peppers, paprika (Capsicum annuum, var. grossum and var. longum)","F28.A07GZ","PROCESS=Broiling/grilling",9.6,1,1.08,1
 "I.19.01.002.021","Pizza, cheese-chicken","I.19.01.002.009","Pizza base, cooked","To be further disaggregated (d)",,46,1,1,1
-"I.19.01.002.021","Pizza, cheese-chicken","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,10.33,1,1,1
+"I.19.01.002.021","Pizza, cheese-chicken","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,10.33,1,1,1
 "I.19.01.002.022","Pizza, cheese-salami","A.08.08.120","Cheese, Mozzarella","To be further disaggregated (d)",,20.7,1,1,1
 "I.19.01.002.022","Pizza, cheese-salami","A.06.09.006","Dry sausage","To be further disaggregated (p)",,10.8,1,1,1
 "I.19.01.002.022","Pizza, cheese-salami","I.19.01.002.009","Pizza base, cooked","To be further disaggregated (d)",,45.5,1,1,1
-"I.19.01.002.022","Pizza, cheese-salami","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,23,1,1,1
+"I.19.01.002.022","Pizza, cheese-salami","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,23,1,1,1
 "I.19.01.002.023","Pizza, cheese-kebab","A.08.08.120","Cheese, Mozzarella","To be further disaggregated (d)",,21,1,1,1
 "I.19.01.002.023","Pizza, cheese-kebab","A.06.02.001","Chicken meat (Gallus domesticus)","F28.A07GY","PROCESS=Roasting",8,1,1.33,1
 "I.19.01.002.023","Pizza, cheese-kebab","A.02.03.002","Peppers, paprika (Capsicum annuum, var. grossum and var. longum)","F28.A07GZ","PROCESS=Broiling/grilling",3,1,1.08,1
 "I.19.01.002.023","Pizza, cheese-kebab","I.19.01.002.009","Pizza base, cooked","To be further disaggregated (d)",,58,1,1,1
-"I.19.01.002.023","Pizza, cheese-kebab","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,10,1,1,1
+"I.19.01.002.023","Pizza, cheese-kebab","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,10,1,1,1
 "I.19.01.002.024","Pizza, cheese-beef","A.06.01.001","Beef meat (Bos spp.)","F28.A07GY","PROCESS=Roasting",10.8,1,1.61,1
 "I.19.01.002.024","Pizza, cheese-beef","A.08.08.120","Cheese, Mozzarella","To be further disaggregated (d)",,20.7,1,1,1
 "I.19.01.002.024","Pizza, cheese-beef","I.19.01.002.009","Pizza base, cooked","To be further disaggregated (d)",,45.5,1,1,1
-"I.19.01.002.024","Pizza, cheese-beef","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,23,1,1,1
+"I.19.01.002.024","Pizza, cheese-beef","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,23,1,1,1
 "I.19.01.002.025","Laugengebaeck, cheese-bacon","A.06.08.007","Bacon","To be further disaggregated (d)",,6,1,1,1
 "I.19.01.002.025","Laugengebaeck, cheese-bacon","A.08.08.065","Cheese, Emmental","To be further disaggregated (d)",,18,1,1,1
 "I.19.01.002.025","Laugengebaeck, cheese-bacon","A.20.01.006","Pretzels","To be further disaggregated (d)",,76,1,1,1
@@ -4683,12 +4685,12 @@
 "I.19.01.002.026","Pizza, cheese-anchovy","A.16.02.009","Capers (Capparis spinosa)","F28.A07XD","PROCESS=Unspecified",3,1,1,1
 "I.19.01.002.026","Pizza, cheese-anchovy","A.08.08.120","Cheese, Mozzarella","To be further disaggregated (d)",,21.6,1,1,1
 "I.19.01.002.026","Pizza, cheese-anchovy","I.19.01.002.009","Pizza base, cooked","To be further disaggregated (d)",,51.8,1,1,1
-"I.19.01.002.026","Pizza, cheese-anchovy","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,18,1,1,1
+"I.19.01.002.026","Pizza, cheese-anchovy","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,18,1,1,1
 "I.19.01.002.027","Pizza, cheese-artichoke-ham","A.08.08.120","Cheese, Mozzarella","To be further disaggregated (d)",,17.2,1,1,1
 "I.19.01.002.027","Pizza, cheese-artichoke-ham","I.06.08.016","Cooked Ham, Pork","To be further disaggregated (d)",,9.7,1,1,1
 "I.19.01.002.027","Pizza, cheese-artichoke-ham","A.02.07.005","Globe artichokes (Cynara scolymus)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",9.7,1,1.32,1
 "I.19.01.002.027","Pizza, cheese-artichoke-ham","I.19.01.002.009","Pizza base, cooked","To be further disaggregated (d)",,35.8,1,1,1
-"I.19.01.002.027","Pizza, cheese-artichoke-ham","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,27.6,1,1,1
+"I.19.01.002.027","Pizza, cheese-artichoke-ham","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,27.6,1,1,1
 "I.19.01.003.007","Pasta, cooked, with bolognese sauce","I.16.08.008.001","Bolognese sauce","To be further disaggregated (d)",,58,1,1,1
 "I.19.01.003.007","Pasta, cooked, with bolognese sauce","I.01.05.016","Plain pasta, cooked","To be further disaggregated (d)",,42,1,1,1
 "I.19.01.003.008","Pasta, cooked, with carbonara sauce","I.16.08.008.002","Carbonara sauce","To be further disaggregated (d)",,59,1,1,1
@@ -4748,7 +4750,7 @@
 "I.19.01.003.018","Lasagna/Canelloni, vegetarian","A.02.03.002","Peppers, paprika (Capsicum annuum, var. grossum and var. longum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",1.9,1,1.15,1
 "I.19.01.003.018","Lasagna/Canelloni, vegetarian","I.01.05.016","Plain pasta, cooked","To be further disaggregated (d)",,43.88,1,1,1
 "I.19.01.003.018","Lasagna/Canelloni, vegetarian","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.64,1,1,1
-"I.19.01.003.018","Lasagna/Canelloni, vegetarian","A.02.14.003","Tomato purÃ©e","To be further disaggregated (d)",,25,1,1,1
+"I.19.01.003.018","Lasagna/Canelloni, vegetarian","A.02.14.003","Tomato purÃƒÂ©e","To be further disaggregated (d)",,25,1,1,1
 "I.19.01.003.018","Lasagna/Canelloni, vegetarian","A.11.04","Vegetable oil","To be further disaggregated (p)",,1.03,1,1,1
 "I.19.01.003.018","Lasagna/Canelloni, vegetarian","A.09.01.001","Whole egg, chicken","F28.A07XD","PROCESS=Unspecified",1.83,1,1,1
 "I.19.01.003.019","Maultaschen","A.02.05.010","Spinach (fresh) (Spinacia oleracea)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.5,1,10.6,1
@@ -5247,7 +5249,7 @@
 "I.20.02.003.003","Pudding, flavoured","A.16.09.002","Vanilla essence","To be further disaggregated (d)",,3,0.5,1,1
 "I.20.02.003.003","Pudding, flavoured","A.10.01.001","White sugar","To be further disaggregated (d)",,10,1,1,1
 "I.20.02.004.001","Dessert cream","A.13.03.001","Coffee drink, espresso","To be further disaggregated (d)",,2,0.25,1,1
-"I.20.02.004.001","Dessert cream","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A07MJ","PROCESS=Extraction",2,0.19,1,1
+"I.20.02.004.001","Dessert cream","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A07MJ","PROCESS=Extraction",2,0.19,1,1
 "I.20.02.004.001","Dessert cream","A.16.09.002","Vanilla essence","To be further disaggregated (d)",,2,0.44,1,1
 "I.20.02.004.001","Dessert cream","I.20.02.004.003","Whipped cream","To be further disaggregated (d)",,95,1,1,1
 "I.20.02.004.001","Dessert cream","A.10.01.001","White sugar","To be further disaggregated (d)",,3,1,1,1
@@ -5268,7 +5270,7 @@
 "I.20.02.006.002","Rote gruetze","A.05.04.010","Currants (red, black and white) (Ribes nigrum, Ribes rubrum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",8,1,1.43,1
 "I.20.02.006.002","Rote gruetze","A.12.01.010","Juice, Lemon","To be further disaggregated (d)",,8.5,1,1,1
 "I.20.02.006.002","Rote gruetze","A.05.04.006","Raspberries (Rubus idaeus)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",42,1,1.39,1
-"I.20.02.006.002","Rote gruetze","A.05.04.003","Strawberries (Fragaria Ã— ananassa)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",33,1,1.39,1
+"I.20.02.006.002","Rote gruetze","A.05.04.003","Strawberries (Fragaria Ãƒâ€” ananassa)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",33,1,1.39,1
 "I.20.02.006.002","Rote gruetze","A.10.01.001","White sugar","To be further disaggregated (d)",,8.5,1,1,1
 "I.20.02.006.003","Gelified milk","A.10.05.002","Chocolate sauce","To be further disaggregated (d)",,30.2,0.14,1,1
 "I.20.02.006.003","Gelified milk","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",7.1,1,1,1
@@ -5283,8 +5285,8 @@
 "I.20.02.008","Chocolate mousse","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",9.2,1,1,1
 "I.20.02.008","Chocolate mousse","I.20.02.004.003","Whipped cream","To be further disaggregated (d)",,41.4,1,1,1
 "I.20.02.008","Chocolate mousse","A.10.01.001","White sugar","To be further disaggregated (d)",,3.07,1,1,1
-"I.20.02.009","TiramisÃ¹","A.01.07.002.001","Biscuits, sweet, plain","To be further disaggregated (d)",,9,1,1,1
-"I.20.02.009","TiramisÃ¹","A.08.08.113","Cheese, Mascarpone","To be further disaggregated (d)",,22,1,1,1
-"I.20.02.009","TiramisÃ¹","A.02.11.002","Cocoa powder","To be further disaggregated (d)",,1,1,1,1
-"I.20.02.009","TiramisÃ¹","A.13.03.001","Coffee drink, espresso","To be further disaggregated (d)",,16,1,1,1
-"I.20.02.009","TiramisÃ¹","I.20.02.004.001","Dessert cream","To be further disaggregated (d)",,52,1,1,1
+"I.20.02.009","TiramisÃƒÂ¹","A.01.07.002.001","Biscuits, sweet, plain","To be further disaggregated (d)",,9,1,1,1
+"I.20.02.009","TiramisÃƒÂ¹","A.08.08.113","Cheese, Mascarpone","To be further disaggregated (d)",,22,1,1,1
+"I.20.02.009","TiramisÃƒÂ¹","A.02.11.002","Cocoa powder","To be further disaggregated (d)",,1,1,1,1
+"I.20.02.009","TiramisÃƒÂ¹","A.13.03.001","Coffee drink, espresso","To be further disaggregated (d)",,16,1,1,1
+"I.20.02.009","TiramisÃƒÂ¹","I.20.02.004.001","Dessert cream","To be further disaggregated (d)",,52,1,1,1
