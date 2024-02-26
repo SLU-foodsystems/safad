@@ -442,7 +442,7 @@ export function parseFoodsRecipes(recipesCsvStr: string) {
     ]) => {
       if (code === "") return; // Empty row
       const value = roundToPrecision(
-        (asNumber(perc, 100) * asNumber(prob, 100)) / 100,
+        (asNumber(perc, 100) * asNumber(prob, 1)) / 100,
         3
       );
 
