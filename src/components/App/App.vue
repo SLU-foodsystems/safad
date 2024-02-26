@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, watch, onMounted } from "vue";
+import { ref, watch, computed, onMounted } from "vue";
 
 import * as DefaultInputFiles from "@/lib/default-input-files";
 import MetaFile from "@/lib/MetaFile";
@@ -85,7 +85,12 @@ const {
   sfaRecipesFile,
 } = initFileInterfaces(RE);
 
-const dietName = readableDietName(countryCode);
+const defaultDietName = readableDietName(countryCode);
+const dietName = computed(() =>
+  dietFile.value.state === "custom"
+    ? `Custom diet, ${dietFile.value.name}`
+    : defaultDietName.value
+);
 
 /**
  * Methods
@@ -774,6 +779,4 @@ onMounted(async () => {
   padding: 1.5em;
   border: 2px solid $gray;
 }
-
-
 </style>
