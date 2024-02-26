@@ -442,19 +442,21 @@ onMounted(async () => {
 
       <section class="stack stack-l">
         <h2 class="hr-header">
-          <span>Impacts from diets</span>
+          <span>Impacts from diet</span>
         </h2>
         <div class="cluster planetary-boundaries-section">
-          <div class="stack">
-            <h3>Impacts in relation to the planetary boundaries</h3>
-            <PlanetaryBoundariesChart :data="dietFootprintsTotal" />
-          </div>
           <div class="stack diet-info-box">
-            <h3><strong>Diet:</strong> {{ dietName }}</h3>
+            <h3><strong>Selected diet:</strong> {{ dietName }}</h3>
             <p>
               The footprints for the whole diet is calculated by multiplying the
               amount of different food products with the footprints of the food
-              items.
+              items. Download the footprints below, or see the charts on this
+              page for examples of what the data can show.
+            </p>
+            <p>
+              Upon changing the country at the top of the page, another diet
+              will be selected. If you want to test a modified or custom diet,
+              you can upload a file towards the bottom of the page.
             </p>
             <div class="cluster">
               <button
@@ -463,11 +465,20 @@ onMounted(async () => {
               >
                 Download footprints of diet
               </button>
-              <label class="cluster cluster--m-gap">
+              <label
+                class="cluster cluster--m-gap"
+                title="The breakdown file shows what raw commodities each food in the diet is broken down to."
+              >
                 <input type="checkbox" v-model="includeBreakdownFile" />
-                Include Breakdown File
+                Include breakdown file
               </label>
             </div>
+          </div>
+          <div class="stack">
+            <h3 class="hr-header hr-header--right-only">
+              <span>Impacts in relation to the planetary boundaries</span>
+            </h3>
+            <PlanetaryBoundariesChart :data="dietFootprintsTotal" />
           </div>
         </div>
 
@@ -501,19 +512,22 @@ onMounted(async () => {
       <h2 class="hr-header">
         <span>Configure Data</span>
       </h2>
-      <p>
-        In the SAFAD tool, input data (Input, parameter, and emission factor
-        files) can easily be configured. To configure a file, download the
-        default file using the Download file button. Once configured, the custom
-        file can be uploaded using the Upload Custom file. The custom file must
-        be in the same format and uploaded as a .csv file. When all custom files
-        are uploaded, the new footprint for the diet or foods can be downloaded.
-      </p>
+      <div>
+        <p>
+          In the SAFAD tool, input data (Input, parameter, and emission factor
+          files) can easily be configured. To configure a file, download the
+          default file using the Download file button. Once configured, the
+          custom file can be uploaded using the Upload Custom file. The custom
+          file must be in the same format and uploaded as a .csv file. When all
+          custom files are uploaded, the new footprint for the diet or foods can
+          be downloaded.
+        </p>
 
-      <p>
-        To learn more about a file’s function, press the Show Info button for
-        each file.
-      </p>
+        <p>
+          To learn more about a file’s function, press the Show Info button for
+          each file.
+        </p>
+      </div>
       <h3 class="hr-header hr-header--right-only">
         <span>Input Data</span>
       </h3>
@@ -765,13 +779,13 @@ onMounted(async () => {
   align-items: flex-start;
 
   > div:first-child {
+    flex: 1 1 20em;
+  }
+  > div:last-child {
     flex-basis: 40em;
     flex-grow: 0;
     flex-shrink: 1;
     max-width: 100%;
-  }
-  > div:last-child {
-    flex: 1 1 20em;
   }
 }
 
