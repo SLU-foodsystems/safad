@@ -21,9 +21,6 @@ const dataMap: [string, number][] = [
   ["Pesticides use", aggregateHeaderIndex("Pesticides")],
   ["Biodiversity impact", aggregateHeaderIndex("Biodiversity")],
   ["Ammonia emissions", aggregateHeaderIndex("Ammonia")],
-  // ["Processing", aggregateHeaderIndex("Processing")],
-  // ["Packaging", aggregateHeaderIndex("Packaging")],
-  // ["Transport", aggregateHeaderIndex("Transport")],
 ];
 
 /**
