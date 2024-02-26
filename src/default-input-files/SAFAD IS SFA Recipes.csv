@@ -2890,7 +2890,7 @@ NB! Med ändrad Foodex-kod för socker, stämmer det inte alltid att råvara niv
 2891,Potatisgnocchi,"Vete, siktat",9,,Rå,1,-,A003Y,9,"9 * 1,00",,,,,,Faktor = logisk slutledning
 2891,Potatisgnocchi,Äggula,3,,Rå,1,SLV - Riktlinjer för livsmedel,A031S,3,"3 * 1,00",,,,,,Faktor = logisk slutledning
 2891,Potatisgnocchi,Salt,1,"Havssalt, mineralsalt",Rå,1,SLV - Riktlinjer för livsmedel,A042P,1,"1 * 1,00",,,,,,Faktor = logisk slutledning
-2899,Halloumi stekt eller grillad,"Ost, Färskost",100,"philadelphia, keso, mozarella, Halloumi, ricotta, mascarpone","Rå, tillagad ",1,-,ANEW18,100,"100 * 1,00",,,,,,Faktor = logisk slutledning
+2899,Halloumi stekt eller grillad,"Ost, Färskost",100,"philadelphia, keso, mozarella, Halloumi, ricotta, mascarpone","Rå, tillagad ",1,-,NEW18,100,"100 * 1,00",,,,,,Faktor = logisk slutledning
 2900,Ost dessertost,Ost (hårdost),100,"Ystade hårdostar, kittost, mögelost","Rå, tillagad ",1,-,A02VA,100,"100 * 1,00",,,,,,Faktor = logisk slutledning
 2902,Bärsås,Blåbär,31,,Rå,1,SLV - Riktlinjer för livsmedel,A01EZ,31,"31 * 1,00",,,,,,Faktor = logisk slutledning
 2902,Bärsås,Hallon,31,,Rå,1,SLV - Riktlinjer för livsmedel,A01EP,31,"31 * 1,00",,,,,,Faktor = logisk slutledning
