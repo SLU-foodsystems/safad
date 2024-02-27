@@ -184,7 +184,7 @@ export function parseProcessesPackaging(
 ): Record<string, string[]> {
   const data = parseCsvFile(csvString).slice(1);
 
-  const err = validateCsv(data, { minCols: 9 });
+  const err = validateCsv(data, { minCols: 7 });
   if (err) {
     throw new CsvValidationError(err);
   }
