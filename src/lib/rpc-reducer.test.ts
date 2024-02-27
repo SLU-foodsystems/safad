@@ -266,13 +266,13 @@ describe("RPC reducer", () => {
   });
 
   describe("Packaging", () => {
-    test("Direct: Adds packaging to diet on L2 level", () => {
-      const diet: Diet = [["A.19.01", 1000]];
+    test("Direct: Adds packaging to diet on L3 level", () => {
+      const diet: Diet = [["A.19.01.001", 1000]];
       const preparationProcesses = {
-        "A.19.01": ["P2"],
+        "A.19.01.001": ["P2"],
       };
       const recipes: FoodsRecipes = {
-        "A.19.01": [["A.19.01", [], 1, 1]],
+        "A.19.01.001": [["A.19.01.001", [], 1, 1]],
       };
 
       const [_rpcs, _processes, packaging] = reduceDiet(
@@ -281,16 +281,19 @@ describe("RPC reducer", () => {
         preparationProcesses
       );
 
-      expect(packaging["A.19"]).toHaveProperty("P2");
-      expect(packaging["A.19"]["P2"]).toEqual(1000);
+      expect(packaging).toEqual({
+        "A.19": {
+          P2: 1000,
+        },
+      });
     });
-    test("Direct: Adds packaging to diet entered > L2 level", () => {
+    test("Adds packaging to diet entered > L3 level", () => {
       // pizza derivative
       const diet: Diet = [["A.19.01.002.003", 1234]];
       const recipes: FoodsRecipes = {
         "A.19.01.002.003": [["A.19.01.002.003", [], 1, 1]],
       };
-      const preparationProcesses = { "A.19.01": ["P1"] };
+      const preparationProcesses = { "A.19.01.002": ["P1"] };
 
       const [_rpcs, _processes, packaging] = reduceDiet(
         diet,
@@ -301,16 +304,13 @@ describe("RPC reducer", () => {
       expect(packaging).toEqual({ "A.19": { P1: 1234 } });
     });
 
-    test("Indirect: Adds processes to diet entered > L2 level", () => {
-      // Dummy product
-      const diet: Diet = [["I.20.01.001.001", 1000]];
-
-      // Let's pretend this translates to a pizza
+    test("Translates I-codes to A-codes", () => {
+      // pizza derivative
+      const diet: Diet = [["I.19.01.002.003", 1234]];
       const recipes: FoodsRecipes = {
-        "I.20.01.001.001": [["A.19.01.002.003", [], 0.5, 3]],
-        "A.19.01.002.003": [["A.19.01.002.003", [], 1, 1]],
+        "I.19.01.002.003": [["I.19.01.002.003", [], 1, 1]],
       };
-      const preparationProcesses = { "A.19.01": ["P5"] };
+      const preparationProcesses = { "A.19.01.002": ["P1"] };
 
       const [_rpcs, _processes, packaging] = reduceDiet(
         diet,
@@ -318,8 +318,38 @@ describe("RPC reducer", () => {
         preparationProcesses
       );
 
-      expect(packaging["A.19"]).toHaveProperty("P5");
-      expect(packaging["A.19"]["P5"]).toEqual(1000 * 0.5 * 3);
+      expect(packaging).toEqual({ "A.19": { P1: 1234 } });
+    });
+
+    test("Only records packaging for the entry-diet", () => {
+      // Dummy product
+      const diet: Diet = [["I.20.01.001.001", 1000]];
+
+      // Let's pretend this translates to a pizza
+      const recipes: FoodsRecipes = {
+        "A.20.01.001.001": [
+          ["A.19.01.002.003", [], 0.5, 3],
+          ["A.19.02.003.004", [], 0.5, 3],
+        ],
+        "A.19.01.002.003": [["A.19.01.002.003", [], 1, 1]],
+      };
+      const prepProcPack = {
+        "A.20.01.001": ["P5"],
+        "A.19.01.002.003": ["P1"],
+        "A.19.02.003.004": ["P2", "P3"],
+      };
+
+      const [_rpcs, _processes, packaging] = reduceDiet(
+        diet,
+        recipes,
+        prepProcPack
+      );
+
+      expect(packaging).toEqual({
+        "A.20": {
+          P5: 1000,
+        },
+      });
     });
   });
 
@@ -525,78 +555,6 @@ describe("RPC reducer", () => {
         expect(transportless).toEqual({
           "A.16.02.028": 36,
         });
-      });
-    });
-  });
-
-  // When encountering certain processes, we stop recording packaging. See
-  // @/data/packaging-stop-processes.csv for a list of the processes
-  describe("Packaging Stop-Codes", () => {
-    describe("Mango fruit juice", () => {
-      test("For mango fruit juice w/ process, should only have packaging on juice", () => {
-        const mangoFruitJuice: Diet = [["I.12.02.022", 1000]];
-        const recipe: FoodsRecipes = {
-          // Juice to mango
-          "I.12.02.022": [["A.05.06.016", ["F28.A07LN", "F28.A07KF"], 1, 30]],
-          // mango to itself
-          "A.05.06.016": [["A.05.06.016", [], 1, 1]],
-        };
-
-        const [_rpcAmounts, _processAmounts, packagingAmounts] = reduceDiet(
-          mangoFruitJuice,
-          recipe,
-          {
-            "A.12.02": ["P5"],
-            "A.05.06": ["P6"],
-          }
-        );
-
-        expect(packagingAmounts).toEqual({
-          "A.12": { P5: 1000 },
-        });
-      });
-
-      test("For mango fruit juice w/o processes, should have packaging on all", () => {
-        const mangoFruitJuice: Diet = [["I.12.02.022", 1000]];
-        const recipe: FoodsRecipes = {
-          // Juice to mango
-          "I.12.02.022": [["A.05.06.016", [], 1, 30]],
-          // mango to itself
-          "A.05.06.016": [["A.05.06.016", [], 1, 1]],
-        };
-
-        const [_rpcAmounts, _processAmounts, packagingAmounts] = reduceDiet(
-          mangoFruitJuice,
-          recipe,
-          {
-            "A.12.02": ["P5"],
-            "A.05.06": ["P6"],
-          }
-        );
-
-        expect(packagingAmounts).toEqual({
-          "A.05": { P6: 30000 },
-          "A.12": { P5: 1000 },
-        });
-      });
-
-      test("For only mangos, there should be packaging on mangos", () => {
-        const mangos: Diet = [["A.05.06.016", 1000]];
-        const recipe: FoodsRecipes = {
-          // mango to itself
-          "A.05.06.016": [["A.05.06.016", [], 1, 1]],
-        };
-
-        const [_rpcAmounts, _processAmounts, packagingAmounts] = reduceDiet(
-          mangos,
-          recipe,
-          {
-            "A.12.02": ["P5"],
-            "A.05.06": ["P6"],
-          }
-        );
-
-        expect(packagingAmounts).toEqual({ "A.05": { P6: 1000 } });
       });
     });
   });
