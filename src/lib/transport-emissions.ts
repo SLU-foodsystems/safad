@@ -6,7 +6,7 @@ import { vectorsSum } from "./utils";
 export default function computeTransportEmissions(
   rpcCode: string,
   amount: number, // in grams
-  rpcParameters: RpcOriginWaste,
+  rpcOriginWaste: RpcOriginWaste,
   transportEmissionsFactors: Record<string, number[]>, // per kg
   defaultCountry: string
 ): number[] | null {
@@ -15,7 +15,7 @@ export default function computeTransportEmissions(
   }
 
   // Get the RPC Origin Waste data - we want the "share" specifically
-  const factorsPerOrigin = rpcParameters[rpcCode];
+  const factorsPerOrigin = rpcOriginWaste[rpcCode];
   if (!factorsPerOrigin) {
     // console.error(`No origin found for rpc ${rpcCode}.`);
     return null;
@@ -41,16 +41,20 @@ export default function computeTransportEmissions(
   return vectorsSum(
     Object.entries(factorsPerOrigin)
       .map(([originCode, [share]]) => {
+        // Skip RoW - it is handled through the rowMultiplier
         if (originCode === "RoW") return null;
 
         const emissionsFactors = transportEmissionsFactors[originCode];
         if (!emissionsFactors) {
-          console.error(`Emissions factors missing for origin ${originCode}. RPC code is ${rpcCode}.`);
+          console.error(
+            `Emissions factors missing for origin ${originCode}. RPC code is ${rpcCode}.`
+          );
           return null;
         }
 
         return emissionsFactors.map(
-          (emissionsFactor) => amountKg * share * emissionsFactor * rowMultiplier
+          (emissionsFactor) =>
+            amountKg * share * emissionsFactor * rowMultiplier
         );
       })
       .filter((emissions): emissions is number[] => emissions !== null)
