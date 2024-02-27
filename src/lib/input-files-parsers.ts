@@ -191,26 +191,28 @@ export function parseProcessesPackaging(
 
   const firstNRows = data.slice(1, 20);
   // A sanity-check that it's the right file
-  const l2CodesInFirstCol = firstNRows.every(
-    ([l2Code]) => l2Code.length === 7 && l2Code.match(/^(A|I)\..\d\.\d\d$/)
-  );
   const l3CodesInThirdCol = firstNRows.every(
-    ([_0, _1, l3Code]) => l3Code.split(".").length === 4
+    ([l3Code]) => l3Code.split(".").length === 4
   );
-  if (!l2CodesInFirstCol || !l3CodesInThirdCol) {
+  if (!l3CodesInThirdCol) {
     throw new CsvValidationError(CsvValidationErrorType.Unknown);
   }
 
   const splitFacetStr = (str: string) =>
     (str || "").split("$").filter((x) => x.length > 0 && x !== "NA");
 
+  const hasNonEmptyValue = (pair: [any, any[]]): boolean =>
+    pair[1]?.length > 0;
+
   const packagingData = Object.fromEntries(
-    data.map((row) => [row[0], splitFacetStr(row[7])])
+    data
+      .map((row): [string, string[]] => [row[0], splitFacetStr(row[5])])
+      .filter(hasNonEmptyValue)
   );
   const preparationProcessesData = Object.fromEntries(
     data
-      .map((row) => [row[2], splitFacetStr(row[4])])
-      .filter((pair) => pair[1].length > 0)
+      .map((row): [string, string[]] => [row[0], splitFacetStr(row[2])])
+      .filter(hasNonEmptyValue)
   );
 
   return { ...packagingData, ...preparationProcessesData };
