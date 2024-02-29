@@ -8,7 +8,7 @@ export const PROCESS_EMISSIONS_ZERO = zeroes(N_PROCESS_GHGS);
 
 export const N_PACKAGING_GHGS = 4;
 
-export const N_TRANSPORT_GHGS = 4;
+export const N_TRANSPORT_GHGS = 3;
 export const TRANSPORT_EMISSIONS_ZERO = zeroes(N_TRANSPORT_GHGS);
 
 // The planetary boundaries used as limits.
