@@ -115,12 +115,16 @@ export const nthIndexOf = (
  *       (A.01.02.003, 4) -> A.01.02.003
  *       (I.01.02.003, 2) -> A.01.02
  */
-export function getRpcCodeSubset(code: string, level: number) {
+export function getRpcCodeSubset(
+  code: string,
+  level: number,
+  replaceIWithA = true
+) {
   if (!code) return "";
   const idx = nthIndexOf(code, ".", level);
   if (idx === -1) return code;
   const subset = code.substring(0, idx);
-  return subset.replace("I", "A");
+  return replaceIWithA ? subset.replace("I", "A") : subset;
 }
 
 export function getRpcCodeLevel(code: string) {
