@@ -273,10 +273,16 @@ export function parseFootprintsRpcs(csvString: string) {
     if (Object.keys(factorsPerOrigin).includes("RoW")) return;
 
     const numberOfOrigins = Object.values(factorsPerOrigin).length;
+
+    // Fall-back when no origins are defined
+    if (numberOfOrigins === 0) {
+      structured[rpcCode].RoW = [1, 0];
+      return;
+    }
+
     const averages = vectorsSum(Object.values(factorsPerOrigin)).map(
       (x: number) => x / numberOfOrigins
     );
-
     structured[rpcCode].RoW = averages;
   });
 
@@ -367,6 +373,7 @@ export function parseRpcOriginWaste(csvString: string) {
     ) => {
       // Avoid empty rows
       if (!rpcCode) return acc;
+      if (asNumber(originShare, 0) === 0) return acc;
 
       // First time we see this RPC code? Add an empty object, which we will
       // populate with one obj per origin
