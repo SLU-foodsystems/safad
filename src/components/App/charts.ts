@@ -57,9 +57,8 @@ export default function setupCharts(RE: ResultsEngine, diet: Ref<Diet>) {
     return aggregateNonNullImpacts(impacts);
   };
 
-  const computeDietFootprintsPerRpcCategory = () => {
-    return aggregateImpactsByCategory(...RE.computeImpacts(diet.value));
-  };
+  const computeDietFootprintsPerRpcCategory = () =>
+    aggregateImpactsByCategory(...RE.computeImpacts(diet.value));
 
   const computeDietFootprintsPerFoodsCategory = (): Record<
     string,
