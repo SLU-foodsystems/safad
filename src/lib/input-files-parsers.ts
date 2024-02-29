@@ -214,6 +214,15 @@ export function parseProcessesPackaging(
       .filter(hasNonEmptyValue)
   );
 
+  const merged = { ...preparationProcessesData };
+  Object.entries(packagingData).forEach(([l3Code, packagingCodes]) => {
+    if (l3Code in merged) {
+      merged[l3Code].push(...packagingCodes);
+    } else {
+      merged[l3Code] = packagingCodes;
+    }
+  });
+
   return { ...packagingData, ...preparationProcessesData };
 }
 
