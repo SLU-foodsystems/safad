@@ -38,6 +38,11 @@ const labels = [
     color: SLU_COLORS.Red.Coral,
   },
   {
+    l1Code: "A.10",
+    text: "Sugar and confectionary, e.g. sweets, chocolate",
+    color: SLU_COLORS.Red.Apricot,
+  },
+  {
     l1Code: "A.07",
     text: "Fish and other seafood",
     color: SLU_COLORS.Blue.Seabay,
@@ -49,9 +54,9 @@ const labels = [
   },
   { l1Code: "A.09", text: "Eggs", color: SLU_COLORS.Blue.Sky },
   {
-    l1Code: "A.10",
-    text: "Sugar and confectionary, e.g. sweets, chocolate",
-    color: SLU_COLORS.Red.Apricot,
+    l1Code: "A.13",
+    text: "Non-alcoholic beverages, e.g. soft drinks, coffee, tea",
+    color: SLU_COLORS.Blue.Dove,
   },
   {
     l1Code: "A.11",
@@ -62,11 +67,6 @@ const labels = [
     l1Code: "A.12",
     text: "Fruit and vegetable juices, e.g. apple juice",
     color: SLU_COLORS.Yellow.Resin,
-  },
-  {
-    l1Code: "A.13",
-    text: "Non-alcoholic beverages, e.g. soft drinks, coffee, tea",
-    color: SLU_COLORS.Blue.Dove,
   },
   {
     l1Code: "A.14",
