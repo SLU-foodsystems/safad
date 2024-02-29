@@ -201,8 +201,7 @@ export function parseProcessesPackaging(
   const splitFacetStr = (str: string) =>
     (str || "").split("$").filter((x) => x.length > 0 && x !== "NA");
 
-  const hasNonEmptyValue = (pair: [any, any[]]): boolean =>
-    pair[1]?.length > 0;
+  const hasNonEmptyValue = (pair: [any, any[]]): boolean => pair[1]?.length > 0;
 
   const packagingData = Object.fromEntries(
     data
