@@ -54,9 +54,9 @@ function recordPackaging(
     if (level < 3) return;
 
     const l1Code = getRpcCodeSubset(code, 1);
-    if (!l1Code) return; // What
+    if (!l1Code) return; // TODO: warn here?
 
-    const l3Code = getRpcCodeSubset(code, 3);
+    const l3Code = getRpcCodeSubset(code, 3, false);
     const specials = preparationAndPackagingList[l3Code];
     if (!specials) return;
 

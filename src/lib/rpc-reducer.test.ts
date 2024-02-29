@@ -304,13 +304,13 @@ describe("RPC reducer", () => {
       expect(packaging).toEqual({ "A.19": { P1: 1234 } });
     });
 
-    test("Translates I-codes to A-codes", () => {
+    test("Does not translate I-codes to A-codes, yet stores under A-level", () => {
       // pizza derivative
       const diet: Diet = [["I.19.01.002.003", 1234]];
       const recipes: FoodsRecipes = {
         "I.19.01.002.003": [["I.19.01.002.003", [], 1, 1]],
       };
-      const preparationProcesses = { "A.19.01.002": ["P1"] };
+      const preparationProcesses = { "I.19.01.002": ["P1"] };
 
       const [_rpcs, _processes, packaging] = reduceDiet(
         diet,
@@ -323,7 +323,7 @@ describe("RPC reducer", () => {
 
     test("Only records packaging for the entry-diet", () => {
       // Dummy product
-      const diet: Diet = [["I.20.01.001.001", 1000]];
+      const diet: Diet = [["A.20.01.001.001", 1000]];
 
       // Let's pretend this translates to a pizza
       const recipes: FoodsRecipes = {
