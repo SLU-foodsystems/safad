@@ -27,7 +27,9 @@ import CarbonFootprintsChart from "@/components/CarbonFootprintsChart.vue";
 import DietPieCharts from "@/components/DietPieCharts.vue";
 import EnvFootprintCharts from "@/components/EnvFootprintCharts.vue";
 import PlanetaryBoundariesChart from "@/components/PlanetaryBoundariesChart.vue";
-import ImpactsPerCategoryChart from "@/components/ImpactsPerCategoryChart.vue";
+
+import ImpactsPerRpcCategoryChart from "@/components/ImpactsPerCategoryCharts/ImpactsPerRpcCategoryChart.vue";
+import ImpactsPerFoodCategoryChart from "@/components/ImpactsPerCategoryCharts/ImpactsPerFoodCategoryChart.vue";
 
 import setupCharts from "./charts";
 import initFileInterfaces from "./init-file-interfaces";
@@ -486,7 +488,7 @@ onMounted(async () => {
           <span>Contributions to impacts from different food groups</span>
         </h3>
         <div>
-          <ImpactsPerCategoryChart
+          <ImpactsPerFoodCategoryChart
             :impactsPerCategory="dietFootprintsPerFoodsCategory"
           />
         </div>
@@ -494,7 +496,7 @@ onMounted(async () => {
           <span>Contributions to impacts from different raw commodities</span>
         </h3>
         <div>
-          <ImpactsPerCategoryChart
+          <ImpactsPerRpcCategoryChart
             :impactsPerCategory="dietFootprintsPerRpcCategory"
           />
         </div>
