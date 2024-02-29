@@ -118,7 +118,7 @@ export const nthIndexOf = (
 export function getRpcCodeSubset(
   code: string,
   level: number,
-  replaceIWithA = true
+  replaceIWithA = false
 ) {
   if (!code) return "";
   const idx = nthIndexOf(code, ".", level);
@@ -140,7 +140,7 @@ export function aggregateRpcCategories(
 ) {
   return aggregateBy<number[]>(
     Object.entries(rpcMap),
-    (code) => getRpcCodeSubset(code, level),
+    (code) => getRpcCodeSubset(code, level, true),
     (a: number[], b: number[]) => a.map((x, i) => x + b[i])
   );
 }
