@@ -217,7 +217,7 @@ export function aggregateImpactsByCategory(
   );
 
   const getL1Keys = (obj: Record<string, any>): string[] =>
-    Object.keys(obj).map((code) => getRpcCodeSubset(code, 1));
+    Object.keys(obj).map((code) => getRpcCodeSubset(code, 1, true));
 
   const l1Codes = uniq([
     ...getL1Keys(nonNullRpcImpacts),

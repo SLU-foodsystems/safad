@@ -69,7 +69,7 @@ export default function setupCharts(RE: ResultsEngine, diet: Ref<Diet>) {
 
     // TODO: Join certain groups
     diet.value.forEach(([code, amount]) => {
-      const l1Code = getRpcCodeSubset(code, 1);
+      const l1Code = getRpcCodeSubset(code, 1, true);
       if (!dietsPerCategory[l1Code]) {
         dietsPerCategory[l1Code] = [];
       }
