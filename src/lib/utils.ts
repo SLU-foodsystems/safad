@@ -260,3 +260,21 @@ export const padLeft = (number: number | string, minLen: number): string =>
   minLen > 0 && String(number).length < minLen
     ? ("0".repeat(minLen) + number).slice(-1 * minLen)
     : String(number);
+
+// Note: only shallow-copies items
+export const mergeObjectsWithLists = <T>(
+  xs: Record<string, T[]>,
+  ys: Record<string, T[]>
+) => {
+  const merged = { ...xs };
+
+  Object.entries(ys).forEach(([key, values]) => {
+    if (key in merged) {
+      merged[key].push(...values);
+    } else {
+      merged[key] = values;
+    }
+  });
+
+  return merged;
+};
