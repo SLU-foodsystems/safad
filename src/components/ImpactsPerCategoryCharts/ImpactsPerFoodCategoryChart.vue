@@ -97,6 +97,7 @@ const othersLabel = {
     :impactsPerCategory="props.impactsPerCategory"
     :labels="labels"
     :otherLabel="othersLabel"
+    legend-title="Foods category"
   />
 
 </template>

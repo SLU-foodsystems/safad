@@ -11,6 +11,7 @@ const props = defineProps<{
   impactsPerCategory: Record<string, number[]>;
   labels: LabelMap;
   otherLabel: Pick<LabelMap[number], "color" | "text">;
+  legendTitle: string;
 }>();
 
 const el = ref<HTMLDivElement | null>(null);
@@ -115,7 +116,7 @@ const drawChart = () => {
     axisLabels: { y: "Contribution, %" },
 
     labelLayout,
-    legendTitle: "Food Categories",
+    legendTitle: props.legendTitle,
     legendColors: colors,
   });
 };
