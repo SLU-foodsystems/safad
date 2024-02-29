@@ -1,4 +1,4 @@
-import { parseCsvFile, roundToPrecision, vectorsSum } from "@/lib/utils";
+import { mergeObjectsWithLists, parseCsvFile, roundToPrecision, vectorsSum } from "@/lib/utils";
 
 import processTranslationsCsv from "@/data/sfa-to-efsa-processes.csv?raw";
 
@@ -214,16 +214,7 @@ export function parseProcessesPackaging(
       .filter(hasNonEmptyValue)
   );
 
-  const merged = { ...preparationProcessesData };
-  Object.entries(packagingData).forEach(([l3Code, packagingCodes]) => {
-    if (l3Code in merged) {
-      merged[l3Code].push(...packagingCodes);
-    } else {
-      merged[l3Code] = packagingCodes;
-    }
-  });
-
-  return { ...packagingData, ...preparationProcessesData };
+  return mergeObjectsWithLists(preparationProcessesData, packagingData);
 }
 
 export function parseFootprintsRpcs(csvString: string) {
