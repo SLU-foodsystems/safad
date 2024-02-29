@@ -94,7 +94,7 @@ export const DETAILED_RESULTS_HEADER = [
 ];
 
 const getCategoryName = (code: string, level: number) => {
-  const levelCode = getRpcCodeSubset(code, level);
+  const levelCode = getRpcCodeSubset(code, level, true);
   return categoryNames[levelCode] || `NOT FOUND (${levelCode})`;
 };
 

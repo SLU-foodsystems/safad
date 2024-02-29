@@ -53,10 +53,10 @@ function recordPackaging(
     const level = getRpcCodeLevel(code);
     if (level < 3) return;
 
-    const l1Code = getRpcCodeSubset(code, 1);
+    const l1Code = getRpcCodeSubset(code, 1, true);
     if (!l1Code) return; // TODO: warn here?
 
-    const l3Code = getRpcCodeSubset(code, 3, false);
+    const l3Code = getRpcCodeSubset(code, 3);
     const specials = preparationAndPackagingList[l3Code];
     if (!specials) return;
 
@@ -225,7 +225,7 @@ export default function reduceDietToRpcs(
     facetCode: string,
     amount: number
   ) => {
-    const level1Category = getRpcCodeSubset(code, 1);
+    const level1Category = getRpcCodeSubset(code, 1, true);
     if (!(level1Category in processesMap)) {
       processesMap[level1Category] = {};
     }
