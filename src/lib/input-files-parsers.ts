@@ -1,4 +1,9 @@
-import { mergeObjectsWithLists, parseCsvFile, roundToPrecision, vectorsSum } from "@/lib/utils";
+import {
+  mergeObjectsWithLists,
+  parseCsvFile,
+  roundToPrecision,
+  vectorsSum,
+} from "@/lib/utils";
 
 import processTranslationsCsv from "@/data/sfa-to-efsa-processes.csv?raw";
 
