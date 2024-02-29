@@ -1,10 +1,10 @@
-import reduceDiet from "./rpc-reducer";
+import reduceDiet from "@/lib/rpc-reducer";
 import {
   computeProcessImpacts,
   getProcessEnvFactors,
-} from "./process-emissions";
+} from "@/lib/process-emissions";
 
-import flattenRpcFootprints from "./footprints-rpc-flattener";
+import flattenRpcFootprints from "@/lib/footprints-rpc-flattener";
 import {
   aggregateBy,
   aggregateRpcCategories,
@@ -12,11 +12,11 @@ import {
   mapValues,
   vectorSum,
   vectorsSum,
-} from "./utils";
+} from "@/lib/utils";
 
-import computeTransportEmissions from "./transport-emissions";
-import adjustDietForWaste from "./waste-retail-consumer-adjuster";
-import originWasteFactorsRestOfWorldAggregator from "./origin-waste-factors-row-aggregator";
+import computeTransportEmissions from "@/lib/transport-emissions";
+import adjustDietForWaste from "@/lib/waste-retail-consumer-adjuster";
+import originWasteFactorsRestOfWorldAggregator from "@/lib/origin-waste-factors-row-aggregator";
 
 /**
  * Ties all parts of computing the results into a singleton.
