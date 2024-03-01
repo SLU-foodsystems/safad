@@ -1,5 +1,5 @@
 import * as d3 from "d3";
-import { partition } from "../utils";
+import { partition, reversed } from "../utils";
 
 interface Config {
   width: number;
@@ -27,18 +27,6 @@ const stack = <T>(xs: T[]): [T, T][] => {
     xs[i],
     xs[i + 1],
   ]);
-};
-
-const isColliding = (a: DOMRect, b: DOMRect) =>
-  a.x < b.x + b.width &&
-  a.x + a.width > b.x &&
-  a.y < b.y + b.height &&
-  a.y + a.height > b.y;
-
-const hasCollisions = (rectangles: DOMRect[]): boolean => {
-  if (rectangles.length < 2) return false;
-  const stacked = stack(rectangles);
-  return stacked.some(([a, b]) => isColliding(a, b));
 };
 
 const safeLabelColor = (color: string): string => {
@@ -111,104 +99,124 @@ export default function PieChart(
     .attr("d", arcGenerator)
     .attr("fill", (d) => d.data.color);
 
-  root
-    .selectAll("polylines")
-    .data(arcs)
-    .enter()
-    .append("polyline")
-    .attr("stroke", (d) => d.data.color)
-    .style("fill", "none")
-    .attr("stroke-width", 1)
-    // @ts-ignore
-    .attr("points", (d) => {
-      // line insertion in the slice
-      const posA = arcGenerator.centroid(d);
-      // line break: we use the other arc generator that has been built only for that
-      const posB = outerArc.centroid(d);
-      // Label position = almost the same as posB
-      const posC = outerArc.centroid(d);
-      // we need the angle to see if the X position will be at the extreme right
-      // or extreme left
-      const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
-      // multiply by 1 or -1 to put it on the right or on the left
-      // Multiply by 0.95 to avoid line going all the way to the text
-      posC[0] = outerRadius * 0.95 * (midangle < Math.PI ? 1 : -1);
-      return [posA, posB, posC];
-    });
+  // ==================================================
+  // Draw the labels and lines - a bit tricky
+  // ==================================================
 
-  // Now add the annotation. Use the centroid method to get the best coordinates
-  root
-    .selectAll("slices")
-    .data(arcs)
-    .enter()
-    .append("text")
-    .text((d) => d.data.label)
-    .style("fill", (d) => safeLabelColor(d.data.color))
-    .style("font-weight", "bold")
-    .attr("dy", "0.25em")
-    .attr("transform", (d) => {
-      const pos = outerArc.centroid(d);
-      const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2;
-      pos[0] = outerRadius * (midAngle < Math.PI ? 1 : -1);
-      return `translate(${pos})`;
-    })
-    .style("text-anchor", (d) => {
-      const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2;
-      return midAngle < Math.PI ? "start" : "end";
-    });
+  // First, we draw the text once. We're only doing this to get the
+
+  const TEXT_HEIGHT = 22; // Hard-code this instead of using BCRs, sorry
+  const initialPositions = arcs.map((d) => {
+    const pos = outerArc.centroid(d);
+    const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+    pos[0] = outerRadius * (midAngle < Math.PI ? 1 : -1);
+    return pos;
+  });
 
   // Could also be done with index check, bc it's right until first occurance of
   // textAnchor switch -- assumed later in code
-  const [lhsTextElements, rhsTextElements] = partition(
-    [...root.selectAll("text")] as SVGTextElement[],
-    (el) => el.style.textAnchor === "end"
+  const [rhsTextPositions, lhsTextPositions] = partition(
+    initialPositions,
+    (pos) => pos[0] > 0
   );
 
-  const getBCRs = (ts: SVGTextElement[]) =>
-    ts.map((t) => t.getBoundingClientRect());
+  // Helper to copy a nested array, creating a mutable clone
+  const copyNestedArr = <T>(xss: T[][]): T[][] => xss.map(xs => [...xs]);
 
-  const rhsCollisions = hasCollisions(getBCRs(rhsTextElements));
-  const lhsCollisions = hasCollisions(getBCRs(lhsTextElements));
+  const drawWithoutCollisions = (
+    startIndex: number,
+    endIndex: number,
+    positions: [number, number][],
+    reverse: boolean
+  ) => {
+    // Assumed space we want between the text elements
+    const MARGIN = 5;
+    // Here, we'll store the distances with which we will shift all elements
+    const yOffsets = positions.map((_) => 0);
 
-  if (rhsCollisions || lhsCollisions) {
-    root.selectAll("polyline").remove();
-    root.selectAll("text").remove();
+    // First, we clockwise (top-2-bottom on RHS, b2t on LHS) and try to shift
+    // all texts in that direction.
+    stack(copyNestedArr(positions)).forEach(([prev, curr], i) => {
+      const prevY = curr[1];
+      const newY = reverse
+        ? Math.min(prev[1] - TEXT_HEIGHT - MARGIN, curr[1])
+        : Math.max(prev[1] + TEXT_HEIGHT + MARGIN, curr[1]);
+      curr[1] = newY;
+      const offset = newY - prevY;
+      yOffsets[i + 1] = offset;
+    });
 
-    const sideSwitchIndex = rhsTextElements.length;
-    const endIndex = lhsTextElements.length + rhsTextElements.length - 1;
+
+    // Now, we may have pushed some text-elemnts out of the canvas when doing
+    // this. Have we?
+    const hasOutOfBounds = positions.some(
+      ([_x, y], i) => Math.abs(y + yOffsets[i]) > innerHeight / 2
+    );
+    if (hasOutOfBounds) {
+      // Yes! Repeat the procedure, this time counter-clockwise.
+      yOffsets.forEach((_, i) => {
+        yOffsets[i] = 0;
+      });
+      const N = positions.length - 1;
+
+      stack(reversed(copyNestedArr(positions))).forEach(([prev, curr], i) => {
+        const prevY = curr[1];
+        const newY = reverse
+          ? Math.max(prev[1] + TEXT_HEIGHT + MARGIN, curr[1])
+          : Math.min(prev[1] - TEXT_HEIGHT - MARGIN, curr[1]);
+        curr[1] = newY;
+        const offset = newY - prevY;
+        yOffsets[N - i - 1] = offset;
+      });
+    }
+
+    const arcsSubset = arcs.slice(startIndex, endIndex);
 
     root
       .selectAll("polylines")
-      .data(arcs)
+      .data(arcsSubset)
       .enter()
       .append("polyline")
       .attr("stroke", (d) => d.data.color)
       .style("fill", "none")
-      .attr("stroke-width", (d, i) => {
-        const isRhs = i < sideSwitchIndex;
-        return (isRhs && rhsCollisions) || (!isRhs && lhsCollisions) ? 0 : 1;
-      })
+      .attr("stroke-width", 1)
       // @ts-ignore
-      .attr("points", (d) => {
+      .attr("points", (d, i) => {
         // line insertion in the slice
         const posA = arcGenerator.centroid(d);
         // line break: we use the other arc generator that has been built only for that
         const posB = outerArc.centroid(d);
         // Label position = almost the same as posB
-        let posC = outerArc.centroid(d);
+        const posC = outerArc.centroid(d);
         // we need the angle to see if the X position will be at the extreme right
         // or extreme left
         const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
         // multiply by 1 or -1 to put it on the right or on the left
         //          by 0.95 to avoid line going all the way to the text
         posC[0] = outerRadius * 0.95 * (midangle < Math.PI ? 1 : -1);
+        posC[1] += yOffsets[i];
+
+        // If pos C lies between A and B, move B in line with C
+        if (
+          (posA[1] < posC[1] && posC[1] < posB[1]) ||
+          (posA[1] > posC[1] && posC[1] > posB[1])
+        ) {
+          posB[1] = posC[1];
+        }
+        // ... and same for x
+        if (
+          (posA[0] < posC[0] && posC[0] < posB[0]) ||
+          (posA[0] > posC[0] && posC[0] > posB[0])
+        ) {
+          posB[0] = posC[0];
+        }
         return [posA, posB, posC];
       });
 
     // Now add the annotation. Use the centroid method to get the best coordinates
     root
       .selectAll("slices")
-      .data(arcs)
+      .data(arcsSubset)
       .enter()
       .append("text")
       .text((d) => d.data.label)
@@ -219,20 +227,20 @@ export default function PieChart(
         const pos = outerArc.centroid(d);
         const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2;
         pos[0] = outerRadius * (midAngle < Math.PI ? 1 : -1);
-        const isRhs = i < sideSwitchIndex;
-        if ((isRhs && rhsCollisions) || (!isRhs && lhsCollisions)) {
-          const minIndex = isRhs ? 0 : sideSwitchIndex;
-          const maxIndex = isRhs ? sideSwitchIndex - 1 : endIndex;
+        pos[1] += yOffsets[i];
 
-          const stepSize = innerHeight / (maxIndex - minIndex);
-          const midPoint = cfg.height / 2;
-          pos[1] = cfg.padding.top + stepSize * i - midPoint;
-        }
         return `translate(${pos})`;
       })
       .style("text-anchor", (d) => {
         const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2;
         return midAngle < Math.PI ? "start" : "end";
       });
-  }
+  };
+
+  root.selectAll("text").remove();
+
+  const sideSwitchIndex = rhsTextPositions.length;
+  const endIndex = lhsTextPositions.length + rhsTextPositions.length - 1;
+  drawWithoutCollisions(0, sideSwitchIndex, rhsTextPositions, false);
+  drawWithoutCollisions(sideSwitchIndex, endIndex + 1, lhsTextPositions, true);
 }
