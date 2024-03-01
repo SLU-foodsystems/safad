@@ -27,15 +27,15 @@ export const AGGREGATE_HEADERS = [
   "Nitrous oxide, primary production",
 
   // Key indicators - raw materials
-  "Land",
-  "N input",
-  "P input",
-  "Water",
-  "Pesticides",
-  "Biodiversity",
-  "Ammonia",
-  "Animal welfare",
-  "Antibiotics",
+  "Land (m2/year/kg)",
+  "N input (m3/kg)",
+  "P input (m3/kg)",
+  "Water (L/kg)",
+  "Pesticides (m3/kg)",
+  "Biodiversity (m3/kg)",
+  "Ammonia (m3/kg)",
+  "Animal welfare (index)",
+  "Antibiotics (index)",
 
   // Disaggregated GHG impacts
   "Mineral fertiliser production (CO2e)",
