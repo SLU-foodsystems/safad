@@ -1,5 +1,5 @@
-<script lang="ts">
-import { defineComponent, type PropType } from "vue";
+<script lang="ts" setup>
+import { ref, computed } from "vue";
 
 import LoadingOverlay from "./LoadingOverlay.vue";
 import {
@@ -14,193 +14,175 @@ import {
   CsvValidationErrorType,
 } from "@/lib/input-files-parsers";
 
-export default defineComponent({
-  components: { LoadingOverlay },
+const props = defineProps<{
+  fileInterface: InputFile<any>;
+  countryCode: string;
+  fileDescription: string;
+  fileLabel: string;
+}>();
 
-  props: {
-    fileInterface: {
-      type: Object as PropType<InputFile<any>>,
-      required: true,
-    },
-    countryCode: {
-      type: String,
-      required: true,
-    },
-    fileDescription: String,
-    fileLabel: String,
-  },
 
-  data() {
-    return {
-      showComment: false,
-      isLoading: false,
-      showInfo: false,
-      error: null as CsvValidationErrorType | null,
+const isLoading = ref(false);
+const error = ref<CsvValidationErrorType | null>(null);
 
-      comment: "",
-    };
-  },
+const showComment = ref(false);
+const showInfo = ref(false);
 
-  computed: {
-    fileButtonText() {
-      return this.fileInterface.state === "default"
-        ? "Upload custom file"
-        : "Reset to default";
-    },
-    commentToggleButtonText() {
-      if (this.showComment) {
-        return "Hide comment";
-      }
+const comment = ref("");
 
-      return this.comment.trim() === "" ? "Add comment" : "Edit comment";
-    },
-    fileName(): string {
-      return (
-        this.fileInterface.name ||
-        this.fileInterface.defaultName(this.countryCode) ||
-        ""
-      );
-    },
-    // Only valid when mode is default
-    lastModified() {
-      return this.fileInterface.lastModified(this.countryCode);
-    },
+const fileInput = ref<HTMLInputElement | null>();
+const commentTextarea = ref<HTMLTextAreaElement | null>();
 
-    errorMessage() {
-      if (this.error === null) return "";
+const fileButtonText = computed(() =>
+  props.fileInterface.state === "default"
+    ? "Upload custom file"
+    : "Reset to default"
+);
 
-      const baseErrorMessage = "Woops! Something was wrong with the csv file.";
-      const baseSuggestionMessage = "Make sure you uploaded the correct file.";
-      switch (this.error) {
-        case CsvValidationErrorType.MinRows:
-          return (
-            baseErrorMessage +
-            " The uploaded csv file looks unexpectedly short. " +
-            baseSuggestionMessage
-          );
-        case CsvValidationErrorType.MaxRows:
-          return (
-            baseErrorMessage +
-            " The uploaded csv file looks unexpectedly long. " +
-            baseSuggestionMessage
-          );
-        case CsvValidationErrorType.MinCols:
-          return (
-            "Woops! The uploaded csv file has too few columns. " +
-            baseSuggestionMessage +
-            " You can download the default file and compare, if you are " +
-            "unsure of the format."
-          );
-        case CsvValidationErrorType.MaxCols:
-          return (
-            baseErrorMessage +
-            " The csv file has too many columns. " +
-            baseSuggestionMessage +
-            " You can download the default file and compare, if you are " +
-            "unsure of the format."
-          );
-        case CsvValidationErrorType.SingleCol:
-          return (
-            baseErrorMessage +
-            " We only detected a single column in the file. " +
-            "Make sure you are using a comma (,) as the csv-file separator " +
-            "(not e.g. tab or semicolon), and that you uploaded the correct " +
-            "file. You can download the default file and compare, if you are " +
-            "unsure of the format."
-          );
-        case CsvValidationErrorType.Empty:
-          return "Woops! The csv file was empty. " + baseSuggestionMessage;
-        case CsvValidationErrorType.Unknown:
-          return baseErrorMessage + " " + baseSuggestionMessage;
-      }
-    },
-  },
+const commentToggleButtonText = computed(() => {
+  if (showComment.value) {
+    return "Hide comment";
+  }
 
-  methods: {
-    onButtonClick() {
-      this.error = null;
-      if (this.fileInterface.state === "default") {
-        // Trigger click on @file input
-        // If successful, trigger event with data
-        (this.$refs.fileInput as HTMLInputElement)?.click();
-      } else {
-        resetFile(this.countryCode, this.fileInterface);
-        // Reset the DOM input element as well
-        const { fileInput } = this.$refs as {
-          fileInput: null | HTMLInputElement;
-        };
-        if (fileInput) {
-          fileInput.value = "";
-        }
-      }
-    },
-
-    onError(err: CsvValidationError) {
-      this.error = err.type;
-    },
-
-    onFileInputChange(event: Event) {
-      const { files } = event.target as HTMLInputElement;
-      if (!files || files.length === 0) return;
-
-      const file = files[0];
-      if (!file) return;
-
-      const fileName = file.name || "";
-      const reader = new FileReader();
-
-      this.isLoading = true;
-      reader.addEventListener("error", (...args) => {
-        // TODO: Handle errors
-        this.isLoading = false;
-        this.onError(new CsvValidationError(CsvValidationErrorType.Unknown));
-        console.error(...args);
-      });
-      reader.addEventListener("load", async () => {
-        this.isLoading = false;
-        try {
-          // Must await here for error to be caught
-          await setFile(
-            {
-              name: fileName,
-              data: reader.result as string | "",
-            },
-            this.fileInterface
-          );
-        } catch (err) {
-          if (err instanceof CsvValidationError) {
-            this.onError(err);
-          } else {
-            this.onError(
-              new CsvValidationError(CsvValidationErrorType.Unknown)
-            );
-          }
-          resetFile(this.countryCode, this.fileInterface);
-        }
-      });
-      reader.readAsText(file);
-    },
-
-    download() {
-      downloadFile(this.countryCode, this.fileInterface);
-    },
-
-    toggleInfo() {
-      this.showInfo = !this.showInfo;
-    },
-
-    toggleComment() {
-      this.showComment = !this.showComment;
-      if (this.showComment) {
-        (this.$refs.commentTextarea as HTMLTextAreaElement)?.focus();
-      }
-    },
-
-    onCommentChange() {
-      setComment(this.comment, this.fileInterface);
-    },
-  },
+  return comment.value.trim() === "" ? "Add comment" : "Edit comment";
 });
+const fileName = computed(
+  () =>
+    props.fileInterface.name ||
+    props.fileInterface.defaultName(props.countryCode) ||
+    ""
+);
+// Only valid when mode is default
+const lastModified = computed(() =>
+  props.fileInterface.lastModified(props.countryCode)
+);
+
+const errorMessage = computed(() => {
+  if (error.value === null) return "";
+
+  const baseErrorMessage = "Woops! Something was wrong with the csv file.";
+  const baseSuggestionMessage = "Make sure you uploaded the correct file.";
+  switch (error.value) {
+    case CsvValidationErrorType.MinRows:
+      return (
+        baseErrorMessage +
+        " The uploaded csv file looks unexpectedly short. " +
+        baseSuggestionMessage
+      );
+    case CsvValidationErrorType.MaxRows:
+      return (
+        baseErrorMessage +
+        " The uploaded csv file looks unexpectedly long. " +
+        baseSuggestionMessage
+      );
+    case CsvValidationErrorType.MinCols:
+      return (
+        "Woops! The uploaded csv file has too few columns. " +
+        baseSuggestionMessage +
+        " You can download the default file and compare, if you are " +
+        "unsure of the format."
+      );
+    case CsvValidationErrorType.MaxCols:
+      return (
+        baseErrorMessage +
+        " The csv file has too many columns. " +
+        baseSuggestionMessage +
+        " You can download the default file and compare, if you are " +
+        "unsure of the format."
+      );
+    case CsvValidationErrorType.SingleCol:
+      return (
+        baseErrorMessage +
+        " We only detected a single column in the file. " +
+        "Make sure you are using a comma (,) as the csv-file separator " +
+        "(not e.g. tab or semicolon), and that you uploaded the correct " +
+        "file. You can download the default file and compare, if you are " +
+        "unsure of the format."
+      );
+    case CsvValidationErrorType.Empty:
+      return "Woops! The csv file was empty. " + baseSuggestionMessage;
+    case CsvValidationErrorType.Unknown:
+      return baseErrorMessage + " " + baseSuggestionMessage;
+  }
+});
+
+const onButtonClick = () => {
+  error.value = null;
+  if (props.fileInterface.state === "default") {
+    // Trigger click on @file input
+    // If successful, trigger event with data
+    fileInput.value?.click();
+  } else {
+    resetFile(props.countryCode, props.fileInterface);
+    // Reset the DOM input element as well
+    if (fileInput.value) {
+      fileInput.value.value = "";
+    }
+  }
+};
+
+const onError = (err: CsvValidationError) => {
+  error.value = err.type;
+};
+
+const onFileInputChange = (event: Event) => {
+  const { files } = event.target as HTMLInputElement;
+  if (!files || files.length === 0) return;
+
+  const file = files[0];
+  if (!file) return;
+
+  const fileName = file.name || "";
+  const reader = new FileReader();
+
+  isLoading.value = true;
+  reader.addEventListener("error", (...args) => {
+    // TODO: Handle errors
+    isLoading.value = false;
+    onError(new CsvValidationError(CsvValidationErrorType.Unknown));
+    console.error(...args);
+  });
+  reader.addEventListener("load", async () => {
+    isLoading.value = false;
+    try {
+      // Must await here for error to be caught
+      await setFile(
+        {
+          name: fileName,
+          data: reader.result as string | "",
+        },
+        props.fileInterface
+      );
+    } catch (err) {
+      if (err instanceof CsvValidationError) {
+        onError(err);
+      } else {
+        onError(new CsvValidationError(CsvValidationErrorType.Unknown));
+      }
+      resetFile(props.countryCode, props.fileInterface);
+    }
+  });
+  reader.readAsText(file);
+};
+
+const download = () => {
+  downloadFile(props.countryCode, props.fileInterface);
+};
+
+const toggleInfo = () => {
+  showInfo.value = !showInfo.value;
+};
+
+const toggleComment = () => {
+  showComment.value = !showComment.value;
+  if (showComment.value) {
+    commentTextarea.value?.focus();
+  }
+};
+
+const onCommentChange = () => {
+  setComment(comment.value, props.fileInterface);
+};
 </script>
 
 <template>
@@ -369,5 +351,4 @@ label {
     content: "!";
   }
 }
-
 </style>
