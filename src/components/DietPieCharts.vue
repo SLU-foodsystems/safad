@@ -5,7 +5,7 @@ import { aggregateHeaderIndex } from "@/lib/impacts-csv-utils";
 import SLU_COLORS from "@/lib/slu-colors";
 import { useOnResize } from "@/lib/use-on-resize";
 import { sum } from "@/lib/utils";
-import { ref, onBeforeMount, watch } from "vue";
+import { ref, onMounted, watch } from "vue";
 
 const gasesDataMap: [string, string, number, number][] = [
   [
@@ -152,7 +152,7 @@ const drawCharts = () => {
 useOnResize(drawCharts);
 watch(() => props.dietFootprints, drawCharts);
 
-onBeforeMount(drawCharts);
+onMounted(drawCharts);
 </script>
 
 <template>
