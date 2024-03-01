@@ -38,7 +38,7 @@ const dataMap: [string, number, Color][] = [
   [
     "Enteric fermentation",
     aggregateHeaderIndex("Enteric fermentation (kg CO2e)"),
-    SLU_COLORS.Red.Coral,
+    "rgb(175, 40, 52)",
   ],
   [
     "Land use change",
@@ -48,7 +48,7 @@ const dataMap: [string, number, Color][] = [
   [
     "Soil emissions",
     aggregateHeaderIndex("Soil emissions (kg CO2e)"),
-    SLU_COLORS.Green.Chlorophyll,
+    "rgb(84, 130, 53)"
   ],
   [
     "Capital goods",
