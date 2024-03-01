@@ -285,18 +285,17 @@ export const cancelableDebounce = <T extends (...args: any[]) => void>(
 ) => {
   let timeoutId: ReturnType<typeof setTimeout>;
   const cancel = () => {
-    console.log("CANCEL", timeoutId);
     if (typeof timeoutId === "number") {
       clearTimeout(timeoutId);
     }
   };
+
   const debouncedFn = function <U>(
     this: U,
     ...args: Parameters<typeof callback>
   ) {
     cancel();
     timeoutId = setTimeout(() => callback.apply(this, args), delayMs);
-      console.log("arming", timeoutId);
   };
 
   return [debouncedFn, cancel];
