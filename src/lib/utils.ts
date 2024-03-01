@@ -13,7 +13,7 @@ export function reversed<T>(xs: T[]) {
   const length = xs.length;
   if (length < 2) return xs;
 
-  return Array.from({ length }).map((_x, i) => xs[length - 1 - i])
+  return Array.from({ length }).map((_x, i) => xs[length - 1 - i]);
 }
 
 export function weightedArithmeticMean(
