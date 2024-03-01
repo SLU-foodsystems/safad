@@ -92,8 +92,8 @@ const drawChart = () => {
   );
 
   const data = reshapeData(mergedData);
-  const labels = [...props.labels.map((x) => x.text), props.otherLabel.text];
-  const colors = [...props.labels.map((x) => x.color), props.otherLabel.color];
+  const labels = [props.otherLabel.text, ...props.labels.map((x) => x.text)];
+  const colors = [props.otherLabel.color, ...props.labels.map((x) => x.color)];
 
   const svg = el.value.querySelector("svg");
   if (svg) {
