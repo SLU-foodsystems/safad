@@ -417,7 +417,7 @@ onMounted(async () => {
     <div class="hero">
       <div class="hero__inner page-wrap">
         <div>
-          <h1>SAFAD<br />Sustainability Assesment of Foods and Diets</h1>
+          <h1>SAFAD<br />Sustainability Assessment of Foods and Diets</h1>
           <h2>
             Calculate the impact using eight environmental indicators and
             indicators for animal welfare and use of antibiotics.
