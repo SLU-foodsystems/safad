@@ -1,4 +1,4 @@
-RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code
+﻿RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code
 A.01.02.001.002,Durum wheat grain,Austria,AT,0.004,0.045,0111
 A.01.02.001.002,Durum wheat grain,Bulgaria,BG,0.001,0.045,0111
 A.01.02.001.002,Durum wheat grain,Denmark,DK,0.001,0.045,0111
@@ -147,8 +147,22 @@ A.01.02.010.002,Sorghum grain,Republic of Moldova,MD,0.025,0.045,0114
 A.01.02.010.002,Sorghum grain,Russia,RU,0.031,0.045,0114
 A.01.02.010.002,Sorghum grain,Slovakia,SK,0.056,0.045,0114
 A.01.02.010.002,Sorghum grain,USA,US,0.009,0.045,0114
-A.02.01.001,Arrowroots,Rest of World,RoW,1,0.24,01599.10
-A.02.01.002,Beetroots,Rest of World,RoW,1,0.24,01599.10
+A.02.01.001,Arrowroots,France,FR,0.004,0.07,01251
+A.02.01.001,Arrowroots,Germany,DE,0.003,0.07,01251
+A.02.01.001,Arrowroots,Greece,GR,0.001,0.07,01251
+A.02.01.001,Arrowroots,Israel,IL,0.002,0.07,01251
+A.02.01.001,Arrowroots,Italy,IT,0.007,0.07,01251
+A.02.01.001,Arrowroots,Netherlands,NL,0.018,0.07,01251
+A.02.01.001,Arrowroots,Spain,ES,0.004,0.07,01251
+A.02.01.001,Arrowroots,Belgium,BE,0.001,0.07,01251
+A.02.01.002,Beetroots,France,FR,0.004,0.07,01251
+A.02.01.002,Beetroots,Germany,DE,0.003,0.07,01251
+A.02.01.002,Beetroots,Greece,GR,0.001,0.07,01251
+A.02.01.002,Beetroots,Israel,IL,0.002,0.07,01251
+A.02.01.002,Beetroots,Italy,IT,0.007,0.07,01251
+A.02.01.002,Beetroots,Netherlands,NL,0.018,0.07,01251
+A.02.01.002,Beetroots,Spain,ES,0.004,0.07,01251
+A.02.01.002,Beetroots,Belgium,BE,0.001,0.07,01251
 A.02.01.003,Carrots,France,FR,0.004,0.07,01251
 A.02.01.003,Carrots,Germany,DE,0.003,0.07,01251
 A.02.01.003,Carrots,Greece,GR,0.001,0.07,01251
@@ -157,10 +171,38 @@ A.02.01.003,Carrots,Italy,IT,0.007,0.07,01251
 A.02.01.003,Carrots,Netherlands,NL,0.018,0.07,01251
 A.02.01.003,Carrots,Spain,ES,0.004,0.07,01251
 A.02.01.003,Carrots,Belgium,BE,0.001,0.07,01251
-A.02.01.004,Celeriacs,Rest of World,RoW,1,0.24,01599.10
-A.02.01.005,Horseradish roots,Rest of World,RoW,1,0.24,01599.10
-A.02.01.006,Parsley roots,Rest of World,RoW,1,0.24,01599.10
-A.02.01.007,Parsnip roots,Rest of World,RoW,1,0.24,01599.10
+A.02.01.004,Celeriacs,France,FR,0.004,0.07,01251
+A.02.01.004,Celeriacs,Germany,DE,0.003,0.07,01251
+A.02.01.004,Celeriacs,Greece,GR,0.001,0.07,01251
+A.02.01.004,Celeriacs,Israel,IL,0.002,0.07,01251
+A.02.01.004,Celeriacs,Italy,IT,0.007,0.07,01251
+A.02.01.004,Celeriacs,Netherlands,NL,0.018,0.07,01251
+A.02.01.004,Celeriacs,Spain,ES,0.004,0.07,01251
+A.02.01.004,Celeriacs,Belgium,BE,0.001,0.07,01251
+A.02.01.005,Horseradish roots,France,FR,0.004,0.07,01251
+A.02.01.005,Horseradish roots,Germany,DE,0.003,0.07,01251
+A.02.01.005,Horseradish roots,Greece,GR,0.001,0.07,01251
+A.02.01.005,Horseradish roots,Israel,IL,0.002,0.07,01251
+A.02.01.005,Horseradish roots,Italy,IT,0.007,0.07,01251
+A.02.01.005,Horseradish roots,Netherlands,NL,0.018,0.07,01251
+A.02.01.005,Horseradish roots,Spain,ES,0.004,0.07,01251
+A.02.01.005,Horseradish roots,Belgium,BE,0.001,0.07,01251
+A.02.01.006,Parsley roots,France,FR,0.004,0.07,01251
+A.02.01.006,Parsley roots,Germany,DE,0.003,0.07,01251
+A.02.01.006,Parsley roots,Greece,GR,0.001,0.07,01251
+A.02.01.006,Parsley roots,Israel,IL,0.002,0.07,01251
+A.02.01.006,Parsley roots,Italy,IT,0.007,0.07,01251
+A.02.01.006,Parsley roots,Netherlands,NL,0.018,0.07,01251
+A.02.01.006,Parsley roots,Spain,ES,0.004,0.07,01251
+A.02.01.006,Parsley roots,Belgium,BE,0.001,0.07,01251
+A.02.01.007,Parsnip roots,France,FR,0.004,0.07,01251
+A.02.01.007,Parsnip roots,Germany,DE,0.003,0.07,01251
+A.02.01.007,Parsnip roots,Greece,GR,0.001,0.07,01251
+A.02.01.007,Parsnip roots,Israel,IL,0.002,0.07,01251
+A.02.01.007,Parsnip roots,Italy,IT,0.007,0.07,01251
+A.02.01.007,Parsnip roots,Netherlands,NL,0.018,0.07,01251
+A.02.01.007,Parsnip roots,Spain,ES,0.004,0.07,01251
+A.02.01.007,Parsnip roots,Belgium,BE,0.001,0.07,01251
 A.02.01.008,Radishes,Germany,DE,0.002,0.07,01212
 A.02.01.008,Radishes,Italy,IT,0.001,0.07,01212
 A.02.01.008,Radishes,Netherlands,NL,0.002,0.07,01212
@@ -2743,20 +2785,20 @@ A.18.02.006,Fiber supplements,Rest of World,RoW,1,0,MI-27
 A.10.02.001.007,Hydrogenated starch hydrolysates,Rest of World,RoW,1,0,MI-28
 A.05.05.003,Palmfruit (Elaeis guineensis),Malaysia,MY,0.3,0.06,01491.01
 A.05.05.003,Palmfruit (Elaeis guineensis),Indonesia,ID,0.7,0.06,01491.01
-A.16.09.006,Rum essence,Rest of World,RoW,1,0,MI-29,,,,
-A.16.10.006,Pectin,Rest of World,RoW,1,0,MI-30,,,,
-A.18.02,Dietary supplements,Rest of World,RoW,1,0,MI-31,,,,
-A.18.02.001,Vitamin supplements,Rest of World,RoW,1,0,MI-32,,,,
-A.18.02.002,Mineral supplements,Rest of World,RoW,1,0,MI-33,,,,
-A.18.02.003,Combination of vitamins and minerals supplements,Rest of World,RoW,1,0,MI-34,,,,
-A.18.02.004,"Supplements containing special fatty acids (e.g. omega-3, essential fatty acids)",Rest of World,RoW,1,0,MI-35,,,,
-A.18.02.005,Protein and amino acids supplements,Rest of World,RoW,1,0,MI-36,,,,
-A.18.02.007,Plant extract formula,Rest of World,RoW,1,0,MI-37,,,,
-A.18.02.008,Coenzyme Q10 supplement,Rest of World,RoW,1,0,MI-38,,,,
-A.18.02.009,Enzyme-based supplement,Rest of World,RoW,1,0,MI-39,,,,
-A.18.02.010,Yeast based supplement,Rest of World,RoW,1,0,MI-40,,,,
-A.18.02.011,"Algae formula (e.g. Spirulina, Chlorella)",Rest of World,RoW,1,0,MI-41,,,,
-A.18.02.012,Pollen-based supplement,Rest of World,RoW,1,0,MI-42,,,,
-A.18.03.005,Carnitine-based supplement for sports people,Rest of World,RoW,1,0,MI-43,,,,
-I.16.09.010,Quinine essence,Rest of World,RoW,1,0,MI-44,,,,
-
+A.16.09.006,Rum essence,Rest of World,RoW,1,0,MI-29
+A.16.10.006,Pectin,Rest of World,RoW,1,0,MI-30
+A.18.02,Dietary supplements,Rest of World,RoW,1,0,MI-31
+A.18.02.001,Vitamin supplements,Rest of World,RoW,1,0,MI-32
+A.18.02.002,Mineral supplements,Rest of World,RoW,1,0,MI-33
+A.18.02.003,Combination of vitamins and minerals supplements,Rest of World,RoW,1,0,MI-34
+A.18.02.004,"Supplements containing special fatty acids (e.g. omega-3, essential fatty acids)",Rest of World,RoW,1,0,MI-35
+A.18.02.005,Protein and amino acids supplements,Rest of World,RoW,1,0,MI-36
+A.18.02.007,Plant extract formula,Rest of World,RoW,1,0,MI-37
+A.18.02.008,Coenzyme Q10 supplement,Rest of World,RoW,1,0,MI-38
+A.18.02.009,Enzyme-based supplement,Rest of World,RoW,1,0,MI-39
+A.18.02.010,Yeast based supplement,Rest of World,RoW,1,0,MI-40
+A.18.02.011,"Algae formula (e.g. Spirulina, Chlorella)",Rest of World,RoW,1,0,MI-41
+A.18.02.012,Pollen-based supplement,Rest of World,RoW,1,0,MI-42
+A.18.03.005,Carnitine-based supplement for sports people,Rest of World,RoW,1,0,MI-43
+I.16.09.010,Quinine essence,Rest of World,RoW,1,0,MI-44
+,,,,,,

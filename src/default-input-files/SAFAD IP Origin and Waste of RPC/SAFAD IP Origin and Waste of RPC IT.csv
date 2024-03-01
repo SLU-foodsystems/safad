@@ -1,4 +1,4 @@
-RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code
+﻿RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code
 A.01.02.001.002,Durum wheat grain,France,FR,0.131,0.045,0111
 A.01.02.001.002,Durum wheat grain,Italy,IT,0.531,0.045,0111
 A.01.02.001.002,Durum wheat grain,Australia,AU,0.016,0.045,0111
@@ -259,52 +259,26 @@ A.01.02.010.002,Sorghum grain,India,IN,0.022,0.045,0114
 A.01.02.010.002,Sorghum grain,Romania,RO,0.007,0.045,0114
 A.01.02.010.002,Sorghum grain,Russia,RU,0.038,0.045,0114
 A.01.02.010.002,Sorghum grain,USA,US,0.092,0.045,0114
-A.02.01.001,Arrowroots,China,CN,0.128,0.24,01599.10
-A.02.01.001,Arrowroots,France,FR,0.265,0.24,01599.10
-A.02.01.001,Arrowroots,Cote d'Ivoire,CI,0.151,0.24,01599.10
-A.02.01.001,Arrowroots,Nicaragua,NI,0.104,0.24,01599.10
-A.02.01.001,Arrowroots,Togo,TG,0.106,0.24,01599.10
-A.02.01.001,Arrowroots,Cameroon,CM,0.002,0.24,01599.10
-A.02.01.001,Arrowroots,Costa Rica,CR,0.053,0.24,01599.10
-A.02.01.001,Arrowroots,Dominica,DM,0.001,0.24,01599.10
-A.02.01.001,Arrowroots,Ecuador,EC,0.004,0.24,01599.10
-A.02.01.001,Arrowroots,Ghana,GH,0.021,0.24,01599.10
-A.02.01.001,Arrowroots,Honduras,HN,0.001,0.24,01599.10
-A.02.01.001,Arrowroots,Indonesia,ID,0.007,0.24,01599.10
-A.02.01.001,Arrowroots,Jamaica,JM,0.005,0.24,01599.10
-A.02.01.001,Arrowroots,Kenya,KE,0.001,0.24,01599.10
-A.02.01.001,Arrowroots,Malawi,MW,0.008,0.24,01599.10
-A.02.01.001,Arrowroots,Mexico,MX,0.005,0.24,01599.10
-A.02.01.001,Arrowroots,Pakistan,PK,0.001,0.24,01599.10
-A.02.01.001,Arrowroots,Peru,PE,0.01,0.24,01599.10
-A.02.01.001,Arrowroots,Philippines,PH,0.002,0.24,01599.10
-A.02.01.001,Arrowroots,Saint Vincent and the Grenadines,VC,0.003,0.24,01599.10
-A.02.01.001,Arrowroots,Spain,ES,0.089,0.24,01599.10
-A.02.01.001,Arrowroots,Suriname,SR,0.001,0.24,01599.10
-A.02.01.001,Arrowroots,Thailand,TH,0.031,0.24,01599.10
-A.02.01.002,Beetroots,China,CN,0.128,0.24,01599.10
-A.02.01.002,Beetroots,France,FR,0.265,0.24,01599.10
-A.02.01.002,Beetroots,Cote d'Ivoire,CI,0.151,0.24,01599.10
-A.02.01.002,Beetroots,Nicaragua,NI,0.104,0.24,01599.10
-A.02.01.002,Beetroots,Togo,TG,0.106,0.24,01599.10
-A.02.01.002,Beetroots,Cameroon,CM,0.002,0.24,01599.10
-A.02.01.002,Beetroots,Costa Rica,CR,0.053,0.24,01599.10
-A.02.01.002,Beetroots,Dominica,DM,0.001,0.24,01599.10
-A.02.01.002,Beetroots,Ecuador,EC,0.004,0.24,01599.10
-A.02.01.002,Beetroots,Ghana,GH,0.021,0.24,01599.10
-A.02.01.002,Beetroots,Honduras,HN,0.001,0.24,01599.10
-A.02.01.002,Beetroots,Indonesia,ID,0.007,0.24,01599.10
-A.02.01.002,Beetroots,Jamaica,JM,0.005,0.24,01599.10
-A.02.01.002,Beetroots,Kenya,KE,0.001,0.24,01599.10
-A.02.01.002,Beetroots,Malawi,MW,0.008,0.24,01599.10
-A.02.01.002,Beetroots,Mexico,MX,0.005,0.24,01599.10
-A.02.01.002,Beetroots,Pakistan,PK,0.001,0.24,01599.10
-A.02.01.002,Beetroots,Peru,PE,0.01,0.24,01599.10
-A.02.01.002,Beetroots,Philippines,PH,0.002,0.24,01599.10
-A.02.01.002,Beetroots,Saint Vincent and the Grenadines,VC,0.003,0.24,01599.10
-A.02.01.002,Beetroots,Spain,ES,0.089,0.24,01599.10
-A.02.01.002,Beetroots,Suriname,SR,0.001,0.24,01599.10
-A.02.01.002,Beetroots,Thailand,TH,0.031,0.24,01599.10
+A.02.01.001,Arrowroots,Italy,IT,0.972,0.07,01251
+A.02.01.001,Arrowroots,Denmark,DK,0.001,0.07,01251
+A.02.01.001,Arrowroots,France,FR,0.002,0.07,01251
+A.02.01.001,Arrowroots,Germany,DE,0.002,0.07,01251
+A.02.01.001,Arrowroots,Israel,IL,0.008,0.07,01251
+A.02.01.001,Arrowroots,Netherlands,NL,0.007,0.07,01251
+A.02.01.001,Arrowroots,Portugal,PT,0.002,0.07,01251
+A.02.01.001,Arrowroots,Spain,ES,0.003,0.07,01251
+A.02.01.001,Arrowroots,Belgium,BE,0.002,0.07,01251
+A.02.01.001,Arrowroots,Rest of World,RoW,0.001,0.07,01251
+A.02.01.002,Beetroots,Italy,IT,0.972,0.07,01251
+A.02.01.002,Beetroots,Denmark,DK,0.001,0.07,01251
+A.02.01.002,Beetroots,France,FR,0.002,0.07,01251
+A.02.01.002,Beetroots,Germany,DE,0.002,0.07,01251
+A.02.01.002,Beetroots,Israel,IL,0.008,0.07,01251
+A.02.01.002,Beetroots,Netherlands,NL,0.007,0.07,01251
+A.02.01.002,Beetroots,Portugal,PT,0.002,0.07,01251
+A.02.01.002,Beetroots,Spain,ES,0.003,0.07,01251
+A.02.01.002,Beetroots,Belgium,BE,0.002,0.07,01251
+A.02.01.002,Beetroots,Rest of World,RoW,0.001,0.07,01251
 A.02.01.003,Carrots,Italy,IT,0.972,0.07,01251
 A.02.01.003,Carrots,Denmark,DK,0.001,0.07,01251
 A.02.01.003,Carrots,France,FR,0.002,0.07,01251
@@ -315,98 +289,46 @@ A.02.01.003,Carrots,Portugal,PT,0.002,0.07,01251
 A.02.01.003,Carrots,Spain,ES,0.003,0.07,01251
 A.02.01.003,Carrots,Belgium,BE,0.002,0.07,01251
 A.02.01.003,Carrots,Rest of World,RoW,0.001,0.07,01251
-A.02.01.004,Celeriacs,China,CN,0.128,0.24,01599.10
-A.02.01.004,Celeriacs,France,FR,0.265,0.24,01599.10
-A.02.01.004,Celeriacs,Cote d'Ivoire,CI,0.151,0.24,01599.10
-A.02.01.004,Celeriacs,Nicaragua,NI,0.104,0.24,01599.10
-A.02.01.004,Celeriacs,Togo,TG,0.106,0.24,01599.10
-A.02.01.004,Celeriacs,Cameroon,CM,0.002,0.24,01599.10
-A.02.01.004,Celeriacs,Costa Rica,CR,0.053,0.24,01599.10
-A.02.01.004,Celeriacs,Dominica,DM,0.001,0.24,01599.10
-A.02.01.004,Celeriacs,Ecuador,EC,0.004,0.24,01599.10
-A.02.01.004,Celeriacs,Ghana,GH,0.021,0.24,01599.10
-A.02.01.004,Celeriacs,Honduras,HN,0.001,0.24,01599.10
-A.02.01.004,Celeriacs,Indonesia,ID,0.007,0.24,01599.10
-A.02.01.004,Celeriacs,Jamaica,JM,0.005,0.24,01599.10
-A.02.01.004,Celeriacs,Kenya,KE,0.001,0.24,01599.10
-A.02.01.004,Celeriacs,Malawi,MW,0.008,0.24,01599.10
-A.02.01.004,Celeriacs,Mexico,MX,0.005,0.24,01599.10
-A.02.01.004,Celeriacs,Pakistan,PK,0.001,0.24,01599.10
-A.02.01.004,Celeriacs,Peru,PE,0.01,0.24,01599.10
-A.02.01.004,Celeriacs,Philippines,PH,0.002,0.24,01599.10
-A.02.01.004,Celeriacs,Saint Vincent and the Grenadines,VC,0.003,0.24,01599.10
-A.02.01.004,Celeriacs,Spain,ES,0.089,0.24,01599.10
-A.02.01.004,Celeriacs,Suriname,SR,0.001,0.24,01599.10
-A.02.01.004,Celeriacs,Thailand,TH,0.031,0.24,01599.10
-A.02.01.005,Horseradish roots,China,CN,0.128,0.24,01599.10
-A.02.01.005,Horseradish roots,France,FR,0.265,0.24,01599.10
-A.02.01.005,Horseradish roots,Cote d'Ivoire,CI,0.151,0.24,01599.10
-A.02.01.005,Horseradish roots,Nicaragua,NI,0.104,0.24,01599.10
-A.02.01.005,Horseradish roots,Togo,TG,0.106,0.24,01599.10
-A.02.01.005,Horseradish roots,Cameroon,CM,0.002,0.24,01599.10
-A.02.01.005,Horseradish roots,Costa Rica,CR,0.053,0.24,01599.10
-A.02.01.005,Horseradish roots,Dominica,DM,0.001,0.24,01599.10
-A.02.01.005,Horseradish roots,Ecuador,EC,0.004,0.24,01599.10
-A.02.01.005,Horseradish roots,Ghana,GH,0.021,0.24,01599.10
-A.02.01.005,Horseradish roots,Honduras,HN,0.001,0.24,01599.10
-A.02.01.005,Horseradish roots,Indonesia,ID,0.007,0.24,01599.10
-A.02.01.005,Horseradish roots,Jamaica,JM,0.005,0.24,01599.10
-A.02.01.005,Horseradish roots,Kenya,KE,0.001,0.24,01599.10
-A.02.01.005,Horseradish roots,Malawi,MW,0.008,0.24,01599.10
-A.02.01.005,Horseradish roots,Mexico,MX,0.005,0.24,01599.10
-A.02.01.005,Horseradish roots,Pakistan,PK,0.001,0.24,01599.10
-A.02.01.005,Horseradish roots,Peru,PE,0.01,0.24,01599.10
-A.02.01.005,Horseradish roots,Philippines,PH,0.002,0.24,01599.10
-A.02.01.005,Horseradish roots,Saint Vincent and the Grenadines,VC,0.003,0.24,01599.10
-A.02.01.005,Horseradish roots,Spain,ES,0.089,0.24,01599.10
-A.02.01.005,Horseradish roots,Suriname,SR,0.001,0.24,01599.10
-A.02.01.005,Horseradish roots,Thailand,TH,0.031,0.24,01599.10
-A.02.01.006,Parsley roots,China,CN,0.128,0.24,01599.10
-A.02.01.006,Parsley roots,France,FR,0.265,0.24,01599.10
-A.02.01.006,Parsley roots,Cote d'Ivoire,CI,0.151,0.24,01599.10
-A.02.01.006,Parsley roots,Nicaragua,NI,0.104,0.24,01599.10
-A.02.01.006,Parsley roots,Togo,TG,0.106,0.24,01599.10
-A.02.01.006,Parsley roots,Cameroon,CM,0.002,0.24,01599.10
-A.02.01.006,Parsley roots,Costa Rica,CR,0.053,0.24,01599.10
-A.02.01.006,Parsley roots,Dominica,DM,0.001,0.24,01599.10
-A.02.01.006,Parsley roots,Ecuador,EC,0.004,0.24,01599.10
-A.02.01.006,Parsley roots,Ghana,GH,0.021,0.24,01599.10
-A.02.01.006,Parsley roots,Honduras,HN,0.001,0.24,01599.10
-A.02.01.006,Parsley roots,Indonesia,ID,0.007,0.24,01599.10
-A.02.01.006,Parsley roots,Jamaica,JM,0.005,0.24,01599.10
-A.02.01.006,Parsley roots,Kenya,KE,0.001,0.24,01599.10
-A.02.01.006,Parsley roots,Malawi,MW,0.008,0.24,01599.10
-A.02.01.006,Parsley roots,Mexico,MX,0.005,0.24,01599.10
-A.02.01.006,Parsley roots,Pakistan,PK,0.001,0.24,01599.10
-A.02.01.006,Parsley roots,Peru,PE,0.01,0.24,01599.10
-A.02.01.006,Parsley roots,Philippines,PH,0.002,0.24,01599.10
-A.02.01.006,Parsley roots,Saint Vincent and the Grenadines,VC,0.003,0.24,01599.10
-A.02.01.006,Parsley roots,Spain,ES,0.089,0.24,01599.10
-A.02.01.006,Parsley roots,Suriname,SR,0.001,0.24,01599.10
-A.02.01.006,Parsley roots,Thailand,TH,0.031,0.24,01599.10
-A.02.01.007,Parsnip roots,China,CN,0.128,0.24,01599.10
-A.02.01.007,Parsnip roots,France,FR,0.265,0.24,01599.10
-A.02.01.007,Parsnip roots,Cote d'Ivoire,CI,0.151,0.24,01599.10
-A.02.01.007,Parsnip roots,Nicaragua,NI,0.104,0.24,01599.10
-A.02.01.007,Parsnip roots,Togo,TG,0.106,0.24,01599.10
-A.02.01.007,Parsnip roots,Cameroon,CM,0.002,0.24,01599.10
-A.02.01.007,Parsnip roots,Costa Rica,CR,0.053,0.24,01599.10
-A.02.01.007,Parsnip roots,Dominica,DM,0.001,0.24,01599.10
-A.02.01.007,Parsnip roots,Ecuador,EC,0.004,0.24,01599.10
-A.02.01.007,Parsnip roots,Ghana,GH,0.021,0.24,01599.10
-A.02.01.007,Parsnip roots,Honduras,HN,0.001,0.24,01599.10
-A.02.01.007,Parsnip roots,Indonesia,ID,0.007,0.24,01599.10
-A.02.01.007,Parsnip roots,Jamaica,JM,0.005,0.24,01599.10
-A.02.01.007,Parsnip roots,Kenya,KE,0.001,0.24,01599.10
-A.02.01.007,Parsnip roots,Malawi,MW,0.008,0.24,01599.10
-A.02.01.007,Parsnip roots,Mexico,MX,0.005,0.24,01599.10
-A.02.01.007,Parsnip roots,Pakistan,PK,0.001,0.24,01599.10
-A.02.01.007,Parsnip roots,Peru,PE,0.01,0.24,01599.10
-A.02.01.007,Parsnip roots,Philippines,PH,0.002,0.24,01599.10
-A.02.01.007,Parsnip roots,Saint Vincent and the Grenadines,VC,0.003,0.24,01599.10
-A.02.01.007,Parsnip roots,Spain,ES,0.089,0.24,01599.10
-A.02.01.007,Parsnip roots,Suriname,SR,0.001,0.24,01599.10
-A.02.01.007,Parsnip roots,Thailand,TH,0.031,0.24,01599.10
+A.02.01.004,Celeriacs,Italy,IT,0.972,0.07,01251
+A.02.01.004,Celeriacs,Denmark,DK,0.001,0.07,01251
+A.02.01.004,Celeriacs,France,FR,0.002,0.07,01251
+A.02.01.004,Celeriacs,Germany,DE,0.002,0.07,01251
+A.02.01.004,Celeriacs,Israel,IL,0.008,0.07,01251
+A.02.01.004,Celeriacs,Netherlands,NL,0.007,0.07,01251
+A.02.01.004,Celeriacs,Portugal,PT,0.002,0.07,01251
+A.02.01.004,Celeriacs,Spain,ES,0.003,0.07,01251
+A.02.01.004,Celeriacs,Belgium,BE,0.002,0.07,01251
+A.02.01.004,Celeriacs,Rest of World,RoW,0.001,0.07,01251
+A.02.01.005,Horseradish roots,Italy,IT,0.972,0.07,01251
+A.02.01.005,Horseradish roots,Denmark,DK,0.001,0.07,01251
+A.02.01.005,Horseradish roots,France,FR,0.002,0.07,01251
+A.02.01.005,Horseradish roots,Germany,DE,0.002,0.07,01251
+A.02.01.005,Horseradish roots,Israel,IL,0.008,0.07,01251
+A.02.01.005,Horseradish roots,Netherlands,NL,0.007,0.07,01251
+A.02.01.005,Horseradish roots,Portugal,PT,0.002,0.07,01251
+A.02.01.005,Horseradish roots,Spain,ES,0.003,0.07,01251
+A.02.01.005,Horseradish roots,Belgium,BE,0.002,0.07,01251
+A.02.01.005,Horseradish roots,Rest of World,RoW,0.001,0.07,01251
+A.02.01.006,Parsley roots,Italy,IT,0.972,0.07,01251
+A.02.01.006,Parsley roots,Denmark,DK,0.001,0.07,01251
+A.02.01.006,Parsley roots,France,FR,0.002,0.07,01251
+A.02.01.006,Parsley roots,Germany,DE,0.002,0.07,01251
+A.02.01.006,Parsley roots,Israel,IL,0.008,0.07,01251
+A.02.01.006,Parsley roots,Netherlands,NL,0.007,0.07,01251
+A.02.01.006,Parsley roots,Portugal,PT,0.002,0.07,01251
+A.02.01.006,Parsley roots,Spain,ES,0.003,0.07,01251
+A.02.01.006,Parsley roots,Belgium,BE,0.002,0.07,01251
+A.02.01.006,Parsley roots,Rest of World,RoW,0.001,0.07,01251
+A.02.01.007,Parsnip roots,Italy,IT,0.972,0.07,01251
+A.02.01.007,Parsnip roots,Denmark,DK,0.001,0.07,01251
+A.02.01.007,Parsnip roots,France,FR,0.002,0.07,01251
+A.02.01.007,Parsnip roots,Germany,DE,0.002,0.07,01251
+A.02.01.007,Parsnip roots,Israel,IL,0.008,0.07,01251
+A.02.01.007,Parsnip roots,Netherlands,NL,0.007,0.07,01251
+A.02.01.007,Parsnip roots,Portugal,PT,0.002,0.07,01251
+A.02.01.007,Parsnip roots,Spain,ES,0.003,0.07,01251
+A.02.01.007,Parsnip roots,Belgium,BE,0.002,0.07,01251
+A.02.01.007,Parsnip roots,Rest of World,RoW,0.001,0.07,01251
 A.02.01.008,Radishes,Italy,IT,0.938,0.07,01212
 A.02.01.008,Radishes,Austria,AT,0.001,0.07,01212
 A.02.01.008,Radishes,France,FR,0.002,0.07,01212
@@ -3344,20 +3266,20 @@ A.18.02.006,Fiber supplements,Rest of World,RoW,1,0,MI-27
 A.10.02.001.007,Hydrogenated starch hydrolysates,Rest of World,RoW,1,0,MI-28
 A.05.05.003,Palmfruit (Elaeis guineensis),Malaysia,MY,0.3,0.06,01491.01
 A.05.05.003,Palmfruit (Elaeis guineensis),Indonesia,ID,0.7,0.06,01491.01
-A.16.09.006,Rum essence,Rest of World,RoW,1,0,MI-29,,,,
-A.16.10.006,Pectin,Rest of World,RoW,1,0,MI-30,,,,
-A.18.02,Dietary supplements,Rest of World,RoW,1,0,MI-31,,,,
-A.18.02.001,Vitamin supplements,Rest of World,RoW,1,0,MI-32,,,,
-A.18.02.002,Mineral supplements,Rest of World,RoW,1,0,MI-33,,,,
-A.18.02.003,Combination of vitamins and minerals supplements,Rest of World,RoW,1,0,MI-34,,,,
-A.18.02.004,"Supplements containing special fatty acids (e.g. omega-3, essential fatty acids)",Rest of World,RoW,1,0,MI-35,,,,
-A.18.02.005,Protein and amino acids supplements,Rest of World,RoW,1,0,MI-36,,,,
-A.18.02.007,Plant extract formula,Rest of World,RoW,1,0,MI-37,,,,
-A.18.02.008,Coenzyme Q10 supplement,Rest of World,RoW,1,0,MI-38,,,,
-A.18.02.009,Enzyme-based supplement,Rest of World,RoW,1,0,MI-39,,,,
-A.18.02.010,Yeast based supplement,Rest of World,RoW,1,0,MI-40,,,,
-A.18.02.011,"Algae formula (e.g. Spirulina, Chlorella)",Rest of World,RoW,1,0,MI-41,,,,
-A.18.02.012,Pollen-based supplement,Rest of World,RoW,1,0,MI-42,,,,
-A.18.03.005,Carnitine-based supplement for sports people,Rest of World,RoW,1,0,MI-43,,,,
-I.16.09.010,Quinine essence,Rest of World,RoW,1,0,MI-44,,,,
-
+A.16.09.006,Rum essence,Rest of World,RoW,1,0,MI-29
+A.16.10.006,Pectin,Rest of World,RoW,1,0,MI-30
+A.18.02,Dietary supplements,Rest of World,RoW,1,0,MI-31
+A.18.02.001,Vitamin supplements,Rest of World,RoW,1,0,MI-32
+A.18.02.002,Mineral supplements,Rest of World,RoW,1,0,MI-33
+A.18.02.003,Combination of vitamins and minerals supplements,Rest of World,RoW,1,0,MI-34
+A.18.02.004,"Supplements containing special fatty acids (e.g. omega-3, essential fatty acids)",Rest of World,RoW,1,0,MI-35
+A.18.02.005,Protein and amino acids supplements,Rest of World,RoW,1,0,MI-36
+A.18.02.007,Plant extract formula,Rest of World,RoW,1,0,MI-37
+A.18.02.008,Coenzyme Q10 supplement,Rest of World,RoW,1,0,MI-38
+A.18.02.009,Enzyme-based supplement,Rest of World,RoW,1,0,MI-39
+A.18.02.010,Yeast based supplement,Rest of World,RoW,1,0,MI-40
+A.18.02.011,"Algae formula (e.g. Spirulina, Chlorella)",Rest of World,RoW,1,0,MI-41
+A.18.02.012,Pollen-based supplement,Rest of World,RoW,1,0,MI-42
+A.18.03.005,Carnitine-based supplement for sports people,Rest of World,RoW,1,0,MI-43
+I.16.09.010,Quinine essence,Rest of World,RoW,1,0,MI-44
+,,,,,,
