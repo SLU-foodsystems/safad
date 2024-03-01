@@ -13,6 +13,7 @@ import {
   CsvValidationError,
   CsvValidationErrorType,
 } from "@/lib/input-files-parsers";
+import { cancelableDebounce } from "@/lib/utils";
 
 const props = defineProps<{
   fileInterface: InputFile<any>;
@@ -20,7 +21,6 @@ const props = defineProps<{
   fileDescription: string;
   fileLabel: string;
 }>();
-
 
 const isLoading = ref(false);
 const error = ref<CsvValidationErrorType | null>(null);
@@ -125,13 +125,7 @@ const onError = (err: CsvValidationError) => {
   error.value = err.type;
 };
 
-const onFileInputChange = (event: Event) => {
-  const { files } = event.target as HTMLInputElement;
-  if (!files || files.length === 0) return;
-
-  const file = files[0];
-  if (!file) return;
-
+const uploadFile = (file: File) => {
   const fileName = file.name || "";
   const reader = new FileReader();
 
@@ -145,6 +139,9 @@ const onFileInputChange = (event: Event) => {
   reader.addEventListener("load", async () => {
     isLoading.value = false;
     try {
+      if (props.fileInterface.state === "custom") {
+        resetFile(props.countryCode, props.fileInterface);
+      }
       // Must await here for error to be caught
       await setFile(
         {
@@ -165,6 +162,15 @@ const onFileInputChange = (event: Event) => {
   reader.readAsText(file);
 };
 
+const onFileInputChange = (event: Event) => {
+  const { files } = event.target as HTMLInputElement;
+  if (!files || files.length === 0) return;
+
+  const file = files[0];
+  if (!file) return;
+  uploadFile(file);
+};
+
 const download = () => {
   downloadFile(props.countryCode, props.fileInterface);
 };
@@ -183,12 +189,51 @@ const toggleComment = () => {
 const onCommentChange = () => {
   setComment(comment.value, props.fileInterface);
 };
+
+/**
+ * Add drag and drop functionality
+ */
+const isDragging = ref(false);
+const onDragover = () => {
+  if (!isDragging.value && !isLoading.value) {
+    isDragging.value = true;
+  }
+  scheduleDragleave();
+};
+const onDragleave = () => {
+  isDragging.value = false;
+  cancelScheduledDragleave();
+};
+const [scheduleDragleave, cancelScheduledDragleave] = cancelableDebounce(
+  () => onDragleave(),
+  3000
+);
+const onDrop = (e: DragEvent) => {
+  isDragging.value = false;
+  if (isLoading.value) return;
+  if (!e.dataTransfer) return;
+
+  const { files } = e.dataTransfer;
+  if (!files) return;
+  const file = files[0];
+  if (!file) return;
+
+  uploadFile(file);
+};
 </script>
 
 <template>
   <div
     class="file-selector-box"
-    :class="{ 'file-selector-box--custom': fileInterface.state === 'custom' }"
+    :class="{
+      'file-selector-box--custom': fileInterface.state === 'custom',
+      'file-selector-box--dragging': isDragging,
+    }"
+    @dragover.prevent="onDragover"
+    @dragleave.prevent="onDragleave"
+    @dragend.prevent="onDragleave"
+    @dragexit.prevent="onDragleave"
+    @drop.prevent="onDrop"
   >
     <input
       hidden
@@ -258,6 +303,9 @@ const onCommentChange = () => {
       {{ fileDescription }}
     </div>
     <LoadingOverlay :show="isLoading" />
+    <div class="file-selector-box__drag-overlay" @click.prevent="onDragleave">
+      Upload file...
+    </div>
   </div>
 </template>
 
@@ -283,6 +331,26 @@ const onCommentChange = () => {
   h4 {
     font-weight: bold;
     margin-bottom: 0;
+  }
+}
+
+.file-selector-box__drag-overlay {
+  display: none;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+
+  outline: 4px solid $blue_dove;
+  background: rgba(white, 0.9);
+  font-weight: bold;
+
+  .file-selector-box--dragging & {
+    display: flex;
   }
 }
 
