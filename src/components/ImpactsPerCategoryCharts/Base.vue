@@ -15,6 +15,8 @@ const props = defineProps<{
 }>();
 
 const el = ref<HTMLDivElement | null>(null);
+const labels = [props.otherLabel.text, ...props.labels.map((x) => x.text)];
+const colors = [props.otherLabel.color, ...props.labels.map((x) => x.color)];
 
 const dataMap: [string, number][] = [
   ["Carbon footprint", aggregateHeaderIndex("Carbon footprint, total (kg CO2e)")],
@@ -92,8 +94,6 @@ const drawChart = () => {
   );
 
   const data = reshapeData(mergedData);
-  const labels = [props.otherLabel.text, ...props.labels.map((x) => x.text)];
-  const colors = [props.otherLabel.color, ...props.labels.map((x) => x.color)];
 
   const svg = el.value.querySelector("svg");
   if (svg) {
@@ -103,7 +103,7 @@ const drawChart = () => {
   const rect = el.value.getBoundingClientRect();
 
   const width = rect.width;
-  const height = rect.width * 0.45;
+  const height = rect.width * 0.5;
 
   const labelLayout =
     width < 1200 ? (width < 900 ? "slanted" : "offset") : "normal";
@@ -112,11 +112,10 @@ const drawChart = () => {
     width,
     height,
     maxValue: 100,
-    drawLegend: true,
+    drawLegend: false,
     axisLabels: { y: "Contribution, %" },
 
     labelLayout,
-    legendTitle: props.legendTitle,
     legendColors: colors,
   });
 };
@@ -131,7 +130,60 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="el"></div>
+  <div class="impacts-per-category-chart">
+    <div class="impacts-per-category-chart__labels">
+      <p><strong>{{ props.legendTitle }}</strong></p>
+      <p v-for="(label, i) in labels">
+        <span :style="{ background: colors[i] }" />
+        {{ label }}
+      </p>
+    </div>
+    <div ref="el" class="impacts-per-category-chart__canvas" />
+  </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.impacts-per-category-chart {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 1em;
+
+  @media (max-width: 40em) {
+    flex-direction: column;
+  }
+}
+
+.impacts-per-category-chart__labels {
+  flex-basis: 20em;
+  flex-grow: 0;
+  flex-shrink: 1;
+  min-width: 10em;
+  font-size: 0.85em;
+  line-height: 1;
+
+  p {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    > span {
+      $size: 1.25em;
+      content: "";
+      display: inline-block;
+      width: $size;
+      height: $size;
+      background: gray;
+      border-radius: $size;
+    }
+  }
+}
+
+.impacts-per-category-chart__canvas {
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+</style>
