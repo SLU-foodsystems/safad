@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import SLU_COLORS from "@/lib/slu-colors";
 import BaseComponent from "./Base.vue";
 
 const props = defineProps<{
@@ -8,51 +7,51 @@ const props = defineProps<{
 
 const labels = [
   {
-    l1Code: "A.01",
-    text: "Grains",
-    color: SLU_COLORS.Yellow.Cinnamon,
+    l1Code: "A.05",
+    text: "Fruits",
+    color: "#e2f0d9",
   },
   {
     l1Code: "A.02",
     text: "Vegetables",
-    color: SLU_COLORS.Green.Chlorophyll,
-  },
-  {
-    l1Code: "A.03",
-    text: "Starchy roots and tubers",
-    color: SLU_COLORS.Yellow.Sunshine,
+    color: "#548235"
   },
   {
     l1Code: "A.04",
     text: "Legumes, nuts and oilseeds",
-    color: SLU_COLORS.Green.Apple,
+    color: "#385723",
   },
   {
-    l1Code: "A.05",
-    text: "Fruits",
-    color: SLU_COLORS.Red.Plum,
+    l1Code: "A.03",
+    text: "Roots and tubers",
+    color: "#F5D191",
   },
   {
-    l1Code: "A.06",
-    text: "Meats",
-    color: SLU_COLORS.Red.Coral,
-  },
-  {
-    l1Code: "A.07",
-    text: "Fish and other seafood",
-    color: SLU_COLORS.Blue.Seabay,
+    l1Code: "A.01",
+    text: "Grains",
+    color: "#f4c055",
   },
   {
     l1Code: "A.08",
     text: "Milk",
-    color: SLU_COLORS.Blue.Cyan,
+    color: "#deebf7"
   },
-  { l1Code: "A.09", text: "Eggs", color: SLU_COLORS.Blue.Sky },
+  { l1Code: "A.09", text: "Eggs", color: "#9dc3e6" },
+  {
+    l1Code: "A.07",
+    text: "Fish and other seafood",
+    color: "#2e75b6"
+  },
+  {
+    l1Code: "A.06",
+    text: "Meats",
+    color: "#af2834"
+  },
 ];
 
 const othersLabel = {
-  text: "Other commodities and processes",
-  color: SLU_COLORS.Gray.Feather,
+  text: "Other",
+  color: "#d9d9d9",
 };
 </script>
 
