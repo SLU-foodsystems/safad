@@ -140,7 +140,7 @@ const uploadFile = (file: File) => {
     isLoading.value = false;
     try {
       if (props.fileInterface.state === "custom") {
-        resetFile(props.countryCode, props.fileInterface);
+        await resetFile(props.countryCode, props.fileInterface);
       }
       // Must await here for error to be caught
       await setFile(
