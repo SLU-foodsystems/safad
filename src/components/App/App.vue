@@ -326,7 +326,7 @@ onMounted(async () => {
       <div class="page-wrap cluster cluster--between">
         <div class="cluster">
           <a class="top-bar__logo" href="#">
-            <img src="@/assets/slu-logo.svg" width="848" height="848" />
+            <img src="@/assets/slu-logo.svg" width="64" height="64" alt="SLU logo" />
           </a>
           <nav class="cluster" hidden>
             <a href="#0">Home</a>
@@ -625,6 +625,7 @@ onMounted(async () => {
                 width="2253"
                 height="2250"
                 loading="lazy"
+                alt=""
               />
               <h2>Complete package of files</h2>
             </span>
