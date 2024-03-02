@@ -3,6 +3,7 @@ import BoundariesChart from "@/lib/charts/BoundariesChart";
 import { PLANETARY_BOUNDARY_LIMITS } from "@/lib/constants";
 import { useOnResize } from "@/lib/use-on-resize";
 import { onMounted, ref, watch } from "vue";
+import PlaceholderSvg from "./PlaceholderSvg.vue";
 
 const props = defineProps<{
   data: number[];
@@ -63,10 +64,13 @@ useOnResize(drawChart);
 watch(() => props.data, drawChart);
 
 onMounted(drawChart);
+
 </script>
 
 <template>
-  <div class="planetary-boundaries-chart" ref="el" />
+  <div class="planetary-boundaries-chart" ref="el">
+    <PlaceholderSvg :aspect-ratio="1" />
+  </div>
 </template>
 
 <style lang="scss" scoped>

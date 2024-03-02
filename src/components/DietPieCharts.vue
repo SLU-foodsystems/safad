@@ -6,6 +6,7 @@ import SLU_COLORS from "@/lib/slu-colors";
 import { useOnResize } from "@/lib/use-on-resize";
 import { sum } from "@/lib/utils";
 import { ref, onMounted, watch } from "vue";
+import PlaceholderSvg from "./PlaceholderSvg.vue";
 
 const gasesDataMap: [string, string, number, number][] = [
   [
@@ -153,9 +154,14 @@ useOnResize(drawCharts);
 watch(() => props.dietFootprints, drawCharts);
 
 onMounted(drawCharts);
+
 </script>
 
 <template>
-  <div ref="gasesEl" />
-  <div ref="lifecycleEl" />
+  <div ref="gasesEl">
+    <PlaceholderSvg :aspect-ratio="0.5" />
+  </div>
+  <div ref="lifecycleEl">
+    <PlaceholderSvg :aspect-ratio="0.5" />
+  </div>
 </template>

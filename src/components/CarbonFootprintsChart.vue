@@ -6,6 +6,8 @@ import { onMounted, ref, watch } from "vue";
 import { aggregateHeaderIndex } from "@/lib/impacts-csv-utils";
 import SLU_COLORS from "@/lib/slu-colors";
 
+import PlaceholderSvg from "@/components/PlaceholderSvg.vue"
+
 // Code: aggregated impacts
 type GraphData = [string, number[]][];
 
@@ -129,7 +131,9 @@ onMounted(drawChart);
         {{ label }}
       </p>
     </div>
-    <div class="carbon-footprints-chart__canvas" ref="canvasEl"></div>
+    <div class="carbon-footprints-chart__canvas" ref="canvasEl">
+      <PlaceholderSvg :aspect-ratio="0.6" />
+    </div>
   </div>
 </template>
 

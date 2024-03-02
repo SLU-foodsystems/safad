@@ -3,6 +3,7 @@ import { debounce } from "@/lib/utils";
 import { useOnResize } from "@/lib/use-on-resize";
 import { onMounted, ref, watch } from "vue";
 import BarChart from "@/lib/charts/BarChart";
+import PlaceholderSvg from "./PlaceholderSvg.vue";
 
 // Code: aggregated impacts
 type GraphData = [string, number[]][];
@@ -59,7 +60,9 @@ onMounted(drawChart);
 <template>
   <div class="env-footprint-graph">
     <h4 v-text="title" />
-    <div ref="el" />
+    <div ref="el">
+      <PlaceholderSvg :aspect-ratio="0.9" />
+    </div>
   </div>
 </template>
 

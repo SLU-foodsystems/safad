@@ -4,6 +4,7 @@ import { aggregateHeaderIndex } from "@/lib/impacts-csv-utils";
 import { useOnResize } from "@/lib/use-on-resize";
 import { sum, vectorSum } from "@/lib/utils";
 import { onMounted, ref, watch } from "vue";
+import PlaceholderSvg from "../PlaceholderSvg.vue";
 
 type LabelMap = { color: string; text: string; l1Code: string }[];
 
@@ -138,7 +139,9 @@ onMounted(() => {
         {{ label }}
       </p>
     </div>
-    <div ref="el" class="impacts-per-category-chart__canvas" />
+    <div ref="el" class="impacts-per-category-chart__canvas">
+      <PlaceholderSvg :aspect-ratio="0.5" />
+    </div>
   </div>
 </template>
 
