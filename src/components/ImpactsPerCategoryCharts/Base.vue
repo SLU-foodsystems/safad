@@ -83,6 +83,7 @@ const reshapeData = (impactsPerCategory: Record<string, number[]>) => {
 
 const drawChart = () => {
   if (!el.value) return;
+  if (Object.keys(props.impactsPerCategory).length === 0) return;
 
   const codeToLabelMap = Object.fromEntries(
     props.labels.map(({ text, l1Code }) => [l1Code, text])
