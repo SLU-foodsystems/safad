@@ -46,34 +46,34 @@ const isTransportlessProcess = (processes: string[]): boolean => {
 
 function recordPackaging(
   diet: Diet,
-  preparationAndPackagingList: Record<string, string[]>
+  packagingCodes: Record<string, string>
 ): NestedRecord<string, number> {
-  const packagingContributions: NestedRecord<string, number> = {};
+  const packagingAmounts: NestedRecord<string, number> = {};
+
   diet.forEach(([code, amount]) => {
-    const level = getRpcCodeLevel(code);
-    if (level < 3) return;
 
     const l1Code = getRpcCodeSubset(code, 1, true);
     if (!l1Code) return; // TODO: warn here?
 
-    const l3Code = getRpcCodeSubset(code, 3);
-    const specials = preparationAndPackagingList[l3Code];
-    if (!specials) return;
+    let level = getRpcCodeLevel(code);
+    let packagingCode = "";
+    while (!packagingCode && level > 0) {
+      const subcode = getRpcCodeSubset(code, level);
+      const maybePackagingCode =  packagingCodes[subcode];
+      if (maybePackagingCode) packagingCode = maybePackagingCode;
+      level -= 1;
+    }
+    if (!packagingCode) return;
 
-    const packagingSpecials = specials.filter(isPackagingCode);
-    if (!packagingSpecials) return;
-
-    if (!packagingContributions[l1Code]) {
-      packagingContributions[l1Code] = {};
+    if (!packagingAmounts[l1Code]) {
+      packagingAmounts[l1Code] = {};
     }
 
-    packagingSpecials.forEach((packagingCode) => {
-      packagingContributions[l1Code][packagingCode] =
-        (packagingContributions[l1Code][packagingCode] || 0) + amount;
-    });
+    packagingAmounts[l1Code][packagingCode] =
+      (packagingAmounts[l1Code][packagingCode] || 0) + amount;
   });
 
-  return packagingContributions;
+  return packagingAmounts;
 }
 
 /**
@@ -101,7 +101,7 @@ function aggregateDuplicateRpcs(rpcs: Diet) {
  * sub-components that constitute it, respecting the amount, yield, and waste.
  * Ensures each RPC only occures once.
  *
- * It will also record any preparation processes and packaging.
+ * It will also record any preparation processes.
  */
 function reduceToRpcs(
   // Main input: Code and amount of the food to reduce
@@ -206,17 +206,16 @@ function reduceToRpcs(
 export default function reduceDietToRpcs(
   diet: Diet,
   recipes: FoodsRecipes,
-  preparationAndPackagingList: Record<string, string[]>
+  preparationProcesses: Record<string, string[]>,
+  packagingCodes: Record<string, string>
 ): [
   Diet,
   NestedRecord<string, number>,
   NestedRecord<string, number>,
   Record<string, number>,
 ] {
-  const packagingMap = recordPackaging(diet, preparationAndPackagingList);
-
-  const processesMap: NestedRecord<string, number> = {};
-  const transportlessMap: Record<string, number> = {};
+  const processesAmounts: NestedRecord<string, number> = {};
+  const transportlessAmounts: Record<string, number> = {};
 
   // Helper function  called for all processes found when traversing the
   // recipes, adding to the above map under its L1 code.
@@ -226,34 +225,37 @@ export default function reduceDietToRpcs(
     amount: number
   ) => {
     const level1Category = getRpcCodeSubset(code, 1, true);
-    if (!(level1Category in processesMap)) {
-      processesMap[level1Category] = {};
+    if (!(level1Category in processesAmounts)) {
+      processesAmounts[level1Category] = {};
     }
 
-    processesMap[level1Category][facetCode] =
-      (processesMap[level1Category][facetCode] || 0) + amount;
+    processesAmounts[level1Category][facetCode] =
+      (processesAmounts[level1Category][facetCode] || 0) + amount;
   };
 
   const recordTransportless = (rpcCode: string, amount: number) => {
-    transportlessMap[rpcCode] = (transportlessMap[rpcCode] || 0) + amount;
+    transportlessAmounts[rpcCode] =
+      (transportlessAmounts[rpcCode] || 0) + amount;
   };
 
-  const rpcs = diet
+  const rpcAmounts = diet
     .map((rpcDerivative) =>
       reduceToRpcs(
         rpcDerivative,
         recipes,
-        preparationAndPackagingList,
+        preparationProcesses,
         recordTransportless,
         recordProcessContribution
       )
     )
     .flat(1);
 
+  const packagingAmounts = recordPackaging(diet, packagingCodes);
+
   return [
-    aggregateDuplicateRpcs(rpcs),
-    processesMap,
-    packagingMap,
-    transportlessMap,
+    aggregateDuplicateRpcs(rpcAmounts),
+    processesAmounts,
+    packagingAmounts,
+    transportlessAmounts,
   ];
 }

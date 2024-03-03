@@ -39,7 +39,8 @@ type InputFileKeys =
   | "foodsRecipesFile"
   | "rpcOriginWasteFile"
   | "processesEnergyDemandsFile"
-  | "preparationProcessesAndPackagingFile"
+  | "preparationProcessesFile"
+  | "packagingCodesFile"
   | "wasteRetailAndConsumerFile"
   | "footprintsRpcsFile"
   | "dietFile"
@@ -82,8 +83,10 @@ export default class MetaFile {
       "Origin and Waste of RPC: " + fileInterfaceToString(f.rpcOriginWasteFile),
       "Energy demands of processes: " +
         fileInterfaceToString(f.processesEnergyDemandsFile),
-      "Preparation Processes and Packaging: " +
-        fileInterfaceToString(f.preparationProcessesAndPackagingFile),
+      "Preparation Processes: " +
+        fileInterfaceToString(f.preparationProcessesFile),
+      "Packaging: " +
+        fileInterfaceToString(f.packagingCodesFile),
       "Waste, Conumser and retail: " +
         fileInterfaceToString(f.wasteRetailAndConsumerFile),
       "",

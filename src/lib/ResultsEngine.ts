@@ -38,7 +38,8 @@ class ResultsEngine {
   emissionsFactorsTransport?: NestedRecord<string, number[]>;
 
   processesEnergyDemands?: Record<string, number[]>;
-  preparationProcessesAndPackaging?: Record<string, string[]>;
+  preparationProcesses?: Record<string, string[]>;
+  packagingCodes?: Record<string, string>;
 
   wasteRetailAndConsumer?: Record<string, number[]>;
 
@@ -53,8 +54,8 @@ class ResultsEngine {
       this.setEmissionsFactorsPackaging.bind(this);
     this.setEmissionsFactorsTransport =
       this.setEmissionsFactorsTransport.bind(this);
-    this.setPrepProcessesAndPackaging =
-      this.setPrepProcessesAndPackaging.bind(this);
+    this.setPreparationProcesses = this.setPreparationProcesses.bind(this);
+    this.setPackagingCodes = this.setPackagingCodes.bind(this);
     this.setWasteRetailAndConsumer = this.setWasteRetailAndConsumer.bind(this);
     this.setFoodsRecipes = this.setFoodsRecipes.bind(this);
     this.computeImpacts = this.computeImpacts.bind(this);
@@ -183,10 +184,14 @@ class ResultsEngine {
     this.emissionsFactorsTransport = emissionsFactorsTransport;
   }
 
-  public setPrepProcessesAndPackaging(
-    processesAndPackaging: Record<string, string[]>
+  public setPreparationProcesses(
+    preparationProcesses: Record<string, string[]>
   ) {
-    this.preparationProcessesAndPackaging = processesAndPackaging;
+    this.preparationProcesses = preparationProcesses;
+  }
+
+  public setPackagingCodes(packagingCodes: Record<string, string>) {
+    this.packagingCodes = packagingCodes;
   }
 
   private getRpcFootprints(
@@ -203,7 +208,9 @@ class ResultsEngine {
     }
 
     if (Number.isNaN(amountGram)) {
-      console.error(`getRpcFootprints recieved NaN amount for code ${rpcCode}.`);
+      console.error(
+        `getRpcFootprints recieved NaN amount for code ${rpcCode}.`
+      );
       return null;
     }
 
@@ -249,8 +256,12 @@ class ResultsEngine {
       );
     }
 
-    if (!this.preparationProcessesAndPackaging) {
-      throw new Error("Compute called without processes and packaging set.");
+    if (!this.preparationProcesses) {
+      throw new Error("Compute called without preparation processes");
+    }
+
+    if (!this.packagingCodes) {
+      throw new Error("Compute called without packaging set.");
     }
 
     const dietWithWaste = adjustDietForWaste(diet, this.wasteRetailAndConsumer);
@@ -263,7 +274,8 @@ class ResultsEngine {
     ] = reduceDiet(
       dietWithWaste,
       this.foodsRecipes,
-      this.preparationProcessesAndPackaging
+      this.preparationProcesses,
+      this.packagingCodes
     );
 
     const rpcImpacts = Object.fromEntries(

@@ -40,8 +40,9 @@ const Descriptions = {
     "File that specifies the amount of retail and consumer waste for different food types and per country.",
   recipes:
     "File that disaggregates food items into their components and finally into its RPC, specifies processing steps, and contains conversion factors from going from RPC to edible RPCs. File with conversion (“reverse yield”-factors), allocation factors and definition of processes for the different food items.",
-  prepProcAndPack:
-    "File with additional processing steps for composite foods (e.g. baking for bread) and specification of the types of packaging used.",
+  preparationProcesses:
+    "File with additional processing steps for composite foods (e.g. baking for bread).",
+  packagingCodes: "File with specification of the types of packaging used.",
   processesEnergyDemands:
     "File that contains the amount and type of energy sources that each process uses.",
   emissionsFactorsEnergy:
@@ -109,12 +110,20 @@ const processesEnergyDemandsFile = ref(
     setter: RE.setProcessesEnergyDemands,
   })
 );
-const preparationProcessesAndPackagingFile = ref(
+const preparationProcessesFile = ref(
   initInputFile<Record<string, string[]>>({
-    defaultName: () => "SAFAD IP Prep Proc and Pack.csv",
-    getDefault: DefaultInputFiles.raw.preparationProcessesAndPackaging,
-    parser: InputFileParsers.parseProcessesPackaging,
-    setter: RE.setPrepProcessesAndPackaging,
+    defaultName: () => "SAFAD IP Preparation Processes.csv",
+    getDefault: DefaultInputFiles.raw.preparationProcesses,
+    parser: InputFileParsers.parsePreparationProcesses,
+    setter: RE.setPreparationProcesses,
+  })
+);
+const packagingCodesFile = ref(
+  initInputFile<Record<string, string>>({
+    defaultName: () => "SAFAD IP Packaging.csv",
+    getDefault: DefaultInputFiles.raw.packagingCodes,
+    parser: InputFileParsers.parsePackagingCodes,
+    setter: RE.setPackagingCodes,
   })
 );
 const wasteRetailAndConsumerFile = ref(
@@ -137,7 +146,7 @@ const emissionsFactorsEnergyFile = ref(
 );
 const emissionsFactorsPackagingFile = ref(
   initInputFile<Record<string, number[]>>({
-    defaultName: () => "SAFAD IEF Packaging.csv",
+    defaultName: () => "SAFAD IP Packaging.csv",
     getDefault: DefaultInputFiles.raw.emissionsFactorsPackaging,
     parser: InputFileParsers.parseEmissionsFactorsPackaging,
     setter: RE.setEmissionsFactorsPackaging,
@@ -230,7 +239,8 @@ const downloadFootprintsOfDiets = () => {
         reduceDietToRpcs(
           [[code, amount]],
           RE.foodsRecipes!,
-          RE.preparationProcessesAndPackaging!
+          RE.preparationProcesses!,
+          RE.packagingCodes!
         )[0],
       ])
     );
@@ -259,8 +269,8 @@ metaFileHandler.setInputFileInterfaces({
   foodsRecipesFile: foodsRecipesFile.value,
   rpcOriginWasteFile: rpcOriginWasteFile.value,
   processesEnergyDemandsFile: processesEnergyDemandsFile.value,
-  preparationProcessesAndPackagingFile:
-    preparationProcessesAndPackagingFile.value,
+  preparationProcessesFile: preparationProcessesFile.value,
+  packagingCodesFile: packagingCodesFile.value,
   wasteRetailAndConsumerFile: wasteRetailAndConsumerFile.value,
   footprintsRpcsFile: footprintsRpcsFile.value,
   dietFile: dietFile.value,
@@ -289,7 +299,7 @@ const downloadZip = async () => {
     emissionsFactorsTransportFile.value,
     foodsRecipesFile.value,
     footprintsRpcsFile.value,
-    preparationProcessesAndPackagingFile.value,
+    preparationProcessesFile.value,
     processesEnergyDemandsFile.value,
     rpcOriginWasteFile.value,
     sfaRecipesFile.value,
@@ -332,7 +342,8 @@ const downloadZip = async () => {
       reduceDietToRpcs(
         [[code, amount]],
         RE.foodsRecipes!,
-        RE.preparationProcessesAndPackaging!
+        RE.preparationProcesses!,
+        RE.packagingCodes!
       )[0],
     ])
   );
@@ -622,10 +633,16 @@ onMounted(async () => {
       />
 
       <FileSelector
-        file-label="Preparation Processes and Packaging"
+        file-label="Preparation Processes"
         :country-code="countryCode"
-        :file-interface="preparationProcessesAndPackagingFile"
-        :file-description="Descriptions.prepProcAndPack"
+        :file-interface="preparationProcessesFile"
+        :file-description="Descriptions.preparationProcesses"
+      />
+      <FileSelector
+        file-label="Packaging"
+        :country-code="countryCode"
+        :file-interface="packagingCodesFile"
+        :file-description="Descriptions.packagingCodes"
       />
       <FileSelector
         file-label="Consumer- and Retail wastes"
