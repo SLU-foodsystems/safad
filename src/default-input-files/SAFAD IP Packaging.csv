@@ -1,0 +1,1664 @@
+Food code,Food name,Packaging code,Packaging name
+A.01.01.001,Wheat grain crop,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.01.002,Barley grain,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.01.003,Corn grain,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.01.004,Rye grain,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.01.005,Spelt grain,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.01.006,Buckwheat grain,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.01.007,Millet grain,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.01.008,"Oats, grain",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.01.009,Rice,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.01.010,Other grains,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.02.001,Wheat grain,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.02.002,Barley grain,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.02.003,Corn grain,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.02.004,Rye grain,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.02.005,Spelt grain,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.02.006,Buckwheat grain,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.02.007,Millet grain,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.02.008,"Oats, grain",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.02.009,Rice,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.02.010,Other grains,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.02.010,Other grains,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.03.001,Wheat milling products,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.03.002,Rye milling products,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.03.003,Buckwheat milling products,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.03.004,Corn milling products,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.03.005,Oat milling products,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.03.006,Rice milling products,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.03.007,Spelt milling products,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.03.008,Other milling products,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.04.001,Wheat bread and rolls,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.04.002,Rye bread and rolls,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.04.003,Mixed wheat and rye bread and rolls,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.04.004,Multigrain bread and rolls,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.04.005,"Unleavened bread, crisp bread and rusk",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.04.006,Other bread,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.04.007,Bread products,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.05.001,Glass noodle,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.05.002,"Noodle, rice",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.05.003,"Noodle, wheat flour, with eggs",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.05.004,"Noodle, wheat flour, without eggs",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.05.005,"Pasta, wheat flour, with eggs",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.05.006,"Pasta, wheat flour, without eggs",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.05.007,"Pasta, wheat flour, filled",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.05.008,"Pasta, mixed cereal flour",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.05.009,"Pasta, rye flour",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.05.010,"Pasta, soy flour",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.05.011,"Pasta, spelt flour",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.05.012,"Pasta, spelt wholemeal",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.05.013,"Pasta, wheat wholemeal, without eggs",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.05.014,"Pasta, wheat wholemeal, with eggs",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.05.015,"Pasta, gluten free",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.01.06.001,Cereal flakes,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.01.06.002,Muesli,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.01.06.003,Cereal bars,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.01.06.004,Popped cereals,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.01.06.005,Mixed breakfast cereals,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.01.06.006,Grits,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.01.06.007,Porridge,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.01.07.001,Pastries and cakes,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.01.07.002,Biscuits (cookies),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.01.001,Arrowroot (Maranta arundinacea),P6,Fruits and vegetables
+A.02.01.002,Beetroot (Beta vulgaris subsp. vulgaris),P6,Fruits and vegetables
+A.02.01.003,Carrots (Daucus carota),P6,Fruits and vegetables
+A.02.01.004,Celeriac (Apium graveolens var. rapaceum),P6,Fruits and vegetables
+A.02.01.005,Horseradish (Armoracia rusticana),P6,Fruits and vegetables
+A.02.01.006,Parsley root (Petroselinum crispum),P6,Fruits and vegetables
+A.02.01.007,Parsnips (Pastinaca sativa),P6,Fruits and vegetables
+A.02.01.008,Radishes (Raphanus sativus var. sativus),P6,Fruits and vegetables
+A.02.01.009,Salsify (Tragopogon porrifolius),P6,Fruits and vegetables
+A.02.01.010,Swedes (Brassica napus var. napobrassica),P6,Fruits and vegetables
+A.02.01.011,Taro (Colocasia spp.),P6,Fruits and vegetables
+A.02.01.012,Turnips (Brassica rapa),P6,Fruits and vegetables
+A.02.02.001,"Garlic, bulb (Allium sativum)",P6,Fruits and vegetables
+A.02.02.002,"Onions, bulb (Allium cepa)",P6,Fruits and vegetables
+A.02.02.003,"Shallots, bulb (Allium ascalonicum, Allium cepa var. aggregatum)",P6,Fruits and vegetables
+A.02.02.004,"Spring onions, bulb (Allium cepa)",P6,Fruits and vegetables
+A.02.02.005,"Chives, bulb (Allium schoenoprasum)",P6,Fruits and vegetables
+A.02.03.001,Tomatoes (Lycopersicum esculentum),P6,Fruits and vegetables
+A.02.03.002,"Peppers, paprika (Capsicum annuum, var. grossum and var. longum)",P6,Fruits and vegetables
+A.02.03.003,Chilli pepper (Capsicum frutescens),P6,Fruits and vegetables
+A.02.03.004,Aubergines (egg plants) (Solanum melongena),P6,Fruits and vegetables
+A.02.03.005,"Okra, lady�s fingers (Hibiscus esculentus)",P6,Fruits and vegetables
+A.02.03.006,Cucumbers (Cucumis sativus),P6,Fruits and vegetables
+A.02.03.007,Gherkins (Cucumis sativus),P6,Fruits and vegetables
+A.02.03.008,Courgettes (Zucchini) (Cucurbita pepo var. melopepo),P6,Fruits and vegetables
+A.02.03.009,Melons (Cucumis melo),P6,Fruits and vegetables
+A.02.03.010,Pumpkins (Cucurbita maxima),P6,Fruits and vegetables
+A.02.03.011,Watermelons (Citrullus lanatus),P6,Fruits and vegetables
+A.02.03.012,Sweet corn (Zea mays var. saccharata),P6,Fruits and vegetables
+A.02.04.001,Broccoli (Brassica oleracea var. italica),P6,Fruits and vegetables
+A.02.04.002,Cauliflower (Brassica oleracea var. botrytis),P6,Fruits and vegetables
+A.02.04.003,Brussels sprouts (Brassica oleracea var. gemmifera),P6,Fruits and vegetables
+A.02.04.004,Head cabbage (Brassica oleracea convar. capitata),P6,Fruits and vegetables
+A.02.04.005,Chinese cabbage (Brassica pekinensis),P6,Fruits and vegetables
+A.02.04.006,Kale (Brassica oleracea convar. Acephalea),P6,Fruits and vegetables
+A.02.04.007,"Kohlrabi (Brassica oleracea convar. acephala, var. gongylodes)",P6,Fruits and vegetables
+A.02.04.008,Scurvy-grass (Cochlearia species),P6,Fruits and vegetables
+A.02.05,Leaf vegetables,P6,"Fruits, berries and vegetables"
+A.02.05.001,Lamb's lettuce (Valerianella locusta),P6,Fruits and vegetables
+A.02.05.002,"Lettuce, excluding Iceberg-type lettuce (Lactuca sativa)",P6,Fruits and vegetables
+A.02.05.003,Iceberg-type lettuce,P6,Fruits and vegetables
+A.02.05.004,"Endive, scarole (broad-leaf endive) (Cichorium endiva)",P6,Fruits and vegetables
+A.02.05.005,Cress (Lepidium sativum),P6,Fruits and vegetables
+A.02.05.006,Land cress (Barbarea verna),P6,Fruits and vegetables
+A.02.05.007,"Rocket, Rucola (Eruca sativa, Diplotaxis spec.)",P6,Fruits and vegetables
+A.02.05.008,Red mustard (Brassica juncea var. rugosa),P6,Fruits and vegetables
+A.02.05.009,Leaves and sprouts of Brassica spp (Brassica spp.),P6,Fruits and vegetables
+A.02.05.010,Spinach (fresh) (Spinacia oleracea),P6,Fruits and vegetables
+A.02.05.011,"Spinach  (Spinacia oleracea), preserved, deep-frozen or frozen",P6,Fruits and vegetables
+A.02.05.012,Purslane (Portulaca oleracea),P6,Fruits and vegetables
+A.02.05.013,Beet leaves (Beta vulgaris),P6,Fruits and vegetables
+A.02.05.014,Vine leaves (grape leaves) (Vitis euvitis),P6,Fruits and vegetables
+A.02.05.015,Water cress (Nasturtium officinale),P6,Fruits and vegetables
+A.02.05.016,Witloof (Cichorium intybus. var. foliosum),P6,Fruits and vegetables
+A.02.05.017,Garden orache (Atriplex hortensis),P6,Fruits and vegetables
+A.02.05.018,Mustard seedling (Sinapis alba),P6,Fruits and vegetables
+A.02.05.019,Dandelion leaf (Taraxacum officinalis),P6,Fruits and vegetables
+A.02.05.020,Nettle (Urtica dioica),P6,Fruits and vegetables
+A.02.05.021,Sorrel (Rumex spp.),P6,Fruits and vegetables
+A.02.05.022,"Alfalfa spouts, fresh (Medicago sativa)",P6,Fruits and vegetables
+A.02.06.001,"Beans, with pods (Phaseolus vulgaris)",P6,Fruits and vegetables
+A.02.06.002,"Peas, with pods (Pisum sativum)",P6,Fruits and vegetables
+A.02.07.001,Asparagus (Asparagus officinalis),P6,Fruits and vegetables
+A.02.07.002,Cardoons (Cynara cardunculus),P6,Fruits and vegetables
+A.02.07.003,Celery (Apium graveolens var. dulce),P6,Fruits and vegetables
+A.02.07.004,Fennel (Foeniculum vulgare),P6,Fruits and vegetables
+A.02.07.005,Globe artichokes (Cynara scolymus),P6,Fruits and vegetables
+A.02.07.006,Leek (Allium porrum),P6,Fruits and vegetables
+A.02.07.007,Rhubarb (Rheum � hybridum),P6,Fruits and vegetables
+A.02.07.008,Bamboo shoots (Bambusa vulgaris),P6,Fruits and vegetables
+A.02.07.009,"Palm hearts (Euterpa oleracea, Cocos nucifera, Bactris gasipaes, Daemonorops schmidtiana)",P6,Fruits and vegetables
+A.02.08.001,Sugar beet (root) (Beta vulgaris),P6,Fruits and vegetables
+A.02.08.002,Sugar cane (Saccharum officinarum),P6,Fruits and vegetables
+A.02.08.003,Chicory roots (Cichorium intybus),P6,Fruits and vegetables
+A.02.09.001,Irish moss (Chondrus crispus),P6,Fruits and vegetables
+A.02.09.001.001,Kombu (Laminaria spp.),P6,Fruits and vegetables
+A.02.09.001.002,Laver (Porphyra spp.),P6,Fruits and vegetables
+A.02.09.001.003,Wakame (Undaria spp),P6,Fruits and vegetables
+A.02.10,Tea and herbs for infusions (Solid),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.10.001,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis)",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.10.003,Camomile flowers (Matricaria recutita),P6,Fruits and vegetables
+A.02.10.004,Peppermint (Mentha � piperita),P6,Fruits and vegetables
+A.02.10.005,Hibiscus flowers (Hibiscus sabdariffa),P6,Fruits and vegetables
+A.02.10.006,Rose petals (Rosa spec.),P6,Fruits and vegetables
+A.02.10.007,Jasmine flowers (Jasminum officinale),P6,Fruits and vegetables
+A.02.10.008,Lime (linden) (Tillia cordata),P6,Fruits and vegetables
+A.02.10.009,Strawberry leaves (Fragaria � ananassa),P6,Fruits and vegetables
+A.02.10.010,Rooibos leaves (Aspalathus spp.),P6,Fruits and vegetables
+A.02.10.011,Mat� (Ilex paraguariensis),P6,Fruits and vegetables
+A.02.10.012,Valerian root (Valeriana officinalis),P6,Fruits and vegetables
+A.02.10.013,Ginseng root (Panax ginseng),P6,Fruits and vegetables
+A.02.11.001,Cocoa beans (fermented beans) (Theobroma cacao),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.11.002,Cocoa powder,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.11.003,"Cocoa beverage-preparation, powder",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.11.004,Cocoa mass,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.12.001,Coffee beans,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.12.002,"Coffee beans, roasted",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.12.003,"Coffee beans, roasted, decaffeinated",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.12.004,"Coffee beans, roasted and ground",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.12.005,"Coffee beans, roasted and ground, decaffeinated",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.12.006,"Instant coffee, powder",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.02.12.007,"Instant coffee, powder, decaffeinated",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.02.13.001,Malt coffee,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.13.002,Chicory coffee,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.13.003,Rye coffee,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.13.004,Wheat coffee,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.13.005,Barley coffee,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.13.006,Fig coffee,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.13.007,Sugar beet coffee,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.13.008,Mixture of coffee imitates,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.14.001,Mushy peas (Pisum sativum),P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.02.14.002,Garlic pur�e,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.02.14.003,Tomato pur�e,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.02.14.004,Mixed vegetable pur�e,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.02.14.005,Pickled vegetables,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.02.14.006,Sauerkraut,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.02.14.007,Sun-dried tomatoes,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.02.14.008,Mashed vegetables,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.02.14.009,Coconut milk (Cocos nucifera),P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.02.14.010,Chestnut pur�e (Castanea vulgaris),P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.02.14.011,Sesam paste (Tahini) (Sesamus indicum),P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.02.14.012,"Hops (dried), including hop pellets and unconcentrated powder (Humulus lupulus)",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.02.15.001,Cultivated mushroom (syn. Button mushroom) (Agaricus bisporus),P6,Fruits and vegetables
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus),P6,Fruits and vegetables
+A.02.15.003,Shiitake mushroom (Lentinus edodes),P6,Fruits and vegetables
+A.02.15.004,Straw mushroom (Volvaria volvaria),P6,Fruits and vegetables
+A.02.16,"Fungi, wild, edible",P6,"Fruits, berries and vegetables"
+A.02.16.001,Field mushroom (Agaricus campestris),P6,Fruits and vegetables
+A.02.16.002,Honey mushroom (Armillaria mellea),P6,Fruits and vegetables
+A.02.16.003,Boletus (Boletus (and other) spp.),P6,Fruits and vegetables
+A.02.16.004,Truffle (Tuber spp.),P6,Fruits and vegetables
+A.02.16.005,Morel (Morchella esculanta),P6,Fruits and vegetables
+A.02.16.006,Cantharelle (Cantharellus cibarius),P6,Fruits and vegetables
+A.02.16.007,Orange agaric (Lactarius deliciosus),P6,Fruits and vegetables
+A.02.16.008,Gypsy mushroom (Cortinarius caperatus),P6,Fruits and vegetables
+A.03.01.001,New potatoes,P6,Fruits and vegetables
+A.03.01.002,Main-crop potatoes,P6,Fruits and vegetables
+A.03.01.002,Main-crop potatoes,P6,Fruits and vegetables
+A.03.01.003,French fries,P10,Pre-prepared meal
+A.03.01.004,Potato flakes,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.03.01.005,Mashed potato powder,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.03.01.006,Potato boiled,P10,Pre-prepared meal
+A.03.01.007,Potato fried,P10,Pre-prepared meal
+A.03.01.008,Potato baked,P10,Pre-prepared meal
+A.03.01.009,Potato croquettes,P10,Pre-prepared meal
+A.03.01.010,Potato starch,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.03.01.011,Potato flour,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.03.02.001,Sweet potatoes (Ipomoea batatas),P6,Fruits and vegetables
+A.03.02.002,Cassava root (Manihot esculenta),P6,Fruits and vegetables
+A.03.02.003,Tapioca,P6,Fruits and vegetables
+A.03.02.004,Yam tubers (Dioscorea sp.),P6,Fruits and vegetables
+A.03.02.005,Jerusalem artichokes tubers (Helianthus tuberosus),P6,Fruits and vegetables
+A.04.01.001,"Beans, green, without pods (Phaseolus vulgaris)",P6,Fruits and vegetables
+A.04.01.002,"Peas, green, without pods (Pisum sativum)",P6,Fruits and vegetables
+A.04.01.003,"Lentils, green (Lens culinaris syn. L. esculenta)",P6,Fruits and vegetables
+A.04.02.001,Beans (Phaseolus vulgaris),P6,Fruits and vegetables
+A.04.02.002,Lentils (Lens culinaris syn. L. esculenta),P6,Fruits and vegetables
+A.04.02.003,Peas (Pisum sativum),P6,Fruits and vegetables
+A.04.02.004,Lupins (Lupinus spp.),P6,Fruits and vegetables
+A.04.02.005,Chick pea (Cicer arietinum),P6,Fruits and vegetables
+A.04.02.006,Chick pea flour,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.04.02.007,Broad bean (Vicia faba),P6,Fruits and vegetables
+A.04.02.008,Lima bean (Phaseolus lunatis),P6,Fruits and vegetables
+A.04.02.009,Mung bean (Phaseolus aureus),P6,Fruits and vegetables
+A.04.02.010,Urd bean (Phaseolus mungo),P6,Fruits and vegetables
+A.04.02.011,Black eye bean (Vigna unguiculata),P6,Fruits and vegetables
+A.04.02.012,Soya beans (Glycine max),P6,Fruits and vegetables
+A.04.02.013,Soya beans flour,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.04.02.013a,Wheat Protein Isolate,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.04.02.013x,Pea flour,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.04.02.013y,Soya beans Protein Isolate,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.04.02.013z,Pea Protein Isolate,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.04.02.014,Carob fruit (Ceratonia siliqua),P6,Fruits and vegetables
+A.04.02.015,Horse bean (Vicia faba equina),P6,Fruits and vegetables
+A.04.02.016,"Black gram, Urad (Vigna mungo)",P6,Fruits and vegetables
+A.04.02.017,Scarlet runner bean (Phaseolus coccineus),P6,Fruits and vegetables
+A.04.02.018,Rice bean (Vigna umbellata),P6,Fruits and vegetables
+A.04.02.019,"Pigeon pea, (Cajanus cajan)",P6,Fruits and vegetables
+A.04.02.020,Yam bean (Pachyrrizus erosus),P6,Fruits and vegetables
+A.04.02.021,Peanut (Arachis hypogea),P6,Fruits and vegetables
+A.04.03.001,"Almond, sweet (Prunus amygalus dulcis)",P11,Nuts
+A.04.03.002,"Almond, bitter (Prunus amygalus amara)",P11,Nuts
+A.04.03.003,Brazil nuts (Bertholletia excelsa),P11,Nuts
+A.04.03.004,Cashew nuts (Anacardium occidentale),P11,Nuts
+A.04.03.005,Chestnuts (Castanea sativa),P11,Nuts
+A.04.03.006,Coconuts (Cocos nucifera),P11,Nuts
+A.04.03.007,Hazelnuts (Corylus avellana),P11,Nuts
+A.04.03.008,Macadamia (Macadamia ternifolia),P11,Nuts
+A.04.03.009,Pecans (Carya illinoensis),P11,Nuts
+A.04.03.010,Pine nuts (Pinus pinea),P11,Nuts
+A.04.03.011,Pistachios (Pistachia vera),P11,Nuts
+A.04.03.012,Walnuts (Juglans regia),P11,Nuts
+A.04.03.013,Kola nut (Cola spp.),P11,Nuts
+A.04.04.001,Linseed (Linum usitatissimum),P11,Nuts
+A.04.04.003,Poppy seed (Papaver somniferum),P11,Nuts
+A.04.04.004,Sesame seed (Sesamum indicum syn. S. orientale),P11,Nuts
+A.04.04.005,Sunflower seed (Helianthus annuus),P11,Nuts
+A.04.04.006,Rape seed (Brassica napus),P11,Nuts
+A.04.04.007,Mustard seed (Brassica nigra),P11,Nuts
+A.04.04.008,Cotton seed (Gossypium spp.),P11,Nuts
+A.04.04.009,Pumpkin seeds (Cucurbita pepo var. oleifera),P11,Nuts
+A.04.04.010,Safflower (Carthamus tinctorius),P11,Nuts
+A.04.04.011,Borage (Borago officinalis),P11,Nuts
+A.04.04.012,Gold of pleasure (Camelina sativa),P11,Nuts
+A.04.04.013,Hempseed (Cannabis sativa),P11,Nuts
+A.04.04.014,Castor bean (Ricinus communis),P11,Nuts
+A.04.05,Other seeds,P11,Nuts
+A.05.01.001,Grapefruit (Citrus paradisi),P6,Fruits and vegetables
+A.05.01.002,Oranges (Citrus sinensis),P6,Fruits and vegetables
+A.05.01.003,Lemons (Citrus limon),P6,Fruits and vegetables
+A.05.01.004,Limes (Citrus aurantifolia),P6,Fruits and vegetables
+A.05.01.005,Mandarins (Citrus reticulata),P6,Fruits and vegetables
+A.05.01.006,Pomelo (Citrus grandis),P6,Fruits and vegetables
+A.05.02.001,Apple (Malus domesticus),P6,Fruits and vegetables
+A.05.02.002,Pear (Pyrus communis),P6,Fruits and vegetables
+A.05.02.003,Quince (Cydonia oblonga),P6,Fruits and vegetables
+A.05.02.004,Medlar (Mespilus germanica),P6,Fruits and vegetables
+A.05.02.005,Loquat (Eriobotrya japonica),P6,Fruits and vegetables
+A.05.02.006,Hawthorn (Crataegus and Rhaphiolepis),P6,Fruits and vegetables
+A.05.02.007,Rowan (Sorbus),P6,Fruits and vegetables
+A.05.02.008,Service tree (Sorbus domestica),P6,Fruits and vegetables
+A.05.02.009,Nashi pear (Pyrus pyrifolia),P6,Fruits and vegetables
+A.05.03.001,Apricots (Prunus armeniaca),P6,Fruits and vegetables
+A.05.03.002,Plums (Prunus domestica),P6,Fruits and vegetables
+A.05.03.003,Damson plum (Prunus domestica var institia),P6,Fruits and vegetables
+A.05.03.004,Mirabelle (Prunus domestica var syriaca),P6,Fruits and vegetables
+A.05.03.005,Greengage (Prunus domestica var italica),P6,Fruits and vegetables
+A.05.03.006,Sweet cherry (Prunus avium),P6,Fruits and vegetables
+A.05.03.007,Sour cherry (Prunus cerasus),P6,Fruits and vegetables
+A.05.03.008,Chickasaw plum (Prunus angustifolia),P6,Fruits and vegetables
+A.05.03.009,Susina (Prunus salicina),P6,Fruits and vegetables
+A.05.03.010,Sloe (Prunus spinosa),P6,Fruits and vegetables
+A.05.03.011,Peaches (Prunus persica),P6,Fruits and vegetables
+A.05.03.012,Chokecherry (Prunus virginiana),P6,Fruits and vegetables
+A.05.04.001,Table grapes (Vitis euvitis),P6,Fruits and vegetables
+A.05.04.002,Wine grapes (Vitis euvitis),P6,Fruits and vegetables
+A.05.04.003,Strawberries (Fragaria � ananassa),P6,Fruits and vegetables
+A.05.04.004,Blackberries (Rubus fruticosus),P6,Fruits and vegetables
+A.05.04.005,Dewberries (Rubus ceasius),P6,Fruits and vegetables
+A.05.04.006,Raspberries (Rubus idaeus),P6,Fruits and vegetables
+A.05.04.007,Boysenberry (Rubus ursinus x idaeus),P6,Fruits and vegetables
+A.05.04.008,Blueberries (Vaccinium corymbosum),P6,Fruits and vegetables
+A.05.04.009,Cranberries (Vaccinium macrocarpon),P6,Fruits and vegetables
+A.05.04.010,"Currants (red, black and white) (Ribes nigrum, Ribes rubrum)",P6,Fruits and vegetables
+A.05.04.011,Gooseberries (Ribes uva-crispa),P6,Fruits and vegetables
+A.05.04.012,Rose hips (Rosa canina),P6,Fruits and vegetables
+A.05.04.013,Mulberries (Morus spp.),P6,Fruits and vegetables
+A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),P6,Fruits and vegetables
+A.05.04.015,Elderberries (Sambucus nigra),P6,Fruits and vegetables
+A.05.04.016,Cloudberry (Rubus chamaemorus),P6,Fruits and vegetables
+A.05.04.017,Loganberry (Rubus loganobaccus),P6,Fruits and vegetables
+A.05.04.018,Salmonberry (Rubus spectabilis),P6,Fruits and vegetables
+A.05.04.019,Thimbleberry (Rubus parviflorus),P6,Fruits and vegetables
+A.05.04.020,Wineberry (Rubus phoenicolasius),P6,Fruits and vegetables
+A.05.04.021,Bearberry (Arctostaphylos spp.),P6,Fruits and vegetables
+A.05.04.022,Bilberry or whortleberry (Vaccinium spp.),P6,Fruits and vegetables
+A.05.04.023,Crowberry (Empetrum spp.),P6,Fruits and vegetables
+A.05.04.024,Cranberry (Vaccinium spp.),P6,Fruits and vegetables
+A.05.04.025,Huckleberry (Vaccinium spp.),P6,Fruits and vegetables
+A.05.04.026,Lingonberry (Vaccinium vitis-idaea),P6,Fruits and vegetables
+A.05.04.027,"Strawberry Tree (Arbutus unedo), not to be confused with the Strawberry (Fragaria)",P6,Fruits and vegetables
+A.05.04.028,Jabuticaba (Brazilian grape tree) (Myrciaria cauliflora),P6,Fruits and vegetables
+A.05.04.029,Physalis (Physalis peruviana),P6,Fruits and vegetables
+A.05.04.030,Sea buckthorn (Hippophae rhamnoides),P6,Fruits and vegetables
+A.05.05.001,Olives for oil production (Olea europaea),P6,Fruits and vegetables
+A.05.05.002,Palm nuts (palmoil kernels),P11,Nuts
+A.05.05.003,Palmfruit (Elaeis guineensis),P6,Fruits and vegetables
+A.05.05.004,Kapok (Ceiba pentandra),P6,Fruits and vegetables
+A.05.06.001,Dates (Phoenix dactylifera),P6,Fruits and vegetables
+A.05.06.002,Figs (Ficus carica),P6,Fruits and vegetables
+A.05.06.003,Table olives (Olea europaea),P6,Fruits and vegetables
+A.05.06.004,Kumquats (Fortunella species),P6,Fruits and vegetables
+A.05.06.005,Carambola (Averrhoa carambola),P6,Fruits and vegetables
+A.05.06.006,Persimmon (Sharon fruit) (Diospyros kaki),P6,Fruits and vegetables
+A.05.06.007,Jambolan (java plum) (Syzygium cumini),P6,Fruits and vegetables
+A.05.06.008,Kiwi (Actinidia deliciosa syn. A. chinensis),P6,Fruits and vegetables
+A.05.06.009,Lychee (Litchi) (Litchi chinensis),P6,Fruits and vegetables
+A.05.06.010,Passion fruit (Passiflora edulis),P6,Fruits and vegetables
+A.05.06.011,Prickly pear (cactus fruit) (Opuntia ficus-indica),P6,Fruits and vegetables
+A.05.06.012,Star apple (Chrysophyllum cainito),P6,Fruits and vegetables
+A.05.06.013,American persimmon (Virginia kaki) (Diospyros virginiana),P6,Fruits and vegetables
+A.05.06.014,Avocados (Persea americana),P6,Fruits and vegetables
+A.05.06.015,Bananas (Musa � paradisica),P6,Fruits and vegetables
+A.05.06.016,Mangoes (Mangifera indica),P6,Fruits and vegetables
+A.05.06.017,Papaya (Carica papaya),P6,Fruits and vegetables
+A.05.06.018,Pomegranate (Punica granatum),P6,Fruits and vegetables
+A.05.06.019,Cherimoya (Annona cherimola),P6,Fruits and vegetables
+A.05.06.020,Guava (Psidium guajava),P6,Fruits and vegetables
+A.05.06.021,Pineapples (Ananas comosus),P6,Fruits and vegetables
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),P6,Fruits and vegetables
+A.05.06.023,Durian (Durio zibethinus),P6,Fruits and vegetables
+A.05.06.024,Soursop (guanabana) (Annona muricata),P6,Fruits and vegetables
+A.05.06.025,Anona (cherimoya) (Annona cherimola),P6,Fruits and vegetables
+A.05.06.026,"Babaco (Carica pentagona Heilb., sin. Vasconcellea x heilbornii)",P6,Fruits and vegetables
+A.05.06.027,Coco plum (Chrysobalanus icaco),P6,Fruits and vegetables
+A.05.06.028,"Feijoa, Pineapple Guava (Feijoa sellowiana)",P6,Fruits and vegetables
+A.05.06.029,Pawpaw (Asimina),P6,Fruits and vegetables
+A.05.06.030,Chayote (Sechium edule),P6,Fruits and vegetables
+A.05.06.031,Rambutan (Nephelium lappaceum),P6,Fruits and vegetables
+A.05.06.032,Carissa (Carissa sp.),P6,Fruits and vegetables
+A.05.06.033,Jujube (Ziziphus zizyphus),P6,Fruits and vegetables
+A.05.06.034,Longan fruit (Dimocarpus longan),P6,Fruits and vegetables
+A.05.06.035,Malabar plum (jambu) (Syzygium jambos),P6,Fruits and vegetables
+A.05.07.001,"Dried vine fruits (currants, raisins and sultanas)",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.07.001a,Dried cranberries,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.07.001b,Dried blueberries,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.07.001c,Dried pineapple,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.07.001d,Dried papaya,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.07.001e,Dried strawberries,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.07.001f,Dried raspberries,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.07.002,Dried figs (Ficus carica),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.07.003,Dried prunes (Prunus domestica),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.07.004,Dried apricots (Prunus armeniaca),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.07.005,Dried pears  (Pyrus communis),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.07.006,Dried apples (Malus domesticus),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.07.007,Dried dates (Phoenix dactylifera),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.07.008,Dried bananas (Musa � paradisica),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.07.009,Dried mangoes (Mangifera indica),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.08.001,Jam,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.05.08.002,Marmalade,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.05.08.003,Other fruit spreads,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.05.09.001,Mixed dried fruits,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.09.002,Fruit salad,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.05.09.003,Fruit chips,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.09.004,"Fruit, pur�e",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.05.09.005,Fruit cocktail,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.05.09.006,"Fruit, canned",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.05.09.007,Fruit compote,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.05.09.008,Candied fruits,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.09.009,"Fruit in vinegar, oil, or brine",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.05.09.010,Fermented fruit products,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.05.09.011,Fruit fillings for pastries,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.05.09.012,"Fruit, chocolate coated",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.06.01.001,Beef meat (Bos spp.),P9,"Beef, pork and poultry meat"
+A.06.01.002,Veal meat,P9,"Beef, pork and poultry meat"
+A.06.01.003,Pork / piglet meat (Sus scrofa),P9,"Beef, pork and poultry meat"
+A.06.01.004,Mutton / lamb meat (Ovis aries),P9,"Beef, pork and poultry meat"
+A.06.01.005,Goat / kid meat (Capra hircus),P9,"Beef, pork and poultry meat"
+A.06.01.006,"Horse, asses, mules or hinnies meat (Equus spp.)",P9,"Beef, pork and poultry meat"
+A.06.01.007,Rabbit meat (Lepus cuniculus),P9,"Beef, pork and poultry meat"
+A.06.02.001,Chicken meat (Gallus domesticus),P9,"Beef, pork and poultry meat"
+A.06.02.002,Turkey meat (Meleagris gallopavo),P9,"Beef, pork and poultry meat"
+A.06.02.003,Duck meat (Anas spp.),P9,"Beef, pork and poultry meat"
+A.06.02.004,"Goose meat (Anser, Branta, Chen)",P9,"Beef, pork and poultry meat"
+A.06.02.005,Pigeon meat (Columba spp.),P9,"Beef, pork and poultry meat"
+A.06.02.006,Guinea fowl meat (Numida meleagris),P9,"Beef, pork and poultry meat"
+A.06.02.007,Ostrich meat (Struthio camelus),P9,"Beef, pork and poultry meat"
+A.06.03.001,Boar meat (wild pig) (Sus scrofa),P9,"Beef, pork and poultry meat"
+A.06.03.002,Venison meat (Cervus spp.),P9,"Beef, pork and poultry meat"
+A.06.03.003,Elk meat (Alces alces),P9,"Beef, pork and poultry meat"
+A.06.03.004,Reindeer meat (Rangifer tarandus),P9,"Beef, pork and poultry meat"
+A.06.03.005,Chamois meat (Rupicapra rupicapra),P9,"Beef, pork and poultry meat"
+A.06.03.006,Hare meat (Lepus europaeus),P9,"Beef, pork and poultry meat"
+A.06.04.001,Pheasant meat (Phasianus colchius),P9,"Beef, pork and poultry meat"
+A.06.04.002,Wild goose meat (Anser anser),P9,"Beef, pork and poultry meat"
+A.06.04.003,Mallard (Anas platyrhynchos),P9,"Beef, pork and poultry meat"
+A.06.04.004,Partridge meat (Perdix perdix),P9,"Beef, pork and poultry meat"
+A.06.04.005,Quail meat (Coturnix coturnix),P9,"Beef, pork and poultry meat"
+A.06.04.006,Snipe meat (Gallinago gallinago),P9,"Beef, pork and poultry meat"
+A.06.04.007,Grouse meat (Lagopus scroticus),P9,"Beef, pork and poultry meat"
+A.06.04.008,Ptarmigan meat (Lagopus mutus),P9,"Beef, pork and poultry meat"
+A.06.05.001,Mixed beef and pork meat,P9,"Beef, pork and poultry meat"
+A.06.05.002,Mixed pork and mutton/lamb meat,P9,"Beef, pork and poultry meat"
+A.06.05.003,Mixed beef and mutton/lamb meat,P9,"Beef, pork and poultry meat"
+A.06.05.004,Mixed poultry meat,P9,"Beef, pork and poultry meat"
+A.06.05.005,"Mixed meat, other species",P9,"Beef, pork and poultry meat"
+A.06.06.001,Beef liver,P9,"Beef, pork and poultry meat"
+A.06.06.002,Veal liver,P9,"Beef, pork and poultry meat"
+A.06.06.003,Pork liver,P9,"Beef, pork and poultry meat"
+A.06.06.004,Mutton / lamb liver,P9,"Beef, pork and poultry meat"
+A.06.06.005,Chicken liver,P9,"Beef, pork and poultry meat"
+A.06.06.006,Turkey liver,P9,"Beef, pork and poultry meat"
+A.06.06.007,Duck liver,P9,"Beef, pork and poultry meat"
+A.06.06.008,Goose liver,P9,"Beef, pork and poultry meat"
+A.06.06.009,Beef kidney,P9,"Beef, pork and poultry meat"
+A.06.06.010,Veal kidney,P9,"Beef, pork and poultry meat"
+A.06.06.011,Pork kidney,P9,"Beef, pork and poultry meat"
+A.06.06.012,Mutton / lamb kidney,P9,"Beef, pork and poultry meat"
+A.06.06.013,"Tongue (beef, veal, mutton, lamb, pork)",P9,"Beef, pork and poultry meat"
+A.06.06.014,"Heart (beef, veal, pork, mutton, lamb)",P9,"Beef, pork and poultry meat"
+A.06.06.015,"Brain (veal, lamb, pork)",P9,"Beef, pork and poultry meat"
+A.06.06.016,Lungs (beef),P9,"Beef, pork and poultry meat"
+A.06.06.017,Stomach (beef),P9,"Beef, pork and poultry meat"
+A.06.06.018,"Pancreas (veal, lamb)",P9,"Beef, pork and poultry meat"
+A.06.06.019,"Spleen (beef, pork)",P9,"Beef, pork and poultry meat"
+A.06.06.020,"Thymus (veal, lamb)",P9,"Beef, pork and poultry meat"
+A.06.06.021,Marrowbone (beef),P9,"Beef, pork and poultry meat"
+A.06.06.022,"Tail (beef, pork, lamb)",P9,"Beef, pork and poultry meat"
+A.06.06.023,"Totters and feet (calf, pork)",P9,"Beef, pork and poultry meat"
+A.06.06.024,"Giblets (chicken, turkey, duck, goose)",P9,"Beef, pork and poultry meat"
+A.06.07.001,"Liver, game animals",P9,"Beef, pork and poultry meat"
+A.06.07.002,"Kidney, game animals",P9,"Beef, pork and poultry meat"
+A.06.07.003,"Other offal, game animals",P9,"Beef, pork and poultry meat"
+A.06.08.001,"Ham, pork",P9,"Beef, pork and poultry meat"
+A.06.08.002,"Ham, beef",P9,"Beef, pork and poultry meat"
+A.06.08.003,"Beef, dried",P9,"Beef, pork and poultry meat"
+A.06.08.004,"Pork, dried",P9,"Beef, pork and poultry meat"
+A.06.08.005,"Turkey, dried",P9,"Beef, pork and poultry meat"
+A.06.08.006,"Ham, turkey",P9,"Beef, pork and poultry meat"
+A.06.08.007,Bacon,P9,"Beef, pork and poultry meat"
+A.06.08.008,Corned beef,P9,"Beef, pork and poultry meat"
+A.06.08.009,Corned pork,P9,"Beef, pork and poultry meat"
+A.06.08.010,Corned turkey,P9,"Beef, pork and poultry meat"
+A.06.08.011,"Pastrami, pork",P9,"Beef, pork and poultry meat"
+A.06.08.012,"Pastrami, beef",P9,"Beef, pork and poultry meat"
+A.06.08.013,"Pastrami, lamb",P9,"Beef, pork and poultry meat"
+A.06.08.014,Luncheon meat,P9,"Beef, pork and poultry meat"
+A.06.08.015,Preserved poultry,P9,"Beef, pork and poultry meat"
+A.06.09.001,Fresh and lightly cooked sausage,P9,"Beef, pork and poultry meat"
+A.06.09.002,Uncooked smoked sausage,P9,"Beef, pork and poultry meat"
+A.06.09.003,Cooked sausage,P9,"Beef, pork and poultry meat"
+A.06.09.004,Cooked smoked sausage,P9,"Beef, pork and poultry meat"
+A.06.09.005,Semi-dry sausage,P9,"Beef, pork and poultry meat"
+A.06.09.006,Dry sausage,P9,"Beef, pork and poultry meat"
+A.06.10.001,Pork meat loaf,P10,Pre-prepared meal
+A.06.10.002,Beef loaf,P10,Pre-prepared meal
+A.06.10.003,Meat in aspic,P10,Pre-prepared meal
+A.06.10.004,Ham and cheese loaf,P10,Pre-prepared meal
+A.06.10.005,Liver cheese or liver loaf,P10,Pre-prepared meal
+A.06.10.008,Head cheese (Brawn),P10,Pre-prepared meal
+A.06.10.009,Sulze,P10,Pre-prepared meal
+A.06.11.002,"Pate, goose liver",P10,Pre-prepared meal
+A.06.11.003,"Pate, chicken liver",P10,Pre-prepared meal
+A.06.11.004,"Pate, pork liver",P10,Pre-prepared meal
+A.06.11.005,Terrine,P10,Pre-prepared meal
+A.06.12.001,Textured soy protein,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.06.12.001x,Textured wheat protein,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.06.12.001y,Textured pea protein,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.06.12.002,Quorn (mycoprotein),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.07.01.001,Herring (Clupea),P1,Fish
+A.07.01.002,Sprat (Sprattus sprattus),P1,Fish
+A.07.01.003,Sardine and pilchard (Sardina),P1,Fish
+A.07.01.004,Anchovy (Engraulis),P1,Fish
+A.07.01.005,Shad (Alosa),P1,Fish
+A.07.01.006,Salmon and trout (Salmo spp.),P1,Fish
+A.07.01.007,Char (Salvelinus),P1,Fish
+A.07.01.008,Smelt (Osmerus),P1,Fish
+A.07.01.009,Whitefish (Coregonus),P1,Fish
+A.07.01.010,Perch (Perca),P1,Fish
+A.07.01.011,Bass (Marone),P1,Fish
+A.07.01.012,Surgeon-fish (Acanthurus),P1,Fish
+A.07.01.013,Mackeral (Scomber),P1,Fish
+A.07.01.014,Tuna (Thunnus),P1,Fish
+A.07.01.015,Sea catfish and wolf-fish (Anarhichas),P1,Fish
+A.07.01.016,Grey mullet (Mugil),P1,Fish
+A.07.01.017,Cod and whiting (Gadus spp.),P1,Fish
+A.07.01.018,Hake (Merluccius),P1,Fish
+A.07.01.019,Flounder (Platichthys flesus),P1,Fish
+A.07.01.020,Halibut (Hippoglossus spp.),P1,Fish
+A.07.01.021,Plaice (Pleuronectes),P1,Fish
+A.07.01.022,Sole (Limanda; Solea),P1,Fish
+A.07.01.023,Roach (Rutilus),P1,Fish
+A.07.01.024,Carp (Cyprinus),P1,Fish
+A.07.01.025,Babel (Barbus),P1,Fish
+A.07.01.026,Bream (Charax),P1,Fish
+A.07.01.027,Eels (Apodes),P1,Fish
+A.07.01.028,Zeomorphi (Zeomorphi),P1,Fish
+A.07.01.029,Lophiiformes (Pediculati),P1,Fish
+A.07.01.030,Selachoidei (Pleurotremata),P1,Fish
+A.07.01.031,Rays (Hypotremata),P1,Fish
+A.07.01.032,Acipenseriformes (sturgeons) (Chondrostei),P1,Fish
+A.07.01.033,Bonito (Sarda Sarda),P1,Fish
+A.07.01.034,Bullet tuna (Auxis spp.),P1,Fish
+A.07.01.035,Sardinops (Sardinops sagax),P1,Fish
+A.07.01.036,Swordfish (Xiphidae spp.),P1,Fish
+A.07.02.001,Fish balls,P10,Pre-prepared meal
+A.07.02.002,Fishcakes,P10,Pre-prepared meal
+A.07.02.003,Fish fingers,P10,Pre-prepared meal
+A.07.02.004,Fish paste,P10,Pre-prepared meal
+A.07.02.005,Fish p�t�,P10,Pre-prepared meal
+A.07.03.001,Fish roe,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.07.03.002,Other fish offal,P1,Fish
+A.07.04.001,Crab (Cancer spp.),P2,Seafood (e.g. shrimps)
+A.07.04.002,Lobster (Homarus vulgaris),P2,Seafood (e.g. shrimps)
+A.07.04.003,Norway lobster (Nephrophs norvegicus),P2,Seafood (e.g. shrimps)
+A.07.04.004,Prawns (Palaemon serratus),P2,Seafood (e.g. shrimps)
+A.07.04.005,Shrimps (Crangon crangon),P2,Seafood (e.g. shrimps)
+A.07.04.006,Crawfish (Panulirus spp.),P2,Seafood (e.g. shrimps)
+A.07.04.007,Crayfish (Astacus spp.),P2,Seafood (e.g. shrimps)
+A.07.05.001,Squid (Loligo vulgaris),P2,Seafood (e.g. shrimps)
+A.07.05.002,Octopus (Octopus vulgaris),P2,Seafood (e.g. shrimps)
+A.07.05.003,Cuttlefish (Sepia officinalis),P2,Seafood (e.g. shrimps)
+A.07.05.004,Abalone (Haliotis spp.),P2,Seafood (e.g. shrimps)
+A.07.05.005,Clam (Mya arenaria),P2,Seafood (e.g. shrimps)
+A.07.05.006,Cockle (Cardium edule),P2,Seafood (e.g. shrimps)
+A.07.05.007,Mussel (Mytilus edulis),P2,Seafood (e.g. shrimps)
+A.07.05.008,Oyster (Ostrea edulis),P2,Seafood (e.g. shrimps)
+A.07.05.009,Queen scallop (Chlamys opercularis),P2,Seafood (e.g. shrimps)
+A.07.05.010,Scallop (Pecten spp.),P2,Seafood (e.g. shrimps)
+A.07.05.011,Razor clam (Solen margrinatus),P2,Seafood (e.g. shrimps)
+A.07.05.012,Limpet (Patella caerula),P2,Seafood (e.g. shrimps)
+A.07.05.013,"Whelk (Buccinum undatum, Fusus antiquus)",P2,Seafood (e.g. shrimps)
+A.07.05.014,Winkle (Littorina littorea),P2,Seafood (e.g. shrimps)
+A.07.06.001,Frog legs (Rana spp.),P9,"Beef, pork and poultry meat"
+A.07.06.002,Snake meat,P9,"Beef, pork and poultry meat"
+A.07.06.003,Crocodile meat,P9,"Beef, pork and poultry meat"
+A.07.06.004,Snail (Helix sp.),P9,"Beef, pork and poultry meat"
+A.07.06.005,Insects,P9,"Beef, pork and poultry meat"
+A.08.01.001,Cow milk,P8,Dairy products
+A.08.01.002,Sheep milk,P8,Dairy products
+A.08.01.003,Buffalo milk,P8,Dairy products
+A.08.01.005,Goat milk,P8,Dairy products
+A.08.01.006,Horse milk,P8,Dairy products
+A.08.01.007,Ass milk,P8,Dairy products
+A.08.01.008,Camel milk,P8,Dairy products
+A.08.01.009,Human milk,P8,Dairy products
+A.08.02.001,Flavoured milk,P8,Dairy products
+A.08.02.002,Milkshakes,P8,Dairy products
+A.08.03.001,Evaporated milk (milk evaporated down to less than a half of its original volume. It is unsweetened.),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.08.03.002,Condensed milk,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.08.03.003,Dried milk,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.08.04.001,Whey liquid,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.08.04.002,Whey dried,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.08.05.001,Cream,P8,Dairy products
+A.08.05.002,Coffee cream,P8,Dairy products
+A.08.05.003,Sour cream,P8,Dairy products
+A.08.05.004,Cr�me fra�che,P8,Dairy products
+A.08.06.001,"Yoghurt, cow milk, plain",P8,Dairy products
+A.08.06.002,"Yoghurt, cow milk, with fruit",P8,Dairy products
+A.08.06.003,"Yoghurt, sheep milk",P8,Dairy products
+A.08.06.004,"Yoghurt, goat milk",P8,Dairy products
+A.08.06.005,Sour milk,P8,Dairy products
+A.08.06.006,Acidophilus milk,P8,Dairy products
+A.08.06.007,Kefir,P8,Dairy products
+A.08.06.008,Buttermilk,P8,Dairy products
+A.08.06.009,Kumis,P8,Dairy products
+A.08.06.010,Cieddu,P8,Dairy products
+A.08.06.011,Kaeder milk,P8,Dairy products
+A.08.06.012,Skyr,P8,Dairy products
+A.08.06.013,Taette,P8,Dairy products
+A.08.06.014,Filmj�lk,P8,Dairy products
+A.08.06.015,Viili,P8,Dairy products
+A.08.07.001,Lactose,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.08.07.002,Milk protein,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.08.07.003,Whey protein,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.08.08.001,Quark,P8,Dairy products
+A.08.08.002,Quark with fruit,P8,Dairy products
+A.08.08.003,"Cheese, processed, sliceable",P8,Dairy products
+A.08.08.004,"Cheese, processed spreadable",P8,Dairy products
+A.08.08.005,"Cheese, processed, with condiments",P8,Dairy products
+A.08.08.006,"Cheese, processed, with ham",P8,Dairy products
+A.08.08.007,"Cheese, processed, with mushrooms",P8,Dairy products
+A.08.08.008,"Cheese, processed, with pepper herbs",P8,Dairy products
+A.08.08.009,"Cheese, processed, with walnuts",P8,Dairy products
+A.08.08.010,"Cheese, processed, low fat",P8,Dairy products
+A.08.08.011,"Cheese, processed cheese, plain",P8,Dairy products
+A.08.08.012,"Cheese, Abondance",P8,Dairy products
+A.08.08.013,"Cheese, Afuega'l Pitu",P8,Dairy products
+A.08.08.014,"Cheese, Amarelo",P8,Dairy products
+A.08.08.015,"Cheese, Appenzeller",P8,Dairy products
+A.08.08.016,"Cheese, Ardrahan",P8,Dairy products
+A.08.08.017,"Cheese, Arzua Ulloa",P8,Dairy products
+A.08.08.018,"Cheese, Asiago",P8,Dairy products
+A.08.08.019,"Cheese, Baita Friuli",P8,Dairy products
+A.08.08.020,"Cheese, Banon",P8,Dairy products
+A.08.08.021,"Cheese, Bavarian Blue",P8,Dairy products
+A.08.08.022,"Cheese, Beaufort",P8,Dairy products
+A.08.08.023,"Cheese, Bica",P8,Dairy products
+A.08.08.024,"Cheese, Bitto della Valtellina",P8,Dairy products
+A.08.08.025,"Cheese, Bleu d'Auvergne",P8,Dairy products
+A.08.08.026,"Cheese, Bleu de Gex",P8,Dairy products
+A.08.08.027,"Cheese, Blue Castello",P8,Dairy products
+A.08.08.028,"Cheese, Blue de Graven",P8,Dairy products
+A.08.08.029,"Cheese, Boilie",P8,Dairy products
+A.08.08.030,"Cheese, Boursin",P8,Dairy products
+A.08.08.031,"Cheese, Bra",P8,Dairy products
+A.08.08.032,"Cheese, Brie",P8,Dairy products
+A.08.08.033,"Cheese, Buche de Chevre",P8,Dairy products
+A.08.08.034,"Cheese, Bundnerkase",P8,Dairy products
+A.08.08.035,"Cheese, Burrata",P8,Dairy products
+A.08.08.036,"Cheese, Butterkase",P8,Dairy products
+A.08.08.037,"Cheese, Cabrales",P8,Dairy products
+A.08.08.038,"Cheese, Cacio di Fossa",P8,Dairy products
+A.08.08.039,"Cheese, Caciocavallo",P8,Dairy products
+A.08.08.040,"Cheese, Caerphilly",P8,Dairy products
+A.08.08.041,"Cheese, Camembert",P8,Dairy products
+A.08.08.042,"Cheese, Canestrato Pugliese",P8,Dairy products
+A.08.08.043,"Cheese, Cantal",P8,Dairy products
+A.08.08.044,"Cheese, Capra",P8,Dairy products
+A.08.08.045,"Cheese, Carrigaline",P8,Dairy products
+A.08.08.046,"Cheese, Cashel Blue",P8,Dairy products
+A.08.08.047,"Cheese, Castelmagno",P8,Dairy products
+A.08.08.048,"Cheese, Chaource",P8,Dairy products
+A.08.08.049,"Cheese, Cheddar",P8,Dairy products
+A.08.08.050,"Cheese, Cheshire",P8,Dairy products
+A.08.08.051,"Cheese, Chevres",P8,Dairy products
+A.08.08.052,"Cheese, Chimay",P8,Dairy products
+A.08.08.053,"Cheese, Clotted Cream",P8,Dairy products
+A.08.08.054,"Cheese, Comte",P8,Dairy products
+A.08.08.055,"Cheese, Coolea",P8,Dairy products
+A.08.08.056,"Cheese, Cornish Yarg",P8,Dairy products
+A.08.08.057,"Cheese, Coulommiers",P8,Dairy products
+A.08.08.058,"Cheese, Cream Havarti",P8,Dairy products
+A.08.08.059,"Cheese, Danbo",P8,Dairy products
+A.08.08.060,"Cheese, Derby",P8,Dairy products
+A.08.08.061,"Cheese, Double Gloucester",P8,Dairy products
+A.08.08.062,"Cheese, Doux de Montagne",P8,Dairy products
+A.08.08.063,"Cheese, Dunbarra",P8,Dairy products
+A.08.08.064,"Cheese, Edam",P8,Dairy products
+A.08.08.065,"Cheese, Emmental",P8,Dairy products
+A.08.08.066,"Cheese, Epoisses",P8,Dairy products
+A.08.08.067,"Cheese, Esrom",P8,Dairy products
+A.08.08.068,"Cheese, Evora",P8,Dairy products
+A.08.08.069,"Cheese, Feta",P8,Dairy products
+A.08.08.070,"Cheese, Finlandia Swiss",P8,Dairy products
+A.08.08.071,"Cheese, Fiore Sardo",P8,Dairy products
+A.08.08.072,"Cheese, Fleur de Maquis",P8,Dairy products
+A.08.08.073,"Cheese, Fontina",P8,Dairy products
+A.08.08.074,"Cheese, Formai de Mut",P8,Dairy products
+A.08.08.075,"Cheese, Fourme d'Ambert",P8,Dairy products
+A.08.08.076,"Cheese, Gamonedo",P8,Dairy products
+A.08.08.077,"Cheese, Garrotxa",P8,Dairy products
+A.08.08.078,"Cheese, Gjetost",P8,Dairy products
+A.08.08.079,"Cheese, Gorgonzola",P8,Dairy products
+A.08.08.080,"Cheese, Gouda",P8,Dairy products
+A.08.08.081,"Cheese, Graddost",P8,Dairy products
+A.08.08.082,"Cheese, Grana Padano",P8,Dairy products
+A.08.08.083,"Cheese, Graviera",P8,Dairy products
+A.08.08.084,"Cheese, Gruyere",P8,Dairy products
+A.08.08.085,"Cheese, Gubbeen",P8,Dairy products
+A.08.08.086,"Cheese, Harzer",P8,Dairy products
+A.08.08.087,"Cheese, Herrgardost",P8,Dairy products
+A.08.08.088,"Cheese, Hoch Ybrig",P8,Dairy products
+A.08.08.089,"Cheese, Hushallsost",P8,Dairy products
+A.08.08.090,"Cheese, Iberico",P8,Dairy products
+A.08.08.091,"Cheese, Ibores",P8,Dairy products
+A.08.08.092,"Cheese, Idiazabal",P8,Dairy products
+A.08.08.093,"Cheese, Jarlsberg",P8,Dairy products
+A.08.08.094,"Cheese, Juustoleipa",P8,Dairy products
+A.08.08.095,"Cheese, Kasseri",P8,Dairy products
+A.08.08.096,"Cheese, Kefalotyri",P8,Dairy products
+A.08.08.097,"Cheese, Knockalara",P8,Dairy products
+A.08.08.098,"Cheese, Kurpianka",P8,Dairy products
+A.08.08.099,"Cheese, Lancashire",P8,Dairy products
+A.08.08.100,"Cheese, Langres",P8,Dairy products
+A.08.08.101,"Cheese, Lappi",P8,Dairy products
+A.08.08.102,"Cheese, Le Marechal",P8,Dairy products
+A.08.08.103,"Cheese, Leicester",P8,Dairy products
+A.08.08.104,"Cheese, Leyden",P8,Dairy products
+A.08.08.105,"Cheese, Limburger",P8,Dairy products
+A.08.08.106,"Cheese, Lincolnshire Poacher",P8,Dairy products
+A.08.08.107,"Cheese, Livarot",P8,Dairy products
+A.08.08.108,"Cheese, Lubelski",P8,Dairy products
+A.08.08.109,"Cheese, Maasdam",P8,Dairy products
+A.08.08.110,"Cheese, Mahon",P8,Dairy products
+A.08.08.111,"Cheese, Majorero",P8,Dairy products
+A.08.08.112,"Cheese, Manchego",P8,Dairy products
+A.08.08.113,"Cheese, Mascarpone",P8,Dairy products
+A.08.08.114,"Cheese, Mimolette",P8,Dairy products
+A.08.08.115,"Cheese, Mizithra",P8,Dairy products
+A.08.08.116,"Cheese, Montasio",P8,Dairy products
+A.08.08.117,"Cheese, Monte Veronese",P8,Dairy products
+A.08.08.118,"Cheese, Morbier",P8,Dairy products
+A.08.08.119,"Cheese, Morski",P8,Dairy products
+A.08.08.120,"Cheese, Mozzarella",P8,Dairy products
+A.08.08.121,"Cheese, Munster",P8,Dairy products
+A.08.08.122,"Cheese, Murcia",P8,Dairy products
+A.08.08.123,"Cheese, Nagelkaas",P8,Dairy products
+A.08.08.124,"Cheese, Nisa",P8,Dairy products
+A.08.08.125,"Cheese, Nokkelost",P8,Dairy products
+A.08.08.126,"Cheese, Oltermanni",P8,Dairy products
+A.08.08.127,"Cheese, Orla",P8,Dairy products
+A.08.08.128,"Cheese, Ossau-Iraty",P8,Dairy products
+A.08.08.129,"Cheese, Parmigiano Reggiano",P8,Dairy products
+A.08.08.130,"Cheese, Passendale",P8,Dairy products
+A.08.08.131,"Cheese, Pecorino Romano",P8,Dairy products
+A.08.08.132,"Cheese, Pecorino Toscano",P8,Dairy products
+A.08.08.133,"Cheese, Piacentinu",P8,Dairy products
+A.08.08.134,"Cheese, Picon",P8,Dairy products
+A.08.08.135,"Cheese, Podlaski",P8,Dairy products
+A.08.08.136,"Cheese, Pont L'Eveque",P8,Dairy products
+A.08.08.137,"Cheese, Pouligny-Saint-Pierre",P8,Dairy products
+A.08.08.138,"Cheese, Prastost",P8,Dairy products
+A.08.08.139,"Cheese, Provolone",P8,Dairy products
+A.08.08.140,"Cheese, Raclette",P8,Dairy products
+A.08.08.141,"Cheese, Ragusano",P8,Dairy products
+A.08.08.142,"Cheese, Raschera",P8,Dairy products
+A.08.08.143,"Cheese, Reblochon",P8,Dairy products
+A.08.08.144,"Cheese, Ricotta",P8,Dairy products
+A.08.08.145,"Cheese, Ricotta Salata",P8,Dairy products
+A.08.08.146,"Cheese, Robiola",P8,Dairy products
+A.08.08.147,"Cheese, Roncal",P8,Dairy products
+A.08.08.148,"Cheese, Roquefort",P8,Dairy products
+A.08.08.149,"Cheese, Saga",P8,Dairy products
+A.08.08.150,"Cheese, Saint Marcellin",P8,Dairy products
+A.08.08.151,"Cheese, Saint Nectaire",P8,Dairy products
+A.08.08.152,"Cheese, Saint Paulin",P8,Dairy products
+A.08.08.153,"Cheese, Samsoe",P8,Dairy products
+A.08.08.154,"Cheese, San Simon",P8,Dairy products
+A.08.08.155,"Cheese, Sao Jorge",P8,Dairy products
+A.08.08.156,"Cheese, Sap Sago",P8,Dairy products
+A.08.08.157,"Cheese, Sbrinz",P8,Dairy products
+A.08.08.158,"Cheese, Scamorza",P8,Dairy products
+A.08.08.159,"Cheese, Serpa",P8,Dairy products
+A.08.08.160,"Cheese, Shropshire Blue",P8,Dairy products
+A.08.08.161,"Cheese, Smoked Gouda",P8,Dairy products
+A.08.08.162,"Cheese, Stilton",P8,Dairy products
+A.08.08.163,"Cheese, Taleggio",P8,Dairy products
+A.08.08.164,"Cheese, Telemea",P8,Dairy products
+A.08.08.165,"Cheese, Tete de Moine",P8,Dairy products
+A.08.08.166,"Cheese, Tetilla",P8,Dairy products
+A.08.08.167,"Cheese, Tilsit",P8,Dairy products
+A.08.08.168,"Cheese, Toma Piedmontese",P8,Dairy products
+A.08.08.169,"Cheese, Tomme de Savoie",P8,Dairy products
+A.08.08.170,"Cheese, Torta del Casar",P8,Dairy products
+A.08.08.171,"Cheese, Trappist",P8,Dairy products
+A.08.08.172,"Cheese, Triple Cremes",P8,Dairy products
+A.08.08.173,"Cheese, Tronchon",P8,Dairy products
+A.08.08.174,"Cheese, Turunmaa",P8,Dairy products
+A.08.08.175,"Cheese, Ubriaco",P8,Dairy products
+A.08.08.176,"Cheese, Urd?",P8,Dairy products
+A.08.08.177,"Cheese, Vacherin Fribourgeois",P8,Dairy products
+A.08.08.178,"Cheese, Vacherin Mont d'Or",P8,Dairy products
+A.08.08.179,"Cheese, Valdeon",P8,Dairy products
+A.08.08.180,"Cheese, Van Dijk",P8,Dairy products
+A.08.08.181,"Cheese, Vasterbotten",P8,Dairy products
+A.08.08.182,"Cheese, Vignerons",P8,Dairy products
+A.08.08.183,"Cheese, Wensleydale",P8,Dairy products
+A.08.08.184,"Cheese, White Stilton",P8,Dairy products
+A.08.08.185,"Cheese, Wynendale",P8,Dairy products
+A.08.08.186,"Cheese, Zamorano",P8,Dairy products
+A.08.08.187x,"Cheese, Halloumi",P8,Dairy products
+A.08.09.001,Almond drink,P8,Dairy products
+A.08.09.002,Imitation cream,P8,Dairy products
+A.08.09.003,Non dairy coffee creamer,P8,Dairy products
+A.08.09.004,Oats drink,P8,Dairy products
+A.08.09.005,Rice drink,P8,Dairy products
+A.08.09.006,Rye drink,P8,Dairy products
+A.08.09.007,Soya cheese,P8,Dairy products
+A.08.09.008,Soya drink,P8,Dairy products
+A.08.09.009,Soya yoghurt,P8,Dairy products
+A.08.09.010,Spelt drink,P8,Dairy products
+A.08.09.011,Tofu,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.09.01.001,"Whole egg, chicken",P3,Eggs
+A.09.01.002,"Egg yolk, chicken",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.09.01.003,"Egg white, chicken",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.09.01.004,Turkey eggs,P3,Eggs
+A.09.01.005,Duck eggs,P3,Eggs
+A.09.01.006,Goose eggs,P3,Eggs
+A.09.01.007,Quail eggs,P3,Eggs
+A.09.01.008,Ostrich eggs,P3,Eggs
+A.09.01.009,Seagull eggs,P3,Eggs
+A.09.02.001,"Dried egg, whole",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.09.02.002,Dried egg yolk,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.09.02.003,Dried egg white,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.01.001,White sugar,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.10.01.002,Brown sugar,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.10.01.003,Barley sugar,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.10.01.004,Cane sugar,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.10.01.006,"Sugar, icing",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.10.01.007,Fructose,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.10.01.008,Glucose,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.10.01.009,Galactose,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.10.01.010,Maltose,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.10.01.011,Sucrose,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.10.02.001,"Nutritive sweeteners (e.g., sorbitol, manitol)",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.02.002,"Non-nutritive sweeteners (e.g., aspartam, sacccharine)",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.03.001,Bitter chocolate,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.03.002,Bitter-sweet chocolate,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.03.003,Chocolate bar,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.03.004,"Chocolate, cream",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.03.005,Chocolate with nuts or fruits,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.03.006,Chocolate coated confectionery,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.03.007,Filled chocolate,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.03.008,Milk chocolate,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.03.009,White chocolate,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.03.010,Pralines,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.03.011,Cooking chocolate,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.03.012,"Cooking chocolate, white",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.03.013,Dietetic chocolate,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.03.014,Chocolate substitutes,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.001,"Candies, with sugar",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.002,"Candies, sugar free",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.003,Marzipan,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.004,"Caramel, hard",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.005,"Caramel, soft",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.006,Toffee,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.007,Fudge,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.008,"Drag�e, sugar coated",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.009,Sugar cotton,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.010,Foamed sugar products (marshmallows),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.011,Liquorice candies,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.012,Gum drops,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.013,Jelly candies,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.014,Nougat,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.015,Halva,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.016,Chewing gum with added sugar,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.04.017,Chewing gum without added sugar,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.05.001,Fruit sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.05.002,Chocolate sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.05.003,Fudge sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.05.004,Alcoholic sweet sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.06.001,Molasses,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.06.002,Maple syrup,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.06.003,Barley malt syrup,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.06.004,Corn syrup,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.06.005,Sugar beet syrup,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.06.006,Treacle,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.10.07,Honey,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.10.07.001,"Honey, monofloral",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.10.07.002,"Honey, polyfloral",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.10.07.003,"Honey, blended",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.10.07.004,Honeydew honey,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.10.07.005,Comb honey,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.11.01,Animal fat,P9,"Beef, pork and poultry meat"
+A.11.01.001,Butter,P8,Dairy products
+A.11.01.002,Butter oil,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.11.01.003,Ghee,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.11.01.004,Pork lard (Schmaltz),P9,"Beef, pork and poultry meat"
+A.11.01.005,Chicken fat,P9,"Beef, pork and poultry meat"
+A.11.01.006,Goose fat,P9,"Beef, pork and poultry meat"
+A.11.01.007,Duck fat,P9,"Beef, pork and poultry meat"
+A.11.01.008,Turkey fat,P9,"Beef, pork and poultry meat"
+A.11.01.009,Tallow,P9,"Beef, pork and poultry meat"
+A.11.01.010,Whale oil,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.11.02.001,Herring oil,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.11.02.002,Sardine oil,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.11.02.003,Cod liver oil,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.11.03,Vegetable fat,P7,Vegetable oil
+A.11.03.001,Peanuts butter,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.11.03.002,Coconut fat,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.11.03.003,Cocoa butter,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.11.03.004,Palm fat,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.11.04,Vegetable oil,P7,Vegetable oil
+A.11.04.001,Almond oil,P7,Vegetable oil
+A.11.04.002,Coconut oil,P7,Vegetable oil
+A.11.04.003,Corn oil,P7,Vegetable oil
+A.11.04.004,Cottonseed oil,P7,Vegetable oil
+A.11.04.005,Grape seed oil,P7,Vegetable oil
+A.11.04.006,Linseed oil,P7,Vegetable oil
+A.11.04.007,"Oil, frying, blend",P7,Vegetable oil
+A.11.04.008,Olive oil,P7,Vegetable oil
+A.11.04.009,Palm kernel oil,P7,Vegetable oil
+A.11.04.010,Palm oil,P7,Vegetable oil
+A.11.04.011,Peanut oil,P7,Vegetable oil
+A.11.04.012,Pumpkinseed oil,P7,Vegetable oil
+A.11.04.013,Rapeseed oil,P7,Vegetable oil
+A.11.04.014,Safflower oil,P7,Vegetable oil
+A.11.04.015,Sesame oil,P7,Vegetable oil
+A.11.04.016,Soybean oil,P7,Vegetable oil
+A.11.04.017,Sunflower oil,P7,Vegetable oil
+A.11.04.018,Thistle oil,P7,Vegetable oil
+A.11.04.019,Walnut oil,P7,Vegetable oil
+A.11.04.020,Wheat germ oil,P7,Vegetable oil
+A.11.05,Fats of mixed origin,P7,Vegetable oil
+A.11.06.001,"Margarine, normal fat",P8,Dairy products
+A.11.06.002,"Margarine, low fat",P8,Dairy products
+A.11.06.003,Margarine with other ingredients,P8,Dairy products
+A.11.06.004,Fat emulsions,P8,Dairy products
+A.12.01.001,"Juice, Apple",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.001a,"Juice, Carrot",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.002,"Juice, Orange",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.003,"Juice, Grapefruit",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.004,"Juice, Pineapple",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.005,"Juice, Mango",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.006,"Juice, Grape",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.007,"Juice, Cranberry",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.008,"Juice, Pomegranate",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.009,"Juice, Peach",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.010,"Juice, Lemon",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.011,"Juice, Lime",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.012,"Juice, Pear",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.013,"Juice, Apricot",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.014,"Juice, Nectarine",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.015,"Juice, Blackberry",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.016,"Juice, Blackcurrant",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.017,"Juice, Prune",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.018,"Juice, Redcurrant",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.019,"Juice, Elderberry",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.020,"Juice, Passion fruit",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.021,"Juice, Guava",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.01.022,"Juice, Mixed fruit",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.001,"Juice concentrate, Strawberries",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.002,"Juice concentrate, Raspberries",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.002a,"Juice concentrate, Elderberries",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.003,"Juice concentrate, Blackberries",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.004,"Juice concentrate, Currants (red)",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.005,"Juice concentrate, Currants (black)",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.006,"Juice concentrate, Gooseberries",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.007,"Juice concentrate, Cranberries",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.008,"Juice concentrate, Blueberries",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.009,"Juice concentrate, Apricots",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.010,"Juice concentrate, Plums",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.011,"Juice concentrate, Peaches",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.012,"Juice concentrate, Sweet cherry",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.013,"Juice concentrate, Oranges",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.014,"Juice concentrate, Mandarins",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.02.015,"Juice concentrate, Grapes",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.03.001,"Nectar, Mango",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.03.002,"Nectar, Peach",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.03.003,"Nectar, Pear",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.03.004,"Nectar, Orange",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.03.005,"Nectar, Pineapple",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.03.006,"Nectar, Banana",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.03.007,"Nectar, Apple",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.04,Mixed fruit juice,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.04.001,"Juice, Apple-Grape",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.04.002,"Juice, Apple-Cherry",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.04.003,"Juice, Orange-Grapefruit",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.04.004,"Juice, Peach-Apricot",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.04.005,"Juice, Strawberry-Cherry",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.04.006,"Juice, Mandarin-Banana",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.04.007,"Juice, Apricot-Orange",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.04.008,"Juice, Orange-Peach",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.04.009,"Juice, Berries-Grapes",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.04.010,"Juice, multi-fruit",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.05,Dehydrated/powdered fruit juice,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.12.06.001,"Juice, Tomato",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.06.002,"Juice, Carrot",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.06.003,"Juice, Celery",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.06.004,"Juice, Beetroot",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.06.005,"Juice, White cabbage",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.06.006,"Juice, Potato",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.06.007,"Juice, Cucumber",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.06.008,"Juice, Turnip",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.07.001,"Juice, Tomato-Vegetable",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.07.002,"Juice, Tomato-Carrot",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.07.003,Multi-vegetable juice,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.12.08.001,Apple/carrot juice,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.01.001,"Soft drink, fruit content",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.01.002,"Soft drink, flavoured",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.01.003,"Cola beverages, caffeinic",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.01.004,"Cola beverages, decaffeinated",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.01.005,"Cola beverages, caffeinic, low calorie",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.01.006,"Cola beverages, decaffeinated, low calorie",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.01.007,Cola Mix,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.02.001,"Black tea, infusion",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.13.02.002,"Green tee, infusion",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.13.02.003,"Fruit tee, infusion",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.13.02.004,"Herbal tea, infusion",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.13.02.005,"Instant tee powder, infusion",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.13.02.006,"Instant tea, liquid",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.03.001,"Coffee drink, espresso",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.03.002,"Coffee drink, caf� am�ricano",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.03.003,"Coffee drink, cappuccino",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.03.004,"Coffee drink, caf� macchiato",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.03.005,Iced coffee,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.03.006,"Coffee with milk (caf� latte, caf� au lait)",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.03.007,"Instant coffee, liquid",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.04,Coffee imitates beverage,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.13.05.001,Hot chocolate,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.13.05.002,Cocoa drink,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.14.01.001,"Beer, strong",P12,Beer and other alcoholic drinks (excluding wines)
+A.14.01.002,"Beer, regular",P12,Beer and other alcoholic drinks (excluding wines)
+A.14.01.003,"Beer, light (reduced alcohol content)",P12,Beer and other alcoholic drinks (excluding wines)
+A.14.01.004,"Beer, alcohol-free",P12,Beer and other alcoholic drinks (excluding wines)
+A.14.01.005,Beer-like beverages (Malt drink),P12,Beer and other alcoholic drinks (excluding wines)
+A.14.02.001,"Wine, white",P13,Wines
+A.14.02.002,"Wine, white, sparkling",P13,Wines
+A.14.02.003,"Wine, red",P13,Wines
+A.14.02.004,"Wine, red, sparkling",P13,Wines
+A.14.03.001,Vermouth,P12,Beer and other alcoholic drinks (excluding wines)
+A.14.03.002,Sherry,P12,Beer and other alcoholic drinks (excluding wines)
+A.14.04.001,Cider,P12,Beer and other alcoholic drinks (excluding wines)
+A.14.04.002,Perry,P12,Beer and other alcoholic drinks (excluding wines)
+A.14.05.002,Herb liqueur,P12,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.14.05.003,Chocolate liqueur,P12,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.14.05.004,Coffee liqueur,P12,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.14.05.005,Egg liqueur,P12,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.14.05.006,Cocos cream liqueur,P12,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.14.05.007,Cream liqueur,P12,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.14.05.008,Milk liqueur,P12,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.14.06.001,Brandy,P12,Beer and other alcoholic drinks (excluding wines)
+A.14.06.002,Whisky,P12,Beer and other alcoholic drinks (excluding wines)
+A.14.06.003,Gin,P12,Beer and other alcoholic drinks (excluding wines)
+A.14.06.004,Vodka and vodka-like spirits,P12,Beer and other alcoholic drinks (excluding wines)
+A.14.06.005,Rum,P12,Beer and other alcoholic drinks (excluding wines)
+A.14.06.006,Spirits made from fruits,P12,Beer and other alcoholic drinks (excluding wines)
+A.14.07.001,Cocktail drink,P12,Beer and other alcoholic drinks (excluding wines)
+A.14.07.002,Punch,P12,Beer and other alcoholic drinks (excluding wines)
+A.14.07.003,Alcopop,P12,Beer and other alcoholic drinks (excluding wines)
+A.15.03.001,Still mineral water,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.15.03.002,Carbonated mineral water,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.16.01,Herbs,P6,"Fruits, berries and vegetables"
+A.16.01.001,"Chervil, herb (Anthriscus cerefolium)",P6,"Fruits, berries and vegetables"
+A.16.01.002,"Chives, herb (Allium schoenoprasum)",P6,"Fruits, berries and vegetables"
+A.16.01.003,"Dill, herb (Anethum graveolens)",P6,"Fruits, berries and vegetables"
+A.16.01.004,Celery leaves (Apium graveolens var. seccalinum),P6,"Fruits, berries and vegetables"
+A.16.01.005,"Parsley, herb (Petroselinum crispum)",P6,"Fruits, berries and vegetables"
+A.16.01.006,"Sage, herb (Salvia officinalis)",P6,"Fruits, berries and vegetables"
+A.16.01.007,"Rosemary, herb (Rosmarinus officinalis)",P6,"Fruits, berries and vegetables"
+A.16.01.008,"Thyme, herb (Thymus spp.)",P6,"Fruits, berries and vegetables"
+A.16.01.009,"Basil, herb (Ocimum basilicum)",P6,"Fruits, berries and vegetables"
+A.16.01.010,Bay leaves (laurel) (Laurus nobilis),P6,"Fruits, berries and vegetables"
+A.16.01.011,"Tarragon, herb (Artemisia dracunculus)",P6,"Fruits, berries and vegetables"
+A.16.02,Spices,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.02.001,Paprika powder,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.02.002,Chilli powder,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.02.003,Ajowan (Carum ajowan),P6,"Fruits, berries and vegetables"
+A.16.02.004,Allspice (Pimenta dioica),P6,"Fruits, berries and vegetables"
+A.16.02.005,Anise pepper (Japan pepper) (Zanthooxylum piperitum),P6,"Fruits, berries and vegetables"
+A.16.02.006,Anise seed (Pimpinella anisum),P11,Nuts
+A.16.02.007,Annatto (Bixa orellana),P6,Fruits and vegetables
+A.16.02.008,Black caraway seed (Nigella sativa),P6,Fruits and vegetables
+A.16.02.009,Capers (Capparis spinosa),P6,Fruits and vegetables
+A.16.02.010,Caraway (Carum carvi),P6,Fruits and vegetables
+A.16.02.011,Cardamom (Elettaria cardamomum),P6,Fruits and vegetables
+A.16.02.012,Cayenne pepper (Capsicum frutescens),P11,Nuts
+A.16.02.013,Celery seed (Apium graveolens),P11,Nuts
+A.16.02.014,Cinnamon (Cinnamonum verum syn. C. zeylanicum),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.02.015,Cloves (Syzygium aromaticum),P6,Fruits and vegetables
+A.16.02.016,Coriander seed (Coriandrum sativum),P11,Nuts
+A.16.02.017,Cumin seed (Cuminum cyminum),P11,Nuts
+A.16.02.018,Dill seed (Anethum graveolens),P11,Nuts
+A.16.02.019,Fennel seed (Foeniculum vulgare),P11,Nuts
+A.16.02.020,Fenugreek (Trigonella foenumgraecum),P6,Fruits and vegetables
+A.16.02.021,Galangal (Alpinia spp.),P6,Fruits and vegetables
+A.16.02.022,Ginger (Zingiber officinale),P6,Fruits and vegetables
+A.16.02.023,"Horseradish, powder (Armoracia rusticana)",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.02.024,Juniper berries (Juniperus communis),P6,Fruits and vegetables
+A.16.02.025,Mace (Myristica fragrans),P6,Fruits and vegetables
+A.16.02.026,Nigella (Nigella sativa),P6,Fruits and vegetables
+A.16.02.027,Nutmeg (Myristica fragans),P6,Fruits and vegetables
+A.16.02.028,"Pepper, black and white (Piper nigrum)",P6,Fruits and vegetables
+A.16.02.029,Saffron (Crocus sativus),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.02.030,Tamarind (Tamarindus indica),P6,Fruits and vegetables
+A.16.02.031,Turmeric (Curcuma) (Curcuma domestica syn. C. longa),P6,Fruits and vegetables
+A.16.03,Spices,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.03.001,Mixed herbs,P6,"Fruits, berries and vegetables"
+A.16.03.002,Curry powder,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.03.004,Bouquet garni,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.03.005,Garam masala,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.03.006,Pickling spice,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04,Spices,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.001,Salt,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.002,"Salt, low sodium",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.003,"Salt, iodised",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.004,"Salt, fluoridated",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.005,"Salt, iodised and fluoridated",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.006,"Salt, flavoured",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.007,Sea salt,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.008,Stock cubes (bouillon cube),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.009,Gravy thickener,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.010,Gravy browning,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.011,Gravy instant granules,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.012,Vegetable extracts,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.013,Meat extract,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.014,Malt extract,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.015,Yeast extract,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.04.016,Monosodium glutamate,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05,Spices,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05.001,"Mustard, sweet",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05.002,"Mustard, mild",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05.003,"Mustard, hot",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05.004,"Vinegar, wine",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05.005,"Vinegar, apple",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05.006,Tomato ketchup,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05.007,Barbecue sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05.008,Tabasco sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05.009,Horseradish sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05.010,Mint sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05.011,Soy sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05.012,Curry sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05.013,Salsa,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05.014,Tartar sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.05.015,Mixed condiment,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.06,Spices,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.06.001,"Salad dressing, > 50% oil",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.06.002,"Salad dressing, 25 - 50% oil",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.06.003,"Salad dressing, < 25% oil",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.06.004,"Mayonnaise, > 50% oil",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.06.005,"Mayonnaise, 25 - 50% oil",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.06.006,"Mayonnaise, < 25% oil",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.07.001,Tomato chutney,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.07.002,Apple chutney,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.07.003,Cucumber chutney,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.07.004,Mango chutney,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.07.005,Mixed chutney,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.07.006,Piccalilli,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.07.007,Chilli pickle,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.07.008,Lime pickle,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.07.009,Mango pickle,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.07.010,Mixed pickle,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.07.011,Relish,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.08.002,"Brown sauce (Gravy, Lyonnais sauce)",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.08.004,Butter sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.09,Flavourings or essences,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.09.001,Almond essence,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.09.002,Vanilla essence,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.09.003,Vanilla pods (Vanilla fragrans syn. Vanilla planifolia),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.09.004,Orange essence,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.09.005,Lemon essence,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.09.006,Rum essence,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.16.09.007,Carob flavouring,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.09.008,Liquorice (Glycyrrhiza glabra),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.10.001,Yeast,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.10.002,Sodium bicarbonate,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.10.003,Baking powder,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.10.004,Powdered baking ammonia,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.10.005,Sourdough starter,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.10.006,Pectin,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.10.007,Gum,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.10.008,Gelatine,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.10.009,Cream of tartar,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.16.10.010,Glaze,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.01,"Infant formulae, powder",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.01.001,"Infant formula, milk-based, powder",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.01.002,"Infant formula, hypoallergenic, powder",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.01.003,"Infant formula, soya-based, powder",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.01.004,"Infant formula, milk and soya-based, powder",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.01.005,"Infant formula, based on protein hydrolysates, powder",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.02,"Infant formulae, liquid",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.17.02.001,"Infant formula, milk-based, liquid",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.02.002,"Infant formula, hypoallergenic, liquid",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.02.003,"Infant formula, soya-based, liquid",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.02.004,"Infant formula, milk and soya-based, liquid",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.02.005,"Infant formula, based on protein hydrolysates, liquid",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.03,"Follow-on formulae, powder",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.03.001,"Follow-on formula, milk-based, powder",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.03.002,"Follow-on formula, hypoallergenic, powder",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.03.003,"Follow-on formula, soya-based, powder",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.03.004,"Follow-on formula, milk and soya-based, powder",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.03.005,"Follow-on formula, based on protein hydrolysates, powder",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.04,"Follow-on formulae, liquid",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.17.04.001,"Follow-on formula, milk-based, liquid",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.04.002,"Follow-on formula, hypoallergenic, liquid",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.04.003,"Follow-on formula, soya-based, liquid",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.04.004,"Follow-on formula, milk and soya-based, liquid",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.04.005,"Follow-on formula, based on protein hydrolysates, liquid",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.05,Cereal-based food for infants and young children,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.05.001,Simple cereals which are or have to be reconstituted with milk or other appropriate nutritious liquids,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.05.002,Cereals with an added high protein food which are or have to be reconstituted with water or other protein-free liquid,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.05.003,"Biscuits, rusks and cookies for children",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.17.05.004,Pasta for children,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+A.17.06,Ready-to-eat meal for infants and young children,P10,Pre-prepared meal
+A.17.06.001,"Ready-to-eat meal for children, vegetable-based",P10,Pre-prepared meal
+A.17.06.002,"Ready-to-eat meal for children, cereal-based",P10,Pre-prepared meal
+A.17.06.003,"Ready-to-eat meal for children, meat/fish-based",P10,Pre-prepared meal
+A.17.06.004,"Ready-to-eat meal for children, meat and vegetables",P10,Pre-prepared meal
+A.17.06.005,Fruit pur�e for children,P10,Pre-prepared meal
+A.17.07,"Yoghurt, cheese and milk-based dessert for infants and young children",P8,Dairy products
+A.17.07.001,Yoghurt for infants and young children,P8,Dairy products
+A.17.07.002,Cheese preparations for infants and young children,P8,Dairy products
+A.17.07.003,Dessert and puddings for infants and young children,P8,Dairy products
+A.17.08,Fruit juice and herbal tea for infants and young children,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.17.08.001,Fruit juice for infants and young children,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.17.08.002,Fruit nectar for infants and young children,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.17.08.003,Tee for infants and young children,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.17.08.004,Tee and juice mixture for infants and young children,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.18.01,Food for weight reduction,P10,Pre-prepared meal
+A.18.01.001,Products presented as a replacement for the whole of the daily diet,P10,Pre-prepared meal
+A.18.01.002,Products presented as a replacement for one or more meals of the daily diet,P10,Pre-prepared meal
+A.18.02,Dietary supplements,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.02.001,Vitamin supplements,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.02.002,Mineral supplements,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.02.003,Combination of vitamins and minerals supplements,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.02.004,"Supplements containing special fatty acids (e.g. omega-3, essential fatty acids)",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.02.005,Protein and amino acids supplements,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.02.006,Fiber supplements,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.02.007,Plant extract formula,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.02.008,Coenzyme Q10 supplement,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.02.009,Enzyme-based supplement,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.02.010,Yeast based supplement,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.02.011,"Algae formula (e.g. Spirulina, Chlorella)",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.02.012,Pollen-based supplement,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.03,Food for sports people (labelled as such),P10,Pre-prepared meal
+A.18.03.001,Carbohydrate-rich energy food products for sports people,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.03.002,Carbohydrate-electrolyte solutions for sports people,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.18.03.003,Protein and protein components for sports people,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.03.004,Micronutrients supplement for sports people,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.03.005,Carnitine-based supplement for sports people,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.04.001,Fine bakery products for diabetics,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.04.002,Breakfast cereals/muesli for diabetics,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.04.003,Chocolate and chocolate products for diabetics,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.04.004,Confectionary for diabetics,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.04.005,Fruit-based beverages for diabetics,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.18.04.006,Alcohol-free beverages for diabetics (excluding fruit-based beverages),P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.18.04.007,Desserts for diabetics,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.18.04.008,"Jam, marmalade and other fruit spreads for diabetics",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.18.04.009,Milk products for diabetics,P8,Dairy products
+A.18.04.010,Spreads for diabetics,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+A.18.04.011,Ready-to-eat meal for diabetics,P10,Pre-prepared meal
+A.18.04.012,Beer for diabetics,P12,Beer and other alcoholic drinks (excluding wines)
+A.18.05.001,Nutritionally complete formulas,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.18.05.002,Nutritionally incomplete formulas,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.18.05.003,Formulas for metabolic disorders,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+A.18.05.004,Oral rehydration products,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.19.01.001,Sandwich and sandwich-like meal,P10,Pre-prepared meal
+A.19.01.002,Pizza and pizza-like pies,P10,Pre-prepared meal
+A.19.01.003,"Pasta, cooked",P10,Pre-prepared meal
+A.19.02.001,Rice and vegetables meal,P10,Pre-prepared meal
+A.19.02.002,Rice and meat meal,P10,Pre-prepared meal
+A.19.02.003,"Rice, meat, and vegetables meal",P10,Pre-prepared meal
+A.19.03.001,Potatoes and vegetables meal,P10,Pre-prepared meal
+A.19.03.002,Potatoes and meat meal,P10,Pre-prepared meal
+A.19.03.003,"Potatoes, meat, and vegetables meal",P10,Pre-prepared meal
+A.19.03.004,Potatoes and cheese meal,P10,Pre-prepared meal
+A.19.04.001,Beans and meat meal,P10,Pre-prepared meal
+A.19.04.002,Beans and vegetables meal,P10,Pre-prepared meal
+A.19.04.003,"Beans, meat, and vegetables meal",P10,Pre-prepared meal
+A.19.05.001,Meat burger,P10,Pre-prepared meal
+A.19.05.002,Meat balls,P10,Pre-prepared meal
+A.19.05.003,Goulash,P10,Pre-prepared meal
+A.19.05.004,Meat stew,P10,Pre-prepared meal
+A.19.06.001,Fish and potatoes meal,P10,Pre-prepared meal
+A.19.06.002,Fish and rice meal,P10,Pre-prepared meal
+A.19.06.003,Fish and vegetables meal,P10,Pre-prepared meal
+A.19.06.004,Seafood-based meals,P10,Pre-prepared meal
+A.19.07.001,"Mixed vegetables, grilled",P10,Pre-prepared meal
+A.19.07.004,"Mixed vegetables, boiled",P10,Pre-prepared meal
+A.19.07.006,Vegetable souffl�,P10,Pre-prepared meal
+A.19.07.007,Ratatouille,P10,Pre-prepared meal
+A.19.08.001,"Omelette, plain",P10,Pre-prepared meal
+A.19.08.002,Omelette with bacon,P10,Pre-prepared meal
+A.19.08.003,Omelette with cheese,P10,Pre-prepared meal
+A.19.08.004,Omelette with vegetables,P10,Pre-prepared meal
+A.19.08.005,Omelette with mushrooms,P10,Pre-prepared meal
+A.19.08.006,Fried eggs,P10,Pre-prepared meal
+A.19.08.007,Poached eggs,P10,Pre-prepared meal
+A.19.09,Mushroom-based meals,P10,Pre-prepared meal
+A.19.10.001,Vegetable/herb soup,P10,Pre-prepared meal
+A.19.10.002,Grain soup,P10,Pre-prepared meal
+A.19.10.004,Meat/poultry soup,P10,Pre-prepared meal
+A.19.10.005,Fish soup,P10,Pre-prepared meal
+A.19.10.006,Legume (beans) soup,P10,Pre-prepared meal
+A.19.10.007,Milk product/egg soup,P10,Pre-prepared meal
+A.19.10.008,Mushroom soup,P10,Pre-prepared meal
+A.19.11.001,Prepared green salad,P10,Pre-prepared meal
+A.19.11.002,Prepared mixed vegetable salad,P10,Pre-prepared meal
+A.19.11.003,Prepared potato salad,P10,Pre-prepared meal
+A.19.11.004,Prepared pasta salad,P10,Pre-prepared meal
+A.19.11.005,Prepared rice salad,P10,Pre-prepared meal
+A.19.11.006,Prepared legume (beans) salad,P10,Pre-prepared meal
+A.19.11.007,Prepared nut salad,P10,Pre-prepared meal
+A.19.11.008,Prepared meat salad,P10,Pre-prepared meal
+A.19.11.009,Prepared fish salad,P10,Pre-prepared meal
+A.19.11.010,Prepared mixed egg/meat/fish/vegetable salad,P10,Pre-prepared meal
+A.20.01.001,Potato crisps,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.20.01.002,Corn chips,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.20.01.003,Tortilla chips,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.20.01.004,Corn curls,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.20.01.005,Popcorn,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.20.01.006,Pretzels,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.20.01.007,Fish-based snacks,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.20.01.008,Seafood chips,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.20.01.009,Cheese puffs,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.20.02.001,"Ice cream, milk-based",P8,Dairy products
+A.20.02.002,"Ice cream, not milk-based",P8,Dairy products
+A.20.02.003,Starchy pudding,P10,Pre-prepared meal
+A.20.02.004,Custard,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.20.02.005,Sorbet,P8,Dairy products
+A.20.02.007,Granita,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.20.03,Other foods (foods which cannot be included in any other group),P10,Pre-prepared meal
+A.X1.01.01,Cultured Meat (Bos. Spp.),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.X1.01.02,Microbial Protein (Solein),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.X1.01.03,Mycoprotein (Quorn),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.X1.02.01,Microbial Milk (T. reesei),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.X1.03.01,Microbial Ovalbumin (T. reesei),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.X1.04.01,Microbial Fat (yeast - M. pulcherrima),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+A.X1.04.02,Algae Fat (Schizochytrium),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.01.02.001.005,"Wheat, cooked",P10,Pre-prepared meal
+I.01.02.002.003,"Barley, cooked",P10,Pre-prepared meal
+I.01.02.009.008,"Rice, cooked, polished",P10,Pre-prepared meal
+I.01.02.009.009,"Rice, cooked, unpolished",P10,Pre-prepared meal
+I.01.02.010.005,Amaranth grain,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.02.010.006,Quinoa grain,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.03.008.008,Gluten-free flour,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.04.005.010,"Crisp bread, gluten free",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.04.005.011,"Crisp bread, oats",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.05.016,"Plain pasta, cooked",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.049,Choux pastry,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.050,Puff pastry,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.051,Shortcrust pastry,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.052,Sesame pie,P10,Pre-prepared meal
+I.01.07.001.053,Karelian pie,P10,Pre-prepared meal
+I.01.07.001.054,Rice pie,P10,Pre-prepared meal
+I.01.07.001.055,Poppy seed cake,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.056,Nut cake,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.057,Carrot cake,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.058,Toffee tart,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.059,Chocolate tart,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.060,Mille-feuille,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.061,"Croissant filled, other",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.062,"Doughnuts, filled",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.063,"Dumpling, sweet filling",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.064,"Flan, nature",P10,Pre-prepared meal
+I.01.07.001.065,"Flan, with fruits",P10,Pre-prepared meal
+I.01.07.001.066,"Flan, caramel",P10,Pre-prepared meal
+I.01.07.001.067,"Muffins, blueberry",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.068,"Muffins, chocolate",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.069,"Muffins, plain",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.070,Meringue cake,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.01.07.001.071,Meringue tart,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.01.07.001.072,Meringue with chocolate,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.01.07.001.073,Meringue with cream,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.01.07.001.074,Meringue with nuts,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.01.07.001.075,Meringues,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.01.07.001.076,"Beignets, plain",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.077,"Beignets, filled",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.01.07.001.078,Almond Macaroons,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.01.07.001.079,Coconut Macaroons,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.01.07.002.015,"Biscuits, sweet, with nuts",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.01.07.002.016,"Wafer, plain",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.01.07.002.017,"Wafer, Filled",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.02.05.023,Bean sprout,P6,Fruits and vegetables
+I.02.08.004,Agave tequilana,P6,Fruits and vegetables
+I.02.08.005,Maples (trunk sap),P6,Fruits and vegetables
+I.02.13.009,Malted barley,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.02.14.013,"Tomato, canned",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.02.14.014,"Tomato, paste",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.03.01.012,Mashed potatoes (prepared from flakes or powder),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.03.01.013,Mashed potatoes (fresh),P10,Pre-prepared meal
+I.03.01.014,Roesti,P10,Pre-prepared meal
+I.03.01.015,"Potato dumpling, plain",P10,Pre-prepared meal
+I.04.02.022,"Beans (dry), soaked/boiled/canned",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.04.02.023,"Lentils (dry), soaked/boiled/canned",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.04.02.024,"Peas (dry), soaked/boiled/canned",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.04.02.025,"Soya beans, soaked/boiled/canned",P6,Fruits and vegetables
+I.04.03.014,Mixed nuts and dried fruits,P11,Nuts
+I.04.03.015,Mixed nuts paste,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.04.03.016,Apricot kernels,P11,Nuts
+I.04.04.015,Grape seeds,P11,Nuts
+I.05.08.001.019,"Jam, Apricot & blackberry & strawberry",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.05.08.001.020,"Jam, Apricot & peach",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.05.08.001.021,"Jam, Berries",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.05.08.003.001,"Fruit spreads, Sirop de Liège",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.05.08.003.002,"Fruit spreads, Fig",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.05.08.003.003,"Fruit spreads, Lemon",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.05.08.003.004,"Fruit spreads, Jelly",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.05.09.007.013,"Fruit compote, Other",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.05.09.008.009,"Candied fruit, Ginger",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.06.08.016,"Cooked Ham, Pork",P9,"Beef, pork and poultry meat"
+I.06.09.001.006,"Salsiccia, Beef",P9,"Beef, pork and poultry meat"
+I.06.09.001.007,"Salsiccia, Pork",P9,"Beef, pork and poultry meat"
+I.06.09.003.004,"Blood sausage, Beef",P9,"Beef, pork and poultry meat"
+I.06.09.003.005,"Blood sausage, Pork",P9,"Beef, pork and poultry meat"
+I.06.09.003.006,"Liver sausage, Beef",P9,"Beef, pork and poultry meat"
+I.06.09.003.007,"Liver sausage, Pork",P9,"Beef, pork and poultry meat"
+I.06.09.003.008,"Liver sausage, Poultry",P9,"Beef, pork and poultry meat"
+I.06.09.003.009,"Liver sausage, Veal",P9,"Beef, pork and poultry meat"
+I.06.11.001,Meat paste,P10,Pre-prepared meal
+I.06.11.005.001,"Terrine, Pork",P10,Pre-prepared meal
+I.06.11.005.002,"Terrine, Rabbit",P10,Pre-prepared meal
+I.06.11.005.003,"Terrine, Poultry",P10,Pre-prepared meal
+I.07.01.006.001,Salmon (Salmo salar),P1,Fish
+I.07.01.006.002,Trout (Oncorhynchus mykiss),P1,Fish
+I.07.01.015.001,Sea catfish (Ariidae),P1,Fish
+I.07.01.015.002,Wolf-fish  (Anarhichas lupus),P1,Fish
+I.07.01.017.001,Cod (Gadus morhua),P1,Fish
+I.07.01.017.002,Whiting (Merlangius merlangus),P1,Fish
+I.07.01.017.003,Coalfish (Pollachius virens),P1,Fish
+I.07.01.017.004,Haddock (Melanogrammus aeglefinus),P1,Fish
+I.07.02.004.001,"Fish paste, Anchovy",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.07.02.004.002,"Fish paste, Roe (Tarama)",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.07.02.004.003,"Fish paste, Salmon",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.07.02.004.004,"Fish paste, Tuna",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.07.02.005.001,"Fish pâté, Mackerel",P10,Pre-prepared meal
+I.07.02.005.002,"Fish pâté, Salmon",P10,Pre-prepared meal
+I.07.02.005.003,"Fish pâté, Shellfish",P10,Pre-prepared meal
+I.07.02.005.004,"Fish pâté, Tuna",P10,Pre-prepared meal
+I.07.03.001.001,"Fish roe, Cod",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.07.03.001.002,"Fish roe, Herring",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.07.03.001.003,"Fish roe, Lumpfish",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.07.03.001.004,"Fish roe, Sturgeon",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.07.03.002.001,Cod liver,P1,Fish
+I.08.02.003,Fruit and dairy smoothie,P8,Dairy products
+I.08.08.187,"Cheese, Cottage",P8,Dairy products
+I.08.08.188,Fresh uncured cheese,P8,Dairy products
+I.08.08.189,"Soft-ripened cheese with bloomy rind (white mould) (brie, camembert type)",P8,Dairy products
+I.08.08.190,"Soft-ripened cheese veined with blue mould (blue bavarian, blue de graven type )",P8,Dairy products
+I.08.08.191,Firm/semi-hard cheese (gouda and edam type),P8,Dairy products
+I.08.08.192,"Hard cheese (cheddar, emmental type)",P8,Dairy products
+I.08.08.193,"Extra hard cheese (parmesan, grana type)",P8,Dairy products
+I.10.01.005,Flavoured sugar,P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.10.03.002.001,"Bitter-sweet chocolate, other",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.002.002,"Bitter-sweet chocolate, plain",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.004.001,Chocolate spread,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.10.03.004.002,Chocolate spread with nuts,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.10.03.005.001,"Bitter-sweet chocolate, with nuts and fruits",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.005.002,"Milk chocolate, with nuts and fruits",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.005.003,"White chocolate, with nuts and fruits",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.006.001,Chocolate coated biscuit,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.006.002,Chocolate coated toffee,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.006.003,Chocolate coated nut,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.006.005,"Chocolate coated biscuit, caramel filling",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.006.006,"Chocolate coated biscuit, nut and caramel filling",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.006.007,"Chocolate coated biscuit, nut filling",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.006.008,"Chocolate coated biscuit, cream filling",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.006.009,"Chocolate coated biscuit, fruit filling",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.006.010,"Chocolate coated nut, caramel filling",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.006.011,"Chocolate coated nougat, caramel filling                                       �",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.006.012,"Chocolate coated biscuit, marshmallow filling",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.007.001,"Filled chocolate, cream",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.007.002,"Filled chocolate, marmalade",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.007.003,"Filled chocolate, other",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.007.004,"Filled chocolate, flavoured cream",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.007.005,"Filled chocolate, Caramel",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.008.001,"Milk chocolate, other",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.008.002,"Milk chocolate, plain",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.009.001,"White chocolate, other",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.03.009.002,"White chocolate, plain",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.04.015.001,Halva with almonds,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.04.015.002,Halva with cocoa,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.04.015.003,Halva with peanuts,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.04.015.004,"Halva, plain",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.04.018,Loukoumi,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.04.019,Sugar coated nuts,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.05.001.001,"Fruit sauce, Apple",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.05.001.002,"Fruit sauce, Lemon",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.05.001.003,"Fruit sauce, Raspberry",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.05.005,"Cheese sauce, Sweet",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.10.06.007,Agave syrup,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.12.01.022,"Juice, Raspberry",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.01.023,"Juice, Cherry",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.01.024,"Juice, Strawberry",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.01.025,"Juice, Mandarin",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.01.026,"Juice, Kiwi",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.01.027,"Juice, Blueberry",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.02.015,"Juice concentrate, Rosehip",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.02.016,"Juice concentrate, Apple",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.02.017,"Juice concentrate, Lemon",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.02.018,"Juice concentrate, Pear",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.02.019,"Juice concentrate, Quince",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.02.020,"Juice concentrate, Lime",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.02.021,"Juice concentrate, Passion fruit",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.02.022,"Juice concentrate, Mango",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.02.023,"Juice concentrate, Papaya",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.02.024,"Juice concentrate, Mixed fruit",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.03.008,"Nectar, Apricot",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.03.009,"Nectar, Blackcurrant",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.03.010,"Nectar, Cherry",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.03.011,"Nectar, Cranberry",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.03.012,"Nectar, Grape",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.03.013,"Nectar, Lemon",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.03.014,"Nectar, Redcurrant",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.03.015,"Nectar, Mixed fruit",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.03.016,"Nectar, Other",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.04.011,"Juice, Tropical",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.04.012,"Juice, Mixed citrus fruit",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.04.013,"Juice, Berries",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.12.08.002,Multi-fruit-carrot juice,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.13.01.001.022,"Fruit soft drink, Apple",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.13.01.001.023,"Fruit soft drink, Lemon",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.13.01.001.024,"Fruit soft drink, Blackcurrant",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.13.01.001.025,"Cordial, Mixed fruit",P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.13.06,Energy drink,P5,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.14.01.006,Beer with limonade 1/1,P12,Beer and other alcoholic drinks (excluding wines)
+I.14.01.007,Malt drink,P12,Beer and other alcoholic drinks (excluding wines)
+I.14.01.008,Beer with coke 1/1,P12,Beer and other alcoholic drinks (excluding wines)
+I.14.05.001,Fruit liqueur,P12,"Beverages (e.g. soda, cider, mineral water, juice and squash drink)"
+I.14.06.007,Spirits made from vegetables (Tequila),P12,Beer and other alcoholic drinks (excluding wines)
+I.14.06.008,Alcohol 90 - 95�,P12,Beer and other alcoholic drinks (excluding wines)
+I.14.06.009,Alcohol 40�,P12,Beer and other alcoholic drinks (excluding wines)
+I.14.07.001.001,Kir,P12,Beer and other alcoholic drinks (excluding wines)
+I.14.07.001.002,Pina colada,P12,Beer and other alcoholic drinks (excluding wines)
+I.16.01.012,Marjoram,P6,"Fruits, berries and vegetables"
+I.16.01.013,Origano,P6,"Fruits, berries and vegetables"
+I.16.01.014,Mint,P6,"Fruits, berries and vegetables"
+I.16.01.015,Coriander leaves,P6,"Fruits, berries and vegetables"
+I.16.01.016,Lovage leaves,P6,"Fruits, berries and vegetables"
+I.16.01.017,Winter savory,P6,"Fruits, berries and vegetables"
+I.16.01.018,"Herbs, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.01.019,"Chives, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.01.020,"Dill, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.01.021,"Parsley, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.01.022,"Sage, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.01.023,"Rosemary, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.01.024,"Thyme, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.01.025,"Basil, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.01.026,"Bay leaves (laurel), dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.01.027,"Tarragon, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.01.028,"Marjoram, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.01.029,"Origano, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.01.030,"Mint, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.01.031,"Coriander leaves, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.01.032,"Winter savory, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.02.032,"Ginger, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.02.033,"Garlic, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.02.034,"Onions, dried",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.03.003,Mixed spices,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.05.015.001,Cocktail sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.05.015.002,Worcester/Worcestershire sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.06.007,"Salad dressing, non specified",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.06.008,Yogonaise,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.06.009,Thousand Islands sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.08.001,"White sauce (Bechamel sauce, Cheese sauce)",P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.08.003,Cream sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.08.005,Emulsion sauce (Hollandaise sauce),P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.08.006,"Oil-based sauce (Pesto, Aioli sauce)",P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.16.08.007,Alcoholic sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.08.008,Meat sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.08.009,Fish sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.08.010,Vegetable sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.09.009,Citric acid,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.09.010,Quinine essence,P16,"Bottled products (e.g. pickles, jams, instant coffee and other glass jar products)"
+I.16.09.011,Caffeine,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.09.012,Caramel color,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.16.09.013,Phosphoric acid,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.17.05.005,Simple cereals reconstituted with milk or other appropriate nutritious liquids,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.17.05.006,Cereals with an added high protein food reconstituted with water or other protein-free liquid,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.19.01.001.009,Cheeseburger,P10,Pre-prepared meal
+I.19.01.001.010,Double burger,P10,Pre-prepared meal
+I.19.01.001.011,Hamburger,P10,Pre-prepared meal
+I.19.01.001.012,Doner kebab,P10,Pre-prepared meal
+I.19.01.001.013,Hot dog,P10,Pre-prepared meal
+I.19.01.001.014,Sausage roll,P10,Pre-prepared meal
+I.19.01.001.015,Bapao sandwich,P10,Pre-prepared meal
+I.19.01.001.016,Fish burger,P10,Pre-prepared meal
+I.19.01.001.017,"Pierogi, with meat",P10,Pre-prepared meal
+I.19.01.001.018,"Pierogi, with vegetables",P10,Pre-prepared meal
+I.19.01.002.009,"Pizza base, cooked",P10,Pre-prepared meal
+I.19.01.002.010,"Pizza, cheese-fish",P10,Pre-prepared meal
+I.19.01.002.011,"Pizza, cheese-shellfish",P10,Pre-prepared meal
+I.19.01.002.012,"Laugengebaeck, cheese",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.19.01.002.013,"Pizza, cheese",P10,Pre-prepared meal
+I.19.01.002.014,"Bread roll, cheese",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.19.01.002.015,"Pizza, tomato",P10,Pre-prepared meal
+I.19.01.002.016,"Pizza, vegetarian",P10,Pre-prepared meal
+I.19.01.002.017,"Pizza, cheese-spinach",P10,Pre-prepared meal
+I.19.01.002.018,"Pizza, cheese-tomato",P10,Pre-prepared meal
+I.19.01.002.019,"Laugengebaeck, cheese-onion",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.19.01.002.020,"Pizza, cheese-ham",P10,Pre-prepared meal
+I.19.01.002.021,"Pizza, cheese-chicken",P10,Pre-prepared meal
+I.19.01.002.022,"Pizza, cheese-salami",P10,Pre-prepared meal
+I.19.01.002.023,"Pizza, cheese-kebab",P10,Pre-prepared meal
+I.19.01.002.024,"Pizza, cheese-beef",P10,Pre-prepared meal
+I.19.01.002.025,"Laugengebaeck, cheese-bacon",P14,"Refined foods (e.g. bread, sugar, flour, grains, pasta)"
+I.19.01.002.026,"Pizza, cheese-anchovy",P10,Pre-prepared meal
+I.19.01.002.027,"Pizza, cheese-artichoke-ham",P10,Pre-prepared meal
+I.19.01.003.007,"Pasta, cooked, with bolognese sauce",P10,Pre-prepared meal
+I.19.01.003.008,"Pasta, cooked, with carbonara sauce",P10,Pre-prepared meal
+I.19.01.003.009,"Pasta, cooked, with fish/shellfish",P10,Pre-prepared meal
+I.19.01.003.010,"Pasta, cooked, with tomato sauce",P10,Pre-prepared meal
+I.19.01.003.011,"Pasta, cooked, with garlic",P10,Pre-prepared meal
+I.19.01.003.012,"Pasta, cooked, with meat and vegetables",P10,Pre-prepared meal
+I.19.01.003.013,"Pasta, cooked, with tomato sauce and cheese",P10,Pre-prepared meal
+I.19.01.003.014,Tortellini with cheese,P10,Pre-prepared meal
+I.19.01.003.015,Tortellini filled with meat,P10,Pre-prepared meal
+I.19.01.003.016,"Tortellini, cooked, spinach and ricotta",P10,Pre-prepared meal
+I.19.01.003.017,"Lasagna/Canelloni, with meat",P10,Pre-prepared meal
+I.19.01.003.018,"Lasagna/Canelloni, vegetarian",P10,Pre-prepared meal
+I.19.01.003.019,Maultaschen,P10,Pre-prepared meal
+I.19.01.003.020,Macaroni with white sauce,P10,Pre-prepared meal
+I.19.01.003.021,"Noodles, cooked, chow mein",P10,Pre-prepared meal
+I.19.01.004,Grain patties,P10,Pre-prepared meal
+I.19.03.001.001,Potato cream,P10,Pre-prepared meal
+I.19.03.001.002,Potato vegetable cake,P10,Pre-prepared meal
+I.19.03.001.004,"Potato, swede",P6,"Fruits, berries and vegetables"
+I.19.03.001.005,"Potato, tomato and bean",P10,Pre-prepared meal
+I.19.03.001.006,"Potato, tomato and olive oil",P10,Pre-prepared meal
+I.19.03.002.001,Potato beef casserole,P10,Pre-prepared meal
+I.19.03.002.002,Potato ham casserole,P10,Pre-prepared meal
+I.19.03.002.003,Potato meat casserole,P10,Pre-prepared meal
+I.19.03.002.004,Potato sausage meal,P10,Pre-prepared meal
+I.19.03.002.005,"Potato dumpling, meat filling",P10,Pre-prepared meal
+I.19.03.002.006,Pytti i panna,P10,Pre-prepared meal
+I.19.03.003.001,Moussaka,P10,Pre-prepared meal
+I.19.03.003.002,Sauerkraut dish,P10,Pre-prepared meal
+I.19.03.003.003,Cottage pie,P10,Pre-prepared meal
+I.19.04.001.001,Chili con carne,P10,Pre-prepared meal
+I.19.04.001.002,Haricot bean stew,P10,Pre-prepared meal
+I.19.04.001.003,Legume with sausage,P10,Pre-prepared meal
+I.19.04.002.001,Beans in tomato sauce,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.19.04.002.002,Falafel,P10,Pre-prepared meal
+I.19.04.002.003,Soya sausage / pattie,P9,"Beef, pork and poultry meat"
+I.19.05.005,Pressed meat snacks,P10,Pre-prepared meal
+I.19.05.006,Schnitzel,P10,Pre-prepared meal
+I.19.05.007,Cordon bleu,P10,Pre-prepared meal
+I.19.05.008,Meat croquettes,P10,Pre-prepared meal
+I.19.05.009,Offal-based meals,P10,Pre-prepared meal
+I.19.06.003.001,Fish and vegetable gratin,P10,Pre-prepared meal
+I.19.06.003.002,Salmon and broccoli meal,P10,Pre-prepared meal
+I.19.06.003.003,Fish and vegetable casserole,P10,Pre-prepared meal
+I.19.06.003.004,Fish and mushroom meal,P10,Pre-prepared meal
+I.19.06.003.005,Fish and tomato meal,P10,Pre-prepared meal
+I.19.06.004.001,Shrimp in white sauce,P10,Pre-prepared meal
+I.19.06.004.002,Squid rings,P10,Pre-prepared meal
+I.19.06.005,Sushi,P10,Pre-prepared meal
+I.19.06.006,Salmon en croute,P10,Pre-prepared meal
+I.19.06.007,Fish gratin,P10,Pre-prepared meal
+I.19.07.002,"Mixed vegetables, fried",P10,Pre-prepared meal
+I.19.07.003,"Mixed vegetables, braised",P10,Pre-prepared meal
+I.19.07.004,"Mixed vegetables, boiled",P10,Pre-prepared meal
+I.19.07.005,"Vegetables, gratinated",P10,Pre-prepared meal
+I.19.10.003,Potato soup,P10,Pre-prepared meal
+I.19.10.009,Fruit soup,P10,Pre-prepared meal
+I.19.10.010,Noodle soup,P10,Pre-prepared meal
+I.19.10.011,Vegetable broth,P10,Pre-prepared meal
+I.19.10.012,Meat/poultry broth,P10,Pre-prepared meal
+I.19.11.003.001,Potato salad with vinaigrette,P10,Pre-prepared meal
+I.19.11.003.002,Potato salad with mayonnaise,P10,Pre-prepared meal
+I.20.02.001.001,"Ice cream, milk-based, chocolate coated, flavoured",P8,Dairy products
+I.20.02.001.002,"Ice cream, milk-based, chocolate coated, unflavoured",P8,Dairy products
+I.20.02.001.003,"Ice cream, milk-based, cornet, flavoured",P8,Dairy products
+I.20.02.001.004,"Ice cream, milk-based, cornet, unflavoured",P8,Dairy products
+I.20.02.001.005,"Ice cream, milk-based, sorbet coated, flavoured",P8,Dairy products
+I.20.02.001.006,"Ice cream, milk-based, without cornet and coat, flavoured",P8,Dairy products
+I.20.02.001.007,"Ice cream, milk-based, without cornet and coat, unflavoured",P8,Dairy products
+I.20.02.001.008,"Ice cream, milk-based, vanilla",P8,Dairy products
+I.20.02.001.009,"Ice cream, milk-based, chocolate",P8,Dairy products
+I.20.02.002.001,"Ice cream, milk-imitate based, chocolate coated",P8,Dairy products
+I.20.02.002.002,"Ice cream, milk-imitate based, cornet",P8,Dairy products
+I.20.02.002.003,"Ice cream, milk-imitate based, without cornet and coat",P8,Dairy products
+I.20.02.003.001,"Pudding, bread and butter",P10,Pre-prepared meal
+I.20.02.003.002,"Pudding, cereal based",P10,Pre-prepared meal
+I.20.02.003.003,"Pudding, flavoured",P10,Pre-prepared meal
+I.20.02.004.001,Dessert cream,P8,Dairy products
+I.20.02.004.002,Patisserie cream,P8,Dairy products
+I.20.02.004.003,Whipped cream,P8,Dairy products
+I.20.02.006,Gelatine dessert,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.20.02.008,Chocolate mousse,P15,"Processed foods (e.g. tofu, bisquits, coffee, chips)"
+I.20.02.009,Tiramis�,P10,Pre-prepared meal

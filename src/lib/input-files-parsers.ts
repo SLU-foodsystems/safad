@@ -183,13 +183,12 @@ export function parseProcessesEnergyDemands(
     })
   );
 }
-
-export function parseProcessesPackaging(
+export function parsePreparationProcesses(
   csvString: string
 ): Record<string, string[]> {
   const data = parseCsvFile(csvString).slice(1);
 
-  const err = validateCsv(data, { minCols: 7 });
+  const err = validateCsv(data, { minCols: 3 });
   if (err) {
     throw new CsvValidationError(err);
   }
@@ -197,7 +196,8 @@ export function parseProcessesPackaging(
   const firstNRows = data.slice(1, 20);
   // A sanity-check that it's the right file
   const l3CodesInThirdCol = firstNRows.every(
-    ([l3Code]) => l3Code.split(".").length === 4
+    ([maybeCode]) =>
+      (maybeCode[0] === "A" || maybeCode[0] === "I") && maybeCode.includes(".")
   );
   if (!l3CodesInThirdCol) {
     throw new CsvValidationError(CsvValidationErrorType.Unknown);
@@ -208,18 +208,36 @@ export function parseProcessesPackaging(
 
   const hasNonEmptyValue = (pair: [any, any[]]): boolean => pair[1]?.length > 0;
 
-  const packagingData = Object.fromEntries(
-    data
-      .map((row): [string, string[]] => [row[0], splitFacetStr(row[5])])
-      .filter(hasNonEmptyValue)
-  );
-  const preparationProcessesData = Object.fromEntries(
+  return Object.fromEntries(
     data
       .map((row): [string, string[]] => [row[0], splitFacetStr(row[2])])
       .filter(hasNonEmptyValue)
   );
+}
 
-  return mergeObjectsWithLists(preparationProcessesData, packagingData);
+export function parsePackagingCodes(csvString: string): Record<string, string> {
+  const data = parseCsvFile(csvString).slice(1);
+
+  const err = validateCsv(data, { minCols: 3 });
+  if (err) {
+    throw new CsvValidationError(err);
+  }
+
+  const firstNRows = data.slice(1, 20);
+  // A sanity-check that it's the right file
+  const l3CodesInThirdCol = firstNRows.every(
+    ([maybeCode]) =>
+      (maybeCode[0] === "A" || maybeCode[0] === "I") && maybeCode.includes(".")
+  );
+  if (!l3CodesInThirdCol) {
+    throw new CsvValidationError(CsvValidationErrorType.Unknown);
+  }
+
+  return Object.fromEntries(
+    data
+      .map((row): [string, string] => [row[0], row[2]])
+      .filter((kv) => !!kv[1])
+  );
 }
 
 export function parseFootprintsRpcs(csvString: string) {
