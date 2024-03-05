@@ -1,4 +1,8 @@
+import { TRANSPORT_EMISSIONS_ZERO } from "./constants";
 import { vectorsSum } from "./utils";
+
+// Exclude transport emissions from some products all-together, e.g. tap water.
+const EXCLUDED_PRODUCTS = ["A.15.01"];
 
 /**
  * Compute the transport emissions of a rpc-level item and its amount.
@@ -12,6 +16,10 @@ export default function computeTransportEmissions(
 ): number[] | null {
   if (!rpcCode || rpcCode === "0") {
     return null;
+  }
+
+  if (EXCLUDED_PRODUCTS.includes(rpcCode)) {
+    return TRANSPORT_EMISSIONS_ZERO;
   }
 
   // Get the RPC Origin Waste data - we want the "share" specifically
