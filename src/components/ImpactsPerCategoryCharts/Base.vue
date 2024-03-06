@@ -105,10 +105,14 @@ const drawChart = () => {
   const rect = el.value.getBoundingClientRect();
 
   const width = rect.width;
-  const height = rect.width * 0.5;
-
-  const labelLayout =
-    width < 1200 ? (width < 900 ? "slanted" : "offset") : "normal";
+  let height = rect.width * 0.5;
+  let labelLayout: "normal" | "slanted" | "offset" = "normal";
+  if (width < 900) {
+    labelLayout = "slanted";
+    height += 200;
+  } else if (width < 1200) {
+    labelLayout = "offset";
+  }
 
   StackedBarChart(el.value, data, labels, {
     width,
