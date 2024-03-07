@@ -335,7 +335,12 @@ onMounted(async () => {
       <div class="page-wrap cluster cluster--between">
         <div class="cluster">
           <a class="top-bar__logo" href="#">
-            <img src="@/assets/slu-logo.svg" width="64" height="64" alt="SLU logo" />
+            <img
+              src="@/assets/slu-logo.svg"
+              width="64"
+              height="64"
+              alt="SLU logo"
+            />
           </a>
           <nav class="cluster" hidden>
             <a href="#0">Home</a>
@@ -371,7 +376,10 @@ onMounted(async () => {
           />
         </div>
         <div>
-          <h1>SAFAD<br />Sustainability Assessment of <br data-remove-on-mobile />Foods and Diets</h1>
+          <h1>
+            SAFAD<br />Sustainability Assessment of
+            <br data-remove-on-mobile />Foods and Diets
+          </h1>
           <h2>
             Calculate the impact of foods and diets using eight environmental
             indicators and indicators for animal welfare and use of antibiotics.
