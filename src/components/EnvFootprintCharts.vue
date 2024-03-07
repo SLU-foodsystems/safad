@@ -48,7 +48,7 @@ const charts = [
   {
     index: aggregateHeaderIndex("Biodiversity (E/MSY/kg)"),
     color: SLU_COLORS.Red.Apricot,
-    title: "Biodiversity",
+    title: "Biodiversity impact from land use",
     yLabel: "E per MSY per kg",
   },
   {

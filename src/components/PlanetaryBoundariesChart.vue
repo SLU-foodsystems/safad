@@ -18,7 +18,7 @@ const pickData = (data: number[]) => [
   },
   {
     value: data[10] / PLANETARY_BOUNDARY_LIMITS.land,
-    axis: "Land",
+    axis: "Cropland use",
   },
   {
     value: data[11] / PLANETARY_BOUNDARY_LIMITS.n,
