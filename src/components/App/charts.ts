@@ -53,22 +53,25 @@ export default function setupCharts(RE: ResultsEngine, diet: Ref<Diet>) {
   };
 
   const computeDietFootprintsTotal = () => {
+    if (!diet.value) return [];
     const impacts = RE.computeImpacts(diet.value);
     return aggregateNonNullImpacts(impacts);
   };
 
   const computeDietFootprintsPerRpcCategory = () =>
-    aggregateImpactsByCategory(...RE.computeImpacts(diet.value));
+    diet.value
+      ? aggregateImpactsByCategory(...RE.computeImpacts(diet.value))
+      : {};
 
   const computeDietFootprintsPerFoodsCategory = (): Record<
     string,
     number[]
   > => {
-    const dietsPerCategory: Record<string, Diet> = {};
+    if (!diet.value) return {};
 
-    // TODO: Join certain groups
+    const dietsPerCategory: Record<string, Diet> = {};
     diet.value.forEach(([code, amount]) => {
-      const l1Code = getRpcCodeSubset(code, 1, true);
+      const l1Code = getRpcCodeSubset(code, 1);
       if (!dietsPerCategory[l1Code]) {
         dietsPerCategory[l1Code] = [];
       }

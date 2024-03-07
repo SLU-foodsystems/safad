@@ -5,8 +5,9 @@ import { aggregateHeaderIndex } from "@/lib/impacts-csv-utils";
 import SLU_COLORS from "@/lib/slu-colors";
 import { useOnResize } from "@/lib/use-on-resize";
 import { sum } from "@/lib/utils";
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, watch, computed } from "vue";
 import PlaceholderSvg from "./PlaceholderSvg.vue";
+import MissingDataOverlay from "./MissingDataOverlay.vue";
 
 const gasesDataMap: [string, string, number, number][] = [
   [
@@ -90,6 +91,7 @@ const toRelativeValues = (dataPoints: DataPoint[]) => {
 
 const props = defineProps<{
   dietFootprints: number[];
+  dietMissing: boolean;
 }>();
 
 const gasesEl = ref<HTMLDivElement | null>();
@@ -128,6 +130,7 @@ const drawChart = (...[el, data, options]: Parameters<typeof PieChart>) => {
 const drawCharts = () => {
   if (!gasesEl.value || !lifecycleEl.value) return;
   if (props.dietFootprints.length === 0) return;
+  if (props.dietMissing) return;
 
   const gasesData = getGasesData();
   const lifecycleStagesData = getLifecycleStagesData();
@@ -154,14 +157,19 @@ useOnResize(drawCharts);
 watch(() => props.dietFootprints, drawCharts);
 
 onMounted(drawCharts);
-
 </script>
 
 <template>
-  <div ref="gasesEl">
+  <div ref="gasesEl" style="position: relative;">
     <PlaceholderSvg :aspect-ratio="0.5" />
+    <MissingDataOverlay :show="props.dietMissing">
+      No default diet data available for Poland.
+    </MissingDataOverlay>
   </div>
-  <div ref="lifecycleEl">
+  <div ref="lifecycleEl" style="position: relative;">
     <PlaceholderSvg :aspect-ratio="0.5" />
+    <MissingDataOverlay :show="props.dietMissing">
+      No default diet data available for Poland.
+    </MissingDataOverlay>
   </div>
 </template>

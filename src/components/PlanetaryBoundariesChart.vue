@@ -2,14 +2,16 @@
 import BoundariesChart from "@/lib/charts/BoundariesChart";
 import { PLANETARY_BOUNDARY_LIMITS } from "@/lib/constants";
 import { useOnResize } from "@/lib/use-on-resize";
-import { onMounted, ref, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import PlaceholderSvg from "./PlaceholderSvg.vue";
+import MissingDataOverlay from "./MissingDataOverlay.vue";
 
 const props = defineProps<{
   data: number[];
+  dietMissing: boolean;
 }>();
 
-const el = ref<HTMLElement | null>(null);
+const el = ref<HTMLElement | null>();
 
 const pickData = (data: number[]) => [
   {
@@ -39,7 +41,8 @@ const pickData = (data: number[]) => [
 ];
 
 const drawChart = () => {
-  if (!el.value || !props.data) return;
+  if (!el.value) return;
+  if (props.dietMissing) return;
 
   // Standard values
   const svg = el.value.querySelector("svg");
@@ -65,12 +68,14 @@ useOnResize(drawChart);
 watch(() => props.data, drawChart);
 
 onMounted(drawChart);
-
 </script>
 
 <template>
   <div class="planetary-boundaries-chart" ref="el">
     <PlaceholderSvg :aspect-ratio="1" />
+    <MissingDataOverlay :show="props.dietMissing">
+      No default diet data available for Poland.
+    </MissingDataOverlay>
   </div>
 </template>
 

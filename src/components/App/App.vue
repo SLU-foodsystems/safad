@@ -34,6 +34,7 @@ import ImpactsPerFoodCategoryChart from "@/components/ImpactsPerCategoryCharts/I
 import setupCharts from "./charts";
 import initFileInterfaces from "./init-file-interfaces";
 import readableDietName from "./readable-diet-name";
+import { CsvValidationError } from "@/lib/input-files-parsers";
 
 const APP_VERSION = __APP_VERSION__;
 
@@ -87,6 +88,9 @@ const {
   sfaRecipesFile,
 } = initFileInterfaces(RE);
 
+const missingDietPoland = computed(
+  () => dietFile.value.state === "default" && countryCode.value === "PL"
+);
 const defaultDietName = readableDietName(countryCode);
 const dietName = computed(() =>
   dietFile.value.state === "custom"
@@ -300,6 +304,13 @@ watch(countryCode, async () => {
 onMounted(async () => {
   isLoading.value = true;
 
+  const setupDefaultDiet =
+    countryCode.value === "PL"
+      ? Promise.resolve(dietFile.value.setter([]))
+      : dietFile.value.getDefault(countryCode.value).then((diet: string) => {
+          dietFile.value?.setter(dietFile.value.parser(diet));
+        });
+
   const tasks: Promise<any>[] = [
     DefaultInputFiles.configureResultsEngine(RE, countryCode.value),
     // SFA Recipes and the Diet needs to be set to initial value, as not handled by the
@@ -307,9 +318,7 @@ onMounted(async () => {
     sfaRecipesFile.value.getDefault(countryCode.value).then((data: string) => {
       sfaRecipesFile.value?.setter(sfaRecipesFile.value.parser(data));
     }),
-    dietFile.value.getDefault(countryCode.value).then((diet: string) => {
-      dietFile.value?.setter(dietFile.value.parser(diet));
-    }),
+    setupDefaultDiet,
   ];
 
   await Promise.all(tasks);
@@ -447,7 +456,14 @@ onMounted(async () => {
           <span>Impacts from diet</span>
         </h2>
         <div class="cluster planetary-boundaries-section">
-          <div class="stack diet-info-box">
+          <div v-if="missingDietPoland" class="stack diet-info-box">
+            <h3><strong>No diet data available for Poland.</strong></h3>
+            <p>
+              You can still upload a custom diet at the bottom of the page, or
+              select another country at the top of the page.
+            </p>
+          </div>
+          <div v-else class="stack diet-info-box">
             <h3><strong>Selected diet:</strong> {{ dietName }}</h3>
             <p>
               The footprints for the whole diet is calculated by multiplying the
@@ -480,7 +496,10 @@ onMounted(async () => {
             <h3 class="hr-header hr-header--right-only">
               <span>Impacts in relation to the planetary boundaries</span>
             </h3>
-            <PlanetaryBoundariesChart :data="dietFootprintsTotal" />
+            <PlanetaryBoundariesChart
+              :data="dietFootprintsTotal"
+              :diet-missing="missingDietPoland"
+            />
           </div>
         </div>
 
@@ -490,6 +509,7 @@ onMounted(async () => {
         <div>
           <ImpactsPerFoodCategoryChart
             :impactsPerCategory="dietFootprintsPerFoodsCategory"
+            :diet-missing="missingDietPoland"
           />
         </div>
         <h3 class="hr-header hr-header--right-only">
@@ -498,6 +518,7 @@ onMounted(async () => {
         <div>
           <ImpactsPerRpcCategoryChart
             :impactsPerCategory="dietFootprintsPerRpcCategory"
+            :diet-missing="missingDietPoland"
           />
         </div>
         <h3 class="hr-header hr-header--right-only">
@@ -507,7 +528,10 @@ onMounted(async () => {
           >
         </h3>
         <div class="diet-pie-charts">
-          <DietPieCharts :diet-footprints="dietFootprintsTotal" />
+          <DietPieCharts
+            :diet-footprints="dietFootprintsTotal"
+            :diet-missing="missingDietPoland"
+          />
         </div>
       </section>
 
