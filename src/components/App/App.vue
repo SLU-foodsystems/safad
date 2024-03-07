@@ -353,7 +353,7 @@ onMounted(async () => {
 
     <div class="hero">
       <div class="hero__inner page-wrap">
-        <div>
+        <div class="hero__image">
           <img
             src="@/assets/people-cooking.svg"
             width="1000"
@@ -362,7 +362,7 @@ onMounted(async () => {
           />
         </div>
         <div>
-          <h1>SAFAD<br />Sustainability Assessment of<br />Foods and Diets</h1>
+          <h1>SAFAD<br />Sustainability Assessment of <br data-remove-on-mobile />Foods and Diets</h1>
           <h2>
             Calculate the impact of foods and diets using eight environmental
             indicators and indicators for animal welfare and use of antibiotics.
