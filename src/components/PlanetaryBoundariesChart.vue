@@ -53,7 +53,7 @@ const drawChart = () => {
 
   const data = pickData(props.data);
   const pad = Math.max(32, width / 3);
-  BoundariesChart(el.value, [data], {
+  BoundariesChart(el.value, data, {
     width,
     height,
     levels: 6,
