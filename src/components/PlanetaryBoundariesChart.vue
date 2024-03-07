@@ -2,7 +2,7 @@
 import BoundariesChart from "@/lib/charts/BoundariesChart";
 import { PLANETARY_BOUNDARY_LIMITS } from "@/lib/constants";
 import { useOnResize } from "@/lib/use-on-resize";
-import { computed, onMounted, ref, watch } from "vue";
+import { onMounted, ref, watch } from "vue";
 import PlaceholderSvg from "./PlaceholderSvg.vue";
 import MissingDataOverlay from "./MissingDataOverlay.vue";
 
