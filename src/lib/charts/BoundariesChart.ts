@@ -12,7 +12,7 @@ interface Config {
 }
 
 type RadarDataPoint = { axis: string; value: number };
-type RadarData = RadarDataPoint[][];
+type RadarData = RadarDataPoint[];
 
 export default function BoundariesChart(
   el: HTMLElement,
@@ -31,7 +31,7 @@ export default function BoundariesChart(
     ...options,
   };
 
-  const axes = data[0].map((i) => i.axis); // Names of each axis
+  const axes = data.map((i) => i.axis); // Names of each axis
   const total = axes.length; // The number of different axes
 
   const innerWidth = cfg.width - cfg.padding.left - cfg.padding.right;
@@ -170,7 +170,7 @@ export default function BoundariesChart(
   // Create a wrapper for the blobs
   const blobWrapper = root
     .selectAll(".radarWrapper")
-    .data(data)
+    .data([data])
     .enter()
     .append("g");
 
