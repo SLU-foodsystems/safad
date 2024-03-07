@@ -234,7 +234,7 @@ class ResultsEngine {
       );
     }
 
-    if (!this.rpcOriginWaste) {
+    if (!this.rpcOriginWasteFull) {
       throw new Error("Compute called when no rpcParameters were set.");
     }
 
@@ -301,7 +301,7 @@ class ResultsEngine {
       )
     );
 
-    const { rpcOriginWaste, emissionsFactorsTransport, countryCode } = this;
+    const { rpcOriginWasteFull, emissionsFactorsTransport, countryCode } = this;
 
     // Transport impacts
     const transportEnvImpactsEntries = rpcAmounts
@@ -310,7 +310,7 @@ class ResultsEngine {
         computeTransportEmissions(
           rpcCode,
           amount - (transportlessAmounts[rpcCode] || 0),
-          rpcOriginWaste,
+          rpcOriginWasteFull,
           emissionsFactorsTransport[countryCode],
           countryCode
         ),
