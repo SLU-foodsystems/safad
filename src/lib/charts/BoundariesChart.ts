@@ -6,9 +6,9 @@ interface Config {
   padding: { top: number; right: number; bottom: number; left: number }; // The margins of the SVG
   levels: number; // How many levels or inner circles should there be drawn
   maxValue: number; // What is the value that the biggest circle will represent
-  labelOffsetFactor: number; // How much farther than the radius of the outer circle should the labels be placed
   opacityCircles: number; // The opacity of the circles of each blob
   slicePadding: number; // The %-padding of the arc in each slice
+  labelPadding: number;
 }
 
 type RadarDataPoint = { axis: string; value: number };
@@ -25,9 +25,9 @@ export default function BoundariesChart(
     padding: { top: 16, right: 16, bottom: 16, left: 16 },
     levels: 8,
     maxValue: 1,
-    labelOffsetFactor: 1.10,
     opacityCircles: 0.1,
     slicePadding: 0.015,
+    labelPadding: 50,
     ...options,
   };
 
@@ -36,6 +36,8 @@ export default function BoundariesChart(
 
   const innerWidth = cfg.width - cfg.padding.left - cfg.padding.right;
   const innerHeight = cfg.height - cfg.padding.top - cfg.padding.bottom;
+
+  const labelRadius = (Math.min(cfg.width, cfg.height) / 2) - cfg.labelPadding;
 
   const radius = Math.min(innerWidth, innerHeight) / 2; // Radius of the outermost circle
   const angleSlice = (Math.PI * 2) / total; // The width in radians of each "slice"
@@ -222,8 +224,8 @@ export default function BoundariesChart(
 
   const labelArc = d3
     .arc<string>()
-    .innerRadius(rScale(cfg.maxValue * cfg.labelOffsetFactor))
-    .outerRadius(rScale(cfg.maxValue * cfg.labelOffsetFactor))
+    .innerRadius(() => labelRadius)
+    .outerRadius(() => labelRadius)
     .startAngle((_d, i) => angleSlice * (i + 0.5) + anglePadding)
     .endAngle((_d, i) => angleSlice * (i + 1.5) - anglePadding);
 
