@@ -21,7 +21,7 @@ const colors = [props.otherLabel.color, ...props.labels.map((x) => x.color)];
 
 const dataMap: [string, number][] = [
   ["Carbon footprint", aggregateHeaderIndex("Carbon footprint, total (kg CO2e)")],
-  ["Land use", aggregateHeaderIndex("Cropland (m2*year/kg)")],
+  ["Cropland use", aggregateHeaderIndex("Cropland (m2*year/kg)")],
   ["New N input", aggregateHeaderIndex("New N input (kg N/kg)")],
   ["New P input", aggregateHeaderIndex("New P input (kg P/kg)")],
   ["Blue water use", aggregateHeaderIndex("Water (m3/kg)")],
