@@ -319,13 +319,10 @@ const onDrop = (e: DragEvent) => {
   text-align: left;
   position: relative;
 
-  $base-box-shadow: 0 0.3em 0.75em -0.65em rgba(black, 0.5);
-  box-shadow: $base-box-shadow;
+  outline: 2px solid $gray;
 
   &--custom {
-    box-shadow:
-      $base-box-shadow,
-      -0.25em 0 0 $blue_sky;
+    box-shadow: -0.25em 0 0 $blue_sky;
   }
 
   h4 {

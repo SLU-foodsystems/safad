@@ -1,5 +1,4 @@
 import {
-  mergeObjectsWithLists,
   parseCsvFile,
   roundToPrecision,
   vectorsSum,

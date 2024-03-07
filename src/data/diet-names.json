@@ -1,0 +1,45 @@
+{
+  "FR": {
+    "country": "France",
+    "surveyName": "The French national dietary survey (INCA3, 2014-2015)",
+    "ageClass": "Adolescents"
+  },
+  "DE": {
+    "country": "Germany",
+    "surveyName": "Eating Study as a KiGGS Module (EsKiMo, 2006)",
+    "ageClass": "Adolescents"
+  },
+  "GR": {
+    "country": "Greece",
+    "surveyName":
+      "The EFSA-funded collection of dietary and related data in the general population aged 10-74 years in Greece (2014)",
+    "ageClass": "Elderly"
+  },
+  "HU": {
+    "country": "Hungary",
+    "surveyName": "Hungarian national food consumption survey (2018)",
+    "ageClass": "Adults"
+  },
+  "IE": {
+    "country": "Ireland",
+    "surveyName": "National Adult Nutrition Survey (2008)",
+    "ageClass": "Adults"
+  },
+  "IT": {
+    "country": "Italy",
+    "surveyName":
+      "Italian national dietary survey on adult population from 10 up to 74 years old (2018)",
+    "ageClass": "Adults"
+  },
+  "ES": {
+    "country": "Spain",
+    "surveyName":
+      "Spanish National dietary survey in adults, elderly and pregnant women (2013)",
+    "ageClass": "Adults"
+  },
+  "SE": {
+    "country": "Sweden",
+    "surveyName": "National Food Administration (2003)",
+    "ageClass": "Other children"
+  }
+}

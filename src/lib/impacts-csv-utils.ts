@@ -1,4 +1,4 @@
-import { sum, vectorsSum } from "@/lib/utils";
+import { filterObject, sum, uniq, vectorsSum } from "@/lib/utils";
 import {
   ENV_IMPACTS_ZERO,
   CO2E_CONV_FACTORS,
@@ -8,7 +8,6 @@ import {
 } from "@/lib/constants";
 
 import { getRpcCodeSubset, listAllProcesses } from "@/lib/utils";
-
 import { rpcNames, categoryNames } from "@/lib/efsa-names";
 
 export const AGGREGATE_HEADERS = [
@@ -79,7 +78,7 @@ export const AGGREGATE_HEADERS = [
   "Transports (kg CO2)",
   "Transports (kg CH4, fossil)",
   "Transports (kg N2O)",
-];
+] as const;
 
 export const DETAILED_RESULTS_HEADER = [
   "Code",
@@ -93,10 +92,25 @@ export const DETAILED_RESULTS_HEADER = [
   "RPCs with missing data",
 ];
 
+export const BREAKDOWN_RESULTS_HEADER = [
+  "Food Code",
+  "Food Name",
+  "L1 Category",
+  "L2 Category",
+  "Food Amount (g)",
+  "RPC Code",
+  "RPC Name",
+  "RPC Amount (g)",
+];
+
 const getCategoryName = (code: string, level: number) => {
   const levelCode = getRpcCodeSubset(code, level, true);
   return categoryNames[levelCode] || `NOT FOUND (${levelCode})`;
 };
+
+export const aggregateHeaderIndex = (
+  header: (typeof AGGREGATE_HEADERS)[number]
+) => AGGREGATE_HEADERS.indexOf(header);
 
 export function expandedImpacts(
   rpcFootprints: number[],
@@ -190,6 +204,41 @@ export function aggregateImpacts(
   );
 }
 
+export function aggregateImpactsByCategory(
+  rpcFootprints: Record<string, number[] | null>,
+  processEmissions: NestedRecord<string, number[]>,
+  packagingEmissions: NestedRecord<string, number[]>,
+  transportEmissions: Record<string, number[]>
+) {
+  const nonNullRpcImpacts: Record<string, number[]> = Object.fromEntries(
+    Object.entries(rpcFootprints).filter(
+      (kv): kv is [string, number[]] => kv[1] !== null
+    )
+  );
+
+  const getL1Keys = (obj: Record<string, any>): string[] =>
+    Object.keys(obj).map((code) => getRpcCodeSubset(code, 1, true));
+
+  const l1Codes = uniq([
+    ...getL1Keys(nonNullRpcImpacts),
+    ...Object.keys(processEmissions),
+    ...Object.keys(packagingEmissions),
+    ...getL1Keys(transportEmissions),
+  ]).sort();
+
+  return Object.fromEntries(
+    l1Codes.map((l1Code) => [
+      l1Code,
+      aggregateImpacts(
+        filterObject(nonNullRpcImpacts, (k) => k.startsWith(l1Code)),
+        { [l1Code]: processEmissions[l1Code] || {} },
+        { [l1Code]: packagingEmissions[l1Code] || {} },
+        filterObject(transportEmissions, (k) => k.startsWith(l1Code))
+      ),
+    ])
+  );
+}
+
 export function labeledImpacts(
   code: string,
   amount: number,
@@ -239,17 +288,6 @@ export function labeledAndFilteredImpacts(
     )
     .filter((x): x is string[] => x !== null);
 }
-
-export const BREAKDOWN_RESULTS_HEADER = [
-  "Food Code",
-  "Food Name",
-  "L1 Category",
-  "L2 Category",
-  "Food Amount (g)",
-  "RPC Code",
-  "RPC Name",
-  "RPC Amount (g)",
-];
 
 export function getDietBreakdown(
   disaggregatedDiet: [string, number, Diet][]

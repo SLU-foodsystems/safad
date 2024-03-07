@@ -8,8 +8,8 @@ import countCommitsSince from "./build-utils/count-commits";
 /**
  * If you want to change the version, update these variables below:
  */
-const VERSION_MAJOR = 0;
-const VERSION_MINOR_COUNT_SINCE = "29 January 2024";
+const VERSION_MAJOR = 1;
+const VERSION_MINOR_COUNT_SINCE = "07 March 2024";
 // End of where to update the version
 
 const getMinorVersion = (since: string) =>
@@ -36,6 +36,6 @@ export default defineConfig({
   },
   define: {
     __INPUT_FILE_MDATES__: await statCsvFiles("./src/default-input-files/"),
-    __APP_VERSION__: await getFullVersion(),
+    __APP_VERSION__: JSON.stringify(await getFullVersion()),
   },
 });

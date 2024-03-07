@@ -10,12 +10,16 @@ export default defineComponent({
 
 <template>
   <Transition>
-    <div class="loading-overlay" v-if="show"></div>
+    <div class="missing-data-overlay" v-if="show">
+      <slot>
+        Missing or incomplete data.
+      </slot>
+    </div>
   </Transition>
 </template>
 
 <style lang="scss">
-.loading-overlay {
+.missing-data-overlay {
   position: absolute;
   display: flex;
   width: 100%;
@@ -30,24 +34,6 @@ export default defineComponent({
   font-size: 1.25em;
   font-weight: bold;
   text-align: center;
-
-  &::after {
-    content: 'Loading...';
-  }
-
-  &::before {
-    $size: 0.875em;
-    content: '';
-    border-radius: #{2*$size};
-    width: $size;
-    height: $size;
-    display: block;
-    border: 2px solid #06f;
-    border-left-color: transparent;
-    margin-right: 0.5em;
-    animation: rotate 1.0s linear infinite;
-
-  }
 
   &.v-enter-active,
   &.v-leave-active {
