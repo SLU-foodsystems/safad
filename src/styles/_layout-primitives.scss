@@ -39,6 +39,10 @@
   margin-top: $s-2;
 }
 
+.stack-l > * + * {
+  margin-top: $s2;
+}
+
 /* Cluster */
 
 .cluster {

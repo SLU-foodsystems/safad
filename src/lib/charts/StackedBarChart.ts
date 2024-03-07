@@ -1,6 +1,19 @@
 //@ts-disable
 import * as d3 from "d3";
 import cmc from "./cmc-colors";
+import { reversed } from "@/lib/utils";
+
+type DataPoint = {
+  [k: string]: number | string;
+};
+
+interface LegendConfig {
+  padding: number;
+  labelHeight: number;
+  circleRadius: number;
+  width: number;
+  legendTitle: string;
+}
 
 interface Config {
   margin: { top: number; right: number; bottom: number; left: number };
@@ -9,38 +22,34 @@ interface Config {
   maxValue: number;
   minValue: number;
   innerPadding: number;
-  slantLabels: boolean;
+
+  drawLegend: boolean;
+  legendTitle: string;
+  legendColors?: string[]; // could also be function?
+
+  labelLayout: "normal" | "slanted" | "offset";
+  axisLabels?: {
+    // x: string; // TODO: Not implemented
+    y: string;
+  };
 }
 
-type DataPoint = {
-  [k: string]: number | string;
-};
-
 function drawLegend(
-  root: d3.Selection<any, unknown, HTMLElement, any>,
+  root: d3.Selection<SVGGElement, unknown, null, any>,
   labels: string[],
   color: d3.ScaleOrdinal<string, string, never>,
-  rect: { x: number; y: number }
+  rect: { x: number; y: number },
+  cfg: LegendConfig
 ): { width: number; height: number } {
   const legendContainer = root
     .append("g")
     .attr("class", "legend")
     .style("transform", `translate(${rect.x}px, ${rect.y}px)`);
 
-  const cfg = {
-    padding: 10,
-    labelHeight: 25,
-    circleRadius: 8,
-  };
-
   const height = cfg.padding * 2 + (labels.length - 1) * cfg.labelHeight;
-  const width = cfg.padding * 2 + Math.max(...labels.map((x) => x.length)) * 10;
+  const width = cfg.width;
 
-  legendContainer
-    .append("rect")
-    .style("fill", "white")
-    .attr("width", `${width}px`)
-    .attr("height", `${height}px`);
+  legendContainer.attr("width", `${width}px`).attr("height", `${height}px`);
 
   // create a list of keys
   // Add one dot in the legend for each name.
@@ -50,7 +59,7 @@ function drawLegend(
     .enter()
     .append("circle")
     .attr("cx", cfg.padding + cfg.circleRadius)
-    .attr("cy", (_d, i) => cfg.padding + i * cfg.labelHeight)
+    .attr("cy", (_d, i) => cfg.padding + (1 + i) * cfg.labelHeight)
     .attr("r", cfg.circleRadius)
     .style("fill", (d) => color(d));
 
@@ -63,43 +72,77 @@ function drawLegend(
     .attr("x", cfg.padding + cfg.circleRadius * 2 + 10)
     .attr(
       "y",
-      (_d, i) => cfg.padding + cfg.circleRadius / 2 + i * cfg.labelHeight
+      (_d, i) => cfg.padding + cfg.circleRadius / 2 + (1 + i) * cfg.labelHeight
     )
     .style("fill", "#111")
     .text((d) => d)
     .attr("text-anchor", "left")
     .style("alignment-baseline", "middle");
 
+  // add a legend title
+  legendContainer
+    .selectAll("labels")
+    .data([cfg.legendTitle])
+    .enter()
+    .append("text")
+    .attr("x", cfg.padding)
+    .attr("y", () => cfg.padding + cfg.circleRadius / 2)
+    .text((d) => d)
+    .attr("text-anchor", "left")
+    .style("font-weight", "bold")
+    .style("alignment-baseline", "middle");
+
   return { width, height };
 }
 
 export default function StackedBarChart(
-  containerSelector: string,
+  containerSelector: HTMLElement,
   data: DataPoint[],
   columns: string[],
   options: Partial<Config>
 ) {
-  const cfg = Object.assign(
-    {
-      margin: {
-        top: 20,
-        left: 40,
-        right: 130,
-        bottom: 20,
-      },
-      width: 700,
-      height: 400,
-      maxValue: 1,
-      minValue: 0,
-      innerPadding: 0.2,
-      slantLabels: false,
-    },
-    options
-  );
+  const cfg: Config = {
+    width: 700,
+    height: 400,
+    maxValue: 1,
+    minValue: 0,
+    innerPadding: 0.2,
 
-  if (cfg.slantLabels) {
-    // TODO: this is an arbitrary offset
+    drawLegend: false,
+    legendTitle: "Legend",
+
+    labelLayout: "normal",
+    ...options,
+
+    // Nested items
+    margin: {
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      ...options.margin,
+    },
+  };
+
+  cfg.margin.top += 10; // Avoid y-tick labels cutting off
+  cfg.margin.left += 20; // Needed for y-tick labels
+  cfg.margin.bottom += 20; // Needed for x-tick labels
+  if (cfg.labelLayout === "slanted") {
     cfg.margin.bottom += 100;
+  } else if (cfg.labelLayout === "offset") {
+    cfg.margin.bottom += 20;
+  }
+
+  const legendWidth = 270;
+  if (cfg.drawLegend) {
+    cfg.margin.right += legendWidth;
+
+    const minHeight = 26 * (columns.length + 1);
+    cfg.height = Math.max(minHeight, cfg.height);
+  }
+
+  if (cfg.axisLabels?.y) {
+    cfg.margin.left += 30;
   }
 
   // set the dimensions and margins of the graph
@@ -135,11 +178,15 @@ export default function StackedBarChart(
     .attr("transform", `translate(0, ${innerHeight})`)
     .call(d3.axisBottom(xAxis).tickSizeOuter(0));
 
-  if (cfg.slantLabels) {
+  if (cfg.labelLayout === "slanted") {
     xAxisG
-      .selectAll("text")
+      .selectAll(".tick text")
       .attr("transform", "translate(10,0) rotate(-45)")
       .style("text-anchor", "end");
+  } else if (cfg.labelLayout === "offset") {
+    xAxisG
+      .selectAll(".tick:nth-child(odd) text")
+      .attr("transform", "translate(0, 16)");
   }
 
   // Add Y axis
@@ -147,17 +194,43 @@ export default function StackedBarChart(
     .scaleLinear()
     .domain([cfg.minValue, cfg.maxValue])
     .range([innerHeight, 0]);
+
+  // TODO: Only implemented y-label
+  if (cfg.axisLabels && cfg.axisLabels.y) {
+    const labelXPos = -30;
+    const labelYPos = (cfg.height - cfg.margin.bottom - cfg.margin.top) / -2;
+
+    // Axis labels
+    svg
+      .append("text")
+      .attr("x", labelYPos)
+      .attr("y", labelXPos)
+      .style("transform", "rotate(-90deg)")
+      .style("text-anchor", "middle")
+      .style("font-size", "0.75em")
+      .text(cfg.axisLabels.y);
+  }
+
   svg.append("g").call(d3.axisLeft(yAxis));
 
   // color palette = one color per subgroup
-  const color = d3
-    .scaleOrdinal(cmc.sample("Davos", columns.length))
-    .domain(columns);
+  let colorDomain = cmc.sample("Davos", columns.length);
+  if (cfg.legendColors) {
+    if (cfg.legendColors.length < columns.length) {
+      console.warn(cfg.legendColors.length, columns.length, columns);
+      console.warn(
+        "legendColors array was too short, using default Davos color mode instead."
+      );
+    } else {
+      colorDomain = cfg.legendColors;
+    }
+  }
+  const color = d3.scaleOrdinal(colorDomain).domain(columns);
 
   // Stack the data.
   // TODO: Typecast is ugly, but I can't figure out to get it working anyway
   // else right now.
-  const stackedData = d3.stack().keys(columns)(
+  const stackedData = d3.stack().keys(reversed(columns))(
     data as unknown as { [key: string]: number }[]
   );
 
@@ -179,8 +252,22 @@ export default function StackedBarChart(
     .attr("height", (d) => yAxis(d[0]) - yAxis(d[1]))
     .attr("width", xAxis.bandwidth());
 
-  drawLegend(svg, columns, color, {
-    x: innerWidth,
-    y: 0,
-  });
+  if (cfg.drawLegend) {
+    drawLegend(
+      svg,
+      columns,
+      color,
+      {
+        x: innerWidth,
+        y: 0,
+      },
+      {
+        padding: 10,
+        labelHeight: 25,
+        circleRadius: 8,
+        width: 200,
+        legendTitle: cfg.legendTitle,
+      }
+    );
+  }
 }

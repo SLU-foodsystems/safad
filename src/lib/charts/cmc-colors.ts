@@ -48,7 +48,7 @@ const interpolate: Record<string, (t: number) => number> = {};
   interpolate[scheme] = piecewise(interpolateRgb, colormaps[scheme]);
 });
 
-const sample = (name: Color, size: number) => {
+export const sample = (name: Color, size: number): string[] => {
   const cmap = colormaps[name];
   const offset = Math.floor(cmap.length / size);
   return Array.from({ length: size }).map((_, i) => cmap[i * offset]);

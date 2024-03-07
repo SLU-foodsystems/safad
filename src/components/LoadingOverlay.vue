@@ -15,11 +15,6 @@ export default defineComponent({
 </template>
 
 <style lang="scss">
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .loading-overlay {
   position: absolute;
   display: flex;

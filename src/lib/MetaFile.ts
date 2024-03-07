@@ -51,7 +51,7 @@ export default class MetaFile {
 
   private inputFileInterfaces?: Record<InputFileKeys, InputFile<any>>;
 
-  public setInputFileInterfaces(dict: Record<InputFileKeys, InputFile<any>>) {
+  constructor(dict: Record<InputFileKeys, InputFile<any>>) {
     this.inputFileInterfaces = dict;
   }
 

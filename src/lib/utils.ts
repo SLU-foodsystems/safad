@@ -7,6 +7,15 @@ export function average(numbers: number[]) {
   return sum(numbers) / numbers.length;
 }
 
+export function reversed<T>(xs: T[]) {
+  if (!xs) return xs;
+
+  const length = xs.length;
+  if (length < 2) return xs;
+
+  return Array.from({ length }).map((_x, i) => xs[length - 1 - i]);
+}
+
 export function weightedArithmeticMean(
   valueFrequencyPairs: [number, number][]
 ) {
