@@ -16,22 +16,19 @@ import foodsRecipesUrl from "@/default-input-files/SAFAD IP Recipes.csv?url";
 import sfaRecipesUrl from "@/default-input-files/SAFAD IS SFA Recipes.csv?url";
 
 // Per country
-const wasteRetailAndConsumerUrls = import.meta.glob(
+const wasteRetailAndConsumerUrls: Record<string, string> = import.meta.glob(
   "@/default-input-files/SAFAD IP Waste Retail and Cons/*.csv",
-  { as: "url", eager: true }
+  { query: "?url", import: "default", eager: true }
 );
 
-const dietsUrls = import.meta.glob("@/default-input-files/SAFAD ID Diet Spec/*.csv", {
-  as: "url",
-  eager: true,
-});
+const dietsUrls: Record<string, string> = import.meta.glob(
+  "@/default-input-files/SAFAD ID Diet Spec/*.csv",
+  { query: "?url", import: "default", eager: true }
+);
 
-const rpcOriginWasteUrls = import.meta.glob(
+const rpcOriginWasteUrls: Record<string, string> = import.meta.glob(
   "@/default-input-files/SAFAD IP Origin and Waste of RPC/*.csv",
-  {
-    as: "url",
-    eager: true,
-  }
+  { query: "?url", import: "default", eager: true }
 );
 
 /**
