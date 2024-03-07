@@ -36,7 +36,7 @@ const pickData = (data: number[]) => [
   },
   {
     value: data[15] / PLANETARY_BOUNDARY_LIMITS.biodiversity,
-    axis: "Biodiversity",
+    axis: "Biodiversity impact",
   },
 ];
 
