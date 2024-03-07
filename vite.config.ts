@@ -2,6 +2,8 @@ import { fileURLToPath, URL } from "node:url";
 
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import UnpluginInjectPreload from "unplugin-inject-preload/vite";
+
 import statCsvFiles from "./build-utils/stat-input-files";
 import countCommitsSince from "./build-utils/count-commits";
 
@@ -28,7 +30,16 @@ export default defineConfig({
   build: {
     outDir: "../dist",
   },
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    UnpluginInjectPreload({
+      files: [
+        {
+          entryMatch: /people-cooking[a-zA-Z]*\.svg$/,
+        },
+      ],
+    }),
+  ],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
