@@ -3,6 +3,7 @@ import BaseComponent from "./Base.vue";
 
 const props = defineProps<{
   impactsPerCategory: Record<string, number[]>;
+  dietMissing: boolean;
 }>();
 
 const labels = [
@@ -93,6 +94,7 @@ const othersLabel = {
 <template>
   <BaseComponent
     :impactsPerCategory="props.impactsPerCategory"
+    :dietMissing="props.dietMissing"
     :labels="labels"
     :otherLabel="othersLabel"
     legend-title="Foods category"

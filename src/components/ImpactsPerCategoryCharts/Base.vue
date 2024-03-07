@@ -3,8 +3,9 @@ import StackedBarChart from "@/lib/charts/StackedBarChart";
 import { aggregateHeaderIndex } from "@/lib/impacts-csv-utils";
 import { useOnResize } from "@/lib/use-on-resize";
 import { sum, vectorSum } from "@/lib/utils";
-import { onMounted, ref, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import PlaceholderSvg from "../PlaceholderSvg.vue";
+import MissingDataOverlay from "../MissingDataOverlay.vue";
 
 type LabelMap = { color: string; text: string; l1Code: string }[];
 
@@ -13,6 +14,7 @@ const props = defineProps<{
   labels: LabelMap;
   otherLabel: Pick<LabelMap[number], "color" | "text">;
   legendTitle: string;
+  dietMissing: boolean;
 }>();
 
 const el = ref<HTMLDivElement | null>(null);
@@ -20,7 +22,10 @@ const labels = [props.otherLabel.text, ...props.labels.map((x) => x.text)];
 const colors = [props.otherLabel.color, ...props.labels.map((x) => x.color)];
 
 const dataMap: [string, number][] = [
-  ["Carbon footprint", aggregateHeaderIndex("Carbon footprint, total (kg CO2e)")],
+  [
+    "Carbon footprint",
+    aggregateHeaderIndex("Carbon footprint, total (kg CO2e)"),
+  ],
   ["Cropland use", aggregateHeaderIndex("Cropland (m2*year/kg)")],
   ["New N input", aggregateHeaderIndex("New N input (kg N/kg)")],
   ["New P input", aggregateHeaderIndex("New P input (kg P/kg)")],
@@ -85,6 +90,13 @@ const drawChart = () => {
   if (!el.value) return;
   if (Object.keys(props.impactsPerCategory).length === 0) return;
 
+  const svg = el.value.querySelector("svg");
+  if (svg) {
+    el.value.removeChild(svg);
+  }
+
+  if (props.dietMissing) return;
+
   const codeToLabelMap = Object.fromEntries(
     props.labels.map(({ text, l1Code }) => [l1Code, text])
   );
@@ -96,11 +108,6 @@ const drawChart = () => {
   );
 
   const data = reshapeData(mergedData);
-
-  const svg = el.value.querySelector("svg");
-  if (svg) {
-    el.value.removeChild(svg);
-  }
 
   const rect = el.value.getBoundingClientRect();
 
@@ -138,7 +145,7 @@ onMounted(() => {
 <template>
   <div class="impacts-per-category-chart">
     <div class="impacts-per-category-chart__labels">
-      <p><strong>{{ props.legendTitle }}</strong></p>
+      <p><strong v-text="props.legendTitle" /></p>
       <p v-for="(label, i) in labels">
         <span :style="{ background: colors[i] }" />
         {{ label }}
@@ -146,6 +153,9 @@ onMounted(() => {
     </div>
     <div ref="el" class="impacts-per-category-chart__canvas">
       <PlaceholderSvg :aspect-ratio="0.5" />
+      <MissingDataOverlay :show="props.dietMissing">
+        No default diet data available for Poland.
+      </MissingDataOverlay>
     </div>
   </div>
 </template>
@@ -193,5 +203,6 @@ onMounted(() => {
   flex-basis: auto;
   flex-grow: 1;
   flex-shrink: 0;
+  position: relative;
 }
 </style>
