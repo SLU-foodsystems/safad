@@ -5,9 +5,46 @@ import {
   nthIndexOf,
   filterObject,
   parseCsvFile,
+  averages,
 } from "./utils";
 
 describe("utils.ts", () => {
+  describe("averages", () => {
+    test("empty input", () => {
+      expect(averages([])).toEqual([]);
+    });
+
+    test("single row", () => {
+      expect(averages([[1, 2, 3]])).toEqual([1, 2, 3]);
+    });
+
+    test("handles when all rows have the same length", () => {
+      expect(
+        averages([
+          [10, 20, 3],
+          [1, 15, -3],
+          [20, 12, 13],
+          [5, 0, 23],
+        ])
+      ).toEqual([(10 + 1 + 20 + 5) / 4, (20 + 15 + 12 + 0) / 4, (13 + 23) / 4]);
+    });
+
+    test("handles when rows have differing lengths", () => {
+      expect(
+        averages([
+          [10, 3],
+          [1, 15, -3],
+          [20, 12, 13, 5],
+          [5, 0, 23],
+        ])
+      ).toEqual([
+        (10 + 1 + 20 + 5) / 4,
+        (3 + 15 + 12 + 0) / 4,
+        (-3 + 13 + 23) / 3,
+        5,
+      ]);
+    });
+  });
   test("groupRpcCategories", () => {
     const diet = {
       "A.01.001.001": [1, 2, 1],

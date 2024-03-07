@@ -1,4 +1,5 @@
 import {
+  averages,
   parseCsvFile,
   roundToPrecision,
   vectorsSum,
@@ -138,26 +139,34 @@ export function parseEmissionsFactorsTransport(csvString: string) {
 
   const results: NestedRecord<string, number[]> = {};
 
-  csv
-    .map((row) => row.map((x) => x.trim())) // Trim all fields
-    .forEach(
-      ([
-        consumptionCountryCode,
-        _consumptionCountry,
-        productionCountryCode,
-        _productionCountry,
-        ...ghgsStrs
-      ]) => {
-        // Convert all GHG factors to numbers, falling back to 0 if missing
-        const ghgs = ghgsStrs.map((x) => (x ? asNumber(x, 0) : 0));
+  csv.forEach(
+    ([
+      consumptionCountryCode,
+      _consumptionCountry,
+      productionCountryCode,
+      _productionCountry,
+      ...ghgsStrs
+    ]) => {
+      // Convert all GHG factors to numbers, falling back to 0 if missing
+      const ghgs = ghgsStrs.map((x) => asNumber(x, 0));
 
-        if (!(consumptionCountryCode in results)) {
-          results[consumptionCountryCode] = {};
-        }
-
-        results[consumptionCountryCode][productionCountryCode] = ghgs;
+      if (!(consumptionCountryCode in results)) {
+        results[consumptionCountryCode] = {};
       }
+
+      results[consumptionCountryCode][productionCountryCode] = ghgs;
+    }
+  );
+
+  Object.keys(results).forEach((consumptionCountry) => {
+    const averageAcrossProductionCountries = averages(
+      Object.entries(results[consumptionCountry])
+        // filter out our the domestic transport from the averages
+        .filter((kv) => kv[0] !== consumptionCountry)
+        .map((kv) => kv[1])
     );
+    results[consumptionCountry].RoW = averageAcrossProductionCountries;
+  });
 
   return results;
 }

@@ -311,8 +311,7 @@ class ResultsEngine {
           rpcCode,
           amount - (transportlessAmounts[rpcCode] || 0),
           rpcOriginWasteFull,
-          emissionsFactorsTransport[countryCode],
-          countryCode
+          emissionsFactorsTransport[countryCode]
         ),
       ])
       .filter((pair): pair is [string, number[]] => pair[1] !== null);
