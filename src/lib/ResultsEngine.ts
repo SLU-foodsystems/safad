@@ -7,11 +7,9 @@ import {
 import flattenRpcFootprints from "@/lib/footprints-rpc-flattener";
 import {
   aggregateBy,
-  aggregateRpcCategories,
   getRpcCodeLevel,
   mapValues,
   vectorSum,
-  vectorsSum,
 } from "@/lib/utils";
 
 import computeTransportEmissions from "@/lib/transport-emissions";
