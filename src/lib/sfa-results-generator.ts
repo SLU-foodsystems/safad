@@ -63,7 +63,8 @@ const addProcesses = (
 
 export async function generateSfaResults(
   sfaRecipeData: SfaRecipeComponent[],
-  RE: ResultsEngine
+  RE: ResultsEngine,
+  efsaNames: Record<string, string>
 ): Promise<string[][]> {
   const foodEx2ToFoodEx1Matchings = parseSfaFoodExTranslationFile(
     await fetch(foodexTranslationTableUrl).then((res) => {
@@ -116,7 +117,7 @@ export async function generateSfaResults(
           );
 
           const [_code, name, l1Name, l2Name, _netAmount, ...impactsVector] =
-            labeledImpacts(code, netAmount, impacts);
+            labeledImpacts(code, netAmount, impacts, efsaNames);
 
           return [
             sfaCode,
