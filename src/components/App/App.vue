@@ -336,10 +336,10 @@ onMounted(async () => {
 
   const tasks: Promise<any>[] = [
     DefaultInputFiles.configureResultsEngine(RE, countryCode.value),
-    // SFA Recipes and the Diet needs to be set to initial value, as not handled by the
-    // configureResultsEngine utility.
+    // SFA Recipes and the Diet needs to be set to initial value, as not handled
+    // by the configureResultsEngine utility.
     sfaRecipesFile.value.getDefault(countryCode.value).then((data: string) => {
-      sfaRecipesFile.value?.setter(sfaRecipesFile.value.parser(data));
+      sfaRecipesFile.value.setter(sfaRecipesFile.value.parser(data));
     }),
     setupDefaultDiet,
   ];
