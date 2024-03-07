@@ -89,9 +89,10 @@ export default function BoundariesChart(
       [0.95, "#2ba05f"],
       [1.05, "#f9a933"],
       [cfg.maxValue * 0.8, "rgba(255, 112, 68, 1)"],
-      [cfg.maxValue * 1.0, "rgba(255, 112, 68, 1)"],
-      [cfg.maxValue + 0.01, "rgba(255, 112, 68, 0.35)"],
-      [cfg.maxValue * 1.5, "rgba(226, 0, 42, 0)"],
+      [cfg.maxValue * 1.0, "rgba(255, 112, 68, 0.8)"],
+      [cfg.maxValue + 0.01, "rgba(255, 112, 68, 0.55)"],
+      [cfg.maxValue * 1.5, "rgba(226, 0, 68, 0.25)"],
+      [cfg.maxValue * 3, "rgba(226, 0, 68, 0.15)"],
     ] as [number, string][]
   ).forEach(([offset, color]) => {
     radialGradient
@@ -188,7 +189,7 @@ export default function BoundariesChart(
     .append("path")
     .attr("d", arcGenerator)
     .style("stroke", "rgba(0, 0, 0, 0.15)")
-    .style("stroke-width", "2px")
+    .style("stroke-width", "1px")
     .style("fill", "url(#radial-gradient)")
     .style("fill-opacity", 0.8);
 

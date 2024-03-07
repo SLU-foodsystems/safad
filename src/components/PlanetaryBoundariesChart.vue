@@ -52,10 +52,11 @@ const drawChart = () => {
   const height = Math.floor(rect.width); // Square
 
   const data = pickData(props.data);
-  const pad = Math.max(32, width / 5);
+  const pad = Math.max(32, width / 3);
   BoundariesChart(el.value, [data], {
     width,
     height,
+    levels: 6,
     padding: { top: pad, right: pad, bottom: pad, left: pad },
   });
 };
