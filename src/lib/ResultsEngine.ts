@@ -201,7 +201,7 @@ class ResultsEngine {
     }
 
     if (!this.footprintsRpcsMerged[rpcCode]) {
-      console.warn(`Missing factors for ${rpcCode}.`);
+      console.warn(`Footprints RPC: Missing footprints for ${rpcCode}.`);
       return null;
     }
 
