@@ -8,7 +8,7 @@ import {
 } from "@/lib/constants";
 
 import { getRpcCodeSubset, listAllProcesses } from "@/lib/utils";
-import { rpcNames, categoryNames } from "@/lib/efsa-names";
+import { categoryNames } from "@/lib/efsa-names";
 
 export const AGGREGATE_HEADERS = [
   // Aggregate over rpcs, processes, and packaging
@@ -242,7 +242,8 @@ export function aggregateImpactsByCategory(
 export function labeledImpacts(
   code: string,
   amount: number,
-  impacts: ImpactsTuple
+  impacts: ImpactsTuple,
+  rpcNames: Record<string, string>
 ): string[] {
   const [rpcImpacts, processImpacts, packagingImpacts, transportEmissions] =
     impacts;
@@ -280,17 +281,19 @@ export function labeledImpacts(
 }
 
 export function labeledAndFilteredImpacts(
-  entries: [string, number, ImpactsTuple][]
+  entries: [string, number, ImpactsTuple][],
+  rpcNames: Record<string, string>
 ): string[][] {
   return entries
     .map(([code, amount, impacts]) =>
-      impacts === null ? null : labeledImpacts(code, amount, impacts)
+      impacts === null ? null : labeledImpacts(code, amount, impacts, rpcNames)
     )
     .filter((x): x is string[] => x !== null);
 }
 
 export function getDietBreakdown(
-  disaggregatedDiet: [string, number, Diet][]
+  disaggregatedDiet: [string, number, Diet][],
+  rpcNames: Record<string, string>
 ): string[][] {
   const rows: string[][] = [];
   disaggregatedDiet.forEach(([code, amount, rpcs]) => {

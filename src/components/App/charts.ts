@@ -1,6 +1,6 @@
 import { ref, type Ref } from "vue";
 
-import { rpcNames } from "@/lib/efsa-names";
+import { defaultRpcNames } from "@/lib/efsa-names";
 import {
   aggregateImpacts,
   aggregateImpactsByCategory,
@@ -49,7 +49,7 @@ export default function setupCharts(RE: ResultsEngine, diet: Ref<Diet>) {
         ];
       })
       .filter((x): x is [string, number[]] => x !== null)
-      .map(([code, impacts]): [string, number[]] => [rpcNames[code], impacts]);
+      .map(([code, impacts]): [string, number[]] => [defaultRpcNames[code], impacts]);
   };
 
   const computeDietFootprintsTotal = () => {

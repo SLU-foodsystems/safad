@@ -34,7 +34,7 @@ import ImpactsPerFoodCategoryChart from "@/components/ImpactsPerCategoryCharts/I
 import setupCharts from "./charts";
 import initFileInterfaces from "./init-file-interfaces";
 import readableDietName from "./readable-diet-name";
-import { CsvValidationError } from "@/lib/input-files-parsers";
+import { extractRpcNamesFromRecipe } from "@/lib/efsa-names";
 
 const APP_VERSION = __APP_VERSION__;
 
@@ -98,13 +98,23 @@ const dietName = computed(() =>
     : defaultDietName.value
 );
 
+const rpcNames = computed(async () => {
+  const f = foodsRecipesFile.value;
+  const rawData =
+    f.state === "default"
+      ? await f.getDefault(countryCode.value)
+      : f.data || "";
+  return extractRpcNamesFromRecipe(rawData);
+});
+
 /**
  * Methods
  */
 
 const downloadFootprintsOfFoods = async () => {
   const impactsOfRecipe = labeledAndFilteredImpacts(
-    RE.computeImpactsOfRecipe()
+    RE.computeImpactsOfRecipe(),
+    await rpcNames.value
   );
 
   const impactsOfRecipeCsv = stringifyCsvData([
@@ -118,9 +128,10 @@ const downloadFootprintsOfFoods = async () => {
   );
 };
 
-const downloadFootprintsOfDiets = () => {
+const downloadFootprintsOfDiets = async () => {
   const detailedDietImpacts = labeledAndFilteredImpacts(
-    RE.computeImpactsDetailed(diet.value)
+    RE.computeImpactsDetailed(diet.value),
+    await rpcNames.value
   );
 
   const detailedDietImpactsCsv = stringifyCsvData([
@@ -144,7 +155,8 @@ const downloadFootprintsOfDiets = () => {
           RE.preparationProcesses!,
           RE.packagingCodes!
         )[0],
-      ])
+      ]),
+      await rpcNames.value
     );
     downloadAsPlaintext(
       stringifyCsvData([BREAKDOWN_RESULTS_HEADER, ...dietBreakdownRows]),
@@ -154,7 +166,11 @@ const downloadFootprintsOfDiets = () => {
 };
 
 const downloadFootprintsOfSfaRecipes = async () => {
-  const sfaResultsRows = await generateSfaResults(sfaRecipes.value, RE);
+  const sfaResultsRows = await generateSfaResults(
+    sfaRecipes.value,
+    RE,
+    await rpcNames.value
+  );
   downloadAsPlaintext(
     stringifyCsvData([SFA_RESULTS_HEADER, ...sfaResultsRows]),
     SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood
@@ -209,13 +225,18 @@ const downloadZip = async () => {
   zip.file("SAFAD Info.txt", metaFileHandler.toString());
 
   if (countryCode.value === "SE") {
-    const sfaResultsRows = await generateSfaResults(sfaRecipes.value, RE);
+    const sfaResultsRows = await generateSfaResults(
+      sfaRecipes.value,
+      RE,
+      await rpcNames.value
+    );
     const data = stringifyCsvData([SFA_RESULTS_HEADER, ...sfaResultsRows]);
     zip.file(SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood, data);
   }
 
   const impactsOfRecipe = labeledAndFilteredImpacts(
-    RE.computeImpactsOfRecipe()
+    RE.computeImpactsOfRecipe(),
+    await rpcNames.value
   );
   const impactsOfRecipeCsv = stringifyCsvData([
     DETAILED_RESULTS_HEADER,
@@ -225,7 +246,8 @@ const downloadZip = async () => {
   zip.file(SAFAD_FILE_NAMES.Output.FootprintsPerFood, impactsOfRecipeCsv);
 
   const detailedDietImpacts = labeledAndFilteredImpacts(
-    RE.computeImpactsDetailed(diet.value)
+    RE.computeImpactsDetailed(diet.value),
+    await rpcNames.value
   );
   const detailedDietImpactsCsv = stringifyCsvData([
     DETAILED_RESULTS_HEADER,
@@ -244,7 +266,8 @@ const downloadZip = async () => {
         RE.preparationProcesses!,
         RE.packagingCodes!
       )[0],
-    ])
+    ]),
+    await rpcNames.value
   );
   zip.file(
     SAFAD_FILE_NAMES.Output.BreakdownPerFood,
