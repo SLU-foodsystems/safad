@@ -56,9 +56,7 @@ const mergeAndRelabelData = (
     try {
       merged[otherKey] = vectorSum(merged[otherKey], impacts);
     } catch {
-      console.log(l1Code, merged[otherKey], impacts);
-      console.log(impactsPerCategory)
-      throw Error("mismatched length")
+      console.error("Error: mismatched length.", l1Code, merged[otherKey], impacts);
     }
   });
 
