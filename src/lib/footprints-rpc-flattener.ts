@@ -31,7 +31,7 @@ export default function flattenRpcFootprints(
       const originFactors = rpcOriginWaste[rpcCode];
 
       if (!originFactors) {
-        console.warn(`No origin factors found for rpc ${rpcCode}`);
+        console.warn(`Origin and Waste of RPC: No origin factors found for rpc ${rpcCode}`);
         return null;
       }
 
