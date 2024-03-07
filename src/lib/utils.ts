@@ -7,6 +7,23 @@ export function average(numbers: number[]) {
   return sum(numbers) / numbers.length;
 }
 
+/**
+ * 2d averages, handles differing row-lengths.
+ */
+export function averages(matrix: number[][]): number[] {
+  if (matrix.length === 0) return [];
+  if (matrix.length === 1) return matrix[0];
+
+  const N = Math.max(...matrix.map((x) => x.length));
+  return Array.from({ length: N }).map((_, i) =>
+    average(
+      matrix
+        .map((vector) => (i < vector.length ? vector[i] : Number.NaN))
+        .filter((x) => !Number.isNaN(x))
+    )
+  );
+}
+
 export function reversed<T>(xs: T[]) {
   if (!xs) return xs;
 
