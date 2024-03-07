@@ -107,15 +107,11 @@ export const parsed = {
   },
 
   async preparationProcesses() {
-    return Parsers.parsePreparationProcesses(
-      await raw.preparationProcesses()
-    );
+    return Parsers.parsePreparationProcesses(await raw.preparationProcesses());
   },
 
   async packagingCodes() {
-    return Parsers.parsePackagingCodes(
-      await raw.packagingCodes()
-    );
+    return Parsers.parsePackagingCodes(await raw.packagingCodes());
   },
 
   async footprintsRpcs() {
@@ -163,9 +159,7 @@ export async function configureResultsEngine(
   resultsEngine.setProcessesEnergyDemands(
     await parsed.processesEnergyDemands()
   );
-  resultsEngine.setPreparationProcesses(
-    await parsed.preparationProcesses()
-  );
+  resultsEngine.setPreparationProcesses(await parsed.preparationProcesses());
   resultsEngine.setPackagingCodes(await parsed.packagingCodes());
   resultsEngine.setWasteRetailAndConsumer(
     await parsed.wasteRetailAndConsumer(countryCode)
