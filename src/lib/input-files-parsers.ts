@@ -145,6 +145,8 @@ export function parseEmissionsFactorsTransport(csvString: string) {
       _productionCountry,
       ...ghgsStrs
     ]) => {
+      // Skip empty rows
+      if (!consumptionCountryCode) return;
       // Convert all GHG factors to numbers, falling back to 0 if missing
       const ghgs = ghgsStrs.map((x) => asNumber(x, 0));
 
@@ -160,12 +162,13 @@ export function parseEmissionsFactorsTransport(csvString: string) {
     (consumptionCountryCode) => !("RoW" in results[consumptionCountryCode])
   );
 
-  if (countriesMissingRestOfWorld) {
+  if (countriesMissingRestOfWorld.length > 0) {
     const missingStr = countriesMissingRestOfWorld.join(", ");
     throw new CsvValidationError(
       CsvValidationErrorType.Other,
       "All countries must have transport emissions factors for RoW. " +
-      "Following countries lack RoW entry: " + missingStr
+        "Following countries lack RoW entry: " +
+        missingStr
     );
   }
 
