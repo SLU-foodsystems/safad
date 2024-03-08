@@ -18,7 +18,6 @@ import { cancelableDebounce } from "@/lib/utils";
 const props = defineProps<{
   fileInterface: InputFile<any>;
   countryCode: string;
-  fileDescription: string;
   fileLabel: string;
 }>();
 
@@ -26,7 +25,6 @@ const isLoading = ref(false);
 const error = ref<CsvValidationErrorType | null>(null);
 
 const showComment = ref(false);
-const showInfo = ref(false);
 
 const comment = ref("");
 
@@ -175,10 +173,6 @@ const download = () => {
   downloadFile(props.countryCode, props.fileInterface);
 };
 
-const toggleInfo = () => {
-  showInfo.value = !showInfo.value;
-};
-
 const toggleComment = () => {
   showComment.value = !showComment.value;
   if (showComment.value) {
@@ -262,20 +256,10 @@ const onDrop = (e: DragEvent) => {
         <div class="cluster cluster--m-gap">
           <button
             class="expander-toggle"
-            :data-expanded="showInfo"
-            @click="toggleInfo"
-            v-if="fileDescription"
-          >
-            {{ showInfo ? "Hide" : "Show" }} Info
-          </button>
-          <button
-            class="expander-toggle"
             :data-expanded="showComment"
             @click="toggleComment"
-            v-if="fileDescription"
-          >
-            {{ commentToggleButtonText }}
-          </button>
+            v-text="commentToggleButtonText"
+          />
           <button class="expander-toggle" @click="download">
             Download file
           </button>
@@ -298,9 +282,6 @@ const onDrop = (e: DragEvent) => {
           v-text="fileButtonText"
         />
       </div>
-    </div>
-    <div class="info-text" :aria-hidden="!showInfo" :hidden="!showInfo">
-      {{ fileDescription }}
     </div>
     <LoadingOverlay :show="isLoading" />
     <div class="file-selector-box__drag-overlay" @click.prevent="onDragleave">
