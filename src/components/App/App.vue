@@ -38,33 +38,6 @@ import { extractRpcNamesFromRecipe } from "@/lib/efsa-names";
 
 const APP_VERSION = __APP_VERSION__;
 
-// TODO: These should be in a separate file, so that theyre easier for others to
-// modify
-const Descriptions = {
-  footprintsRpc:
-    "File with footprints of all raw commodities (crops, animal products, blue and novel foods) from different production countries (without any waste, conversion or allocation).",
-  diet: "File that contains the amount of different foods in diets.",
-  rpcOriginWaste:
-    "File with origins and waste from farm to retail of each country specific RPC.",
-  wasteRetailAndConsumer:
-    "File that specifies the amount of retail and consumer waste for different food types and per country.",
-  recipes:
-    "File that disaggregates food items into their components and finally into its RPC, specifies processing steps, and contains conversion factors from going from RPC to edible RPCs. File with conversion (“reverse yield”-factors), allocation factors and definition of processes for the different food items.",
-  preparationProcesses:
-    "File with additional processing steps for composite foods (e.g. baking for bread).",
-  packagingCodes: "File with specification of the types of packaging used.",
-  processesEnergyDemands:
-    "File that contains the amount and type of energy sources that each process uses.",
-  emissionsFactorsEnergy:
-    "Emission factors for electricity for different countries and other energy carriers (e.g. heating oil).",
-  emissionsFactorsPackaging:
-    "Emissions factors for different types of packaging.",
-  emissionsFactorsTransport:
-    "Emissions factors for transports between different countries.",
-  sfaRecipesFile:
-    "An alternative recipe file containing recipes used by the Swedish Food Agency. This file defines for which recipes footprints are calculated for, what ingredients they contain and in what amounts (as determined by SFA). This file is complemented by SAFAD IP Recipes.csv file to break non-RPC items down to RPC-level.",
-};
-
 const RE = new ResultsEngine();
 
 const countryCode = ref("SE");
@@ -590,17 +563,15 @@ onMounted(async () => {
       </h3>
 
       <FileSelector
-        file-label="Footprints RPC"
+        file-label="Footprints of raw primary raw primary commodities, e.g. wheat, tomatoes, beef etc."
         :country-code="countryCode"
         :file-interface="footprintsRpcsFile"
-        :file-description="Descriptions.footprintsRpc"
       />
 
       <FileSelector
-        file-label="Diet"
+        file-label="Specification of the diet to be assessed, i.e. amounts of different foods"
         :country-code="countryCode"
         :file-interface="dietFile"
-        :file-description="Descriptions.diet"
       />
 
       <h3 class="hr-header hr-header--right-only">
@@ -608,65 +579,56 @@ onMounted(async () => {
       </h3>
 
       <FileSelector
-        file-label="Foods Recipes"
+        file-label="Recipes of the foods, e.g. the amount of flour, oil and water in 1 kg bread"
         :country-code="countryCode"
         :file-interface="foodsRecipesFile"
-        :file-description="Descriptions.recipes"
       />
 
       <FileSelector
         :country-code="countryCode"
-        file-label="RPC Origin & Waste"
+        file-label="Origin and waste level of raw primary commodities"
         :fileInterface="rpcOriginWasteFile"
-        :file-description="Descriptions.rpcOriginWaste"
       />
 
       <FileSelector
-        file-label="Processes Energy Demands"
+        file-label="Energy demand for different processing processes"
         :country-code="countryCode"
         :file-interface="processesEnergyDemandsFile"
-        :file-description="Descriptions.processesEnergyDemands"
       />
 
       <FileSelector
         file-label="Preparation Processes"
         :country-code="countryCode"
         :file-interface="preparationProcessesFile"
-        :file-description="Descriptions.preparationProcesses"
       />
       <FileSelector
         file-label="Packaging"
         :country-code="countryCode"
         :file-interface="packagingCodesFile"
-        :file-description="Descriptions.packagingCodes"
       />
       <FileSelector
-        file-label="Consumer- and Retail wastes"
+        file-label="Food waste at retail and at the consumer"
         :country-code="countryCode"
         :file-interface="wasteRetailAndConsumerFile"
-        :file-description="Descriptions.wasteRetailAndConsumer"
       />
 
       <h3 class="hr-header hr-header--right-only">
         <span>Emissions Factors</span>
       </h3>
       <FileSelector
-        file-label="Emissions Factors Packaging"
+        file-label="Emission factors for different packaging materials"
         :country-code="countryCode"
         :file-interface="emissionsFactorsPackagingFile"
-        :file-description="Descriptions.emissionsFactorsPackaging"
       />
       <FileSelector
-        file-label="Emissions Factors Energy"
+        file-label="Emission factors for energy sources"
         :country-code="countryCode"
         :file-interface="emissionsFactorsEnergyFile"
-        :file-description="Descriptions.emissionsFactorsEnergy"
       />
       <FileSelector
-        file-label="Emissions Factors Transport"
+        file-label="Emission factors for transports between countries"
         :country-code="countryCode"
         :file-interface="emissionsFactorsTransportFile"
-        :file-description="Descriptions.emissionsFactorsTransport"
       />
       <h2 class="hr-header">
         <span>Download complete data package</span>
