@@ -40,7 +40,7 @@ export class CsvValidationError extends Error {
   constructor(type: CsvValidationErrorType, message?: string) {
     super("Csv Validation Error: " + type);
     this.type = type;
-    if (message) this.message = message;
+    this.message = message || String(type);
   }
 }
 
