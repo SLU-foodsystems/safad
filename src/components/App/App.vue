@@ -602,7 +602,7 @@ onMounted(async () => {
         :file-interface="preparationProcessesFile"
       />
       <FileSelector
-        file-label="Packaging"
+        file-label="Packaging codes for different foods"
         :country-code="countryCode"
         :file-interface="packagingCodesFile"
       />
