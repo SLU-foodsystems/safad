@@ -153,6 +153,8 @@ export function parseEmissionsFactorsTransport(csvString: string) {
     }
   );
 
+  // TODO: Could add a check here to ensure each country has an RoW value
+
   return results;
 }
 
