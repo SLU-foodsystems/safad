@@ -1,9 +1,4 @@
-import {
-  averages,
-  parseCsvFile,
-  roundToPrecision,
-  vectorsSum,
-} from "@/lib/utils";
+import { parseCsvFile, roundToPrecision, vectorsSum } from "@/lib/utils";
 
 import processTranslationsCsv from "@/data/sfa-to-efsa-processes.csv?raw";
 
@@ -157,16 +152,6 @@ export function parseEmissionsFactorsTransport(csvString: string) {
       results[consumptionCountryCode][productionCountryCode] = ghgs;
     }
   );
-
-  Object.keys(results).forEach((consumptionCountry) => {
-    const averageAcrossProductionCountries = averages(
-      Object.entries(results[consumptionCountry])
-        // filter out our the domestic transport from the averages
-        .filter((kv) => kv[0] !== consumptionCountry)
-        .map((kv) => kv[1])
-    );
-    results[consumptionCountry].RoW = averageAcrossProductionCountries;
-  });
 
   return results;
 }
