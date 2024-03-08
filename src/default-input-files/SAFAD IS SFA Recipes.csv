@@ -1934,7 +1934,7 @@ NB! Med ändrad Foodex-kod för socker, stämmer det inte alltid att råvara niv
 1744,Kräm bär frukt ospec.,Potatismjöl,3,"potatisflingor, potatisstärkelse","Tillagad, adderad",1,SLV - Riktlinjer för livsmedel,A011F,3,"3 * 1,00",,,,,,Faktor = logisk slutledning
 1748,Saftsås,Päron,5,,Rå,1,"Guidance document on the conversion of foods coded according to FoodEx into raw agricultural commodities (RACs), EU project ACROPOLIS WP2, Deliverable 2.2, Polly E. Boon, June 2011 ",NEW11,5,"5 * 6,30",,,,,,
 1748,Saftsås,Hallon,5,,Rå,1,"Guidance document on the conversion of foods coded according to FoodEx into raw agricultural commodities (RACs), EU project ACROPOLIS WP2, Deliverable 2.2, Polly E. Boon, June 2011 ",A03CD,5,"5 * 5,60",,,,,,
-1748,Saftsås,Vindruvor,5,,Rå,1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A03BY,5,"5 * 5,40",,,,,,"
+1748,Saftsås,Vindruvor,5,,Rå,1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A03AK,5,"5 * 5,40",,,,,,"
 "
 1748,Saftsås,Fläderbär,1,,Rå,1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,NEW13,1,"1 * 5,40",,,,,,
 1748,Saftsås,Äpple,7,,Rå,1,"Guidance document on the conversion of foods coded according to FoodEx into raw agricultural commodities (RACs), EU project ACROPOLIS WP2, Deliverable 2.2, Polly E. Boon, June 2011 ",NEW16,7,"7 * 3,90",,,,,,
@@ -3737,7 +3737,7 @@ NB! Med ändrad Foodex-kod för socker, stämmer det inte alltid att råvara niv
 3927,Grönsallat gurka tomat majs utan dressing,Salladskål,3,,Rå,1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00GG,3,"3 * 1,00",,,,,,
 3927,Grönsallat gurka tomat majs utan dressing,Övrigt,0,"Salt, kryddor, bakpulver, hjorthornssalt, surdegspulver etc",Rå,1,SLV - Riktlinjer för livsmedel,A042Z_R,0,"0 * 1,00",,,,,,"Här lägger vi övriga ingredienser som inte behöver egen kod. Bara några exempel är nämnda under""inkluderar"", men komplettera gärna listan."
 3939,Fågel vildfågel stekt,Fasan,34,,Tillagad,1.4,SLV - Riktlinjer för livsmedel,A01SZ,47.6,"34 * 1,40",,,,,,Faktor överförd från tillagad kyckling . Motivering att det är svårt att hitta faktorer för fasan
-3939,Fågel vildfågel stekt,Ripa,33,,Tillagad,1.4,SLV - Riktlinjer för livsmedel,A01TK,46.2,"33 * 1,40",,,,,,Faktor överförd från tillagad kyckling . Motivering att det är svårt att hitta faktorer för ripa
+3939,Fågel vildfågel stekt,Ripa,33,,Tillagad,1.4,SLV - Riktlinjer för livsmedel,A01SZ,46.2,"33 * 1,40",,,,,,Faktor överförd från tillagad kyckling . Motivering att det är svårt att hitta faktorer för ripa
 3939,Fågel vildfågel stekt,Duva,33,,Tillagad,1.4,-,A01TA,46.2,"33 * 1,40",,,,,,Faktor överförd  från kyckling motivering liknande vattenhalt
 3952,Grönsaker syltade,Paprika ,37,,Rå,1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00JA,37,"37 * 1,00",,,,,,
 3952,Grönsaker syltade,Tomat,23,,Rå,1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A00HQ,23,"23 * 1,00",,,,,,
@@ -4065,7 +4065,7 @@ NB! Med ändrad Foodex-kod för socker, stämmer det inte alltid att råvara niv
 5552,Marmelad,Vatten,6,,Rå,1,SLV - Riktlinjer för livsmedel,A03DL,6,"6 * 1,00",,,,,,Faktor=logiskt slutledning
 5552,Marmelad,Övrigt,1,"Salt, kryddor, bakpulver, hjorthornssalt, surdegspulver etc",Rå,1,SLV - Riktlinjer för livsmedel,A042Z_R,1,"1 * 1,00",,,,,,"Här lägger vi övriga ingredienser som inte behöver egen kod. Bara några exempel är nämnda under""inkluderar"", men komplettera gärna listan."
 5553,Glasspinne liten,Päron,4,,Rå,1,"Guidance document on the conversion of foods coded according to FoodEx into raw agricultural commodities (RACs), EU project ACROPOLIS WP2, Deliverable 2.2, Polly E. Boon, June 2011 ",NEW11,4,"4 * 6,30",,,,,,
-5553,Glasspinne liten,Vindruvor,1,,Rå,1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A03BY,1,"1 * 5,40",,,,,,"
+5553,Glasspinne liten,Vindruvor,1,,Rå,1,Conversion FOODEX to e-RAC 8 juli 2011_NL.xls,A03AK,1,"1 * 5,40",,,,,,"
 "
 5553,Glasspinne liten,Mjölk fett < 1 %,28,,"Rå, tillagad ",1,-,A02MA,28,"28 * 1,00",,,,,,Faktor = logisk slutledning
 5553,Glasspinne liten,Socker,14,"Råsocker, farinsocker, invertsocker, sockerkulör",Rå,1,SLV - Riktlinjer för livsmedel,A032H,14,"14 * 1,00",Sockerbeta,Rå,6.5,SLV - Riktlinjer för livsmedel,A010T,"Faktor = logisk slutledning
