@@ -30,14 +30,17 @@ export enum CsvValidationErrorType {
   SingleCol = "SINGLE_COL",
   Empty = "EMPTY",
   Unknown = "UNKNOWN",
+  Other = "OTHER",
 }
 
 export class CsvValidationError extends Error {
   public readonly type: CsvValidationErrorType;
+  public readonly message: string = "";
 
-  constructor(type: CsvValidationErrorType) {
+  constructor(type: CsvValidationErrorType, message?: string) {
     super("Csv Validation Error: " + type);
     this.type = type;
+    if (message) this.message = message;
   }
 }
 
@@ -152,6 +155,19 @@ export function parseEmissionsFactorsTransport(csvString: string) {
       results[consumptionCountryCode][productionCountryCode] = ghgs;
     }
   );
+
+  const countriesMissingRestOfWorld = Object.keys(results).filter(
+    (consumptionCountryCode) => !("RoW" in results[consumptionCountryCode])
+  );
+
+  if (countriesMissingRestOfWorld) {
+    const missingStr = countriesMissingRestOfWorld.join(", ");
+    throw new CsvValidationError(
+      CsvValidationErrorType.Other,
+      "All countries must have transport emissions factors for RoW. " +
+      "Following countries lack RoW entry: " + missingStr
+    );
+  }
 
   // TODO: Could add a check here to ensure each country has an RoW value
 
