@@ -303,7 +303,7 @@ const onDrop = (e: DragEvent) => {
   outline: 2px solid $gray;
 
   &--custom {
-    box-shadow: -0.25em 0 0 $blue_sky;
+    outline-color: $blue_sky;
   }
 
   h4 {
