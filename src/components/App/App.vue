@@ -35,6 +35,10 @@ import setupCharts from "./charts";
 import initFileInterfaces from "./init-file-interfaces";
 import readableDietName from "./readable-diet-name";
 import { extractRpcNamesFromRecipe } from "@/lib/efsa-names";
+import {
+  CsvValidationError,
+  CsvValidationErrorType,
+} from "@/lib/input-files-parsers";
 
 const APP_VERSION = __APP_VERSION__;
 
@@ -287,7 +291,20 @@ watch(countryCode, async () => {
     );
   }
   if (dietFile.value?.state === "default") {
-    promises.push(resetFile(countryCode.value, dietFile.value));
+    const p = resetFile(countryCode.value, dietFile.value).catch((err) => {
+      const fileIsEmpty =
+        err instanceof CsvValidationError &&
+        err.type === CsvValidationErrorType.Empty;
+      const isPolandDiet = countryCode.value === "PL";
+
+      if (fileIsEmpty && isPolandDiet) {
+        diet.value = [];
+      } else {
+        throw err;
+      }
+    });
+
+    promises.push(p);
   }
 
   await Promise.all(promises);
