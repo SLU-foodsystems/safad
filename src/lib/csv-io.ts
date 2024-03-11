@@ -2,6 +2,8 @@
  * Export functionality
  * ========================================================================= */
 
+import { stringifyCsvData } from "./utils";
+
 export function downloadAsPlaintext(data: string, filename: string) {
   const blob = new Blob(["\ufeff" + data], {
     type: "text/csv;charset=utf-8;",
@@ -21,4 +23,26 @@ export function downloadAsPlaintext(data: string, filename: string) {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+}
+
+export function downloadAsCsv(filename: string, data: string[][]) {
+  downloadAsPlaintext(stringifyCsvData(data), filename);
+}
+
+export async function downloadAsXlsx(
+  filename: string,
+  sheets: [string, string[][]][]
+) {
+  if (sheets.length === 0) return;
+
+  const { utils, writeFileXLSX } = await import("xlsx");
+
+  const wb = utils.book_new();
+
+  sheets.forEach(([sheetname, data]) => {
+    const ws = utils.aoa_to_sheet(data);
+    utils.book_append_sheet(wb, ws, sheetname);
+  });
+
+  writeFileXLSX(wb, filename);
 }

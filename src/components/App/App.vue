@@ -7,7 +7,7 @@ import ResultsEngine from "@/lib/ResultsEngine";
 
 import { SAFAD_FILE_NAMES } from "@/lib/constants";
 import { resetFile } from "@/lib/file-interface-utils";
-import { downloadAsPlaintext } from "@/lib/csv-io";
+import { downloadAsCsv, downloadAsXlsx } from "@/lib/csv-io";
 import { padLeft, stringifyCsvData } from "@/lib/utils";
 import {
   labeledAndFilteredImpacts,
@@ -102,70 +102,83 @@ const setSelectedFoodCodes = (codes: string[]) => {
  * Methods
  */
 
-const downloadFootprintsOfFoods = async () => {
+const downloadFootprintsOfFoods = async (filetype: "csv" | "xlsx") => {
   const impactsOfRecipe = labeledAndFilteredImpacts(
     RE.computeImpactsOfRecipe(),
     await foodNamesPromise.value
   );
 
-  const impactsOfRecipeCsv = stringifyCsvData([
-    DETAILED_RESULTS_HEADER,
-    ...impactsOfRecipe,
-  ]);
+  const data = [DETAILED_RESULTS_HEADER, ...impactsOfRecipe];
 
-  downloadAsPlaintext(
-    impactsOfRecipeCsv,
-    SAFAD_FILE_NAMES.Output.FootprintsPerFood
-  );
+  if (filetype === "csv") {
+    downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerFood, data);
+  } else {
+    await downloadAsXlsx(
+      SAFAD_FILE_NAMES.Output.FootprintsPerFood.replace(".csv", ".xlsx"),
+      [["Data", data]]
+    );
+  }
 };
 
-const downloadFootprintsOfDiets = async () => {
+const downloadFootprintsOfDiets = async (filetype: "csv" | "xlsx") => {
   const detailedDietImpacts = labeledAndFilteredImpacts(
     RE.computeImpactsDetailed(diet.value),
     await foodNamesPromise.value
   );
 
-  const detailedDietImpactsCsv = stringifyCsvData([
-    DETAILED_RESULTS_HEADER,
-    ...detailedDietImpacts,
-  ]);
+  const data = [DETAILED_RESULTS_HEADER, ...detailedDietImpacts];
+  const breakdownData = includeBreakdownFile.value
+    ? [
+        BREAKDOWN_RESULTS_HEADER,
+        ...getDietBreakdown(
+          diet.value.map(([code, amount]): [string, number, Diet] => [
+            code,
+            amount,
+            reduceDietToRpcs(
+              [[code, amount]],
+              RE.foodsRecipes!,
+              RE.preparationProcesses!,
+              RE.packagingCodes!
+            )[0],
+          ]),
+          await foodNamesPromise.value
+        ),
+      ]
+    : null;
 
-  downloadAsPlaintext(
-    detailedDietImpactsCsv,
-    SAFAD_FILE_NAMES.Output.FootprintsPerDiet
-  );
-
-  if (includeBreakdownFile.value) {
-    const dietBreakdownRows = getDietBreakdown(
-      diet.value.map(([code, amount]): [string, number, Diet] => [
-        code,
-        amount,
-        reduceDietToRpcs(
-          [[code, amount]],
-          RE.foodsRecipes!,
-          RE.preparationProcesses!,
-          RE.packagingCodes!
-        )[0],
-      ]),
-      await foodNamesPromise.value
-    );
-    downloadAsPlaintext(
-      stringifyCsvData([BREAKDOWN_RESULTS_HEADER, ...dietBreakdownRows]),
-      SAFAD_FILE_NAMES.Output.BreakdownPerFood
+  if (filetype === "csv") {
+    downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerDiet, data);
+    if (breakdownData) {
+      downloadAsCsv(SAFAD_FILE_NAMES.Output.BreakdownPerFood, breakdownData);
+    }
+  } else {
+    const sheets: [string, string[][]][] = [["Diet footprints", data]];
+    if (breakdownData) {
+      sheets.push(["Diet breakdown", breakdownData]);
+    }
+    downloadAsXlsx(
+      SAFAD_FILE_NAMES.Output.FootprintsPerDiet.replace(".csv", ".xlsx"),
+      sheets
     );
   }
 };
 
-const downloadFootprintsOfSfaRecipes = async () => {
+const downloadFootprintsOfSfaRecipes = async (filetype: "csv" | "xlsx") => {
   const sfaResultsRows = await generateSfaResults(
     sfaRecipes.value,
     RE,
     await foodNamesPromise.value
   );
-  downloadAsPlaintext(
-    stringifyCsvData([SFA_RESULTS_HEADER, ...sfaResultsRows]),
-    SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood
-  );
+
+  const data = [SFA_RESULTS_HEADER, ...sfaResultsRows];
+  if (filetype === "csv") {
+    downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood, data);
+  } else {
+    downloadAsXlsx(
+      SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood.replace(".csv", ".xlsx"),
+      [["Data", data]]
+    );
+  }
 };
 
 const metaFileHandler = new MetaFile({
@@ -460,21 +473,47 @@ onMounted(async () => {
             </div>
             <h3>Download footprints of all foods</h3>
             <p>
-              Download a csv file with the impacts per kg for each of the
-              food-items in the recipes list.
+              Download a csv or xlsx file with the impacts per kg for each of
+              the food-items in the recipes list.
             </p>
-            <button
-              class="button button--accent"
-              @click="downloadFootprintsOfFoods"
-            >
-              Download footprints of foods - EFSA recipes
-            </button>
-            <button
-              class="button button--accent"
-              @click="downloadFootprintsOfSfaRecipes"
-            >
-              Download footprints of foods - SFA recipes
-            </button>
+            <h4><strong>European Food Standard Agency Recipes</strong></h4>
+            <div class="cluster">
+              Plain data:
+              <button
+                class="button button--accent button--slim"
+                @click="() => downloadFootprintsOfFoods('csv')"
+              >
+                Download as .csv-file
+              </button>
+            </div>
+            <div class="cluster">
+              Spreadsheet:
+              <button
+                class="button button--accent button--slim"
+                @click="() => downloadFootprintsOfFoods('xlsx')"
+              >
+                Download as .xlsx-file
+              </button>
+            </div>
+            <h4><strong>Swedish Food Agency Recipes</strong></h4>
+            <div class="cluster">
+              Plain data:
+              <button
+                class="button button--accent button--slim"
+                @click="() => downloadFootprintsOfSfaRecipes('csv')"
+              >
+                Download as .csv-file
+              </button>
+            </div>
+            <div class="cluster">
+              Spreadsheet:
+              <button
+                class="button button--accent button--slim"
+                @click="() => downloadFootprintsOfSfaRecipes('xlsx')"
+              >
+                Download as .xlsx-file
+              </button>
+            </div>
           </div>
         </div>
         <h3 class="hr-header hr-header--right-only">
@@ -520,21 +559,32 @@ onMounted(async () => {
               will be selected. If you want to test a modified or custom diet,
               you can upload a file towards the bottom of the page.
             </p>
+            <h3>Download footprints of the selected diet</h3>
             <div class="cluster">
+              Plain data:
               <button
-                class="button button--accent"
-                @click="downloadFootprintsOfDiets"
+                class="button button--accent button--slim"
+                @click="() => downloadFootprintsOfDiets('csv')"
               >
-                Download footprints of diet
+                Download as .csv-file
               </button>
-              <label
-                class="cluster cluster--m-gap"
-                title="The breakdown file shows what raw commodities each food in the diet is broken down to."
-              >
-                <input type="checkbox" v-model="includeBreakdownFile" />
-                Include breakdown file
-              </label>
             </div>
+            <div class="cluster">
+              Spreadsheet:
+              <button
+                class="button button--accent button--slim"
+                @click="() => downloadFootprintsOfDiets('xlsx')"
+              >
+                Download as .xlsx-file
+              </button>
+            </div>
+            <label
+              class="cluster cluster--m-gap"
+              title="The breakdown file shows what raw commodities each food in the diet is broken down to."
+            >
+              <input type="checkbox" v-model="includeBreakdownFile" />
+              <em>Include breakdown file in download</em>
+            </label>
           </div>
           <div class="stack">
             <h3 class="hr-header hr-header--right-only">
