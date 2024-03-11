@@ -272,8 +272,16 @@ export function parseFootprintsRpcs(csvString: string) {
     throw new CsvValidationError(CsvValidationErrorType.Unknown);
   }
 
-  const structured = {} as RpcFootprintsByOrigin;
+  const rpcFootprints = {} as RpcFootprintsByOrigin;
 
+  // First, we store all footprints in a nested map, like this:
+  // {
+  //  "A.01.02.123": {
+  //    "ES": [1, 2, 3, ...],
+  //    "AR": [3, 2, 1, ...],
+  //    ...
+  //  }
+  // }
   data
     .filter((x) => x.length > 1)
     .forEach(
@@ -290,9 +298,8 @@ export function parseFootprintsRpcs(csvString: string) {
       ]) => {
         if (!rpcCode || rpcCode.trim() === "NA") return;
 
-        // Handle the base-case, i.e. the initial acc.
-        if (!(rpcCode in structured)) {
-          structured[rpcCode] = {};
+        if (!(rpcCode in rpcFootprints)) {
+          rpcFootprints[rpcCode] = {};
         }
 
         // Handle if someone inputs RoW (or any other case invariant)
@@ -301,30 +308,34 @@ export function parseFootprintsRpcs(csvString: string) {
         }
 
         // Store values, as number
-        structured[rpcCode][originCode] = impactsStr.map((x) => asNumber(x, 0));
+        const footprints = impactsStr.map((x) => asNumber(x, 0));
+        rpcFootprints[rpcCode][originCode] = footprints;
       }
     );
 
-  // Set RoW to be the average
-  Object.entries(structured).forEach(([rpcCode, footprintsPerOrigin]) => {
-    // Abort if RoW already is defined
-    if (footprintsPerOrigin.RoW) return;
+  // Then, we add RoW where needed. RoW is the average of all footprints across
+  // all origins for any RPC-code
+  Object.entries(rpcFootprints).forEach(
+    ([rpcCode, footprintsPerOrigin]) => {
+      // Abort if RoW already is defined
+      if (footprintsPerOrigin.RoW) return;
 
-    const numberOfOrigins = Object.values(footprintsPerOrigin).length;
+      const numberOfOrigins = Object.keys(footprintsPerOrigin).length;
 
-    // Fall-back when no origins are defined
-    if (numberOfOrigins === 0) {
-      structured[rpcCode].RoW = ENV_IMPACTS_ZERO;
-      return;
+      // Fall-back when no origins are defined
+      if (numberOfOrigins === 0) {
+        rpcFootprints[rpcCode].RoW = ENV_IMPACTS_ZERO;
+        return;
+      }
+
+      const averages = vectorsSum(Object.values(footprintsPerOrigin)).map(
+        (x: number) => x / numberOfOrigins
+      );
+      rpcFootprints[rpcCode].RoW = averages;
     }
+  );
 
-    const averages = vectorsSum(Object.values(footprintsPerOrigin)).map(
-      (x: number) => x / numberOfOrigins
-    );
-    structured[rpcCode].RoW = averages;
-  });
-
-  return structured;
+  return rpcFootprints;
 }
 
 export function parseWasteRetailAndConsumer(csvString: string) {
