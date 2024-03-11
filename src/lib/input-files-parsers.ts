@@ -1,6 +1,7 @@
 import { parseCsvFile, roundToPrecision, vectorsSum } from "@/lib/utils";
 
 import processTranslationsCsv from "@/data/sfa-to-efsa-processes.csv?raw";
+import { ENV_IMPACTS_ZERO } from "./constants";
 
 const SfaEfsaProcessTranslations: Record<string, string> = Object.fromEntries(
   parseCsvFile(processTranslationsCsv)
@@ -313,7 +314,7 @@ export function parseFootprintsRpcs(csvString: string) {
 
     // Fall-back when no origins are defined
     if (numberOfOrigins === 0) {
-      structured[rpcCode].RoW = [1, 0];
+      structured[rpcCode].RoW = ENV_IMPACTS_ZERO;
       return;
     }
 
