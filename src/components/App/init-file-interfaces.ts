@@ -17,7 +17,7 @@ export default function initInputFiles(RE: ResultsEngine) {
 
     footprintsRpcsFile: ref(
       initInputFile<RpcFootprintsByOrigin>({
-        defaultName: SAFAD_FILE_NAMES.Input.FoodsRecipes,
+        defaultName: SAFAD_FILE_NAMES.Input.FootprintsRpc,
         getDefault: DefaultInputFiles.raw.footprintsRpcs,
         parser: InputFileParsers.parseFootprintsRpcs,
         setter: RE.setFootprintsRpcs,
