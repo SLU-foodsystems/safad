@@ -47,6 +47,7 @@ export default function flattenRpcFootprints(
 
           if (origin === "RoW" && !envImpacts[origin]) {
             console.error("RoW missing for rpc " + rpcCode);
+            // TODO: Return null, and then filter out nulls.
           }
           return envImpacts[origin].map((x) => ratio * x);
         })

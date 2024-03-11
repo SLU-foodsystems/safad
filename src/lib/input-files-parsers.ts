@@ -115,7 +115,7 @@ export function parseEmissionsFactorsEnergy(csvString: string) {
   }
 
   csv.forEach(([carrier, _country, countryCode, ...ghgsStrs]) => {
-    const ghgs = ghgsStrs.map((x) => (x ? asNumber(x, 0) : 0));
+    const ghgs = ghgsStrs.map((x) => asNumber(x, 0));
     if (carrier === "Electricity") {
       (emissionsFactors[carrier] as Record<string, number[]>)[countryCode] =
         ghgs;
@@ -295,7 +295,7 @@ export function parseFootprintsRpcs(csvString: string) {
           structured[rpcCode] = {};
         }
 
-        // Handle if someone inputs ROW, row, roW or any other case variant
+        // Handle if someone inputs RoW (or any other case invariant)
         if (originCode.toLowerCase().trim() === "row") {
           originCode = "RoW";
         }
@@ -306,11 +306,11 @@ export function parseFootprintsRpcs(csvString: string) {
     );
 
   // Set RoW to be the average
-  Object.entries(structured).forEach(([rpcCode, factorsPerOrigin]) => {
+  Object.entries(structured).forEach(([rpcCode, footprintsPerOrigin]) => {
     // Abort if RoW already is defined
-    if (Object.keys(factorsPerOrigin).includes("RoW")) return;
+    if (footprintsPerOrigin.RoW) return;
 
-    const numberOfOrigins = Object.values(factorsPerOrigin).length;
+    const numberOfOrigins = Object.values(footprintsPerOrigin).length;
 
     // Fall-back when no origins are defined
     if (numberOfOrigins === 0) {
@@ -318,7 +318,7 @@ export function parseFootprintsRpcs(csvString: string) {
       return;
     }
 
-    const averages = vectorsSum(Object.values(factorsPerOrigin)).map(
+    const averages = vectorsSum(Object.values(footprintsPerOrigin)).map(
       (x: number) => x / numberOfOrigins
     );
     structured[rpcCode].RoW = averages;
