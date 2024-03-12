@@ -304,13 +304,14 @@ function focusLastItem() {
   }
 
   button {
-    border: none;
-    background: $gray;
+    display: flex;
+    border: 1px solid rgba(black, 0.15);
     border-radius: 0.25em;
     padding: 0.15em 0.5em;
-    display: flex;
     align-items: center;
-    outline: 1px solid rgba(black, 0.15);
+
+    background: $gray;
+    font-weight: bold;
 
     &::after {
       content: "×";
