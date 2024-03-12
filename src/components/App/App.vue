@@ -457,6 +457,55 @@ onMounted(async () => {
         <h2 class="hr-header">
           <span>Impacts from foods</span>
         </h2>
+        <div class="cluster foods-footprints-intro">
+          <p>
+            Footprints shown here are for foods on the market of the choosen
+            country considering the origin of different raw commodities. For
+            example, a share of a commodity (e.g. wheat or tomateos) can be
+            grown domestically while the rest is imported. The footprint of the
+            commoditiy is therefore an average of the footprint from these
+            countries weighted according to the shares of the production taking
+            place in different countries. Footprints here also accounts for
+            waste in production, at the retailer and at the consumer.
+          </p>
+          <div class="stack">
+            <h3>Download footprints of all foods</h3>
+            <div class="cluster">
+              Plain data (.csv):
+              <div class="cluster">
+                <button
+                  class="button button--accent button--slim"
+                  @click="() => downloadFootprintsOfFoods('csv')"
+                >
+                  Download for EFSA recipes
+                </button>
+                <button
+                  class="button button--slim"
+                  @click="() => downloadFootprintsOfSfaRecipes('csv')"
+                >
+                  Download for SFA recipes
+                </button>
+              </div>
+            </div>
+            <div class="cluster">
+              Spreadsheet (.xlsx):
+              <div class="cluster">
+                <button
+                  class="button button--accent button--slim"
+                  @click="() => downloadFootprintsOfFoods('xlsx')"
+                >
+                  Download for EFSA recipes
+                </button>
+                <button
+                  class="button button--slim"
+                  @click="() => downloadFootprintsOfSfaRecipes('xlsx')"
+                >
+                  Download for SFA recipes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="results-grid-large">
           <div class="results-grid-large__graph">
             <h3>Carbon footprint preview</h3>
@@ -471,49 +520,6 @@ onMounted(async () => {
                 @change="setSelectedFoodCodes"
               />
             </div>
-            <h3>Download footprints of all foods</h3>
-            <p>
-              Download a csv or xlsx file with the impacts per kg for each of
-              the food-items in the recipes list.
-            </p>
-            <h4><strong>European Food Standard Agency Recipes</strong></h4>
-            <div class="cluster">
-              Plain data:
-              <button
-                class="button button--accent button--slim"
-                @click="() => downloadFootprintsOfFoods('csv')"
-              >
-                Download as .csv-file
-              </button>
-            </div>
-            <div class="cluster">
-              Spreadsheet:
-              <button
-                class="button button--accent button--slim"
-                @click="() => downloadFootprintsOfFoods('xlsx')"
-              >
-                Download as .xlsx-file
-              </button>
-            </div>
-            <h4><strong>Swedish Food Agency Recipes</strong></h4>
-            <div class="cluster">
-              Plain data:
-              <button
-                class="button button--accent button--slim"
-                @click="() => downloadFootprintsOfSfaRecipes('csv')"
-              >
-                Download as .csv-file
-              </button>
-            </div>
-            <div class="cluster">
-              Spreadsheet:
-              <button
-                class="button button--accent button--slim"
-                @click="() => downloadFootprintsOfSfaRecipes('xlsx')"
-              >
-                Download as .xlsx-file
-              </button>
-            </div>
           </div>
         </div>
         <h3 class="hr-header hr-header--right-only">
@@ -522,16 +528,6 @@ onMounted(async () => {
         <div class="results-grid-small">
           <EnvFootprintCharts :data="carbonFootprints" />
         </div>
-        <p>
-          Footprints shown here are for foods on the market of the choosen
-          country considering the origin of different raw commodities. For
-          example, a share of a commodity (e.g. wheat or tomateos) can be grown
-          domestically while the rest is imported. The footprint of the
-          commoditiy is therefore an average of the footprint from these
-          countries weighted according to the shares of the production taking
-          place in different countries. Footprints here also accounts for waste
-          in production, at the retailer and at the consumer.
-        </p>
       </section>
 
       <section class="stack stack-l">
@@ -843,6 +839,35 @@ onMounted(async () => {
   }
   p {
     font-size: 1.125em;
+  }
+}
+
+.foods-footprints-intro {
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding: 1em;
+  border: 2px solid $gray;
+
+  h4 {
+    margin-top: 0;
+  }
+
+  p {
+    max-width: 40em;
+    flex: 1 0 50%;
+    text-align: justify;
+  }
+
+  > div {
+    flex-grow: 0;
+    flex-shrink: 1;
+
+    > .cluster {
+      flex-wrap: wrap;
+    }
   }
 }
 
