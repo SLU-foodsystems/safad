@@ -284,6 +284,11 @@ function focusLastItem() {
         @click="onListItemClick"
       />
     </ul>
+    <div class="error-region" aria-live="polite">
+      <p v-if="selected.size === MAX_ITEMS">
+        Maximum number of food-items selected.
+      </p>
+    </div>
   </div>
 </template>
 
@@ -357,6 +362,7 @@ ul {
   padding: 0;
   position: relative;
   border: 2px solid $gray;
+  margin-bottom: 0;
 
   &:focus {
     outline: 2px solid black;
@@ -392,6 +398,22 @@ li {
       background: $red_apricot;
       color: black;
     }
+  }
+}
+
+.error-region {
+  font-size: 0.875em;
+  font-style: italic;
+  text-align: right;
+  color: $green_forest;
+  padding: 0.15em;
+
+  margin-top: 0;
+
+  p { margin: 0; }
+
+  &:empty {
+    display: none;
   }
 }
 </style>
