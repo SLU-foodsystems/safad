@@ -8,7 +8,11 @@ import {
 import type ResultsEngine from "@/lib/ResultsEngine";
 import { getRpcCodeSubset, mapValues } from "@/lib/utils";
 
-export default function setupCharts(RE: ResultsEngine, diet: Ref<Diet>) {
+export default function setupCharts(
+  RE: ResultsEngine,
+  diet: Ref<Diet>,
+  foodCodes: Ref<string[]>
+) {
   const carbonFootprints = ref<[string, number[]][]>([]);
   const dietFootprintsTotal = ref<number[]>([]);
   const dietFootprintsPerRpcCategory = ref<{ [key: string]: number[] }>({});
@@ -27,12 +31,8 @@ export default function setupCharts(RE: ResultsEngine, diet: Ref<Diet>) {
   };
 
   const computeCarbonFootprints = () => {
-    return [
-      "I.19.01.003.017", // Lasagna
-      "A.19.01.002.003", // Pizza
-      "I.19.01.001.018", // Pierogi, with vegetables
-      "A.19.10.001", // Vegetable/herb soup
-    ]
+    if (!foodCodes.value) return [];
+    return foodCodes.value
       .map((foodCode) => {
         const impacts = RE.computeImpacts([[foodCode, 1000]]);
         if (Object.values(impacts[0]).some((v) => v === null)) {
@@ -49,7 +49,10 @@ export default function setupCharts(RE: ResultsEngine, diet: Ref<Diet>) {
         ];
       })
       .filter((x): x is [string, number[]] => x !== null)
-      .map(([code, impacts]): [string, number[]] => [defaultRpcNames[code], impacts]);
+      .map(([code, impacts]): [string, number[]] => [
+        defaultRpcNames[code],
+        impacts,
+      ]);
   };
 
   const computeDietFootprintsTotal = () => {

@@ -338,13 +338,12 @@ class ResultsEngine {
     ]);
   }
 
-  public computeImpactsOfRecipe(): [string, number, ImpactsTuple][] {
+  public getFoodCodes(): Set<string> {
     if (!this.foodsRecipes) {
       throw new Error(
         "Called method computeImpactsOfRecipe before recipes were set."
       );
     }
-
     const codesInRecipes = new Set(Object.keys(this.foodsRecipes));
     Object.values(this.foodsRecipes).forEach((recipe: FoodsRecipeEntry) => {
       recipe.forEach((component) => {
@@ -352,6 +351,12 @@ class ResultsEngine {
         codesInRecipes.add(code);
       });
     });
+
+    return codesInRecipes;
+  }
+
+  public computeImpactsOfRecipe(): [string, number, ImpactsTuple][] {
+    const codesInRecipes = this.getFoodCodes();
 
     const fauxDiet: Diet = [...codesInRecipes]
       .sort()

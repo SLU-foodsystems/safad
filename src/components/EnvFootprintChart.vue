@@ -4,6 +4,7 @@ import { useOnResize } from "@/lib/use-on-resize";
 import { onMounted, ref, watch } from "vue";
 import BarChart from "@/lib/charts/BarChart";
 import PlaceholderSvg from "./PlaceholderSvg.vue";
+import MissingDataOverlay from "./MissingDataOverlay.vue";
 
 // Code: aggregated impacts
 type GraphData = [string, number[]][];
@@ -63,6 +64,9 @@ onMounted(drawChart);
     <div ref="el">
       <PlaceholderSvg :aspect-ratio="0.9" />
     </div>
+    <MissingDataOverlay :show="!data || data.length === 0">
+      Select at at least one food item in the list.
+    </MissingDataOverlay>
   </div>
 </template>
 
@@ -70,6 +74,7 @@ onMounted(drawChart);
 .env-footprint-graph {
   padding: 0.5em;
   text-align: center;
+  position: relative;
 
   h4 {
     font-weight: bold;
