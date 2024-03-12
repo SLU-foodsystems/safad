@@ -471,6 +471,26 @@ onMounted(async () => {
                 @change="setSelectedFoodCodes"
               />
             </div>
+          </div>
+        </div>
+        <h3 class="hr-header hr-header--right-only">
+          <span>Environmental Impacts</span>
+        </h3>
+        <div class="results-grid-small">
+          <EnvFootprintCharts :data="carbonFootprints" />
+        </div>
+        <div class="cluster">
+          <p>
+            Footprints shown here are for foods on the market of the choosen
+            country considering the origin of different raw commodities. For
+            example, a share of a commodity (e.g. wheat or tomateos) can be
+            grown domestically while the rest is imported. The footprint of the
+            commoditiy is therefore an average of the footprint from these
+            countries weighted according to the shares of the production taking
+            place in different countries. Footprints here also accounts for
+            waste in production, at the retailer and at the consumer.
+          </p>
+          <div class="stack">
             <h3>Download footprints of all foods</h3>
             <p>
               Download a csv or xlsx file with the impacts per kg for each of
@@ -516,22 +536,6 @@ onMounted(async () => {
             </div>
           </div>
         </div>
-        <h3 class="hr-header hr-header--right-only">
-          <span>Environmental Impacts</span>
-        </h3>
-        <div class="results-grid-small">
-          <EnvFootprintCharts :data="carbonFootprints" />
-        </div>
-        <p>
-          Footprints shown here are for foods on the market of the choosen
-          country considering the origin of different raw commodities. For
-          example, a share of a commodity (e.g. wheat or tomateos) can be grown
-          domestically while the rest is imported. The footprint of the
-          commoditiy is therefore an average of the footprint from these
-          countries weighted according to the shares of the production taking
-          place in different countries. Footprints here also accounts for waste
-          in production, at the retailer and at the consumer.
-        </p>
       </section>
 
       <section class="stack stack-l">
