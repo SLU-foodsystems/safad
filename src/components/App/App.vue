@@ -7,7 +7,7 @@ import ResultsEngine from "@/lib/ResultsEngine";
 
 import { SAFAD_FILE_NAMES } from "@/lib/constants";
 import { resetFile } from "@/lib/file-interface-utils";
-import { downloadAsCsv, downloadAsXlsx } from "@/lib/csv-io";
+import { downloadAsCsv, downloadAsXlsx } from "@/lib/io";
 import { padLeft, stringifyCsvData } from "@/lib/utils";
 import {
   labeledAndFilteredImpacts,
