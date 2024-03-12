@@ -458,7 +458,7 @@ onMounted(async () => {
                 @change="setSelectedFoodCodes"
               />
             </div>
-            <h3>Download footprints of foods</h3>
+            <h3>Download footprints of all foods</h3>
             <p>
               Download a csv file with the impacts per kg for each of the
               food-items in the recipes list.
