@@ -457,7 +457,7 @@ onMounted(async () => {
         <h2 class="hr-header">
           <span>Impacts from foods</span>
         </h2>
-        <div class="cluster foods-footprints-intro">
+        <div class="foods-footprints-intro">
           <p>
             Footprints shown here are for foods on the market of the choosen
             country considering the origin of different raw commodities. For
@@ -844,30 +844,27 @@ onMounted(async () => {
 
 .foods-footprints-intro {
   flex-wrap: wrap;
-  gap: 1em;
   justify-content: space-between;
   align-items: flex-start;
 
-  padding: 1em;
-  border: 2px solid $gray;
+  display: grid;
+  gap: 2em;
+  grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 45rem) {
+    grid-template-columns: 1fr;
+  }
 
   h4 {
     margin-top: 0;
   }
 
   p {
-    max-width: 40em;
-    flex: 1 0 50%;
     text-align: justify;
   }
 
-  > div {
-    flex-grow: 0;
-    flex-shrink: 1;
-
-    > .cluster {
-      flex-wrap: wrap;
-    }
+  > div .cluster {
+    flex-wrap: wrap;
   }
 }
 
