@@ -6,7 +6,8 @@ import { onMounted, ref, watch } from "vue";
 import { aggregateHeaderIndex } from "@/lib/impacts-csv-utils";
 import SLU_COLORS from "@/lib/slu-colors";
 
-import PlaceholderSvg from "@/components/PlaceholderSvg.vue"
+import PlaceholderSvg from "@/components/PlaceholderSvg.vue";
+import MissingDataOverlay from "./MissingDataOverlay.vue";
 
 // Code: aggregated impacts
 type GraphData = [string, number[]][];
@@ -50,7 +51,7 @@ const dataMap: [string, number, Color][] = [
   [
     "Soil emissions",
     aggregateHeaderIndex("Soil emissions (kg CO2e)"),
-    "rgb(84, 130, 53)"
+    "rgb(84, 130, 53)",
   ],
   [
     "Capital goods",
@@ -103,13 +104,13 @@ const drawChart = () => {
   const rect = canvasEl.value.getBoundingClientRect();
 
   const width = rect.width;
-  const height = rect.width * 0.6;
+  const height = rect.width * 0.75;
 
   StackedBarChart(canvasEl.value, data, columns, {
     maxValue,
     width,
     height,
-    labelLayout: "offset",
+    labelLayout: "slanted",
     axisLabels: {
       y: "kg CO2e per kg",
     },
@@ -134,6 +135,9 @@ onMounted(drawChart);
     <div class="carbon-footprints-chart__canvas" ref="canvasEl">
       <PlaceholderSvg :aspect-ratio="0.6" />
     </div>
+    <MissingDataOverlay :show="props.data.length === 0">
+      Select at at least one food item in the list.
+    </MissingDataOverlay>
   </div>
 </template>
 
@@ -142,7 +146,7 @@ onMounted(drawChart);
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
-  //padding: 1em;
+  position: relative;
 
   @media (max-width: 40em) {
     flex-direction: column;
@@ -150,7 +154,7 @@ onMounted(drawChart);
 }
 
 .carbon-footprints-chart__labels {
-  flex-basis: 20em;
+  flex-basis: 18em;
   flex-grow: 0;
   flex-shrink: 1;
   min-width: 10em;
