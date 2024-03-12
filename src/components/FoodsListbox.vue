@@ -243,13 +243,6 @@ function focusLastItem() {
 
 <template>
   <div class="foods-listbox stack-s">
-    <div class="foods-listbox__selected">
-      <button
-        v-for="code in selectedSorted"
-        v-text="code"
-        @click="() => toggleSelected(code)"
-      />
-    </div>
     <label>
       <strong>Filter:</strong>
       <input
@@ -288,6 +281,14 @@ function focusLastItem() {
       <p v-if="selected.size === MAX_ITEMS">
         Maximum number of food-items selected.
       </p>
+    </div>
+    <label><strong>Selected items:</strong></label>
+    <div class="foods-listbox__selected">
+      <button
+        v-for="code in selectedSorted"
+        v-text="code"
+        @click="() => toggleSelected(code)"
+      />
     </div>
   </div>
 </template>
