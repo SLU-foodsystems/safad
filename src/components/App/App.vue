@@ -22,6 +22,7 @@ import {
 } from "@/lib/sfa-results-generator";
 
 import FileSelector from "@/components/FileSelector.vue";
+import FoodsListbox from "@/components/FoodsListbox.vue";
 // Charts
 import CarbonFootprintsChart from "@/components/CarbonFootprintsChart.vue";
 import DietPieCharts from "@/components/DietPieCharts.vue";
@@ -75,7 +76,8 @@ const dietName = computed(() =>
     : defaultDietName.value
 );
 
-const rpcNames = computed(async () => {
+const foodCodes = ref<string[]>([]);
+const foodNamesPromise = computed(async () => {
   const f = foodsRecipesFile.value;
   const rawData =
     f.state === "default"
@@ -84,6 +86,18 @@ const rpcNames = computed(async () => {
   return extractRpcNamesFromRecipe(rawData);
 });
 
+const selectedFoodCodes = ref<string[]>([
+  "A.19.01.002.003", // Pizza
+  "A.19.10.001", // Vegetable/herb soup
+  "I.19.01.001.018", // Pierogi, with vegetables
+  "I.19.01.003.017", // Lasagna
+]);
+
+const setSelectedFoodCodes = (codes: string[]) => {
+  selectedFoodCodes.value = codes;
+  updateChartData();
+};
+
 /**
  * Methods
  */
@@ -91,7 +105,7 @@ const rpcNames = computed(async () => {
 const downloadFootprintsOfFoods = async () => {
   const impactsOfRecipe = labeledAndFilteredImpacts(
     RE.computeImpactsOfRecipe(),
-    await rpcNames.value
+    await foodNamesPromise.value
   );
 
   const impactsOfRecipeCsv = stringifyCsvData([
@@ -108,7 +122,7 @@ const downloadFootprintsOfFoods = async () => {
 const downloadFootprintsOfDiets = async () => {
   const detailedDietImpacts = labeledAndFilteredImpacts(
     RE.computeImpactsDetailed(diet.value),
-    await rpcNames.value
+    await foodNamesPromise.value
   );
 
   const detailedDietImpactsCsv = stringifyCsvData([
@@ -133,7 +147,7 @@ const downloadFootprintsOfDiets = async () => {
           RE.packagingCodes!
         )[0],
       ]),
-      await rpcNames.value
+      await foodNamesPromise.value
     );
     downloadAsPlaintext(
       stringifyCsvData([BREAKDOWN_RESULTS_HEADER, ...dietBreakdownRows]),
@@ -146,7 +160,7 @@ const downloadFootprintsOfSfaRecipes = async () => {
   const sfaResultsRows = await generateSfaResults(
     sfaRecipes.value,
     RE,
-    await rpcNames.value
+    await foodNamesPromise.value
   );
   downloadAsPlaintext(
     stringifyCsvData([SFA_RESULTS_HEADER, ...sfaResultsRows]),
@@ -205,7 +219,7 @@ const downloadZip = async () => {
     const sfaResultsRows = await generateSfaResults(
       sfaRecipes.value,
       RE,
-      await rpcNames.value
+      await foodNamesPromise.value
     );
     const data = stringifyCsvData([SFA_RESULTS_HEADER, ...sfaResultsRows]);
     zip.file(SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood, data);
@@ -213,7 +227,7 @@ const downloadZip = async () => {
 
   const impactsOfRecipe = labeledAndFilteredImpacts(
     RE.computeImpactsOfRecipe(),
-    await rpcNames.value
+    await foodNamesPromise.value
   );
   const impactsOfRecipeCsv = stringifyCsvData([
     DETAILED_RESULTS_HEADER,
@@ -224,7 +238,7 @@ const downloadZip = async () => {
 
   const detailedDietImpacts = labeledAndFilteredImpacts(
     RE.computeImpactsDetailed(diet.value),
-    await rpcNames.value
+    await foodNamesPromise.value
   );
   const detailedDietImpactsCsv = stringifyCsvData([
     DETAILED_RESULTS_HEADER,
@@ -244,7 +258,7 @@ const downloadZip = async () => {
         RE.packagingCodes!
       )[0],
     ]),
-    await rpcNames.value
+    await foodNamesPromise.value
   );
   zip.file(
     SAFAD_FILE_NAMES.Output.BreakdownPerFood,
@@ -269,7 +283,7 @@ const {
   dietFootprintsPerRpcCategory,
   dietFootprintsPerFoodsCategory,
   recompute: updateChartData,
-} = setupCharts(RE, diet);
+} = setupCharts(RE, diet, selectedFoodCodes);
 
 /**
  * Whenever the countryCode dropdown is changed, we need to
@@ -336,6 +350,7 @@ onMounted(async () => {
 
   await Promise.all(tasks);
 
+  foodCodes.value = [...RE.getFoodCodes()].sort();
   updateChartData();
 
   isLoading.value = false;
@@ -435,10 +450,18 @@ onMounted(async () => {
             <CarbonFootprintsChart :data="carbonFootprints" />
           </div>
           <div class="results-grid-large__aside stack">
+            <div>
+              <h3>Choose which products to display</h3>
+              <FoodsListbox
+                :food-codes="foodCodes"
+                :initial-values="selectedFoodCodes"
+                @change="setSelectedFoodCodes"
+              />
+            </div>
             <h3>Download footprints of foods</h3>
             <p>
-              Download a csv file with the impacts per kg of each food-item in
-              the recipes list.
+              Download a csv file with the impacts per kg for each of the
+              food-items in the recipes list.
             </p>
             <button
               class="button button--accent"
@@ -774,7 +797,7 @@ onMounted(async () => {
 }
 
 .results-grid-large {
-  --aside-width: 20em;
+  --aside-width: 24em;
   display: grid;
   grid-template-columns: 1fr var(--aside-width);
   gap: 1em;
