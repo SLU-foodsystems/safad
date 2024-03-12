@@ -1,4 +1,4 @@
-import { downloadAsPlaintext } from "./csv-io";
+import { downloadAsPlaintext } from "./io";
 
 const MDATES = __INPUT_FILE_MDATES__;
 
