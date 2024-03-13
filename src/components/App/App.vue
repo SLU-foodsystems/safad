@@ -375,7 +375,12 @@ onMounted(async () => {
     <header class="top-bar">
       <div class="page-wrap cluster cluster--between">
         <div class="cluster">
-          <a class="top-bar__logo" href="#">
+          <a
+            class="top-bar__logo"
+            href="https://slu.se"
+            target="_blank"
+            rel="nofollow"
+          >
             <img
               src="@/assets/slu-logo.svg"
               width="64"
@@ -395,6 +400,7 @@ onMounted(async () => {
           class="top-bar__planeat-logo"
           href="https://planeat-project.eu/"
           target="_blank"
+          rel="nofollow"
         >
           <img
             src="@/assets/planeat-logo.png"
