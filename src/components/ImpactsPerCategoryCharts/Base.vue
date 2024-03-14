@@ -123,11 +123,10 @@ const drawChart = () => {
     width,
     height,
     maxValue: 100,
-    drawLegend: false,
     axisLabels: { y: "Contribution, %" },
 
     labelLayout,
-    legendColors: colors,
+    colors,
   });
 };
 

@@ -114,7 +114,7 @@ const drawChart = () => {
     axisLabels: {
       y: "kg CO2e per kg",
     },
-    legendColors: colors,
+    colors,
   });
 };
 
