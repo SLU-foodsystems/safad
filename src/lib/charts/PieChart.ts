@@ -5,6 +5,7 @@ interface Config {
   width: number;
   height: number;
   padding: { top: number; right: number; bottom: number; left: number };
+  drawLabels: boolean;
 }
 
 export interface DataPoint {
@@ -45,6 +46,7 @@ export default function PieChart(
   const cfg: Config = {
     width: 450,
     height: 450,
+    drawLabels: false,
     padding: {
       top: 0,
       right: 0,
@@ -99,9 +101,12 @@ export default function PieChart(
     .attr("d", arcGenerator)
     .attr("fill", (d) => d.data.color);
 
+  if (!cfg.drawLabels) return;
+
   // ==================================================
   // Draw the labels and lines - a bit tricky
   // ==================================================
+
 
   // First, we draw the text once. We're only doing this to get the
 
