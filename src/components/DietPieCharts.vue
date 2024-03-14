@@ -37,8 +37,16 @@ const gasesDataMap: [string, string, number, number][] = [
 ];
 
 const lifecycleStages: [string, string, number][] = [
-  ["Transport", SLU_COLORS.Blue.Sky, aggregateHeaderIndex("Transports (kg CO2e)")],
-  ["Packaging", SLU_COLORS.Blue.Cyan, aggregateHeaderIndex("Packaging (kg CO2e)")],
+  [
+    "Transport",
+    SLU_COLORS.Blue.Sky,
+    aggregateHeaderIndex("Transports (kg CO2e)"),
+  ],
+  [
+    "Packaging",
+    SLU_COLORS.Blue.Cyan,
+    aggregateHeaderIndex("Packaging (kg CO2e)"),
+  ],
   [
     "Processing",
     SLU_COLORS.Blue.Seabay,
