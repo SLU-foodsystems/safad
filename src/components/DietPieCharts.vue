@@ -4,7 +4,7 @@ import { CO2E_CONV_FACTORS } from "@/lib/constants";
 import { aggregateHeaderIndex } from "@/lib/impacts-csv-utils";
 import SLU_COLORS from "@/lib/slu-colors";
 import { useOnResize } from "@/lib/use-on-resize";
-import { sum } from "@/lib/utils";
+import { reversed, sum } from "@/lib/utils";
 import { ref, onMounted, watch, computed } from "vue";
 import PlaceholderSvg from "./PlaceholderSvg.vue";
 import MissingDataOverlay from "./MissingDataOverlay.vue";
@@ -124,7 +124,12 @@ const drawChart = (...[el, data, options]: Parameters<typeof PieChart>) => {
   const rect = el.getBoundingClientRect();
   const width = rect.width;
   const height = rect.width * 0.5;
-  PieChart(el, data, { width, height, ...options });
+
+  const drawLabels = width > 600;
+  if (!drawLabels && options.padding) {
+    Object.assign(options.padding, { left: 10, right: 10 });
+  }
+  PieChart(el, data, { width, height, drawLabels, ...options });
 };
 
 const drawCharts = () => {
@@ -150,26 +155,65 @@ const drawCharts = () => {
   };
 
   drawChart(gasesEl.value, gasesData, { padding });
-  drawChart(lifecycleEl.value, lifecycleStagesData, {padding });
+  drawChart(lifecycleEl.value, lifecycleStagesData, { padding });
 };
 
 useOnResize(drawCharts);
 watch(() => props.dietFootprints, drawCharts);
 
 onMounted(drawCharts);
+
+const reverseSecondHalf = <T,>(xs: T[]): T[] => {
+  if (xs.length < 3) return xs;
+
+  const midpoint = Math.floor(xs.length / 2);
+
+  const result: T[] = xs.slice(0, midpoint);
+  const secondHalf = reversed(xs.slice(midpoint, xs.length));
+  result.push(...secondHalf);
+
+  return result;
+};
 </script>
 
 <template>
-  <div ref="gasesEl" style="position: relative;">
+  <div class="labels">
+    <p
+      v-for="d in reverseSecondHalf(gasesDataMap)"
+      v-text="d[0]"
+      :style="{ color: d[1] }"
+    />
+  </div>
+  <div ref="gasesEl" style="position: relative">
     <PlaceholderSvg :aspect-ratio="0.5" />
     <MissingDataOverlay :show="props.dietMissing">
       No default diet data available for Poland.
     </MissingDataOverlay>
   </div>
-  <div ref="lifecycleEl" style="position: relative;">
+  <div ref="lifecycleEl" style="position: relative">
     <PlaceholderSvg :aspect-ratio="0.5" />
     <MissingDataOverlay :show="props.dietMissing">
       No default diet data available for Poland.
     </MissingDataOverlay>
+  </div>
+  <div class="labels">
+    <p
+      v-for="d in reverseSecondHalf(lifecycleStages)"
+      v-text="d[0]"
+      :style="{ color: d[1] }"
+    />
   </div>
 </template>
+
+<style lang="scss" scoped>
+.labels {
+  font-weight: bold;
+
+  columns: 2;
+  direction: rtl;
+
+  @media (min-width: 601px) {
+    display: none;
+  }
+}
+</style>
