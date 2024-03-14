@@ -99,7 +99,9 @@ export default function StackedBarChart(
     .call(d3.axisBottom(xAxis).tickSizeOuter(0));
 
   // Apply new text labels
-  xAxisG.selectAll(".tick text").text((d) => cfg.labelTextMapper((d || "") as string));
+  xAxisG
+    .selectAll(".tick text")
+    .text((d) => cfg.labelTextMapper((d || "") as string));
 
   if (cfg.labelLayout === "slanted") {
     xAxisG

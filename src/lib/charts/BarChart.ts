@@ -117,7 +117,7 @@ export default function BarChart(
   const xAxisG = svg
     .append("g")
     .attr("transform", `translate(0, ${innerHeight})`)
-    .call(d3.axisBottom(xAxisScaler).tickSizeOuter(0))
+    .call(d3.axisBottom(xAxisScaler).tickSizeOuter(0));
 
   // Apply new text labels
   xAxisG
