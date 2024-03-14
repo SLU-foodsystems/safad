@@ -17,6 +17,7 @@ interface Config {
 
   colors?: string[]; // could also be function?
 
+  labelTextMapper: (id: string) => string;
   labelLayout: "normal" | "slanted" | "offset";
   axisLabels?: {
     // x: string; // TODO: Not implemented
@@ -38,6 +39,7 @@ export default function StackedBarChart(
     innerPadding: 0.2,
 
     labelLayout: "normal",
+    labelTextMapper: (id: string) => id, // no change
     ...options,
 
     // Nested items
@@ -95,6 +97,9 @@ export default function StackedBarChart(
     .append("g")
     .attr("transform", `translate(0, ${innerHeight})`)
     .call(d3.axisBottom(xAxis).tickSizeOuter(0));
+
+  // Apply new text labels
+  xAxisG.selectAll(".tick text").text((d) => cfg.labelTextMapper((d || "") as string));
 
   if (cfg.labelLayout === "slanted") {
     xAxisG

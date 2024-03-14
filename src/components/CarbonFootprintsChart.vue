@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { debounce, sum } from "@/lib/utils";
+import { debounce, sum, truncate } from "@/lib/utils";
 import StackedBarChart from "@/lib/charts/StackedBarChart";
 import { useOnResize } from "@/lib/use-on-resize";
 import { onMounted, ref, watch } from "vue";
@@ -8,6 +8,7 @@ import SLU_COLORS from "@/lib/slu-colors";
 
 import PlaceholderSvg from "@/components/PlaceholderSvg.vue";
 import MissingDataOverlay from "./MissingDataOverlay.vue";
+import { defaultRpcNames } from "@/lib/efsa-names";
 
 // Code: aggregated impacts
 type GraphData = [string, number[]][];
@@ -106,11 +107,15 @@ const drawChart = () => {
   const width = rect.width;
   const height = rect.width * 0.75;
 
+  const labelTextMapper = (code: string) =>
+    code in defaultRpcNames ? truncate(defaultRpcNames[code], 30) : code;
+
   StackedBarChart(canvasEl.value, data, columns, {
     maxValue,
     width,
     height,
     labelLayout: "slanted",
+    labelTextMapper,
     axisLabels: {
       y: "kg CO2e per kg",
     },

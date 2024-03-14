@@ -11,6 +11,7 @@ interface Config {
   innerPadding: number;
   labelLayout: "normal" | "slanted" | "offset";
   color: string;
+  labelTextMapper: (id: string) => string;
 
   axisLabels?: {
     // x: string; // TODO: Not implemented
@@ -51,6 +52,8 @@ export default function BarChart(
     innerPadding: 0.2,
     labelLayout: "normal",
     color: "#06f",
+    labelTextMapper: (id: string) => id,
+
     ...options,
   };
 
@@ -114,7 +117,12 @@ export default function BarChart(
   const xAxisG = svg
     .append("g")
     .attr("transform", `translate(0, ${innerHeight})`)
-    .call(d3.axisBottom(xAxisScaler).tickSizeOuter(0));
+    .call(d3.axisBottom(xAxisScaler).tickSizeOuter(0))
+
+  // Apply new text labels
+  xAxisG
+    .selectAll(".tick text")
+    .text((d) => cfg.labelTextMapper((d || "") as string));
 
   if (cfg.labelLayout === "slanted") {
     xAxisG

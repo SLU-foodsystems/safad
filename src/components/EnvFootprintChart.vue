@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { debounce } from "@/lib/utils";
+import { debounce, truncate } from "@/lib/utils";
 import { useOnResize } from "@/lib/use-on-resize";
 import { onMounted, ref, watch } from "vue";
 import BarChart from "@/lib/charts/BarChart";
 import PlaceholderSvg from "./PlaceholderSvg.vue";
 import MissingDataOverlay from "./MissingDataOverlay.vue";
+import { defaultRpcNames } from "@/lib/efsa-names";
 
 // Code: aggregated impacts
 type GraphData = [string, number[]][];
@@ -17,16 +18,13 @@ const props = defineProps<{
   yLabel?: string;
 }>();
 
-const truncate = (text: string, length = 20) =>
-  text.length > length ? text.slice(0, length) + "..." : text;
-
 const el = ref<HTMLDivElement | null>(null);
 const drawChart = () => {
   if (!el.value) return;
   if (props.data.length === 0) return;
 
-  const data = props.data.map(([label, impactsArr]: [string, number[]]) => ({
-    category: truncate(label),
+  const data = props.data.map(([code, impactsArr]: [string, number[]]) => ({
+    category: code,
     value: impactsArr[props.index],
   }));
 
@@ -41,10 +39,14 @@ const drawChart = () => {
   const width = rect.width;
   const height = rect.width * 0.9;
 
+  const labelTextMapper = (code: string) =>
+    code in defaultRpcNames ? truncate(defaultRpcNames[code], 30) : code;
+
   BarChart(el.value, data, {
     maxValue,
     width,
     height,
+    labelTextMapper,
     labelLayout: "slanted",
     color: props.color,
     axisLabels: props.yLabel ? { y: props.yLabel } : undefined,

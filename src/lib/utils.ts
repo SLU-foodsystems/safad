@@ -330,3 +330,6 @@ export const cancelableDebounce = <T extends (...args: any[]) => void>(
 export const debounce = (...args: Parameters<typeof cancelableDebounce>) => {
   return cancelableDebounce(...args)[0];
 };
+
+export const truncate = (text: string, maxLength = 20) =>
+  text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
