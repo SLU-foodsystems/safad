@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { defaultRpcNames } from "@/lib/efsa-names";
-import { debounce } from "@/lib/utils";
-import { computed, onBeforeMount, ref, watch } from "vue";
+import { computed, onBeforeMount, ref } from "vue";
 
 const MAX_ITEMS = 6;
 
