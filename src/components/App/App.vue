@@ -514,7 +514,7 @@ onMounted(async () => {
         </div>
         <div class="results-grid-large">
           <div class="results-grid-large__graph">
-            <h3>Carbon footprint preview</h3>
+            <h3>Carbon footprint preview (per kg food)</h3>
             <CarbonFootprintsChart :data="carbonFootprints" />
           </div>
           <div class="results-grid-large__aside stack">
