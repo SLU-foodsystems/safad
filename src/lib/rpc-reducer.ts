@@ -5,8 +5,8 @@
 
 import { getRpcCodeLevel, getRpcCodeSubset } from "@/lib/utils";
 
-// TODO: Ideally we would take these two as parameters instead.
-const TRANSPORTLESS_PROCESSES = [
+// TODO: Ideally we would take these two as parameters/from file instead.
+const TRANSPORT_NET_WEIGHT_PROCESSES = [
   "F28.A07KD",
   "F28.A07KF",
   "F28.A07KG",
@@ -24,7 +24,7 @@ const TRANSPORTLESS_PROCESSES = [
   "F28.NEW02", // Extrusion, plant-protein
 ];
 
-const TRANSPORTLESS_PROCESS_EXCEPTION = ["F28.A0BZV", "F28.A07GG"];
+const TRANSPORTNET_WEIGHT_PROCESS_EXCEPTION = ["F28.A0BZV", "F28.A07GG"];
 
 const isPackagingCode = (code: string) => code.startsWith("P");
 const isNotPackagingCode = (code: string) => !isPackagingCode(code);
@@ -37,13 +37,13 @@ const isTransportlessProcess = (processes: string[]): boolean => {
   if (processes.length === 0) return false;
   // Handle the exception of polished rice.
   if (
-    processes.length === TRANSPORTLESS_PROCESS_EXCEPTION.length &&
-    processes.every((p) => TRANSPORTLESS_PROCESS_EXCEPTION.includes(p))
+    processes.length === TRANSPORTNET_WEIGHT_PROCESS_EXCEPTION.length &&
+    processes.every((p) => TRANSPORTNET_WEIGHT_PROCESS_EXCEPTION.includes(p))
   ) {
     return false;
   }
 
-  return processes.some((p) => TRANSPORTLESS_PROCESSES.includes(p));
+  return processes.some((p) => TRANSPORT_NET_WEIGHT_PROCESSES.includes(p));
 };
 
 function recordPackaging(
@@ -53,7 +53,6 @@ function recordPackaging(
   const packagingAmounts: NestedRecord<string, number> = {};
 
   diet.forEach(([code, amount]) => {
-
     const l1Code = getRpcCodeSubset(code, 1, true);
     if (!l1Code) return; // TODO: warn here?
 
@@ -61,7 +60,7 @@ function recordPackaging(
     let packagingCode = "";
     while (!packagingCode && level > 0) {
       const subcode = getRpcCodeSubset(code, level);
-      const maybePackagingCode =  packagingCodes[subcode];
+      const maybePackagingCode = packagingCodes[subcode];
       if (maybePackagingCode) packagingCode = maybePackagingCode;
       level -= 1;
     }
@@ -114,7 +113,7 @@ function reduceToRpcs(
   preparationProcesses: Record<string, string[]>,
 
   // Modifiers
-  recordTransportlessAmount: (rcpCode: string, amount: number) => void,
+  recordTransportSubtractionAmount: (rcpCode: string, amount: number) => void,
   recordProcessesContribution: (
     code: string,
     facet: string,
@@ -123,12 +122,15 @@ function reduceToRpcs(
 
   // State variables
   recordedSpecialProcesses: Set<string> = new Set(),
-  transportlessAmount: number = 0
+  transportSubtractionAmount: number = 0
 ): Diet {
   const subcomponents = recipes[componentCode];
   if (!subcomponents) {
-    if (transportlessAmount !== 0) {
-      recordTransportlessAmount(componentCode, transportlessAmount);
+    if (transportSubtractionAmount !== 0) {
+      recordTransportSubtractionAmount(
+        componentCode,
+        transportSubtractionAmount
+      );
     }
     return [[componentCode, amount]];
   }
@@ -162,18 +164,17 @@ function reduceToRpcs(
       // If it is, we save the yieldFactor and pass it on to future recursions.
       const netAmount = yieldFactor * ratio * amount;
 
-      let newTransportAmount = transportlessAmount;
+      let newTransportAdjustmentAmount = transportSubtractionAmount;
 
       // Record the output amount for processes
       // This will always be a process, and never a packaging
-      const processAmount = ratio * amount;
+      const preProcessAmount = ratio * amount;
       processes.forEach((processId) =>
-        recordProcessesContribution(componentCode, processId, processAmount)
+        recordProcessesContribution(componentCode, processId, preProcessAmount)
       );
 
       if (isTransportlessProcess(processes)) {
-        const preProcessAmount = amount * ratio;
-        newTransportAmount += netAmount - preProcessAmount;
+        newTransportAdjustmentAmount += netAmount - preProcessAmount;
       }
 
       // Some recipes will include references back to themselves, in which
@@ -181,8 +182,11 @@ function reduceToRpcs(
       // (otherwise, we'll get an infinite loop).
       const isSelfReference = subcomponentCode === componentCode;
       if (isSelfReference) {
-        if (newTransportAmount !== 0) {
-          recordTransportlessAmount(subcomponentCode, newTransportAmount);
+        if (newTransportAdjustmentAmount !== 0) {
+          recordTransportSubtractionAmount(
+            subcomponentCode,
+            newTransportAdjustmentAmount
+          );
         }
         return [[subcomponentCode, netAmount]];
       }
@@ -192,10 +196,10 @@ function reduceToRpcs(
         [subcomponentCode, netAmount],
         recipes,
         preparationProcesses,
-        recordTransportlessAmount,
+        recordTransportSubtractionAmount,
         recordProcessesContribution,
         updatedRecordedSpecialProcesses,
-        newTransportAmount
+        newTransportAdjustmentAmount
       );
     })
     .flat(1);
