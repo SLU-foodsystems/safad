@@ -20,6 +20,8 @@ const TRANSPORTLESS_PROCESSES = [
   "F28.A0C04",
   "F28.A0C0B",
   "F28.A0C6E",
+  "F28.NEW01", // Protein Isolate, plant-protein
+  "F28.NEW02", // Extrusion, plant-protein
 ];
 
 const TRANSPORTLESS_PROCESS_EXCEPTION = ["F28.A0BZV", "F28.A07GG"];
