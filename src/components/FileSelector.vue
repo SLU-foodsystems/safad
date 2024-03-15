@@ -259,12 +259,13 @@ const onDrop = (e: DragEvent) => {
             :data-expanded="showComment"
             @click="toggleComment"
             v-text="commentToggleButtonText"
+            v-if="fileInterface.state === 'custom'"
           />
           <button class="expander-toggle" @click="download">
             Download file
           </button>
         </div>
-        <div v-if="showComment">
+        <div v-if="showComment && fileInterface.state === 'custom'">
           <label>Comment on file:</label>
           <textarea
             placeholder="Add a comment for future reference."
