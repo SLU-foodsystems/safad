@@ -285,7 +285,8 @@ function focusLastItem() {
     <div class="foods-listbox__selected">
       <button
         v-for="code in selectedSorted"
-        v-text="code"
+        v-text="getName(code)"
+        :title="`Remove ${getName(code)} from preview.`"
         @click="() => toggleSelected(code)"
       />
     </div>
@@ -314,6 +315,8 @@ function focusLastItem() {
     border-radius: 0.25em;
     padding: 0.15em 0.5em;
     align-items: center;
+
+    text-align: left;
 
     background: $gray;
     font-weight: bold;
