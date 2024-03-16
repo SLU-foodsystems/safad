@@ -359,15 +359,17 @@ input[type="search"] {
 }
 
 ul {
+  position: relative;
   height: 12em;
   overflow-y: scroll;
-  list-style-type: none;
-  padding: 0;
-  position: relative;
-  border: 2px solid $gray;
-  margin-bottom: 0;
-
   resize: vertical;
+
+  border: 2px solid $gray;
+
+  // Reset ul-styles
+  padding: 0;
+  margin-bottom: 0;
+  list-style-type: none;
 
   &:focus {
     outline: 2px solid black;
