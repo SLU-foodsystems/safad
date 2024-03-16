@@ -367,6 +367,8 @@ ul {
   border: 2px solid $gray;
   margin-bottom: 0;
 
+  resize: vertical;
+
   &:focus {
     outline: 2px solid black;
     outline-offset: 2px;
