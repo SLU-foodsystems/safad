@@ -18,17 +18,23 @@ const emit = defineEmits<{
   (e: "change", codes: string[]): void;
 }>();
 
+const rpcNames = ref<Record<string, string>>({});
+
 // Keep track of codes selected
 const selected = ref(new Set<string>());
 // Sorted list, for drawing in UI
 const selectedSorted = computed(() => [...selected.value].sort());
 // Helper to check if code is selectd
 const isSelected = (code: string) => selected.value.has(code);
-const getName = (code: string) => code + " " + (defaultRpcNames[code] || "");
+const getName = (code: string) => code + " " + (rpcNames.value[code] || "");
 
 // Set initialValues
 onBeforeMount(() => {
   if (props.initialValues) selected.value = new Set(props.initialValues);
+
+  defaultRpcNames().then((names: Record<string, string>) => {
+    rpcNames.value = names;
+  });
 });
 
 const searchString = ref("");
