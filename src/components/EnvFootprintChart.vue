@@ -19,7 +19,7 @@ const props = defineProps<{
 }>();
 
 const el = ref<HTMLDivElement | null>(null);
-const drawChart = () => {
+const drawChart = async () => {
   if (!el.value) return;
   if (props.data.length === 0) return;
 
@@ -39,8 +39,10 @@ const drawChart = () => {
   const width = rect.width;
   const height = rect.width * 0.9;
 
+  const rpcNames = await defaultRpcNames();
+
   const labelTextMapper = (code: string) =>
-    code in defaultRpcNames ? truncate(defaultRpcNames[code], 30) : code;
+    code in rpcNames ? truncate(rpcNames[code], 30) : code;
 
   BarChart(el.value, data, {
     maxValue,

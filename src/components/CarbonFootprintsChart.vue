@@ -75,7 +75,7 @@ const labels = dataMap.map((kv) => kv[0]);
 const colors = dataMap.map((kvc) => kvc[2]);
 
 const canvasEl = ref<HTMLDivElement | null>(null);
-const drawChart = () => {
+const drawChart = async () => {
   if (props.data.length === 0 || !canvasEl.value) return;
   const data = props.data.map(([code, impactsArr]: [string, number[]]) => {
     const impactsObj = Object.fromEntries(
@@ -107,8 +107,10 @@ const drawChart = () => {
   const width = rect.width;
   const height = rect.width * 0.75;
 
+  const rpcNames = await defaultRpcNames();
+
   const labelTextMapper = (code: string) =>
-    code in defaultRpcNames ? truncate(defaultRpcNames[code], 30) : code;
+    code in rpcNames ? truncate(rpcNames[code], 30) : code;
 
   StackedBarChart(canvasEl.value, data, columns, {
     maxValue,

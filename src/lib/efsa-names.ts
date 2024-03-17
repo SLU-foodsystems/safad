@@ -1,6 +1,6 @@
-import recipesFileCsv from "../default-input-files/SAFAD IP Recipes.csv?raw";
 import categoryNamesCsv from "@/data/efsa-category-names.csv?raw";
 import { parseCsvFile } from "./utils";
+import * as DefaultInputFiles from "./default-input-files";
 
 const _extractRpcNamesFromRecipe = (recipesFileCsv: string) => {
   const names: Record<string, string> = {};
@@ -13,12 +13,21 @@ const _extractRpcNamesFromRecipe = (recipesFileCsv: string) => {
   return names;
 };
 
-export const defaultRpcNames = Object.freeze(
-  _extractRpcNamesFromRecipe(recipesFileCsv)
-);
+let _defaultRpcNames: Record<string, string>;
+export const defaultRpcNames = async () => {
+  if (_defaultRpcNames) return _defaultRpcNames;
+
+  const names = Object.freeze(
+    _extractRpcNamesFromRecipe(await DefaultInputFiles.raw.foodsRecipes())
+  );
+
+  _defaultRpcNames = names;
+
+  return names;
+};
 
 export const extractRpcNamesFromRecipe = (recipesFileCsv: string) => ({
-  ...defaultRpcNames,
+  ...(_defaultRpcNames || {}),
   ..._extractRpcNamesFromRecipe(recipesFileCsv),
 });
 
