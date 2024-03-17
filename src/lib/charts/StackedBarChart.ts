@@ -1,6 +1,5 @@
 //@ts-disable
 import * as d3 from "d3";
-import cmc from "./cmc-colors";
 import { reversed } from "@/lib/utils";
 
 type DataPoint = {
@@ -15,7 +14,7 @@ interface Config {
   minValue: number;
   innerPadding: number;
 
-  colors?: string[]; // could also be function?
+  colors: string[]; // could also be function?
 
   labelTextMapper: (id: string) => string;
   labelLayout: "normal" | "slanted" | "offset";
@@ -40,6 +39,7 @@ export default function StackedBarChart(
 
     labelLayout: "normal",
     labelTextMapper: (id: string) => id, // no change
+    colors: [],
     ...options,
 
     // Nested items
@@ -51,6 +51,11 @@ export default function StackedBarChart(
       ...options.margin,
     },
   };
+
+  // Make sure a colors-array is provided of sufficient length
+  if (!cfg.colors || cfg.colors.length < columns.length) {
+    throw new Error("StackedBarChart: Colors array was missing or too short");
+  }
 
   cfg.margin.top += 10; // Avoid y-tick labels cutting off
   cfg.margin.left += 20; // Needed for y-tick labels
@@ -138,19 +143,7 @@ export default function StackedBarChart(
 
   svg.append("g").call(d3.axisLeft(yAxis));
 
-  // color palette = one color per subgroup
-  let colorDomain = cmc.sample("Davos", columns.length);
-  if (cfg.colors) {
-    if (cfg.colors.length < columns.length) {
-      console.warn(cfg.colors.length, columns.length, columns);
-      console.warn(
-        "legendColors array was too short, using default Davos color mode instead."
-      );
-    } else {
-      colorDomain = cfg.colors;
-    }
-  }
-  const color = d3.scaleOrdinal(colorDomain).domain(columns);
+  const color = d3.scaleOrdinal(cfg.colors).domain(columns);
 
   // Stack the data.
   const stackedData = d3.stack().keys(reversed(columns))(
