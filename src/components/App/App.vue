@@ -758,6 +758,7 @@ onMounted(async () => {
             alt="Swedish Agricultural University"
             width="200"
             height="200"
+            loading="lazy"
           />
           <p>
             Swedish University of Agricultural Sciences (SLU) is an academic
