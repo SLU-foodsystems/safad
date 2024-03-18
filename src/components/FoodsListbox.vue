@@ -326,6 +326,7 @@ function focusLastItem() {
 
     background: $gray;
     font-weight: bold;
+    color: $type; // some browsers have other defaults
 
     &::after {
       content: "×";
@@ -352,6 +353,8 @@ label {
 }
 
 input[type="search"] {
+  appearance: none; // Avoid rounded-edges on e.g. mobile chromium
+
   display: block;
   border: 2px solid $gray;
   padding: 0.5em;
@@ -366,6 +369,8 @@ input[type="search"] {
 
 ul {
   position: relative;
+  max-width: 100%;
+  max-width: 95vw; // Hack: otherwise expands beyond viewport
   height: 12em;
   overflow-y: scroll;
   resize: vertical;
