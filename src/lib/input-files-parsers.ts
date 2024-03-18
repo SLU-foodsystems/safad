@@ -379,12 +379,13 @@ export function parseDiet(csvString: string): Diet {
     throw new CsvValidationError(CsvValidationErrorType.Unknown);
   }
 
-  return data.map(
-    ([code, _fx2code, _l1, _l2, _name, amount]): FoodEntry => [
-      code,
-      asNumber(amount),
-    ]
-  );
+  // Collect diet in a map to merge any food items that re-occur.
+  const summarizedDiet: Record<string, number> = {};
+  data.forEach(([code, _fx2code, _l1, _l2, _name, amount]) => {
+    summarizedDiet[code] = (summarizedDiet[code] || 0) + asNumber(amount);
+  });
+
+  return Object.entries(summarizedDiet);
 }
 
 export function parseRpcOriginWaste(csvString: string) {

@@ -12,10 +12,7 @@ import { padLeft, stringifyCsvData } from "@/lib/utils";
 import {
   labeledAndFilteredImpacts,
   DETAILED_RESULTS_HEADER,
-  BREAKDOWN_RESULTS_HEADER,
-  getDietBreakdown,
 } from "@/lib/impacts-csv-utils";
-import reduceDietToRpcs from "@/lib/rpc-reducer";
 import {
   generateSfaResults,
   SFA_RESULTS_HEADER,
@@ -40,13 +37,16 @@ import {
   CsvValidationError,
   CsvValidationErrorType,
 } from "@/lib/input-files-parsers";
+import {
+  DIET_RESULTS_HEADER,
+  computeDietFootprints,
+} from "@/lib/diet-output-generator";
 
 const APP_VERSION = __APP_VERSION__;
 
 const RE = new ResultsEngine();
 
 const countryCode = ref("SE");
-const includeBreakdownFile = ref(false);
 const isLoading = ref(false);
 
 const {
@@ -121,44 +121,17 @@ const downloadFootprintsOfFoods = async (filetype: "csv" | "xlsx") => {
 };
 
 const downloadFootprintsOfDiets = async (filetype: "csv" | "xlsx") => {
-  const detailedDietImpacts = labeledAndFilteredImpacts(
-    RE.computeImpactsDetailed(diet.value),
-    await foodNamesPromise.value
-  );
-
-  const data = [DETAILED_RESULTS_HEADER, ...detailedDietImpacts];
-  const breakdownData = includeBreakdownFile.value
-    ? [
-        BREAKDOWN_RESULTS_HEADER,
-        ...getDietBreakdown(
-          diet.value.map(([code, amount]): [string, number, Diet] => [
-            code,
-            amount,
-            reduceDietToRpcs(
-              [[code, amount]],
-              RE.foodsRecipes!,
-              RE.preparationProcesses!,
-              RE.packagingCodes!
-            )[0],
-          ]),
-          await foodNamesPromise.value
-        ),
-      ]
-    : null;
+  const data = [
+    DIET_RESULTS_HEADER,
+    ...computeDietFootprints(diet.value, RE, await foodNamesPromise.value),
+  ];
 
   if (filetype === "csv") {
     downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerDiet, data);
-    if (breakdownData) {
-      downloadAsCsv(SAFAD_FILE_NAMES.Output.BreakdownPerFood, breakdownData);
-    }
   } else {
-    const sheets: [string, string[][]][] = [["Diet footprints", data]];
-    if (breakdownData) {
-      sheets.push(["Diet breakdown", breakdownData]);
-    }
     downloadAsXlsx(
       SAFAD_FILE_NAMES.Output.FootprintsPerDiet.replace(".csv", ".xlsx"),
-      sheets
+      [["Diet footprints", data]]
     );
   }
 };
@@ -249,34 +222,11 @@ const downloadZip = async () => {
 
   zip.file(SAFAD_FILE_NAMES.Output.FootprintsPerFood, impactsOfRecipeCsv);
 
-  const detailedDietImpacts = labeledAndFilteredImpacts(
-    RE.computeImpactsDetailed(diet.value),
-    await foodNamesPromise.value
-  );
   const detailedDietImpactsCsv = stringifyCsvData([
-    DETAILED_RESULTS_HEADER,
-    ...detailedDietImpacts,
+    DIET_RESULTS_HEADER,
+    ...computeDietFootprints(diet.value, RE, await foodNamesPromise.value),
   ]);
-
   zip.file(SAFAD_FILE_NAMES.Output.FootprintsPerDiet, detailedDietImpactsCsv);
-
-  const dietBreakdownRows = getDietBreakdown(
-    diet.value.map(([code, amount]): [string, number, Diet] => [
-      code,
-      amount,
-      reduceDietToRpcs(
-        [[code, amount]],
-        RE.foodsRecipes!,
-        RE.preparationProcesses!,
-        RE.packagingCodes!
-      )[0],
-    ]),
-    await foodNamesPromise.value
-  );
-  zip.file(
-    SAFAD_FILE_NAMES.Output.BreakdownPerFood,
-    stringifyCsvData([BREAKDOWN_RESULTS_HEADER, ...dietBreakdownRows])
-  );
 
   await Promise.allSettled(addFilePromises);
 
@@ -580,13 +530,6 @@ onMounted(async () => {
                 Download as .xlsx-file
               </button>
             </div>
-            <label
-              class="cluster cluster--m-gap"
-              title="The breakdown file shows what raw commodities each food in the diet is broken down to."
-            >
-              <input type="checkbox" v-model="includeBreakdownFile" />
-              <em>Include breakdown file in download</em>
-            </label>
           </div>
           <div class="stack">
             <h3 class="hr-header hr-header--right-only">
