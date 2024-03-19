@@ -1228,18 +1228,19 @@ A.04.02.011,Black eyed peas (dry),Romania,RO,0.018,0.06,01705
 A.04.02.011,Black eyed peas (dry),Russia,RU,0.025,0.06,01705
 A.04.02.011,Black eyed peas (dry),Ukraine,UA,0.001,0.06,01705
 A.04.02.011,Black eyed peas (dry),USA,US,0.001,0.06,01705
-A.04.02.012,Soyabeans for oil,Argentina,AR,0.189,0.06,0141
-A.04.02.012,Soyabeans for oil,Brazil,BR,0.464,0.06,0141
-A.04.02.012,Soyabeans for oil,Paraguay,PY,0.107,0.06,0141
-A.04.02.012,Soyabeans for oil,USA,US,0.194,0.06,0141
-A.04.02.012,Soyabeans for oil,Bolivia,BO,0.004,0.06,0141
-A.04.02.012,Soyabeans for oil,Canada,CA,0.012,0.06,0141
-A.04.02.012,Soyabeans for oil,India,IN,0.002,0.06,0141
-A.04.02.012,Soyabeans for oil,Italy,IT,0.001,0.06,0141
-A.04.02.012,Soyabeans for oil,Russia,RU,0.001,0.06,0141
-A.04.02.012,Soyabeans for oil,Togo,TG,0.001,0.06,0141
-A.04.02.012,Soyabeans for oil,Ukraine,UA,0.024,0.06,0141
-A.04.02.012,Soyabeans for oil,Uruguay,UY,0.001,0.06,0141
+A.04.02.012,Soyabeans for oil,USA,US,0.751,0.06,0141
+A.04.02.012,Soyabeans for oil,Canada,CA,0.055,0.06,0141
+A.04.02.012,Soyabeans for oil,Ukraine,UA,0.021,0.06,0141
+A.04.02.012,Soyabeans for oil,Italy,IT,0.064,0.06,0141
+A.04.02.012,Soyabeans for oil,France,FR,0.026,0.06,0141
+A.04.02.012,Soyabeans for oil,Romania,RO,0.023,0.06,0141
+A.04.02.012,Soyabeans for oil,Austria,AT,0.015,0.06,0141
+A.04.02.012,Soyabeans for oil,Croatia,HR,0.015,0.06,0141
+A.04.02.012,Soyabeans for oil,Hungary,HU,0.010,0.06,0141
+A.04.02.012,Soyabeans for oil,Slovakia,SK,0.008,0.06,0141
+A.04.02.012,Soyabeans for oil,Germany,DE,0.007,0.06,0141
+A.04.02.012,Soyabeans for oil,Czechia,CZ,0.003,0.06,0141
+A.04.02.012,Soyabeans for oil,Poland,PL,0.002,0.06,0141
 A.04.02.014,Carobs,Argentina,AR,0.247,0.06,01709.90
 A.04.02.014,Carobs,Spain,ES,0.17,0.06,01709.90
 A.04.02.014,Carobs,USA,US,0.132,0.06,01709.90
@@ -2625,17 +2626,3 @@ A.18.02.012,Pollen-based supplement,Rest of World,RoW,1,0,MI-41
 A.18.03.005,Carnitine-based supplement for sports people,Rest of World,RoW,1,0,MI-42
 I.16.09.010,Quinine essence,Rest of World,RoW,1,0,MI-43
 A.18.02.011,Algea,Rest of World,RoW,1,0.02,BF-57
-A.10.02.001,"Nutritive sweeteners (e.g., sorbitol, manitol)",Rest of World,RoW,1,0,MI-44
-A.10.02.002.001,Saccharine,Rest of World,RoW,1,0,MI-45
-A.10.02.002.005,Cyclamate,Rest of World,RoW,1,0,MI-46
-A.18.05.001,Nutritionally complete formulas,Rest of World,RoW,1,0,MI-47
-A.18.05.002,Nutritionally incomplete formulas,Rest of World,RoW,1,0,MI-48
-A.18.05.004,Oral rehydration products,Rest of World,RoW,1,0,MI-49
-A.08.01.009,Human milk,Rest of World,RoW,1,0,MI-50
-A.02.15.001,Cultivated mushroom (syn. Button mushroom) (Agaricus bisporus),Rest of World,RoW,1,0,MI-51
-A.02.16.002,Honey mushroom (Armillaria mellea),Rest of World,RoW,1,0,MI-52
-A.02.16.003,Boletus (Boletus (and other) spp.),Rest of World,RoW,1,0,MI-53
-A.02.16.004,Truffle (Tuber spp.),Rest of World,RoW,1,0,MI-54
-A.02.16.005,Morel (Morchella esculanta),Rest of World,RoW,1,0,MI-55
-A.02.16.006,Cantharelle (Cantharellus cibarius),Rest of World,RoW,1,0,MI-56
-A.02.16.007,Orange agaric (Lactarius deliciosus),Rest of World,RoW,1,0,MI-57
