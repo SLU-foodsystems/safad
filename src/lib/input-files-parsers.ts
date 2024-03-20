@@ -365,7 +365,7 @@ export function parseWasteRetailAndConsumer(csvString: string) {
 export function parseDiet(csvString: string): Diet {
   const data = parseCsvFile(csvString).slice(1);
 
-  const err = validateCsv(data, { minCols: 5, maxCols: 7 });
+  const err = validateCsv(data, { minCols: 6, maxCols: 8 });
   if (err) {
     throw new CsvValidationError(err);
   }
@@ -375,14 +375,17 @@ export function parseDiet(csvString: string): Diet {
     ([code]) => ["A", "I"].includes(code[0]) && code.includes(".")
   );
   const amountsInLastCol = firstNRows.every(
-    ([_0, _1, _2, _3, amount]) => !Number.isNaN(Number.parseFloat(amount))
+    ([_0, _1, _2, _3, _4, amount]) => !Number.isNaN(Number.parseFloat(amount))
   );
   if (!codesInFirstCol || !amountsInLastCol) {
     throw new CsvValidationError(CsvValidationErrorType.Unknown);
   }
 
   return data.map(
-    ([code, _l1, _l2, _name, amount]): FoodEntry => [code, asNumber(amount)]
+    ([code, _fx2code, _l1, _l2, _name, amount]): FoodEntry => [
+      code,
+      asNumber(amount),
+    ]
   );
 }
 
