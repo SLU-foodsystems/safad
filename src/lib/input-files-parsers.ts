@@ -315,25 +315,23 @@ export function parseFootprintsRpcs(csvString: string) {
 
   // Then, we add RoW where needed. RoW is the average of all footprints across
   // all origins for any RPC-code
-  Object.entries(rpcFootprints).forEach(
-    ([rpcCode, footprintsPerOrigin]) => {
-      // Abort if RoW already is defined
-      if (footprintsPerOrigin.RoW) return;
+  Object.entries(rpcFootprints).forEach(([rpcCode, footprintsPerOrigin]) => {
+    // Abort if RoW already is defined
+    if (footprintsPerOrigin.RoW) return;
 
-      const numberOfOrigins = Object.keys(footprintsPerOrigin).length;
+    const numberOfOrigins = Object.keys(footprintsPerOrigin).length;
 
-      // Fall-back when no origins are defined
-      if (numberOfOrigins === 0) {
-        rpcFootprints[rpcCode].RoW = ENV_IMPACTS_ZERO;
-        return;
-      }
-
-      const averages = vectorsSum(Object.values(footprintsPerOrigin)).map(
-        (x: number) => x / numberOfOrigins
-      );
-      rpcFootprints[rpcCode].RoW = averages;
+    // Fall-back when no origins are defined
+    if (numberOfOrigins === 0) {
+      rpcFootprints[rpcCode].RoW = ENV_IMPACTS_ZERO;
+      return;
     }
-  );
+
+    const averages = vectorsSum(Object.values(footprintsPerOrigin)).map(
+      (x: number) => x / numberOfOrigins
+    );
+    rpcFootprints[rpcCode].RoW = averages;
+  });
 
   return rpcFootprints;
 }
