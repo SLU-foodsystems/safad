@@ -41,6 +41,7 @@ import {
   DIET_RESULTS_HEADER,
   computeDietFootprints,
 } from "@/lib/diet-output-generator";
+import { downloadAsDietTemplate } from "@/lib/diets-xlsx-template";
 
 const APP_VERSION = __APP_VERSION__;
 
@@ -129,9 +130,9 @@ const downloadFootprintsOfDiets = async (filetype: "csv" | "xlsx") => {
   if (filetype === "csv") {
     downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerDiet, data);
   } else {
-    downloadAsXlsx(
+    downloadAsDietTemplate(
       SAFAD_FILE_NAMES.Output.FootprintsPerDiet.replace(".csv", ".xlsx"),
-      [["Diet footprints", data]]
+      data
     );
   }
 };
