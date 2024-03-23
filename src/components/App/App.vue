@@ -433,12 +433,14 @@ onMounted(async () => {
                   class="button button--accent button--slim"
                   @click="() => downloadFootprintsOfFoods('csv')"
                 >
+                  <img src="@/assets/download-w.svg" alt="">
                   Download for EFSA recipes
                 </button>
                 <button
                   class="button button--slim"
                   @click="() => downloadFootprintsOfSfaRecipes('csv')"
                 >
+                  <img src="@/assets/download.svg" alt="">
                   Download for SFA recipes
                 </button>
               </div>
@@ -450,12 +452,14 @@ onMounted(async () => {
                   class="button button--accent button--slim"
                   @click="() => downloadFootprintsOfFoods('xlsx')"
                 >
+                  <img src="@/assets/download-w.svg" alt="">
                   Download for EFSA recipes
                 </button>
                 <button
                   class="button button--slim"
                   @click="() => downloadFootprintsOfSfaRecipes('xlsx')"
                 >
+                  <img src="@/assets/download.svg" alt="">
                   Download for SFA recipes
                 </button>
               </div>
@@ -518,6 +522,7 @@ onMounted(async () => {
                 class="button button--accent button--slim"
                 @click="() => downloadFootprintsOfDiets('csv')"
               >
+                <img src="@/assets/download-w.svg" alt="">
                 Download as .csv-file
               </button>
             </div>
@@ -527,6 +532,7 @@ onMounted(async () => {
                 class="button button--accent button--slim"
                 @click="() => downloadFootprintsOfDiets('xlsx')"
               >
+                <img src="@/assets/download-w.svg" alt="">
                 Download as .xlsx-file
               </button>
             </div>
@@ -680,10 +686,12 @@ onMounted(async () => {
                   height="2250"
                   loading="lazy"
                   alt=""
+                  class="zip-icon"
                 />
                 <h2>Complete package of files</h2>
               </span>
               <button class="button button--accent" @click="downloadZip">
+                <img src="@/assets/download-w.svg" alt="" />
                 Download
               </button>
             </div>
@@ -785,8 +793,7 @@ onMounted(async () => {
     padding: 1em;
     outline: 2px solid $gray;
 
-    img,
-    svg {
+    .zip-icon {
       width: 3em;
       height: 3em;
     }
