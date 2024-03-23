@@ -14,7 +14,7 @@ button:not([disabled]) {
   display: inline-block;
   padding: 0.75em 1em;
   border: none;
-  box-shadow: 0 0.3em 0.75em -0.55em rgba($blue_ocean-depth, 1);
+  box-shadow: 0 0.3em 0.75em -0.55em rgba(black, 0.5);
 
   background: $gray;
   color: black;
@@ -57,6 +57,7 @@ button:not([disabled]) {
   // background: $green_chlorophyll;
   background: $blue_cyan;
   color: #fff;
+  box-shadow: 0 0.3em 0.75em -0.55em rgba($blue_ocean-depth, 1);
 }
 
 .button--link {
