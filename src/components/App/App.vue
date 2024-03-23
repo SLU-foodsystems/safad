@@ -574,123 +574,126 @@ onMounted(async () => {
         </div>
       </section>
 
-      <h2 class="hr-header">
-        <span>Configure Data</span>
-      </h2>
-      <div>
-        <p>
-          In the SAFAD tool, input data (Input, parameter, and emission factor
-          files) can easily be configured. To configure a file, download the
-          default file using the Download file button. Once configured, the
-          custom file can be uploaded using the Upload Custom file. The custom
-          file must be in the same format and uploaded as a .csv file. When all
-          custom files are uploaded, the new footprint for the diet or foods can
-          be downloaded.
-        </p>
+      <div class="inner-thinner-wrap stack stack-l">
+        <h2 class="hr-header">
+          <span>Configure Data</span>
+        </h2>
 
-        <p>
-          To learn more about a file’s function, press the Show Info button for
-          each file.
-        </p>
-      </div>
-      <h3 class="hr-header hr-header--right-only">
-        <span>Input Data</span>
-      </h3>
-
-      <FileSelector
-        file-label="Footprints of raw primary raw primary commodities, e.g. wheat, tomatoes, beef etc."
-        :country-code="countryCode"
-        :file-interface="footprintsRpcsFile"
-      />
-
-      <FileSelector
-        file-label="Specification of the diet to be assessed, i.e. amounts of different foods"
-        :country-code="countryCode"
-        :file-interface="dietFile"
-      />
-
-      <h3 class="hr-header hr-header--right-only">
-        <span>Parameter Files</span>
-      </h3>
-
-      <FileSelector
-        file-label="Recipes of the foods, e.g. the amount of flour, oil and water in 1 kg bread"
-        :country-code="countryCode"
-        :file-interface="foodsRecipesFile"
-      />
-
-      <FileSelector
-        :country-code="countryCode"
-        file-label="Origin and waste level of raw primary commodities"
-        :fileInterface="rpcOriginWasteFile"
-      />
-
-      <FileSelector
-        file-label="Energy demand for different processing processes"
-        :country-code="countryCode"
-        :file-interface="processesEnergyDemandsFile"
-      />
-
-      <FileSelector
-        file-label="Preparation Processes"
-        :country-code="countryCode"
-        :file-interface="preparationProcessesFile"
-      />
-      <FileSelector
-        file-label="Packaging codes for different foods"
-        :country-code="countryCode"
-        :file-interface="packagingCodesFile"
-      />
-      <FileSelector
-        file-label="Food waste at retail and at the consumer"
-        :country-code="countryCode"
-        :file-interface="wasteRetailAndConsumerFile"
-      />
-
-      <h3 class="hr-header hr-header--right-only">
-        <span>Emissions Factors</span>
-      </h3>
-      <FileSelector
-        file-label="Emission factors for different packaging materials"
-        :country-code="countryCode"
-        :file-interface="emissionsFactorsPackagingFile"
-      />
-      <FileSelector
-        file-label="Emission factors for energy sources"
-        :country-code="countryCode"
-        :file-interface="emissionsFactorsEnergyFile"
-      />
-      <FileSelector
-        file-label="Emission factors for transports between countries"
-        :country-code="countryCode"
-        :file-interface="emissionsFactorsTransportFile"
-      />
-      <h2 class="hr-header">
-        <span>Download complete data package</span>
-      </h2>
-      <section class="download-section stack">
-        <div class="stack">
-          <div class="cluster cluster--between">
-            <span class="cluster">
-              <img
-                src="@/assets/zip.svg"
-                width="2253"
-                height="2250"
-                loading="lazy"
-                alt=""
-              />
-              <h2>Complete package of files</h2>
-            </span>
-            <button class="button button--accent" @click="downloadZip">
-              Download
-            </button>
-          </div>
+        <div>
           <p>
-            Download a zip-file with all input- and output files bundled
-            together.
+            In the SAFAD tool, input data (Input, parameter, and emission factor
+            files) can easily be configured. To configure a file, download the
+            default file using the Download file button. Once configured, the
+            custom file can be uploaded using the Upload Custom file. The custom
+            file must be in the same format and uploaded as a .csv file. When
+            all custom files are uploaded, the new footprint for the diet or
+            foods can be downloaded.
+          </p>
+
+          <p>
+            To learn more about a file’s function, press the Show Info button
+            for each file.
           </p>
         </div>
-      </section>
+        <h3 class="hr-header hr-header--right-only">
+          <span>Input Data</span>
+        </h3>
+
+        <FileSelector
+          file-label="Footprints of raw primary raw primary commodities, e.g. wheat, tomatoes, beef etc."
+          :country-code="countryCode"
+          :file-interface="footprintsRpcsFile"
+        />
+
+        <FileSelector
+          file-label="Specification of the diet to be assessed, i.e. amounts of different foods"
+          :country-code="countryCode"
+          :file-interface="dietFile"
+        />
+
+        <h3 class="hr-header hr-header--right-only">
+          <span>Parameter Files</span>
+        </h3>
+
+        <FileSelector
+          file-label="Recipes of the foods, e.g. the amount of flour, oil and water in 1 kg bread"
+          :country-code="countryCode"
+          :file-interface="foodsRecipesFile"
+        />
+
+        <FileSelector
+          :country-code="countryCode"
+          file-label="Origin and waste level of raw primary commodities"
+          :fileInterface="rpcOriginWasteFile"
+        />
+
+        <FileSelector
+          file-label="Energy demand for different processing processes"
+          :country-code="countryCode"
+          :file-interface="processesEnergyDemandsFile"
+        />
+
+        <FileSelector
+          file-label="Preparation Processes"
+          :country-code="countryCode"
+          :file-interface="preparationProcessesFile"
+        />
+        <FileSelector
+          file-label="Packaging codes for different foods"
+          :country-code="countryCode"
+          :file-interface="packagingCodesFile"
+        />
+        <FileSelector
+          file-label="Food waste at retail and at the consumer"
+          :country-code="countryCode"
+          :file-interface="wasteRetailAndConsumerFile"
+        />
+
+        <h3 class="hr-header hr-header--right-only">
+          <span>Emissions Factors</span>
+        </h3>
+        <FileSelector
+          file-label="Emission factors for different packaging materials"
+          :country-code="countryCode"
+          :file-interface="emissionsFactorsPackagingFile"
+        />
+        <FileSelector
+          file-label="Emission factors for energy sources"
+          :country-code="countryCode"
+          :file-interface="emissionsFactorsEnergyFile"
+        />
+        <FileSelector
+          file-label="Emission factors for transports between countries"
+          :country-code="countryCode"
+          :file-interface="emissionsFactorsTransportFile"
+        />
+        <h2 class="hr-header">
+          <span>Download complete data package</span>
+        </h2>
+        <section class="download-section stack">
+          <div class="stack">
+            <div class="cluster cluster--between">
+              <span class="cluster">
+                <img
+                  src="@/assets/zip.svg"
+                  width="2253"
+                  height="2250"
+                  loading="lazy"
+                  alt=""
+                />
+                <h2>Complete package of files</h2>
+              </span>
+              <button class="button button--accent" @click="downloadZip">
+                Download
+              </button>
+            </div>
+            <p>
+              Download a zip-file with all input- and output files bundled
+              together.
+            </p>
+          </div>
+        </section>
+      </div>
     </div>
 
     <footer class="page-footer stack stack-l">
@@ -749,6 +752,11 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 @import "../../styles/constants";
+
+.inner-thinner-wrap {
+  margin: 0 auto;
+  max-width: 70rem;
+}
 
 .page-footer {
   padding: 4em 0;
