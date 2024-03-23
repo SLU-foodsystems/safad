@@ -244,27 +244,21 @@ const onDrop = (e: DragEvent) => {
     <div class="cluster cluster--between">
       <div class="stack stack-s">
         <h4>{{ fileLabel }}</h4>
-        <span v-if="fileInterface.state === 'default'"
+        <span
           >{{ fileName }}
-          <span style="opacity: 0.6"
+          <span style="opacity: 0.6" v-if="fileInterface.state === 'default'"
             >(default, last updated {{ lastModified }})
           </span>
-        </span>
-
-        <span v-else v-text="fileName" />
-
-        <div class="cluster cluster--m-gap">
           <button
+            v-else
             class="expander-toggle"
             :data-expanded="showComment"
             @click="toggleComment"
             v-text="commentToggleButtonText"
-            v-if="fileInterface.state === 'custom'"
           />
-          <button class="expander-toggle" @click="download">
-            Download file
-          </button>
-        </div>
+        </span>
+
+
         <div v-if="showComment && fileInterface.state === 'custom'">
           <label>Comment on file:</label>
           <textarea
@@ -277,6 +271,11 @@ const onDrop = (e: DragEvent) => {
       </div>
 
       <div class="cluster">
+        <button
+          class="button button--slim"
+          @click="download">
+          Download file
+        </button>
         <button
           class="button button--slim button--accent"
           @click="onButtonClick"
