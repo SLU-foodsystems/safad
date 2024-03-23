@@ -92,17 +92,6 @@ export const DETAILED_RESULTS_HEADER = [
   "RPCs with missing data",
 ];
 
-export const BREAKDOWN_RESULTS_HEADER = [
-  "Food Code",
-  "Food Name",
-  "L1 Category",
-  "L2 Category",
-  "Food Amount (g)",
-  "RPC Code",
-  "RPC Name",
-  "RPC Amount (g)",
-];
-
 const getCategoryName = (code: string, level: number) => {
   const levelCode = getRpcCodeSubset(code, level, true);
   return categoryNames[levelCode] || `NOT FOUND (${levelCode})`;
@@ -272,7 +261,7 @@ export function labeledImpacts(
     rpcNames[code] || "NAME NOT FOUND",
     getCategoryName(code, 1),
     getCategoryName(code, 2),
-    amount.toFixed(2),
+    amount > 0.01 ? amount.toFixed(2) : amount.toExponential().toString(),
     ...aggregatedImpacts,
     processes,
     packaging,
@@ -291,24 +280,3 @@ export function labeledAndFilteredImpacts(
     .filter((x): x is string[] => x !== null);
 }
 
-export function getDietBreakdown(
-  disaggregatedDiet: [string, number, Diet][],
-  rpcNames: Record<string, string>
-): string[][] {
-  const rows: string[][] = [];
-  disaggregatedDiet.forEach(([code, amount, rpcs]) => {
-    rpcs.forEach(([rpcCode, rpcAmount]) => {
-      rows.push([
-        code,
-        rpcNames[code],
-        getCategoryName(code, 1),
-        getCategoryName(code, 2),
-        String(amount),
-        rpcCode,
-        rpcNames[rpcCode],
-        String(rpcAmount),
-      ]);
-    });
-  });
-  return rows;
-}
