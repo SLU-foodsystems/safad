@@ -258,7 +258,6 @@ const onDrop = (e: DragEvent) => {
           />
         </span>
 
-
         <div v-if="showComment && fileInterface.state === 'custom'">
           <label>Comment on file:</label>
           <textarea
@@ -271,16 +270,18 @@ const onDrop = (e: DragEvent) => {
       </div>
 
       <div class="cluster">
-        <button
-          class="button button--slim"
-          @click="download">
+        <button class="button button--slim" @click="download">
+          <img src="@/assets/download.svg" />
           Download file
         </button>
         <button
           class="button button--slim button--accent"
           @click="onButtonClick"
-          v-text="fileButtonText"
-        />
+        >
+          <img v-if="fileInterface.state ==='default'" src="@/assets/upload-w.svg" />
+          <img v-else src="@/assets/reset-w.svg" />
+          {{ fileButtonText }}
+        </button>
       </div>
     </div>
     <LoadingOverlay :show="isLoading" />

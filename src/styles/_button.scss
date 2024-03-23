@@ -40,6 +40,12 @@ button:not([disabled]) {
   &::selection {
     color: white;
   }
+
+  > img {
+    width: auto;
+    height: 1em;
+    margin-right: 0.5ch;
+  }
 }
 
 .button.button--slim {
@@ -77,6 +83,7 @@ button:not([disabled]) {
 .button--subtle {
   background: none;
   border: 1px solid rgba(black, 0.25);
+
   &:focus {
     outline: 2px solid black;
   }
