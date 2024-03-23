@@ -39,6 +39,19 @@ export const computeDietFootprints = (
       const totalImpacts = RE.computeImpacts([[code, amount]]);
       if (totalImpacts === null) return null;
 
+      const processesImpactsRow = labeledImpacts(
+        "Processes",
+        amount,
+        [{}, totalImpacts[1], {}, {}],
+        efsaNames
+      );
+      const packagingImpactsRow = labeledImpacts(
+        "Packaging",
+        amount,
+        [{}, {}, totalImpacts[2], {}],
+        efsaNames
+      );
+
       return [
         [
           code,
@@ -46,6 +59,8 @@ export const computeDietFootprints = (
           "Food-product",
           ...labeledImpacts(code, amount, totalImpacts, efsaNames),
         ],
+        [code, name, "Processes", "", "", "", "", processesImpactsRow.slice(4)],
+        [code, name, "Packaging", "", "", "", "", packagingImpactsRow.slice(4)],
         ...ingredientRows,
       ];
     })
