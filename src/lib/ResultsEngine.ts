@@ -192,6 +192,25 @@ class ResultsEngine {
     this.packagingCodes = packagingCodes;
   }
 
+  public reduceDiet(diet: Diet) {
+    if (!this.foodsRecipes) {
+      throw new Error("RE::reduceDiet called without foodsRecipes.");
+    }
+    if (!this.preparationProcesses) {
+      throw new Error("RE::reduceDiet called without preparationProcesses.");
+    }
+    if (!this.packagingCodes) {
+      throw new Error("RE::reduceDiet called without packagingCodes.");
+    }
+
+    return reduceDiet(
+      diet,
+      this.foodsRecipes,
+      this.preparationProcesses,
+      this.packagingCodes
+    );
+  }
+
   private getRpcFootprints(
     rpcCode: string,
     amountGram: number
@@ -224,10 +243,6 @@ class ResultsEngine {
       );
     }
 
-    if (!this.foodsRecipes) {
-      throw new Error("Compute called without foodsRecipes.");
-    }
-
     if (!this.wasteRetailAndConsumer) {
       throw new Error(
         "Compute called without retail- and consumer waste factors set."
@@ -254,14 +269,6 @@ class ResultsEngine {
       );
     }
 
-    if (!this.preparationProcesses) {
-      throw new Error("Compute called without preparation processes");
-    }
-
-    if (!this.packagingCodes) {
-      throw new Error("Compute called without packaging set.");
-    }
-
     const dietWithWaste = adjustDietForWaste(diet, this.wasteRetailAndConsumer);
 
     const [
@@ -269,12 +276,7 @@ class ResultsEngine {
       processesAmounts,
       packagingAmounts,
       transportlessAmounts,
-    ] = reduceDiet(
-      dietWithWaste,
-      this.foodsRecipes,
-      this.preparationProcesses,
-      this.packagingCodes
-    );
+    ] = this.reduceDiet(dietWithWaste);
 
     const rpcImpacts = Object.fromEntries(
       rpcAmounts.map(([rpc, amountGram]) => [
