@@ -789,14 +789,9 @@ onMounted(async () => {
   text-align: left;
   position: relative;
 
-  > div {
-    padding: 1em;
-    outline: 2px solid $gray;
-
-    .zip-icon {
-      width: 3em;
-      height: 3em;
-    }
+  .zip-icon {
+    width: 3em;
+    height: 3em;
   }
 
   h2 {
