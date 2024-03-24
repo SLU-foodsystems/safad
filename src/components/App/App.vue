@@ -768,7 +768,7 @@ onMounted(async () => {
 
 .page-footer {
   padding: 4em 0;
-  margin-top: 2em;
+  margin-top: 6em;
   background: $green_forest;
   color: white;
 }
