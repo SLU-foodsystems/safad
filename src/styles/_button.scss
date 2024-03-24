@@ -62,7 +62,7 @@ button:not([disabled]) {
 .button.button--accent {
   background: $green_forest-bright;
   color: #fff;
-  box-shadow: 0 0.3em 0.75em -0.55em rgba($blue_ocean-depth, 1);
+  box-shadow: 0 0.3em 0.75em -0.55em rgba($green_forest-bright, 1);
 }
 
 .button--link {
