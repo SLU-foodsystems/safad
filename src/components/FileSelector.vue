@@ -286,7 +286,7 @@ const onDrop = (e: DragEvent) => {
     </div>
     <LoadingOverlay :show="isLoading" />
     <div class="file-selector-box__drag-overlay" @click.prevent="onDragleave">
-      Upload file...
+      <img src="@/assets/upload.svg" alt="" /> Upload file...
     </div>
   </div>
 </template>
@@ -297,15 +297,8 @@ const onDrop = (e: DragEvent) => {
 .file-selector-box {
   width: 100%;
   background: white;
-  padding: 1em;
   text-align: left;
   position: relative;
-
-  outline: 2px solid $gray;
-
-  &--custom {
-    outline-color: $blue_sky;
-  }
 
   h4 {
     font-weight: bold;
@@ -324,9 +317,13 @@ const onDrop = (e: DragEvent) => {
   justify-content: center;
   align-items: center;
 
-  outline: 4px solid $blue_dove;
+  outline: 2px dashed $green_forest-bright;
   background: rgba(white, 0.9);
   font-weight: bold;
+
+  img {
+    margin-right: 0.25em;
+  }
 
   .file-selector-box--dragging & {
     display: flex;
