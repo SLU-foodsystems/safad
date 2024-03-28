@@ -1,5 +1,5 @@
 /**
- * Export functionality
+ * Import / Export functionality
  * ========================================================================= */
 
 import { stringifyCsvData } from "./utils";
