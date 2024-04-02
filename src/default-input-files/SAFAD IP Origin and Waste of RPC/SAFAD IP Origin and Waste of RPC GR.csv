@@ -1,28 +1,13 @@
 ﻿RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code
-A.01.02.001.002,Durum wheat grain,Bulgaria,BG,0.131,0.045,0111
-A.01.02.001.002,Durum wheat grain,Greece,GR,0.632,0.045,0111
-A.01.02.001.002,Durum wheat grain,Austria,AT,0.002,0.045,0111
-A.01.02.001.002,Durum wheat grain,Canada,CA,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,Denmark,DK,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,France,FR,0.041,0.045,0111
-A.01.02.001.002,Durum wheat grain,Germany,DE,0.019,0.045,0111
-A.01.02.001.002,Durum wheat grain,Hungary,HU,0.03,0.045,0111
-A.01.02.001.002,Durum wheat grain,Italy,IT,0.008,0.045,0111
-A.01.02.001.002,Durum wheat grain,Kazakhstan,KZ,0.013,0.045,0111
-A.01.02.001.002,Durum wheat grain,Republic of Moldova,MD,0.003,0.045,0111
-A.01.02.001.002,Durum wheat grain,Netherlands,NL,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,Czechia,CZ,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,Romania,RO,0.042,0.045,0111
-A.01.02.001.002,Durum wheat grain,Russia,RU,0.056,0.045,0111
-A.01.02.001.002,Durum wheat grain,Slovakia,SK,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,Spain,ES,0.002,0.045,0111
-A.01.02.001.002,Durum wheat grain,Turkey,TR,0.002,0.045,0111
-A.01.02.001.002,Durum wheat grain,United Kingdom,GB,0.002,0.045,0111
-A.01.02.001.002,Durum wheat grain,Ukraine,UA,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,USA,US,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,Belgium,BE,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,Serbia,RS,0.004,0.045,0111
-A.01.02.001.002,Durum wheat grain,Rest of World,RoW,0.002,0.045,0111
+A.01.02.001.002,Durum wheat grain,Greece,GR,0.906098742,0.045,0111
+A.01.02.001.002,Durum wheat grain,Italy,IT,0.055700536,0.045,0111
+A.01.02.001.002,Durum wheat grain,France,FR,0.020252877,0.045,0111
+A.01.02.001.002,Durum wheat grain,Spain,ES,0.011171465,0.045,0111
+A.01.02.001.002,Durum wheat grain,Turkey,TR,0.001197124,0.045,0111
+A.01.02.001.002,Durum wheat grain,Russia,RU,0.000988451,0.045,0111
+A.01.02.001.002,Durum wheat grain,Canada,CA,0.003357072,0.045,0111
+A.01.02.001.002,Durum wheat grain,Kazakhstan,KZ,0.000860318,0.045,0111
+A.01.02.001.002,Durum wheat grain,USA,US,0.000373415,0.045,0111
 A.01.02.001.003,Common wheat grain,Bulgaria,BG,0.131,0.045,0111
 A.01.02.001.003,Common wheat grain,Greece,GR,0.632,0.045,0111
 A.01.02.001.003,Common wheat grain,Austria,AT,0.002,0.045,0111

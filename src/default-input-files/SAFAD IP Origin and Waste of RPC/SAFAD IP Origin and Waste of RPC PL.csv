@@ -1,22 +1,13 @@
 ﻿RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code
-A.01.02.001.002,Durum wheat grain,Austria,AT,0.004,0.045,0111
-A.01.02.001.002,Durum wheat grain,Bulgaria,BG,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,Denmark,DK,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,France,FR,0.01,0.045,0111
-A.01.02.001.002,Durum wheat grain,Germany,DE,0.019,0.045,0111
-A.01.02.001.002,Durum wheat grain,Hungary,HU,0.02,0.045,0111
-A.01.02.001.002,Durum wheat grain,Italy,IT,0.002,0.045,0111
-A.01.02.001.002,Durum wheat grain,Kazakhstan,KZ,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,Latvia,LV,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,Lithuania,LT,0.005,0.045,0111
-A.01.02.001.002,Durum wheat grain,Netherlands,NL,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,Czechia,CZ,0.022,0.045,0111
-A.01.02.001.002,Durum wheat grain,Romania,RO,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,Slovakia,SK,0.027,0.045,0111
-A.01.02.001.002,Durum wheat grain,Spain,ES,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,United Kingdom,GB,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,Ukraine,UA,0.001,0.045,0111
-A.01.02.001.002,Durum wheat grain,Belgium,BE,0.001,0.045,0111
+A.01.02.001.002,Durum wheat grain,Italy,IT,0.483294822,0.045,0111
+A.01.02.001.002,Durum wheat grain,France,FR,0.175727405,0.045,0111
+A.01.02.001.002,Durum wheat grain,Greece,GR,0.091972993,0.045,0111
+A.01.02.001.002,Durum wheat grain,Spain,ES,0.096931048,0.045,0111
+A.01.02.001.002,Durum wheat grain,Turkey,TR,0.026865538,0.045,0111
+A.01.02.001.002,Durum wheat grain,Russia,RU,0.022182554,0.045,0111
+A.01.02.001.002,Durum wheat grain,Canada,CA,0.075338527,0.045,0111
+A.01.02.001.002,Durum wheat grain,Kazakhstan,KZ,0.019307038,0.045,0111
+A.01.02.001.002,Durum wheat grain,USA,US,0.008380076,0.045,0111
 A.01.02.001.003,Common wheat grain,Austria,AT,0.004,0.045,0111
 A.01.02.001.003,Common wheat grain,Bulgaria,BG,0.001,0.045,0111
 A.01.02.001.003,Common wheat grain,Denmark,DK,0.001,0.045,0111
