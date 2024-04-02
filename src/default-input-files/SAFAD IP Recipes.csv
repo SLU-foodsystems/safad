@@ -3,7 +3,7 @@
 "A.01.02.001.001","Wheat germ","A.01.02.001","Wheat grain","F28.A0C03$F02.A068A","PROCESS=Grain milling, PART-NATURE=Germ (as part-nature)",100,1,50,0.09
 "A.01.02.001.002","Wheat grain, Durum","A.01.02.001.002","Wheat grain, Durum","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.01.02.001.003","Wheat grain, soft","A.01.02.001.003","Wheat grain, soft","F28.A07XD","PROCESS=Unspecified",100,1,1,1
-"A.01.02.001.004","Bulgur wheat","A.01.02.001.004","Bulgur wheat","F28.A07XD","PROCESS=Unspecified",100,1,1,1
+"A.01.02.001.004","Bulgur wheat","A.01.02.001.002","Wheat grain, Durum","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.01.02.002.001","Barley grain, whole","A.01.02.002.001","Barley grain, whole","F28.A07XD","PROCESS=Unspecified",100,1,1,1
 "A.01.02.002.002","Barley, pearled","A.01.02.002.001","Barley grain, whole","F28.A0BZV","PROCESS=Polishing",100,1,1.39,0.91
 "A.01.02.003","Corn grain","A.01.02.003","Corn grain","F28.A07XD","PROCESS=Unspecified",100,1,1,1
