@@ -595,11 +595,6 @@ onMounted(async () => {
             all custom files are uploaded, the new footprint for the diet or
             foods can be downloaded.
           </p>
-
-          <p>
-            To learn more about a file’s function, press the Show Info button
-            for each file.
-          </p>
         </div>
         <h3 class="hr-header hr-header--right-only">
           <span>Input Data</span>
