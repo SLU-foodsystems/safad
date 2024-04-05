@@ -433,14 +433,14 @@ onMounted(async () => {
                   class="button button--accent button--slim"
                   @click="() => downloadFootprintsOfFoods('csv')"
                 >
-                  <img src="@/assets/download-w.svg" alt="">
+                  <img src="@/assets/download-w.svg" alt="" />
                   Download for EFSA recipes
                 </button>
                 <button
                   class="button button--slim"
                   @click="() => downloadFootprintsOfSfaRecipes('csv')"
                 >
-                  <img src="@/assets/download.svg" alt="">
+                  <img src="@/assets/download.svg" alt="" />
                   Download for SFA recipes
                 </button>
               </div>
@@ -452,14 +452,14 @@ onMounted(async () => {
                   class="button button--accent button--slim"
                   @click="() => downloadFootprintsOfFoods('xlsx')"
                 >
-                  <img src="@/assets/download-w.svg" alt="">
+                  <img src="@/assets/download-w.svg" alt="" />
                   Download for EFSA recipes
                 </button>
                 <button
                   class="button button--slim"
                   @click="() => downloadFootprintsOfSfaRecipes('xlsx')"
                 >
-                  <img src="@/assets/download.svg" alt="">
+                  <img src="@/assets/download.svg" alt="" />
                   Download for SFA recipes
                 </button>
               </div>
@@ -522,7 +522,7 @@ onMounted(async () => {
                 class="button button--accent button--slim"
                 @click="() => downloadFootprintsOfDiets('csv')"
               >
-                <img src="@/assets/download-w.svg" alt="">
+                <img src="@/assets/download-w.svg" alt="" />
                 Download as .csv-file
               </button>
             </div>
@@ -532,7 +532,7 @@ onMounted(async () => {
                 class="button button--accent button--slim"
                 @click="() => downloadFootprintsOfDiets('xlsx')"
               >
-                <img src="@/assets/download-w.svg" alt="">
+                <img src="@/assets/download-w.svg" alt="" />
                 Download as .xlsx-file
               </button>
             </div>
