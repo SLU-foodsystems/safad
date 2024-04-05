@@ -702,13 +702,15 @@ onMounted(async () => {
     <footer class="page-footer stack stack-l">
       <div class="page-wrap page-footer__content">
         <div class="stack">
-          <img
-            src="@/assets/slu-logo-bw.svg"
-            alt="Swedish Agricultural University"
-            width="200"
-            height="200"
-            loading="lazy"
-          />
+          <a href="https://slu.se/" target="_blank">
+            <img
+              src="@/assets/slu-logo-bw.svg"
+              alt="Swedish Agricultural University"
+              width="200"
+              height="200"
+              loading="lazy"
+            />
+          </a>
           <p>
             Swedish University of Agricultural Sciences (SLU) is an academic
             institution specializing in research and education in fields related
@@ -716,40 +718,53 @@ onMounted(async () => {
             development.
           </p>
         </div>
-        <div class="stack"></div>
         <div class="stack">
-          <img
-            src="@/assets/planeat-logo-white.png"
-            alt="Plan'Eat"
-            width="543"
-            height="142"
-          />
+          <a href="https://planeat-project.eu/" target="_blank">
+            <img
+              src="@/assets/planeat-logo-white.png"
+              alt="Plan'Eat"
+              width="543"
+              height="142"
+            />
+          </a>
           <p>
             PLAN’EAT is a Horizon Europe research project, bringing together 24
             partners and running from September 2022 to 2026.
           </p>
         </div>
-      </div>
-      <div class="page-wrap u-tac">
-        <p>
-          The Plan’eat project has received funding from the European Union’s
-          Horizon Europe Research and Innovation programme under Grant Agreement
-          n° 101061023. Views and opinions expressed are however those of the
-          author(s) only and do not necessarily reflect those of the European
-          Union.
-        </p>
-        <img src="@/assets/eu-flag.svg" width="81" height="54" alt="EU Flag" />
-        <p hidden>
-          Code is open-source and available
+        <div class="stack">
           <a
-            href="https://github.com/SLU-foodsystems/safad"
+            href="https://research-and-innovation.ec.europa.eu/funding/funding-opportunities/funding-programmes-and-open-calls/horizon-europe_en"
             target="_blank"
-            ref="noopener nofollow"
-            >here</a
-          >.
-        </p>
+          >
+            <img
+              src="@/assets/eu-flag.svg"
+              width="81"
+              height="54"
+              alt="EU Flag"
+            />
+          </a>
+          <p>
+            The Plan’eat project has received funding from the European Union’s
+            Horizon Europe Research and Innovation programme under Grant
+            Agreement n° 101061023. Views and opinions expressed are however
+            those of the author(s) only and do not necessarily reflect those of
+            the European Union.
+          </p>
+        </div>
       </div>
     </footer>
+    <div class="sub-footer">
+      <div class="u-tac">
+        This code of this web-application is open-source and available on
+        <a
+          href="https://github.com/SLU-foodsystems/safad"
+          target="_blank"
+          ref="noopener nofollow"
+          >github.com/SLU-foodsystems/safad</a
+        >.
+      </div>
+    </div>
   </section>
 </template>
 
@@ -778,6 +793,13 @@ onMounted(async () => {
     color: white;
     height: 4em;
   }
+}
+
+.sub-footer {
+  font-size: 0.75em;
+  padding: 1em 0;
+  background: darken($green_forest, 10%);
+  color: white;
 }
 
 .download-section {
