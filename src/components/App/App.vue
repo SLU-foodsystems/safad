@@ -776,6 +776,13 @@ onMounted(async () => {
   max-width: 70rem;
 }
 
+.page-footer, .sub-footer {
+  ::selection {
+    color: $green_forest;
+    background: white;
+  }
+}
+
 .page-footer {
   padding: 4em 0;
   margin-top: 6em;
