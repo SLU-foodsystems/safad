@@ -338,11 +338,10 @@ onMounted(async () => {
               alt="SLU logo"
             />
           </a>
-          <nav class="cluster" hidden>
-            <a href="#0">Home</a>
-            <a href="#0">About</a>
-            <a href="#0">Support</a>
-            <a href="#0">Publications</a>
+          <nav class="cluster">
+            <a href="/SAFAD Instructions.pdf" target="_blank"
+              >Instructions / FAQ</a
+            >
           </nav>
         </div>
 
