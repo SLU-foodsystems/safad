@@ -273,6 +273,11 @@ p {
     gap: 1em;
     padding: 2em 0;
   }
+
+  ::selection {
+    color: $green_forest;
+    background: white;
+  }
 }
 
 .hero__image {
