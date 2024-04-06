@@ -1,11 +1,12 @@
-# SLU SAFAD
+# Sustainability Assessment of Foods and Diets (SAFAD)
 
-| Sustainability Assessment of Foods and Diets
-
-A web-based implementation of the SAFAD model developed by Röös et al. (in
-press) to benchmark sustainability impacts of diets.
+A web-based implementation of the SAFAD model developed by Röös et al. (2024, in
+press) to benchmark environmental impacts of diets.
 
 ## Instructions for common maintenance tasks
+
+Every time a change is made on the main branch, the website is deployed to
+safad.se, thanks to the service [Netlify](https://netlify.app).
 
 ### Upload new input files
 
@@ -25,16 +26,17 @@ push.
 ### Update the version
 
 The version consists of two component: one "major" and one "minor" version,
-separated by a period. Example: `1.34`, where `1` is the major and `34` is the
+separated by a period. Example: `2.34`, where `2` is the major and `34` is the
 minor version.
 
 The major version is defined explicitly, while the minor version is increased by
 1 each time a commit is made, starting from a specific date.
 
 To change it, you will need to edit the file `vite.config.ts`, where the
-variable. You can do this directly from github.com, using the built-in editor
-([go to the file](./vite.config.ts) and press the edit-button in the top-right
-corner, which is a pen-icon).
+variables `VERSION_MAJOR` (a number) and `VERSION_MINOR_COUNT_SINCE` (a date)
+can be defined. You can do this directly from github.com, using the built-in
+editor ([go to the file](./vite.config.ts) and press the edit-button in the
+top-right corner, which is a pen-icon).
 
 ## Project Structure
 
