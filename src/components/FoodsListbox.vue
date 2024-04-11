@@ -305,7 +305,6 @@ function focusLastItem() {
 .foods-listbox__selected {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
   font-size: 0.875em;
 
   &:empty::before {
@@ -316,25 +315,28 @@ function focusLastItem() {
   }
 
   button {
+    $hr-border: 2px solid $gray;
+
+    border: 0;
+    margin: 0;
+    padding: 0.33em;
+    width: 100%;
+
     display: flex;
-    border: 1px solid rgba(black, 0.15);
-    border-radius: 0.25em;
-    padding: 0.15em 0.5em;
     align-items: center;
+    justify-content: space-between;
+
+    border-bottom: $hr-border;
+    border-radius: 0;
 
     text-align: left;
 
-    background: $gray;
-    font-weight: bold;
+    background: transparent;
+    font-weight: normal;
     color: $type; // some browsers have other defaults
 
-    &::after {
-      content: "×";
-      display: inline-block;
-      margin-left: 0.25em;
-      font-size: 1.5em;
-      font-weight: normal;
-      line-height: 1;
+    &:first-child {
+      border-top: $hr-border;
     }
 
     &:hover {
@@ -343,6 +345,15 @@ function focusLastItem() {
 
     &:focus {
       outline: 2px solid black;
+    }
+
+    &::after {
+      content: "×";
+      display: inline-block;
+      margin-left: 0.25em;
+      font-size: 1.5em;
+      font-weight: normal;
+      line-height: 1;
     }
   }
 }
