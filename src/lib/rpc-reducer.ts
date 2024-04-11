@@ -5,26 +5,29 @@
 
 import { getRpcCodeLevel, getRpcCodeSubset } from "@/lib/utils";
 
-// TODO: Ideally we would take these two as parameters/from file instead.
+// We assume that it is the RPCs, rather than the processed products that are
+// transported (e.g. wheat rather than wheat flour or bread) but make exceptions
+// for some type of products which are typically processed locally, including
+// wine-making, juicing and oil extraction.
 const TRANSPORT_NET_WEIGHT_PROCESSES = [
-  "F28.A07KD",
-  "F28.A07KF",
-  "F28.A07KG",
-  "F28.A07KQ",
-  "F28.A07LN",
-  "F28.A07MF",
-  "F28.A07MH",
-  "F28.A0BZV",
-  "F28.A0C00",
-  "F28.A0C02",
-  "F28.A0C04",
-  "F28.A0C0B",
-  "F28.A0C6E",
+  "F28.A07KD", // Curing
+  "F28.A07KF", // Concentration
+  "F28.A07KG", // Drying
+  "F28.A07KQ", // Dehydration
+  "F28.A07LN", // Juicing
+  "F28.A07MF", // Destillation
+  "F28.A07MH", // Churning
+  "F28.A0BZV", // Polishing
+  "F28.A0C00", // Winemaking
+  "F28.A0C02", // Oil production
+  "F28.A0C04", // Sugar production
+  "F28.A0C0B", // Starch production
+  "F28.A0C6E", // Cheesemking
   "F28.NEW01", // Protein Isolate, plant-protein
   "F28.NEW02", // Extrusion, plant-protein
 ];
 
-const TRANSPORTNET_WEIGHT_PROCESS_EXCEPTION = ["F28.A0BZV", "F28.A07GG"];
+const TRANSPORT_NET_WEIGHT_PROCESS_EXCEPTION = ["F28.A0BZV", "F28.A07GG"];
 
 const isPackagingCode = (code: string) => code.startsWith("P");
 const isNotPackagingCode = (code: string) => !isPackagingCode(code);
@@ -37,8 +40,8 @@ const isTransportlessProcess = (processes: string[]): boolean => {
   if (processes.length === 0) return false;
   // Handle the exception of polished rice.
   if (
-    processes.length === TRANSPORTNET_WEIGHT_PROCESS_EXCEPTION.length &&
-    processes.every((p) => TRANSPORTNET_WEIGHT_PROCESS_EXCEPTION.includes(p))
+    processes.length === TRANSPORT_NET_WEIGHT_PROCESS_EXCEPTION.length &&
+    processes.every((p) => TRANSPORT_NET_WEIGHT_PROCESS_EXCEPTION.includes(p))
   ) {
     return false;
   }
