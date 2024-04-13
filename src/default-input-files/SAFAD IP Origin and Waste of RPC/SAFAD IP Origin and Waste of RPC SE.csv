@@ -4236,17 +4236,17 @@ A.06.04.005,Quail fresh meat,New Zealand,NZ,0.04,0.057,21170.02
 A.06.04.005,Quail fresh meat,Spain,ES,0.002,0.057,21170.02
 A.06.04.005,Quail fresh meat,United Kingdom,GB,0.001,0.057,21170.02
 A.06.04.005,Quail fresh meat,Rest of World,RoW,0.004,0.057,21170.02
-A.07.01.001,Herrings,Rest of World,RoW,1,0.02,BF-01
+A.07.01.001,Herrings,Sweden,SE,1,0.02,BF-01
 I.07.03.001.002,Herring roe,Rest of World,RoW,1,0.02,BF-02
-A.07.01.002,Sprat,Rest of World,RoW,1,0.02,BF-03
+A.07.01.002,Sprat,Sweden,SE,1,0.02,BF-03
 A.07.01.003,European sardine,Rest of World,RoW,1,0.02,BF-04
 A.07.01.004,Anchovies,Rest of World,RoW,1,0.02,BF-05
-A.07.01.007,Char,Rest of World,RoW,1,0.02,BF-06
+A.07.01.007,Char,Sweden,SE,1,0.02,BF-06
 A.07.01.008,Smelt,Rest of World,RoW,1,0.02,BF-07
 A.07.01.009,Whitefishes or coregonus,Rest of World,RoW,1,0.02,BF-08
 A.07.01.010,Perch,Rest of World,RoW,1,0.02,BF-09
 A.07.01.011,Sea bass,Rest of World,RoW,1,0.02,BF-10
-A.07.01.013,Mackerel,Rest of World,RoW,1,0.02,BF-11
+A.07.01.013,Mackerel,Sweden,SE,1,0.02,BF-11
 A.07.01.014,Tuna and bonito (generic),Rest of World,RoW,1,0.02,BF-12
 A.07.01.016,Mullets,Rest of World,RoW,1,0.02,BF-13
 A.07.01.018,Hakes,Rest of World,RoW,1,0.02,BF-14
@@ -4255,7 +4255,7 @@ A.07.01.020,Halibut,Rest of World,RoW,1,0.02,BF-16
 A.07.01.021,Plaice,Rest of World,RoW,1,0.02,BF-17
 A.07.01.022,Sole,Rest of World,RoW,1,0.02,BF-18
 A.07.01.024,Carps,Rest of World,RoW,1,0.02,BF-19
-A.07.01.026,Freshwater bream - Europe,Rest of World,RoW,1,0.02,BF-20
+A.07.01.026,Freshwater bream - Europe,Sweden,SE,1,0.02,BF-20
 A.07.01.027,River eels,Rest of World,RoW,1,0.02,BF-21
 A.07.01.029,Anglerfish and monkfish,Rest of World,RoW,1,0.02,BF-22
 A.07.01.030,Sharks,Rest of World,RoW,1,0.02,BF-23
@@ -4276,7 +4276,7 @@ A.07.05.002,Octopuses,Rest of World,RoW,1,0.02,BF-37
 A.07.05.003,Cuttlefishes,Rest of World,RoW,1,0.02,BF-38
 A.07.05.005,Clams,Rest of World,RoW,1,0.02,BF-39
 A.07.05.006,Cockles,Rest of World,RoW,1,0.02,BF-40
-A.07.05.007,Mussels,Rest of World,RoW,1,0.02,BF-41
+A.07.05.007,Mussels,Sweden,SE,1,0.02,BF-41
 A.07.05.008,Oysters,Rest of World,RoW,1,0.02,BF-42
 A.07.05.010,"Scallops, pectens",Rest of World,RoW,1,0.02,BF-43
 A.07.05.013,"Whelk (Buccinum undatum, Fusus antiquus)",Rest of World,RoW,1,0.02,BF-44
@@ -4284,8 +4284,8 @@ A.07.05.014,Winkle (Littorina littorea),Rest of World,RoW,1,0.02,BF-44
 A.07.06.001,Frogs (legs),Rest of World,RoW,1,0.02,BF-45
 A.07.06.004,Snails,Rest of World,RoW,1,0.02,BF-46
 I.07.01.006.001,Salmons,Rest of World,RoW,1,0.02,BF-47
-I.07.01.006.002,Trouts,Rest of World,RoW,1,0.02,BF-48
-I.07.01.015.001,Catfishes (freshwater),Rest of World,RoW,1,0.02,BF-49
+I.07.01.006.002,Trouts,Sweden,SE,1,0.02,BF-48
+I.07.01.015.001,Catfishes (freshwater),Sweden,SE,1,0.02,BF-49
 I.07.01.015.002,Wolffish,Rest of World,RoW,1,0.02,BF-50
 I.07.01.017.001,Cod,Rest of World,RoW,1,0.02,BF-51
 I.07.03.002.001,Cod liver,Rest of World,RoW,1,0.02,BF-52
@@ -5630,4 +5630,4 @@ A.18.02.010,Yeast based supplement,Rest of World,RoW,1,0,MI-40
 A.18.02.012,Pollen-based supplement,Rest of World,RoW,1,0,MI-41
 A.18.03.005,Carnitine-based supplement for sports people,Rest of World,RoW,1,0,MI-42
 I.16.09.010,Quinine essence,Rest of World,RoW,1,0,MI-43
-A.18.02.011,Algea,Rest of World,RoW,1,0.02,BF-57
+A.18.02.011,Algea,Sweden,SE,1,0.02,BF-57
