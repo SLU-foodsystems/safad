@@ -3,7 +3,7 @@ import StackedBarChart from "@/lib/charts/StackedBarChart";
 import { aggregateHeaderIndex } from "@/lib/impacts-csv-utils";
 import { useOnResize } from "@/lib/use-on-resize";
 import { sum, vectorSum } from "@/lib/utils";
-import { computed, onMounted, ref, watch } from "vue";
+import { onMounted, ref, watch } from "vue";
 import PlaceholderSvg from "../PlaceholderSvg.vue";
 import MissingDataOverlay from "../MissingDataOverlay.vue";
 
