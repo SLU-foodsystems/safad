@@ -13,7 +13,7 @@ export const TRANSPORT_EMISSIONS_ZERO = zeroes(N_TRANSPORT_GHGS);
 
 // The planetary boundaries used as limits.
 export const PLANETARY_BOUNDARY_LIMITS = {
-  co2e: (0.67 * 1000) / 365, // from tonnes per year to g per day
+  co2e: (0.67 * 1000) / 365, // from tonnes per year to kg per day
   land: (0.174 * 10000) / 365, // from ha per year to m2 per day
   n: 12 / 365, // kg per year -> kg per day
   p: 1.1 / 365, // kg per year -> kg per day
