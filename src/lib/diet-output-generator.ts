@@ -59,8 +59,8 @@ export const computeDietFootprints = (
           "Food-product",
           ...labeledImpacts(code, amount, totalImpacts, efsaNames),
         ],
-        [code, name, "Processes", "", "", "", "", processesImpactsRow.slice(4)],
-        [code, name, "Packaging", "", "", "", "", packagingImpactsRow.slice(4)],
+        [code, name, "Processes", "", "", "", "", ...processesImpactsRow.slice(4)],
+        [code, name, "Packaging", "", "", "", "", ...packagingImpactsRow.slice(4)],
         ...ingredientRows,
       ];
     })
