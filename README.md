@@ -1,8 +1,8 @@
-<div style="text-align: center">
-  <img src="./docs/slu-logo.svg" width="64" height="64" />
+<h1 align="center">
+  <img src="./docs/slu-logo.svg" width="64" height="64" alt="SLU logo"/>
   &nbsp;&nbsp;
-  <img src="./docs/planeat-logo.png" width="244.74" height="64" />
-</div>
+  <img src="./docs/planeat-logo.png" width="244.74" height="64" alt="Plan'Eat logo"/>
+</h1>
 
 # Sustainability Assessment of Foods and Diets (SAFAD)
 
