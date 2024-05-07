@@ -2,9 +2,10 @@
   <img src="./docs/slu-logo.svg" width="64" height="64" alt="SLU logo"/>
   &nbsp;&nbsp;
   <img src="./docs/planeat-logo.png" width="244.74" height="64" alt="Plan'Eat logo"/>
-</h1>
+  <br />
 
-# Sustainability Assessment of Foods and Diets (SAFAD)
+  Sustainability Assessment of Foods and Diets (SAFAD)
+</h1>
 
 A web-based implementation of the SAFAD model developed by Röös et al. (2024, in
 press) to benchmark environmental impacts of diets.
