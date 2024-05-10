@@ -612,6 +612,12 @@ onMounted(async () => {
           :file-interface="dietFile"
         />
 
+        <FileSelector
+          file-label="Specification of the SFA recipe file"
+          :country-code="countryCode"
+          :file-interface="sfaRecipesFile"
+        />
+
         <h3 class="hr-header hr-header--right-only">
           <span>Parameter Files</span>
         </h3>
