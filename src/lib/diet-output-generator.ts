@@ -7,7 +7,7 @@ import {
 export const DIET_RESULTS_HEADER = [
   "Food-product Code",
   "Food-product Name",
-  "Food-product or ingredient",
+  "Total or component",
   ...DETAILED_RESULTS_HEADER,
 ];
 
@@ -56,7 +56,7 @@ export const computeDietFootprints = (
         [
           code,
           name,
-          "Food-product",
+          "Total",
           ...labeledImpacts(code, amount, totalImpacts, efsaNames),
         ],
         // drop names and amount for processing and packaging rows
