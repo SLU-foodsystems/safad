@@ -13,7 +13,7 @@ import preparationProcessesUrl from "@/default-input-files/SAFAD IP Preparation 
 import packagingCodesUrl from "@/default-input-files/SAFAD IP Packaging.csv?url";
 import footprintsRpcsUrl from "@/default-input-files/SAFAD ID Footprints RPC.csv?url";
 import foodsRecipesUrl from "@/default-input-files/SAFAD IP Recipes.csv?url";
-import sfaRecipesUrl from "@/default-input-files/SAFAD IS SFA Recipes.csv?url";
+import sfaRecipesUrl from "@/default-input-files/SAFAD IP SFA Recipes.csv?url";
 
 // Per country
 const wasteRetailAndConsumerUrls: Record<string, string> = import.meta.glob(
