@@ -135,10 +135,22 @@ A.01.02.008,Oat grain,Uruguay,UY,0.001,0.045,0117
 A.01.02.008,Oat grain,Belgium,BE,0.001,0.045,0117
 A.01.02.008,Oat grain,Rest of World,RoW,0.001,0.045,0117
 A.01.02.009.007,Indian rice grain,India,IN,1,0.045,0113
-A.01.02.009,Rice grain,India,IN,0.24,0.045,0113
-A.01.02.009,Rice grain,Thailand,TH,0.19,0.045,0113
-A.01.02.009,Rice grain,Viet Nam,VN,0.12,0.045,0113
-A.01.02.009,Rice grain,Rest of World,RoW,0.45,0.045,0113
+A.01.02.009,Rice grain,Afganistan,AF,1.05086E-05,0.045,0113
+A.01.02.009,Rice grain,Bulgaria,BG,0.000280442,0.045,0113
+A.01.02.009,Rice grain,Brazil,BR,0.000144444,0.045,0113
+A.01.02.009,Rice grain,Italy,IT,0.28620222,0.045,0113
+A.01.02.009,Rice grain,Cambodia,KH,0.175663644,0.045,0113
+A.01.02.009,Rice grain,Myanmar,MM,0.03153554,0.045,0113
+A.01.02.009,Rice grain,Pakistan,PK,0.086763882,0.045,0113
+A.01.02.009,Rice grain,Portugal,PT,0.013493871,0.045,0113
+A.01.02.009,Rice grain,Thailand,TH,0.133210722,0.045,0113
+A.01.02.009,Rice grain,Uruguay,UY,0.027646683,0.045,0113
+A.01.02.009,Rice grain,Viet nam,VN,0.038499487,0.045,0113
+A.01.02.009,Rice grain,Spain,ES,0.054334297,0.045,0113
+A.01.02.009,Rice grain,France,FR,0.0819221,0.045,0113
+A.01.02.009,Rice grain,Greece,GR,0.002302074,0.045,0113
+A.01.02.009,Rice grain,Guyana,GY,0.023717368,0.045,0113
+A.01.02.009,Rice grain,India,IN,0.044272716,0.045,0113
 A.01.02.010.002,Sorghum grain,France,FR,0.987,0.045,0114
 A.01.02.010.002,Sorghum grain,Argentina,AR,0.009,0.045,0114
 A.01.02.010.002,Sorghum grain,USA,US,0.002,0.045,0114
@@ -3016,8 +3028,8 @@ A.05.05.002,Palm nuts (palmoil kernels),Russia,RU,0.013,0.06,01491.02
 A.05.05.002,Palm nuts (palmoil kernels),South Africa,ZA,0.008,0.06,01491.02
 A.05.05.002,Palm nuts (palmoil kernels),Ukraine,UA,0.007,0.06,01491.02
 A.05.05.002,Palm nuts (palmoil kernels),Ethiopia,ET,0.057,0.06,01491.02
-A.05.05.003,Palmfruit (Elaeis guineensis),Malaysia,MY,0.3,0.06,01491.01
-A.05.05.003,Palmfruit (Elaeis guineensis),Indonesia,ID,0.7,0.06,01491.01
+A.05.05.003,Palmfruit (Elaeis guineensis),Malaysia,MY,0.687,0.06,01491.01
+A.05.05.003,Palmfruit (Elaeis guineensis),Indonesia,ID,0.313,0.06,01491.01
 A.05.06.001,Dates,Algeria,DZ,0.334,0.07,01314
 A.05.06.001,Dates,Tunisia,TN,0.554,0.07,01314
 A.05.06.001,Dates,China,CN,0.001,0.07,01314
