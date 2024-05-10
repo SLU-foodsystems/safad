@@ -28,7 +28,7 @@ export const computeDietFootprints = (
           return [
             code,
             name,
-            "Ingredient",
+            "Component",
             ...labeledImpacts(subcode, subamount, impacts, efsaNames),
           ];
         })
@@ -60,8 +60,8 @@ export const computeDietFootprints = (
           ...labeledImpacts(code, amount, totalImpacts, efsaNames),
         ],
         // drop names and amount for processing and packaging rows
-        [code, name, "Processes", "", "", "Processes and packaging", "Processes and packaging", "", ...processesImpactsRow.slice(5)],
-        [code, name, "Packaging", "", "", "Processes and packaging", "Processes and packaging", "", ...packagingImpactsRow.slice(5)],
+        [code, name, "Component", "", "Processes", "Processes and packaging", "Processes and packaging", "", ...processesImpactsRow.slice(5)],
+        [code, name, "Component", "", "Packaging", "Processes and packaging", "Processes and packaging", "", ...packagingImpactsRow.slice(5)],
         ...ingredientRows,
       ];
     })
