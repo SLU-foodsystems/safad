@@ -58,7 +58,7 @@ export const SAFAD_FILE_NAMES = {
     EmissionsFactorsEnergy: () => "SAFAD IEF Energy.csv",
     EmissionsFactorsPackaging: () => "SAFAD IEF Packaging.csv",
     EmissionsFactorsTransport: () => "SAFAD IEF Transport.csv",
-    SfaRecipes: () => "SAFAD IS SFA Recipes.csv",
+    SfaRecipes: () => "SAFAD IP SFA Recipes.csv",
   },
   Output: {
     FootprintsPerFood: "SAFAD OR Footprints per Food.csv",
