@@ -9,7 +9,7 @@ import preparationProcessesCsv from "@/default-input-files/SAFAD IP Preparation 
 import packagingCodesCsv from "@/default-input-files/SAFAD IP Packaging.csv?raw";
 import footprintsRpcsCsv from "@/default-input-files/SAFAD ID Footprints RPC.csv?raw";
 import foodsRecipesCsv from "@/default-input-files/SAFAD IP Recipes.csv?raw";
-import sfaRecipesCsv from "@/default-input-files/SAFAD IS SFA Recipes.csv?raw";
+import sfaRecipesCsv from "@/default-input-files/SAFAD IP SFA Recipes.csv?raw";
 import wasteRetailAndConsumerCsv from "@/default-input-files/SAFAD IP Waste Retail and Cons/SAFAD IP Waste Retail and Cons SE.csv?raw";
 import dietCsv from "@/default-input-files/SAFAD ID Diet Spec/SAFAD ID Diet Spec SE.csv?raw";
 import rpcOriginWasteCsv from "@/default-input-files/SAFAD IP Origin and Waste of RPC/SAFAD IP Origin and Waste of RPC SE.csv?raw";
