@@ -192,7 +192,7 @@ class ResultsEngine {
     this.packagingCodes = packagingCodes;
   }
 
-  public reduceDiet(diet: Diet) {
+  public reduceDiet(diet: Diet, withWaste = true) {
     if (!this.foodsRecipes) {
       throw new Error("RE::reduceDiet called without foodsRecipes.");
     }
@@ -203,8 +203,17 @@ class ResultsEngine {
       throw new Error("RE::reduceDiet called without packagingCodes.");
     }
 
+    let dietWithWaste = diet;
+    if (withWaste) {
+      if (!this.wasteRetailAndConsumer) {
+        throw new Error(
+          "RE::reduceDiet called without wasteRetailAndConsumer."
+        );
+      }
+      dietWithWaste = adjustDietForWaste(diet, this.wasteRetailAndConsumer);
+    }
     return reduceDiet(
-      diet,
+      dietWithWaste,
       this.foodsRecipes,
       this.preparationProcesses,
       this.packagingCodes
@@ -236,7 +245,7 @@ class ResultsEngine {
     );
   }
 
-  public computeImpacts(diet: Diet): ImpactsTuple {
+  public computeImpacts(diet: Diet, withWaste = true): ImpactsTuple {
     if (!this.footprintsRpcsPerOrigin) {
       throw new Error(
         "Compute called when no environmentalFactorsSheet was set."
@@ -269,14 +278,12 @@ class ResultsEngine {
       );
     }
 
-    const dietWithWaste = adjustDietForWaste(diet, this.wasteRetailAndConsumer);
-
     const [
       rpcAmounts,
       processesAmounts,
       packagingAmounts,
       transportlessAmounts,
-    ] = this.reduceDiet(dietWithWaste);
+    ] = this.reduceDiet(diet, withWaste);
 
     const rpcImpacts = Object.fromEntries(
       rpcAmounts.map(([rpc, amountGram]) => [
