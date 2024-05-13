@@ -9,7 +9,7 @@ export const DIET_RESULTS_HEADER = [
   "Food-product Name",
   "Total or component",
   ...DETAILED_RESULTS_HEADER,
-] as const;
+];
 
 export const computeDietFootprints = (
   diet: Diet,
