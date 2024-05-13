@@ -24,7 +24,7 @@ export const computeDietFootprints = (
       // First, compute the impact of each diet element seperately
       const ingredientRows: string[][] = rpcAmounts
         .map(([subcode, subamount]) => {
-          const impacts = RE.computeImpacts([[subcode, subamount]]);
+          const impacts = RE.computeImpacts([[subcode, subamount]], false);
           const filteredImpacts = [
             impacts[0],
             {},
