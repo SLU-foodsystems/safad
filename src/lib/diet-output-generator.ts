@@ -9,7 +9,7 @@ export const DIET_RESULTS_HEADER = [
   "Food-product Name",
   "Total or component",
   ...DETAILED_RESULTS_HEADER,
-];
+] as const;
 
 export const computeDietFootprints = (
   diet: Diet,
@@ -24,12 +24,19 @@ export const computeDietFootprints = (
       // First, compute the impact of each diet element seperately
       const ingredientRows: string[][] = rpcAmounts
         .map(([subcode, subamount]) => {
-          const impacts = RE.computeImpacts([[subcode, subamount]]);
+          const impacts = RE.computeImpacts([[subcode, subamount]], false);
+          const filteredImpacts = [
+            impacts[0],
+            {},
+            {},
+            {},
+          ] satisfies ImpactsTuple;
+
           return [
             code,
             name,
             "Component",
-            ...labeledImpacts(subcode, subamount, impacts, efsaNames),
+            ...labeledImpacts(subcode, subamount, filteredImpacts, efsaNames),
           ];
         })
         .filter((x): x is string[] => x !== null);
@@ -39,18 +46,33 @@ export const computeDietFootprints = (
       const totalImpacts = RE.computeImpacts([[code, amount]]);
       if (totalImpacts === null) return null;
 
-      const processesImpactsRow = labeledImpacts(
-        "Processes",
-        amount,
-        [{}, totalImpacts[1], {}, {}],
-        efsaNames
-      );
-      const packagingImpactsRow = labeledImpacts(
-        "Packaging",
-        amount,
-        [{}, {}, totalImpacts[2], {}],
-        efsaNames
-      );
+      const createRow = (impactsIdx: 1 | 2 | 3, category: string) => {
+        const impactsTuple: ImpactsTuple = [
+          {},
+          impactsIdx === 1 ? totalImpacts[1] : {},
+          impactsIdx === 2 ? totalImpacts[2] : {},
+          impactsIdx === 3 ? totalImpacts[3] : {},
+        ];
+
+        const impactsRow = labeledImpacts(
+          category,
+          amount,
+          impactsTuple,
+          efsaNames
+        );
+
+        return [
+          code,
+          category,
+          "Component",
+          "",
+          category,
+          "Processes, packaging and transport",
+          "Processes, packaging and transport",
+          "",
+          ...impactsRow.slice(5),
+        ];
+      };
 
       return [
         [
@@ -60,8 +82,9 @@ export const computeDietFootprints = (
           ...labeledImpacts(code, amount, totalImpacts, efsaNames),
         ],
         // drop names and amount for processing and packaging rows
-        [code, name, "Component", "", "Processes", "Processes and packaging", "Processes and packaging", "", ...processesImpactsRow.slice(5)],
-        [code, name, "Component", "", "Packaging", "Processes and packaging", "Processes and packaging", "", ...packagingImpactsRow.slice(5)],
+        createRow(1, "Processes"),
+        createRow(2, "Packaging"),
+        createRow(3, "Transport"),
         ...ingredientRows,
       ];
     })
