@@ -20,7 +20,6 @@ import {
 } from "./diet-output-generator";
 import { extractRpcNamesFromRecipe } from "./efsa-names";
 import { AGGREGATE_HEADERS } from "./impacts-csv-utils";
-import { toNamespacedPath } from "path";
 
 const emissionsFactorsPackaging = Parsers.parseEmissionsFactorsPackaging(
   emissionsFactorsPackagingCsv
