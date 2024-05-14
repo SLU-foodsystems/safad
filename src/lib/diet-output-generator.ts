@@ -46,12 +46,13 @@ export const computeDietFootprints = (
       const totalImpacts = RE.computeImpacts([[code, amount]]);
       if (totalImpacts === null) return null;
 
-      const createRow = (impactsIdx: 1 | 2 | 3, category: string) => {
+      const createRow = (category: "Processes" | "Packaging" | "Transport") => {
+        // Pick only one of packaging, processing, and transport
         const impactsTuple: ImpactsTuple = [
           {},
-          impactsIdx === 1 ? totalImpacts[1] : {},
-          impactsIdx === 2 ? totalImpacts[2] : {},
-          impactsIdx === 3 ? totalImpacts[3] : {},
+          category === "Processes" ? totalImpacts[1] : {},
+          category === "Packaging" ? totalImpacts[2] : {},
+          category === "Transport" ? totalImpacts[3] : {},
         ];
 
         const impactsRow = labeledImpacts(
@@ -82,9 +83,9 @@ export const computeDietFootprints = (
           ...labeledImpacts(code, amount, totalImpacts, efsaNames),
         ],
         // drop names and amount for processing and packaging rows
-        createRow(1, "Processes"),
-        createRow(2, "Packaging"),
-        createRow(3, "Transport"),
+        createRow("Processes"),
+        createRow("Packaging"),
+        createRow("Transport"),
         ...ingredientRows,
       ];
     })
