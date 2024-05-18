@@ -31,12 +31,6 @@ const comment = ref("");
 const fileInput = ref<HTMLInputElement | null>();
 const commentTextarea = ref<HTMLTextAreaElement | null>();
 
-const fileButtonText = computed(() =>
-  props.fileInterface.state === "default"
-    ? "Upload custom file"
-    : "Reset to default"
-);
-
 const commentToggleButtonText = computed(() => {
   if (showComment.value) {
     return "Hide comment";
@@ -275,12 +269,19 @@ const onDrop = (e: DragEvent) => {
           Download file
         </button>
         <button
+          v-if="fileInterface.state === 'default'"
           class="button button--slim button--accent"
           @click="onButtonClick"
         >
-          <img v-if="fileInterface.state ==='default'" src="@/assets/upload-w.svg" />
-          <img v-else src="@/assets/reset-w.svg" />
-          {{ fileButtonText }}
+          <img src="@/assets/upload-w.svg" alt="" />
+          Upload custom file
+        </button>
+        <button
+          v-else
+          class="button button--slim button--secondary"
+          @click="onButtonClick"
+        >
+          <img src="@/assets/reset-w.svg" alt="" /> Reset to default
         </button>
       </div>
     </div>
