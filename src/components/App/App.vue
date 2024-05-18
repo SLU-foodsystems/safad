@@ -601,7 +601,7 @@ onMounted(async () => {
         </h3>
 
         <FileSelector
-          file-label="Footprints of raw primary raw primary commodities, e.g. wheat, tomatoes, beef etc."
+          file-label="Footprints of raw primary commodities, e.g. wheat, tomatoes, beef etc."
           :country-code="countryCode"
           :file-interface="footprintsRpcsFile"
         />
