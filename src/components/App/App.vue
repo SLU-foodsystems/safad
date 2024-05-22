@@ -8,7 +8,7 @@ import ResultsEngine from "@/lib/ResultsEngine";
 import { SAFAD_FILE_NAMES } from "@/lib/constants";
 import { resetFile } from "@/lib/file-interface-utils";
 import { downloadAsCsv, downloadAsXlsx } from "@/lib/io";
-import { padLeft, stringifyCsvData } from "@/lib/utils";
+import { debounce, padLeft, stringifyCsvData } from "@/lib/utils";
 import {
   labeledAndFilteredImpacts,
   DETAILED_RESULTS_HEADER,
@@ -291,6 +291,27 @@ watch(countryCode, async () => {
   isLoading.value = false;
 });
 
+
+const debouncedUpdateCharts = debounce(updateChartData, 200);
+let isMounted = false;
+// Update chartdata whenever any of the files are changed
+watch([
+  diet.value,
+  footprintsRpcsFile.value,
+  dietFile.value,
+  foodsRecipesFile.value,
+  rpcOriginWasteFile.value,
+  processesEnergyDemandsFile.value,
+  preparationProcessesFile.value,
+  packagingCodesFile.value,
+  wasteRetailAndConsumerFile.value,
+  emissionsFactorsEnergyFile.value,
+  emissionsFactorsPackagingFile.value,
+  emissionsFactorsTransportFile.value,
+], () => {
+  if (isMounted) debouncedUpdateCharts();
+})
+
 onMounted(async () => {
   isLoading.value = true;
 
@@ -317,6 +338,7 @@ onMounted(async () => {
   updateChartData();
 
   isLoading.value = false;
+  isMounted = true;
 });
 </script>
 
