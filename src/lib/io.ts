@@ -35,7 +35,7 @@ export function downloadAsCsv(filename: string, data: string[][]) {
 
 export async function downloadAsXlsx(
   filename: string,
-  sheets: [string, string[][]][],
+  sheets: [string, (string | number)[][]][]
 ) {
   if (sheets.length === 0) return;
 
