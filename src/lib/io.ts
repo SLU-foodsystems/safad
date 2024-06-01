@@ -22,24 +22,35 @@ function downloadBlob(filename: string, blob: Blob) {
   document.body.removeChild(link);
 }
 
+export function downloadAsPlaintext(data: string, filename: string) {
+  const blob = new Blob(["\ufeff" + data], {
+    type: "text/csv;charset=utf-8;",
+  });
+  downloadBlob(filename, blob);
+}
+
 export function downloadAsCsv(filename: string, data: string[][]) {
   downloadAsPlaintext(stringifyCsvData(data), filename);
 }
 
 export async function downloadAsXlsx(
   filename: string,
-  sheets: [string, string[][]][]
+  sheets: [string, string[][]][],
 ) {
   if (sheets.length === 0) return;
 
-  const { utils, writeFileXLSX } = await import("xlsx");
+  const ExcelJS = await import("exceljs");
 
-  const wb = utils.book_new();
+  const wb = new ExcelJS.Workbook();
 
   sheets.forEach(([sheetname, data]) => {
-    const ws = utils.aoa_to_sheet(data);
-    utils.book_append_sheet(wb, ws, sheetname);
+    const ws = wb.addWorksheet(sheetname);
+    ws.addRows(data);
   });
 
-  writeFileXLSX(wb, filename);
+  const buffer = await wb.xlsx.writeBuffer();
+  const mimetype =
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+  const blob = new Blob([buffer], { type: mimetype });
+  downloadBlob(filename, blob);
 }

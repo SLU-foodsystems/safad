@@ -15,10 +15,10 @@
   },
   "dependencies": {
     "d3": "^7.8.5",
+    "exceljs": "^4.4.0",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
-    "vue": "^3.4.21",
-    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.1/xlsx-0.20.1.tgz"
+    "vue": "^3.4.21"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.7.2",
