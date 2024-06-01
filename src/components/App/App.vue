@@ -11,6 +11,7 @@ import { downloadAsCsv, downloadAsXlsx } from "@/lib/io";
 import { debounce, padLeft, stringifyCsvData } from "@/lib/utils";
 import {
   labeledAndFilteredImpacts,
+  AGGREGATE_HEADERS,
   DETAILED_RESULTS_HEADER,
 } from "@/lib/impacts-csv-utils";
 import {
@@ -102,6 +103,23 @@ const setSelectedFoodCodes = (codes: string[]) => {
  * Methods
  */
 
+const castData = (
+  data: string[][],
+  nbrStartIndex: number,
+  nbrEndIndex: number
+) =>
+  data.map((row, rowIdx) => {
+    if (rowIdx === 0) return row;
+    return row.map((x, i) => {
+      const isOutsideRange = i < nbrStartIndex || i > nbrEndIndex;
+      if (isOutsideRange) return x;
+      const casted = Number.parseFloat(x);
+      // If casting was unsuccessful, e.g. for "NA" value instead of number,
+      // fall back to original string value.
+      return Number.isNaN(casted) ? x : casted;
+    });
+  });
+
 const downloadFootprintsOfFoods = async (filetype: "csv" | "xlsx") => {
   const impactsOfRecipe = labeledAndFilteredImpacts(
     RE.computeImpactsOfRecipe(),
@@ -111,11 +129,14 @@ const downloadFootprintsOfFoods = async (filetype: "csv" | "xlsx") => {
   const data = [DETAILED_RESULTS_HEADER, ...impactsOfRecipe];
 
   if (filetype === "csv") {
-    downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerFood, data);
+    await downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerFood, data);
   } else {
+    const nbrStartIndex = DETAILED_RESULTS_HEADER.indexOf("Amount (g)");
+    const nbrEndIndex = DETAILED_RESULTS_HEADER.indexOf("Processes") - 1;
+
     await downloadAsXlsx(
       SAFAD_FILE_NAMES.Output.FootprintsPerFood.replace(".csv", ".xlsx"),
-      [["Data", data]]
+      [["Data", castData(data, nbrStartIndex, nbrEndIndex)]]
     );
   }
 };
@@ -127,11 +148,13 @@ const downloadFootprintsOfDiets = async (filetype: "csv" | "xlsx") => {
   ];
 
   if (filetype === "csv") {
-    downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerDiet, data);
+    await downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerDiet, data);
   } else {
-    downloadAsXlsx(
+    const nbrStartIndex = DIET_RESULTS_HEADER.indexOf("Amount (g)");
+    const nbrEndIndex = DIET_RESULTS_HEADER.indexOf("Processes") - 1;
+    await downloadAsXlsx(
       SAFAD_FILE_NAMES.Output.FootprintsPerDiet.replace(".csv", ".xlsx"),
-      [["Diet footprints", data]]
+      [["Diet footprints", castData(data, nbrStartIndex, nbrEndIndex)]]
     );
   }
 };
@@ -145,11 +168,13 @@ const downloadFootprintsOfSfaRecipes = async (filetype: "csv" | "xlsx") => {
 
   const data = [SFA_RESULTS_HEADER, ...sfaResultsRows];
   if (filetype === "csv") {
-    downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood, data);
+    await downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood, data);
   } else {
-    downloadAsXlsx(
+    const nbrStartIndex = SFA_RESULTS_HEADER.indexOf("Gross Amount (g)");
+    const nbrEndIndex = SFA_RESULTS_HEADER.indexOf("Processes") - 1;
+    await downloadAsXlsx(
       SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood.replace(".csv", ".xlsx"),
-      [["Data", data]]
+      [["Data", castData(data, nbrStartIndex, nbrEndIndex)]]
     );
   }
 };
@@ -291,26 +316,28 @@ watch(countryCode, async () => {
   isLoading.value = false;
 });
 
-
 const debouncedUpdateCharts = debounce(updateChartData, 200);
 let isMounted = false;
 // Update chartdata whenever any of the files are changed
-watch([
-  diet.value,
-  footprintsRpcsFile.value,
-  dietFile.value,
-  foodsRecipesFile.value,
-  rpcOriginWasteFile.value,
-  processesEnergyDemandsFile.value,
-  preparationProcessesFile.value,
-  packagingCodesFile.value,
-  wasteRetailAndConsumerFile.value,
-  emissionsFactorsEnergyFile.value,
-  emissionsFactorsPackagingFile.value,
-  emissionsFactorsTransportFile.value,
-], () => {
-  if (isMounted) debouncedUpdateCharts();
-})
+watch(
+  [
+    diet.value,
+    footprintsRpcsFile.value,
+    dietFile.value,
+    foodsRecipesFile.value,
+    rpcOriginWasteFile.value,
+    processesEnergyDemandsFile.value,
+    preparationProcessesFile.value,
+    packagingCodesFile.value,
+    wasteRetailAndConsumerFile.value,
+    emissionsFactorsEnergyFile.value,
+    emissionsFactorsPackagingFile.value,
+    emissionsFactorsTransportFile.value,
+  ],
+  () => {
+    if (isMounted) debouncedUpdateCharts();
+  }
+);
 
 onMounted(async () => {
   isLoading.value = true;
@@ -804,7 +831,8 @@ onMounted(async () => {
   max-width: 70rem;
 }
 
-.page-footer, .sub-footer {
+.page-footer,
+.sub-footer {
   ::selection {
     color: $green_forest;
     background: white;
