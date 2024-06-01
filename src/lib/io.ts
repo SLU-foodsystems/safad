@@ -4,10 +4,7 @@
 
 import { stringifyCsvData } from "./utils";
 
-export function downloadAsPlaintext(data: string, filename: string) {
-  const blob = new Blob(["\ufeff" + data], {
-    type: "text/csv;charset=utf-8;",
-  });
+function downloadBlob(filename: string, blob: Blob) {
   const link = document.createElement("a");
   const url = URL.createObjectURL(blob);
   const isSafariBrowser =
