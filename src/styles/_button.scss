@@ -48,23 +48,26 @@ button:not([disabled]) {
   }
 }
 
-.button.button--slim {
+.button--slim {
   padding: 0.25em 0.5em;
   text-transform: none;
   border: 1px solid rgba(black, 0.15);
 }
 
-.button.button--danger {
+.button--danger {
   background: #ff3414;
   color: #fff;
 }
 
-.button.button--accent {
+.button--accent {
   background: $green_forest-bright;
   color: #fff;
   box-shadow: 0 0.3em 0.75em -0.55em $green_forest-bright;
+  &:focus {
+    background: $green_forest;
+  }
 }
-.button.button--secondary {
+.button--secondary {
   background: $blue_cyan;
   color: #fff;
   box-shadow: 0 0.3em 0.75em -0.55em $blue_cyan;
