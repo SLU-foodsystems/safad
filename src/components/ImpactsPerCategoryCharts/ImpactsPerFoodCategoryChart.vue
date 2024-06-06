@@ -98,6 +98,7 @@ const othersLabel = {
     :labels="labels"
     :otherLabel="othersLabel"
     legend-title="Foods category"
+    filename="impacts-per-food-group"
   />
 </template>
 

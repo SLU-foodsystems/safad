@@ -6,6 +6,7 @@ import { sum, vectorSum } from "@/lib/utils";
 import { onMounted, ref, watch } from "vue";
 import PlaceholderSvg from "../PlaceholderSvg.vue";
 import MissingDataOverlay from "../MissingDataOverlay.vue";
+import DownloadableSvg from "@/components/DownloadableSvg.vue";
 
 type LabelMap = { color: string; text: string; l1Code: string }[];
 
@@ -15,9 +16,10 @@ const props = defineProps<{
   otherLabel: Pick<LabelMap[number], "color" | "text">;
   legendTitle: string;
   dietMissing: boolean;
+  filename: string;
 }>();
 
-const el = ref<HTMLDivElement | null>(null);
+const svgContainer = ref<HTMLDivElement | null>(null);
 const labels = [props.otherLabel.text, ...props.labels.map((x) => x.text)];
 const colors = [props.otherLabel.color, ...props.labels.map((x) => x.color)];
 
@@ -56,7 +58,12 @@ const mergeAndRelabelData = (
     try {
       merged[otherKey] = vectorSum(merged[otherKey], impacts);
     } catch {
-      console.error("Error: mismatched length.", l1Code, merged[otherKey], impacts);
+      console.error(
+        "Error: mismatched length.",
+        l1Code,
+        merged[otherKey],
+        impacts
+      );
     }
   });
 
@@ -85,12 +92,13 @@ const reshapeData = (impactsPerCategory: Record<string, number[]>) => {
 };
 
 const drawChart = () => {
-  if (!el.value) return;
+  if (!svgContainer.value) return;
   if (Object.keys(props.impactsPerCategory).length === 0) return;
 
-  const svg = el.value.querySelector("svg");
+  const el = svgContainer.value.rootEl;
+  const svg = el.querySelector("svg");
   if (svg) {
-    el.value.removeChild(svg);
+    el.removeChild(svg);
   }
 
   if (props.dietMissing) return;
@@ -107,7 +115,7 @@ const drawChart = () => {
 
   const data = reshapeData(mergedData);
 
-  const rect = el.value.getBoundingClientRect();
+  const rect = el.getBoundingClientRect();
 
   const width = rect.width;
   let height = rect.width * 0.5;
@@ -119,7 +127,7 @@ const drawChart = () => {
     labelLayout = "offset";
   }
 
-  StackedBarChart(el.value, data, labels, {
+  StackedBarChart(el, data, labels, {
     width,
     height,
     maxValue: 100,
@@ -148,12 +156,16 @@ onMounted(() => {
         {{ label }}
       </p>
     </div>
-    <div ref="el" class="impacts-per-category-chart__canvas">
+    <DownloadableSvg
+      ref="svgContainer"
+      class="impacts-per-category-chart__canvas"
+      :filename="props.filename"
+    >
       <PlaceholderSvg :aspect-ratio="0.5" />
       <MissingDataOverlay :show="props.dietMissing">
         No default diet data available for Poland.
       </MissingDataOverlay>
-    </div>
+    </DownloadableSvg>
   </div>
 </template>
 

@@ -63,7 +63,6 @@ const othersLabel = {
     :labels="labels"
     :otherLabel="othersLabel"
     legend-title="Commodity category"
+    filename="impacts-per-commodity-category"
   />
 </template>
-
-<style lang="scss"></style>
