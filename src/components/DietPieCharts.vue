@@ -17,7 +17,7 @@ const gasesDataMap: [string, string, number, number][] = [
     CO2E_CONV_FACTORS.N2O,
   ],
   [
-    "Carbon Dioxide",
+    "Carbon dioxide",
     SLU_COLORS.Blue.Seabay,
     aggregateHeaderIndex("Carbon dioxide, total (kg CO2)"),
     CO2E_CONV_FACTORS.CO2,
