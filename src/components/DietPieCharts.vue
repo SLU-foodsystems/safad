@@ -9,6 +9,8 @@ import { ref, onMounted, watch, computed } from "vue";
 import PlaceholderSvg from "./PlaceholderSvg.vue";
 import MissingDataOverlay from "./MissingDataOverlay.vue";
 
+import DownloadableSvg from "@/components/DownloadableSvg.vue";
+
 const gasesDataMap: [string, string, number, number][] = [
   [
     "Nitrous oxide",
@@ -102,8 +104,8 @@ const props = defineProps<{
   dietMissing: boolean;
 }>();
 
-const gasesEl = ref<HTMLDivElement | null>();
-const lifecycleEl = ref<HTMLDivElement | null>();
+const gasesEl = ref<typeof DownloadableSvg | null>();
+const lifecycleEl = ref<typeof DownloadableSvg | null>();
 
 const getGasesData = () =>
   toRelativeValues(
@@ -162,8 +164,8 @@ const drawCharts = () => {
     left: longestLabelWidth,
   };
 
-  drawChart(gasesEl.value, gasesData, { padding });
-  drawChart(lifecycleEl.value, lifecycleStagesData, { padding });
+  drawChart(gasesEl.value.rootEl, gasesData, { padding });
+  drawChart(lifecycleEl.value.rootEl, lifecycleStagesData, { padding });
 };
 
 useOnResize(drawCharts);
@@ -192,18 +194,18 @@ const reverseSecondHalf = <T,>(xs: T[]): T[] => {
       :style="{ color: d[1] }"
     />
   </div>
-  <div ref="gasesEl" style="position: relative">
+  <DownloadableSvg ref="gasesEl" filename="greenhouse-gas-contributions">
     <PlaceholderSvg :aspect-ratio="0.5" />
     <MissingDataOverlay :show="props.dietMissing">
       No default diet data available for Poland.
     </MissingDataOverlay>
-  </div>
-  <div ref="lifecycleEl" style="position: relative">
+  </DownloadableSvg>
+  <DownloadableSvg ref="lifecycleEl" filename="lifecycle-contributions">
     <PlaceholderSvg :aspect-ratio="0.5" />
     <MissingDataOverlay :show="props.dietMissing">
       No default diet data available for Poland.
     </MissingDataOverlay>
-  </div>
+  </DownloadableSvg>
   <div class="labels">
     <p
       v-for="d in reverseSecondHalf(lifecycleStages)"

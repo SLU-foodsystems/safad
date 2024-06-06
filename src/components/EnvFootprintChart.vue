@@ -5,6 +5,7 @@ import { onMounted, ref, watch } from "vue";
 import BarChart from "@/lib/charts/BarChart";
 import PlaceholderSvg from "./PlaceholderSvg.vue";
 import MissingDataOverlay from "./MissingDataOverlay.vue";
+import DownloadableSvg from "@/components/DownloadableSvg.vue";
 import { defaultRpcNames } from "@/lib/efsa-names";
 
 // Code: aggregated impacts
@@ -65,9 +66,11 @@ onMounted(drawChart);
 <template>
   <div class="env-footprint-graph">
     <h4 v-text="title" />
-    <div ref="el">
-      <PlaceholderSvg :aspect-ratio="0.9" />
-    </div>
+    <DownloadableSvg :filename="props.title">
+      <div ref="el">
+        <PlaceholderSvg :aspect-ratio="0.9" />
+      </div>
+    </DownloadableSvg>
     <MissingDataOverlay :show="!data || data.length === 0">
       Select at at least one food item in the list.
     </MissingDataOverlay>

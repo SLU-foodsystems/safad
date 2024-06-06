@@ -5,13 +5,14 @@ import { useOnResize } from "@/lib/use-on-resize";
 import { onMounted, ref, watch } from "vue";
 import PlaceholderSvg from "./PlaceholderSvg.vue";
 import MissingDataOverlay from "./MissingDataOverlay.vue";
+import DownloadableSvg from "@/components/DownloadableSvg.vue";
 
 const props = defineProps<{
   data: number[];
   dietMissing: boolean;
 }>();
 
-const el = ref<HTMLElement | null>();
+const el = ref<HTMLDivElement | null>();
 
 const pickData = (data: number[]) => [
   {
@@ -71,12 +72,14 @@ onMounted(drawChart);
 </script>
 
 <template>
-  <div class="planetary-boundaries-chart" ref="el">
-    <PlaceholderSvg :aspect-ratio="1" />
-    <MissingDataOverlay :show="props.dietMissing">
-      No default diet data available for Poland.
-    </MissingDataOverlay>
-  </div>
+  <DownloadableSvg filename="planetary-boundaries-chart">
+    <div class="planetary-boundaries-chart" ref="el">
+      <PlaceholderSvg :aspect-ratio="1" />
+      <MissingDataOverlay :show="props.dietMissing">
+        No default diet data available for Poland.
+      </MissingDataOverlay>
+    </div>
+  </DownloadableSvg>
 </template>
 
 <style lang="scss" scoped>

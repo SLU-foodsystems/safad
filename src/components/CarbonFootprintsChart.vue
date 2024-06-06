@@ -6,6 +6,7 @@ import { onMounted, ref, watch } from "vue";
 import { aggregateHeaderIndex } from "@/lib/impacts-csv-utils";
 import SLU_COLORS from "@/lib/slu-colors";
 
+import DownloadableSvg from "@/components/DownloadableSvg.vue";
 import PlaceholderSvg from "@/components/PlaceholderSvg.vue";
 import MissingDataOverlay from "./MissingDataOverlay.vue";
 import { defaultRpcNames } from "@/lib/efsa-names";
@@ -74,9 +75,9 @@ const dataMap: [string, number, Color][] = [
 const labels = dataMap.map((kv) => kv[0]);
 const colors = dataMap.map((kvc) => kvc[2]);
 
-const canvasEl = ref<HTMLDivElement | null>(null);
+const svgContainer = ref<HTMLDivElement | null>(null);
 const drawChart = async () => {
-  if (props.data.length === 0 || !canvasEl.value) return;
+  if (props.data.length === 0 || !svgContainer.value) return;
   const data = props.data.map(([code, impactsArr]: [string, number[]]) => {
     const impactsObj = Object.fromEntries(
       dataMap.map(([k, idx]) => [k, impactsArr[idx]])
@@ -97,12 +98,14 @@ const drawChart = async () => {
     )
   );
 
-  const svg = canvasEl.value.querySelector("svg");
+  const svgContainerDiv = svgContainer.value.rootEl;
+
+  const svg = svgContainerDiv.querySelector("svg");
   if (svg) {
-    canvasEl.value.removeChild(svg);
+    svgContainerDiv.removeChild(svg);
   }
 
-  const rect = canvasEl.value.getBoundingClientRect();
+  const rect = svgContainerDiv.getBoundingClientRect();
 
   const width = rect.width;
   const height = rect.width * 0.75;
@@ -112,7 +115,7 @@ const drawChart = async () => {
   const labelTextMapper = (code: string) =>
     code in rpcNames ? truncate(rpcNames[code], 30) : code;
 
-  StackedBarChart(canvasEl.value, data, columns, {
+  StackedBarChart(svgContainerDiv, data, columns, {
     maxValue,
     width,
     height,
@@ -139,9 +142,9 @@ onMounted(drawChart);
         {{ label }}
       </p>
     </div>
-    <div class="carbon-footprints-chart__canvas" ref="canvasEl">
+    <DownloadableSvg class="carbon-footprints-chart__canvas" ref="svgContainer">
       <PlaceholderSvg :aspect-ratio="0.6" />
-    </div>
+    </DownloadableSvg>
     <MissingDataOverlay :show="props.data.length === 0">
       Select at at least one food item in the list.
     </MissingDataOverlay>
