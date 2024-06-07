@@ -95,10 +95,9 @@ const drawChart = () => {
   if (!svgContainer.value) return;
   if (Object.keys(props.impactsPerCategory).length === 0) return;
 
-  const el = svgContainer.value.rootEl;
-  const svg = el.querySelector("svg");
+  const svg = svgContainer.value.querySelector("svg");
   if (svg) {
-    el.removeChild(svg);
+    svgContainer.value.removeChild(svg);
   }
 
   if (props.dietMissing) return;
@@ -115,7 +114,7 @@ const drawChart = () => {
 
   const data = reshapeData(mergedData);
 
-  const rect = el.getBoundingClientRect();
+  const rect = svgContainer.value.getBoundingClientRect();
 
   const width = rect.width;
   let height = rect.width * 0.5;
@@ -127,7 +126,7 @@ const drawChart = () => {
     labelLayout = "offset";
   }
 
-  StackedBarChart(el, data, labels, {
+  StackedBarChart(svgContainer.value, data, labels, {
     width,
     height,
     maxValue: 100,
@@ -148,7 +147,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="impacts-per-category-chart">
+  <DownloadableSvg
+    class="impacts-per-category-chart"
+    :filename="props.filename"
+    mode="html"
+  >
     <div class="impacts-per-category-chart__labels">
       <p><strong v-text="props.legendTitle" /></p>
       <p v-for="(label, i) in labels">
@@ -156,17 +159,13 @@ onMounted(() => {
         {{ label }}
       </p>
     </div>
-    <DownloadableSvg
-      ref="svgContainer"
-      class="impacts-per-category-chart__canvas"
-      :filename="props.filename"
-    >
+    <div ref="svgContainer" class="impacts-per-category-chart__canvas">
       <PlaceholderSvg :aspect-ratio="0.5" />
       <MissingDataOverlay :show="props.dietMissing">
         No default diet data available for Poland.
       </MissingDataOverlay>
-    </DownloadableSvg>
-  </div>
+    </div>
+  </DownloadableSvg>
 </template>
 
 <style lang="scss" scoped>

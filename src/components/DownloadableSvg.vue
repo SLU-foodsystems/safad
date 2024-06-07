@@ -1,36 +1,51 @@
 <script lang="ts" setup>
 import { ref } from "vue";
-import downloadSvgImg from "@/lib/charts/d3-exporter.ts";
+import downloadSvgImg, {
+  downloadHtmlElementAsImg,
+} from "@/lib/charts/d3-exporter";
 const props = defineProps<{
   filename: string;
+  mode: "svg" | "html";
 }>();
 
 const rootEl = ref<HTMLDivElement | null>();
 defineExpose({ rootEl });
 
-async function downloadSvg(event: Event) {
+async function download(event: Event) {
   if (!(event instanceof MouseEvent)) {
     return;
   }
 
   let root = event.target;
-  const isRootEl = (el: Element) => el.classList.contains("svg-container");
-  while (root && !isRootEl(root)) {
+  if (!(root instanceof HTMLElement)) return;
+  const isRootEl = (el: HTMLElement) => el.classList.contains("svg-container");
+  while (root && root instanceof HTMLElement && !isRootEl(root)) {
     root = root.parentElement;
   }
-  if (!root) return;
+  if (!root || !(root instanceof HTMLElement)) return;
 
   const filename = root.dataset.filename ?? "chart";
 
-  const svg = root.querySelector("svg");
-  await downloadSvgImg(svg, filename, { scale: 2 });
+  if (props.mode === "html") {
+    await downloadHtmlElementAsImg(root, filename, { scale: 2 });
+  } else {
+    const svg = root.querySelector("svg");
+    if (!svg) {
+      console.error("No svg-element found in svg-container. Wrong mode?");
+      return;
+    }
+    await downloadSvgImg(svg, filename, { scale: 2 });
+  }
 }
 </script>
 
 <template>
   <div class="svg-container" :data-filename="props.filename" ref="rootEl">
     <slot />
-    <button class="button button--slim svg-container__download" @click="downloadSvg">
+    <button
+      class="button button--slim svg-container__download"
+      @click="download"
+    >
       <img src="@/assets/download.svg" alt="" />
       Download
     </button>

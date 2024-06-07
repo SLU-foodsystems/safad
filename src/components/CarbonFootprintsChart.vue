@@ -98,14 +98,12 @@ const drawChart = async () => {
     )
   );
 
-  const svgContainerDiv = svgContainer.value.rootEl;
-
-  const svg = svgContainerDiv.querySelector("svg");
+  const svg = svgContainer.value.querySelector("svg");
   if (svg) {
-    svgContainerDiv.removeChild(svg);
+    svgContainer.value.removeChild(svg);
   }
 
-  const rect = svgContainerDiv.getBoundingClientRect();
+  const rect = svgContainer.value.getBoundingClientRect();
 
   const width = rect.width;
   const height = rect.width * 0.75;
@@ -115,7 +113,7 @@ const drawChart = async () => {
   const labelTextMapper = (code: string) =>
     code in rpcNames ? truncate(rpcNames[code], 30) : code;
 
-  StackedBarChart(svgContainerDiv, data, columns, {
+  StackedBarChart(svgContainer.value, data, columns, {
     maxValue,
     width,
     height,
@@ -134,7 +132,11 @@ onMounted(drawChart);
 </script>
 
 <template>
-  <div class="carbon-footprints-chart">
+  <DownloadableSvg
+    class="carbon-footprints-chart"
+    mode="html"
+    filename="carbon-footprints"
+  >
     <div class="carbon-footprints-chart__labels">
       <p><strong>Lifecycle Stage</strong></p>
       <p v-for="(label, i) in labels">
@@ -142,13 +144,13 @@ onMounted(drawChart);
         {{ label }}
       </p>
     </div>
-    <DownloadableSvg class="carbon-footprints-chart__canvas" ref="svgContainer">
+    <div class="carbon-footprints-chart__canvas" ref="svgContainer">
       <PlaceholderSvg :aspect-ratio="0.6" />
-    </DownloadableSvg>
+    </div>
     <MissingDataOverlay :show="props.data.length === 0">
       Select at at least one food item in the list.
     </MissingDataOverlay>
-  </div>
+  </DownloadableSvg>
 </template>
 
 <style lang="scss">
