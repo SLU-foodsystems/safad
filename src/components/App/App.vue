@@ -19,6 +19,7 @@ import {
   SFA_RESULTS_HEADER,
 } from "@/lib/sfa-results-generator";
 
+import LoadingButton from "@/components/LoadingButton.vue";
 import FileSelector from "@/components/FileSelector.vue";
 import FoodsListbox from "@/components/FoodsListbox.vue";
 // Charts
@@ -497,20 +498,20 @@ onMounted(async () => {
             <div class="cluster">
               Spreadsheet (.xlsx):
               <div class="cluster">
-                <button
+                <LoadingButton
                   class="button button--accent button--slim"
-                  @click="() => downloadFootprintsOfFoods('xlsx')"
+                  :click-handler="() => downloadFootprintsOfFoods('xlsx')"
                 >
                   <img src="@/assets/download-w.svg" alt="" />
                   Download for EFSA recipes
-                </button>
-                <button
+                </LoadingButton>
+                <LoadingButton
                   class="button button--slim"
-                  @click="() => downloadFootprintsOfSfaRecipes('xlsx')"
+                  :click-handler="() => downloadFootprintsOfSfaRecipes('xlsx')"
                 >
                   <img src="@/assets/download.svg" alt="" />
                   Download for SFA recipes
-                </button>
+                </LoadingButton>
               </div>
             </div>
           </div>
@@ -577,13 +578,13 @@ onMounted(async () => {
             </div>
             <div class="cluster">
               Spreadsheet:
-              <button
-                class="button button--accent button--slim"
-                @click="() => downloadFootprintsOfDiets('xlsx')"
+              <LoadingButton
+                class="button--accent button--slim"
+                :click-handler="() => downloadFootprintsOfDiets('xlsx')"
               >
                 <img src="@/assets/download-w.svg" alt="" />
                 Download as .xlsx-file
-              </button>
+              </LoadingButton>
             </div>
           </div>
           <div class="stack">
@@ -740,10 +741,10 @@ onMounted(async () => {
                 />
                 <h2>Complete package of files</h2>
               </span>
-              <button class="button button--accent" @click="downloadZip">
+              <LoadingButton class="button--accent" :click-handler="downloadZip">
                 <img src="@/assets/download-w.svg" alt="" />
                 Download
-              </button>
+              </LoadingButton>
             </div>
             <p>
               Download a zip-file with all input- and output files bundled

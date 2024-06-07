@@ -3,12 +3,12 @@ import { ref } from "vue";
 import downloadSvgImg, {
   downloadHtmlElementAsImg,
 } from "@/lib/charts/d3-exporter";
+import LoadingButton from "@/components/LoadingButton.vue";
+
 const props = defineProps<{
   filename: string;
   mode: "svg" | "html";
 }>();
-
-const isLoading = ref(false);
 
 const rootEl = ref<HTMLDivElement | null>();
 defineExpose({ rootEl });
@@ -29,7 +29,6 @@ async function download(event: Event) {
   const filename = root.dataset.filename ?? "chart";
 
   if (props.mode === "html") {
-    isLoading.value = true;
     await downloadHtmlElementAsImg(root, filename, { scale: 2 });
   } else {
     const svg = root.querySelector("svg");
@@ -39,22 +38,19 @@ async function download(event: Event) {
     }
     await downloadSvgImg(svg, filename, { scale: 2 });
   }
-
-  isLoading.value = false;
 }
 </script>
 
 <template>
   <div class="svg-container" :data-filename="props.filename" ref="rootEl">
     <slot />
-    <button
-      class="button button--slim svg-container__download"
-      :class="{ 'button--loading': isLoading }"
-      @click="download"
+    <LoadingButton
+      class="button--slim svg-container__download"
+      :click-handler="download"
     >
       <img src="@/assets/download.svg" alt="" />
       Download
-    </button>
+    </LoadingButton>
   </div>
 </template>
 
