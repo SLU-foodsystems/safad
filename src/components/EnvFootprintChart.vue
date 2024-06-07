@@ -66,7 +66,7 @@ onMounted(drawChart);
 <template>
   <div class="env-footprint-graph">
     <h4 v-text="title" />
-    <DownloadableSvg :filename="props.title">
+    <DownloadableSvg :filename="props.title" mode="svg">
       <div ref="el">
         <PlaceholderSvg :aspect-ratio="0.9" />
       </div>

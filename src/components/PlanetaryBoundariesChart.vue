@@ -72,7 +72,7 @@ onMounted(drawChart);
 </script>
 
 <template>
-  <DownloadableSvg filename="planetary-boundaries-chart">
+  <DownloadableSvg filename="planetary-boundaries-chart" mode="svg">
     <div class="planetary-boundaries-chart" ref="el">
       <PlaceholderSvg :aspect-ratio="1" />
       <MissingDataOverlay :show="props.dietMissing">

@@ -144,3 +144,42 @@ export default async function downloadSvgAsImage(
 
   return file;
 }
+
+export async function downloadHtmlElementAsImg(
+  source: Element | string,
+  name: string,
+  options: Partial<Options>
+) {
+  const opts: Options = Object.assign(
+    {
+      scale: 1,
+      format: "png",
+      quality: 0.92,
+      download: true,
+      ignore: null,
+      inlineCss: true,
+      background: "white",
+    },
+    options
+  );
+
+  // Accept a selector or directly a DOM Element
+  source = source instanceof Element ? source : document.querySelector(source)!;
+  // Ensure HTMLElement
+  if (!(source instanceof HTMLElement)) {
+    console.error(
+      "non-html element passed as source to downloadHtmlElementAsImage",
+      source
+    );
+    return;
+  }
+
+  const html2canvas = (await import("html2canvas")).default;
+  const canvas = await html2canvas(source);
+  const file = canvas.toDataURL(`image/${opts.format}`, opts.quality);
+  if (opts.download) {
+    downloadImage({ file, name, format: opts.format });
+  }
+
+  return file;
+}

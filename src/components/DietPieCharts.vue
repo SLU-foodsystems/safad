@@ -194,13 +194,21 @@ const reverseSecondHalf = <T,>(xs: T[]): T[] => {
       :style="{ color: d[1] }"
     />
   </div>
-  <DownloadableSvg ref="gasesEl" filename="greenhouse-gas-contributions">
+  <DownloadableSvg
+    ref="gasesEl"
+    filename="greenhouse-gas-contributions"
+    mode="svg"
+  >
     <PlaceholderSvg :aspect-ratio="0.5" />
     <MissingDataOverlay :show="props.dietMissing">
       No default diet data available for Poland.
     </MissingDataOverlay>
   </DownloadableSvg>
-  <DownloadableSvg ref="lifecycleEl" filename="lifecycle-contributions">
+  <DownloadableSvg
+    ref="lifecycleEl"
+    filename="lifecycle-contributions"
+    mode="svg"
+  >
     <PlaceholderSvg :aspect-ratio="0.5" />
     <MissingDataOverlay :show="props.dietMissing">
       No default diet data available for Poland.
