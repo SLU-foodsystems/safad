@@ -23,7 +23,7 @@ async function downloadSvg(event: Event) {
   const filename = root.dataset.filename ?? "chart";
 
   const svg = root.querySelector("svg");
-  await downloadSvgImg(svg, filename, {});
+  await downloadSvgImg(svg, filename, { scale: 2 });
 }
 </script>
 
