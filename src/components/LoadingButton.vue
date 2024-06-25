@@ -10,7 +10,7 @@ const isLoading = ref(false);
 async function onClick(event: Event) {
   isLoading.value = true;
   try {
-    await props.clickHandler(event);
+    props.clickHandler(event);
   } catch {}
   isLoading.value = false;
 }

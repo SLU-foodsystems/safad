@@ -11,7 +11,6 @@ import { downloadAsCsv, downloadAsXlsx } from "@/lib/io";
 import { debounce, padLeft, stringifyCsvData } from "@/lib/utils";
 import {
   labeledAndFilteredImpacts,
-  AGGREGATE_HEADERS,
   DETAILED_RESULTS_HEADER,
 } from "@/lib/impacts-csv-utils";
 import {
@@ -130,7 +129,7 @@ const downloadFootprintsOfFoods = async (filetype: "csv" | "xlsx") => {
   const data = [DETAILED_RESULTS_HEADER, ...impactsOfRecipe];
 
   if (filetype === "csv") {
-    await downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerFood, data);
+    downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerFood, data);
   } else {
     const nbrStartIndex = DETAILED_RESULTS_HEADER.indexOf("Amount (g)");
     const nbrEndIndex = DETAILED_RESULTS_HEADER.indexOf("Processes") - 1;
@@ -149,7 +148,7 @@ const downloadFootprintsOfDiets = async (filetype: "csv" | "xlsx") => {
   ];
 
   if (filetype === "csv") {
-    await downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerDiet, data);
+    downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerDiet, data);
   } else {
     const nbrStartIndex = DIET_RESULTS_HEADER.indexOf("Amount (g)");
     const nbrEndIndex = DIET_RESULTS_HEADER.indexOf("Processes") - 1;
@@ -169,7 +168,7 @@ const downloadFootprintsOfSfaRecipes = async (filetype: "csv" | "xlsx") => {
 
   const data = [SFA_RESULTS_HEADER, ...sfaResultsRows];
   if (filetype === "csv") {
-    await downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood, data);
+    downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood, data);
   } else {
     const nbrStartIndex = SFA_RESULTS_HEADER.indexOf("Gross Amount (g)");
     const nbrEndIndex = SFA_RESULTS_HEADER.indexOf("Processes") - 1;
