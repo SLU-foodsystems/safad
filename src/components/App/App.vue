@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, watch, computed, onMounted } from "vue";
+import { ref, watch, computed, onMounted, defineAsyncComponent } from "vue";
 
 import * as DefaultInputFiles from "@/lib/default-input-files";
 import MetaFile from "@/lib/MetaFile";
@@ -20,7 +20,7 @@ import {
 
 import LoadingButton from "@/components/LoadingButton.vue";
 import FileSelector from "@/components/FileSelector.vue";
-import FoodsListbox from "@/components/FoodsListbox.vue";
+import AsyncFoodsListbox from "@/components/FoodsListbox/AsyncFoodsListbox";
 // Charts
 import CarbonFootprintsChart from "@/components/CarbonFootprintsChart.vue";
 import DietPieCharts from "@/components/DietPieCharts.vue";
@@ -522,9 +522,12 @@ onMounted(async () => {
           </div>
           <div class="results-grid-large__aside stack">
             <div>
-              <h3><label id="listbox-label">Choose which products to
-                  display</label></h3>
-              <FoodsListbox
+              <h3>
+                <label id="listbox-label"
+                  >Choose which products to display</label
+                >
+              </h3>
+              <AsyncFoodsListbox
                 :food-codes="foodCodes"
                 :initial-values="selectedFoodCodes"
                 @change="setSelectedFoodCodes"
@@ -741,7 +744,10 @@ onMounted(async () => {
                 />
                 <h2>Complete package of files</h2>
               </span>
-              <LoadingButton class="button--accent" :click-handler="downloadZip">
+              <LoadingButton
+                class="button--accent"
+                :click-handler="downloadZip"
+              >
                 <img src="@/assets/download-w.svg" alt="" />
                 Download
               </LoadingButton>
