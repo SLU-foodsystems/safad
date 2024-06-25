@@ -4,7 +4,7 @@ import Listbox from "primevue/listbox";
 import { defaultRpcNames } from "@/lib/efsa-names";
 import PrimeVue from "primevue/config";
 
-getCurrentInstance().appContext.app.use(PrimeVue, {
+getCurrentInstance()?.appContext.app.use(PrimeVue, {
   unstyled: true,
 });
 
@@ -97,7 +97,7 @@ function deselectItem(codeToDeselect: string) {
 </template>
 
 <style lang="scss">
-@import "../styles/constants";
+@import "../../styles/constants";
 
 .foods-listbox__selected {
   display: flex;
