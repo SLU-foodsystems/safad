@@ -5,7 +5,7 @@ import { aggregateHeaderIndex } from "@/lib/impacts-csv-utils";
 import SLU_COLORS from "@/lib/slu-colors";
 import { useOnResize } from "@/lib/use-on-resize";
 import { reversed, sum } from "@/lib/utils";
-import { ref, onMounted, watch, computed } from "vue";
+import { ref, onMounted, watch } from "vue";
 import PlaceholderSvg from "./PlaceholderSvg.vue";
 import MissingDataOverlay from "./MissingDataOverlay.vue";
 

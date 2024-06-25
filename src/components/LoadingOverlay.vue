@@ -10,7 +10,7 @@ export default defineComponent({
 
 <template>
   <Transition>
-    <div class="loading-overlay" v-if="show"></div>
+    <div class="loading-overlay" v-if="show" />
   </Transition>
 </template>
 
