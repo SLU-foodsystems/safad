@@ -523,7 +523,8 @@ onMounted(async () => {
           </div>
           <div class="results-grid-large__aside stack">
             <div>
-              <h3>Choose which products to display</h3>
+              <h3><label id="listbox-label">Choose which products to
+                  display</label></h3>
               <FoodsListbox
                 :food-codes="foodCodes"
                 :initial-values="selectedFoodCodes"
