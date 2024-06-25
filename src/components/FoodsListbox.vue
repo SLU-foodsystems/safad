@@ -1,7 +1,12 @@
 <script setup lang="ts">
-import { computed, onBeforeMount, ref } from "vue";
+import { computed, onBeforeMount, ref, getCurrentInstance } from "vue";
 import Listbox from "primevue/listbox";
 import { defaultRpcNames } from "@/lib/efsa-names";
+import PrimeVue from "primevue/config";
+
+getCurrentInstance().appContext.app.use(PrimeVue, {
+  unstyled: true,
+});
 
 const MAX_ITEMS = 12;
 
@@ -47,9 +52,7 @@ function onUpdate(items: string[]) {
 }
 
 function deselectItem(codeToDeselect: string) {
-  selected.value = selected.value.filter(
-    (code) => code !== codeToDeselect
-  );
+  selected.value = selected.value.filter((code) => code !== codeToDeselect);
   onUpdate(selected.value);
 }
 </script>
