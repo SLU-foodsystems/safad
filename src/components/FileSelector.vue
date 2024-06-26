@@ -265,7 +265,7 @@ const onDrop = (e: DragEvent) => {
 
       <div class="cluster">
         <button class="button button--slim" @click="download">
-          <img src="@/assets/download.svg" />
+          <img src="@/assets/download.svg" alt="" />
           Download file
         </button>
         <button
