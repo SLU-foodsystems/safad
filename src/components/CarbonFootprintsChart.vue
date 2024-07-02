@@ -75,6 +75,8 @@ const dataMap: [string, number, Color][] = [
 const labels = dataMap.map((kv) => kv[0]);
 const colors = dataMap.map((kvc) => kvc[2]);
 
+const hasLoadedOnce = ref(false);
+
 const svgContainer = ref<HTMLDivElement | null>(null);
 const drawChart = async () => {
   if (props.data.length === 0 || !svgContainer.value) return;
@@ -124,6 +126,8 @@ const drawChart = async () => {
     },
     colors,
   });
+
+  hasLoadedOnce.value = true;
 };
 
 watch(() => props.data, drawChart);
@@ -147,7 +151,7 @@ onMounted(drawChart);
     <div class="carbon-footprints-chart__canvas" ref="svgContainer">
       <PlaceholderSvg :aspect-ratio="0.6" />
     </div>
-    <MissingDataOverlay :show="props.data.length === 0">
+    <MissingDataOverlay :show="props.data.length === 0 && hasLoadedOnce">
       Select at least one food item in the list.
     </MissingDataOverlay>
   </DownloadableSvg>

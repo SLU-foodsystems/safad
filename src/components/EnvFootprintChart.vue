@@ -11,6 +11,8 @@ import { defaultRpcNames } from "@/lib/efsa-names";
 // Code: aggregated impacts
 type GraphData = [string, number[]][];
 
+const hasLoadedOnce = ref(false);
+
 const props = defineProps<{
   data: GraphData;
   title: string;
@@ -54,6 +56,8 @@ const drawChart = async () => {
     color: props.color,
     axisLabels: props.yLabel ? { y: props.yLabel } : undefined,
   });
+
+  hasLoadedOnce.value = true;
 };
 
 watch(() => props.data, drawChart);
@@ -71,7 +75,7 @@ onMounted(drawChart);
         <PlaceholderSvg :aspect-ratio="0.9" />
       </div>
     </DownloadableSvg>
-    <MissingDataOverlay :show="!data || data.length === 0">
+    <MissingDataOverlay :show="hasLoadedOnce && (!data || data.length === 0)">
       Select at least one food item in the list.
     </MissingDataOverlay>
   </div>
