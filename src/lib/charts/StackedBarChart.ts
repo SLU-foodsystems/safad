@@ -22,6 +22,7 @@ interface Config {
     // x: string; // TODO: Not implemented
     y: string;
   };
+  tooltipUnit: string;
 }
 
 export default function StackedBarChart(
@@ -40,6 +41,8 @@ export default function StackedBarChart(
     labelLayout: "normal",
     labelTextMapper: (id: string) => id, // no change
     colors: [],
+    tooltipUnit: "",
+
     ...options,
 
     // Nested items
@@ -145,10 +148,21 @@ export default function StackedBarChart(
 
   const color = d3.scaleOrdinal(cfg.colors).domain(columns);
 
+  type DataPoint = { [key: string]: number };
+  type StackedData = d3.Series<{ [key: string]: number }, string>[];
+
   // Stack the data.
-  const stackedData = d3.stack().keys(reversed(columns))(
-    data as unknown as { [key: string]: number }[]
+  const stackedData: StackedData = d3.stack().keys(reversed(columns))(
+    data as unknown as DataPoint[]
   );
+
+  // ----------------
+  // Create a tooltip
+  // ----------------
+  const tooltip = d3
+    .select(containerSelector)
+    .append("div")
+    .attr("class", "d3-tooltip");
 
   // Show the bars
   svg
@@ -166,5 +180,30 @@ export default function StackedBarChart(
     .attr("x", (d) => xAxis(d.data.category))
     .attr("y", (d) => yAxis(d[1]))
     .attr("height", (d) => yAxis(d[0]) - yAxis(d[1]))
-    .attr("width", xAxis.bandwidth());
+    .attr("width", xAxis.bandwidth())
+    .on("mouseover", function (_event, d) {
+      if (!this || !("parentNode" in this)) return;
+
+      const pNode = d3.select(this.parentNode as d3.BaseType);
+      const thisData = pNode.datum() as [number, number][] & { key: string };
+      if (!thisData || !thisData.key) return;
+
+      const subgroupName = thisData.key;
+      const subgroupValue = d.data[subgroupName];
+      const html =
+        `<strong>${subgroupName}</strong><br />` +
+        `${subgroupValue.toPrecision(2)} ${cfg.tooltipUnit}`;
+      tooltip
+        .html(html)
+        .style("opacity", 1)
+        .style("border-color", color(subgroupName));
+    })
+    .on("mousemove", (event) => {
+      const x = event.layerX + 10;
+      const y = event.layerY;
+      tooltip.style("transform", `translate(${x}px, ${y}px)`);
+    })
+    .on("mouseleave", () => {
+      tooltip.style("opacity", 0);
+    });
 }

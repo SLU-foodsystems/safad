@@ -131,6 +131,7 @@ const drawChart = () => {
     height,
     maxValue: 100,
     axisLabels: { y: "Contribution, %" },
+    tooltipUnit: "%",
 
     labelLayout,
     colors,
