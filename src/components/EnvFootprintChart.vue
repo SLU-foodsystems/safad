@@ -72,7 +72,7 @@ onMounted(drawChart);
       </div>
     </DownloadableSvg>
     <MissingDataOverlay :show="!data || data.length === 0">
-      Select at at least one food item in the list.
+      Select at least one food item in the list.
     </MissingDataOverlay>
   </div>
 </template>
