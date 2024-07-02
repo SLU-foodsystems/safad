@@ -148,7 +148,7 @@ onMounted(drawChart);
       <PlaceholderSvg :aspect-ratio="0.6" />
     </div>
     <MissingDataOverlay :show="props.data.length === 0">
-      Select at at least one food item in the list.
+      Select at least one food item in the list.
     </MissingDataOverlay>
   </DownloadableSvg>
 </template>
