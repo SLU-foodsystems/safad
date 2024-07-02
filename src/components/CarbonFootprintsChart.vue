@@ -124,6 +124,7 @@ const drawChart = async () => {
     axisLabels: {
       y: "kg CO2e per kg",
     },
+    tooltipUnit: "kg CO2e per kg",
     colors,
   });
 
