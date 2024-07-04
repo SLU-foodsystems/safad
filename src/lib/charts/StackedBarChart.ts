@@ -195,8 +195,7 @@ export default function StackedBarChart(
         `${subgroupValue.toPrecision(2)} ${cfg.tooltipUnit}`;
       tooltip
         .html(html)
-        .style("opacity", 1)
-        .style("border-color", color(subgroupName));
+        .style("opacity", 1);
     })
     .on("mousemove", (event) => {
       const x = event.layerX + 10;
