@@ -4,7 +4,7 @@ import { promisify } from "node:util";
 export default async function countCommitsSince(since: string) {
   try {
     const { stdout, stderr } = await promisify(exec)(
-      `git rev-list --count HEAD --since="${since}"`
+      `git rev-list --count HEAD --since="${since} 00:00"`
     );
 
     if (stderr) {
