@@ -156,9 +156,7 @@ export default function StackedBarChart(
     data as unknown as DataPoint[]
   );
 
-  // ----------------
-  // Create a tooltip
-  // ----------------
+  // Create the tooltip element, outside of the svg
   const tooltip = d3
     .select(containerSelector)
     .append("div")
@@ -190,12 +188,11 @@ export default function StackedBarChart(
 
       const subgroupName = thisData.key;
       const subgroupValue = d.data[subgroupName];
-      const html =
+      const tooltipHtml =
         `<strong>${subgroupName}</strong><br />` +
         `${subgroupValue.toPrecision(2)} ${cfg.tooltipUnit}`;
-      tooltip
-        .html(html)
-        .style("opacity", 1);
+
+      tooltip.html(tooltipHtml).style("opacity", 1);
     })
     .on("mousemove", (event) => {
       const x = event.layerX + 10;
