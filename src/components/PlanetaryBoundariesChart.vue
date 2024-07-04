@@ -55,12 +55,18 @@ const drawChart = () => {
   const width = Math.floor(rect.width);
   const height = Math.floor(rect.width); // Square
 
+  const fontSize = width < 450 ? "3vmin" : "16px";
+
   const data = pickData(props.data);
   const pad = Math.max(32, width / 3);
+  const maxLabelPadding = (pad / 2) - 16;
+  const labelPadding = Math.min(maxLabelPadding, 50);
   BoundariesChart(el.value, data, {
     width,
     height,
     levels: 6,
+    fontSize,
+    labelPadding,
     padding: { top: pad, right: pad, bottom: pad, left: pad },
   });
 };
