@@ -906,10 +906,6 @@ onMounted(async () => {
     margin-top: 0;
   }
 
-  p {
-    text-align: justify;
-  }
-
   > div .cluster {
     flex-wrap: wrap;
   }

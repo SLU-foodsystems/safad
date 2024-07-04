@@ -9,6 +9,7 @@ interface Config {
   opacityCircles: number; // The opacity of the circles of each blob
   slicePadding: number; // The %-padding of the arc in each slice
   labelPadding: number;
+  fontSize: string;
 }
 
 type RadarDataPoint = { axis: string; value: number };
@@ -28,6 +29,7 @@ export default function BoundariesChart(
     opacityCircles: 0.1,
     slicePadding: 0.015,
     labelPadding: 50,
+    fontSize: "16px",
     ...options,
   };
 
@@ -237,7 +239,7 @@ export default function BoundariesChart(
   labels
     .append("textPath")
     .style("dominant-baseline", "central")
-    .style("font-size", "16px")
+    .style("font-size", `${cfg.fontSize}`)
     .style("font-weight", "bold")
     .attr("text-anchor", "middle")
     .attr("startOffset", "25%")
