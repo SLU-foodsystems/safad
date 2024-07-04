@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ref, watch, computed, onMounted } from "vue";
+import * as Comlink from "comlink";
 
 import * as DefaultInputFiles from "@/lib/default-input-files";
 import MetaFile from "@/lib/MetaFile";
@@ -43,9 +44,12 @@ import {
   computeDietFootprints,
 } from "@/lib/diet-output-generator";
 
+import ResultsEngineWorker from "@/lib/results-engine-worker?worker"
+import type ResultsEngineInstance from "@/lib/ResultsEngine"
+
 const APP_VERSION = __APP_VERSION__;
 
-const RE = new ResultsEngine();
+const RE = Comlink.wrap<ResultsEngineInstance>(new ResultsEngineWorker());
 
 const countryCode = ref("SE");
 const isLoading = ref(false);
@@ -122,7 +126,7 @@ const castData = (
 
 const downloadFootprintsOfFoods = async (filetype: "csv" | "xlsx") => {
   const impactsOfRecipe = labeledAndFilteredImpacts(
-    RE.computeImpactsOfRecipe(),
+    await RE.computeImpactsOfRecipe(),
     await foodNamesPromise.value
   );
 
@@ -144,7 +148,7 @@ const downloadFootprintsOfFoods = async (filetype: "csv" | "xlsx") => {
 const downloadFootprintsOfDiets = async (filetype: "csv" | "xlsx") => {
   const data = [
     DIET_RESULTS_HEADER,
-    ...computeDietFootprints(diet.value, RE, await foodNamesPromise.value),
+    ... (await computeDietFootprints(diet.value, RE, await foodNamesPromise.value)),
   ];
 
   if (filetype === "csv") {
@@ -237,7 +241,7 @@ const downloadZip = async () => {
   }
 
   const impactsOfRecipe = labeledAndFilteredImpacts(
-    RE.computeImpactsOfRecipe(),
+    await RE.computeImpactsOfRecipe(),
     await foodNamesPromise.value
   );
   const impactsOfRecipeCsv = stringifyCsvData([
@@ -249,7 +253,7 @@ const downloadZip = async () => {
 
   const detailedDietImpactsCsv = stringifyCsvData([
     DIET_RESULTS_HEADER,
-    ...computeDietFootprints(diet.value, RE, await foodNamesPromise.value),
+    await ...computeDietFootprints(diet.value, RE, await foodNamesPromise.value),
   ]);
   zip.file(SAFAD_FILE_NAMES.Output.FootprintsPerDiet, detailedDietImpactsCsv);
 
@@ -279,7 +283,7 @@ const {
  * - Re-load all country-dependant files
  */
 watch(countryCode, async () => {
-  RE.setCountryCode(countryCode.value);
+  await RE.setCountryCode(countryCode.value);
 
   const promises = [];
 

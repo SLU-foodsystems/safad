@@ -375,4 +375,6 @@ class ResultsEngine {
   }
 }
 
+export type ResultsEngineInstance = typeof ResultsEngine;
+
 export default ResultsEngine;

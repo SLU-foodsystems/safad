@@ -14,6 +14,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "comlink": "^4.4.1",
     "d3": "^7.9.0",
     "exceljs": "^4.4.0",
     "file-saver": "^2.0.5",

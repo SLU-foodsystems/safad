@@ -5,8 +5,9 @@ import { initInputFile } from "@/lib/file-interface-utils";
 import * as DefaultInputFiles from "@/lib/default-input-files";
 import * as InputFileParsers from "@/lib/input-files-parsers";
 import { SAFAD_FILE_NAMES } from "@/lib/constants";
+import type { Remote } from "comlink";
 
-export default function initInputFiles(RE: ResultsEngine) {
+export default function initInputFiles(RE: Remote<ResultsEngine>) {
   // Needs to be separate, as they're not managed by the ResultsEngine
   const diet = ref<Diet>([]);
   const sfaRecipes = ref<SfaRecipeComponent[]>([]);
