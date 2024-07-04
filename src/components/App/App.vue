@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, watch, computed, onMounted, defineAsyncComponent } from "vue";
+import { ref, watch, computed, onMounted } from "vue";
 
 import * as DefaultInputFiles from "@/lib/default-input-files";
 import MetaFile from "@/lib/MetaFile";
