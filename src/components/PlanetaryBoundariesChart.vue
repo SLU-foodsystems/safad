@@ -53,13 +53,13 @@ const drawChart = () => {
 
   const rect = el.value.getBoundingClientRect();
   const width = Math.floor(rect.width);
-  const height = Math.floor(rect.width); // Square
+  const height = width; // Square
 
   const fontSize = width < 450 ? "3vmin" : "16px";
 
   const data = pickData(props.data);
   const pad = Math.max(32, width / 3);
-  const maxLabelPadding = (pad / 2) - 16;
+  const maxLabelPadding = pad / 2 - 16;
   const labelPadding = Math.min(maxLabelPadding, 50);
   BoundariesChart(el.value, data, {
     width,
