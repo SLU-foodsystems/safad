@@ -162,6 +162,12 @@ export default function StackedBarChart(
     .append("div")
     .attr("class", "d3-tooltip");
 
+  const moveTooltip = (event: MouseEvent) => {
+    const x = event.layerX + 10;
+    const y = event.layerY;
+    tooltip.style("transform", `translate(${x}px, ${y}px)`);
+  };
+
   // Show the bars
   svg
     .append("g")
@@ -179,7 +185,7 @@ export default function StackedBarChart(
     .attr("y", (d) => yAxis(d[1]))
     .attr("height", (d) => yAxis(d[0]) - yAxis(d[1]))
     .attr("width", xAxis.bandwidth())
-    .on("mouseover", function (_event, d) {
+    .on("mouseover", function (event, d) {
       if (!this || !("parentNode" in this)) return;
 
       const pNode = d3.select(this.parentNode as d3.BaseType);
@@ -193,12 +199,10 @@ export default function StackedBarChart(
         `${subgroupValue.toPrecision(2)} ${cfg.tooltipUnit}`;
 
       tooltip.html(tooltipHtml).style("opacity", 1);
+
+      moveTooltip(event);
     })
-    .on("mousemove", (event) => {
-      const x = event.layerX + 10;
-      const y = event.layerY;
-      tooltip.style("transform", `translate(${x}px, ${y}px)`);
-    })
+    .on("mousemove", moveTooltip)
     .on("mouseleave", () => {
       tooltip.style("opacity", 0);
     });
