@@ -38,6 +38,11 @@ const safeLabelColor = (color: string): string => {
   return d3.color(color)?.darker(0.5).formatHex() || "#000";
 };
 
+const contrastingTextColor = (color: string): string => {
+  const b = brightness(color);
+  return Number.isNaN(b) || b > 128 ? "#000" : "#fff";
+};
+
 export default function PieChart(
   container: HTMLElement,
   data: DataPoint[],
@@ -66,6 +71,19 @@ export default function PieChart(
 
   // Remove whatever chart with the same id/class was present before
   d3.select(container).select("svg").remove();
+
+  // Create the tooltip element, outside of the svg
+  const tooltip = d3
+    .select(container)
+    .append("div")
+    .attr("class", "d3-tooltip")
+    .style("text-align", "left");
+
+  const moveTooltip = (event: MouseEvent) => {
+    const x = event.layerX + 10;
+    const y = event.layerY;
+    tooltip.style("transform", `translate(${x}px, ${y}px)`);
+  };
 
   const root = d3
     .select(container)
@@ -99,14 +117,34 @@ export default function PieChart(
     .enter()
     .append("path")
     .attr("d", arcGenerator)
-    .attr("fill", (d) => d.data.color);
+    .attr("fill", (d) => d.data.color)
+    .on("mouseover", function (event, d) {
+      if (!d || !d.data || !d.value) return;
+
+      const subgroupName = d.data.label;
+      const subgroupValue = d.data.value * 100;
+      const tooltipHtml =
+        `<strong>${subgroupName}</strong><br />` +
+        `${subgroupValue.toPrecision(2)} %`;
+
+      tooltip.html(tooltipHtml).style("opacity", 1);
+
+      tooltip
+        .style("background-color", d.data.color)
+        .style("color", contrastingTextColor(d.data.color));
+
+      moveTooltip(event);
+    })
+    .on("mousemove", moveTooltip)
+    .on("mouseleave", () => {
+      tooltip.style("opacity", 0);
+    });
 
   if (!cfg.drawLabels) return;
 
   // ==================================================
   // Draw the labels and lines - a bit tricky
   // ==================================================
-
 
   // First, we draw the text once. We're only doing this to get the
 
@@ -126,7 +164,7 @@ export default function PieChart(
   );
 
   // Helper to copy a nested array, creating a mutable clone
-  const copyNestedArr = <T>(xss: T[][]): T[][] => xss.map(xs => [...xs]);
+  const copyNestedArr = <T>(xss: T[][]): T[][] => xss.map((xs) => [...xs]);
 
   const drawWithoutCollisions = (
     startIndex: number,
@@ -150,7 +188,6 @@ export default function PieChart(
       const offset = newY - prevY;
       yOffsets[i + 1] = offset;
     });
-
 
     // Now, we may have pushed some text-elemnts out of the canvas when doing
     // this. Have we?
@@ -184,6 +221,7 @@ export default function PieChart(
       .append("polyline")
       .attr("stroke", (d) => d.data.color)
       .style("fill", "none")
+      .style("pointer-events", "none")
       .attr("stroke-width", 1)
       // @ts-ignore
       .attr("points", (d, i) => {
