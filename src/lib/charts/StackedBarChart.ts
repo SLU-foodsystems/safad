@@ -25,6 +25,18 @@ interface Config {
   tooltipUnit: string;
 }
 
+const brightness = (color: string) => {
+  const rgb = d3.color(color)?.rgb();
+  if (!rgb) return NaN;
+  // See https://www.w3.org/TR/AERT/#color-contrast
+  return (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
+};
+
+const contrastingTextColor = (color: string): string => {
+  const b = brightness(color);
+  return Number.isNaN(b) || b > 128 ? "#000" : "#fff";
+};
+
 export default function StackedBarChart(
   containerSelector: HTMLElement,
   data: DataPoint[],
@@ -198,7 +210,13 @@ export default function StackedBarChart(
         `<strong>${subgroupName}</strong><br />` +
         `${subgroupValue.toPrecision(2)} ${cfg.tooltipUnit}`;
 
-      tooltip.html(tooltipHtml).style("opacity", 1);
+      const c = color(subgroupName);
+
+      tooltip
+        .html(tooltipHtml)
+        .style("opacity", 1)
+        .style("background-color", c)
+        .style("color", contrastingTextColor(c));
 
       moveTooltip(event);
     })
