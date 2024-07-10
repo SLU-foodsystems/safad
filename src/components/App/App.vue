@@ -787,6 +787,7 @@ onMounted(async () => {
               alt="Plan'Eat"
               width="543"
               height="142"
+              loading="lazy"
             />
           </a>
           <p>
@@ -804,6 +805,7 @@ onMounted(async () => {
               width="81"
               height="54"
               alt="EU Flag"
+              loading="lazy"
             />
           </a>
           <p>
