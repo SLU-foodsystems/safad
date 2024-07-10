@@ -26,7 +26,9 @@ const rpcNames = ref<Record<string, string>>({});
 // Dynamic state
 
 // List of all items
-const items = computed(() => props.foodCodes);
+const items = computed(() =>
+  props.foodCodes.map((code) => ({ code, label: getName(code) }))
+);
 // Keep track of codes selected
 const selected = ref<string[]>([]);
 // Sorted list, for drawing in UI
@@ -62,21 +64,19 @@ function deselectItem(codeToDeselect: string) {
     <Listbox
       v-model="selected"
       :options="items"
-      :optionLabel="getName"
+      optionValue="code"
+      optionLabel="label"
       :virtualScrollerOptions="{ itemSize: 32 }"
       listStyle="height:250px"
 
       multiple
-      striped
       checkmark
       filter
 
       filterPlaceholder="Filter codes and names..."
       emptyFilterMessage="No results found."
       emptyMessage="No results found."
-
-      ariaLabelledby="listbox-label"
-
+      aria-labelledby="listbox-label"
       @update:modelValue="onUpdate"
     />
     <div class="error-region" aria-live="polite">
