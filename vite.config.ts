@@ -20,8 +20,23 @@ const getMinorVersion = (since: string) =>
     return 0;
   });
 
+const padLeft = (number: number | string, minLen: number): string =>
+  minLen > 0 && String(number).length < minLen
+    ? ("0".repeat(minLen) + number).slice(-1 * minLen)
+    : String(number);
+
+const fmtDate = (d: Date = new Date(), sep = "-") => {
+  const yyyy = d.getFullYear();
+  const mm = padLeft(d.getMonth() + 1, 2);
+  const dd = padLeft(d.getDate(), 2);
+  return yyyy + sep + mm + sep + dd;
+};
+
 const getFullVersion = async () =>
-  VERSION_MAJOR + "." + (await getMinorVersion(VERSION_MINOR_COUNT_SINCE));
+  VERSION_MAJOR +
+  "." +
+  (await getMinorVersion(VERSION_MINOR_COUNT_SINCE)) +
+  ` (${fmtDate()})`;
 
 // https://vitejs.dev/config/
 export default defineConfig({
