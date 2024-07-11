@@ -388,6 +388,10 @@ p {
   border-radius: 0.25em;
   background-color: $green_forest;
   color: white;
+
+  @media (pointer: coarse) {
+    display: none;
+  }
 }
 
 /*
