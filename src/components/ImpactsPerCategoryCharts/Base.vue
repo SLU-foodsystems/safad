@@ -35,6 +35,8 @@ const dataMap: [string, number][] = [
   ["Pesticides use", aggregateHeaderIndex("Pesticides (g a.i)")],
   ["Biodiversity impact", aggregateHeaderIndex("Biodiversity (E/MSY)")],
   ["Ammonia emissions", aggregateHeaderIndex("Ammonia (kg NH3)")],
+  ["Animal welfare", aggregateHeaderIndex("Animal welfare (index)")],
+  ["Antibiotics", aggregateHeaderIndex("Antibiotics (index)")],
 ];
 
 const mergeAndRelabelData = (
