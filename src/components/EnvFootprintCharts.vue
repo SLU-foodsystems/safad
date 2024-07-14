@@ -10,43 +10,43 @@ const props = defineProps<{
 
 const charts = [
   {
-    index: aggregateHeaderIndex("Cropland (m2*year/kg)"),
+    index: aggregateHeaderIndex("Cropland (m2*year)"),
     color: SLU_COLORS.Green.Chlorophyll,
     title: "Cropland use",
     yLabel: "m2 per year per kg",
   },
   {
-    index: aggregateHeaderIndex("Water (m3/kg)"),
+    index: aggregateHeaderIndex("Water (m3)"),
     color: SLU_COLORS.Blue.Sky,
     title: "Blue water use",
     yLabel: "m3 per kg",
   },
   {
-    index: aggregateHeaderIndex("New N input (kg N/kg)"),
+    index: aggregateHeaderIndex("New N input (kg N)"),
     color: SLU_COLORS.Blue.Cyan,
     title: "New N use",
     yLabel: "kg N per kg",
   },
   {
-    index: aggregateHeaderIndex("New P input (kg P/kg)"),
+    index: aggregateHeaderIndex("New P input (kg P)"),
     color: SLU_COLORS.Blue.Seabay,
     title: "New P use",
     yLabel: "kg P per kg",
   },
   {
-    index: aggregateHeaderIndex("Ammonia (kg NH3/kg)"),
+    index: aggregateHeaderIndex("Ammonia (kg NH3)"),
     color: SLU_COLORS.Blue.OceanDepth,
     title: "Ammonia",
     yLabel: "kg NH3 per kg",
   },
   {
-    index: aggregateHeaderIndex("Pesticides (g a.i/kg)"),
+    index: aggregateHeaderIndex("Pesticides (g a.i)"),
     color: SLU_COLORS.Red.Coral,
     title: "Pesticides",
     yLabel: "g a.i per kg",
   },
   {
-    index: aggregateHeaderIndex("Biodiversity (E/MSY/kg)"),
+    index: aggregateHeaderIndex("Biodiversity (E/MSY)"),
     color: SLU_COLORS.Red.Apricot,
     title: "Biodiversity impact from land use",
     yLabel: "E per MSY per kg",

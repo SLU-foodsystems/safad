@@ -26,13 +26,13 @@ export const AGGREGATE_HEADERS = [
   "Nitrous oxide, primary production (kg N2O)",
 
   // Key indicators - raw materials
-  "Cropland (m2*year/kg)",
-  "New N input (kg N/kg)",
-  "New P input (kg P/kg)",
-  "Water (m3/kg)",
-  "Pesticides (g a.i/kg)",
-  "Biodiversity (E/MSY/kg)",
-  "Ammonia (kg NH3/kg)",
+  "Cropland (m2*year)",
+  "New N input (kg N)",
+  "New P input (kg P)",
+  "Water (m3)",
+  "Pesticides (g a.i)",
+  "Biodiversity (E/MSY)",
+  "Ammonia (kg NH3)",
   "Animal welfare (index)",
   "Antibiotics (index)",
 

@@ -28,13 +28,13 @@ const dataMap: [string, number][] = [
     "Carbon footprint",
     aggregateHeaderIndex("Carbon footprint, total (kg CO2e)"),
   ],
-  ["Cropland use", aggregateHeaderIndex("Cropland (m2*year/kg)")],
-  ["New N input", aggregateHeaderIndex("New N input (kg N/kg)")],
-  ["New P input", aggregateHeaderIndex("New P input (kg P/kg)")],
-  ["Blue water use", aggregateHeaderIndex("Water (m3/kg)")],
-  ["Pesticides use", aggregateHeaderIndex("Pesticides (g a.i/kg)")],
-  ["Biodiversity impact", aggregateHeaderIndex("Biodiversity (E/MSY/kg)")],
-  ["Ammonia emissions", aggregateHeaderIndex("Ammonia (kg NH3/kg)")],
+  ["Cropland use", aggregateHeaderIndex("Cropland (m2*year)")],
+  ["New N input", aggregateHeaderIndex("New N input (kg N)")],
+  ["New P input", aggregateHeaderIndex("New P input (kg P)")],
+  ["Blue water use", aggregateHeaderIndex("Water (m3)")],
+  ["Pesticides use", aggregateHeaderIndex("Pesticides (g a.i)")],
+  ["Biodiversity impact", aggregateHeaderIndex("Biodiversity (E/MSY)")],
+  ["Ammonia emissions", aggregateHeaderIndex("Ammonia (kg NH3)")],
 ];
 
 const mergeAndRelabelData = (
