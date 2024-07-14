@@ -1,5 +1,7 @@
 import * as d3 from "d3";
 
+const SLICE_OFFSET = 0.5;
+
 interface Config {
   width: number; // Width of the circle
   height: number; // Height of the circle
@@ -47,6 +49,11 @@ export default function BoundariesChart(
 
   // Scale for the radius
   const rScale = d3.scaleLinear().range([0, radius]).domain([0, cfg.maxValue]);
+
+  const getSliceAngle = (i: number, pos: "start" | "end") =>
+    pos === "start"
+      ? angleSlice * (i + SLICE_OFFSET) + anglePadding
+      : angleSlice * (i + 1 + SLICE_OFFSET) - anglePadding;
 
   /////////////////////////////////////////////////////////
   //////////// Create the container SVG and g /////////////
@@ -182,8 +189,8 @@ export default function BoundariesChart(
     .arc<any, RadarDataPoint>()
     .innerRadius(0)
     .outerRadius((d) => rScale(d.value))
-    .startAngle((_d, i) => angleSlice * (i + 0.5) + anglePadding)
-    .endAngle((_d, i) => angleSlice * (i + 1.5) - anglePadding);
+    .startAngle((_d, i) => getSliceAngle(i, "start"))
+    .endAngle((_d, i) => getSliceAngle(i, "end"));
 
   // Append the circles
   blobWrapper
@@ -224,12 +231,24 @@ export default function BoundariesChart(
   // Append the labels at each axis
   const labels = labelAxis.append("text");
 
+  // Determine if the label (text) is upside-down, and should be flipped
+  const hasFlippedLabel = (i: number) => {
+    const k = N / 4;
+    const east = 1.5 * k - SLICE_OFFSET;
+    const west = 2.5 * k - SLICE_OFFSET;
+    return east < i + 1 && i < west;
+  };
+
   const labelArc = d3
     .arc<string>()
     .innerRadius(() => labelRadius)
     .outerRadius(() => labelRadius)
-    .startAngle((_d, i) => angleSlice * (i + 0.5) + anglePadding)
-    .endAngle((_d, i) => angleSlice * (i + 1.5) - anglePadding);
+    .startAngle((_d, i) =>
+      getSliceAngle(i, !hasFlippedLabel(i) ? "start" : "end")
+    )
+    .endAngle((_d, i) =>
+      getSliceAngle(i, !hasFlippedLabel(i) ? "end" : "start")
+    );
 
   labels
     .append("path")
