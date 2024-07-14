@@ -34,15 +34,15 @@ export default function BoundariesChart(
   };
 
   const axes = data.map((i) => i.axis); // Names of each axis
-  const total = axes.length; // The number of different axes
+  const N = axes.length; // The number of different axes
 
   const innerWidth = cfg.width - cfg.padding.left - cfg.padding.right;
   const innerHeight = cfg.height - cfg.padding.top - cfg.padding.bottom;
 
-  const labelRadius = (Math.min(cfg.width, cfg.height) / 2) - cfg.labelPadding;
+  const labelRadius = Math.min(cfg.width, cfg.height) / 2 - cfg.labelPadding;
 
   const radius = Math.min(innerWidth, innerHeight) / 2; // Radius of the outermost circle
-  const angleSlice = (Math.PI * 2) / total; // The width in radians of each "slice"
+  const angleSlice = (Math.PI * 2) / N; // The width in radians of each "slice"
   const anglePadding = cfg.slicePadding * Math.PI * 2;
 
   // Scale for the radius
@@ -136,7 +136,7 @@ export default function BoundariesChart(
   // I do not understand this math, this is really trial-and-error.
   // Trig was too long ago, sorry.
   let axesOffset = 0;
-  switch (total % 4) {
+  switch (N % 4) {
     case 0:
       axesOffset = angleSlice / 2;
       break;
