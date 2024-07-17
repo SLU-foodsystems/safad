@@ -13,12 +13,12 @@ export const TRANSPORT_EMISSIONS_ZERO = zeroes(N_TRANSPORT_GHGS);
 
 // The planetary boundaries used as limits.
 export const PLANETARY_BOUNDARY_LIMITS = {
-  co2e: (0.67 * 1000) / 365, // from tonnes per year to kg per day
-  land: (0.174 * 10000) / 365, // from ha per year to m2 per day
-  n: 12 / 365, // kg per year -> kg per day
-  p: 1.1 / 365, // kg per year -> kg per day
-  h2o: 334 / 365, // m3, per year -> per day
-  biodiversity: 4.7e-10 / 365, // extinctions per million species years -> per day
+  co2e: (0.625 * 1000) / 365, // from tonnes per year to kg per day
+  land: (0.1625 * 10000) / 365, // from ha per year to m2 per day
+  n: 11.25 / 365, // kg per year -> kg per day
+  p: 1.0 / 365, // kg per year -> kg per day
+  h2o: 312.5 / 365, // m3, per year -> per day
+  biodiversity: 4.404e-10 / 365, // extinctions per million species years -> per day
 };
 
 // Conversion factors from other GHGs to CO2.
