@@ -1,6 +1,7 @@
 //@ts-disable
 import * as d3 from "d3";
 import { reversed } from "@/lib/utils";
+import { contrastingTextColor } from "./charts-utils";
 
 type DataPoint = {
   [k: string]: number | string;
@@ -24,18 +25,6 @@ interface Config {
   };
   tooltipUnit: string;
 }
-
-const brightness = (color: string) => {
-  const rgb = d3.color(color)?.rgb();
-  if (!rgb) return NaN;
-  // See https://www.w3.org/TR/AERT/#color-contrast
-  return (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
-};
-
-const contrastingTextColor = (color: string): string => {
-  const b = brightness(color);
-  return Number.isNaN(b) || b > 128 ? "#000" : "#fff";
-};
 
 export default function StackedBarChart(
   containerSelector: HTMLElement,
