@@ -322,7 +322,6 @@ A.02.01.009,Salsifies,Argentina,AR,0.036,0.06,01445
 A.02.01.009,Salsifies,Austria,AT,0.008,0.06,01445
 A.02.01.009,Salsifies,Bulgaria,BG,0.094,0.06,01445
 A.02.01.009,Salsifies,China,CN,0.006,0.06,01445
-A.02.01.009,Salsifies,France,FR,0.1,0.06,01445
 A.02.01.009,Salsifies,Germany,DE,0.044,0.06,01445
 A.02.01.009,Salsifies,Croatia,HR,0.018,0.06,01445
 A.02.01.009,Salsifies,Italy,IT,0.003,0.06,01445
@@ -1017,7 +1016,6 @@ A.02.05.019,Dandelions,Argentina,AR,0.036,0.06,01445
 A.02.05.019,Dandelions,Austria,AT,0.008,0.06,01445
 A.02.05.019,Dandelions,Bulgaria,BG,0.094,0.06,01445
 A.02.05.019,Dandelions,China,CN,0.006,0.06,01445
-A.02.05.019,Dandelions,France,FR,0.1,0.06,01445
 A.02.05.019,Dandelions,Germany,DE,0.044,0.06,01445
 A.02.05.019,Dandelions,Croatia,HR,0.018,0.06,01445
 A.02.05.019,Dandelions,Italy,IT,0.003,0.06,01445
@@ -1147,7 +1145,6 @@ A.02.07.002,Cardoons,Argentina,AR,0.036,0.06,01445
 A.02.07.002,Cardoons,Austria,AT,0.008,0.06,01445
 A.02.07.002,Cardoons,Bulgaria,BG,0.094,0.06,01445
 A.02.07.002,Cardoons,China,CN,0.006,0.06,01445
-A.02.07.002,Cardoons,France,FR,0.1,0.06,01445
 A.02.07.002,Cardoons,Germany,DE,0.044,0.06,01445
 A.02.07.002,Cardoons,Croatia,HR,0.018,0.06,01445
 A.02.07.002,Cardoons,Italy,IT,0.003,0.06,01445
@@ -1868,35 +1865,8 @@ A.04.02.008,Lima beans (dry),United Republic of Tanzania,TZ,0.006,0.06,01701
 A.04.02.008,Lima beans (dry),Thailand,TH,0.009,0.06,01701
 A.04.02.008,Lima beans (dry),Turkey,TR,0.037,0.06,01701
 A.04.02.009,Mung bean sprouts,Canada,CA,0.135,0.06,01701
-A.04.02.009,Mung bean sprouts,Canada,CA,0.135,0.06,01701
-A.04.02.009,Mung bean sprouts,USA,US,0.112,0.06,01701
 A.04.02.009,Mung bean sprouts,USA,US,0.112,0.06,01701
 A.04.02.009,Mung bean sprouts,Ethiopia,ET,0.101,0.06,01701
-A.04.02.009,Mung bean sprouts,Ethiopia,ET,0.101,0.06,01701
-A.04.02.009,Mung bean sprouts,Argentina,AR,0.02,0.06,01701
-A.04.02.009,Mung bean sprouts,Australia,AU,0.003,0.06,01701
-A.04.02.009,Mung bean sprouts,Bolivia,BO,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Brazil,BR,0.004,0.06,01701
-A.04.02.009,Mung bean sprouts,Chile,CL,0.002,0.06,01701
-A.04.02.009,Mung bean sprouts,Egypt,EG,0.005,0.06,01701
-A.04.02.009,Mung bean sprouts,France,FR,0.009,0.06,01701
-A.04.02.009,Mung bean sprouts,Greece,GR,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,India,IN,0.007,0.06,01701
-A.04.02.009,Mung bean sprouts,Italy,IT,0.003,0.06,01701
-A.04.02.009,Mung bean sprouts,Kyrgyzstan,KG,0.036,0.06,01701
-A.04.02.009,Mung bean sprouts,Kenya,KE,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Lithuania,LT,0.004,0.06,01701
-A.04.02.009,Mung bean sprouts,Madagascar,MG,0.006,0.06,01701
-A.04.02.009,Mung bean sprouts,Malawi,MW,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Mexico,MX,0.002,0.06,01701
-A.04.02.009,Mung bean sprouts,Netherlands,NL,0.022,0.06,01701
-A.04.02.009,Mung bean sprouts,Niger,NE,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Peru,PE,0.008,0.06,01701
-A.04.02.009,Mung bean sprouts,Russia,RU,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Spain,ES,0.002,0.06,01701
-A.04.02.009,Mung bean sprouts,United Republic of Tanzania,TZ,0.006,0.06,01701
-A.04.02.009,Mung bean sprouts,Thailand,TH,0.009,0.06,01701
-A.04.02.009,Mung bean sprouts,Turkey,TR,0.037,0.06,01701
 A.04.02.009,Mung bean sprouts,Argentina,AR,0.02,0.06,01701
 A.04.02.009,Mung bean sprouts,Australia,AU,0.003,0.06,01701
 A.04.02.009,Mung bean sprouts,Bolivia,BO,0.001,0.06,01701
@@ -2204,7 +2174,6 @@ A.04.04.005,Sunflower seeds,Argentina,AR,0.036,0.06,01445
 A.04.04.005,Sunflower seeds,Austria,AT,0.008,0.06,01445
 A.04.04.005,Sunflower seeds,Bulgaria,BG,0.094,0.06,01445
 A.04.04.005,Sunflower seeds,China,CN,0.006,0.06,01445
-A.04.04.005,Sunflower seeds,France,FR,0.1,0.06,01445
 A.04.04.005,Sunflower seeds,Germany,DE,0.044,0.06,01445
 A.04.04.005,Sunflower seeds,Croatia,HR,0.018,0.06,01445
 A.04.04.005,Sunflower seeds,Italy,IT,0.003,0.06,01445
@@ -4119,7 +4088,6 @@ A.16.01.001,Chervil,Syrian Arab Republic,SY,0.149,0.07,01654
 A.16.01.001,Chervil,Ukraine,UA,0.113,0.07,01654
 A.16.01.001,Chervil,Afghanistan,AF,0.001,0.07,01654
 A.16.01.001,Chervil,Argentina,AR,0.011,0.07,01654
-A.16.01.001,Chervil,Bulgaria,BG,0.1,0.07,01654
 A.16.01.001,Chervil,Canada,CA,0.007,0.07,01654
 A.16.01.001,Chervil,China,CN,0.093,0.07,01654
 A.16.01.001,Chervil,Egypt,EG,0.066,0.07,01654
@@ -4153,7 +4121,6 @@ A.16.02.006,Anise seed,Syrian Arab Republic,SY,0.149,0.07,01654
 A.16.02.006,Anise seed,Ukraine,UA,0.113,0.07,01654
 A.16.02.006,Anise seed,Afghanistan,AF,0.001,0.07,01654
 A.16.02.006,Anise seed,Argentina,AR,0.011,0.07,01654
-A.16.02.006,Anise seed,Bulgaria,BG,0.1,0.07,01654
 A.16.02.006,Anise seed,Canada,CA,0.007,0.07,01654
 A.16.02.006,Anise seed,China,CN,0.093,0.07,01654
 A.16.02.006,Anise seed,Egypt,EG,0.066,0.07,01654
@@ -4176,7 +4143,6 @@ A.16.02.008,Black caraway seed,Syrian Arab Republic,SY,0.149,0.07,01654
 A.16.02.008,Black caraway seed,Ukraine,UA,0.113,0.07,01654
 A.16.02.008,Black caraway seed,Afghanistan,AF,0.001,0.07,01654
 A.16.02.008,Black caraway seed,Argentina,AR,0.011,0.07,01654
-A.16.02.008,Black caraway seed,Bulgaria,BG,0.1,0.07,01654
 A.16.02.008,Black caraway seed,Canada,CA,0.007,0.07,01654
 A.16.02.008,Black caraway seed,China,CN,0.093,0.07,01654
 A.16.02.008,Black caraway seed,Egypt,EG,0.066,0.07,01654
@@ -4200,7 +4166,6 @@ A.16.02.010,Caraway fruit,Syrian Arab Republic,SY,0.149,0.07,01654
 A.16.02.010,Caraway fruit,Ukraine,UA,0.113,0.07,01654
 A.16.02.010,Caraway fruit,Afghanistan,AF,0.001,0.07,01654
 A.16.02.010,Caraway fruit,Argentina,AR,0.011,0.07,01654
-A.16.02.010,Caraway fruit,Bulgaria,BG,0.1,0.07,01654
 A.16.02.010,Caraway fruit,Canada,CA,0.007,0.07,01654
 A.16.02.010,Caraway fruit,China,CN,0.093,0.07,01654
 A.16.02.010,Caraway fruit,Egypt,EG,0.066,0.07,01654
@@ -4226,7 +4191,6 @@ A.16.02.016,Coriander seed,Syrian Arab Republic,SY,0.149,0.07,01654
 A.16.02.016,Coriander seed,Ukraine,UA,0.113,0.07,01654
 A.16.02.016,Coriander seed,Afghanistan,AF,0.001,0.07,01654
 A.16.02.016,Coriander seed,Argentina,AR,0.011,0.07,01654
-A.16.02.016,Coriander seed,Bulgaria,BG,0.1,0.07,01654
 A.16.02.016,Coriander seed,Canada,CA,0.007,0.07,01654
 A.16.02.016,Coriander seed,China,CN,0.093,0.07,01654
 A.16.02.016,Coriander seed,Egypt,EG,0.066,0.07,01654
@@ -4249,7 +4213,6 @@ A.16.02.017,Cumin seed,Syrian Arab Republic,SY,0.149,0.07,01654
 A.16.02.017,Cumin seed,Ukraine,UA,0.113,0.07,01654
 A.16.02.017,Cumin seed,Afghanistan,AF,0.001,0.07,01654
 A.16.02.017,Cumin seed,Argentina,AR,0.011,0.07,01654
-A.16.02.017,Cumin seed,Bulgaria,BG,0.1,0.07,01654
 A.16.02.017,Cumin seed,Canada,CA,0.007,0.07,01654
 A.16.02.017,Cumin seed,China,CN,0.093,0.07,01654
 A.16.02.017,Cumin seed,Egypt,EG,0.066,0.07,01654
@@ -4272,7 +4235,6 @@ A.16.02.018,Dill seed (Anethum graveolens),Syrian Arab Republic,SY,0.149,0.07,01
 A.16.02.018,Dill seed (Anethum graveolens),Ukraine,UA,0.113,0.07,01654
 A.16.02.018,Dill seed (Anethum graveolens),Afghanistan,AF,0.001,0.07,01654
 A.16.02.018,Dill seed (Anethum graveolens),Argentina,AR,0.011,0.07,01654
-A.16.02.018,Dill seed (Anethum graveolens),Bulgaria,BG,0.1,0.07,01654
 A.16.02.018,Dill seed (Anethum graveolens),Canada,CA,0.007,0.07,01654
 A.16.02.018,Dill seed (Anethum graveolens),China,CN,0.093,0.07,01654
 A.16.02.018,Dill seed (Anethum graveolens),Egypt,EG,0.066,0.07,01654
@@ -4295,7 +4257,6 @@ A.16.02.019,Fennel seed,Syrian Arab Republic,SY,0.149,0.07,01654
 A.16.02.019,Fennel seed,Ukraine,UA,0.113,0.07,01654
 A.16.02.019,Fennel seed,Afghanistan,AF,0.001,0.07,01654
 A.16.02.019,Fennel seed,Argentina,AR,0.011,0.07,01654
-A.16.02.019,Fennel seed,Bulgaria,BG,0.1,0.07,01654
 A.16.02.019,Fennel seed,Canada,CA,0.007,0.07,01654
 A.16.02.019,Fennel seed,China,CN,0.093,0.07,01654
 A.16.02.019,Fennel seed,Egypt,EG,0.066,0.07,01654
@@ -4325,13 +4286,6 @@ A.16.09.003,Vanilla pods (Vanilla fragrans syn. Vanilla planifolia),Rest of Worl
 I.01.02.010.006,Quinoa grain,Bolivia,BO,0.624,0.06,01194
 I.01.02.010.006,Quinoa grain,Peru,PE,0.312,0.06,01194
 I.01.02.010.006,Quinoa grain,Ecuador,EC,0.064,0.06,01194
-I.07.01.006.001,Salmons,Rest of World,RoW,1,0.02,BF-47
-I.07.01.006.002,Trouts,Rest of World,RoW,1,0.02,BF-48
-I.07.01.015.001,Catfishes (freshwater),Rest of World,RoW,1,0.02,BF-49
-I.07.01.015.002,Wolffish,Rest of World,RoW,1,0.02,BF-50
-I.07.01.017.002,seed,Rest of World,RoW,1,0.02,BF-54
-I.07.01.017.004,Haddock,Rest of World,RoW,1,0.02,BF-55
-I.07.03.001.003,Lumpfish roe,Rest of World,RoW,1,0.02,BF-56
 I.16.01.012,Marjoram,Rest of World,RoW,1,0.07,01699
 I.16.01.013,Oregano,Rest of World,RoW,1,0.07,01699
 I.16.01.014,Mints,Rest of World,RoW,1,0.07,01699
@@ -4423,4 +4377,3 @@ A.02.16.004,Truffle (Tuber spp.),Rest of World,RoW,1,0,MI-54
 A.02.16.005,Morel (Morchella esculanta),Rest of World,RoW,1,0,MI-55
 A.02.16.006,Cantharelle (Cantharellus cibarius),Rest of World,RoW,1,0,MI-56
 A.02.16.007,Orange agaric (Lactarius deliciosus),Rest of World,RoW,1,0,MI-57
-

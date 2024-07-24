@@ -1136,29 +1136,6 @@ A.04.02.009,Mung bean sprouts,Togo,TG,0.01,0.06,01701
 A.04.02.009,Mung bean sprouts,Turkey,TR,0.004,0.06,01701
 A.04.02.009,Mung bean sprouts,USA,US,0.026,0.06,01701
 A.04.02.009,Mung bean sprouts,Ethiopia,ET,0.019,0.06,01701
-A.04.02.009,Mung bean sprouts,Argentina,AR,0.004,0.06,01701
-A.04.02.009,Mung bean sprouts,Australia,AU,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Brazil,BR,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Canada,CA,0.017,0.06,01701
-A.04.02.009,Mung bean sprouts,Egypt,EG,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,France,FR,0.002,0.06,01701
-A.04.02.009,Mung bean sprouts,Djibouti,DJ,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,India,IN,0.013,0.06,01701
-A.04.02.009,Mung bean sprouts,Italy,IT,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Kyrgyzstan,KG,0.007,0.06,01701
-A.04.02.009,Mung bean sprouts,Kenya,KE,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Lithuania,LT,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Madagascar,MG,0.002,0.06,01701
-A.04.02.009,Mung bean sprouts,Mexico,MX,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Netherlands,NL,0.005,0.06,01701
-A.04.02.009,Mung bean sprouts,Niger,NE,0.02,0.06,01701
-A.04.02.009,Mung bean sprouts,Peru,PE,0.016,0.06,01701
-A.04.02.009,Mung bean sprouts,United Republic of Tanzania,TZ,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Thailand,TH,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Togo,TG,0.01,0.06,01701
-A.04.02.009,Mung bean sprouts,Turkey,TR,0.004,0.06,01701
-A.04.02.009,Mung bean sprouts,USA,US,0.026,0.06,01701
-A.04.02.009,Mung bean sprouts,Ethiopia,ET,0.019,0.06,01701
 A.04.02.011,Black eyed peas (dry),Poland,PL,0.785,0.06,01705
 A.04.02.011,Black eyed peas (dry),Bulgaria,BG,0.002,0.06,01705
 A.04.02.011,Black eyed peas (dry),Canada,CA,0.001,0.06,01705
@@ -2728,13 +2705,6 @@ A.16.09.003,Vanilla pods (Vanilla fragrans syn. Vanilla planifolia),Rest of Worl
 I.01.02.010.006,Quinoa grain,Bolivia,BO,0.391,0.06,01194
 I.01.02.010.006,Quinoa grain,Peru,PE,0.59,0.06,01194
 I.01.02.010.006,Quinoa grain,Ecuador,EC,0.019,0.06,01194
-I.07.01.006.001,Salmons,Rest of World,RoW,1,0.02,BF-47
-I.07.01.006.002,Trouts,Rest of World,RoW,1,0.02,BF-48
-I.07.01.015.001,Catfishes (freshwater),Rest of World,RoW,1,0.02,BF-49
-I.07.01.015.002,Wolffish,Rest of World,RoW,1,0.02,BF-50
-I.07.01.017.002,seed,Rest of World,RoW,1,0.02,BF-54
-I.07.01.017.004,Haddock,Rest of World,RoW,1,0.02,BF-55
-I.07.03.001.003,Lumpfish roe,Rest of World,RoW,1,0.02,BF-56
 I.16.01.012,Marjoram,Rest of World,RoW,1,0.07,01699
 I.16.01.013,Oregano,Rest of World,RoW,1,0.07,01699
 I.16.01.014,Mints,Rest of World,RoW,1,0.07,01699
@@ -2820,4 +2790,3 @@ A.02.16.004,Truffle (Tuber spp.),Rest of World,RoW,1,0,MI-54
 A.02.16.005,Morel (Morchella esculanta),Rest of World,RoW,1,0,MI-55
 A.02.16.006,Cantharelle (Cantharellus cibarius),Rest of World,RoW,1,0,MI-56
 A.02.16.007,Orange agaric (Lactarius deliciosus),Rest of World,RoW,1,0,MI-57
-
