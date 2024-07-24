@@ -24,6 +24,19 @@ type DataPoint = {
   value: number;
 };
 
+const brightness = (color: string) => {
+  const rgb = d3.color(color)?.rgb();
+  if (!rgb) return NaN;
+  // See https://www.w3.org/TR/AERT/#color-contrast
+  return (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
+};
+
+const contrastingTextColor = (color: string): string => {
+  const b = brightness(color);
+  return Number.isNaN(b) || b > 128 ? "#000" : "#fff";
+};
+
+
 const getYTickFormat = (
   val: number,
   domain: [number, number],
@@ -157,6 +170,19 @@ export default function BarChart(
       .text(cfg.axisLabels.y);
   }
 
+  // Create tooltip
+  const tooltip = d3
+    .select(container)
+    .append("div")
+    .attr("class", "d3-tooltip")
+    .style("text-align", "left");
+
+  const moveTooltip = (event: MouseEvent) => {
+    const x = event.layerX + 10;
+    const y = event.layerY;
+    tooltip.style("transform", `translate(${x}px, ${y}px)`);
+  };
+
   // Show the bars
   svg
     .append("g")
@@ -169,5 +195,24 @@ export default function BarChart(
     .attr("x", (d) => xAxisScaler(d.category))
     .attr("y", (d) => yAxisScaler(d.value))
     .attr("height", (d) => innerHeight - yAxisScaler(d.value))
-    .attr("width", xAxisScaler.bandwidth());
+    .attr("width", xAxisScaler.bandwidth())
+    .on("mouseover", function (event, d) {
+      const subgroupName = cfg.labelTextMapper(d.category);
+      const subgroupValue = d.value;
+      const tooltipHtml =
+        `<strong>${subgroupName}</strong><br />` +
+        `${subgroupValue.toPrecision(2)} %`;
+
+      tooltip.html(tooltipHtml).style("opacity", 1);
+
+      tooltip
+        .style("background-color", cfg.color)
+        .style("color", contrastingTextColor(cfg.color));
+
+      moveTooltip(event);
+    })
+    .on("mousemove", moveTooltip)
+    .on("mouseleave", () => {
+      tooltip.style("opacity", 0);
+    });
 }

@@ -374,6 +374,7 @@ p {
 .d3-tooltip {
   opacity: 0; // Ensure hidden by default
   pointer-events: none; // Ensure no interactions
+  z-index: 1;
 
   position: absolute;
   top: -4em;
