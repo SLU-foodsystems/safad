@@ -2018,23 +2018,6 @@ A.04.02.008,Lima beans (dry),USA,US,0.039,0.06,01701
 A.04.02.008,Lima beans (dry),Ethiopia,ET,0.006,0.06,01701
 A.04.02.008,Lima beans (dry),Rest of World,RoW,0.015,0.06,01701
 A.04.02.009,Mung bean sprouts,Ireland,IE,0.854,0.06,01701
-A.04.02.009,Mung bean sprouts,Ireland,IE,0.854,0.06,01701
-A.04.02.009,Mung bean sprouts,Argentina,AR,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Australia,AU,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Brazil,BR,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Canada,CA,0.074,0.06,01701
-A.04.02.009,Mung bean sprouts,Egypt,EG,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,India,IN,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Italy,IT,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Latvia,LV,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Madagascar,MG,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Mexico,MX,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Niger,NE,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Peru,PE,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Thailand,TH,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,USA,US,0.039,0.06,01701
-A.04.02.009,Mung bean sprouts,Ethiopia,ET,0.006,0.06,01701
-A.04.02.009,Mung bean sprouts,Rest of World,RoW,0.015,0.06,01701
 A.04.02.009,Mung bean sprouts,Argentina,AR,0.001,0.06,01701
 A.04.02.009,Mung bean sprouts,Australia,AU,0.001,0.06,01701
 A.04.02.009,Mung bean sprouts,Brazil,BR,0.001,0.06,01701
@@ -5215,13 +5198,6 @@ A.16.09.003,Vanilla pods (Vanilla fragrans syn. Vanilla planifolia),Zambia,ZM,0.
 I.01.02.010.006,Quinoa grain,Bolivia,BO,0.506,0.06,01194
 I.01.02.010.006,Quinoa grain,Peru,PE,0.471,0.06,01194
 I.01.02.010.006,Quinoa grain,Ecuador,EC,0.023,0.06,01194
-I.07.01.006.001,Salmons,Rest of World,RoW,1,0.02,BF-47
-I.07.01.006.002,Trouts,Rest of World,RoW,1,0.02,BF-48
-I.07.01.015.001,Catfishes (freshwater),Rest of World,RoW,1,0.02,BF-49
-I.07.01.015.002,Wolffish,Rest of World,RoW,1,0.02,BF-50
-I.07.01.017.002,seed,Rest of World,RoW,1,0.02,BF-54
-I.07.01.017.004,Haddock,Rest of World,RoW,1,0.02,BF-55
-I.07.03.001.003,Lumpfish roe,Rest of World,RoW,1,0.02,BF-56
 I.16.01.012,Marjoram,India,IN,0.608,0.07,01699
 I.16.01.012,Marjoram,Turkey,TR,0.105,0.07,01699
 I.16.01.012,Marjoram,Albania,AL,0.002,0.07,01699
@@ -5481,4 +5457,3 @@ A.02.16.004,Truffle (Tuber spp.),Rest of World,RoW,1,0,MI-54
 A.02.16.005,Morel (Morchella esculanta),Rest of World,RoW,1,0,MI-55
 A.02.16.006,Cantharelle (Cantharellus cibarius),Rest of World,RoW,1,0,MI-56
 A.02.16.007,Orange agaric (Lactarius deliciosus),Rest of World,RoW,1,0,MI-57
-

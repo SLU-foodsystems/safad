@@ -1698,37 +1698,8 @@ A.04.02.008,Lima beans (dry),Thailand,TH,0.004,0.06,01701
 A.04.02.008,Lima beans (dry),Turkey,TR,0.003,0.06,01701
 A.04.02.008,Lima beans (dry),Belgium,BE,0.001,0.06,01701
 A.04.02.009,Mung bean sprouts,Canada,CA,0.105,0.06,01701
-A.04.02.009,Mung bean sprouts,Canada,CA,0.105,0.06,01701
-A.04.02.009,Mung bean sprouts,USA,US,0.296,0.06,01701
 A.04.02.009,Mung bean sprouts,USA,US,0.296,0.06,01701
 A.04.02.009,Mung bean sprouts,Ethiopia,ET,0.132,0.06,01701
-A.04.02.009,Mung bean sprouts,Ethiopia,ET,0.132,0.06,01701
-A.04.02.009,Mung bean sprouts,Argentina,AR,0.019,0.06,01701
-A.04.02.009,Mung bean sprouts,Australia,AU,0.002,0.06,01701
-A.04.02.009,Mung bean sprouts,Brazil,BR,0.009,0.06,01701
-A.04.02.009,Mung bean sprouts,Chile,CL,0.002,0.06,01701
-A.04.02.009,Mung bean sprouts,Egypt,EG,0.031,0.06,01701
-A.04.02.009,Mung bean sprouts,France,FR,0.014,0.06,01701
-A.04.02.009,Mung bean sprouts,Djibouti,DJ,0.005,0.06,01701
-A.04.02.009,Mung bean sprouts,Hungary,HU,0.098,0.06,01701
-A.04.02.009,Mung bean sprouts,Croatia,HR,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,India,IN,0.002,0.06,01701
-A.04.02.009,Mung bean sprouts,Italy,IT,0.008,0.06,01701
-A.04.02.009,Mung bean sprouts,Kyrgyzstan,KG,0.006,0.06,01701
-A.04.02.009,Mung bean sprouts,Kenya,KE,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Lithuania,LT,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Madagascar,MG,0.009,0.06,01701
-A.04.02.009,Mung bean sprouts,Mexico,MX,0.005,0.06,01701
-A.04.02.009,Mung bean sprouts,Netherlands,NL,0.006,0.06,01701
-A.04.02.009,Mung bean sprouts,Nicaragua,NI,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Niger,NE,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Peru,PE,0.003,0.06,01701
-A.04.02.009,Mung bean sprouts,Russia,RU,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Slovenia,SI,0.007,0.06,01701
-A.04.02.009,Mung bean sprouts,United Republic of Tanzania,TZ,0.004,0.06,01701
-A.04.02.009,Mung bean sprouts,Thailand,TH,0.004,0.06,01701
-A.04.02.009,Mung bean sprouts,Turkey,TR,0.003,0.06,01701
-A.04.02.009,Mung bean sprouts,Belgium,BE,0.001,0.06,01701
 A.04.02.009,Mung bean sprouts,Argentina,AR,0.019,0.06,01701
 A.04.02.009,Mung bean sprouts,Australia,AU,0.002,0.06,01701
 A.04.02.009,Mung bean sprouts,Brazil,BR,0.009,0.06,01701
@@ -4220,13 +4191,6 @@ A.16.09.003,Vanilla pods (Vanilla fragrans syn. Vanilla planifolia),Ethiopia,ET,
 I.01.02.010.006,Quinoa grain,Bolivia,BO,0.636,0.06,01194
 I.01.02.010.006,Quinoa grain,Peru,PE,0.307,0.06,01194
 I.01.02.010.006,Quinoa grain,Ecuador,EC,0.058,0.06,01194
-I.07.01.006.001,Salmons,Rest of World,RoW,1,0.02,BF-47
-I.07.01.006.002,Trouts,Rest of World,RoW,1,0.02,BF-48
-I.07.01.015.001,Catfishes (freshwater),Rest of World,RoW,1,0.02,BF-49
-I.07.01.015.002,Wolffish,Rest of World,RoW,1,0.02,BF-50
-I.07.01.017.002,seed,Rest of World,RoW,1,0.02,BF-54
-I.07.01.017.004,Haddock,Rest of World,RoW,1,0.02,BF-55
-I.07.03.001.003,Lumpfish roe,Rest of World,RoW,1,0.02,BF-56
 I.16.01.012,Marjoram,Hungary,HU,0.619,0.07,01699
 I.16.01.012,Marjoram,India,IN,0.237,0.07,01699
 I.16.01.012,Marjoram,Albania,AL,0.003,0.07,01699
