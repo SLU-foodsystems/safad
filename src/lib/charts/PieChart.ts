@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 import { partition, reversed } from "../utils";
+import { contrastingTextColor, safeLabelColor } from "./charts-utils";
 
 interface Config {
   width: number;
@@ -14,13 +15,6 @@ export interface DataPoint {
   value: number;
 }
 
-const brightness = (color: string) => {
-  const rgb = d3.color(color)?.rgb();
-  if (!rgb) return NaN;
-  // See https://www.w3.org/TR/AERT/#color-contrast
-  return (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
-};
-
 const stack = <T>(xs: T[]): [T, T][] => {
   if (xs.length < 2) return [];
 
@@ -28,19 +22,6 @@ const stack = <T>(xs: T[]): [T, T][] => {
     xs[i],
     xs[i + 1],
   ]);
-};
-
-const safeLabelColor = (color: string): string => {
-  const b = brightness(color);
-  if (Number.isNaN(b)) return "#f00";
-
-  if (b < 128) return color;
-  return d3.color(color)?.darker(0.5).formatHex() || "#000";
-};
-
-const contrastingTextColor = (color: string): string => {
-  const b = brightness(color);
-  return Number.isNaN(b) || b > 128 ? "#000" : "#fff";
 };
 
 export default function PieChart(
