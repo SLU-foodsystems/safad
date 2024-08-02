@@ -115,7 +115,7 @@ function getFoodItemShares(matrix, consumerCountry) {
   });
 
   /**
-   * STEP 2: Compute the proportions:
+   * STEP 2a: Compute the proportions:
    * { [itemName]: { [producerCountry]: percentage }}
    */
   /** @type {Object.<string, Object.<string, number>>} */
@@ -127,15 +127,34 @@ function getFoodItemShares(matrix, consumerCountry) {
 
     if (!totalAmounts[itemName]) {
       throw new Error(
-        "Something got messed up - totalAmount for " + itemName + " not found."
+        "Unexpected behaviour. Value totalAmount for " +
+          itemName +
+          " not found or 0."
       );
     }
 
-    allProportions[itemName][producerCountry] = roundToPrecision(
-      amount / totalAmounts[itemName],
-      RESULT_PRECISION
-    );
+    allProportions[itemName][producerCountry] =
+      (allProportions[itemName][producerCountry] || 0) + amount;
   });
+
+  /**
+   * Step 2b: Convert the absolute values to relative values
+   *
+   * Necessary since some producerCountries can appear twice (mostly only CN, as
+   * two countries are assigned that code due to our COUNTRY_RENAME_MAP
+   */
+  Object.entries(allProportions).forEach(
+    ([itemName, proportionsPerProdCountry]) => {
+      Object.keys(proportionsPerProdCountry).forEach((producerCountry) => {
+        const total = totalAmounts[itemName];
+        const amount = proportionsPerProdCountry[producerCountry];
+        proportionsPerProdCountry[producerCountry] = roundToPrecision(
+          amount / total,
+          RESULT_PRECISION
+        );
+      });
+    }
+  );
 
   return allProportions;
 }
