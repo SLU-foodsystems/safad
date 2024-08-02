@@ -1,5 +1,6 @@
 //@ts-check
 
+
 /**
  * Script for creating a sheets with RPC parameters for different countries.
  *
@@ -12,7 +13,7 @@
 import * as path from "path";
 import url from "url";
 
-import { readCsv, roundToPrecision, uniq } from "../utils.mjs";
+import { maybeQuote, readCsv, roundToPrecision, uniq } from "../utils.mjs";
 
 import countryCodes from "./country-codes.json" with { type: "json" };
 import countryNames from "./country-names.json" with { type: "json" };
@@ -67,15 +68,6 @@ const ALL_COUNTRY_OVERRIDES = [
 
 // Sua codes in the list above
 const OVERRIDE_CODES = new Set(ALL_COUNTRY_OVERRIDES.map((x) => x[0]));
-
-/**
- * @param {string | number} value
- * @returns {string | number}
- */
-const maybeQuote = (value) =>
-  value && typeof value === "string" && value.includes(",")
-    ? `"${value}"`
-    : value;
 
 /**
  * Most complex logic in this file, where we extract the shares from the trade

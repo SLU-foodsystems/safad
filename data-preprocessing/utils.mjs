@@ -44,6 +44,10 @@ export function readCsv(fpath, delim = ",") {
   return csvToArr(fileContent, delim).filter((x) => x.length > 1);
 }
 
+export const asCsvString = (rows, { NEWLINE = "\n", withBOM = true }) =>
+  (withBOM ? "\ufeff" : "") +
+  rows.map((row) => row.map(maybeQuote).join(",")).join(NEWLINE);
+
 /**
  * @param {number} value
  * @param {number} dp
@@ -63,3 +67,12 @@ export const uniq = (xs) => [...new Set(xs)];
  * @param {number[]} numbers
  */
 export const sum = (numbers) => numbers.reduce((a, b) => a + b, 0);
+
+/**
+ * @param {string | number} value
+ * @returns {string | number}
+ */
+export const maybeQuote = (value) =>
+  value && typeof value === "string" && value.includes(",")
+    ? `"${value}"`
+    : value;
