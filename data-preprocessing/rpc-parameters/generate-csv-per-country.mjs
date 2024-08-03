@@ -1,6 +1,5 @@
 //@ts-check
 
-
 /**
  * Script for creating a sheets with RPC parameters for different countries.
  *
@@ -13,13 +12,13 @@
 import * as path from "path";
 import url from "url";
 
-import { maybeQuote, readCsv, roundToPrecision, uniq } from "../utils.mjs";
+import { asCsvString, readCsv, roundToPrecision, uniq } from "../utils.mjs";
 
 import countryCodes from "./country-codes.json" with { type: "json" };
 import countryNames from "./country-names.json" with { type: "json" };
 
 const RESULT_PRECISION = 3;
-const DEBUG_PRINT_ITEMNAMES = false;
+const MIN_SHARE_THRESHOLD = 0.01; // Shares lower than tihs get excluded.
 const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
 
 // Avoid misspelling between our countries
@@ -115,7 +114,7 @@ function getFoodItemShares(matrix, consumerCountry) {
   });
 
   /**
-   * STEP 2a: Compute the proportions:
+   * STEP 2: Compute the proportions:
    * { [itemName]: { [producerCountry]: percentage }}
    */
   /** @type {Object.<string, Object.<string, number>>} */
@@ -138,7 +137,7 @@ function getFoodItemShares(matrix, consumerCountry) {
   });
 
   /**
-   * Step 2b: Convert the absolute values to relative values
+   * STEP 3: Convert the absolute values to relative values
    *
    * Necessary since some producerCountries can appear twice (mostly only CN, as
    * two countries are assigned that code due to our COUNTRY_RENAME_MAP
@@ -147,14 +146,36 @@ function getFoodItemShares(matrix, consumerCountry) {
     ([itemName, proportionsPerProdCountry]) => {
       Object.keys(proportionsPerProdCountry).forEach((producerCountry) => {
         const total = totalAmounts[itemName];
-        const amount = proportionsPerProdCountry[producerCountry];
-        proportionsPerProdCountry[producerCountry] = roundToPrecision(
-          amount / total,
-          RESULT_PRECISION
-        );
+        const share = proportionsPerProdCountry[producerCountry] / total;
+        if (share < MIN_SHARE_THRESHOLD) {
+          delete proportionsPerProdCountry[producerCountry];
+        } else {
+          proportionsPerProdCountry[producerCountry] = share;
+        }
       });
     }
   );
+
+  /**
+   * STEP 4: Round values, and ensure shares adds up to 1.
+   *
+   * After rounding / discarding certain shares, we want to round up the shares
+   * to equal 1 (i.e. 100%) again.
+   */
+  Object.values(allProportions).forEach((proportionsPerProdCountry) => {
+    const sum = Object.values(proportionsPerProdCountry).reduce(
+      (a, b) => a + b,
+      0
+    );
+
+    Object.keys(proportionsPerProdCountry).forEach((producerCountry) => {
+      const newShare = roundToPrecision(
+        proportionsPerProdCountry[producerCountry] / sum,
+        RESULT_PRECISION
+      );
+      proportionsPerProdCountry[producerCountry] = newShare;
+    });
+  });
 
   return allProportions;
 }
@@ -233,23 +254,19 @@ function main(args) {
   const rpcToSuaCodesCsv = readCsv(
     path.resolve(DIRNAME, "./rpc-to-sua.csv")
   ).slice(1);
+  // Extract rpcNames and a suaToRpcs conversion map
+  const { suaToRpcs, rpcNames } = createRpcSuaTranslationMaps(rpcToSuaCodesCsv);
 
-  // NOTE that the trade matrix uses ; as delimiter
+  // NOTE: the trade matrix csv-file uses semicolon (;) as its delimiter
   const matrix = readCsv(path.resolve(DIRNAME, "./trade-matrix.csv"), ";");
-
-  if (DEBUG_PRINT_ITEMNAMES) {
-    uniq(matrix.map((x) => x[8]))
-      .sort()
-      .forEach((x) => console.log(x));
-    return;
-  }
 
   /** @type {Object.<string, Object.<string, number>>}*/
   const sharesPerItem = getFoodItemShares(matrix, consumerCountry);
   /** @type Array<string | number>[] */
   const fullKastnerDataRows = [];
 
-  const { suaToRpcs, rpcNames } = createRpcSuaTranslationMaps(rpcToSuaCodesCsv);
+  // For debugging
+  const _rpcCodesCache = new Set();
 
   /**
    * The part of script where we put all parts together.
@@ -261,22 +278,21 @@ function main(args) {
    */
   suaKastnerList.forEach((row, i) => {
     const [suaCode, suaName, _category, isPerfectMatch, altItemName] = row;
-    let category = _category;
 
     const itemName = isPerfectMatch === "Yes" ? suaName : altItemName;
     if (!itemName) {
-      console.warn(
-        `WARN (${i}): No matching for sua item "${suaName}" (${suaCode}) found.`
+      console.error(
+        `ERR (row ${i}): No matching for sua item "${suaName}" (${suaCode}) found.`
       );
       return;
     }
 
+    // Skip if we add this value manually
     if (OVERRIDE_CODES.has(suaCode)) {
       return;
     }
 
-    const shares = sharesPerItem[itemName] || { RoW: 1 };
-
+    let category = _category; // Ocerwritten if waste not found for this category
     let waste = wasteFactorsMap[consumerCountry][category];
     if (!waste) {
       console.warn(
@@ -289,15 +305,21 @@ function main(args) {
     /** @type {string[]} a*/
     const rpcCodes = suaToRpcs[suaCode];
     if (!rpcCodes) {
+      console.error(`ERR (row ${i}): RPC codes missing for sua ${suaCode}`);
       // throw new Error("No rpc-codes found for sua " + suaCode);
       return;
     }
 
+    const shares = sharesPerItem[itemName] || { RoW: 1 };
     rpcCodes.forEach((rpcCode) => {
-      //"RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code";
+      if (_rpcCodesCache.has(rpcCode)) {
+        console.warn(`WARN: Duplicate entries for rpc-code ${rpcCode}.`);
+        return;
+      } else _rpcCodesCache.add(rpcCode);
+
       // And we store in the final results as a list, to be made into a csv.
       Object.entries(shares).forEach(([prodCountry, share]) => {
-        if (share < 0.01) return;
+        if (share < MIN_SHARE_THRESHOLD) return;
         fullKastnerDataRows.push([
           rpcCode,
           rpcNames[rpcCode],
@@ -319,13 +341,7 @@ function main(args) {
   const HEADER =
     "RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code";
 
-  const body = fullKastnerDataRows
-    .map((x) => x.map((val) => maybeQuote(val)).join(","))
-    .join("\n");
-
-  const data = HEADER + "\n" + body;
-
-  console.log(data);
+  console.log(asCsvString([HEADER, ...fullKastnerDataRows]));
 }
 
 main(process.argv.slice(2));
