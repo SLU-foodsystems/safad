@@ -359,10 +359,22 @@ function main(args) {
     fullKastnerDataRows.push(row);
   });
 
-  const HEADER =
-    "RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code";
+  const HEADER = [
+    "RPC Code",
+    "RPC Name",
+    "Producer Country Name",
+    "Producer Country Code",
+    "Share",
+    "Waste",
+    "SUA Code",
+  ];
 
-  console.log(asCsvString([HEADER, ...fullKastnerDataRows]));
+  console.log(
+    asCsvString([HEADER, ...fullKastnerDataRows], {
+      NEWLINE: "\n",
+      withBOM: true,
+    })
+  );
 }
 
 main(process.argv.slice(2));

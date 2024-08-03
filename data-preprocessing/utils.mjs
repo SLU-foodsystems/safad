@@ -44,7 +44,7 @@ export function readCsv(fpath, delim = ",") {
   return csvToArr(fileContent, delim).filter((x) => x.length > 1);
 }
 
-export const asCsvString = (rows, { NEWLINE = "\n", withBOM = true }) =>
+export const asCsvString = (rows, { NEWLINE, withBOM }) =>
   (withBOM ? "\ufeff" : "") +
   rows.map((row) => row.map(maybeQuote).join(",")).join(NEWLINE);
 
