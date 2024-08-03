@@ -12,7 +12,7 @@
 import * as path from "path";
 import url from "url";
 
-import { asCsvString, readCsv, roundToPrecision, uniq } from "../utils.mjs";
+import { asCsvString, readCsv, roundToPrecision } from "../utils.mjs";
 
 import countryCodes from "./country-codes.json" with { type: "json" };
 import countryNames from "./country-names.json" with { type: "json" };
@@ -20,6 +20,18 @@ import countryNames from "./country-names.json" with { type: "json" };
 const RESULT_PRECISION = 3;
 const MIN_SHARE_THRESHOLD = 0.01; // Shares lower than tihs get excluded.
 const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
+
+const LL_COUNTRIES = {
+  DE: "Germany",
+  ES: "Spain",
+  FR: "France",
+  GR: "Greece",
+  HU: "Hungary",
+  IE: "Ireland",
+  IT: "Italy",
+  PL: "Poland",
+  SE: "Sweden",
+};
 
 // Avoid misspelling between our countries
 const COUNTRY_RENAME_MAP = {
@@ -229,12 +241,21 @@ function createRpcSuaTranslationMaps(rpcToSuaCodesCsv) {
 function main(args) {
   if (args.length === 0 || !args[0]) {
     throw new Error(
-      "Script expects one argument: <countryname>:\n\n" +
+      "Script expects one argument: <country-code>:\n\n" +
         "\tnode generate-csv-per-country.mjs Sweden\n"
     );
   }
 
-  const [consumerCountry] = args;
+  const [consumerCountryCode] = args;
+  const consumerCountry = LL_COUNTRIES[consumerCountryCode];
+  if (!consumerCountry) {
+    throw new Error(
+      "Expected first argument 'country-code' to be one of the following values:\n\t" +
+        Object.keys(LL_COUNTRIES).join(" ") +
+        "\nbut got: " +
+        consumerCountryCode
+    );
+  }
 
   // Input file: csv of column with category (as defined in rpc) and waste
   // Create an object with { [country: string]: { [category: string]: number } }
