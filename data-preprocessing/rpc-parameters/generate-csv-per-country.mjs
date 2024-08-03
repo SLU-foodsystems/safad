@@ -316,11 +316,6 @@ function main(args) {
       return;
     }
 
-    // Skip if we add this value manually
-    if (OVERRIDE_CODES.has(suaCode)) {
-      return;
-    }
-
     let category = _category; // Ocerwritten if waste not found for this category
     let waste = wasteFactorsMap[consumerCountry][category];
     if (!waste) {
@@ -341,6 +336,9 @@ function main(args) {
 
     const shares = sharesPerItem[itemName] || { RoW: 1 };
     rpcCodes.forEach((rpcCode) => {
+      // Skip if we add this value manually
+      if (OVERRIDE_CODES.has(rpcCode)) return;
+      // Skip if we've already encountered this rpc-code
       if (_rpcCodesCache.has(rpcCode)) {
         console.warn(`WARN: Duplicate entries for rpc-code ${rpcCode}.`);
         return;
