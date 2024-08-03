@@ -6,7 +6,15 @@
  * NOTE: Instead of taking the list of files as arguments, as most other scripts
  * in this project does, all paths are defined in the function main() below.
  *
- * The only input it takes is the list of countries to use generate csvs for.
+ * The only input it takes is the country-code to use generate a csv for.
+ *
+ * Usage:
+ *
+ *    node generate-csv-per-country.mjs SE > "SAFAD IP Origin and Waste of RPC SE.csv"
+ *
+ * Or, for multiple files at once:
+ *
+ *    for c in DE ES FR GR HU IE IT PL SE; do node generate-csv-per-country.mjs "$c" > "SAFAD IP Origin and Waste of RPC $c.csv"; done
  */
 
 import * as path from "path";
