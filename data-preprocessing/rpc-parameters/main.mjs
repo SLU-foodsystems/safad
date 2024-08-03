@@ -6,20 +6,40 @@
  * NOTE: Instead of taking the list of files as arguments, as most other scripts
  * in this project does, all paths are defined in the function main() below.
  *
- * The only input it takes is the list of countries to use generate csvs for.
+ * The only input it takes is the country-code to use generate a csv for.
+ *
+ * Usage:
+ *
+ *    node generate-csv-per-country.mjs SE > "SAFAD IP Origin and Waste of RPC SE.csv"
+ *
+ * Or, for multiple files at once:
+ *
+ *    for c in DE ES FR GR HU IE IT PL SE; do node generate-csv-per-country.mjs "$c" > "SAFAD IP Origin and Waste of RPC $c.csv"; done
  */
 
 import * as path from "path";
 import url from "url";
 
-import { readCsv, roundToPrecision, uniq } from "../utils.mjs";
+import { asCsvString, readCsv, roundToPrecision } from "../utils.mjs";
 
 import countryCodes from "./country-codes.json" with { type: "json" };
 import countryNames from "./country-names.json" with { type: "json" };
 
 const RESULT_PRECISION = 3;
-const DEBUG_PRINT_ITEMNAMES = false;
+const MIN_SHARE_THRESHOLD = 0.01; // Shares lower than tihs get excluded.
 const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
+
+const LL_COUNTRIES = {
+  DE: "Germany",
+  ES: "Spain",
+  FR: "France",
+  GR: "Greece",
+  HU: "Hungary",
+  IE: "Ireland",
+  IT: "Italy",
+  PL: "Poland",
+  SE: "Sweden",
+};
 
 // Avoid misspelling between our countries
 const COUNTRY_RENAME_MAP = {
@@ -67,15 +87,6 @@ const ALL_COUNTRY_OVERRIDES = [
 
 // Sua codes in the list above
 const OVERRIDE_CODES = new Set(ALL_COUNTRY_OVERRIDES.map((x) => x[0]));
-
-/**
- * @param {string | number} value
- * @returns {string | number}
- */
-const maybeQuote = (value) =>
-  value && typeof value === "string" && value.includes(",")
-    ? `"${value}"`
-    : value;
 
 /**
  * Most complex logic in this file, where we extract the shares from the trade
@@ -135,14 +146,55 @@ function getFoodItemShares(matrix, consumerCountry) {
 
     if (!totalAmounts[itemName]) {
       throw new Error(
-        "Something got messed up - totalAmount for " + itemName + " not found."
+        "Unexpected behaviour. Value totalAmount for " +
+          itemName +
+          " not found or 0."
       );
     }
 
-    allProportions[itemName][producerCountry] = roundToPrecision(
-      amount / totalAmounts[itemName],
-      RESULT_PRECISION
+    allProportions[itemName][producerCountry] =
+      (allProportions[itemName][producerCountry] || 0) + amount;
+  });
+
+  /**
+   * STEP 3: Convert the absolute values to relative values
+   *
+   * Necessary since some producerCountries can appear twice (mostly only CN, as
+   * two countries are assigned that code due to our COUNTRY_RENAME_MAP
+   */
+  Object.entries(allProportions).forEach(
+    ([itemName, proportionsPerProdCountry]) => {
+      Object.keys(proportionsPerProdCountry).forEach((producerCountry) => {
+        const total = totalAmounts[itemName];
+        const share = proportionsPerProdCountry[producerCountry] / total;
+        if (share < MIN_SHARE_THRESHOLD) {
+          delete proportionsPerProdCountry[producerCountry];
+        } else {
+          proportionsPerProdCountry[producerCountry] = share;
+        }
+      });
+    }
+  );
+
+  /**
+   * STEP 4: Round values, and ensure shares adds up to 1.
+   *
+   * After rounding / discarding certain shares, we want to round up the shares
+   * to equal 1 (i.e. 100%) again.
+   */
+  Object.values(allProportions).forEach((proportionsPerProdCountry) => {
+    const sum = Object.values(proportionsPerProdCountry).reduce(
+      (a, b) => a + b,
+      0
     );
+
+    Object.keys(proportionsPerProdCountry).forEach((producerCountry) => {
+      const newShare = roundToPrecision(
+        proportionsPerProdCountry[producerCountry] / sum,
+        RESULT_PRECISION
+      );
+      proportionsPerProdCountry[producerCountry] = newShare;
+    });
   });
 
   return allProportions;
@@ -197,12 +249,21 @@ function createRpcSuaTranslationMaps(rpcToSuaCodesCsv) {
 function main(args) {
   if (args.length === 0 || !args[0]) {
     throw new Error(
-      "Script expects one argument: <countryname>:\n\n" +
+      "Script expects one argument: <country-code>:\n\n" +
         "\tnode generate-csv-per-country.mjs Sweden\n"
     );
   }
 
-  const [consumerCountry] = args;
+  const [consumerCountryCode] = args;
+  const consumerCountry = LL_COUNTRIES[consumerCountryCode];
+  if (!consumerCountry) {
+    throw new Error(
+      "Expected first argument 'country-code' to be one of the following values:\n\t" +
+        Object.keys(LL_COUNTRIES).join(" ") +
+        "\nbut got: " +
+        consumerCountryCode
+    );
+  }
 
   // Input file: csv of column with category (as defined in rpc) and waste
   // Create an object with { [country: string]: { [category: string]: number } }
@@ -222,23 +283,19 @@ function main(args) {
   const rpcToSuaCodesCsv = readCsv(
     path.resolve(DIRNAME, "./rpc-to-sua.csv")
   ).slice(1);
+  // Extract rpcNames and a suaToRpcs conversion map
+  const { suaToRpcs, rpcNames } = createRpcSuaTranslationMaps(rpcToSuaCodesCsv);
 
-  // NOTE that the trade matrix uses ; as delimiter
+  // NOTE: the trade matrix csv-file uses semicolon (;) as its delimiter
   const matrix = readCsv(path.resolve(DIRNAME, "./trade-matrix.csv"), ";");
-
-  if (DEBUG_PRINT_ITEMNAMES) {
-    uniq(matrix.map((x) => x[8]))
-      .sort()
-      .forEach((x) => console.log(x));
-    return;
-  }
 
   /** @type {Object.<string, Object.<string, number>>}*/
   const sharesPerItem = getFoodItemShares(matrix, consumerCountry);
   /** @type Array<string | number>[] */
   const fullKastnerDataRows = [];
 
-  const { suaToRpcs, rpcNames } = createRpcSuaTranslationMaps(rpcToSuaCodesCsv);
+  // For debugging
+  const _rpcCodesCache = new Set();
 
   /**
    * The part of script where we put all parts together.
@@ -250,22 +307,16 @@ function main(args) {
    */
   suaKastnerList.forEach((row, i) => {
     const [suaCode, suaName, _category, isPerfectMatch, altItemName] = row;
-    let category = _category;
 
     const itemName = isPerfectMatch === "Yes" ? suaName : altItemName;
     if (!itemName) {
-      console.warn(
-        `WARN (${i}): No matching for sua item "${suaName}" (${suaCode}) found.`
+      console.error(
+        `ERR (row ${i}): No matching for sua item "${suaName}" (${suaCode}) found.`
       );
       return;
     }
 
-    if (OVERRIDE_CODES.has(suaCode)) {
-      return;
-    }
-
-    const shares = sharesPerItem[itemName] || { RoW: 1 };
-
+    let category = _category; // Ocerwritten if waste not found for this category
     let waste = wasteFactorsMap[consumerCountry][category];
     if (!waste) {
       console.warn(
@@ -278,15 +329,24 @@ function main(args) {
     /** @type {string[]} a*/
     const rpcCodes = suaToRpcs[suaCode];
     if (!rpcCodes) {
+      console.error(`ERR (row ${i}): RPC codes missing for sua ${suaCode}`);
       // throw new Error("No rpc-codes found for sua " + suaCode);
       return;
     }
 
+    const shares = sharesPerItem[itemName] || { RoW: 1 };
     rpcCodes.forEach((rpcCode) => {
-      //"RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code";
+      // Skip if we add this value manually
+      if (OVERRIDE_CODES.has(rpcCode)) return;
+      // Skip if we've already encountered this rpc-code
+      if (_rpcCodesCache.has(rpcCode)) {
+        console.warn(`WARN: Duplicate entries for rpc-code ${rpcCode}.`);
+        return;
+      } else _rpcCodesCache.add(rpcCode);
+
       // And we store in the final results as a list, to be made into a csv.
       Object.entries(shares).forEach(([prodCountry, share]) => {
-        if (share < 0.01) return;
+        if (share < MIN_SHARE_THRESHOLD) return;
         fullKastnerDataRows.push([
           rpcCode,
           rpcNames[rpcCode],
@@ -305,16 +365,22 @@ function main(args) {
     fullKastnerDataRows.push(row);
   });
 
-  const HEADER =
-    "RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code";
+  const HEADER = [
+    "RPC Code",
+    "RPC Name",
+    "Producer Country Name",
+    "Producer Country Code",
+    "Share",
+    "Waste",
+    "SUA Code",
+  ];
 
-  const body = fullKastnerDataRows
-    .map((x) => x.map((val) => maybeQuote(val)).join(","))
-    .join("\n");
-
-  const data = HEADER + "\n" + body;
-
-  console.log(data);
+  console.log(
+    asCsvString([HEADER, ...fullKastnerDataRows], {
+      NEWLINE: "\n",
+      withBOM: true,
+    })
+  );
 }
 
 main(process.argv.slice(2));
