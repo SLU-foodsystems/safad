@@ -771,54 +771,24 @@ A.02.05.021,Garden sorrel,Germany,DE,0.002,0.07,01215
 A.02.05.021,Garden sorrel,Italy,IT,0.992,0.07,01215
 A.02.05.021,Garden sorrel,Netherlands,NL,0.001,0.07,01215
 A.02.05.021,Garden sorrel,Spain,ES,0.002,0.07,01215
-A.02.05.022,Alfalfa sprouts,Argentina,AR,0.06,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Australia,AU,0.003,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Bolivia,BO,0.001,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Brazil,BR,0.014,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Canada,CA,0.164,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Chile,CL,0.001,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Egypt,EG,0.046,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Ethiopia,ET,0.059,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,France,FR,0.004,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Hungary,HU,0.001,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,India,IN,0.002,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Italy,IT,0.086,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Kyrgyzstan,KG,0.004,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Madagascar,MG,0.007,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Mexico,MX,0.002,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Netherlands,NL,0.002,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Nicaragua,NI,0.001,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Niger,NE,0.003,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Peru,PE,0.005,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Thailand,TH,0.003,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Togo,TG,0.001,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,Turkey,TR,0.001,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,USA,US,0.156,0.06,01709.90
-A.02.05.022,Alfalfa sprouts,United Republic of Tanzania,TZ,0.008,0.06,01709.90
-A.02.06.001,Beans (with pods) and similar-,Argentina,AR,0.06,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Australia,AU,0.003,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Bolivia,BO,0.001,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Brazil,BR,0.014,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Canada,CA,0.164,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Chile,CL,0.001,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Egypt,EG,0.046,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Ethiopia,ET,0.059,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,France,FR,0.004,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Hungary,HU,0.001,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,India,IN,0.002,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Italy,IT,0.086,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Kyrgyzstan,KG,0.004,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Madagascar,MG,0.007,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Mexico,MX,0.002,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Netherlands,NL,0.002,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Nicaragua,NI,0.001,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Niger,NE,0.003,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Peru,PE,0.005,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Thailand,TH,0.003,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Togo,TG,0.001,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,Turkey,TR,0.001,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,USA,US,0.156,0.06,01701
-A.02.06.001,Beans (with pods) and similar-,United Republic of Tanzania,TZ,0.008,0.06,01701
+A.02.05.022,Alfalfa sprouts,Argentina,AR,0.063,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Brazil,BR,0.015,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Canada,CA,0.173,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,China,CN,0.367,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Egypt,EG,0.049,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Italy,IT,0.091,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Poland,PL,0.014,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,USA,US,0.165,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Ethiopia,ET,0.062,0.06,01709.90
+A.02.06.001,Beans (with pods) and similar-,Argentina,AR,0.063,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Brazil,BR,0.015,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Canada,CA,0.173,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,China,CN,0.367,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Egypt,EG,0.049,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Italy,IT,0.091,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Poland,PL,0.014,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,USA,US,0.165,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Ethiopia,ET,0.062,0.06,01701
 A.02.06.002,Peas (with pods) and similar-,Argentina,AR,0.012,0.06,01705
 A.02.06.002,Peas (with pods) and similar-,Australia,AU,0.001,0.06,01705
 A.02.06.002,Peas (with pods) and similar-,Austria,AT,0.001,0.06,01705
@@ -989,28 +959,16 @@ A.02.09.001.001,Kombu,Rest of World,RoW,1,0.07,01699
 A.02.09.001.002,Laver,Rest of World,RoW,1,0.07,01699
 A.02.09.001.003,Wakame,Rest of World,RoW,1,0.07,01699
 A.02.10.001,Teas  and similar-,Rest of World,RoW,1,0.07,01699
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Argentina,AR,0.031,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Bangladesh,BD,0.002,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Burundi,BI,0.001,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",China,CN,0.001,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Georgia,GE,0.001,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",India,IN,0.319,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Indonesia,ID,0.055,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Iran,IR,0.008,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Japan,JP,0.002,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Kenya,KE,0.115,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Malawi,MW,0.028,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Malaysia,MY,0.001,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Montenegro,ME,0.001,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Nepal,NP,0.002,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Rwanda,RW,0.003,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",South Africa,ZA,0.001,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Sri Lanka,LK,0.253,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Thailand,TH,0.002,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Argentina,AR,0.032,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Sri Lanka,LK,0.262,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",China,CN,0.128,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",India,IN,0.329,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Indonesia,ID,0.056,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Kenya,KE,0.119,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Malawi,MW,0.029,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",United Republic of Tanzania,TZ,0.017,0.07,01620
 A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Turkey,TR,0.014,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Uganda,UG,0.012,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",United Republic of Tanzania,TZ,0.016,0.07,01620
-A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Zimbabwe,ZW,0.008,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Uganda,UG,0.013,0.07,01620
 A.02.10.004,Mints,Rest of World,RoW,1,0.07,01699
 A.02.10.009,Strawberry infusion leaves,Rest of World,RoW,1,0.07,01699
 A.02.10.011,Maté (Ilex paraguariensis),Argentina,AR,0.605,0.07,01630
@@ -1063,130 +1021,60 @@ A.02.12.001,"Coffee beans, green",Togo,TG,0.003,0.07,01610
 A.02.12.001,"Coffee beans, green",Uganda,UG,0.073,0.07,01610
 A.02.12.001,"Coffee beans, green",United Republic of Tanzania,TZ,0.037,0.07,01610
 A.02.14.012,"Hops (dried), including hop pellets and unconcentrated powder (Humulus lupulus)",Rest of World,RoW,1,0,MI-01
-A.02.15.001,Common mushrooms,Belgium,BE,0.002,0.07,01270
-A.02.15.001,Common mushrooms,Bulgaria,BG,0.003,0.07,01270
-A.02.15.001,Common mushrooms,France,FR,0.005,0.07,01270
-A.02.15.001,Common mushrooms,Germany,DE,0.003,0.07,01270
 A.02.15.001,Common mushrooms,Hungary,HU,0.018,0.07,01270
-A.02.15.001,Common mushrooms,Italy,IT,0.568,0.07,01270
-A.02.15.001,Common mushrooms,Lithuania,LT,0.002,0.07,01270
-A.02.15.001,Common mushrooms,Netherlands,NL,0.099,0.07,01270
-A.02.15.001,Common mushrooms,North Macedonia,MK,0.001,0.07,01270
-A.02.15.001,Common mushrooms,Portugal,PT,0.001,0.07,01270
+A.02.15.001,Common mushrooms,Italy,IT,0.585,0.07,01270
+A.02.15.001,Common mushrooms,Netherlands,NL,0.102,0.07,01270
+A.02.15.001,Common mushrooms,Poland,PL,0.175,0.07,01270
 A.02.15.001,Common mushrooms,Romania,RO,0.014,0.07,01270
-A.02.15.001,Common mushrooms,Serbia,RS,0.001,0.07,01270
-A.02.15.001,Common mushrooms,Spain,ES,0.102,0.07,01270
-A.02.15.001,Cultivated mushroom (syn. Button mushroom) (Agaricus bisporus),Rest of World,RoW,1,0,MI-51
-A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Belgium,BE,0.002,0.07,01270
-A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Bulgaria,BG,0.003,0.07,01270
-A.02.15.002,Oyster mushroom (Pleurotus ostreatus),France,FR,0.005,0.07,01270
-A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Germany,DE,0.003,0.07,01270
+A.02.15.001,Common mushrooms,Spain,ES,0.105,0.07,01270
 A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Hungary,HU,0.018,0.07,01270
-A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Italy,IT,0.568,0.07,01270
-A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Lithuania,LT,0.002,0.07,01270
-A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Netherlands,NL,0.099,0.07,01270
-A.02.15.002,Oyster mushroom (Pleurotus ostreatus),North Macedonia,MK,0.001,0.07,01270
-A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Portugal,PT,0.001,0.07,01270
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Italy,IT,0.585,0.07,01270
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Netherlands,NL,0.102,0.07,01270
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Poland,PL,0.175,0.07,01270
 A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Romania,RO,0.014,0.07,01270
-A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Serbia,RS,0.001,0.07,01270
-A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Spain,ES,0.102,0.07,01270
-A.02.15.003,Shiitake,Belgium,BE,0.002,0.07,01270
-A.02.15.003,Shiitake,Bulgaria,BG,0.003,0.07,01270
-A.02.15.003,Shiitake,France,FR,0.005,0.07,01270
-A.02.15.003,Shiitake,Germany,DE,0.003,0.07,01270
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Spain,ES,0.105,0.07,01270
 A.02.15.003,Shiitake,Hungary,HU,0.018,0.07,01270
-A.02.15.003,Shiitake,Italy,IT,0.568,0.07,01270
-A.02.15.003,Shiitake,Lithuania,LT,0.002,0.07,01270
-A.02.15.003,Shiitake,Netherlands,NL,0.099,0.07,01270
-A.02.15.003,Shiitake,North Macedonia,MK,0.001,0.07,01270
-A.02.15.003,Shiitake,Portugal,PT,0.001,0.07,01270
+A.02.15.003,Shiitake,Italy,IT,0.585,0.07,01270
+A.02.15.003,Shiitake,Netherlands,NL,0.102,0.07,01270
+A.02.15.003,Shiitake,Poland,PL,0.175,0.07,01270
 A.02.15.003,Shiitake,Romania,RO,0.014,0.07,01270
-A.02.15.003,Shiitake,Serbia,RS,0.001,0.07,01270
-A.02.15.003,Shiitake,Spain,ES,0.102,0.07,01270
-A.02.16.002,Honey mushroom (Armillaria mellea),Rest of World,RoW,1,0,MI-52
-A.02.16.002,Honey mushroom,Belgium,BE,0.002,0.07,01270
-A.02.16.002,Honey mushroom,Bulgaria,BG,0.003,0.07,01270
-A.02.16.002,Honey mushroom,France,FR,0.005,0.07,01270
-A.02.16.002,Honey mushroom,Germany,DE,0.003,0.07,01270
+A.02.15.003,Shiitake,Spain,ES,0.105,0.07,01270
 A.02.16.002,Honey mushroom,Hungary,HU,0.018,0.07,01270
-A.02.16.002,Honey mushroom,Italy,IT,0.568,0.07,01270
-A.02.16.002,Honey mushroom,Lithuania,LT,0.002,0.07,01270
-A.02.16.002,Honey mushroom,Netherlands,NL,0.099,0.07,01270
-A.02.16.002,Honey mushroom,North Macedonia,MK,0.001,0.07,01270
-A.02.16.002,Honey mushroom,Portugal,PT,0.001,0.07,01270
+A.02.16.002,Honey mushroom,Italy,IT,0.585,0.07,01270
+A.02.16.002,Honey mushroom,Netherlands,NL,0.102,0.07,01270
+A.02.16.002,Honey mushroom,Poland,PL,0.175,0.07,01270
 A.02.16.002,Honey mushroom,Romania,RO,0.014,0.07,01270
-A.02.16.002,Honey mushroom,Serbia,RS,0.001,0.07,01270
-A.02.16.002,Honey mushroom,Spain,ES,0.102,0.07,01270
-A.02.16.003,Boletus (Boletus (and other) spp.),Rest of World,RoW,1,0,MI-53
-A.02.16.003,Ceps,Belgium,BE,0.002,0.07,01270
-A.02.16.003,Ceps,Bulgaria,BG,0.003,0.07,01270
-A.02.16.003,Ceps,France,FR,0.005,0.07,01270
-A.02.16.003,Ceps,Germany,DE,0.003,0.07,01270
+A.02.16.002,Honey mushroom,Spain,ES,0.105,0.07,01270
 A.02.16.003,Ceps,Hungary,HU,0.018,0.07,01270
-A.02.16.003,Ceps,Italy,IT,0.568,0.07,01270
-A.02.16.003,Ceps,Lithuania,LT,0.002,0.07,01270
-A.02.16.003,Ceps,Netherlands,NL,0.099,0.07,01270
-A.02.16.003,Ceps,North Macedonia,MK,0.001,0.07,01270
-A.02.16.003,Ceps,Portugal,PT,0.001,0.07,01270
+A.02.16.003,Ceps,Italy,IT,0.585,0.07,01270
+A.02.16.003,Ceps,Netherlands,NL,0.102,0.07,01270
+A.02.16.003,Ceps,Poland,PL,0.175,0.07,01270
 A.02.16.003,Ceps,Romania,RO,0.014,0.07,01270
-A.02.16.003,Ceps,Serbia,RS,0.001,0.07,01270
-A.02.16.003,Ceps,Spain,ES,0.102,0.07,01270
-A.02.16.004,Truffle (Tuber spp.),Rest of World,RoW,1,0,MI-54
-A.02.16.004,Truffles,Belgium,BE,0.002,0.07,01270
-A.02.16.004,Truffles,Bulgaria,BG,0.003,0.07,01270
-A.02.16.004,Truffles,France,FR,0.005,0.07,01270
-A.02.16.004,Truffles,Germany,DE,0.003,0.07,01270
+A.02.16.003,Ceps,Spain,ES,0.105,0.07,01270
 A.02.16.004,Truffles,Hungary,HU,0.018,0.07,01270
-A.02.16.004,Truffles,Italy,IT,0.568,0.07,01270
-A.02.16.004,Truffles,Lithuania,LT,0.002,0.07,01270
-A.02.16.004,Truffles,Netherlands,NL,0.099,0.07,01270
-A.02.16.004,Truffles,North Macedonia,MK,0.001,0.07,01270
-A.02.16.004,Truffles,Portugal,PT,0.001,0.07,01270
+A.02.16.004,Truffles,Italy,IT,0.585,0.07,01270
+A.02.16.004,Truffles,Netherlands,NL,0.102,0.07,01270
+A.02.16.004,Truffles,Poland,PL,0.175,0.07,01270
 A.02.16.004,Truffles,Romania,RO,0.014,0.07,01270
-A.02.16.004,Truffles,Serbia,RS,0.001,0.07,01270
-A.02.16.004,Truffles,Spain,ES,0.102,0.07,01270
-A.02.16.005,Morel (Morchella esculanta),Rest of World,RoW,1,0,MI-55
-A.02.16.005,Morels,Belgium,BE,0.002,0.07,01270
-A.02.16.005,Morels,Bulgaria,BG,0.003,0.07,01270
-A.02.16.005,Morels,France,FR,0.005,0.07,01270
-A.02.16.005,Morels,Germany,DE,0.003,0.07,01270
+A.02.16.004,Truffles,Spain,ES,0.105,0.07,01270
 A.02.16.005,Morels,Hungary,HU,0.018,0.07,01270
-A.02.16.005,Morels,Italy,IT,0.568,0.07,01270
-A.02.16.005,Morels,Lithuania,LT,0.002,0.07,01270
-A.02.16.005,Morels,Netherlands,NL,0.099,0.07,01270
-A.02.16.005,Morels,North Macedonia,MK,0.001,0.07,01270
-A.02.16.005,Morels,Portugal,PT,0.001,0.07,01270
+A.02.16.005,Morels,Italy,IT,0.585,0.07,01270
+A.02.16.005,Morels,Netherlands,NL,0.102,0.07,01270
+A.02.16.005,Morels,Poland,PL,0.175,0.07,01270
 A.02.16.005,Morels,Romania,RO,0.014,0.07,01270
-A.02.16.005,Morels,Serbia,RS,0.001,0.07,01270
-A.02.16.005,Morels,Spain,ES,0.102,0.07,01270
-A.02.16.006,Cantharelle (Cantharellus cibarius),Rest of World,RoW,1,0,MI-56
-A.02.16.006,Chanterelles,Belgium,BE,0.002,0.07,01270
-A.02.16.006,Chanterelles,Bulgaria,BG,0.003,0.07,01270
-A.02.16.006,Chanterelles,France,FR,0.005,0.07,01270
-A.02.16.006,Chanterelles,Germany,DE,0.003,0.07,01270
+A.02.16.005,Morels,Spain,ES,0.105,0.07,01270
 A.02.16.006,Chanterelles,Hungary,HU,0.018,0.07,01270
-A.02.16.006,Chanterelles,Italy,IT,0.568,0.07,01270
-A.02.16.006,Chanterelles,Lithuania,LT,0.002,0.07,01270
-A.02.16.006,Chanterelles,Netherlands,NL,0.099,0.07,01270
-A.02.16.006,Chanterelles,North Macedonia,MK,0.001,0.07,01270
-A.02.16.006,Chanterelles,Portugal,PT,0.001,0.07,01270
+A.02.16.006,Chanterelles,Italy,IT,0.585,0.07,01270
+A.02.16.006,Chanterelles,Netherlands,NL,0.102,0.07,01270
+A.02.16.006,Chanterelles,Poland,PL,0.175,0.07,01270
 A.02.16.006,Chanterelles,Romania,RO,0.014,0.07,01270
-A.02.16.006,Chanterelles,Serbia,RS,0.001,0.07,01270
-A.02.16.006,Chanterelles,Spain,ES,0.102,0.07,01270
-A.02.16.007,Orange agaric (Lactarius deliciosus),Rest of World,RoW,1,0,MI-57
-A.02.16.007,Saffron milk cap,Belgium,BE,0.002,0.07,01270
-A.02.16.007,Saffron milk cap,Bulgaria,BG,0.003,0.07,01270
-A.02.16.007,Saffron milk cap,France,FR,0.005,0.07,01270
-A.02.16.007,Saffron milk cap,Germany,DE,0.003,0.07,01270
+A.02.16.006,Chanterelles,Spain,ES,0.105,0.07,01270
 A.02.16.007,Saffron milk cap,Hungary,HU,0.018,0.07,01270
-A.02.16.007,Saffron milk cap,Italy,IT,0.568,0.07,01270
-A.02.16.007,Saffron milk cap,Lithuania,LT,0.002,0.07,01270
-A.02.16.007,Saffron milk cap,Netherlands,NL,0.099,0.07,01270
-A.02.16.007,Saffron milk cap,North Macedonia,MK,0.001,0.07,01270
-A.02.16.007,Saffron milk cap,Portugal,PT,0.001,0.07,01270
+A.02.16.007,Saffron milk cap,Italy,IT,0.585,0.07,01270
+A.02.16.007,Saffron milk cap,Netherlands,NL,0.102,0.07,01270
+A.02.16.007,Saffron milk cap,Poland,PL,0.175,0.07,01270
 A.02.16.007,Saffron milk cap,Romania,RO,0.014,0.07,01270
-A.02.16.007,Saffron milk cap,Serbia,RS,0.001,0.07,01270
-A.02.16.007,Saffron milk cap,Spain,ES,0.102,0.07,01270
+A.02.16.007,Saffron milk cap,Spain,ES,0.105,0.07,01270
 A.03.01.001,New potatoes,Austria,AT,0.011,0.24,01510
 A.03.01.001,New potatoes,Belgium,BE,0.054,0.24,01510
 A.03.01.001,New potatoes,Bulgaria,BG,0.001,0.24,01510
@@ -1309,30 +1197,15 @@ A.03.02.005,Jerusalem artichokes,Spain,ES,0.089,0.24,01599.10
 A.03.02.005,Jerusalem artichokes,Suriname,SR,0.001,0.24,01599.10
 A.03.02.005,Jerusalem artichokes,Thailand,TH,0.031,0.24,01599.10
 A.03.02.005,Jerusalem artichokes,Togo,TG,0.106,0.24,01599.10
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Argentina,AR,0.06,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Australia,AU,0.003,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Bolivia,BO,0.001,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Brazil,BR,0.014,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Canada,CA,0.164,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Chile,CL,0.001,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Egypt,EG,0.046,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Ethiopia,ET,0.059,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,France,FR,0.004,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Hungary,HU,0.001,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,India,IN,0.002,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Italy,IT,0.086,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Kyrgyzstan,KG,0.004,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Madagascar,MG,0.007,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Mexico,MX,0.002,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Netherlands,NL,0.002,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Nicaragua,NI,0.001,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Niger,NE,0.003,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Peru,PE,0.005,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Thailand,TH,0.003,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Togo,TG,0.001,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,Turkey,TR,0.001,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,USA,US,0.156,0.06,01701
-A.04.01.001,Beans (fresh seeds without pods) and similar-,United Republic of Tanzania,TZ,0.008,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Argentina,AR,0.063,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Brazil,BR,0.015,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Canada,CA,0.173,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,China,CN,0.367,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Egypt,EG,0.049,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Italy,IT,0.091,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Poland,PL,0.014,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,USA,US,0.165,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Ethiopia,ET,0.062,0.06,01701
 A.04.01.002,Peas (without pods) and similar-,Austria,AT,0.001,0.07,01242
 A.04.01.002,Peas (without pods) and similar-,Finland,FI,0.005,0.07,01242
 A.04.01.002,Peas (without pods) and similar-,France,FR,0.009,0.07,01242
@@ -1342,30 +1215,15 @@ A.04.01.002,Peas (without pods) and similar-,Netherlands,NL,0.001,0.07,01242
 A.04.01.002,Peas (without pods) and similar-,Rest of World,RoW,0.001,0.07,01242
 A.04.01.002,Peas (without pods) and similar-,Romania,RO,0.001,0.07,01242
 A.04.01.002,Peas (without pods) and similar-,Spain,ES,0.007,0.07,01242
-A.04.02.001,Beans (dry) and similar-,Argentina,AR,0.06,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Australia,AU,0.003,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Bolivia,BO,0.001,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Brazil,BR,0.014,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Canada,CA,0.164,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Chile,CL,0.001,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Egypt,EG,0.046,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Ethiopia,ET,0.059,0.06,01701
-A.04.02.001,Beans (dry) and similar-,France,FR,0.004,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Hungary,HU,0.001,0.06,01701
-A.04.02.001,Beans (dry) and similar-,India,IN,0.002,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Italy,IT,0.086,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Kyrgyzstan,KG,0.004,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Madagascar,MG,0.007,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Mexico,MX,0.002,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Netherlands,NL,0.002,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Nicaragua,NI,0.001,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Niger,NE,0.003,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Peru,PE,0.005,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Thailand,TH,0.003,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Togo,TG,0.001,0.06,01701
-A.04.02.001,Beans (dry) and similar-,Turkey,TR,0.001,0.06,01701
-A.04.02.001,Beans (dry) and similar-,USA,US,0.156,0.06,01701
-A.04.02.001,Beans (dry) and similar-,United Republic of Tanzania,TZ,0.008,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Argentina,AR,0.063,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Brazil,BR,0.015,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Canada,CA,0.173,0.06,01701
+A.04.02.001,Beans (dry) and similar-,China,CN,0.367,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Egypt,EG,0.049,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Italy,IT,0.091,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Poland,PL,0.014,0.06,01701
+A.04.02.001,Beans (dry) and similar-,USA,US,0.165,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Ethiopia,ET,0.062,0.06,01701
 A.04.02.002,Lentils (dry) and similar-,Australia,AU,0.003,0.06,01704
 A.04.02.002,Lentils (dry) and similar-,Canada,CA,0.666,0.06,01704
 A.04.02.002,Lentils (dry) and similar-,China,CN,0.025,0.06,01704
@@ -1443,54 +1301,24 @@ A.04.02.007,Broad bean (Vicia faba),Rest of World,RoW,0.001,0.06,01702
 A.04.02.007,Broad bean (Vicia faba),Spain,ES,0.003,0.06,01702
 A.04.02.007,Broad bean (Vicia faba),Sweden,SE,0.001,0.06,01702
 A.04.02.007,Broad bean (Vicia faba),United Kingdom,GB,0.083,0.06,01702
-A.04.02.008,Lima beans (dry),Argentina,AR,0.06,0.06,01701
-A.04.02.008,Lima beans (dry),Australia,AU,0.003,0.06,01701
-A.04.02.008,Lima beans (dry),Bolivia,BO,0.001,0.06,01701
-A.04.02.008,Lima beans (dry),Brazil,BR,0.014,0.06,01701
-A.04.02.008,Lima beans (dry),Canada,CA,0.164,0.06,01701
-A.04.02.008,Lima beans (dry),Chile,CL,0.001,0.06,01701
-A.04.02.008,Lima beans (dry),Egypt,EG,0.046,0.06,01701
-A.04.02.008,Lima beans (dry),Ethiopia,ET,0.059,0.06,01701
-A.04.02.008,Lima beans (dry),France,FR,0.004,0.06,01701
-A.04.02.008,Lima beans (dry),Hungary,HU,0.001,0.06,01701
-A.04.02.008,Lima beans (dry),India,IN,0.002,0.06,01701
-A.04.02.008,Lima beans (dry),Italy,IT,0.086,0.06,01701
-A.04.02.008,Lima beans (dry),Kyrgyzstan,KG,0.004,0.06,01701
-A.04.02.008,Lima beans (dry),Madagascar,MG,0.007,0.06,01701
-A.04.02.008,Lima beans (dry),Mexico,MX,0.002,0.06,01701
-A.04.02.008,Lima beans (dry),Netherlands,NL,0.002,0.06,01701
-A.04.02.008,Lima beans (dry),Nicaragua,NI,0.001,0.06,01701
-A.04.02.008,Lima beans (dry),Niger,NE,0.003,0.06,01701
-A.04.02.008,Lima beans (dry),Peru,PE,0.005,0.06,01701
-A.04.02.008,Lima beans (dry),Thailand,TH,0.003,0.06,01701
-A.04.02.008,Lima beans (dry),Togo,TG,0.001,0.06,01701
-A.04.02.008,Lima beans (dry),Turkey,TR,0.001,0.06,01701
-A.04.02.008,Lima beans (dry),USA,US,0.156,0.06,01701
-A.04.02.008,Lima beans (dry),United Republic of Tanzania,TZ,0.008,0.06,01701
-A.04.02.009,Mung bean sprouts,Argentina,AR,0.06,0.06,01701
-A.04.02.009,Mung bean sprouts,Australia,AU,0.003,0.06,01701
-A.04.02.009,Mung bean sprouts,Bolivia,BO,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Brazil,BR,0.014,0.06,01701
-A.04.02.009,Mung bean sprouts,Canada,CA,0.164,0.06,01701
-A.04.02.009,Mung bean sprouts,Chile,CL,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Egypt,EG,0.046,0.06,01701
-A.04.02.009,Mung bean sprouts,Ethiopia,ET,0.059,0.06,01701
-A.04.02.009,Mung bean sprouts,France,FR,0.004,0.06,01701
-A.04.02.009,Mung bean sprouts,Hungary,HU,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,India,IN,0.002,0.06,01701
-A.04.02.009,Mung bean sprouts,Italy,IT,0.086,0.06,01701
-A.04.02.009,Mung bean sprouts,Kyrgyzstan,KG,0.004,0.06,01701
-A.04.02.009,Mung bean sprouts,Madagascar,MG,0.007,0.06,01701
-A.04.02.009,Mung bean sprouts,Mexico,MX,0.002,0.06,01701
-A.04.02.009,Mung bean sprouts,Netherlands,NL,0.002,0.06,01701
-A.04.02.009,Mung bean sprouts,Nicaragua,NI,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Niger,NE,0.003,0.06,01701
-A.04.02.009,Mung bean sprouts,Peru,PE,0.005,0.06,01701
-A.04.02.009,Mung bean sprouts,Thailand,TH,0.003,0.06,01701
-A.04.02.009,Mung bean sprouts,Togo,TG,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,Turkey,TR,0.001,0.06,01701
-A.04.02.009,Mung bean sprouts,USA,US,0.156,0.06,01701
-A.04.02.009,Mung bean sprouts,United Republic of Tanzania,TZ,0.008,0.06,01701
+A.04.02.008,Lima beans (dry),Argentina,AR,0.063,0.06,01701
+A.04.02.008,Lima beans (dry),Brazil,BR,0.015,0.06,01701
+A.04.02.008,Lima beans (dry),Canada,CA,0.173,0.06,01701
+A.04.02.008,Lima beans (dry),China,CN,0.367,0.06,01701
+A.04.02.008,Lima beans (dry),Egypt,EG,0.049,0.06,01701
+A.04.02.008,Lima beans (dry),Italy,IT,0.091,0.06,01701
+A.04.02.008,Lima beans (dry),Poland,PL,0.014,0.06,01701
+A.04.02.008,Lima beans (dry),USA,US,0.165,0.06,01701
+A.04.02.008,Lima beans (dry),Ethiopia,ET,0.062,0.06,01701
+A.04.02.009,Mung bean sprouts,Argentina,AR,0.063,0.06,01701
+A.04.02.009,Mung bean sprouts,Brazil,BR,0.015,0.06,01701
+A.04.02.009,Mung bean sprouts,Canada,CA,0.173,0.06,01701
+A.04.02.009,Mung bean sprouts,China,CN,0.367,0.06,01701
+A.04.02.009,Mung bean sprouts,Egypt,EG,0.049,0.06,01701
+A.04.02.009,Mung bean sprouts,Italy,IT,0.091,0.06,01701
+A.04.02.009,Mung bean sprouts,Poland,PL,0.014,0.06,01701
+A.04.02.009,Mung bean sprouts,USA,US,0.165,0.06,01701
+A.04.02.009,Mung bean sprouts,Ethiopia,ET,0.062,0.06,01701
 A.04.02.011,Black eyed peas (dry),Argentina,AR,0.012,0.06,01705
 A.04.02.011,Black eyed peas (dry),Australia,AU,0.001,0.06,01705
 A.04.02.011,Black eyed peas (dry),Austria,AT,0.001,0.06,01705
@@ -1526,30 +1354,15 @@ A.04.02.012,Soyabeans for oil,Romania,RO,0.021,0.06,0141
 A.04.02.012,Soyabeans for oil,Slovakia,SK,0.008,0.06,0141
 A.04.02.012,Soyabeans for oil,USA,US,0.386,0.06,0141
 A.04.02.012,Soyabeans for oil,Ukraine,UA,0.075,0.06,0141
-A.04.02.014,Carobs,Argentina,AR,0.06,0.06,01709.90
-A.04.02.014,Carobs,Australia,AU,0.003,0.06,01709.90
-A.04.02.014,Carobs,Bolivia,BO,0.001,0.06,01709.90
-A.04.02.014,Carobs,Brazil,BR,0.014,0.06,01709.90
-A.04.02.014,Carobs,Canada,CA,0.164,0.06,01709.90
-A.04.02.014,Carobs,Chile,CL,0.001,0.06,01709.90
-A.04.02.014,Carobs,Egypt,EG,0.046,0.06,01709.90
-A.04.02.014,Carobs,Ethiopia,ET,0.059,0.06,01709.90
-A.04.02.014,Carobs,France,FR,0.004,0.06,01709.90
-A.04.02.014,Carobs,Hungary,HU,0.001,0.06,01709.90
-A.04.02.014,Carobs,India,IN,0.002,0.06,01709.90
-A.04.02.014,Carobs,Italy,IT,0.086,0.06,01709.90
-A.04.02.014,Carobs,Kyrgyzstan,KG,0.004,0.06,01709.90
-A.04.02.014,Carobs,Madagascar,MG,0.007,0.06,01709.90
-A.04.02.014,Carobs,Mexico,MX,0.002,0.06,01709.90
-A.04.02.014,Carobs,Netherlands,NL,0.002,0.06,01709.90
-A.04.02.014,Carobs,Nicaragua,NI,0.001,0.06,01709.90
-A.04.02.014,Carobs,Niger,NE,0.003,0.06,01709.90
-A.04.02.014,Carobs,Peru,PE,0.005,0.06,01709.90
-A.04.02.014,Carobs,Thailand,TH,0.003,0.06,01709.90
-A.04.02.014,Carobs,Togo,TG,0.001,0.06,01709.90
-A.04.02.014,Carobs,Turkey,TR,0.001,0.06,01709.90
-A.04.02.014,Carobs,USA,US,0.156,0.06,01709.90
-A.04.02.014,Carobs,United Republic of Tanzania,TZ,0.008,0.06,01709.90
+A.04.02.014,Carobs,Argentina,AR,0.063,0.06,01709.90
+A.04.02.014,Carobs,Brazil,BR,0.015,0.06,01709.90
+A.04.02.014,Carobs,Canada,CA,0.173,0.06,01709.90
+A.04.02.014,Carobs,China,CN,0.367,0.06,01709.90
+A.04.02.014,Carobs,Egypt,EG,0.049,0.06,01709.90
+A.04.02.014,Carobs,Italy,IT,0.091,0.06,01709.90
+A.04.02.014,Carobs,Poland,PL,0.014,0.06,01709.90
+A.04.02.014,Carobs,USA,US,0.165,0.06,01709.90
+A.04.02.014,Carobs,Ethiopia,ET,0.062,0.06,01709.90
 A.04.02.020,Yams,Cameroon,CM,0.002,0.24,01599.10
 A.04.02.020,Yams,China,CN,0.128,0.24,01599.10
 A.04.02.020,Yams,Costa Rica,CR,0.053,0.24,01599.10
@@ -2693,27 +2506,17 @@ A.06.01.005,Goat muscle,Italy,IT,0.509,0.057,21116
 A.06.01.005,Goat muscle,Netherlands,NL,0.016,0.057,21116
 A.06.01.005,Goat muscle,New Zealand,NZ,0.008,0.057,21116
 A.06.01.005,Goat muscle,Spain,ES,0.047,0.057,21116
-A.06.01.006,Equine muscle,Argentina,AR,0.056,0.057,21118.01
-A.06.01.006,Equine muscle,Australia,AU,0.001,0.057,21118.01
-A.06.01.006,Equine muscle,Belgium,BE,0.009,0.057,21118.01
-A.06.01.006,Equine muscle,Brazil,BR,0.01,0.057,21118.01
-A.06.01.006,Equine muscle,Canada,CA,0.013,0.057,21118.01
-A.06.01.006,Equine muscle,Croatia,HR,0.002,0.057,21118.01
-A.06.01.006,Equine muscle,Denmark,DK,0.006,0.057,21118.01
-A.06.01.006,Equine muscle,France,FR,0.012,0.057,21118.01
-A.06.01.006,Equine muscle,Germany,DE,0.003,0.057,21118.01
-A.06.01.006,Equine muscle,Hungary,HU,0.001,0.057,21118.01
-A.06.01.006,Equine muscle,Ireland,IE,0.013,0.057,21118.01
-A.06.01.006,Equine muscle,Italy,IT,0.384,0.057,21118.01
-A.06.01.006,Equine muscle,Lithuania,LT,0.007,0.057,21118.01
-A.06.01.006,Equine muscle,Mexico,MX,0.03,0.057,21118.01
-A.06.01.006,Equine muscle,Netherlands,NL,0.001,0.057,21118.01
-A.06.01.006,Equine muscle,Portugal,PT,0.008,0.057,21118.01
-A.06.01.006,Equine muscle,Romania,RO,0.021,0.057,21118.01
-A.06.01.006,Equine muscle,Spain,ES,0.116,0.057,21118.01
-A.06.01.006,Equine muscle,USA,US,0.014,0.057,21118.01
-A.06.01.006,Equine muscle,United Kingdom,GB,0.006,0.057,21118.01
-A.06.01.006,Equine muscle,Uruguay,UY,0.007,0.057,21118.01
+A.06.01.006,Equine muscle,Argentina,AR,0.059,0.057,21118.01
+A.06.01.006,Equine muscle,Brazil,BR,0.011,0.057,21118.01
+A.06.01.006,Equine muscle,Canada,CA,0.014,0.057,21118.01
+A.06.01.006,Equine muscle,France,FR,0.013,0.057,21118.01
+A.06.01.006,Equine muscle,Ireland,IE,0.014,0.057,21118.01
+A.06.01.006,Equine muscle,Italy,IT,0.406,0.057,21118.01
+A.06.01.006,Equine muscle,Mexico,MX,0.031,0.057,21118.01
+A.06.01.006,Equine muscle,Poland,PL,0.294,0.057,21118.01
+A.06.01.006,Equine muscle,Romania,RO,0.022,0.057,21118.01
+A.06.01.006,Equine muscle,Spain,ES,0.122,0.057,21118.01
+A.06.01.006,Equine muscle,USA,US,0.015,0.057,21118.01
 A.06.01.007,Rabbit fresh meat,Argentina,AR,0.001,0.057,21114
 A.06.01.007,Rabbit fresh meat,China,CN,0.001,0.057,21114
 A.06.01.007,Rabbit fresh meat,France,FR,0.025,0.057,21114
@@ -2768,33 +2571,14 @@ A.06.02.004,Goose fresh meat,Hungary,HU,0.752,0.057,21123
 A.06.02.004,Goose fresh meat,Italy,IT,0.154,0.057,21123
 A.06.02.004,Goose fresh meat,Poland,PL,0.079,0.057,21123
 A.06.02.004,Goose fresh meat,United Kingdom,GB,0.001,0.057,21123
-A.06.02.005,Pigeon fresh meat,Albania,AL,0.001,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Argentina,AR,0.02,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Belgium,BE,0.001,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Canada,CA,0.009,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,China,CN,0.001,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Croatia,HR,0.002,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Ecuador,EC,0.001,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,France,FR,0.27,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Hungary,HU,0.013,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Iceland,IS,0.002,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,India,IN,0.004,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Ireland,IE,0.001,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Italy,IT,0.255,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Japan,JP,0.004,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Latvia,LV,0.001,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Lithuania,LT,0.004,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,New Zealand,NZ,0.192,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Norway,NO,0.009,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Philippines,PH,0.001,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Poland,PL,0.02,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Republic of Korea,KR,0.017,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Russia,RU,0.001,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Slovakia,SK,0.001,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Spain,ES,0.005,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Turkey,TR,0.007,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,United Kingdom,GB,0.005,0.057,21170.01
-A.06.02.005,Pigeon fresh meat,Zimbabwe,ZW,0.001,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,Argentina,AR,0.022,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,China,CN,0.159,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,France,FR,0.289,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,Hungary,HU,0.014,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,Italy,IT,0.272,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,Republic of Korea,KR,0.019,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,New Zealand,NZ,0.205,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,Poland,PL,0.021,0.057,21170.01
 A.06.02.006,Guinea-fowl fresh meat,Austria,AT,0.001,0.057,21121
 A.06.02.006,Guinea-fowl fresh meat,Belgium,BE,0.002,0.057,21121
 A.06.02.006,Guinea-fowl fresh meat,Brazil,BR,0.006,0.057,21121
@@ -3074,36 +2858,24 @@ A.09.01.001,Hen eggs,Romania,RO,0.008,0.017,0231
 A.09.01.001,Hen eggs,Slovakia,SK,0.003,0.017,0231
 A.09.01.001,Hen eggs,Spain,ES,0.026,0.017,0231
 A.09.01.001,Hen eggs,United Kingdom,GB,0.001,0.017,0231
-A.09.01.005,Duck eggs,China,CN,0.039,0.017,0232
+A.09.01.005,Duck eggs,China,CN,0.184,0.017,0232
 A.09.01.005,Duck eggs,Hungary,HU,0.028,0.017,0232
-A.09.01.005,Duck eggs,Latvia,LV,0.001,0.017,0232
-A.09.01.005,Duck eggs,Lithuania,LT,0.002,0.017,0232
-A.09.01.005,Duck eggs,Pakistan,PK,0.002,0.017,0232
-A.09.01.005,Duck eggs,Portugal,PT,0.191,0.017,0232
-A.09.01.005,Duck eggs,Romania,RO,0.09,0.017,0232
-A.09.01.005,Duck eggs,Spain,ES,0.214,0.017,0232
-A.09.01.005,Duck eggs,Thailand,TH,0.006,0.017,0232
-A.09.01.005,Duck eggs,United Kingdom,GB,0.284,0.017,0232
-A.09.01.006,Goose eggs,China,CN,0.039,0.017,0232
+A.09.01.005,Duck eggs,Portugal,PT,0.193,0.017,0232
+A.09.01.005,Duck eggs,Romania,RO,0.091,0.017,0232
+A.09.01.005,Duck eggs,Spain,ES,0.216,0.017,0232
+A.09.01.005,Duck eggs,United Kingdom,GB,0.287,0.017,0232
+A.09.01.006,Goose eggs,China,CN,0.184,0.017,0232
 A.09.01.006,Goose eggs,Hungary,HU,0.028,0.017,0232
-A.09.01.006,Goose eggs,Latvia,LV,0.001,0.017,0232
-A.09.01.006,Goose eggs,Lithuania,LT,0.002,0.017,0232
-A.09.01.006,Goose eggs,Pakistan,PK,0.002,0.017,0232
-A.09.01.006,Goose eggs,Portugal,PT,0.191,0.017,0232
-A.09.01.006,Goose eggs,Romania,RO,0.09,0.017,0232
-A.09.01.006,Goose eggs,Spain,ES,0.214,0.017,0232
-A.09.01.006,Goose eggs,Thailand,TH,0.006,0.017,0232
-A.09.01.006,Goose eggs,United Kingdom,GB,0.284,0.017,0232
-A.09.01.007,Quail eggs,China,CN,0.039,0.017,0232
+A.09.01.006,Goose eggs,Portugal,PT,0.193,0.017,0232
+A.09.01.006,Goose eggs,Romania,RO,0.091,0.017,0232
+A.09.01.006,Goose eggs,Spain,ES,0.216,0.017,0232
+A.09.01.006,Goose eggs,United Kingdom,GB,0.287,0.017,0232
+A.09.01.007,Quail eggs,China,CN,0.184,0.017,0232
 A.09.01.007,Quail eggs,Hungary,HU,0.028,0.017,0232
-A.09.01.007,Quail eggs,Latvia,LV,0.001,0.017,0232
-A.09.01.007,Quail eggs,Lithuania,LT,0.002,0.017,0232
-A.09.01.007,Quail eggs,Pakistan,PK,0.002,0.017,0232
-A.09.01.007,Quail eggs,Portugal,PT,0.191,0.017,0232
-A.09.01.007,Quail eggs,Romania,RO,0.09,0.017,0232
-A.09.01.007,Quail eggs,Spain,ES,0.214,0.017,0232
-A.09.01.007,Quail eggs,Thailand,TH,0.006,0.017,0232
-A.09.01.007,Quail eggs,United Kingdom,GB,0.284,0.017,0232
+A.09.01.007,Quail eggs,Portugal,PT,0.193,0.017,0232
+A.09.01.007,Quail eggs,Romania,RO,0.091,0.017,0232
+A.09.01.007,Quail eggs,Spain,ES,0.216,0.017,0232
+A.09.01.007,Quail eggs,United Kingdom,GB,0.287,0.017,0232
 A.10.02.001,"Nutritive sweeteners (e.g., sorbitol, manitol)",Rest of World,RoW,1,0,MI-44
 A.10.02.001.007,Hydrogenated starch hydrolysates,Rest of World,RoW,1,0,MI-28
 A.10.02.002.001,Saccharine,Rest of World,RoW,1,0,MI-45
@@ -3111,34 +2883,16 @@ A.10.02.002.002,Aspartam,Rest of World,RoW,1,0,MI-02
 A.10.02.002.003,Acesulfame K,Rest of World,RoW,1,0,MI-03
 A.10.02.002.004,Sucralose,Rest of World,RoW,1,0,MI-04
 A.10.02.002.005,Cyclamate,Rest of World,RoW,1,0,MI-46
-A.10.07,Honey,Argentina,AR,0.053,0.06,02910
-A.10.07,Honey,Australia,AU,0.003,0.06,02910
-A.10.07,Honey,Austria,AT,0.003,0.06,02910
-A.10.07,Honey,Brazil,BR,0.002,0.06,02910
-A.10.07,Honey,Bulgaria,BG,0.016,0.06,02910
-A.10.07,Honey,Chile,CL,0.024,0.06,02910
-A.10.07,Honey,Croatia,HR,0.003,0.06,02910
-A.10.07,Honey,Cuba,CU,0.002,0.06,02910
-A.10.07,Honey,Cyprus,CY,0.001,0.06,02910
-A.10.07,Honey,Czechia,CZ,0.001,0.06,02910
-A.10.07,Honey,El Salvador,SV,0.001,0.06,02910
-A.10.07,Honey,France,FR,0.004,0.06,02910
-A.10.07,Honey,Germany,DE,0.007,0.06,02910
-A.10.07,Honey,Greece,GR,0.003,0.06,02910
-A.10.07,Honey,Guatemala,GT,0.002,0.06,02910
-A.10.07,Honey,Hungary,HU,0.299,0.06,02910
-A.10.07,Honey,Italy,IT,0.34,0.06,02910
-A.10.07,Honey,Mexico,MX,0.009,0.06,02910
-A.10.07,Honey,New Zealand,NZ,0.001,0.06,02910
-A.10.07,Honey,Portugal,PT,0.002,0.06,02910
-A.10.07,Honey,Romania,RO,0.052,0.06,02910
-A.10.07,Honey,Serbia,RS,0.026,0.06,02910
-A.10.07,Honey,Spain,ES,0.028,0.06,02910
-A.10.07,Honey,Switzerland,CH,0.001,0.06,02910
-A.10.07,Honey,Thailand,TH,0.001,0.06,02910
-A.10.07,Honey,Turkey,TR,0.001,0.06,02910
+A.10.07,Honey,Argentina,AR,0.056,0.06,02910
+A.10.07,Honey,Bulgaria,BG,0.017,0.06,02910
+A.10.07,Honey,Chile,CL,0.025,0.06,02910
+A.10.07,Honey,China,CN,0.103,0.06,02910
+A.10.07,Honey,Hungary,HU,0.315,0.06,02910
+A.10.07,Honey,Italy,IT,0.359,0.06,02910
+A.10.07,Honey,Romania,RO,0.055,0.06,02910
+A.10.07,Honey,Spain,ES,0.03,0.06,02910
 A.10.07,Honey,Ukraine,UA,0.012,0.06,02910
-A.10.07,Honey,Uruguay,UY,0.002,0.06,02910
+A.10.07,Honey,Serbia,RS,0.027,0.06,02910
 A.15,Drinking water (water without any additives except carbon dioxide),Rest of World,RoW,1,0,MI-06
 A.15.01,Tap water,Rest of World,RoW,1,0,MI-07
 A.15.02,Well water,Rest of World,RoW,1,0,MI-08
