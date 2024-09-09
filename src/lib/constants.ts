@@ -31,6 +31,7 @@ export const CO2E_CONV_FACTORS: Record<string, number> = {
 };
 
 export const LL_COUNTRY_CODES: Record<string, string> = {
+  Denmark: "DK",
   France: "FR",
   Germany: "DE",
   Greece: "GR",

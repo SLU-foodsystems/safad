@@ -82,7 +82,7 @@ onMounted(drawChart);
     <div class="planetary-boundaries-chart" ref="el">
       <PlaceholderSvg :aspect-ratio="1" />
       <MissingDataOverlay :show="props.dietMissing">
-        No default diet data available for Poland.
+        No default diet data available for Denmark or Poland.
       </MissingDataOverlay>
     </div>
   </DownloadableSvg>

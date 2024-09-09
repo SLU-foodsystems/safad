@@ -201,7 +201,7 @@ const reverseSecondHalf = <T,>(xs: T[]): T[] => {
   >
     <PlaceholderSvg :aspect-ratio="0.5" />
     <MissingDataOverlay :show="props.dietMissing">
-      No default diet data available for Poland.
+      No default diet data available for Denmark or Poland.
     </MissingDataOverlay>
   </DownloadableSvg>
   <DownloadableSvg
@@ -211,7 +211,7 @@ const reverseSecondHalf = <T,>(xs: T[]): T[] => {
   >
     <PlaceholderSvg :aspect-ratio="0.5" />
     <MissingDataOverlay :show="props.dietMissing">
-      No default diet data available for Poland.
+      No default diet data available for Denmark or Poland.
     </MissingDataOverlay>
   </DownloadableSvg>
   <div class="labels">
