@@ -44,9 +44,14 @@ export function readCsv(fpath, delim = ",") {
   return csvToArr(fileContent, delim).filter((x) => x.length > 1);
 }
 
-export const asCsvString = (rows, { NEWLINE, withBOM }) =>
-  (withBOM ? "\ufeff" : "") +
-  rows.map((row) => row.map(maybeQuote).join(",")).join(NEWLINE);
+export const asCsvString = (rows, { NEWLINE, withBOM }) => {
+  const BOM = "\ufeff";
+  const hasBOM = rows[0][0] && rows[0][0].startsWith(BOM);
+  return (
+    (withBOM && !hasBOM ? BOM : "") +
+    rows.map((row) => row.map(maybeQuote).join(",")).join(NEWLINE)
+  );
+};
 
 /**
  * @param {number} value
