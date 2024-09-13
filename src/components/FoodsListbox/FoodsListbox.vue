@@ -161,11 +161,15 @@ function deselectItem(codeToDeselect: string) {
     font-size: 0.875em;
   }
 
-  [data-pc-name="iconfield"] {
+  [data-pc-name="pcfiltercontainer"] {
     display: flex;
     flex-direction: column-reverse;
     gap: 0.25em;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
+
+    input[type="text"] {
+      border-radius: 0;
+    }
 
     span {
       display: flex;
@@ -197,6 +201,7 @@ function deselectItem(codeToDeselect: string) {
 
   .p-virtualscroller {
     border: 2px solid $gray;
+    overflow: auto;
 
     &:focus-within {
       border-color: black;
