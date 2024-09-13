@@ -106,7 +106,7 @@ export default function PieChart(
       const subgroupValue = d.data.value * 100;
       const tooltipHtml =
         `<strong>${subgroupName}</strong><br />` +
-        `${subgroupValue.toPrecision(2)} %`;
+        `${subgroupValue.toPrecision(2)}%`;
 
       tooltip.html(tooltipHtml).style("opacity", 1);
 
