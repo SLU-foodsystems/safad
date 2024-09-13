@@ -86,7 +86,7 @@
 "A03JL","A.02.10.009","Strawberry infusion leaves","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
 "A03JV","A.02.10.013","Ginseng infusion roots","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
 "A03GK","A.02.12.001","Coffee beans, green","01610","Coffee, green","Crop",,,,,
-,"A.02.14.012","Hops (dried), including pellets and unconcentrated powder (Humulus lupulus)",,,"Crop",,,"Humle - dyker nog inte upp",,
+,"A.02.14.012","Hops (dried), including pellets and unconcentrated powder (Humulus lupulus)","MI-01",,"Crop",,,,,
 "A00TQ","A.02.15.001","Common mushrooms","01270","Mushrooms and truffles","Crop",,,,,
 "A00TR","A.02.15.002","Oyster mushroom (Pleurotus ostreatus)","01270","Mushrooms and truffles","Crop",,,,,
 "A00TS","A.02.15.003","Shiitake","01270","Mushrooms and truffles","Crop",,,,,
@@ -245,13 +245,13 @@
 "A01AR","A.16.02.029","Saffron","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
 "A019J","A.16.02.030","Tamarind","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
 "A01AC","A.16.02.031","Turmeric roots","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
-"A042P","A.16.04.001","Salt","0",0,"Crop",,,,,"?"
-"A042Q","A.16.04.002","Salt, low sodium","0",0,"Crop",,,,,"?"
-"A042R","A.16.04.003","Salt, iodised","0",0,"Crop",,,,,"?"
-"A042T","A.16.04.005","Salt, iodised and fluoridated","0",0,"Crop",,,,,"?"
-"A042X","A.16.04.007","Sea salt","0",0,"Crop",,,,,"?"
+"A042P","A.16.04.001","Salt","MI-12",0,"Crop",,,,,"?"
+"A042Q","A.16.04.002","Salt, low sodium","MI-12",0,"Crop",,,,,"?"
+"A042R","A.16.04.003","Salt, iodised","MI-12",0,"Crop",,,,,"?"
+"A042T","A.16.04.005","Salt, iodised and fluoridated","MI-12",0,"Crop",,,,,"?"
+"A042X","A.16.04.007","Sea salt","MI-12",0,"Crop",,,,,"?"
 "A019H","A.16.09.003","Vanilla","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
-"A048Z","A.16.10.001","Yeast cultures","0",0,"Crop",,,,,
+"A048Z","A.16.10.001","Yeast cultures","MI-16",0,"Crop",,,,,
 "A000R","I.01.02.010.006","Quinoa grain","01194","Quinoa","Crop",,,,,
 "A00XX","I.16.01.012","Marjoram","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
 "A00XV","I.16.01.013","Oregano","01699","Other stimulant, spice and aromatic crops, n.e.c.","Crop",,,,,
