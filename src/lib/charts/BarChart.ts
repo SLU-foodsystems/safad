@@ -68,6 +68,10 @@ export default function BarChart(
     cfg.margin.bottom += 20;
   }
 
+  if (cfg.minValue === 0 && cfg.maxValue === 0) {
+    cfg.maxValue = 1;
+  }
+
   const yTickFormat = getYTickFormat(
     cfg.maxValue,
     [cfg.minValue, cfg.maxValue],
