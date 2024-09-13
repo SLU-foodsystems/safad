@@ -187,9 +187,10 @@ export default function BarChart(
     .on("mouseover", function (event, d) {
       const subgroupName = cfg.labelTextMapper(d.category);
       const subgroupValue = d.value;
+      const unit = cfg.axisLabels?.y || "";
       const tooltipHtml =
         `<strong>${subgroupName}</strong><br />` +
-        `${subgroupValue.toPrecision(2)} %`;
+        `${subgroupValue.toPrecision(2)} ${unit}`;
 
       tooltip.html(tooltipHtml).style("opacity", 1);
 
