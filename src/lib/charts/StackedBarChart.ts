@@ -195,9 +195,11 @@ export default function StackedBarChart(
 
       const subgroupName = thisData.key;
       const subgroupValue = d.data[subgroupName];
+
+      const spaceBeforeUnit = cfg.tooltipUnit !== "%";
       const tooltipHtml =
         `<strong>${subgroupName}</strong><br />` +
-        `${subgroupValue.toPrecision(2)} ${cfg.tooltipUnit}`;
+        `${subgroupValue.toPrecision(2)}${spaceBeforeUnit ? " " : ""}${cfg.tooltipUnit}`;
 
       const c = color(subgroupName);
 
