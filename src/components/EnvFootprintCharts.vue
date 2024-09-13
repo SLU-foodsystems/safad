@@ -13,7 +13,7 @@ const charts = [
     index: aggregateHeaderIndex("Cropland (m2*year)"),
     color: SLU_COLORS.Green.Chlorophyll,
     title: "Cropland use",
-    yLabel: "m2 per year per kg",
+    yLabel: "m2 year per kg",
   },
   {
     index: aggregateHeaderIndex("Water (m3)"),
