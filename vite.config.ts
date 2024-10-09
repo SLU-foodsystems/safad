@@ -42,6 +42,14 @@ const getFullVersion = async () =>
 export default defineConfig({
   root: "src",
   publicDir: "../public",
+  // Ensure we use 'modern' over 'legacy' (JS) API for sass
+  // See: https://sass-lang.com/documentation/breaking-changes/legacy-js-api/#bundlers
+  //      https://vite.dev/config/shared-options.html#css-preprocessoroptions
+  css: {
+    preprocessorOptions: {
+      scss: { api: 'modern-compiler' },
+    },
+  },
   build: {
     outDir: "../dist",
   },
