@@ -833,6 +833,7 @@ onMounted(async () => {
 </template>
 
 <style lang="scss" scoped>
+@use "sass:color";
 @import "../../styles/constants";
 
 .inner-thinner-wrap {
@@ -870,7 +871,7 @@ onMounted(async () => {
 .sub-footer {
   font-size: 0.75em;
   padding: 1em 0;
-  background: darken($green_forest, 10%);
+  background: color.scale($green_forest, $lightness: -10%);
   color: white;
 }
 
