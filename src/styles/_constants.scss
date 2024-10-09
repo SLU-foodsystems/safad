@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "sass:math";
 /*
  * Variables
@@ -8,9 +9,9 @@
  */
 
 $background: #fff;
-$gray: darken($background, 9%);
+$gray: color.scale($background, $lightness: -9%);
 $pink: #f8b8c9;
-$lightgray: darken($background, 4%);
+$lightgray: color.scale($background, $lightness: -4%);
 $yellow: #fd0;
 
 $type: #050505;
