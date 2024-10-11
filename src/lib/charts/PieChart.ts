@@ -53,20 +53,6 @@ export default function PieChart(
   // Remove whatever chart with the same id/class was present before
   d3.select(container).select("svg").remove();
 
-  // Create the tooltip element, outside of the svg
-  const tooltip = d3
-    .select(container)
-    .append("div")
-    .attr("class", "d3-tooltip")
-    .style("text-align", "left");
-
-  const moveTooltip = (event: MouseEvent) => {
-    // Offset x, y since main element (pie) is already offset
-    const x = cfg.width / 2 + event.layerX + 10;
-    const y = cfg.height / 2 + event.layerY;
-    tooltip.style("transform", `translate(${x}px, ${y}px)`);
-  };
-
   const root = d3
     .select(container)
     .append("svg")
@@ -92,6 +78,19 @@ export default function PieChart(
     .innerRadius(outerRadius)
     .outerRadius(outerRadius);
 
+  // Create the tooltip element, outside of the svg
+  const tooltip = d3
+    .select(container)
+    .append("div")
+    .attr("class", "d3-tooltip")
+    .style("text-align", "left");
+
+  const moveTooltip = (event: MouseEvent) => {
+    // Offset x, y since main element (pie) is offset
+    const x = cfg.width / 2 + event.layerX + 10;
+    const y = cfg.height / 2 + event.layerY;
+    tooltip.style("transform", `translate(${x}px, ${y}px)`);
+  };
 
   // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
   root
