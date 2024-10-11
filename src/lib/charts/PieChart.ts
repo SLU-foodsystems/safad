@@ -61,8 +61,9 @@ export default function PieChart(
     .style("text-align", "left");
 
   const moveTooltip = (event: MouseEvent) => {
-    const x = event.layerX + 10;
-    const y = event.layerY;
+    // Offset x, y since main element (pie) is already offset
+    const x = cfg.width / 2 + event.layerX + 10;
+    const y = cfg.height / 2 + event.layerY;
     tooltip.style("transform", `translate(${x}px, ${y}px)`);
   };
 
@@ -90,6 +91,7 @@ export default function PieChart(
     .arc<d3.PieArcDatum<DataPoint>>()
     .innerRadius(outerRadius)
     .outerRadius(outerRadius);
+
 
   // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
   root
