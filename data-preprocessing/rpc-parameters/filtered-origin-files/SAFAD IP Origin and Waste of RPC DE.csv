@@ -1,0 +1,522 @@
+﻿RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code
+A.05.02.001,Apples,Austria,AT,0.031,0.07,01341
+A.05.02.001,Apples,Chile,CL,0.019,0.07,01341
+A.05.02.001,Apples,China,CN,0.027,0.07,01341
+A.05.02.001,Apples,France,FR,0.042,0.07,01341
+A.05.02.001,Apples,Germany,DE,0.44,0.07,01341
+A.05.02.001,Apples,Hungary,HU,0.023,0.07,01341
+A.05.02.001,Apples,Italy,IT,0.154,0.07,01341
+A.05.02.001,Apples,Republic of Moldova,MD,0.016,0.07,01341
+A.05.02.001,Apples,Netherlands,NL,0.032,0.07,01341
+A.05.02.001,Apples,New Zealand,NZ,0.012,0.07,01341
+A.05.02.001,Apples,Czechia,CZ,0.011,0.07,01341
+A.05.02.001,Apples,Poland,PL,0.158,0.07,01341
+A.05.02.001,Apples,Turkey,TR,0.019,0.07,01341
+A.05.02.001,Apples,Belgium,BE,0.016,0.07,01341
+A.05.02.007,Sorb fruits,Austria,AT,0.031,0.07,01341
+A.05.02.007,Sorb fruits,Chile,CL,0.019,0.07,01341
+A.05.02.007,Sorb fruits,China,CN,0.027,0.07,01341
+A.05.02.007,Sorb fruits,France,FR,0.042,0.07,01341
+A.05.02.007,Sorb fruits,Germany,DE,0.44,0.07,01341
+A.05.02.007,Sorb fruits,Hungary,HU,0.023,0.07,01341
+A.05.02.007,Sorb fruits,Italy,IT,0.154,0.07,01341
+A.05.02.007,Sorb fruits,Republic of Moldova,MD,0.016,0.07,01341
+A.05.02.007,Sorb fruits,Netherlands,NL,0.032,0.07,01341
+A.05.02.007,Sorb fruits,New Zealand,NZ,0.012,0.07,01341
+A.05.02.007,Sorb fruits,Czechia,CZ,0.011,0.07,01341
+A.05.02.007,Sorb fruits,Poland,PL,0.158,0.07,01341
+A.05.02.007,Sorb fruits,Turkey,TR,0.019,0.07,01341
+A.05.02.007,Sorb fruits,Belgium,BE,0.016,0.07,01341
+A.02.06.001,Beans (with pods) and similar-,Argentina,AR,0.022,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Canada,CA,0.148,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,China,CN,0.493,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Kyrgyzstan,KG,0.04,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Netherlands,NL,0.024,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Turkey,TR,0.041,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,USA,US,0.122,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Ethiopia,ET,0.111,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Argentina,AR,0.022,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Canada,CA,0.148,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,China,CN,0.493,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Kyrgyzstan,KG,0.04,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Netherlands,NL,0.024,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Turkey,TR,0.041,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,USA,US,0.122,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Ethiopia,ET,0.111,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Argentina,AR,0.022,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Canada,CA,0.148,0.06,01701
+A.04.02.001,Beans (dry) and similar-,China,CN,0.493,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Kyrgyzstan,KG,0.04,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Netherlands,NL,0.024,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Turkey,TR,0.041,0.06,01701
+A.04.02.001,Beans (dry) and similar-,USA,US,0.122,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Ethiopia,ET,0.111,0.06,01701
+A.04.02.008,Lima beans (dry),Argentina,AR,0.022,0.06,01701
+A.04.02.008,Lima beans (dry),Canada,CA,0.148,0.06,01701
+A.04.02.008,Lima beans (dry),China,CN,0.493,0.06,01701
+A.04.02.008,Lima beans (dry),Kyrgyzstan,KG,0.04,0.06,01701
+A.04.02.008,Lima beans (dry),Netherlands,NL,0.024,0.06,01701
+A.04.02.008,Lima beans (dry),Turkey,TR,0.041,0.06,01701
+A.04.02.008,Lima beans (dry),USA,US,0.122,0.06,01701
+A.04.02.008,Lima beans (dry),Ethiopia,ET,0.111,0.06,01701
+A.04.02.009,Mung bean sprouts,Argentina,AR,0.022,0.06,01701
+A.04.02.009,Mung bean sprouts,Canada,CA,0.148,0.06,01701
+A.04.02.009,Mung bean sprouts,China,CN,0.493,0.06,01701
+A.04.02.009,Mung bean sprouts,Kyrgyzstan,KG,0.04,0.06,01701
+A.04.02.009,Mung bean sprouts,Netherlands,NL,0.024,0.06,01701
+A.04.02.009,Mung bean sprouts,Turkey,TR,0.041,0.06,01701
+A.04.02.009,Mung bean sprouts,USA,US,0.122,0.06,01701
+A.04.02.009,Mung bean sprouts,Ethiopia,ET,0.111,0.06,01701
+A.02.02.001,Garlic,Argentina,AR,0.077,0.07,01252
+A.02.02.001,Garlic,China,CN,0.277,0.07,01252
+A.02.02.001,Garlic,Egypt,EG,0.02,0.07,01252
+A.02.02.001,Garlic,France,FR,0.043,0.07,01252
+A.02.02.001,Garlic,Italy,IT,0.109,0.07,01252
+A.02.02.001,Garlic,Spain,ES,0.474,0.07,01252
+A.02.15.001,Common mushrooms,China,CN,0.1,0.07,01270
+A.02.15.001,Common mushrooms,France,FR,0.023,0.07,01270
+A.02.15.001,Common mushrooms,Germany,DE,0.221,0.07,01270
+A.02.15.001,Common mushrooms,Netherlands,NL,0.332,0.07,01270
+A.02.15.001,Common mushrooms,Poland,PL,0.324,0.07,01270
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus),China,CN,0.1,0.07,01270
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus),France,FR,0.023,0.07,01270
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Germany,DE,0.221,0.07,01270
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Netherlands,NL,0.332,0.07,01270
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus),Poland,PL,0.324,0.07,01270
+A.02.15.003,Shiitake,China,CN,0.1,0.07,01270
+A.02.15.003,Shiitake,France,FR,0.023,0.07,01270
+A.02.15.003,Shiitake,Germany,DE,0.221,0.07,01270
+A.02.15.003,Shiitake,Netherlands,NL,0.332,0.07,01270
+A.02.15.003,Shiitake,Poland,PL,0.324,0.07,01270
+A.02.16.002,Honey mushroom,China,CN,0.1,0.07,01270
+A.02.16.002,Honey mushroom,France,FR,0.023,0.07,01270
+A.02.16.002,Honey mushroom,Germany,DE,0.221,0.07,01270
+A.02.16.002,Honey mushroom,Netherlands,NL,0.332,0.07,01270
+A.02.16.002,Honey mushroom,Poland,PL,0.324,0.07,01270
+A.02.16.003,Ceps,China,CN,0.1,0.07,01270
+A.02.16.003,Ceps,France,FR,0.023,0.07,01270
+A.02.16.003,Ceps,Germany,DE,0.221,0.07,01270
+A.02.16.003,Ceps,Netherlands,NL,0.332,0.07,01270
+A.02.16.003,Ceps,Poland,PL,0.324,0.07,01270
+A.02.16.004,Truffles,China,CN,0.1,0.07,01270
+A.02.16.004,Truffles,France,FR,0.023,0.07,01270
+A.02.16.004,Truffles,Germany,DE,0.221,0.07,01270
+A.02.16.004,Truffles,Netherlands,NL,0.332,0.07,01270
+A.02.16.004,Truffles,Poland,PL,0.324,0.07,01270
+A.02.16.005,Morels,China,CN,0.1,0.07,01270
+A.02.16.005,Morels,France,FR,0.023,0.07,01270
+A.02.16.005,Morels,Germany,DE,0.221,0.07,01270
+A.02.16.005,Morels,Netherlands,NL,0.332,0.07,01270
+A.02.16.005,Morels,Poland,PL,0.324,0.07,01270
+A.02.16.006,Chanterelles,China,CN,0.1,0.07,01270
+A.02.16.006,Chanterelles,France,FR,0.023,0.07,01270
+A.02.16.006,Chanterelles,Germany,DE,0.221,0.07,01270
+A.02.16.006,Chanterelles,Netherlands,NL,0.332,0.07,01270
+A.02.16.006,Chanterelles,Poland,PL,0.324,0.07,01270
+A.02.16.007,Saffron milk cap,China,CN,0.1,0.07,01270
+A.02.16.007,Saffron milk cap,France,FR,0.023,0.07,01270
+A.02.16.007,Saffron milk cap,Germany,DE,0.221,0.07,01270
+A.02.16.007,Saffron milk cap,Netherlands,NL,0.332,0.07,01270
+A.02.16.007,Saffron milk cap,Poland,PL,0.324,0.07,01270
+A.10.07,Honey,Argentina,AR,0.097,0.06,02910
+A.10.07,Honey,Brazil,BR,0.015,0.06,02910
+A.10.07,Honey,Bulgaria,BG,0.05,0.06,02910
+A.10.07,Honey,Chile,CL,0.045,0.06,02910
+A.10.07,Honey,China,CN,0.108,0.06,02910
+A.10.07,Honey,Cuba,CU,0.036,0.06,02910
+A.10.07,Honey,El Salvador,SV,0.016,0.06,02910
+A.10.07,Honey,Germany,DE,0.188,0.06,02910
+A.10.07,Honey,Guatemala,GT,0.014,0.06,02910
+A.10.07,Honey,Hungary,HU,0.054,0.06,02910
+A.10.07,Honey,Italy,IT,0.012,0.06,02910
+A.10.07,Honey,Mexico,MX,0.151,0.06,02910
+A.10.07,Honey,Poland,PL,0.015,0.06,02910
+A.10.07,Honey,Romania,RO,0.052,0.06,02910
+A.10.07,Honey,Spain,ES,0.033,0.06,02910
+A.10.07,Honey,Thailand,TH,0.021,0.06,02910
+A.10.07,Honey,Ukraine,UA,0.064,0.06,02910
+A.10.07,Honey,Uruguay,UY,0.015,0.06,02910
+A.10.07,Honey,Serbia,RS,0.014,0.06,02910
+A.02.03.005,Okra,Bulgaria,BG,0.012,0.07,01359.90
+A.02.03.005,Okra,Chile,CL,0.016,0.07,01359.90
+A.02.03.005,Okra,China,CN,0.127,0.07,01359.90
+A.02.03.005,Okra,Costa Rica,CR,0.021,0.07,01359.90
+A.02.03.005,Okra,Ecuador,EC,0.055,0.07,01359.90
+A.02.03.005,Okra,Egypt,EG,0.017,0.07,01359.90
+A.02.03.005,Okra,Greece,GR,0.059,0.07,01359.90
+A.02.03.005,Okra,Guatemala,GT,0.014,0.07,01359.90
+A.02.03.005,Okra,Hungary,HU,0.076,0.07,01359.90
+A.02.03.005,Okra,India,IN,0.036,0.07,01359.90
+A.02.03.005,Okra,Israel,IL,0.011,0.07,01359.90
+A.02.03.005,Okra,Italy,IT,0.045,0.07,01359.90
+A.02.03.005,Okra,Kenya,KE,0.032,0.07,01359.90
+A.02.03.005,Okra,Mexico,MX,0.021,0.07,01359.90
+A.02.03.005,Okra,Morocco,MA,0.03,0.07,01359.90
+A.02.03.005,Okra,Peru,PE,0.016,0.07,01359.90
+A.02.03.005,Okra,Philippines,PH,0.014,0.07,01359.90
+A.02.03.005,Okra,Poland,PL,0.089,0.07,01359.90
+A.02.03.005,Okra,South Africa,ZA,0.038,0.07,01359.90
+A.02.03.005,Okra,Spain,ES,0.126,0.07,01359.90
+A.02.03.005,Okra,Thailand,TH,0.045,0.07,01359.90
+A.02.03.005,Okra,Turkey,TR,0.098,0.07,01359.90
+A.02.05.014,Grape leaves,Bulgaria,BG,0.012,0.07,01359.90
+A.02.05.014,Grape leaves,Chile,CL,0.016,0.07,01359.90
+A.02.05.014,Grape leaves,China,CN,0.127,0.07,01359.90
+A.02.05.014,Grape leaves,Costa Rica,CR,0.021,0.07,01359.90
+A.02.05.014,Grape leaves,Ecuador,EC,0.055,0.07,01359.90
+A.02.05.014,Grape leaves,Egypt,EG,0.017,0.07,01359.90
+A.02.05.014,Grape leaves,Greece,GR,0.059,0.07,01359.90
+A.02.05.014,Grape leaves,Guatemala,GT,0.014,0.07,01359.90
+A.02.05.014,Grape leaves,Hungary,HU,0.076,0.07,01359.90
+A.02.05.014,Grape leaves,India,IN,0.036,0.07,01359.90
+A.02.05.014,Grape leaves,Israel,IL,0.011,0.07,01359.90
+A.02.05.014,Grape leaves,Italy,IT,0.045,0.07,01359.90
+A.02.05.014,Grape leaves,Kenya,KE,0.032,0.07,01359.90
+A.02.05.014,Grape leaves,Mexico,MX,0.021,0.07,01359.90
+A.02.05.014,Grape leaves,Morocco,MA,0.03,0.07,01359.90
+A.02.05.014,Grape leaves,Peru,PE,0.016,0.07,01359.90
+A.02.05.014,Grape leaves,Philippines,PH,0.014,0.07,01359.90
+A.02.05.014,Grape leaves,Poland,PL,0.089,0.07,01359.90
+A.02.05.014,Grape leaves,South Africa,ZA,0.038,0.07,01359.90
+A.02.05.014,Grape leaves,Spain,ES,0.126,0.07,01359.90
+A.02.05.014,Grape leaves,Thailand,TH,0.045,0.07,01359.90
+A.02.05.014,Grape leaves,Turkey,TR,0.098,0.07,01359.90
+A.02.05.017,Oraches leaves,Bulgaria,BG,0.012,0.07,01359.90
+A.02.05.017,Oraches leaves,Chile,CL,0.016,0.07,01359.90
+A.02.05.017,Oraches leaves,China,CN,0.127,0.07,01359.90
+A.02.05.017,Oraches leaves,Costa Rica,CR,0.021,0.07,01359.90
+A.02.05.017,Oraches leaves,Ecuador,EC,0.055,0.07,01359.90
+A.02.05.017,Oraches leaves,Egypt,EG,0.017,0.07,01359.90
+A.02.05.017,Oraches leaves,Greece,GR,0.059,0.07,01359.90
+A.02.05.017,Oraches leaves,Guatemala,GT,0.014,0.07,01359.90
+A.02.05.017,Oraches leaves,Hungary,HU,0.076,0.07,01359.90
+A.02.05.017,Oraches leaves,India,IN,0.036,0.07,01359.90
+A.02.05.017,Oraches leaves,Israel,IL,0.011,0.07,01359.90
+A.02.05.017,Oraches leaves,Italy,IT,0.045,0.07,01359.90
+A.02.05.017,Oraches leaves,Kenya,KE,0.032,0.07,01359.90
+A.02.05.017,Oraches leaves,Mexico,MX,0.021,0.07,01359.90
+A.02.05.017,Oraches leaves,Morocco,MA,0.03,0.07,01359.90
+A.02.05.017,Oraches leaves,Peru,PE,0.016,0.07,01359.90
+A.02.05.017,Oraches leaves,Philippines,PH,0.014,0.07,01359.90
+A.02.05.017,Oraches leaves,Poland,PL,0.089,0.07,01359.90
+A.02.05.017,Oraches leaves,South Africa,ZA,0.038,0.07,01359.90
+A.02.05.017,Oraches leaves,Spain,ES,0.126,0.07,01359.90
+A.02.05.017,Oraches leaves,Thailand,TH,0.045,0.07,01359.90
+A.02.05.017,Oraches leaves,Turkey,TR,0.098,0.07,01359.90
+A.02.07.008,Bamboo shoots,Bulgaria,BG,0.012,0.07,01359.90
+A.02.07.008,Bamboo shoots,Chile,CL,0.016,0.07,01359.90
+A.02.07.008,Bamboo shoots,China,CN,0.127,0.07,01359.90
+A.02.07.008,Bamboo shoots,Costa Rica,CR,0.021,0.07,01359.90
+A.02.07.008,Bamboo shoots,Ecuador,EC,0.055,0.07,01359.90
+A.02.07.008,Bamboo shoots,Egypt,EG,0.017,0.07,01359.90
+A.02.07.008,Bamboo shoots,Greece,GR,0.059,0.07,01359.90
+A.02.07.008,Bamboo shoots,Guatemala,GT,0.014,0.07,01359.90
+A.02.07.008,Bamboo shoots,Hungary,HU,0.076,0.07,01359.90
+A.02.07.008,Bamboo shoots,India,IN,0.036,0.07,01359.90
+A.02.07.008,Bamboo shoots,Israel,IL,0.011,0.07,01359.90
+A.02.07.008,Bamboo shoots,Italy,IT,0.045,0.07,01359.90
+A.02.07.008,Bamboo shoots,Kenya,KE,0.032,0.07,01359.90
+A.02.07.008,Bamboo shoots,Mexico,MX,0.021,0.07,01359.90
+A.02.07.008,Bamboo shoots,Morocco,MA,0.03,0.07,01359.90
+A.02.07.008,Bamboo shoots,Peru,PE,0.016,0.07,01359.90
+A.02.07.008,Bamboo shoots,Philippines,PH,0.014,0.07,01359.90
+A.02.07.008,Bamboo shoots,Poland,PL,0.089,0.07,01359.90
+A.02.07.008,Bamboo shoots,South Africa,ZA,0.038,0.07,01359.90
+A.02.07.008,Bamboo shoots,Spain,ES,0.126,0.07,01359.90
+A.02.07.008,Bamboo shoots,Thailand,TH,0.045,0.07,01359.90
+A.02.07.008,Bamboo shoots,Turkey,TR,0.098,0.07,01359.90
+A.05.02.004,Medlars,Bulgaria,BG,0.012,0.07,01359.90
+A.05.02.004,Medlars,Chile,CL,0.016,0.07,01359.90
+A.05.02.004,Medlars,China,CN,0.127,0.07,01359.90
+A.05.02.004,Medlars,Costa Rica,CR,0.021,0.07,01359.90
+A.05.02.004,Medlars,Ecuador,EC,0.055,0.07,01359.90
+A.05.02.004,Medlars,Egypt,EG,0.017,0.07,01359.90
+A.05.02.004,Medlars,Greece,GR,0.059,0.07,01359.90
+A.05.02.004,Medlars,Guatemala,GT,0.014,0.07,01359.90
+A.05.02.004,Medlars,Hungary,HU,0.076,0.07,01359.90
+A.05.02.004,Medlars,India,IN,0.036,0.07,01359.90
+A.05.02.004,Medlars,Israel,IL,0.011,0.07,01359.90
+A.05.02.004,Medlars,Italy,IT,0.045,0.07,01359.90
+A.05.02.004,Medlars,Kenya,KE,0.032,0.07,01359.90
+A.05.02.004,Medlars,Mexico,MX,0.021,0.07,01359.90
+A.05.02.004,Medlars,Morocco,MA,0.03,0.07,01359.90
+A.05.02.004,Medlars,Peru,PE,0.016,0.07,01359.90
+A.05.02.004,Medlars,Philippines,PH,0.014,0.07,01359.90
+A.05.02.004,Medlars,Poland,PL,0.089,0.07,01359.90
+A.05.02.004,Medlars,South Africa,ZA,0.038,0.07,01359.90
+A.05.02.004,Medlars,Spain,ES,0.126,0.07,01359.90
+A.05.02.004,Medlars,Thailand,TH,0.045,0.07,01359.90
+A.05.02.004,Medlars,Turkey,TR,0.098,0.07,01359.90
+A.05.02.005,Loquats,Bulgaria,BG,0.012,0.07,01359.90
+A.05.02.005,Loquats,Chile,CL,0.016,0.07,01359.90
+A.05.02.005,Loquats,China,CN,0.127,0.07,01359.90
+A.05.02.005,Loquats,Costa Rica,CR,0.021,0.07,01359.90
+A.05.02.005,Loquats,Ecuador,EC,0.055,0.07,01359.90
+A.05.02.005,Loquats,Egypt,EG,0.017,0.07,01359.90
+A.05.02.005,Loquats,Greece,GR,0.059,0.07,01359.90
+A.05.02.005,Loquats,Guatemala,GT,0.014,0.07,01359.90
+A.05.02.005,Loquats,Hungary,HU,0.076,0.07,01359.90
+A.05.02.005,Loquats,India,IN,0.036,0.07,01359.90
+A.05.02.005,Loquats,Israel,IL,0.011,0.07,01359.90
+A.05.02.005,Loquats,Italy,IT,0.045,0.07,01359.90
+A.05.02.005,Loquats,Kenya,KE,0.032,0.07,01359.90
+A.05.02.005,Loquats,Mexico,MX,0.021,0.07,01359.90
+A.05.02.005,Loquats,Morocco,MA,0.03,0.07,01359.90
+A.05.02.005,Loquats,Peru,PE,0.016,0.07,01359.90
+A.05.02.005,Loquats,Philippines,PH,0.014,0.07,01359.90
+A.05.02.005,Loquats,Poland,PL,0.089,0.07,01359.90
+A.05.02.005,Loquats,South Africa,ZA,0.038,0.07,01359.90
+A.05.02.005,Loquats,Spain,ES,0.126,0.07,01359.90
+A.05.02.005,Loquats,Thailand,TH,0.045,0.07,01359.90
+A.05.02.005,Loquats,Turkey,TR,0.098,0.07,01359.90
+A.05.06.005,Carambolas,Bulgaria,BG,0.012,0.07,01359.90
+A.05.06.005,Carambolas,Chile,CL,0.016,0.07,01359.90
+A.05.06.005,Carambolas,China,CN,0.127,0.07,01359.90
+A.05.06.005,Carambolas,Costa Rica,CR,0.021,0.07,01359.90
+A.05.06.005,Carambolas,Ecuador,EC,0.055,0.07,01359.90
+A.05.06.005,Carambolas,Egypt,EG,0.017,0.07,01359.90
+A.05.06.005,Carambolas,Greece,GR,0.059,0.07,01359.90
+A.05.06.005,Carambolas,Guatemala,GT,0.014,0.07,01359.90
+A.05.06.005,Carambolas,Hungary,HU,0.076,0.07,01359.90
+A.05.06.005,Carambolas,India,IN,0.036,0.07,01359.90
+A.05.06.005,Carambolas,Israel,IL,0.011,0.07,01359.90
+A.05.06.005,Carambolas,Italy,IT,0.045,0.07,01359.90
+A.05.06.005,Carambolas,Kenya,KE,0.032,0.07,01359.90
+A.05.06.005,Carambolas,Mexico,MX,0.021,0.07,01359.90
+A.05.06.005,Carambolas,Morocco,MA,0.03,0.07,01359.90
+A.05.06.005,Carambolas,Peru,PE,0.016,0.07,01359.90
+A.05.06.005,Carambolas,Philippines,PH,0.014,0.07,01359.90
+A.05.06.005,Carambolas,Poland,PL,0.089,0.07,01359.90
+A.05.06.005,Carambolas,South Africa,ZA,0.038,0.07,01359.90
+A.05.06.005,Carambolas,Spain,ES,0.126,0.07,01359.90
+A.05.06.005,Carambolas,Thailand,TH,0.045,0.07,01359.90
+A.05.06.005,Carambolas,Turkey,TR,0.098,0.07,01359.90
+A.05.06.009,Litchis,Bulgaria,BG,0.012,0.07,01359.90
+A.05.06.009,Litchis,Chile,CL,0.016,0.07,01359.90
+A.05.06.009,Litchis,China,CN,0.127,0.07,01359.90
+A.05.06.009,Litchis,Costa Rica,CR,0.021,0.07,01359.90
+A.05.06.009,Litchis,Ecuador,EC,0.055,0.07,01359.90
+A.05.06.009,Litchis,Egypt,EG,0.017,0.07,01359.90
+A.05.06.009,Litchis,Greece,GR,0.059,0.07,01359.90
+A.05.06.009,Litchis,Guatemala,GT,0.014,0.07,01359.90
+A.05.06.009,Litchis,Hungary,HU,0.076,0.07,01359.90
+A.05.06.009,Litchis,India,IN,0.036,0.07,01359.90
+A.05.06.009,Litchis,Israel,IL,0.011,0.07,01359.90
+A.05.06.009,Litchis,Italy,IT,0.045,0.07,01359.90
+A.05.06.009,Litchis,Kenya,KE,0.032,0.07,01359.90
+A.05.06.009,Litchis,Mexico,MX,0.021,0.07,01359.90
+A.05.06.009,Litchis,Morocco,MA,0.03,0.07,01359.90
+A.05.06.009,Litchis,Peru,PE,0.016,0.07,01359.90
+A.05.06.009,Litchis,Philippines,PH,0.014,0.07,01359.90
+A.05.06.009,Litchis,Poland,PL,0.089,0.07,01359.90
+A.05.06.009,Litchis,South Africa,ZA,0.038,0.07,01359.90
+A.05.06.009,Litchis,Spain,ES,0.126,0.07,01359.90
+A.05.06.009,Litchis,Thailand,TH,0.045,0.07,01359.90
+A.05.06.009,Litchis,Turkey,TR,0.098,0.07,01359.90
+A.05.06.010,Passionfruits,Bulgaria,BG,0.012,0.07,01359.90
+A.05.06.010,Passionfruits,Chile,CL,0.016,0.07,01359.90
+A.05.06.010,Passionfruits,China,CN,0.127,0.07,01359.90
+A.05.06.010,Passionfruits,Costa Rica,CR,0.021,0.07,01359.90
+A.05.06.010,Passionfruits,Ecuador,EC,0.055,0.07,01359.90
+A.05.06.010,Passionfruits,Egypt,EG,0.017,0.07,01359.90
+A.05.06.010,Passionfruits,Greece,GR,0.059,0.07,01359.90
+A.05.06.010,Passionfruits,Guatemala,GT,0.014,0.07,01359.90
+A.05.06.010,Passionfruits,Hungary,HU,0.076,0.07,01359.90
+A.05.06.010,Passionfruits,India,IN,0.036,0.07,01359.90
+A.05.06.010,Passionfruits,Israel,IL,0.011,0.07,01359.90
+A.05.06.010,Passionfruits,Italy,IT,0.045,0.07,01359.90
+A.05.06.010,Passionfruits,Kenya,KE,0.032,0.07,01359.90
+A.05.06.010,Passionfruits,Mexico,MX,0.021,0.07,01359.90
+A.05.06.010,Passionfruits,Morocco,MA,0.03,0.07,01359.90
+A.05.06.010,Passionfruits,Peru,PE,0.016,0.07,01359.90
+A.05.06.010,Passionfruits,Philippines,PH,0.014,0.07,01359.90
+A.05.06.010,Passionfruits,Poland,PL,0.089,0.07,01359.90
+A.05.06.010,Passionfruits,South Africa,ZA,0.038,0.07,01359.90
+A.05.06.010,Passionfruits,Spain,ES,0.126,0.07,01359.90
+A.05.06.010,Passionfruits,Thailand,TH,0.045,0.07,01359.90
+A.05.06.010,Passionfruits,Turkey,TR,0.098,0.07,01359.90
+A.05.06.011,Prickly pears,Bulgaria,BG,0.012,0.07,01359.90
+A.05.06.011,Prickly pears,Chile,CL,0.016,0.07,01359.90
+A.05.06.011,Prickly pears,China,CN,0.127,0.07,01359.90
+A.05.06.011,Prickly pears,Costa Rica,CR,0.021,0.07,01359.90
+A.05.06.011,Prickly pears,Ecuador,EC,0.055,0.07,01359.90
+A.05.06.011,Prickly pears,Egypt,EG,0.017,0.07,01359.90
+A.05.06.011,Prickly pears,Greece,GR,0.059,0.07,01359.90
+A.05.06.011,Prickly pears,Guatemala,GT,0.014,0.07,01359.90
+A.05.06.011,Prickly pears,Hungary,HU,0.076,0.07,01359.90
+A.05.06.011,Prickly pears,India,IN,0.036,0.07,01359.90
+A.05.06.011,Prickly pears,Israel,IL,0.011,0.07,01359.90
+A.05.06.011,Prickly pears,Italy,IT,0.045,0.07,01359.90
+A.05.06.011,Prickly pears,Kenya,KE,0.032,0.07,01359.90
+A.05.06.011,Prickly pears,Mexico,MX,0.021,0.07,01359.90
+A.05.06.011,Prickly pears,Morocco,MA,0.03,0.07,01359.90
+A.05.06.011,Prickly pears,Peru,PE,0.016,0.07,01359.90
+A.05.06.011,Prickly pears,Philippines,PH,0.014,0.07,01359.90
+A.05.06.011,Prickly pears,Poland,PL,0.089,0.07,01359.90
+A.05.06.011,Prickly pears,South Africa,ZA,0.038,0.07,01359.90
+A.05.06.011,Prickly pears,Spain,ES,0.126,0.07,01359.90
+A.05.06.011,Prickly pears,Thailand,TH,0.045,0.07,01359.90
+A.05.06.011,Prickly pears,Turkey,TR,0.098,0.07,01359.90
+A.05.06.018,Granate apples,Bulgaria,BG,0.012,0.07,01359.90
+A.05.06.018,Granate apples,Chile,CL,0.016,0.07,01359.90
+A.05.06.018,Granate apples,China,CN,0.127,0.07,01359.90
+A.05.06.018,Granate apples,Costa Rica,CR,0.021,0.07,01359.90
+A.05.06.018,Granate apples,Ecuador,EC,0.055,0.07,01359.90
+A.05.06.018,Granate apples,Egypt,EG,0.017,0.07,01359.90
+A.05.06.018,Granate apples,Greece,GR,0.059,0.07,01359.90
+A.05.06.018,Granate apples,Guatemala,GT,0.014,0.07,01359.90
+A.05.06.018,Granate apples,Hungary,HU,0.076,0.07,01359.90
+A.05.06.018,Granate apples,India,IN,0.036,0.07,01359.90
+A.05.06.018,Granate apples,Israel,IL,0.011,0.07,01359.90
+A.05.06.018,Granate apples,Italy,IT,0.045,0.07,01359.90
+A.05.06.018,Granate apples,Kenya,KE,0.032,0.07,01359.90
+A.05.06.018,Granate apples,Mexico,MX,0.021,0.07,01359.90
+A.05.06.018,Granate apples,Morocco,MA,0.03,0.07,01359.90
+A.05.06.018,Granate apples,Peru,PE,0.016,0.07,01359.90
+A.05.06.018,Granate apples,Philippines,PH,0.014,0.07,01359.90
+A.05.06.018,Granate apples,Poland,PL,0.089,0.07,01359.90
+A.05.06.018,Granate apples,South Africa,ZA,0.038,0.07,01359.90
+A.05.06.018,Granate apples,Spain,ES,0.126,0.07,01359.90
+A.05.06.018,Granate apples,Thailand,TH,0.045,0.07,01359.90
+A.05.06.018,Granate apples,Turkey,TR,0.098,0.07,01359.90
+A.05.06.019,Wild sweetsops,Bulgaria,BG,0.012,0.07,01359.90
+A.05.06.019,Wild sweetsops,Chile,CL,0.016,0.07,01359.90
+A.05.06.019,Wild sweetsops,China,CN,0.127,0.07,01359.90
+A.05.06.019,Wild sweetsops,Costa Rica,CR,0.021,0.07,01359.90
+A.05.06.019,Wild sweetsops,Ecuador,EC,0.055,0.07,01359.90
+A.05.06.019,Wild sweetsops,Egypt,EG,0.017,0.07,01359.90
+A.05.06.019,Wild sweetsops,Greece,GR,0.059,0.07,01359.90
+A.05.06.019,Wild sweetsops,Guatemala,GT,0.014,0.07,01359.90
+A.05.06.019,Wild sweetsops,Hungary,HU,0.076,0.07,01359.90
+A.05.06.019,Wild sweetsops,India,IN,0.036,0.07,01359.90
+A.05.06.019,Wild sweetsops,Israel,IL,0.011,0.07,01359.90
+A.05.06.019,Wild sweetsops,Italy,IT,0.045,0.07,01359.90
+A.05.06.019,Wild sweetsops,Kenya,KE,0.032,0.07,01359.90
+A.05.06.019,Wild sweetsops,Mexico,MX,0.021,0.07,01359.90
+A.05.06.019,Wild sweetsops,Morocco,MA,0.03,0.07,01359.90
+A.05.06.019,Wild sweetsops,Peru,PE,0.016,0.07,01359.90
+A.05.06.019,Wild sweetsops,Philippines,PH,0.014,0.07,01359.90
+A.05.06.019,Wild sweetsops,Poland,PL,0.089,0.07,01359.90
+A.05.06.019,Wild sweetsops,South Africa,ZA,0.038,0.07,01359.90
+A.05.06.019,Wild sweetsops,Spain,ES,0.126,0.07,01359.90
+A.05.06.019,Wild sweetsops,Thailand,TH,0.045,0.07,01359.90
+A.05.06.019,Wild sweetsops,Turkey,TR,0.098,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Bulgaria,BG,0.012,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Chile,CL,0.016,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),China,CN,0.127,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Costa Rica,CR,0.021,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Ecuador,EC,0.055,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Egypt,EG,0.017,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Greece,GR,0.059,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Guatemala,GT,0.014,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Hungary,HU,0.076,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),India,IN,0.036,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Israel,IL,0.011,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Italy,IT,0.045,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Kenya,KE,0.032,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Mexico,MX,0.021,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Morocco,MA,0.03,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Peru,PE,0.016,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Philippines,PH,0.014,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Poland,PL,0.089,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),South Africa,ZA,0.038,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Spain,ES,0.126,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Thailand,TH,0.045,0.07,01359.90
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis),Turkey,TR,0.098,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Bulgaria,BG,0.012,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Chile,CL,0.016,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),China,CN,0.127,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Costa Rica,CR,0.021,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Ecuador,EC,0.055,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Egypt,EG,0.017,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Greece,GR,0.059,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Guatemala,GT,0.014,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Hungary,HU,0.076,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),India,IN,0.036,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Israel,IL,0.011,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Italy,IT,0.045,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Kenya,KE,0.032,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Mexico,MX,0.021,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Morocco,MA,0.03,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Peru,PE,0.016,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Philippines,PH,0.014,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Poland,PL,0.089,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),South Africa,ZA,0.038,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Spain,ES,0.126,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Thailand,TH,0.045,0.07,01359.90
+A.05.06.030,Chayote (Sechium edule),Turkey,TR,0.098,0.07,01359.90
+A.05.06.034,Longans,Bulgaria,BG,0.012,0.07,01359.90
+A.05.06.034,Longans,Chile,CL,0.016,0.07,01359.90
+A.05.06.034,Longans,China,CN,0.127,0.07,01359.90
+A.05.06.034,Longans,Costa Rica,CR,0.021,0.07,01359.90
+A.05.06.034,Longans,Ecuador,EC,0.055,0.07,01359.90
+A.05.06.034,Longans,Egypt,EG,0.017,0.07,01359.90
+A.05.06.034,Longans,Greece,GR,0.059,0.07,01359.90
+A.05.06.034,Longans,Guatemala,GT,0.014,0.07,01359.90
+A.05.06.034,Longans,Hungary,HU,0.076,0.07,01359.90
+A.05.06.034,Longans,India,IN,0.036,0.07,01359.90
+A.05.06.034,Longans,Israel,IL,0.011,0.07,01359.90
+A.05.06.034,Longans,Italy,IT,0.045,0.07,01359.90
+A.05.06.034,Longans,Kenya,KE,0.032,0.07,01359.90
+A.05.06.034,Longans,Mexico,MX,0.021,0.07,01359.90
+A.05.06.034,Longans,Morocco,MA,0.03,0.07,01359.90
+A.05.06.034,Longans,Peru,PE,0.016,0.07,01359.90
+A.05.06.034,Longans,Philippines,PH,0.014,0.07,01359.90
+A.05.06.034,Longans,Poland,PL,0.089,0.07,01359.90
+A.05.06.034,Longans,South Africa,ZA,0.038,0.07,01359.90
+A.05.06.034,Longans,Spain,ES,0.126,0.07,01359.90
+A.05.06.034,Longans,Thailand,TH,0.045,0.07,01359.90
+A.05.06.034,Longans,Turkey,TR,0.098,0.07,01359.90
+A.02.05.022,Alfalfa sprouts,Argentina,AR,0.022,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Canada,CA,0.148,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,China,CN,0.493,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Kyrgyzstan,KG,0.04,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Netherlands,NL,0.024,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Turkey,TR,0.041,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,USA,US,0.122,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Ethiopia,ET,0.111,0.06,01709.90
+A.04.02.014,Carobs,Argentina,AR,0.022,0.06,01709.90
+A.04.02.014,Carobs,Canada,CA,0.148,0.06,01709.90
+A.04.02.014,Carobs,China,CN,0.493,0.06,01709.90
+A.04.02.014,Carobs,Kyrgyzstan,KG,0.04,0.06,01709.90
+A.04.02.014,Carobs,Netherlands,NL,0.024,0.06,01709.90
+A.04.02.014,Carobs,Turkey,TR,0.041,0.06,01709.90
+A.04.02.014,Carobs,USA,US,0.122,0.06,01709.90
+A.04.02.014,Carobs,Ethiopia,ET,0.111,0.06,01709.90
+A.05.01.001,Grapefruits,China,CN,0.265,0.07,01321
+A.05.01.001,Grapefruits,Cuba,CU,0.023,0.07,01321
+A.05.01.001,Grapefruits,Israel,IL,0.137,0.07,01321
+A.05.01.001,Grapefruits,Mexico,MX,0.042,0.07,01321
+A.05.01.001,Grapefruits,South Africa,ZA,0.204,0.07,01321
+A.05.01.001,Grapefruits,Spain,ES,0.162,0.07,01321
+A.05.01.001,Grapefruits,Turkey,TR,0.053,0.07,01321
+A.05.01.001,Grapefruits,USA,US,0.113,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),China,CN,0.265,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),Cuba,CU,0.023,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),Israel,IL,0.137,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),Mexico,MX,0.042,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),South Africa,ZA,0.204,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),Spain,ES,0.162,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),Turkey,TR,0.053,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),USA,US,0.113,0.07,01321
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Argentina,AR,0.051,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Sri Lanka,LK,0.151,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",China,CN,0.202,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",India,IN,0.181,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Indonesia,ID,0.095,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Iran,IR,0.017,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Kenya,KE,0.155,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Malawi,MW,0.058,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Zimbabwe,ZW,0.016,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",United Republic of Tanzania,TZ,0.041,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Turkey,TR,0.016,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Uganda,UG,0.017,0.07,01620
+A.06.02.005,Pigeon fresh meat,Argentina,AR,0.03,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,Canada,CA,0.014,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,China,CN,0.236,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,France,FR,0.346,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,Italy,IT,0.036,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,Republic of Korea,KR,0.026,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,New Zealand,NZ,0.284,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,Norway,NO,0.011,0.057,21170.01
+A.06.02.005,Pigeon fresh meat,Poland,PL,0.018,0.057,21170.01

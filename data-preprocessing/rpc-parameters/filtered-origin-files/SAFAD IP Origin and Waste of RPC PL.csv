@@ -1,0 +1,448 @@
+﻿RPC Code,RPC Name,Producer Country Name,Producer Country Code,Share,Waste,SUA Code
+A.05.02.001,Apples,Poland,PL,0.975,0.07,01341
+A.05.02.001,Apples,Ukraine,UA,0.025,0.07,01341
+A.05.02.007,Sorb fruits,Poland,PL,0.975,0.07,01341
+A.05.02.007,Sorb fruits,Ukraine,UA,0.025,0.07,01341
+A.05.03.001,Apricots,France,FR,0.026,0.07,01343
+A.05.03.001,Apricots,Greece,GR,0.021,0.07,01343
+A.05.03.001,Apricots,Italy,IT,0.021,0.07,01343
+A.05.03.001,Apricots,Poland,PL,0.156,0.07,01343
+A.05.03.001,Apricots,Spain,ES,0.079,0.07,01343
+A.05.03.001,Apricots,Turkey,TR,0.698,0.07,01343
+A.01.02.002.001,Barley grains,Denmark,DK,0.017,0.045,0115
+A.01.02.002.001,Barley grains,Germany,DE,0.011,0.045,0115
+A.01.02.002.001,Barley grains,Czechia,CZ,0.029,0.045,0115
+A.01.02.002.001,Barley grains,Poland,PL,0.908,0.045,0115
+A.01.02.002.001,Barley grains,Slovakia,SK,0.023,0.045,0115
+A.01.02.002.001,Barley grains,Sweden,SE,0.012,0.045,0115
+A.02.06.001,Beans (with pods) and similar-,Canada,CA,0.018,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,China,CN,0.098,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,India,IN,0.014,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Niger,NE,0.021,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Peru,PE,0.016,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Poland,PL,0.785,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,USA,US,0.028,0.06,01701
+A.02.06.001,Beans (with pods) and similar-,Ethiopia,ET,0.02,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Canada,CA,0.018,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,China,CN,0.098,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,India,IN,0.014,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Niger,NE,0.021,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Peru,PE,0.016,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Poland,PL,0.785,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,USA,US,0.028,0.06,01701
+A.04.01.001,Beans (fresh seeds without pods) and similar-,Ethiopia,ET,0.02,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Canada,CA,0.018,0.06,01701
+A.04.02.001,Beans (dry) and similar-,China,CN,0.098,0.06,01701
+A.04.02.001,Beans (dry) and similar-,India,IN,0.014,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Niger,NE,0.021,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Peru,PE,0.016,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Poland,PL,0.785,0.06,01701
+A.04.02.001,Beans (dry) and similar-,USA,US,0.028,0.06,01701
+A.04.02.001,Beans (dry) and similar-,Ethiopia,ET,0.02,0.06,01701
+A.04.02.008,Lima beans (dry),Canada,CA,0.018,0.06,01701
+A.04.02.008,Lima beans (dry),China,CN,0.098,0.06,01701
+A.04.02.008,Lima beans (dry),India,IN,0.014,0.06,01701
+A.04.02.008,Lima beans (dry),Niger,NE,0.021,0.06,01701
+A.04.02.008,Lima beans (dry),Peru,PE,0.016,0.06,01701
+A.04.02.008,Lima beans (dry),Poland,PL,0.785,0.06,01701
+A.04.02.008,Lima beans (dry),USA,US,0.028,0.06,01701
+A.04.02.008,Lima beans (dry),Ethiopia,ET,0.02,0.06,01701
+A.04.02.009,Mung bean sprouts,Canada,CA,0.018,0.06,01701
+A.04.02.009,Mung bean sprouts,China,CN,0.098,0.06,01701
+A.04.02.009,Mung bean sprouts,India,IN,0.014,0.06,01701
+A.04.02.009,Mung bean sprouts,Niger,NE,0.021,0.06,01701
+A.04.02.009,Mung bean sprouts,Peru,PE,0.016,0.06,01701
+A.04.02.009,Mung bean sprouts,Poland,PL,0.785,0.06,01701
+A.04.02.009,Mung bean sprouts,USA,US,0.028,0.06,01701
+A.04.02.009,Mung bean sprouts,Ethiopia,ET,0.02,0.06,01701
+A.05.04.008,Blueberries,Netherlands,NL,0.024,0.07,01355.01
+A.05.04.008,Blueberries,Poland,PL,0.928,0.07,01355.01
+A.05.04.008,Blueberries,Spain,ES,0.02,0.07,01355.01
+A.05.04.008,Blueberries,Ukraine,UA,0.028,0.07,01355.01
+A.05.04.009,Cranberries (Vaccinium macrocarpon),Netherlands,NL,0.024,0.07,01355.01
+A.05.04.009,Cranberries (Vaccinium macrocarpon),Poland,PL,0.928,0.07,01355.01
+A.05.04.009,Cranberries (Vaccinium macrocarpon),Spain,ES,0.02,0.07,01355.01
+A.05.04.009,Cranberries (Vaccinium macrocarpon),Ukraine,UA,0.028,0.07,01355.01
+A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),Netherlands,NL,0.024,0.07,01355.01
+A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),Poland,PL,0.928,0.07,01355.01
+A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),Spain,ES,0.02,0.07,01355.01
+A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus),Ukraine,UA,0.028,0.07,01355.01
+A.05.04.017,Loganberry (Rubus loganobaccus),Netherlands,NL,0.024,0.07,01355.01
+A.05.04.017,Loganberry (Rubus loganobaccus),Poland,PL,0.928,0.07,01355.01
+A.05.04.017,Loganberry (Rubus loganobaccus),Spain,ES,0.02,0.07,01355.01
+A.05.04.017,Loganberry (Rubus loganobaccus),Ukraine,UA,0.028,0.07,01355.01
+A.05.04.022,Bilberries,Netherlands,NL,0.024,0.07,01355.01
+A.05.04.022,Bilberries,Poland,PL,0.928,0.07,01355.01
+A.05.04.022,Bilberries,Spain,ES,0.02,0.07,01355.01
+A.05.04.022,Bilberries,Ukraine,UA,0.028,0.07,01355.01
+A.05.04.026,Lingonberry (Vaccinium vitis-idaea),Netherlands,NL,0.024,0.07,01355.01
+A.05.04.026,Lingonberry (Vaccinium vitis-idaea),Poland,PL,0.928,0.07,01355.01
+A.05.04.026,Lingonberry (Vaccinium vitis-idaea),Spain,ES,0.02,0.07,01355.01
+A.05.04.026,Lingonberry (Vaccinium vitis-idaea),Ukraine,UA,0.028,0.07,01355.01
+A.02.01.008,Radishes,Poland,PL,1,0.07,01212
+A.02.01.010,Swedes,Poland,PL,1,0.07,01212
+A.02.04.003,Brussels sprouts,Poland,PL,1,0.07,01212
+A.02.04.004,Head cabbages,Poland,PL,1,0.07,01212
+A.02.04.005,Chinese cabbages,Poland,PL,1,0.07,01212
+A.02.04.006,Kales and similar-,Poland,PL,1,0.07,01212
+A.02.04.007,Kohlrabies,Poland,PL,1,0.07,01212
+A.02.05.005,Cresses,Poland,PL,1,0.07,01212
+A.02.05.006,Land cresses,Poland,PL,1,0.07,01212
+A.02.05.007,Roman rocket,Poland,PL,1,0.07,01212
+A.02.05.015,Watercresses,Poland,PL,1,0.07,01212
+A.02.01.003,Carrots,Netherlands,NL,0.018,0.07,01251
+A.02.01.003,Carrots,Poland,PL,0.982,0.07,01251
+A.02.01.012,Turnips,Netherlands,NL,0.018,0.07,01251
+A.02.01.012,Turnips,Poland,PL,0.982,0.07,01251
+A.02.07.003,Celeries,Netherlands,NL,0.018,0.07,01251
+A.02.07.003,Celeries,Poland,PL,0.982,0.07,01251
+A.02.07.004,Florence fennels,Netherlands,NL,0.018,0.07,01251
+A.02.07.004,Florence fennels,Poland,PL,0.982,0.07,01251
+A.05.03.006,Cherries (sweet),Poland,PL,1,0.07,01344.02
+A.02.03.006,Cucumbers,Netherlands,NL,0.014,0.07,01232
+A.02.03.006,Cucumbers,Poland,PL,0.937,0.07,01232
+A.02.03.006,Cucumbers,Spain,ES,0.049,0.07,01232
+A.02.03.007,Gherkins,Netherlands,NL,0.014,0.07,01232
+A.02.03.007,Gherkins,Poland,PL,0.937,0.07,01232
+A.02.03.007,Gherkins,Spain,ES,0.049,0.07,01232
+A.02.01.001,Arrowroots,Rest of World,RoW,1,0.24,01599.10
+A.02.01.002,Beetroots,Rest of World,RoW,1,0.24,01599.10
+A.02.01.004,Celeriacs,Rest of World,RoW,1,0.24,01599.10
+A.02.01.005,Horseradish roots,Rest of World,RoW,1,0.24,01599.10
+A.02.01.006,Parsley roots,Rest of World,RoW,1,0.24,01599.10
+A.02.01.007,Parsnip roots,Rest of World,RoW,1,0.24,01599.10
+A.06.02.007,Ratites fresh meat,Poland,PL,1,0.057,21170.02
+A.06.03.001,Wild boar fresh meat,Poland,PL,1,0.057,21170.02
+A.06.03.002,"Deer, red fresh meat",Poland,PL,1,0.057,21170.02
+A.06.03.003,European moose meat,Poland,PL,1,0.057,21170.02
+A.06.03.004,Reindeer meat,Poland,PL,1,0.057,21170.02
+A.06.04.001,Pheasant fresh meat,Poland,PL,1,0.057,21170.02
+A.06.04.003,Mallard fresh meat,Poland,PL,1,0.057,21170.02
+A.06.04.004,Partridge fresh meat,Poland,PL,1,0.057,21170.02
+A.06.04.005,Quail fresh meat,Poland,PL,1,0.057,21170.02
+A.02.02.001,Garlic,Argentina,AR,0.098,0.07,01252
+A.02.02.001,Garlic,China,CN,0.165,0.07,01252
+A.02.02.001,Garlic,Egypt,EG,0.11,0.07,01252
+A.02.02.001,Garlic,France,FR,0.011,0.07,01252
+A.02.02.001,Garlic,Mexico,MX,0.024,0.07,01252
+A.02.02.001,Garlic,Portugal,PT,0.026,0.07,01252
+A.02.02.001,Garlic,Spain,ES,0.565,0.07,01252
+A.09.01.001,Hen eggs,Germany,DE,0.011,0.017,0231
+A.09.01.001,Hen eggs,Netherlands,NL,0.017,0.017,0231
+A.09.01.001,Hen eggs,Poland,PL,0.972,0.017,0231
+A.02.05.001,Lamb's lettuces,France,FR,0.014,0.07,01214
+A.02.05.001,Lamb's lettuces,Germany,DE,0.049,0.07,01214
+A.02.05.001,Lamb's lettuces,Italy,IT,0.092,0.07,01214
+A.02.05.001,Lamb's lettuces,Netherlands,NL,0.033,0.07,01214
+A.02.05.001,Lamb's lettuces,Poland,PL,0.453,0.07,01214
+A.02.05.001,Lamb's lettuces,Spain,ES,0.345,0.07,01214
+A.02.05.001,Lamb's lettuces,Belgium,BE,0.013,0.07,01214
+A.02.05.002,Head lettuces,France,FR,0.014,0.07,01214
+A.02.05.002,Head lettuces,Germany,DE,0.049,0.07,01214
+A.02.05.002,Head lettuces,Italy,IT,0.092,0.07,01214
+A.02.05.002,Head lettuces,Netherlands,NL,0.033,0.07,01214
+A.02.05.002,Head lettuces,Poland,PL,0.453,0.07,01214
+A.02.05.002,Head lettuces,Spain,ES,0.345,0.07,01214
+A.02.05.002,Head lettuces,Belgium,BE,0.013,0.07,01214
+A.02.05.003,Crisp lettuces,France,FR,0.014,0.07,01214
+A.02.05.003,Crisp lettuces,Germany,DE,0.049,0.07,01214
+A.02.05.003,Crisp lettuces,Italy,IT,0.092,0.07,01214
+A.02.05.003,Crisp lettuces,Netherlands,NL,0.033,0.07,01214
+A.02.05.003,Crisp lettuces,Poland,PL,0.453,0.07,01214
+A.02.05.003,Crisp lettuces,Spain,ES,0.345,0.07,01214
+A.02.05.003,Crisp lettuces,Belgium,BE,0.013,0.07,01214
+A.02.05.004,Escaroles,France,FR,0.014,0.07,01214
+A.02.05.004,Escaroles,Germany,DE,0.049,0.07,01214
+A.02.05.004,Escaroles,Italy,IT,0.092,0.07,01214
+A.02.05.004,Escaroles,Netherlands,NL,0.033,0.07,01214
+A.02.05.004,Escaroles,Poland,PL,0.453,0.07,01214
+A.02.05.004,Escaroles,Spain,ES,0.345,0.07,01214
+A.02.05.004,Escaroles,Belgium,BE,0.013,0.07,01214
+A.02.05.016,Witloofs,France,FR,0.014,0.07,01214
+A.02.05.016,Witloofs,Germany,DE,0.049,0.07,01214
+A.02.05.016,Witloofs,Italy,IT,0.092,0.07,01214
+A.02.05.016,Witloofs,Netherlands,NL,0.033,0.07,01214
+A.02.05.016,Witloofs,Poland,PL,0.453,0.07,01214
+A.02.05.016,Witloofs,Spain,ES,0.345,0.07,01214
+A.02.05.016,Witloofs,Belgium,BE,0.013,0.07,01214
+A.01.02.003,Maize grain,Poland,PL,0.957,0.045,0112
+A.01.02.003,Maize grain,Slovakia,SK,0.013,0.045,0112
+A.01.02.003,Maize grain,Ukraine,UA,0.03,0.045,0112
+A.06.01.001,Bovine muscle,Poland,PL,1,0.057,21111.02
+A.06.01.002,Calf fresh meat,Poland,PL,1,0.057,21111.02
+A.06.02.006,Guinea-fowl fresh meat,Poland,PL,1,0.057,21121
+A.06.02.001,Chicken meat (Gallus domesticus),Poland,PL,1,0.057,21121
+A.06.01.004,Sheep muscle,France,FR,0.174,0.057,21115
+A.06.01.004,Sheep muscle,Germany,DE,0.014,0.057,21115
+A.06.01.004,Sheep muscle,Ireland,IE,0.043,0.057,21115
+A.06.01.004,Sheep muscle,Netherlands,NL,0.012,0.057,21115
+A.06.01.004,Sheep muscle,New Zealand,NZ,0.115,0.057,21115
+A.06.01.004,Sheep muscle,Poland,PL,0.515,0.057,21115
+A.06.01.004,Sheep muscle,Spain,ES,0.05,0.057,21115
+A.06.01.004,Sheep muscle,United Kingdom,GB,0.077,0.057,21115
+A.06.02.002,Turkey fresh meat,Germany,DE,0.03,0.057,21124
+A.06.02.002,Turkey fresh meat,Hungary,HU,0.021,0.057,21124
+A.06.02.002,Turkey fresh meat,Italy,IT,0.026,0.057,21124
+A.06.02.002,Turkey fresh meat,Poland,PL,0.901,0.057,21124
+A.06.02.002,Turkey fresh meat,United Kingdom,GB,0.021,0.057,21124
+A.02.15.001,Common mushrooms,Rest of World,RoW,1,0.07,01270
+A.02.16.002,Honey mushroom,Rest of World,RoW,1,0.07,01270
+A.02.16.003,Ceps,Rest of World,RoW,1,0.07,01270
+A.02.16.004,Truffles,Rest of World,RoW,1,0.07,01270
+A.02.16.005,Morels,Rest of World,RoW,1,0.07,01270
+A.02.16.006,Chanterelles,Rest of World,RoW,1,0.07,01270
+A.02.16.007,Saffron milk cap,Rest of World,RoW,1,0.07,01270
+A.10.07,Honey,Bulgaria,BG,0.036,0.06,02910
+A.10.07,Honey,China,CN,0.24,0.06,02910
+A.10.07,Honey,Poland,PL,0.461,0.06,02910
+A.10.07,Honey,Romania,RO,0.013,0.06,02910
+A.10.07,Honey,Spain,ES,0.013,0.06,02910
+A.10.07,Honey,Ukraine,UA,0.237,0.06,02910
+A.01.02.008,Oat grain,Poland,PL,1,0.045,0117
+A.02.02.002,Onions,Germany,DE,0.012,0.07,01253.02
+A.02.02.002,Onions,Netherlands,NL,0.078,0.07,01253.02
+A.02.02.002,Onions,Poland,PL,0.909,0.07,01253.02
+A.02.02.003,Shallots,Germany,DE,0.012,0.07,01253.02
+A.02.02.003,Shallots,Netherlands,NL,0.078,0.07,01253.02
+A.02.02.003,Shallots,Poland,PL,0.909,0.07,01253.02
+A.02.02.004,Spring onions,Germany,DE,0.012,0.07,01253.02
+A.02.02.004,Spring onions,Netherlands,NL,0.078,0.07,01253.02
+A.02.02.004,Spring onions,Poland,PL,0.909,0.07,01253.02
+A.02.02.005,Chives,Germany,DE,0.012,0.07,01253.02
+A.02.02.005,Chives,Netherlands,NL,0.078,0.07,01253.02
+A.02.02.005,Chives,Poland,PL,0.909,0.07,01253.02
+A.04.04.004,Sesame seed (Sesamum indicum syn. S. orientale),China,CN,0.171,0.06,01449.90
+A.04.04.004,Sesame seed (Sesamum indicum syn. S. orientale),India,IN,0.144,0.06,01449.90
+A.04.04.004,Sesame seed (Sesamum indicum syn. S. orientale),Italy,IT,0.019,0.06,01449.90
+A.04.04.004,Sesame seed (Sesamum indicum syn. S. orientale),Cote d'Ivoire,CI,0.015,0.06,01449.90
+A.04.04.004,Sesame seed (Sesamum indicum syn. S. orientale),Malaysia,MY,0.193,0.06,01449.90
+A.04.04.004,Sesame seed (Sesamum indicum syn. S. orientale),Pakistan,PK,0.053,0.06,01449.90
+A.04.04.004,Sesame seed (Sesamum indicum syn. S. orientale),Poland,PL,0.258,0.06,01449.90
+A.04.04.004,Sesame seed (Sesamum indicum syn. S. orientale),Ethiopia,ET,0.147,0.06,01449.90
+A.04.04.007,Mustard seed (Brassica nigra),China,CN,0.171,0.06,01449.90
+A.04.04.007,Mustard seed (Brassica nigra),India,IN,0.144,0.06,01449.90
+A.04.04.007,Mustard seed (Brassica nigra),Italy,IT,0.019,0.06,01449.90
+A.04.04.007,Mustard seed (Brassica nigra),Cote d'Ivoire,CI,0.015,0.06,01449.90
+A.04.04.007,Mustard seed (Brassica nigra),Malaysia,MY,0.193,0.06,01449.90
+A.04.04.007,Mustard seed (Brassica nigra),Pakistan,PK,0.053,0.06,01449.90
+A.04.04.007,Mustard seed (Brassica nigra),Poland,PL,0.258,0.06,01449.90
+A.04.04.007,Mustard seed (Brassica nigra),Ethiopia,ET,0.147,0.06,01449.90
+A.04.04.009,Pumpkin seeds,China,CN,0.171,0.06,01449.90
+A.04.04.009,Pumpkin seeds,India,IN,0.144,0.06,01449.90
+A.04.04.009,Pumpkin seeds,Italy,IT,0.019,0.06,01449.90
+A.04.04.009,Pumpkin seeds,Cote d'Ivoire,CI,0.015,0.06,01449.90
+A.04.04.009,Pumpkin seeds,Malaysia,MY,0.193,0.06,01449.90
+A.04.04.009,Pumpkin seeds,Pakistan,PK,0.053,0.06,01449.90
+A.04.04.009,Pumpkin seeds,Poland,PL,0.258,0.06,01449.90
+A.04.04.009,Pumpkin seeds,Ethiopia,ET,0.147,0.06,01449.90
+A.04.04.013,Hempseed (Cannabis sativa),China,CN,0.171,0.06,01449.90
+A.04.04.013,Hempseed (Cannabis sativa),India,IN,0.144,0.06,01449.90
+A.04.04.013,Hempseed (Cannabis sativa),Italy,IT,0.019,0.06,01449.90
+A.04.04.013,Hempseed (Cannabis sativa),Cote d'Ivoire,CI,0.015,0.06,01449.90
+A.04.04.013,Hempseed (Cannabis sativa),Malaysia,MY,0.193,0.06,01449.90
+A.04.04.013,Hempseed (Cannabis sativa),Pakistan,PK,0.053,0.06,01449.90
+A.04.04.013,Hempseed (Cannabis sativa),Poland,PL,0.258,0.06,01449.90
+A.04.04.013,Hempseed (Cannabis sativa),Ethiopia,ET,0.147,0.06,01449.90
+A.04.05,Other oilseeds (including elsewhere non-listed seeds),China,CN,0.171,0.06,01449.90
+A.04.05,Other oilseeds (including elsewhere non-listed seeds),India,IN,0.144,0.06,01449.90
+A.04.05,Other oilseeds (including elsewhere non-listed seeds),Italy,IT,0.019,0.06,01449.90
+A.04.05,Other oilseeds (including elsewhere non-listed seeds),Cote d'Ivoire,CI,0.015,0.06,01449.90
+A.04.05,Other oilseeds (including elsewhere non-listed seeds),Malaysia,MY,0.193,0.06,01449.90
+A.04.05,Other oilseeds (including elsewhere non-listed seeds),Pakistan,PK,0.053,0.06,01449.90
+A.04.05,Other oilseeds (including elsewhere non-listed seeds),Poland,PL,0.258,0.06,01449.90
+A.04.05,Other oilseeds (including elsewhere non-listed seeds),Ethiopia,ET,0.147,0.06,01449.90
+A.02.05.022,Alfalfa sprouts,Canada,CA,0.018,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,China,CN,0.098,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,India,IN,0.014,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Niger,NE,0.021,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Peru,PE,0.016,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Poland,PL,0.785,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,USA,US,0.028,0.06,01709.90
+A.02.05.022,Alfalfa sprouts,Ethiopia,ET,0.02,0.06,01709.90
+A.04.02.014,Carobs,Canada,CA,0.018,0.06,01709.90
+A.04.02.014,Carobs,China,CN,0.098,0.06,01709.90
+A.04.02.014,Carobs,India,IN,0.014,0.06,01709.90
+A.04.02.014,Carobs,Niger,NE,0.021,0.06,01709.90
+A.04.02.014,Carobs,Peru,PE,0.016,0.06,01709.90
+A.04.02.014,Carobs,Poland,PL,0.785,0.06,01709.90
+A.04.02.014,Carobs,USA,US,0.028,0.06,01709.90
+A.04.02.014,Carobs,Ethiopia,ET,0.02,0.06,01709.90
+A.05.03.011,Peaches and similar-,Greece,GR,0.046,0.07,01345
+A.05.03.011,Peaches and similar-,Italy,IT,0.199,0.07,01345
+A.05.03.011,Peaches and similar-,Poland,PL,0.104,0.07,01345
+A.05.03.011,Peaches and similar-,Spain,ES,0.651,0.07,01345
+A.05.02.002,Pears,Argentina,AR,0.015,0.07,01342.01
+A.05.02.002,Pears,Chile,CL,0.014,0.07,01342.01
+A.05.02.002,Pears,Netherlands,NL,0.094,0.07,01342.01
+A.05.02.002,Pears,Poland,PL,0.771,0.07,01342.01
+A.05.02.002,Pears,Portugal,PT,0.028,0.07,01342.01
+A.05.02.002,Pears,South Africa,ZA,0.018,0.07,01342.01
+A.05.02.002,Pears,Spain,ES,0.017,0.07,01342.01
+A.05.02.002,Pears,Belgium,BE,0.043,0.07,01342.01
+A.05.02.009,Nashi pears,Argentina,AR,0.015,0.07,01342.01
+A.05.02.009,Nashi pears,Chile,CL,0.014,0.07,01342.01
+A.05.02.009,Nashi pears,Netherlands,NL,0.094,0.07,01342.01
+A.05.02.009,Nashi pears,Poland,PL,0.771,0.07,01342.01
+A.05.02.009,Nashi pears,Portugal,PT,0.028,0.07,01342.01
+A.05.02.009,Nashi pears,South Africa,ZA,0.018,0.07,01342.01
+A.05.02.009,Nashi pears,Spain,ES,0.017,0.07,01342.01
+A.05.02.009,Nashi pears,Belgium,BE,0.043,0.07,01342.01
+A.04.01.002,Peas (without pods) and similar-,Lithuania,LT,0.021,0.07,01242
+A.04.01.002,Peas (without pods) and similar-,Czechia,CZ,0.035,0.07,01242
+A.04.01.002,Peas (without pods) and similar-,Poland,PL,0.929,0.07,01242
+A.04.01.002,Peas (without pods) and similar-,Slovakia,SK,0.015,0.07,01242
+A.05.03.002,Plums,Argentina,AR,0.03,0.07,01346
+A.05.03.002,Plums,Chile,CL,0.18,0.07,01346
+A.05.03.002,Plums,France,FR,0.014,0.07,01346
+A.05.03.002,Plums,Italy,IT,0.011,0.07,01346
+A.05.03.002,Plums,Poland,PL,0.697,0.07,01346
+A.05.03.002,Plums,Spain,ES,0.015,0.07,01346
+A.05.03.002,Plums,USA,US,0.054,0.07,01346
+A.05.03.003,Damsons,Argentina,AR,0.03,0.07,01346
+A.05.03.003,Damsons,Chile,CL,0.18,0.07,01346
+A.05.03.003,Damsons,France,FR,0.014,0.07,01346
+A.05.03.003,Damsons,Italy,IT,0.011,0.07,01346
+A.05.03.003,Damsons,Poland,PL,0.697,0.07,01346
+A.05.03.003,Damsons,Spain,ES,0.015,0.07,01346
+A.05.03.003,Damsons,USA,US,0.054,0.07,01346
+A.05.03.004,Mirabelles,Argentina,AR,0.03,0.07,01346
+A.05.03.004,Mirabelles,Chile,CL,0.18,0.07,01346
+A.05.03.004,Mirabelles,France,FR,0.014,0.07,01346
+A.05.03.004,Mirabelles,Italy,IT,0.011,0.07,01346
+A.05.03.004,Mirabelles,Poland,PL,0.697,0.07,01346
+A.05.03.004,Mirabelles,Spain,ES,0.015,0.07,01346
+A.05.03.004,Mirabelles,USA,US,0.054,0.07,01346
+A.05.03.005,Gages,Argentina,AR,0.03,0.07,01346
+A.05.03.005,Gages,Chile,CL,0.18,0.07,01346
+A.05.03.005,Gages,France,FR,0.014,0.07,01346
+A.05.03.005,Gages,Italy,IT,0.011,0.07,01346
+A.05.03.005,Gages,Poland,PL,0.697,0.07,01346
+A.05.03.005,Gages,Spain,ES,0.015,0.07,01346
+A.05.03.005,Gages,USA,US,0.054,0.07,01346
+A.05.01.001,Grapefruits,China,CN,0.195,0.07,01321
+A.05.01.001,Grapefruits,Cuba,CU,0.021,0.07,01321
+A.05.01.001,Grapefruits,Cyprus,CY,0.013,0.07,01321
+A.05.01.001,Grapefruits,Israel,IL,0.134,0.07,01321
+A.05.01.001,Grapefruits,Mexico,MX,0.035,0.07,01321
+A.05.01.001,Grapefruits,South Africa,ZA,0.194,0.07,01321
+A.05.01.001,Grapefruits,Spain,ES,0.139,0.07,01321
+A.05.01.001,Grapefruits,Turkey,TR,0.179,0.07,01321
+A.05.01.001,Grapefruits,USA,US,0.09,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),China,CN,0.195,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),Cuba,CU,0.021,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),Cyprus,CY,0.013,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),Israel,IL,0.134,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),Mexico,MX,0.035,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),South Africa,ZA,0.194,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),Spain,ES,0.139,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),Turkey,TR,0.179,0.07,01321
+A.05.01.006,Pomelo (Citrus grandis),USA,US,0.09,0.07,01321
+A.03.01.001,New potatoes,Poland,PL,1,0.24,01510
+A.03.01.002,Main-crop potatoes,Poland,PL,1,0.24,01510
+A.02.03.008,Courgettes,Germany,DE,0.018,0.07,01235
+A.02.03.008,Courgettes,Italy,IT,0.011,0.07,01235
+A.02.03.008,Courgettes,Poland,PL,0.87,0.07,01235
+A.02.03.008,Courgettes,Spain,ES,0.1,0.07,01235
+A.02.03.010,Pumpkins,Germany,DE,0.018,0.07,01235
+A.02.03.010,Pumpkins,Italy,IT,0.011,0.07,01235
+A.02.03.010,Pumpkins,Poland,PL,0.87,0.07,01235
+A.02.03.010,Pumpkins,Spain,ES,0.1,0.07,01235
+A.05.04.004,Blackberries,Netherlands,NL,0.024,0.07,01353.01
+A.05.04.004,Blackberries,Poland,PL,0.928,0.07,01353.01
+A.05.04.004,Blackberries,Spain,ES,0.02,0.07,01353.01
+A.05.04.004,Blackberries,Ukraine,UA,0.028,0.07,01353.01
+A.05.04.006,Raspberries (red and yellow),Netherlands,NL,0.024,0.07,01353.01
+A.05.04.006,Raspberries (red and yellow),Poland,PL,0.928,0.07,01353.01
+A.05.04.006,Raspberries (red and yellow),Spain,ES,0.02,0.07,01353.01
+A.05.04.006,Raspberries (red and yellow),Ukraine,UA,0.028,0.07,01353.01
+A.05.04.016,Cloudberries,Netherlands,NL,0.024,0.07,01353.01
+A.05.04.016,Cloudberries,Poland,PL,0.928,0.07,01353.01
+A.05.04.016,Cloudberries,Spain,ES,0.02,0.07,01353.01
+A.05.04.016,Cloudberries,Ukraine,UA,0.028,0.07,01353.01
+A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",Germany,DE,0.039,0.017,02211
+A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",Lithuania,LT,0.017,0.017,02211
+A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)",Poland,PL,0.944,0.017,02211
+A.08.01.001.002,Cow milk,Germany,DE,0.039,0.017,02211
+A.08.01.001.002,Cow milk,Lithuania,LT,0.017,0.017,02211
+A.08.01.001.002,Cow milk,Poland,PL,0.944,0.017,02211
+A.08.01.007,Ass milk,Germany,DE,0.039,0.017,02211
+A.08.01.007,Ass milk,Lithuania,LT,0.017,0.017,02211
+A.08.01.007,Ass milk,Poland,PL,0.944,0.017,02211
+A.05.04.003,Strawberries,Poland,PL,0.953,0.07,01354
+A.05.04.003,Strawberries,Spain,ES,0.047,0.07,01354
+A.02.05.013,Chards,France,FR,0.012,0.045,01801
+A.02.05.013,Chards,Germany,DE,0.015,0.045,01801
+A.02.05.013,Chards,Poland,PL,0.973,0.045,01801
+A.02.07.007,Rhubarbs,France,FR,0.012,0.045,01801
+A.02.07.007,Rhubarbs,Germany,DE,0.015,0.045,01801
+A.02.07.007,Rhubarbs,Poland,PL,0.973,0.045,01801
+A.02.08.001,Sugar beet (root) (Beta vulgaris),France,FR,0.012,0.045,01801
+A.02.08.001,Sugar beet (root) (Beta vulgaris),Germany,DE,0.015,0.045,01801
+A.02.08.001,Sugar beet (root) (Beta vulgaris),Poland,PL,0.973,0.045,01801
+A.02.03.001,Tomatoes,China,CN,0.062,0.07,01234
+A.02.03.001,Tomatoes,Greece,GR,0.019,0.07,01234
+A.02.03.001,Tomatoes,Italy,IT,0.091,0.07,01234
+A.02.03.001,Tomatoes,Netherlands,NL,0.024,0.07,01234
+A.02.03.001,Tomatoes,Poland,PL,0.683,0.07,01234
+A.02.03.001,Tomatoes,Portugal,PT,0.017,0.07,01234
+A.02.03.001,Tomatoes,Spain,ES,0.087,0.07,01234
+A.02.03.001,Tomatoes,USA,US,0.017,0.07,01234
+A.05.04.029,Ground cherries (physalis etc.),China,CN,0.062,0.07,01234
+A.05.04.029,Ground cherries (physalis etc.),Greece,GR,0.019,0.07,01234
+A.05.04.029,Ground cherries (physalis etc.),Italy,IT,0.091,0.07,01234
+A.05.04.029,Ground cherries (physalis etc.),Netherlands,NL,0.024,0.07,01234
+A.05.04.029,Ground cherries (physalis etc.),Poland,PL,0.683,0.07,01234
+A.05.04.029,Ground cherries (physalis etc.),Portugal,PT,0.017,0.07,01234
+A.05.04.029,Ground cherries (physalis etc.),Spain,ES,0.087,0.07,01234
+A.05.04.029,Ground cherries (physalis etc.),USA,US,0.017,0.07,01234
+A.05.06.013,American persimmons,China,CN,0.062,0.07,01234
+A.05.06.013,American persimmons,Greece,GR,0.019,0.07,01234
+A.05.06.013,American persimmons,Italy,IT,0.091,0.07,01234
+A.05.06.013,American persimmons,Netherlands,NL,0.024,0.07,01234
+A.05.06.013,American persimmons,Poland,PL,0.683,0.07,01234
+A.05.06.013,American persimmons,Portugal,PT,0.017,0.07,01234
+A.05.06.013,American persimmons,Spain,ES,0.087,0.07,01234
+A.05.06.013,American persimmons,USA,US,0.017,0.07,01234
+A.04.03.012,Walnuts,Poland,PL,0.989,0.06,01376
+A.04.03.012,Walnuts,USA,US,0.011,0.06,01376
+A.01.02.001,Common wheat grain,France,FR,0.011,0.045,0111
+A.01.02.001,Common wheat grain,Germany,DE,0.019,0.045,0111
+A.01.02.001,Common wheat grain,Hungary,HU,0.02,0.045,0111
+A.01.02.001,Common wheat grain,Czechia,CZ,0.023,0.045,0111
+A.01.02.001,Common wheat grain,Poland,PL,0.9,0.045,0111
+A.01.02.001,Common wheat grain,Slovakia,SK,0.027,0.045,0111
+A.01.02.001.003,Common wheat grain,France,FR,0.011,0.045,0111
+A.01.02.001.003,Common wheat grain,Germany,DE,0.019,0.045,0111
+A.01.02.001.003,Common wheat grain,Hungary,HU,0.02,0.045,0111
+A.01.02.001.003,Common wheat grain,Czechia,CZ,0.023,0.045,0111
+A.01.02.001.003,Common wheat grain,Poland,PL,0.9,0.045,0111
+A.01.02.001.003,Common wheat grain,Slovakia,SK,0.027,0.045,0111
+A.01.02.001.004,Durum wheat grain,France,FR,0.011,0.045,0111
+A.01.02.001.004,Durum wheat grain,Germany,DE,0.019,0.045,0111
+A.01.02.001.004,Durum wheat grain,Hungary,HU,0.02,0.045,0111
+A.01.02.001.004,Durum wheat grain,Czechia,CZ,0.023,0.045,0111
+A.01.02.001.004,Durum wheat grain,Poland,PL,0.9,0.045,0111
+A.01.02.001.004,Durum wheat grain,Slovakia,SK,0.027,0.045,0111
+A.01.02.005,Spelt grain,France,FR,0.011,0.045,0111
+A.01.02.005,Spelt grain,Germany,DE,0.019,0.045,0111
+A.01.02.005,Spelt grain,Hungary,HU,0.02,0.045,0111
+A.01.02.005,Spelt grain,Czechia,CZ,0.023,0.045,0111
+A.01.02.005,Spelt grain,Poland,PL,0.9,0.045,0111
+A.01.02.005,Spelt grain,Slovakia,SK,0.027,0.045,0111
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Argentina,AR,0.049,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Sri Lanka,LK,0.121,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",China,CN,0.113,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",India,IN,0.241,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Indonesia,ID,0.121,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Kenya,KE,0.237,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Malawi,MW,0.025,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Zimbabwe,ZW,0.011,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",United Republic of Tanzania,TZ,0.022,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Turkey,TR,0.018,0.07,01620
+A.02.10.002,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis), decaffeinated",Uganda,UG,0.042,0.07,01620
+A.06.01.003,Pig muscle,Denmark,DK,0.059,0.057,21113.02
+A.06.01.003,Pig muscle,Germany,DE,0.083,0.057,21113.02
+A.06.01.003,Pig muscle,Netherlands,NL,0.026,0.057,21113.02
+A.06.01.003,Pig muscle,Poland,PL,0.761,0.057,21113.02
+A.06.01.003,Pig muscle,Spain,ES,0.017,0.057,21113.02
+A.06.01.003,Pig muscle,Belgium,BE,0.053,0.057,21113.02
