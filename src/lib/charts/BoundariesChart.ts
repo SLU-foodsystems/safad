@@ -4,9 +4,7 @@ interface Config {
   width: number; // Width of the circle
   height: number; // Height of the circle
   padding: { top: number; right: number; bottom: number; left: number }; // The margins of the SVG
-  levels: number; // How many levels or inner circles should there be drawn
   maxValue: number; // What is the value that the biggest circle will represent
-  opacityCircles: number; // The opacity of the circles of each blob
   slicePadding: number; // The %-padding of the arc in each slice
   labelPadding: number;
   fontSize: string;
@@ -25,9 +23,7 @@ export default function BoundariesChart(
     width: 600,
     height: 600,
     padding: { top: 16, right: 16, bottom: 16, left: 16 },
-    levels: 8,
     maxValue: 1,
-    opacityCircles: 0.1,
     slicePadding: 0.015,
     labelPadding: 50,
     fontSize: "16px",
@@ -121,17 +117,6 @@ export default function BoundariesChart(
 
   // Wrapper for the grid & axes
   const axisGrid = root.append("g");
-
-  // Draw the background circles
-  axisGrid
-    .selectAll(".levels")
-    .data(d3.range(1, cfg.levels + 1).reverse())
-    .enter()
-    .append("circle")
-    .attr("r", (d) => (radius / cfg.levels) * d)
-    .style("fill", "#cdcdcd")
-    .style("stroke", "#cdcdcd")
-    .style("fill-opacity", cfg.opacityCircles);
 
   /////////////////////////////////////////////////////////
   //////////////////// Draw the axes //////////////////////
