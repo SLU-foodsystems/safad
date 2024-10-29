@@ -26,7 +26,7 @@ export default function BoundariesChart(
     height: 600,
     padding: { top: 16, right: 16, bottom: 16, left: 16 },
     maxValue: 1,
-    slicePadding: 0.015,
+    slicePadding: 0.010,
     labelPadding: 50,
     fontSize: "16px",
     rotationOffset: 0.5,
@@ -86,13 +86,13 @@ export default function BoundariesChart(
     .attr("y", 0) // Y position
     .attr("width", worldImgSize)
     .attr("height", worldImgSize)
+    .attr("decoding", "async")
     .attr("class", "globe-background")
     .style(
       "transform",
-      `translate(-${worldImgSize / 2}px, -${worldImgSize / 2}px)`,
+      `translate(-${worldImgSize / 2}px, -${worldImgSize / 2}px)`
     )
     .style("opacity", 0.6);
-
 
   /////////////////////////////////////////////////////////
   ////////////////////// Gradients ////////////////////////
@@ -131,10 +131,6 @@ export default function BoundariesChart(
       )
       .attr("stop-color", color);
   });
-
-  /////////////////////////////////////////////////////////
-  /////////////// Draw the Circular grid //////////////////
-  /////////////////////////////////////////////////////////
 
   /////////////////////////////////////////////////////////
   ///////////// Draw the radar chart blobs ////////////////
