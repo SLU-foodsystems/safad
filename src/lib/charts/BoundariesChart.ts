@@ -137,50 +137,6 @@ export default function BoundariesChart(
   /////////////// Draw the Circular grid //////////////////
   /////////////////////////////////////////////////////////
 
-  // Wrapper for the grid & axes
-  const axisGrid = root.append("g");
-
-  /////////////////////////////////////////////////////////
-  //////////////////// Draw the axes //////////////////////
-  /////////////////////////////////////////////////////////
-
-  // Create the straight lines radiating outward from the center
-  const axis = axisGrid.selectAll(".axis").data(axes).enter().append("g");
-
-  // I do not understand this math, this is really trial-and-error.
-  // Trig was too long ago, sorry.
-  let axesOffset = 0;
-  switch (N % 4) {
-    case 0:
-      axesOffset = angleSlice / 2;
-      break;
-    case 2:
-      axesOffset = 0;
-      break;
-    case 1:
-    case 3:
-      axesOffset = Math.PI / 2;
-      break;
-  }
-
-  // Append the lines
-  axis
-    .append("line")
-    .attr("x1", 0)
-    .attr("y1", 0)
-    .attr(
-      "x2",
-      (_d, i) =>
-        rScale(cfg.maxValue * 1.1) * Math.cos(angleSlice * i + axesOffset)
-    )
-    .attr(
-      "y2",
-      (_d, i) =>
-        rScale(cfg.maxValue * 1.1) * Math.sin(angleSlice * i + axesOffset)
-    )
-    .style("stroke", "white")
-    .style("stroke-width", "2px");
-
   /////////////////////////////////////////////////////////
   ///////////// Draw the radar chart blobs ////////////////
   /////////////////////////////////////////////////////////
