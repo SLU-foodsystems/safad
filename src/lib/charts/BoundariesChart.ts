@@ -75,24 +75,17 @@ export default function BoundariesChart(
     .attr("transform", `translate(${cfg.width / 2}, ${cfg.height / 2})`);
 
   /////////////////////////////////////////////////////////
-  ////////////// Add the globe-background /////////////////
+  //////////////// Draw a circle overlay //////////////////
   /////////////////////////////////////////////////////////
 
-  const worldImgSize = rScale(1) * 2;
   root
-    .append("image")
-    .attr("xlink:href", GlobeSvg) // Path to your image
-    .attr("x", 0) // X position
-    .attr("y", 0) // Y position
-    .attr("width", worldImgSize)
-    .attr("height", worldImgSize)
-    .attr("decoding", "async")
-    .attr("class", "globe-background")
-    .style(
-      "transform",
-      `translate(-${worldImgSize / 2}px, -${worldImgSize / 2}px)`
-    )
-    .style("opacity", 0.6);
+    .append("circle")
+    .attr("cx", 0)
+    .attr("cy", 0)
+    .attr("r", rScale(1))
+    .attr("fill", "#e7e7e7")
+    .attr("stroke", "rgba(0, 0, 0, 0.20)")
+    .attr("stroke-width", "2px");
 
   /////////////////////////////////////////////////////////
   ////////////////////// Gradients ////////////////////////
@@ -161,17 +154,24 @@ export default function BoundariesChart(
     .style("fill-opacity", 0.8);
 
   /////////////////////////////////////////////////////////
-  //////////////// Draw a circle overlay //////////////////
+  ////////////// Add the globe-background /////////////////
   /////////////////////////////////////////////////////////
 
+  const worldImgSize = rScale(1) * 2;
   root
-    .append("circle")
-    .attr("cx", 0)
-    .attr("cy", 0)
-    .attr("r", rScale(1))
-    .attr("fill", "none")
-    .attr("stroke", "rgba(0, 0, 0, 0.20)")
-    .attr("stroke-width", "2px");
+    .append("image")
+    .attr("xlink:href", GlobeSvg) // Path to your image
+    .attr("x", 0) // X position
+    .attr("y", 0) // Y position
+    .attr("width", worldImgSize)
+    .attr("height", worldImgSize)
+    .attr("decoding", "async")
+    .attr("class", "globe-background")
+    .style(
+      "transform",
+      `translate(-${worldImgSize / 2}px, -${worldImgSize / 2}px)`
+    )
+    .style("opacity", 0.1);
 
   /////////////////////////////////////////////////////////
   ///////// Draw labels on top of radar-gradients /////////
