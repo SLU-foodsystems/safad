@@ -1,5 +1,7 @@
 import * as d3 from "d3";
 
+import GlobeSvg from "@/assets/globe.svg";
+
 interface Config {
   width: number; // Width of the circle
   height: number; // Height of the circle
@@ -71,6 +73,26 @@ export default function BoundariesChart(
   const root = svg
     .append("g")
     .attr("transform", `translate(${cfg.width / 2}, ${cfg.height / 2})`);
+
+  /////////////////////////////////////////////////////////
+  ////////////// Add the globe-background /////////////////
+  /////////////////////////////////////////////////////////
+
+  const worldImgSize = rScale(1) * 2;
+  root
+    .append("image")
+    .attr("xlink:href", GlobeSvg) // Path to your image
+    .attr("x", 0) // X position
+    .attr("y", 0) // Y position
+    .attr("width", worldImgSize)
+    .attr("height", worldImgSize)
+    .attr("class", "globe-background")
+    .style(
+      "transform",
+      `translate(-${worldImgSize / 2}px, -${worldImgSize / 2}px)`,
+    )
+    .style("opacity", 0.6);
+
 
   /////////////////////////////////////////////////////////
   ////////////////////// Gradients ////////////////////////
@@ -199,7 +221,7 @@ export default function BoundariesChart(
     .attr("cy", 0)
     .attr("r", rScale(1))
     .attr("fill", "none")
-    .attr("stroke", "black")
+    .attr("stroke", "rgba(0, 0, 0, 0.20)")
     .attr("stroke-width", "2px");
 
   /////////////////////////////////////////////////////////
