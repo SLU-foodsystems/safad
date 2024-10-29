@@ -64,7 +64,6 @@ const drawChart = () => {
   BoundariesChart(el.value, data, {
     width,
     height,
-    levels: 6,
     fontSize,
     labelPadding,
     padding: { top: pad, right: pad, bottom: pad, left: pad },
