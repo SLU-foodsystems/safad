@@ -1,7 +1,5 @@
 import * as d3 from "d3";
 
-const SLICE_OFFSET = 0.5;
-
 interface Config {
   width: number; // Width of the circle
   height: number; // Height of the circle
@@ -12,6 +10,7 @@ interface Config {
   slicePadding: number; // The %-padding of the arc in each slice
   labelPadding: number;
   fontSize: string;
+  rotationOffset: number;
 }
 
 type RadarDataPoint = { axis: string; value: number };
@@ -32,6 +31,7 @@ export default function BoundariesChart(
     slicePadding: 0.015,
     labelPadding: 50,
     fontSize: "16px",
+    rotationOffset: 0.5,
     ...options,
   };
 
@@ -52,8 +52,8 @@ export default function BoundariesChart(
 
   const getSliceAngle = (i: number, pos: "start" | "end") =>
     pos === "start"
-      ? angleSlice * (i + SLICE_OFFSET) + anglePadding
-      : angleSlice * (i + 1 + SLICE_OFFSET) - anglePadding;
+      ? angleSlice * (i + cfg.rotationOffset) + anglePadding
+      : angleSlice * (i + 1 + cfg.rotationOffset) - anglePadding;
 
   /////////////////////////////////////////////////////////
   //////////// Create the container SVG and g /////////////
@@ -234,8 +234,8 @@ export default function BoundariesChart(
   // Determine if the label (text) is upside-down, and should be flipped
   const hasFlippedLabel = (i: number) => {
     const k = N / 4;
-    const east = 1.5 * k - SLICE_OFFSET;
-    const west = 2.5 * k - SLICE_OFFSET;
+    const east = 1.5 * k - cfg.rotationOffset;
+    const west = 2.5 * k - cfg.rotationOffset;
     return east < i + 1 && i < west;
   };
 
