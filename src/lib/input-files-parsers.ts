@@ -14,6 +14,9 @@ const asNumber = (str: string, elseValue = 0): number => {
   return Number.isNaN(maybeNumber) ? elseValue : maybeNumber;
 };
 
+const isNumber = (str: string): boolean =>
+  !Number.isNaN(Number.parseFloat(str));
+
 interface ValidateCsvOptions {
   minRows: number;
   maxRows: number;
@@ -359,8 +362,7 @@ export function parseWasteRetailAndConsumer(csvString: string) {
 
   const numbersInWasteCols = firstNRows.every(
     ([_code, _cat, retailWaste, consumerWaste]) =>
-      !Number.isNaN(Number.parseFloat(retailWaste)) &&
-      !Number.isNaN(Number.parseFloat(consumerWaste))
+      isNumber(retailWaste) && isNumber(consumerWaste)
   );
   if (!codesInFirstCol || !numbersInWasteCols) {
     throw new CsvValidationError(CsvValidationErrorType.Unknown);
@@ -387,7 +389,7 @@ export function parseDiet(csvString: string): Diet {
     ([code]) => ["A", "I"].includes(code[0]) && code.includes(".")
   );
   const amountsInLastCol = firstNRows.every(
-    ([_0, _1, _2, _3, _4, amount]) => !Number.isNaN(Number.parseFloat(amount))
+    ([_0, _1, _2, _3, _4, amount]) => isNumber(amount)
   );
   if (!codesInFirstCol || !amountsInLastCol) {
     throw new CsvValidationError(CsvValidationErrorType.Unknown);
@@ -416,8 +418,8 @@ export function parseRpcOriginWaste(csvString: string) {
   );
   const wasteCols = firstNRows.every(
     ([_0, _1, _2, _3, w1, w2]) =>
-      !Number.isNaN(Number.parseFloat(w1)) &&
-      !Number.isNaN(Number.parseFloat(w2))
+      isNumber(w1) &&
+      isNumber(w2)
   );
   if (!codesInFirstCol || !wasteCols) {
     throw new CsvValidationError(CsvValidationErrorType.Unknown);
