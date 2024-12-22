@@ -156,5 +156,21 @@ describe("utils.ts", () => {
         ["1", "2", "3"],
       ]);
     });
+
+    test("drops trailing lines iff option is set", () => {
+      const input1 = "a,b,c\n1,2,3\nfoo bar,,\n";
+      const input2 = "a,b,c\n1,2,3\nfoo bar,,\n ";
+      const input3 = "a,b,c\n1,2,3\nfoo bar,,\n,,,";
+
+      const withRemove = { removeTrailingRows: true };
+      expect(parseCsvFile(input1, withRemove)).toHaveLength(3);
+      expect(parseCsvFile(input2, withRemove)).toHaveLength(3);
+      expect(parseCsvFile(input3, withRemove)).toHaveLength(3);
+
+      const noRemove = { removeTrailingRows: false };
+      expect(parseCsvFile(input1, noRemove)).toHaveLength(4);
+      expect(parseCsvFile(input2, noRemove)).toHaveLength(4);
+      expect(parseCsvFile(input3, noRemove)).toHaveLength(4);
+    });
   });
 });
