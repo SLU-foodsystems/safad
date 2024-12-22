@@ -91,6 +91,8 @@ const errorMessage = computed(() => {
         "file. You can download the default file and compare, if you are " +
         "unsure of the format."
       );
+    case CsvValidationErrorType.SemiColon:
+      return baseErrorMessage + " It looks like the csv-file was joined with semi-colons (;) instead of commas (,). Make sure you export your data as comma-separated csvs."
     case CsvValidationErrorType.Empty:
       return "Woops! The csv file was empty. " + baseSuggestionMessage;
     case CsvValidationErrorType.Unknown:

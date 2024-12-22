@@ -21,6 +21,7 @@ interface ValidateCsvOptions {
   maxCols: number;
   checkNotEmpty: boolean;
   checkSingleCol: boolean;
+  checkSemiColon: boolean;
 }
 
 export enum CsvValidationErrorType {
@@ -29,6 +30,7 @@ export enum CsvValidationErrorType {
   MinCols = "MIN_COLS",
   MaxCols = "MIN_ROWS",
   SingleCol = "SINGLE_COL",
+  SemiColon = "SEMI_COLON",
   Empty = "EMPTY",
   Unknown = "UNKNOWN",
   Other = "OTHER",
@@ -56,6 +58,7 @@ function validateCsv(
     maxCols: Number.POSITIVE_INFINITY,
     checkNotEmpty: true,
     checkSingleCol: true,
+    checkSemiColon: true,
     ...optionOverrides,
   };
 
@@ -64,6 +67,11 @@ function validateCsv(
     csvData.every((row) => row.length === 0)
   ) {
     return CsvValidationErrorType.Empty;
+  }
+
+  const top10Rows = csvData.slice(0, 10);
+  if (top10Rows.every((row) => row.some((cell) => cell.includes(";")))) {
+    return CsvValidationErrorType.SemiColon;
   }
 
   const nRows = csvData.length;
