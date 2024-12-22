@@ -221,12 +221,15 @@ export function parsePreparationProcesses(
 
   const firstNRows = data.slice(1, 20);
   // A sanity-check that it's the right file
-  const l3CodesInThirdCol = firstNRows.every(
+  const codeInFirstColumn = firstNRows.every(
     ([maybeCode]) =>
-      (maybeCode[0] === "A" || maybeCode[0] === "I") && maybeCode.includes(".")
+      ["A", "I"].includes(maybeCode[0]) && maybeCode.includes(".")
   );
-  if (!l3CodesInThirdCol) {
-    throw new CsvValidationError(CsvValidationErrorType.Unknown);
+  if (!codeInFirstColumn) {
+    throw new CsvValidationError(
+      CsvValidationErrorType.Unknown,
+      "The values in the first column of the file do not look like FoodEx long-codes, i.e. starting with A or I and containing at least one period (e.g. 'A.01.03.001')."
+    );
   }
 
   const splitFacetStr = (str: string) =>
@@ -251,12 +254,15 @@ export function parsePackagingCodes(csvString: string): Record<string, string> {
 
   const firstNRows = data.slice(1, 20);
   // A sanity-check that it's the right file
-  const l3CodesInThirdCol = firstNRows.every(
+  const codesInFirstCol = firstNRows.every(
     ([maybeCode]) =>
-      (maybeCode[0] === "A" || maybeCode[0] === "I") && maybeCode.includes(".")
+      ["A", "I"].includes(maybeCode[0]) && maybeCode.includes(".")
   );
-  if (!l3CodesInThirdCol) {
-    throw new CsvValidationError(CsvValidationErrorType.Unknown);
+  if (!codesInFirstCol) {
+    throw new CsvValidationError(
+      CsvValidationErrorType.Unknown,
+      "The values in the first column of the file do not look like FoodEx long-codes, i.e. starting with A or I and containing at least one period (e.g. 'A.01.03.001')."
+    );
   }
 
   return Object.fromEntries(
@@ -280,7 +286,10 @@ export function parseFootprintsRpcs(csvString: string) {
     ([code]) => ["A", "I"].includes(code[0]) && code.includes(".")
   );
   if (!codesInFirstRow) {
-    throw new CsvValidationError(CsvValidationErrorType.Unknown);
+    throw new CsvValidationError(
+      CsvValidationErrorType.Unknown,
+      "The values in the first column of the file do not look like FoodEx long-codes, i.e. starting with A or I and containing at least one period (e.g. 'A.01.03.001')."
+    );
   }
 
   const rpcFootprints = {} as RpcFootprintsByOrigin;
@@ -364,8 +373,17 @@ export function parseWasteRetailAndConsumer(csvString: string) {
     ([_code, _cat, retailWaste, consumerWaste]) =>
       isNumber(retailWaste) && isNumber(consumerWaste)
   );
-  if (!codesInFirstCol || !numbersInWasteCols) {
-    throw new CsvValidationError(CsvValidationErrorType.Unknown);
+  if (!codesInFirstCol) {
+    throw new CsvValidationError(
+      CsvValidationErrorType.Unknown,
+      "The values in the first column of the file do not look like FoodEx long-codes, i.e. starting with A or I and containing at least one period (e.g. 'A.01.03.001')."
+    );
+  }
+  if (!numbersInWasteCols) {
+    throw new CsvValidationError(
+      CsvValidationErrorType.Unknown,
+      "The 2nd and 3rd column of the file must contain numbers (waste factors)."
+    );
   }
 
   return Object.fromEntries(
@@ -388,11 +406,20 @@ export function parseDiet(csvString: string): Diet {
   const codesInFirstCol = firstNRows.every(
     ([code]) => ["A", "I"].includes(code[0]) && code.includes(".")
   );
-  const amountsInLastCol = firstNRows.every(
-    ([_0, _1, _2, _3, _4, amount]) => isNumber(amount)
+  const amountsInLastCol = firstNRows.every(([_0, _1, _2, _3, _4, amount]) =>
+    isNumber(amount)
   );
-  if (!codesInFirstCol || !amountsInLastCol) {
-    throw new CsvValidationError(CsvValidationErrorType.Unknown);
+  if (!codesInFirstCol) {
+    throw new CsvValidationError(
+      CsvValidationErrorType.Unknown,
+      "The values in the first column do not look like foodex-codes (i.e. starting with A or I)."
+    );
+  }
+  if (!amountsInLastCol) {
+    throw new CsvValidationError(
+      CsvValidationErrorType.Unknown,
+      "The values in the 6th column do look like numbers, but should contain the amount of the food in the diet."
+    );
   }
 
   // Collect diet in a map to merge any food items that re-occur.
@@ -417,9 +444,7 @@ export function parseRpcOriginWaste(csvString: string) {
     ([code]) => ["A", "I"].includes(code[0]) && code.includes(".")
   );
   const wasteCols = firstNRows.every(
-    ([_0, _1, _2, _3, w1, w2]) =>
-      isNumber(w1) &&
-      isNumber(w2)
+    ([_0, _1, _2, _3, w1, w2]) => isNumber(w1) && isNumber(w2)
   );
   if (!codesInFirstCol || !wasteCols) {
     throw new CsvValidationError(CsvValidationErrorType.Unknown);
