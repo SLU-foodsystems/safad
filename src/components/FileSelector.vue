@@ -21,8 +21,13 @@ const props = defineProps<{
   fileLabel: string;
 }>();
 
+type ErrSummary = {
+  type: CsvValidationErrorType;
+  message: string | null;
+};
+
 const isLoading = ref(false);
-const error = ref<CsvValidationErrorType | null>(null);
+const error = ref<ErrSummary | null>(null);
 
 const showComment = ref(false);
 
@@ -54,7 +59,9 @@ const errorMessage = computed(() => {
 
   const baseErrorMessage = "Woops! Something was wrong with the csv file.";
   const baseSuggestionMessage = "Make sure you uploaded the correct file.";
-  switch (error.value) {
+
+  const errorType = error.value.type;
+  switch (errorType) {
     case CsvValidationErrorType.MinRows:
       return (
         baseErrorMessage +
@@ -92,11 +99,17 @@ const errorMessage = computed(() => {
         "unsure of the format."
       );
     case CsvValidationErrorType.SemiColon:
-      return baseErrorMessage + " It looks like the csv-file was joined with semi-colons (;) instead of commas (,). Make sure you export your data as comma-separated csvs."
+      return (
+        baseErrorMessage +
+        " It looks like the csv-file was joined with semi-colons (;) instead of commas (,). Make sure you export your data as comma-separated csvs."
+      );
     case CsvValidationErrorType.Empty:
       return "Woops! The csv file was empty. " + baseSuggestionMessage;
     case CsvValidationErrorType.Unknown:
-      return baseErrorMessage + " " + baseSuggestionMessage;
+      const explanation = error.value.message
+        ? " " + error.value.message + " "
+        : " ";
+      return baseErrorMessage + explanation + baseSuggestionMessage;
   }
 });
 
@@ -116,7 +129,7 @@ const onButtonClick = () => {
 };
 
 const onError = (err: CsvValidationError) => {
-  error.value = err.type;
+  error.value = { type: err.type, message: err.message || null };
 };
 
 const uploadFile = (file: File) => {
