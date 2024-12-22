@@ -230,6 +230,7 @@ export const listAllProcesses = (data: NestedRecord<string, number[]>) =>
 interface ParseCsvFileOptions {
   delimiter: string;
   trim: boolean;
+  removeTrailingRows: boolean;
 }
 export function parseCsvFile(
   fileContent: string,
@@ -238,6 +239,7 @@ export function parseCsvFile(
   const options: ParseCsvFileOptions = {
     delimiter: ",",
     trim: true,
+    removeTrailingRows: true,
     ...optionOverrides,
   };
 
@@ -270,11 +272,22 @@ export function parseCsvFile(
     }
   }
 
+  // Move 'ret' to a cons rows
+  let rows = ret;
   if (options.trim) {
-    return ret.map((row) => row.map((cell) => (cell || "").trim()));
+    rows = rows.map((row) => row.map((cell) => (cell || "").trim()));
   }
 
-  return ret;
+  if (options.removeTrailingRows) {
+    const isEmptyRow = (row: string[]) =>
+      row.length === 0 || row.every((x) => x === "");
+
+    while (rows.length > 0 && isEmptyRow(rows[rows.length - 1])) {
+      rows.pop();
+    }
+  }
+
+  return rows;
 }
 
 export function roundToPrecision(number: number, decimalPoints = 2) {
