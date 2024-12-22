@@ -665,12 +665,6 @@ onMounted(async () => {
           :file-interface="dietFile"
         />
 
-        <FileSelector
-          file-label="Specification of the SFA recipe file"
-          :country-code="countryCode"
-          :file-interface="sfaRecipesFile"
-        />
-
         <h3 class="hr-header hr-header--right-only">
           <span>Parameter Files</span>
         </h3>
@@ -679,6 +673,12 @@ onMounted(async () => {
           file-label="Recipes of the foods, e.g. the amount of flour, oil and water in 1 kg bread"
           :country-code="countryCode"
           :file-interface="foodsRecipesFile"
+        />
+
+        <FileSelector
+          file-label="Specification of the SFA recipe file"
+          :country-code="countryCode"
+          :file-interface="sfaRecipesFile"
         />
 
         <FileSelector
