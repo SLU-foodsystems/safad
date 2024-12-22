@@ -135,11 +135,10 @@ const drawChart = (...[el, data, options]: Parameters<typeof PieChart>) => {
   const width = rect.width;
   const height = rect.width * 0.5;
 
-  const drawLabels = width > 600;
-  if (!drawLabels && options.padding) {
+  if (!options.drawLabels && options.padding) {
     Object.assign(options.padding, { left: 10, right: 10 });
   }
-  PieChart(el, data, { width, height, drawLabels, ...options });
+  PieChart(el, data, { width, height, ...options });
 };
 
 const drawCharts = () => {
@@ -164,11 +163,22 @@ const drawCharts = () => {
     left: longestLabelWidth,
   };
 
-  drawChart(gasesEl.value.rootEl, gasesData, { padding });
-  drawChart(lifecycleEl.value.rootEl, lifecycleStagesData, { padding });
+  const windowWidth =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth;
+
+  const opts = { padding, drawLabels: windowWidth > 600 };
+  drawChart(gasesEl.value.rootEl, gasesData, opts);
+  drawChart(lifecycleEl.value.rootEl, lifecycleStagesData, opts);
 };
 
-useOnResize(drawCharts);
+useOnResize(() => {
+  drawCharts();
+  // Re-draw a second time to fix a bug where one of the charts gets zero width
+  // under certain configurations
+  requestAnimationFrame(() => drawCharts());
+}, 1000);
 watch(() => props.dietFootprints, drawCharts);
 
 onMounted(drawCharts);
