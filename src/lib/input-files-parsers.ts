@@ -72,8 +72,8 @@ function validateCsv(
     return CsvValidationErrorType.Empty;
   }
 
-  const top10Rows = csvData.slice(0, 10);
-  if (top10Rows.every((row) => row.some((cell) => cell.includes(";")))) {
+  const firstNRows = csvData.slice(0, 10);
+  if (firstNRows.every((row) => row.some((cell) => cell.includes(";")))) {
     return CsvValidationErrorType.SemiColon;
   }
 
