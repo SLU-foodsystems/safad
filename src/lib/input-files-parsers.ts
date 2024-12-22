@@ -356,7 +356,13 @@ export function parseWasteRetailAndConsumer(csvString: string) {
   const codesInFirstCol = firstNRows.every(
     ([code]) => ["A", "I"].includes(code[0]) && code.includes(".")
   );
-  if (!codesInFirstCol) {
+
+  const numbersInWasteCols = firstNRows.every(
+    ([_code, _cat, retailWaste, consumerWaste]) =>
+      !Number.isNaN(Number.parseFloat(retailWaste)) &&
+      !Number.isNaN(Number.parseFloat(consumerWaste))
+  );
+  if (!codesInFirstCol || !numbersInWasteCols) {
     throw new CsvValidationError(CsvValidationErrorType.Unknown);
   }
 
