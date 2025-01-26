@@ -464,14 +464,16 @@ onMounted(async () => {
         </h2>
         <div class="foods-footprints-intro">
           <p>
+
             Footprints shown here are for foods on the market of the choosen
-            country considering the origin of different raw commodities. For
+            country, while considering the origin of the raw commodities. For
             example, a share of a commodity (e.g. wheat or tomateos) can be
             grown domestically while the rest is imported. The footprint of the
-            commoditiy is therefore an average of the footprint from these
-            countries weighted according to the shares of the production taking
-            place in different countries. Footprints here also accounts for
-            waste in production, at the retailer and at the consumer.
+            commoditiy is thus an average of the footprint from these countries
+            weighted according to the shares of the production taking place in
+            different countries. Footprints here also account for waste in
+            production, at the retailer and at the consumer.
+
           </p>
           <div class="stack">
             <h3>Download footprints of all foods</h3>
