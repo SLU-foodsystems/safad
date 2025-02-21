@@ -79,7 +79,10 @@ export async function generateSfaResults(
   const results: Record<string, [string, string, string, number, number][]> =
     {};
 
-  // First, we group all data by the SFA code, i.e. SFA and then ingredients
+  // First, we group all data by the SFA code in the 'results' object:
+  //
+  // { [sfaCode]: [name, foodex1Code, process, grossShare, netShare][] }
+  //
   sfaRecipeData.forEach(
     ({ sfaCode, sfaName, foodEx2Code, process, grossShare, netShare }) => {
       if (!results[sfaCode]) {
@@ -96,6 +99,7 @@ export async function generateSfaResults(
     }
   );
 
+  // Then, we build the rows containing the sfa footprints from the results-obj.
   const rows: (string[][] | null)[] = Object.entries(results).map(
     ([sfaCode, ingredients]) => {
       const BASE_AMOUNT = 1000; // grams, = 1 kg
@@ -143,12 +147,6 @@ export async function generateSfaResults(
       );
       if (totalImpacts === null) return null;
 
-      const rpcImpacts = totalImpacts[0];
-      let totalProcessImpacts = totalImpacts[1];
-
-      const missingRpcImpacts = Object.entries(rpcImpacts).filter(
-        (kv) => kv[1] === null
-      );
       // Collect all SFA-level processes, which we will add on top of what was
       // found in the recipes
       const sfaProcesses: { [process: string]: number } = {};
@@ -160,6 +158,12 @@ export async function generateSfaResults(
         }
       );
 
+      const rpcImpacts = totalImpacts[0];
+      let totalProcessImpacts = totalImpacts[1];
+
+      const missingRpcImpacts = Object.entries(rpcImpacts).filter(
+        (kv) => kv[1] === null
+      );
       const totalImpactsVector: string[] =
         missingRpcImpacts.length > 0
           ? AGGREGATE_HEADERS.map((_) => "NA")
