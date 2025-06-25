@@ -6,7 +6,11 @@
 
 # Sustainability Assessment of Foods and Diets (SAFAD)
 
-A web-based implementation of the SAFAD model developed by Röös et al. (2025, forthcoming) to benchmark environmental impacts of diets.
+A web-based implementation of the SAFAD model developed by [Röös et al.
+(2025)](https://doi.org/10.1016/j.jclepro.2025.146002) to benchmark
+environmental impacts of diets.
+
+> Röös, E., Jacobsen, M., Karlsson, L., Wanecek, W., Spångberg, J., Mazac, R., & Rydhmer, L. (2025). Introducing a comprehensive and configurable tool for calculating environmental and social footprints for use in dietary assessments. Journal of Cleaner Production, 519, 146002. https://doi.org/10.1016/j.jclepro.2025.146002
 
 ## Instructions for common maintenance tasks
 
