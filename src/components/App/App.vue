@@ -430,6 +430,9 @@ onMounted(async () => {
             Calculate the impact of foods and diets using eight environmental
             indicators and indicators for animal welfare and use of antibiotics.
           </h2>
+          <a href="https://doi.org/10.1016/j.jclepro.2025.146002"
+             target="_blank" rel="nofollow noopener"
+          >Read the published study</a>
         </div>
       </div>
     </div>
@@ -763,6 +766,17 @@ onMounted(async () => {
       </div>
     </div>
 
+    <div class="citation-footer page-footer stack">
+      <div class="inner-thinner-wrap stack stack-l">
+        Röös, E., Jacobsen, M., Karlsson, L., Wanecek, W., Spångberg, J., Mazac,
+        R., &amp; Rydhmer, L. (2025). Introducing a comprehensive and
+        configurable tool for calculating environmental and social footprints
+        for use in dietary assessments. Journal of Cleaner Production, 519,
+        146002. <a href="https://doi.org/10.1016/j.jclepro.2025.146002"
+        target="_blank" rel="noopener nofollow"
+        >https://doi.org/10.1016/j.jclepro.2025.146002</a>
+      </div>
+    </div>
     <footer class="page-footer stack stack-l">
       <div class="page-wrap page-footer__content">
         <div class="stack">
@@ -851,11 +865,18 @@ onMounted(async () => {
   }
 }
 
+
 .page-footer {
   padding: 4em 0;
-  margin-top: 6em;
   background: $green_forest;
   color: white;
+}
+
+.citation-footer {
+  padding: 2em;
+  margin-top: 6em;
+  color: #111;
+  background: #eee !important;
 }
 
 .page-footer__content {
