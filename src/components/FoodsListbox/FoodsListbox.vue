@@ -97,7 +97,7 @@ function deselectItem(codeToDeselect: string) {
 </template>
 
 <style lang="scss">
-@import "../../styles/constants";
+@use "../../styles/constants";
 
 .foods-listbox__selected {
   display: flex;
@@ -112,7 +112,7 @@ function deselectItem(codeToDeselect: string) {
   }
 
   button {
-    $hr-border: 2px solid $gray;
+    $hr-border: 2px solid constants.$gray;
 
     border: 0;
     margin: 0;
@@ -130,7 +130,7 @@ function deselectItem(codeToDeselect: string) {
 
     background: transparent;
     font-weight: normal;
-    color: $type; // some browsers have other defaults
+    color: constants.$type; // some browsers have other defaults
 
     &:first-child {
       border-top: $hr-border;
@@ -188,7 +188,7 @@ function deselectItem(codeToDeselect: string) {
     appearance: none; // Avoid rounded-edges on e.g. mobile chromium
 
     display: block;
-    border: 2px solid $gray;
+    border: 2px solid constants.$gray;
     padding: 0.5em;
     border-radius: 0.25em;
     width: 100%;
@@ -200,7 +200,7 @@ function deselectItem(codeToDeselect: string) {
   }
 
   .p-virtualscroller {
-    border: 2px solid $gray;
+    border: 2px solid constants.$gray;
     overflow: auto;
 
     &:focus-within {
@@ -225,11 +225,11 @@ function deselectItem(codeToDeselect: string) {
     font-size: 0.875em;
 
     &[data-p-focused="true"] {
-      background: $gray;
+      background: constants.$gray;
     }
 
     &:hover {
-      background: $blue_dove;
+      background: constants.$blue_dove;
       cursor: pointer;
     }
 
@@ -237,7 +237,7 @@ function deselectItem(codeToDeselect: string) {
       font-weight: bold;
 
       &:hover {
-        background: $red_apricot;
+        background: constants.$red_apricot;
         color: black;
       }
     }
@@ -259,7 +259,7 @@ function deselectItem(codeToDeselect: string) {
     font-size: 0.875em;
     font-style: italic;
     text-align: right;
-    color: $green_forest;
+    color: constants.$green_forest;
     padding: 0.15em;
 
     margin-top: 0;

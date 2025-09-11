@@ -11,7 +11,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../../styles/constants";
+@use "../../styles/constants";
 
 .foods-listbox-placeholder {
   position: relative;
@@ -22,7 +22,7 @@ label {
 }
 
 .listbox-placeholder {
-  border: 2px solid $gray;
+  border: 2px solid constants.$gray;
   width: 100%;
   height: 250px;
 }
