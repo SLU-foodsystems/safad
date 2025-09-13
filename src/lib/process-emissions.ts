@@ -36,9 +36,17 @@ export function getProcessEnvFactors(
         if (mjPerKg === 0) return;
 
         const carrier = CARRIER_ORDER[carrierIdx];
+        if (!carrier) {
+          throw new Error(`Index out of bounds for carrierIdx ${carrierIdx}.`);
+        }
         const demands = emissionsFactors[carrier];
+        if (!demands) {
+          throw new Error(
+            `No energy demands found for given carrier ${carrier}`
+          );
+        }
         const ghgsPerMj: number[] = hasCountryDependentDemands(carrier, demands)
-          ? demands[countryCode]
+          ? demands[countryCode]!
           : demands;
 
         if (!ghgsPerMj) {
@@ -49,7 +57,7 @@ export function getProcessEnvFactors(
         }
 
         ghgsPerMj.forEach((factor, i) => {
-          factors[i] += factor * mjPerKg;
+          factors[i]! += factor * mjPerKg;
         });
       });
 
@@ -81,10 +89,10 @@ export const computeProcessImpacts = (
         // TODO: We could/should warn when processId is _not_ in processAmounts,
         // as that may indicate a malformatted/invalid/unexpected process, which
         // can be difficult to debug / detect.
-        .filter(([processId]) => processId in processFactors)
+        .filter(([processId]) => processFactors[processId] !== undefined)
         .map(([processId, amountGram]) => [
           processId,
-          processFactors[processId].map((x) => (x * amountGram) / 1000),
+          processFactors[processId]!.map((x) => (x * amountGram) / 1000),
         ])
     )
   );

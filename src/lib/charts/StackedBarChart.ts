@@ -194,7 +194,7 @@ export default function StackedBarChart(
       if (!thisData || !thisData.key) return;
 
       const subgroupName = thisData.key;
-      const subgroupValue = d.data[subgroupName];
+      const subgroupValue = d.data[subgroupName] || 0;
 
       const spaceBeforeUnit = cfg.tooltipUnit !== "%";
       const tooltipHtml =

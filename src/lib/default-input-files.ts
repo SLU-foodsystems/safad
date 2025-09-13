@@ -53,7 +53,7 @@ async function fetchCountrySpecificFile(
   const keys = Object.keys(urlsMap);
 
   const csvFileUrlKey = keys.find((k) => k.endsWith(`${countryCode}.csv`));
-  if (!csvFileUrlKey) {
+  if (!csvFileUrlKey || !urlsMap[csvFileUrlKey]) {
     const alts = keys.join(", ");
     throw new Error(
       `Invalid country code. Received ${countryCode}, expected one of ${alts}.`

@@ -91,6 +91,8 @@ const drawChart = async () => {
     };
   });
 
+  if (data.length === 0 || !data[0]) return;
+
   const columns = Object.keys(data[0]).filter((x) => x !== "category");
 
   const maxValue = Math.max(
@@ -113,7 +115,7 @@ const drawChart = async () => {
   const rpcNames = await defaultRpcNames();
 
   const labelTextMapper = (code: string) =>
-    code in rpcNames ? truncate(rpcNames[code], 30) : code;
+    rpcNames[code] ? truncate(rpcNames[code], 30) : code;
 
   StackedBarChart(svgContainer.value, data, columns, {
     maxValue,

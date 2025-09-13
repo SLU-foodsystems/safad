@@ -7,8 +7,15 @@ const _extractRpcNamesFromRecipe = (recipesFileCsv: string) => {
   parseCsvFile(recipesFileCsv)
     .slice(1) // drop header in csv file
     .forEach(([code, name, ingredientCode, ingredientName]) => {
-      names[code] = name;
-      names[ingredientCode] = ingredientName;
+      if (typeof code === "string" && typeof name === "string") {
+        names[code] = name;
+      }
+      if (
+        typeof ingredientCode === "string" &&
+        typeof ingredientName === "string"
+      ) {
+        names[ingredientCode] = ingredientName;
+      }
     });
   return names;
 };

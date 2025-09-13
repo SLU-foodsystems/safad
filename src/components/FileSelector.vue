@@ -197,20 +197,20 @@ const onCommentChange = () => {
  * Add drag and drop functionality
  */
 const isDragging = ref(false);
+
+const [scheduleDragleave, cancelScheduledDragleave] = cancelableDebounce(() => {
+  isDragging.value = false;
+}, 3000);
+const onDragleave = () => {
+  isDragging.value = false;
+  cancelScheduledDragleave!();
+};
 const onDragover = () => {
   if (!isDragging.value && !isLoading.value) {
     isDragging.value = true;
   }
-  scheduleDragleave();
+  scheduleDragleave!();
 };
-const onDragleave = () => {
-  isDragging.value = false;
-  cancelScheduledDragleave();
-};
-const [scheduleDragleave, cancelScheduledDragleave] = cancelableDebounce(
-  () => onDragleave(),
-  3000
-);
 const onDrop = (e: DragEvent) => {
   isDragging.value = false;
   if (isLoading.value) return;
@@ -308,7 +308,7 @@ const onDrop = (e: DragEvent) => {
 </template>
 
 <style lang="scss" scoped>
-@import "../styles/_constants";
+@use "../styles/_constants";
 
 .file-selector-box {
   width: 100%;
@@ -333,7 +333,7 @@ const onDrop = (e: DragEvent) => {
   justify-content: center;
   align-items: center;
 
-  outline: 2px dashed $green_forest-bright;
+  outline: 2px dashed constants.$green_forest-bright;
   background: rgba(white, 0.9);
   font-weight: bold;
 
@@ -362,8 +362,8 @@ label {
   font-size: 0.875em;
   border-radius: 1em;
   padding: 0.25em 0.66em;
-  background: $lightgray;
-  border: 1px solid $gray_feather;
+  background: constants.$lightgray;
+  border: 1px solid constants.$gray_feather;
   transition: opacity 0.2s ease;
 
   &:hover {
@@ -375,7 +375,7 @@ label {
 }
 
 .info-text {
-  background: $lightgray;
+  background: constants.$lightgray;
   padding: 0.5em;
   margin: 0.5em 0;
   font-style: italic;
@@ -383,13 +383,13 @@ label {
 
 .error-message {
   width: 100%;
-  margin-bottom: $s-1;
+  margin-bottom: constants.$s-1;
   padding: 0.75em;
   flex-wrap: nowrap;
 
   border-radius: 0.25em;
-  background: rgba($yellow, 0.1);
-  border: 2px solid rgba($yellow, 0.5);
+  background: rgba(constants.$yellow, 0.1);
+  border: 2px solid rgba(constants.$yellow, 0.5);
 }
 
 .error-message__icon {

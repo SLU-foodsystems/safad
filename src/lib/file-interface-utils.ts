@@ -73,6 +73,6 @@ export const initInputFile = <T>(
   comment: "",
   data: undefined,
   lastModified: (countryCode: string) =>
-    MDATES[partialInputFile.defaultName(countryCode)],
+    MDATES[partialInputFile.defaultName(countryCode)] || "",
   ...partialInputFile,
 });

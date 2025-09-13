@@ -107,8 +107,16 @@ export function expandedImpacts(
   packagingEmissions: number[],
   transportEmissions: number[] // Include co2e in their impacts, while packaging and processes do not
 ) {
-  const toCo2e = (emissions: number[]) => (ghgName: string, i: number) =>
-    (emissions[i] || 0) * CO2E_CONV_FACTORS[ghgName];
+  const toCo2e = (emissions: number[]) => (ghgName: string, i: number) => {
+    if (!(ghgName in CO2E_CONV_FACTORS)) {
+      throw new Error(
+        "Impact csv utils: No co2e conversion factor found for ghg " + ghgName
+      );
+    }
+    const convFactor = (CO2E_CONV_FACTORS as Record<string, number>)[ghgName]!;
+
+    return (emissions[i] || 0) * convFactor;
+  };
 
   const processCO2e = sum(["CO2", "FCH4", "N2O"].map(toCo2e(processEmissions)));
 
@@ -121,20 +129,20 @@ export function expandedImpacts(
   );
 
   const combinedEmissions = [
-    rpcFootprints[0] + processCO2e + packagingCO2e + transportCO2e, // CO2e
-    rpcFootprints[1] +
-      processEmissions[0] +
-      packagingEmissions[0] +
-      transportEmissions[0], // CO2
-    rpcFootprints[2] +
-      processEmissions[1] +
-      packagingEmissions[1] +
-      transportEmissions[1], // Fossil CH4
-    rpcFootprints[3] + packagingEmissions[2], // Biogenic CH4
-    rpcFootprints[4] +
-      processEmissions[2] +
-      packagingEmissions[3] +
-      transportEmissions[2], // N2O
+    rpcFootprints[0]! + processCO2e + packagingCO2e + transportCO2e, // CO2e
+    rpcFootprints[1]! +
+      processEmissions[0]! +
+      packagingEmissions[0]! +
+      transportEmissions[0]!, // CO2
+    rpcFootprints[2]! +
+      processEmissions[1]! +
+      packagingEmissions[1]! +
+      transportEmissions[1]!, // Fossil CH4
+    rpcFootprints[3]! + packagingEmissions[2]!, // Biogenic CH4
+    rpcFootprints[4]! +
+      processEmissions[2]! +
+      packagingEmissions[3]! +
+      transportEmissions[2]!, // N2O
   ];
 
   return [
@@ -279,4 +287,3 @@ export function labeledAndFilteredImpacts(
     )
     .filter((x): x is string[] => x !== null);
 }
-

@@ -55,7 +55,6 @@ async function download(event: Event) {
 </template>
 
 <style lang="scss" scoped>
-@import "../styles/_constants.scss";
 .svg-container {
   position: relative;
 }

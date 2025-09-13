@@ -21,53 +21,53 @@ describe("expandedImpacts adds together footprints", () => {
 
   test("CO2e", () => {
     const processCO2e =
-      processEmissions[0] +
-      processEmissions[1] * CO2E_CONV_FACTORS.FCH4 +
-      processEmissions[2] * CO2E_CONV_FACTORS.N2O;
+      processEmissions[0]! +
+      processEmissions[1]! * CO2E_CONV_FACTORS.FCH4 +
+      processEmissions[2]! * CO2E_CONV_FACTORS.N2O;
     const packagingCO2e =
-      packagingEmissions[0] +
-      packagingEmissions[1] * CO2E_CONV_FACTORS.FCH4 +
-      packagingEmissions[2] * CO2E_CONV_FACTORS.BCH4 +
-      packagingEmissions[3] * CO2E_CONV_FACTORS.N2O;
+      packagingEmissions[0]! +
+      packagingEmissions[1]! * CO2E_CONV_FACTORS.FCH4 +
+      packagingEmissions[2]! * CO2E_CONV_FACTORS.BCH4 +
+      packagingEmissions[3]! * CO2E_CONV_FACTORS.N2O;
     const transportCO2e =
-      transportEmissions[0] +
-      transportEmissions[1] * CO2E_CONV_FACTORS.FCH4 +
-      transportEmissions[2] * CO2E_CONV_FACTORS.N2O;
+      transportEmissions[0]! +
+      transportEmissions[1]! * CO2E_CONV_FACTORS.FCH4 +
+      transportEmissions[2]! * CO2E_CONV_FACTORS.N2O;
 
     const expectedCO2e =
-      rpcFootprints[0] + processCO2e + packagingCO2e + transportCO2e;
+      rpcFootprints[0]! + processCO2e + packagingCO2e + transportCO2e;
     expect(actual[0]).toEqual(expectedCO2e);
   });
 
   test("CO2", () => {
     const expectedCO2 =
-      rpcFootprints[1] +
-      processEmissions[0] +
-      packagingEmissions[0] +
-      transportEmissions[0];
+      rpcFootprints[1]! +
+      processEmissions[0]! +
+      packagingEmissions[0]! +
+      transportEmissions[0]!;
     expect(actual[1]).toEqual(expectedCO2);
   });
 
   test("Fossil CH4", () => {
     const expected =
-      rpcFootprints[2] +
-      processEmissions[1] +
-      packagingEmissions[1] +
-      transportEmissions[1];
+      rpcFootprints[2]! +
+      processEmissions[1]! +
+      packagingEmissions[1]! +
+      transportEmissions[1]!;
     expect(actual[2]).toEqual(expected);
   });
 
   test("Biogenic CH4", () => {
-    const expected = rpcFootprints[3] + packagingEmissions[2];
+    const expected = rpcFootprints[3]! + packagingEmissions[2]!;
     expect(actual[3]).toEqual(expected);
   });
 
   test("N2O", () => {
     const expected =
-      rpcFootprints[4] +
-      processEmissions[2] +
-      packagingEmissions[3] +
-      transportEmissions[2];
+      rpcFootprints[4]! +
+      processEmissions[2]! +
+      packagingEmissions[3]! +
+      transportEmissions[2]!;
     expect(actual[4]).toEqual(expected);
   });
 });

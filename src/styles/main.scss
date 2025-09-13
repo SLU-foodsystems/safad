@@ -1,6 +1,7 @@
 @use "sass:math";
-@import "reset";
-@import "constants";
+@use "sass:meta";
+@use "reset";
+@use "constants";
 
 /*
  * Base
@@ -18,8 +19,8 @@ body {
 }
 
 html {
-  background: $background;
-  color: $type;
+  background: constants.$background;
+  color: constants.$type;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
@@ -28,7 +29,7 @@ body {
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
-  line-height: $ratio;
+  line-height: constants.$ratio;
 }
 
 img {
@@ -62,7 +63,7 @@ dd {
 hr {
   width: 100%;
   height: 2px;
-  background: $gray;
+  background: constants.$gray;
   border: 0;
 }
 
@@ -87,8 +88,8 @@ a {
   }
 
   &:focus {
-    background: $yellow;
-    box-shadow: 0 -2px $yellow, 0 4px #0b0c0c;
+    background: constants.$yellow;
+    box-shadow: 0 -2px constants.$yellow, 0 4px #0b0c0c;
     outline: 2px solid transparent;
     text-decoration: none;
     color: black;
@@ -107,11 +108,11 @@ h6 {
 }
 
 h1 {
-  font-size: $s2;
+  font-size: constants.$s2;
 }
 
 h2 {
-  font-size: $s1;
+  font-size: constants.$s1;
 }
 
 h3 {
@@ -142,7 +143,7 @@ p {
     content: "";
     display: block;
     height: 4px;
-    background: $gray;
+    background: constants.$gray;
     flex-grow: 1;
     flex-basis: auto;
   }
@@ -166,19 +167,19 @@ p {
  * Layout Primitives
  * =========================================== */
 
-@import "layout-primitives";
+@include meta.load-css("layout-primitives");
 
 /*
  * Button styles
  * =========================================== */
 
-@import "button";
+@include meta.load-css("button");
 
 /*
  * Form styles
  * =========================================== */
 
-@import "form";
+@include meta.load-css("form");
 
 /*
  * General
@@ -191,7 +192,7 @@ p {
 
 .page-wrap {
   width: 95%;
-  max-width: $measure--wide;
+  max-width: constants.$measure--wide;
   margin-left: auto;
   margin-right: auto;
 }
@@ -222,7 +223,7 @@ p {
 }
 
 .hero {
-  background: $green_forest;
+  background: constants.$green_forest;
   color: white;
 }
 
@@ -275,7 +276,7 @@ p {
   }
 
   ::selection {
-    color: $green_forest;
+    color: constants.$green_forest;
     background: white;
   }
 }
@@ -288,7 +289,7 @@ p {
 }
 
 .info-bar {
-  border-bottom: 4px solid $gray;
+  border-bottom: 4px solid constants.$gray;
   padding: 2em 0;
   background: white;
   margin-bottom: 2em;
@@ -359,7 +360,7 @@ p {
     width: ($height - 2 * $pad);
     height: ($height - 2 * $pad);
     border-radius: $height;
-    background: $blue_cyan;
+    background: constants.$blue_cyan;
     transition: transform 0.3s ease;
     box-shadow: inset 0 0 0 2px rgba(black, 0.25);
   }
@@ -381,13 +382,13 @@ p {
   left: 0;
 
   background-color: white;
-  border: 2px solid $gray;
+  border: 2px solid constants.$gray;
   padding: 0.5em;
 
   box-shadow: 0 0.25em 0.5em -0.25em rgba(black, 0.5), inset 0 0 0 2px rgba(black, 0.10);
   border: 0;
   border-radius: 0.25em;
-  background-color: $green_forest;
+  background-color: constants.$green_forest;
   color: white;
 
   @media (pointer: coarse) {
