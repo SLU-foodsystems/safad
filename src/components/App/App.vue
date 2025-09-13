@@ -894,7 +894,7 @@ onMounted(async () => {
 .sub-footer {
   font-size: 0.75em;
   padding: 1em 0;
-  background: color.scale(constants.$green_forest, constants.$lightness: -10%);
+  background: color.scale(constants.$green_forest, $lightness: -10%);
   color: white;
 }
 
