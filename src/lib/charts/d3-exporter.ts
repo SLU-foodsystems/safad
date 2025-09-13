@@ -1,19 +1,28 @@
-function inlineStyles(source: Element, target: Element) {
+function inlineStyles(
+  source: HTMLElement | SVGElement,
+  target: HTMLElement | SVGElement
+) {
   // inline style from source element to the target (detached) one
   const computed = window.getComputedStyle(source);
-  //@ts-ignore-next-line
+  if (!computed) {
+    console.error("Unable to compute styles.");
+    return;
+  }
+
+  // @ts-ignore.next.line
   for (const styleKey of computed) {
-    //@ts-ignore-next-line
+    if (!styleKey || !computed[styleKey]) continue;
     target.style[styleKey] = computed[styleKey];
   }
 
   // recursively call inlineStyles for the element children
   for (let i = 0; i < source.children.length; i++) {
-    if (source.children[i] === undefined || target.children[i] === undefined) {
+    const sChild = source.children[i] as HTMLElement;
+    const tChild = target.children[i] as SVGElement;
+    if (sChild === undefined || tChild === undefined) {
       continue;
     }
-    //@ts-ignore-next-line
-    inlineStyles(source.children[i], target.children[i]);
+    inlineStyles(sChild, tChild);
   }
 }
 
@@ -120,7 +129,7 @@ export default async function downloadSvgAsImage(
   // Set all the css styles inline on the target element based on the styles
   // of the source element
   if (opts.inlineCss) {
-    inlineStyles(source, target);
+    inlineStyles(source as HTMLElement, target);
   }
 
   if (opts.background) {
