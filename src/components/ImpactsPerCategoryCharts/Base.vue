@@ -78,7 +78,7 @@ const reshapeData = (impactsPerCategory: Record<string, number[]>) => {
   const sumValues = Object.fromEntries(
     dataMap.map(([metric, index]) => [
       metric,
-      sum(categories.map((code) => impactsPerCategory[code][index])),
+      sum(categories.map((code) => impactsPerCategory[code]![index] || 0)),
     ])
   );
 
@@ -87,7 +87,7 @@ const reshapeData = (impactsPerCategory: Record<string, number[]>) => {
     ...Object.fromEntries(
       categories.map((code) => [
         code,
-        impactsPerCategory[code][index] / (sumValues[metric] / 100),
+        (impactsPerCategory[code]![index] || 0) / (sumValues[metric]! / 100),
       ])
     ),
   }));

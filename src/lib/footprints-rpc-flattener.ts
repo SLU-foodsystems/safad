@@ -30,6 +30,11 @@ export default function flattenRpcFootprints(
       const envImpacts = envImpactSheet[rpcCode];
       const originFactors = rpcOriginWaste[rpcCode];
 
+      if (!envImpacts) {
+        console.warn(`Origin and Waste of RPC: No envImpacts found for rpc ${rpcCode}`);
+        return null;
+      }
+
       if (!originFactors) {
         console.warn(`Origin and Waste of RPC: No origin factors found for rpc ${rpcCode}`);
         return null;
@@ -49,7 +54,7 @@ export default function flattenRpcFootprints(
             console.error("RoW missing for rpc " + rpcCode);
             // TODO: Return null, and then filter out nulls.
           }
-          return envImpacts[origin].map((x) => ratio * x);
+          return envImpacts[origin]!.map((x) => ratio * x);
         })
       );
 

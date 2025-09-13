@@ -18,9 +18,9 @@ export interface DataPoint {
 const stack = <T>(xs: T[]): [T, T][] => {
   if (xs.length < 2) return [];
 
-  return Array.from({ length: xs.length - 1 }).map((_, i) => [
-    xs[i],
-    xs[i + 1],
+  return Array.from({ length: xs.length - 1 }).map((_, i): [T, T] => [
+    xs[i]!,
+    xs[i + 1]!,
   ]);
 };
 
@@ -162,10 +162,10 @@ export default function PieChart(
     // First, we clockwise (top-2-bottom on RHS, b2t on LHS) and try to shift
     // all texts in that direction.
     stack(copyNestedArr(positions)).forEach(([prev, curr], i) => {
-      const prevY = curr[1];
+      const prevY = curr[1]!;
       const newY = reverse
-        ? Math.min(prev[1] - TEXT_HEIGHT - MARGIN, curr[1])
-        : Math.max(prev[1] + TEXT_HEIGHT + MARGIN, curr[1]);
+        ? Math.min(prev[1]! - TEXT_HEIGHT - MARGIN, curr[1]!)
+        : Math.max(prev[1]! + TEXT_HEIGHT + MARGIN, curr[1]!);
       curr[1] = newY;
       const offset = newY - prevY;
       yOffsets[i + 1] = offset;
@@ -174,7 +174,7 @@ export default function PieChart(
     // Now, we may have pushed some text-elemnts out of the canvas when doing
     // this. Have we?
     const hasOutOfBounds = positions.some(
-      ([_x, y], i) => Math.abs(y + yOffsets[i]) > innerHeight / 2
+      ([_x, y], i) => Math.abs(y + (yOffsets[i] || 0)) > innerHeight / 2
     );
     if (hasOutOfBounds) {
       // Yes! Repeat the procedure, this time counter-clockwise.
@@ -184,10 +184,10 @@ export default function PieChart(
       const N = positions.length - 1;
 
       stack(reversed(copyNestedArr(positions))).forEach(([prev, curr], i) => {
-        const prevY = curr[1];
+        const prevY = curr[1]!;
         const newY = reverse
-          ? Math.max(prev[1] + TEXT_HEIGHT + MARGIN, curr[1])
-          : Math.min(prev[1] - TEXT_HEIGHT - MARGIN, curr[1]);
+          ? Math.max(prev[1]! + TEXT_HEIGHT + MARGIN, curr[1]!)
+          : Math.min(prev[1]! - TEXT_HEIGHT - MARGIN, curr[1]!);
         curr[1] = newY;
         const offset = newY - prevY;
         yOffsets[N - i - 1] = offset;
@@ -219,7 +219,7 @@ export default function PieChart(
         // multiply by 1 or -1 to put it on the right or on the left
         //          by 0.95 to avoid line going all the way to the text
         posC[0] = outerRadius * 0.95 * (midangle < Math.PI ? 1 : -1);
-        posC[1] += yOffsets[i];
+        posC[1] += yOffsets[i] || 0;
 
         // If pos C lies between A and B, move B in line with C
         if (
@@ -252,7 +252,7 @@ export default function PieChart(
         const pos = outerArc.centroid(d);
         const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2;
         pos[0] = outerRadius * (midAngle < Math.PI ? 1 : -1);
-        pos[1] += yOffsets[i];
+        pos[1] += yOffsets[i] || 0;
 
         return `translate(${pos})`;
       })

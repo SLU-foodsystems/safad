@@ -30,12 +30,12 @@ describe("RPC reducer", () => {
     const diet: Diet = [["A.01.example", 100]];
 
     const [[rpc], processes] = reduceDiet(diet, recipes, {}, {});
-    expect(rpc[0]).toEqual("A.01.example");
-    expect(rpc[1]).toBeCloseTo(100);
+    expect(rpc![0]).toEqual("A.01.example");
+    expect(rpc![1]).toBeCloseTo(100);
 
     expect(processes).toHaveProperty("A.01");
     const process = processes["A.01"];
-    expect(process.facetA).toEqual(100);
+    expect(process!.facetA).toEqual(100);
   });
 
   test("Facet amounts based on output", () => {
@@ -53,15 +53,15 @@ describe("RPC reducer", () => {
 
     const [rpcs, processes] = reduceDiet(diet, recipes, {}, {});
     expect(rpcs).toHaveLength(1);
-    const [rpcCode, rpcAmount] = rpcs[0];
+    const [rpcCode, rpcAmount] = rpcs[0]!;
 
     expect(rpcCode).toEqual("A.01.02.001.003");
     expect(rpcAmount).toEqual(1000 * 1.3013 * 2);
 
     expect(processes).toHaveProperty("A.01");
     const process = processes["A.01"];
-    expect(process["F28.A0C03"]).toEqual(1000);
-    expect(process["F28.A0C04"]).toEqual(1301.3);
+    expect(process!["F28.A0C03"]).toEqual(1000);
+    expect(process!["F28.A0C04"]).toEqual(1301.3);
   });
 
   test("Processes with ratios", () => {
@@ -78,15 +78,15 @@ describe("RPC reducer", () => {
     const [rpcs, processes] = reduceDiet(diet, recipes, {}, {});
     expect(rpcs).toHaveLength(2);
 
-    expect(rpcs[0][0]).toEqual("A.02.Tomatoes");
-    expect(rpcs[0][1]).toBeCloseTo(1000 * 0.3 * 3);
+    expect(rpcs![0]![0]).toEqual("A.02.Tomatoes");
+    expect(rpcs![0]![1]).toBeCloseTo(1000 * 0.3 * 3);
 
-    expect(rpcs[1][0]).toEqual("A.01.Bread");
-    expect(rpcs[1][1]).toBeCloseTo(1000 * 0.7 * 1);
+    expect(rpcs![1]![0]).toEqual("A.01.Bread");
+    expect(rpcs![1]![1]).toBeCloseTo(1000 * 0.7 * 1);
 
     expect(processes).toHaveProperty("A.01");
-    expect(processes["A.01"]["Cooking"]).toEqual(300);
-    expect(processes["A.01"]["Baking"]).toEqual(700);
+    expect(processes!["A.01"]!["Cooking"]).toEqual(300);
+    expect(processes!["A.01"]!["Baking"]).toEqual(700);
   });
 
   test("Handles nested RPCs", () => {
@@ -110,14 +110,14 @@ describe("RPC reducer", () => {
     expect(rpcs).toHaveLength(3);
 
     // RPC 1
-    expect(rpcs[0][0]).toEqual("A.01.11");
-    expect(rpcs[0][1]).toEqual(baseAmount * 0.2 * 10 * 1 * 1.7);
+    expect(rpcs[0]![0]).toEqual("A.01.11");
+    expect(rpcs[0]![1]).toEqual(baseAmount * 0.2 * 10 * 1 * 1.7);
     // RPC 2
-    expect(rpcs[1][0]).toEqual("A.01.12");
-    expect(rpcs[1][1]).toBeCloseTo(baseAmount * 0.8 * 1 * 0.5 * 2);
+    expect(rpcs[1]![0]).toEqual("A.01.12");
+    expect(rpcs[1]![1]).toBeCloseTo(baseAmount * 0.8 * 1 * 0.5 * 2);
     // RPC 3
-    expect(rpcs[2][0]).toEqual("A.01.13");
-    expect(rpcs[2][1]).toBeCloseTo(baseAmount * 0.8 * 1 * 0.5 * 3);
+    expect(rpcs[2]![0]).toEqual("A.01.13");
+    expect(rpcs[2]![1]).toBeCloseTo(baseAmount * 0.8 * 1 * 0.5 * 3);
 
     // Facets
     const processIds = [
@@ -129,14 +129,14 @@ describe("RPC reducer", () => {
     ];
     expect(processIds).toHaveLength(3);
     // FacetA: Should be 2 * the amount of A.01
-    expect(processes["A.01"].facetA).toBeCloseTo(baseAmount);
+    expect(processes["A.01"]!.facetA).toBeCloseTo(baseAmount);
     // FacetB
-    expect(processes["A.01"].facetB).toBeCloseTo(
+    expect(processes["A.01"]!.facetB).toBeCloseTo(
       baseAmount * 0.2 * 10 + // A.01.0.1
         baseAmount * 0.8 * 1 * 0.5
     );
     // FacetC
-    expect(processes["A.01"].facetC).toBeCloseTo(baseAmount * 0.8 * 0.5);
+    expect(processes["A.01"]!.facetC).toBeCloseTo(baseAmount * 0.8 * 0.5);
   });
 
   test("Merges reappering RPCs", () => {
@@ -179,10 +179,10 @@ describe("RPC reducer", () => {
     expect(rpcs).toEqual([["A.01.123", 100 * 0.8 * 10]]);
 
     // We should add netAmount for all three facets
-    expect(Object.keys(processes["A.01"])).toHaveLength(3);
-    expect(processes["A.01"].facetA).toBeCloseTo(100 * 0.8);
-    expect(processes["A.01"].facetB).toBeCloseTo(100 * 0.8);
-    expect(processes["A.01"].facetC).toBeCloseTo(100 * 0.8);
+    expect(Object.keys(processes["A.01"]!)).toHaveLength(3);
+    expect(processes["A.01"]!.facetA).toBeCloseTo(100 * 0.8);
+    expect(processes["A.01"]!.facetB).toBeCloseTo(100 * 0.8);
+    expect(processes["A.01"]!.facetC).toBeCloseTo(100 * 0.8);
   });
 
   test("Adds processes for self-referencing recipes", () => {
@@ -321,9 +321,7 @@ describe("RPC reducer", () => {
 
     test("Inherits packing from nearest level", () => {
       // pizza derivative
-      const diet: Diet = [
-        ["A.17.01.002.003.004", 1000],
-      ];
+      const diet: Diet = [["A.17.01.002.003.004", 1000]];
       const packagingCodes = {
         "A.17": "P1",
         "A.17.01": "P2",

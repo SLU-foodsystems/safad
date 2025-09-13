@@ -303,14 +303,26 @@ class ResultsEngine {
     // Map the packagingAmounts to their respective emission factors
     const packagingEnvImpacts = mapValues(packagingAmounts, (amounts) =>
       Object.fromEntries(
-        Object.entries(amounts).map(([packagingId, amount]) => [
-          packagingId,
-          emissionsFactorsPackaging[packagingId].map((x) => (x * amount) / 1e3),
-        ])
+        Object.entries(amounts).map(([packagingId, amount]) => {
+          const emissionsFactors = emissionsFactorsPackaging[packagingId];
+          if (!emissionsFactors) {
+            throw new Error(
+              "Emissions factors missing for packagagingId ${packagagingId}"
+            );
+          }
+
+          return [packagingId, emissionsFactors.map((x) => (x * amount) / 1e3)];
+        })
       )
     );
 
-    const { rpcOriginWasteFull, emissionsFactorsTransport, countryCode } = this;
+    const { rpcOriginWasteFull, countryCode } = this;
+
+    const emissionsFactorsTransport =
+      this.emissionsFactorsTransport[countryCode];
+    if (!emissionsFactorsTransport) {
+      throw new Error(`No emissions factors found for country ${countryCode}`);
+    }
 
     // Transport impacts
     const transportEnvImpactsEntries = rpcAmounts
@@ -320,7 +332,7 @@ class ResultsEngine {
           rpcCode,
           amount - (transportlessAmounts[rpcCode] || 0),
           rpcOriginWasteFull,
-          emissionsFactorsTransport[countryCode]
+          emissionsFactorsTransport
         ),
       ])
       .filter((pair): pair is [string, number[]] => pair[1] !== null);

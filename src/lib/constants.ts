@@ -22,7 +22,7 @@ export const PLANETARY_BOUNDARY_LIMITS = {
 };
 
 // Conversion factors from other GHGs to CO2.
-export const CO2E_CONV_FACTORS: Record<string, number> = {
+export const CO2E_CONV_FACTORS = {
   CO2: 1,
   BCH4: 27,
   FCH4: 29.8,

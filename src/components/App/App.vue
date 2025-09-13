@@ -850,7 +850,7 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 @use "sass:color";
-@import "../../styles/constants";
+@use "../../styles/constants";
 
 .inner-thinner-wrap {
   margin: 0 auto;
@@ -860,7 +860,7 @@ onMounted(async () => {
 .page-footer,
 .sub-footer {
   ::selection {
-    color: $green_forest;
+    color: constants.$green_forest;
     background: white;
   }
 }
@@ -868,7 +868,7 @@ onMounted(async () => {
 
 .page-footer {
   padding: 4em 0;
-  background: $green_forest;
+  background: constants.$green_forest;
   color: white;
 }
 
@@ -894,7 +894,7 @@ onMounted(async () => {
 .sub-footer {
   font-size: 0.75em;
   padding: 1em 0;
-  background: color.scale($green_forest, $lightness: -10%);
+  background: color.scale(constants.$green_forest, $lightness: -10%);
   color: white;
 }
 
@@ -943,7 +943,7 @@ onMounted(async () => {
   grid-template-columns: 1fr var(--aside-width);
   gap: 1em;
 
-  @media (max-width: $measure--wide) {
+  @media (max-width: constants.$measure--wide) {
     grid-template-columns: 1fr;
 
     .button {
@@ -992,6 +992,6 @@ onMounted(async () => {
 
 .diet-info-box {
   padding: 1.5em;
-  border: 2px solid $gray;
+  border: 2px solid constants.$gray;
 }
 </style>

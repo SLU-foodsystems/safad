@@ -8,29 +8,36 @@ export function average(numbers: number[]) {
 }
 
 /**
- * 2d averages, handles differing row-lengths.
+ * 2d averages, handles differing row-lengths by selecting the longest length
+ *
+ * E.g.:
+ * [[1, 4, 5], [3, 2, 1]] -> [2, 3, 3]
  */
 export function averages(matrix: number[][]): number[] {
   if (matrix.length === 0) return [];
-  if (matrix.length === 1) return matrix[0];
+  if (matrix.length === 1) return matrix[0]!;
 
+  // Get max length
   const N = Math.max(...matrix.map((x) => x.length));
+  // For every index=i in 0..(N-1)
   return Array.from({ length: N }).map((_, i) =>
+    // take the average of the well-defined values over all matrix[k][i] for all
+    // k in 0..(matrix.length - 1)
     average(
       matrix
-        .map((vector) => (i < vector.length ? vector[i] : Number.NaN))
+        .map((vector) => (vector[i] !== undefined ? vector[i] : Number.NaN))
         .filter((x) => !Number.isNaN(x))
     )
   );
 }
 
-export function reversed<T>(xs: T[]) {
+export function reversed<T>(xs: T[]): T[] {
   if (!xs) return xs;
 
   const length = xs.length;
   if (length < 2) return xs;
 
-  return Array.from({ length }).map((_x, i) => xs[length - 1 - i]);
+  return Array.from({ length }).map((_x, i) => xs[length - 1 - i]!);
 }
 
 export function weightedArithmeticMean(
@@ -82,15 +89,18 @@ export function vectorSum(xs: number[], ys: number[]) {
     throw new Error("Expected vectors to be of same length.");
   }
 
-  return xs.map((x, i) => x + ys[i]);
+  return xs.map((x, i) => x + (ys[i] || 0));
 }
 
 export function vectorsSum(lists: number[][]): number[] {
   if (lists.length === 0) return [];
-  if (lists.length === 1) return lists[0];
+  if (lists.length === 1) return lists[0] || [];
 
   const [head, ...tail] = lists;
-  return tail.reduce((acc, curr) => acc.map((x, i) => x + curr[i]), head);
+  return tail.reduce(
+    (acc, curr) => acc.map((x, i) => x + (curr[i] || 0)),
+    head || []
+  );
 }
 
 export function aggregateBy<T>(
@@ -102,7 +112,7 @@ export function aggregateBy<T>(
 
   entries.forEach(([k, v]) => {
     const newKey = grouper(k);
-    if (!(newKey in result)) {
+    if (result[newKey] === undefined) {
       result[newKey] = v;
     } else {
       result[newKey] = aggregator(result[newKey], v);
@@ -167,7 +177,7 @@ export function aggregateRpcCategories(
   return aggregateBy<number[]>(
     Object.entries(rpcMap),
     (code) => getRpcCodeSubset(code, level, true),
-    (a: number[], b: number[]) => a.map((x, i) => x + b[i])
+    (a: number[], b: number[]) => a.map((x, i) => x + (b[i] || 0))
   );
 }
 
@@ -252,7 +262,7 @@ export function parseCsvFile(
     const next = fileContent[i + 1];
 
     if (!quote) {
-      const cellIsEmpty = line[line.length - 1].length === 0;
+      const cellIsEmpty = (line[line.length - 1] || "").length === 0;
       if (cur === '"' && cellIsEmpty) quote = true;
       else if (cur === options.delimiter) line.push("");
       else if (cur === "\r" && next === "\n") {
@@ -262,13 +272,17 @@ export function parseCsvFile(
       } else if (cur === "\n" || cur === "\r") {
         line = [""];
         ret.push(line);
-      } else line[line.length - 1] += cur;
+      } else {
+        line[line.length - 1] += cur || "";
+      }
     } else {
       if (cur === '"' && next === '"') {
         line[line.length - 1] += cur;
         i++;
       } else if (cur === '"') quote = false;
-      else line[line.length - 1] += cur;
+      else {
+        line[line.length - 1] += cur || "";
+      }
     }
   }
 
@@ -282,7 +296,7 @@ export function parseCsvFile(
     const isEmptyRow = (row: string[]) =>
       row.length === 0 || row.every((x) => x === "");
 
-    while (rows.length > 0 && isEmptyRow(rows[rows.length - 1])) {
+    while (rows.length > 0 && isEmptyRow(rows[rows.length - 1] || [])) {
       rows.pop();
     }
   }
@@ -300,7 +314,7 @@ export const padLeft = (number: number | string, minLen: number): string =>
     ? ("0".repeat(minLen) + number).slice(-1 * minLen)
     : String(number);
 
-// Note: only shallow-copies items
+// Note: only makes a shallow-copy of items
 export const mergeObjectsWithLists = <T>(
   xs: Record<string, T[]>,
   ys: Record<string, T[]>
@@ -308,7 +322,7 @@ export const mergeObjectsWithLists = <T>(
   const merged = { ...xs };
 
   Object.entries(ys).forEach(([key, values]) => {
-    if (key in merged) {
+    if (merged[key] !== undefined) {
       merged[key].push(...values);
     } else {
       merged[key] = values;
@@ -341,7 +355,8 @@ export const cancelableDebounce = <T extends (...args: any[]) => void>(
 };
 
 export const debounce = (...args: Parameters<typeof cancelableDebounce>) => {
-  return cancelableDebounce(...args)[0];
+  const noop = () => {};
+  return cancelableDebounce(...args)[0] || noop;
 };
 
 export const truncate = (text: string, maxLength = 20) =>

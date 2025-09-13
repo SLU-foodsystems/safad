@@ -31,7 +31,7 @@ const drawChart = async () => {
     value: impactsArr[props.index],
   }));
 
-  const maxValue = Math.max(0, ...data.map((obj) => obj.value));
+  const maxValue = Math.max(0, ...data.map((obj) => obj.value || 0));
 
   const svg = el.value.querySelector("svg");
   if (svg) {
@@ -45,9 +45,14 @@ const drawChart = async () => {
   const rpcNames = await defaultRpcNames();
 
   const labelTextMapper = (code: string) =>
-    code in rpcNames ? truncate(rpcNames[code], 30) : code;
+    rpcNames[code] ? truncate(rpcNames[code], 30) : code;
 
-  BarChart(el.value, data, {
+  const safeData = data.map((d) => ({
+    category: d.category,
+    value: d.value || 0,
+  }));
+
+  BarChart(el.value, safeData, {
     maxValue,
     width,
     height,

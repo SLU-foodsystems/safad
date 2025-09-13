@@ -1,5 +1,5 @@
 @use "sass:math";
-@import "constants";
+@use "constants";
 
 
 button:not([disabled]) {
@@ -16,7 +16,7 @@ button:not([disabled]) {
   border: none;
   box-shadow: 0 0.3em 0.75em -0.55em rgba(black, 0.5);
 
-  background: $gray;
+  background: constants.$gray;
   color: black;
   font-weight: bold;
   text-decoration: none;
@@ -34,7 +34,7 @@ button:not([disabled]) {
     $x: 3px;
     outline: 0;
     box-shadow: 0 0 0 $x white, 0 0 0 (2 * $x) black;
-    background: $yellow;
+    background: constants.$yellow;
   }
 
   &::selection {
@@ -60,17 +60,17 @@ button:not([disabled]) {
 }
 
 .button--accent {
-  background: $green_forest-bright;
+  background: constants.$green_forest-bright;
   color: #fff;
-  box-shadow: 0 0.3em 0.75em -0.55em $green_forest-bright;
+  box-shadow: 0 0.3em 0.75em -0.55em constants.$green_forest-bright;
   &:focus {
-    background: $green_forest;
+    background: constants.$green_forest;
   }
 }
 .button--secondary {
-  background: $blue_cyan;
+  background: constants.$blue_cyan;
   color: #fff;
-  box-shadow: 0 0.3em 0.75em -0.55em $blue_cyan;
+  box-shadow: 0 0.3em 0.75em -0.55em constants.$blue_cyan;
 }
 
 .button--link {

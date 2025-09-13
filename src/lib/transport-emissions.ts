@@ -34,7 +34,7 @@ export default function computeTransportEmissions(
   // Handle the case where there's only data for RoW, which there will be e.g.
   // when we don't have any import data at all.
   if (Object.keys(factorsPerOrigin).length === 1 && factorsPerOrigin.RoW) {
-    return transportEmissionsFactors.RoW.map((x) => x * amountKg);
+    return transportEmissionsFactors.RoW!.map((x) => x * amountKg);
   }
 
   // Finally, sum all of the emissions for each origin, adjusted by share.
