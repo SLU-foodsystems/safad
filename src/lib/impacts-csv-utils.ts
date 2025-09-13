@@ -108,13 +108,12 @@ export function expandedImpacts(
   transportEmissions: number[] // Include co2e in their impacts, while packaging and processes do not
 ) {
   const toCo2e = (emissions: number[]) => (ghgName: string, i: number) => {
-    //@ts-ignore-next-line
-    const convFactor = CO2E_CONV_FACTORS[ghgName];
-    if (convFactor === undefined) {
+    if (!(ghgName in CO2E_CONV_FACTORS)) {
       throw new Error(
         "Impact csv utils: No co2e conversion factor found for ghg " + ghgName
       );
     }
+    const convFactor = (CO2E_CONV_FACTORS as Record<string, number>)[ghgName]!;
 
     return (emissions[i] || 0) * convFactor;
   };
