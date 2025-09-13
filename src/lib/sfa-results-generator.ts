@@ -29,9 +29,13 @@ function parseSfaFoodExTranslationFile(csvString: string) {
     .slice(1)
     .forEach(([fe1Code, _fe1Name, fe2CodeA, fe2CodeB]) => {
       if (fe1Code === "-" || !fe2CodeA) return;
+      // @ts-ignore-next-line
       mappings[fe2CodeA] = fe1Code;
       // some rows have a second column of codes as well.
-      if (fe2CodeB) mappings[fe2CodeB] = fe1Code;
+      if (fe2CodeB) {
+        // @ts-ignore-next-line
+        mappings[fe2CodeB] = fe1Code;
+      }
     });
 
   return mappings;
@@ -91,7 +95,7 @@ export async function generateSfaResults(
 
       results[sfaCode].push([
         sfaName,
-        foodEx2ToFoodEx1Matchings[foodEx2Code],
+        foodEx2ToFoodEx1Matchings[foodEx2Code] || "",
         process,
         grossShare,
         netShare,
@@ -174,7 +178,7 @@ export async function generateSfaResults(
               totalImpacts[3]
             ).map((x) => x.toString());
 
-      const sfaName = ingredients[0][0];
+      const sfaName = (ingredients[0] && ingredients[0][0]) ?? "";
 
       return [
         [

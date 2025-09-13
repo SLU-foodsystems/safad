@@ -66,13 +66,13 @@ describe("diet-output-generator.ts", async () => {
   const rowGroups: Record<string, typeof allRows> = {};
 
   allRows.forEach((row) => {
-    const code = row[0];
+    const code = row[0]!;
     if (!rowGroups[code]) rowGroups[code] = [];
     rowGroups[code].push(row);
   });
 
   const startLabel = AGGREGATE_HEADERS[0];
-  const endLabel = AGGREGATE_HEADERS[AGGREGATE_HEADERS.length - 1];
+  const endLabel = AGGREGATE_HEADERS[AGGREGATE_HEADERS.length - 1]!;
   const startIdx = DIET_RESULTS_HEADER.indexOf(startLabel);
   const endIdx = DIET_RESULTS_HEADER.indexOf(endLabel);
 
@@ -84,9 +84,9 @@ describe("diet-output-generator.ts", async () => {
 
       for (let colIdx = startIdx; colIdx <= endIdx; colIdx++) {
         const [totalRow, ...componentRows] = rows;
-        const totalValue = Number.parseFloat(totalRow[colIdx]);
+        const totalValue = Number.parseFloat(totalRow![colIdx]!);
         const computedSum = componentRows
-          .map((row) => Number.parseFloat(row[colIdx]))
+          .map((row) => Number.parseFloat(row[colIdx]!))
           .reduce((a, b) => a + b, 0);
 
         if (totalValue === 0) {

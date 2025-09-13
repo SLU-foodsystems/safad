@@ -11,8 +11,12 @@ const dietNames = dietNamesJson as Record<
   }
 >;
 
-const readableDietName = (countryCode: string) => {
+const readableDietName = (countryCode: string): string => {
   const data = dietNames[countryCode];
+  if (!data) {
+    console.error(`No survey-data found for countryCode ${countryCode}.`)
+    return "";
+  }
   return `${data.surveyName}, average diet of ${data.ageClass.toLowerCase()} in ${data.country}`;
 };
 

@@ -90,6 +90,7 @@ function aggregateDuplicateRpcs(rpcs: Diet) {
   rpcs.forEach(([code, amount]) => {
     if (foundRpcs.has(code)) {
       const idx = mergedRpcs.findIndex((pair) => pair[0] === code);
+      if (!mergedRpcs[idx]) return; // TODO: this should not ever occur.
       mergedRpcs[idx][1] += amount;
     } else {
       foundRpcs.add(code);
@@ -234,7 +235,7 @@ export default function reduceDietToRpcs(
     amount: number
   ) => {
     const level1Category = getRpcCodeSubset(code, 1, true);
-    if (!(level1Category in processesAmounts)) {
+    if (processesAmounts[level1Category] === undefined) {
       processesAmounts[level1Category] = {};
     }
 

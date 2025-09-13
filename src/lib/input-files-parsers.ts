@@ -17,6 +17,11 @@ const asNumber = (str: string, elseValue = 0): number => {
 const isNumber = (str: string): boolean =>
   !Number.isNaN(Number.parseFloat(str));
 
+const isCode = (maybeCode: string | undefined): boolean =>
+  !!maybeCode &&
+  (maybeCode[0] === "A" || maybeCode[0] === "I") &&
+  maybeCode.includes(".");
+
 interface ValidateCsvOptions {
   minRows: number;
   maxRows: number;
@@ -125,13 +130,13 @@ export function parseEmissionsFactorsEnergy(csvString: string) {
     throw new CsvValidationError(err);
   }
 
-  csv.forEach(([carrier, _country, countryCode, ...ghgsStrs]) => {
+  csv.forEach(([carrier, _country, countryCode, ...ghgsStrs]: string[]) => {
     const ghgs = ghgsStrs.map((x) => asNumber(x, 0));
     if (carrier === "Electricity") {
-      (emissionsFactors[carrier] as Record<string, number[]>)[countryCode] =
+      (emissionsFactors[carrier] as Record<string, number[]>)[countryCode!] =
         ghgs;
     } else {
-      emissionsFactors[carrier] = ghgs;
+      emissionsFactors[carrier!] = ghgs;
     }
   });
 
@@ -162,16 +167,16 @@ export function parseEmissionsFactorsTransport(csvString: string) {
       // Convert all GHG factors to numbers, falling back to 0 if missing
       const ghgs = ghgsStrs.map((x) => asNumber(x, 0));
 
-      if (!(consumptionCountryCode in results)) {
+      if (results[consumptionCountryCode] === undefined) {
         results[consumptionCountryCode] = {};
       }
 
-      results[consumptionCountryCode][productionCountryCode] = ghgs;
+      results[consumptionCountryCode][productionCountryCode!] = ghgs;
     }
   );
 
   const countriesMissingRestOfWorld = Object.keys(results).filter(
-    (consumptionCountryCode) => !("RoW" in results[consumptionCountryCode])
+    (consumptionCountryCode) => !("RoW" in results[consumptionCountryCode]!)
   );
 
   if (countriesMissingRestOfWorld.length > 0) {
@@ -221,9 +226,8 @@ export function parsePreparationProcesses(
 
   const firstNRows = data.slice(1, 20);
   // A sanity-check that it's the right file
-  const codeInFirstColumn = firstNRows.every(
-    ([maybeCode]) =>
-      ["A", "I"].includes(maybeCode[0]) && maybeCode.includes(".")
+  const codeInFirstColumn = firstNRows.every(([maybeCode]) =>
+    isCode(maybeCode)
   );
   if (!codeInFirstColumn) {
     throw new CsvValidationError(
@@ -239,7 +243,7 @@ export function parsePreparationProcesses(
 
   return Object.fromEntries(
     data
-      .map((row): [string, string[]] => [row[0], splitFacetStr(row[2])])
+      .map((row): [string, string[]] => [row[0]!, splitFacetStr(row[2]!)])
       .filter(hasNonEmptyValue)
   );
 }
@@ -254,10 +258,7 @@ export function parsePackagingCodes(csvString: string): Record<string, string> {
 
   const firstNRows = data.slice(1, 20);
   // A sanity-check that it's the right file
-  const codesInFirstCol = firstNRows.every(
-    ([maybeCode]) =>
-      ["A", "I"].includes(maybeCode[0]) && maybeCode.includes(".")
-  );
+  const codesInFirstCol = firstNRows.every(([maybeCode]) => isCode(maybeCode));
   if (!codesInFirstCol) {
     throw new CsvValidationError(
       CsvValidationErrorType.Unknown,
@@ -267,7 +268,7 @@ export function parsePackagingCodes(csvString: string): Record<string, string> {
 
   return Object.fromEntries(
     data
-      .map((row): [string, string] => [row[0], row[2]])
+      .map((row): [string, string] => [row[0]!, row[2]!])
       .filter((kv) => !!kv[1])
   );
 }
@@ -282,9 +283,7 @@ export function parseFootprintsRpcs(csvString: string) {
 
   const firstNRows = data.slice(1, 20);
   // Sanity-check: let's not bee too strict on code format
-  const codesInFirstRow = firstNRows.every(
-    ([code]) => ["A", "I"].includes(code[0]) && code.includes(".")
-  );
+  const codesInFirstRow = firstNRows.every(([maybeCode]) => isCode(maybeCode));
   if (!codesInFirstRow) {
     throw new CsvValidationError(
       CsvValidationErrorType.Unknown,
@@ -318,18 +317,18 @@ export function parseFootprintsRpcs(csvString: string) {
       ]) => {
         if (!rpcCode || rpcCode.trim() === "NA") return;
 
-        if (!(rpcCode in rpcFootprints)) {
+        if (rpcFootprints[rpcCode] === undefined) {
           rpcFootprints[rpcCode] = {};
         }
 
         // Handle if someone inputs RoW (or any other case invariant)
-        if (originCode.toLowerCase().trim() === "row") {
+        if (originCode!.toLowerCase().trim() === "row") {
           originCode = "RoW";
         }
 
         // Store values, as number
         const footprints = impactsStr.map((x) => asNumber(x, 0));
-        rpcFootprints[rpcCode][originCode] = footprints;
+        rpcFootprints[rpcCode][originCode!] = footprints;
       }
     );
 
@@ -343,14 +342,14 @@ export function parseFootprintsRpcs(csvString: string) {
 
     // Fall-back when no origins are defined
     if (numberOfOrigins === 0) {
-      rpcFootprints[rpcCode].RoW = ENV_IMPACTS_ZERO;
+      rpcFootprints[rpcCode]!.RoW = ENV_IMPACTS_ZERO;
       return;
     }
 
     const averages = vectorsSum(Object.values(footprintsPerOrigin)).map(
       (x: number) => x / numberOfOrigins
     );
-    rpcFootprints[rpcCode].RoW = averages;
+    rpcFootprints[rpcCode]!.RoW = averages;
   });
 
   return rpcFootprints;
@@ -365,13 +364,11 @@ export function parseWasteRetailAndConsumer(csvString: string) {
   }
 
   const firstNRows = csv.slice(0, 10);
-  const codesInFirstCol = firstNRows.every(
-    ([code]) => ["A", "I"].includes(code[0]) && code.includes(".")
-  );
+  const codesInFirstCol = firstNRows.every(([maybeCode]) => isCode(maybeCode));
 
   const numbersInWasteCols = firstNRows.every(
     ([_code, _cat, retailWaste, consumerWaste]) =>
-      isNumber(retailWaste) && isNumber(consumerWaste)
+      isNumber(retailWaste!) && isNumber(consumerWaste!)
   );
   if (!codesInFirstCol) {
     throw new CsvValidationError(
@@ -389,7 +386,7 @@ export function parseWasteRetailAndConsumer(csvString: string) {
   return Object.fromEntries(
     csv.map(([code, _name, retailWaste, consumerWaste]) => [
       code,
-      [asNumber(retailWaste), asNumber(consumerWaste)],
+      [asNumber(retailWaste || ""), asNumber(consumerWaste || "")],
     ])
   );
 }
@@ -403,11 +400,9 @@ export function parseDiet(csvString: string): Diet {
   }
 
   const firstNRows = data.slice(0, 10);
-  const codesInFirstCol = firstNRows.every(
-    ([code]) => ["A", "I"].includes(code[0]) && code.includes(".")
-  );
+  const codesInFirstCol = firstNRows.every(([maybeCode]) => isCode(maybeCode));
   const amountsInLastCol = firstNRows.every(([_0, _1, _2, _3, _4, amount]) =>
-    isNumber(amount)
+    isNumber(amount!)
   );
   if (!codesInFirstCol) {
     throw new CsvValidationError(
@@ -425,7 +420,7 @@ export function parseDiet(csvString: string): Diet {
   // Collect diet in a map to merge any food items that re-occur.
   const summarizedDiet: Record<string, number> = {};
   data.forEach(([code, _fx2code, _l1, _l2, _name, amount]) => {
-    summarizedDiet[code] = (summarizedDiet[code] || 0) + asNumber(amount);
+    summarizedDiet[code!] = (summarizedDiet[code!] || 0) + asNumber(amount!);
   });
 
   return Object.entries(summarizedDiet);
@@ -440,11 +435,9 @@ export function parseRpcOriginWaste(csvString: string) {
   }
 
   const firstNRows = parametersCsv.slice(0, 20);
-  const codesInFirstCol = firstNRows.every(
-    ([code]) => ["A", "I"].includes(code[0]) && code.includes(".")
-  );
+  const codesInFirstCol = firstNRows.every(([maybeCode]) => isCode(maybeCode));
   const wasteCols = firstNRows.every(
-    ([_0, _1, _2, _3, w1, w2]) => isNumber(w1) && isNumber(w2)
+    ([_0, _1, _2, _3, w1, w2]) => isNumber(w1!) && isNumber(w2!)
   );
   if (!codesInFirstCol || !wasteCols) {
     throw new CsvValidationError(CsvValidationErrorType.Unknown);
@@ -465,17 +458,17 @@ export function parseRpcOriginWaste(csvString: string) {
     ) => {
       // Avoid empty rows
       if (!rpcCode) return acc;
-      if (asNumber(originShare, 0) === 0) return acc;
+      if (asNumber(originShare!, 0) === 0) return acc;
 
       // First time we see this RPC code? Add an empty object, which we will
       // populate with one obj per origin
-      if (!(rpcCode in acc)) {
+      if (acc[rpcCode] === undefined) {
         acc[rpcCode] = {};
       }
 
-      acc[rpcCode][originCode] = [
-        asNumber(originShare),
-        asNumber(productionWaste),
+      acc[rpcCode][originCode!] = [
+        asNumber(originShare!),
+        asNumber(productionWaste!),
       ];
 
       // Pass the acc along.
@@ -488,7 +481,7 @@ export function parseRpcOriginWaste(csvString: string) {
 export function parseFoodsRecipes(recipesCsvStr: string) {
   function removeCorruptValues(obj: FoodsRecipes) {
     Object.entries(obj).forEach(([id, _values]) => {
-      obj[id] = obj[id].filter(
+      obj[id] = obj[id]!.filter(
         // Remove all cases where the rpc code is "", which can happen for
         // empty rows, etc.
         ([foodCode]) => foodCode && foodCode !== ""
@@ -517,12 +510,8 @@ export function parseFoodsRecipes(recipesCsvStr: string) {
   }
 
   const firstNRows = data.slice(0, 40);
-  const isMaybeCode = (code: string) =>
-    ["A", "I"].includes(code[0]) && code.includes(".");
-  const codesInFirstCol = firstNRows.every(([code]) => isMaybeCode(code));
-  const codesInThirdCol = firstNRows.every(([_0, _1, code]) =>
-    isMaybeCode(code)
-  );
+  const codesInFirstCol = firstNRows.every(([code]) => isCode(code));
+  const codesInThirdCol = firstNRows.every(([_0, _1, code]) => isCode(code));
   if (!codesInFirstCol || !codesInThirdCol) {
     throw new CsvValidationError(CsvValidationErrorType.Unknown);
   }
@@ -542,31 +531,32 @@ export function parseFoodsRecipes(recipesCsvStr: string) {
     ]) => {
       if (code === "") return; // Empty row
       const value = roundToPrecision(
-        (asNumber(perc, 100) * asNumber(prob, 1)) / 100,
+        (asNumber(perc!, 100) * asNumber(prob!, 1)) / 100,
         3
       );
 
       const netYieldFactor =
-        asNumber(yieldFactor, 1) * asNumber(allocationFactor, 1);
+        asNumber(yieldFactor!, 1) * asNumber(allocationFactor!, 1);
 
       if (value === 0) return;
 
       const PROCESS_UNSPECIFIED = "F28.A07XD";
-      const processes = facetStr
+      const processes = facetStr!
         .split("$")
         .filter((f) => f.startsWith("F28.") && f !== PROCESS_UNSPECIFIED);
 
       const entry: [string, string[], number, number] = [
-        component,
+        component!,
         processes,
         value,
         netYieldFactor || 1,
       ];
 
-      if (code in recipes) {
-        recipes[code].push(entry);
+      const c = code!;
+      if (recipes[c] === undefined) {
+        recipes[c] = [entry];
       } else {
-        recipes[code] = [entry];
+        recipes[c]!.push(entry);
       }
     }
   );
@@ -602,12 +592,12 @@ export function parseSfaRecipes(recipesCsvStr: string): SfaRecipeComponent[] {
           _i1NetAmountDesc,
           _i2Name,
         ]) => ({
-          sfaCode,
-          sfaName,
-          foodEx2Code: i1FoodEx2Code,
-          process: SfaEfsaProcessTranslations[i1ProcessName] || "",
-          grossShare: asNumber(i1Share, 0) / 100,
-          netShare: asNumber(i1NetShare, 0) / 100,
+          sfaCode: sfaCode!,
+          sfaName: sfaName!,
+          foodEx2Code: i1FoodEx2Code!,
+          process: SfaEfsaProcessTranslations[i1ProcessName!] || "",
+          grossShare: asNumber(i1Share!, 0) / 100,
+          netShare: asNumber(i1NetShare!, 0) / 100,
         })
       )
       // Skip any ingredients with a 0-value

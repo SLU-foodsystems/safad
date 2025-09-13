@@ -16,27 +16,27 @@ const el = ref<HTMLDivElement | null>();
 
 const pickData = (data: number[]) => [
   {
-    value: data[0] / PLANETARY_BOUNDARY_LIMITS.co2e,
+    value: (data[0] || 0) / PLANETARY_BOUNDARY_LIMITS.co2e,
     axis: "Carbon footprint",
   },
   {
-    value: data[10] / PLANETARY_BOUNDARY_LIMITS.land,
+    value: (data[10] || 0) / PLANETARY_BOUNDARY_LIMITS.land,
     axis: "Cropland use",
   },
   {
-    value: data[11] / PLANETARY_BOUNDARY_LIMITS.n,
+    value: (data[11] || 0) / PLANETARY_BOUNDARY_LIMITS.n,
     axis: "New N use",
   },
   {
-    value: data[12] / PLANETARY_BOUNDARY_LIMITS.p,
+    value: (data[12] || 0) / PLANETARY_BOUNDARY_LIMITS.p,
     axis: "New P use",
   },
   {
-    value: data[13] / PLANETARY_BOUNDARY_LIMITS.h2o,
+    value: (data[13] || 0) / PLANETARY_BOUNDARY_LIMITS.h2o,
     axis: "Water",
   },
   {
-    value: data[15] / PLANETARY_BOUNDARY_LIMITS.biodiversity,
+    value: (data[15] || 0) / PLANETARY_BOUNDARY_LIMITS.biodiversity,
     axis: "Biodiversity impact",
   },
 ];

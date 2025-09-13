@@ -107,12 +107,23 @@ const props = defineProps<{
 const gasesEl = ref<typeof DownloadableSvg | null>();
 const lifecycleEl = ref<typeof DownloadableSvg | null>();
 
+const getSafeFootprint = (index: number): number => {
+  const value = props.dietFootprints[index];
+  if (value === undefined) {
+    console.warn(
+      `DietPieCharts.vue: Undefined dietFootprint at index ${index}.`
+    );
+    return 0;
+  }
+  return value;
+};
+
 const getGasesData = () =>
   toRelativeValues(
     gasesDataMap.map(([label, color, index, multiplier]) => ({
       label,
       color,
-      value: props.dietFootprints[index] * multiplier,
+      value: getSafeFootprint(index) * multiplier,
     }))
   );
 
@@ -121,7 +132,7 @@ const getLifecycleStagesData = () =>
     lifecycleStages.map(([label, color, index]) => ({
       label,
       color,
-      value: props.dietFootprints[index],
+      value: getSafeFootprint(index),
     }))
   );
 
