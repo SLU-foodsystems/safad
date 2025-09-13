@@ -197,20 +197,20 @@ const onCommentChange = () => {
  * Add drag and drop functionality
  */
 const isDragging = ref(false);
+
+const [scheduleDragleave, cancelScheduledDragleave] = cancelableDebounce(() => {
+  isDragging.value = false;
+}, 3000);
+const onDragleave = () => {
+  isDragging.value = false;
+  cancelScheduledDragleave!();
+};
 const onDragover = () => {
   if (!isDragging.value && !isLoading.value) {
     isDragging.value = true;
   }
-  scheduleDragleave();
+  scheduleDragleave!();
 };
-const onDragleave = () => {
-  isDragging.value = false;
-  cancelScheduledDragleave();
-};
-const [scheduleDragleave, cancelScheduledDragleave] = cancelableDebounce(
-  () => onDragleave(),
-  3000
-);
 const onDrop = (e: DragEvent) => {
   isDragging.value = false;
   if (isLoading.value) return;

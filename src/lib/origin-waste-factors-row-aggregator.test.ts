@@ -25,11 +25,11 @@ describe("origin-waste-factors-row-aggregator.ts", () => {
     // Check values
     Object.entries(results).forEach(([rpcCode, factors]) => {
       Object.keys(factors).forEach((country) => {
-        expect(factors[country][0], "Share").toBeCloseTo(
-          rpcOriginWasteFactors[rpcCode][country][0]
+        expect(factors[country]![0], "Share").toBeCloseTo(
+          rpcOriginWasteFactors[rpcCode]![country]![0]
         );
-        expect(factors[country][1], "Waste").toBeCloseTo(
-          rpcOriginWasteFactors[rpcCode][country][1]
+        expect(factors[country]![1], "Waste").toBeCloseTo(
+          rpcOriginWasteFactors[rpcCode]![country]![1]
         );
       });
     });
@@ -47,18 +47,21 @@ describe("origin-waste-factors-row-aggregator.ts", () => {
       },
     };
 
-    const result = originWasteFactorsRestOfWorldAggregator(
-      rpcFactors,
-      { a: new Set(["se", "es"]), b: new Set(["en", "fr"]) }
-    );
+    const result = originWasteFactorsRestOfWorldAggregator(rpcFactors, {
+      a: new Set(["se", "es"]),
+      b: new Set(["en", "fr"]),
+    });
     expect(result).toHaveProperty("a");
     expect(result).toHaveProperty("b");
 
+    const a = result.a!;
+    const b = result.b!;
+
     // First, check those that should not be modified
-    expect(result.a.se).toEqual([0.2, 0.1]);
-    expect(result.a.es).toEqual([0.5, 0.15]);
-    expect(result.b.en).toEqual([0.5, 0]);
-    expect(result.b.fr).toEqual([0.4, 0.15]);
+    expect(a.se).toEqual([0.2, 0.1]);
+    expect(a.es).toEqual([0.5, 0.15]);
+    expect(b.en).toEqual([0.5, 0]);
+    expect(b.fr).toEqual([0.4, 0.15]);
 
     // Compute the weighted mean wastes
     const rowWasteA = (0.2 * 0.1 + 0.5 * 0.15) / (0.2 + 0.5);
@@ -66,10 +69,10 @@ describe("origin-waste-factors-row-aggregator.ts", () => {
 
     // Then, check RoW
     // Compute the expected env footprints for A and B
-    expect(result.a.RoW[0]).toBeCloseTo(0.3);
-    expect(result.a.RoW[1]).toBeCloseTo(rowWasteA);
-    expect(result.b.RoW[0]).toBeCloseTo(0.1);
-    expect(result.b.RoW[1]).toBeCloseTo(rowWasteB);
+    expect(a.RoW![0]!).toBeCloseTo(0.3);
+    expect(a.RoW![1]).toBeCloseTo(rowWasteA);
+    expect(b.RoW![0]).toBeCloseTo(0.1);
+    expect(b.RoW![1]).toBeCloseTo(rowWasteB);
   });
 
   test("merges into RoW based on threshold and env factors", () => {
@@ -91,19 +94,20 @@ describe("origin-waste-factors-row-aggregator.ts", () => {
     const expectedRoWShare = 0.08 + 0.17; // de + RoW
     const expectedRoWWaste = (0.08 * 0.1 + 0.17 * 0.15) / 0.25;
 
-    const actualKeys = Object.keys(result.a);
+    const a = result.a!;
+    const actualKeys = Object.keys(a);
     const expectedKeys = ["se", "fr", "es", "RoW"];
     expect(actualKeys).toHaveLength(expectedKeys.length);
 
-    expect(result.a.se[0]).toEqual(0.2);
-    expect(result.a.fr[0]).toEqual(0.05);
-    expect(result.a.es[0]).toEqual(0.5);
-    expect(result.a.RoW[0]).toEqual(expectedRoWShare);
+    expect(a.se![0]).toEqual(0.2);
+    expect(a.fr![0]).toEqual(0.05);
+    expect(a.es![0]).toEqual(0.5);
+    expect(a.RoW![0]).toEqual(expectedRoWShare);
 
-    expect(result.a.se[1]).toEqual(0.1);
-    expect(result.a.fr[1]).toEqual(0.1);
-    expect(result.a.es[1]).toEqual(0.15);
-    expect(result.a.RoW[1]).toBeCloseTo(expectedRoWWaste);
+    expect(a.se![1]).toEqual(0.1);
+    expect(a.fr![1]).toEqual(0.1);
+    expect(a.es![1]).toEqual(0.15);
+    expect(a.RoW![1]).toBeCloseTo(expectedRoWWaste);
   });
 
   test("merges into RoW based on threshold and env factors, when RoW missing", () => {
@@ -127,7 +131,7 @@ describe("origin-waste-factors-row-aggregator.ts", () => {
       (0.2 * 0.1 + 0.05 * 0.1 + 0.5 * 0.15 + 0.08 * 0.2) /
       (0.2 + 0.05 + 0.5 + 0.08);
 
-    expect(results.a.RoW[0]).toEqual(expectedRoWShare);
-    expect(results.a.RoW[1]).toBeCloseTo(expectedRoWWaste);
+    expect(results.a!.RoW![0]).toEqual(expectedRoWShare);
+    expect(results.a!.RoW![1]).toBeCloseTo(expectedRoWWaste);
   });
 });

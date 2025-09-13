@@ -9,6 +9,10 @@ function inlineStyles(source: Element, target: Element) {
 
   // recursively call inlineStyles for the element children
   for (let i = 0; i < source.children.length; i++) {
+    if (source.children[i] === undefined || target.children[i] === undefined) {
+      continue;
+    }
+    //@ts-ignore-next-line
     inlineStyles(source.children[i], target.children[i]);
   }
 }
