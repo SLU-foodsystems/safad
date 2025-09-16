@@ -8,17 +8,6 @@
 
 import { vectorsSum } from "./utils";
 
-// TODO: This function could also take a diet and compute the env impact
-// directly, i.e. only computing the factors for the RPCs that are actually
-// included in the diet, rather than for all of them. This would be more
-// efficient, but I doubt this is the bottleneck. We can see later.
-//
-// Input:
-//  - env impact sheet ((rpc, country) -> impacts)
-//  - country distribution: ((rpc, country) -> (ratio, waste))
-//
-// Output:
-//  - (rpc -> env)
 export default function flattenRpcFootprints(
   envImpactSheet: RpcFootprintsByOrigin,
   rpcOriginWaste: RpcOriginWaste

@@ -4,7 +4,6 @@ import {
   getProcessEnvFactors,
 } from "@/lib/process-emissions";
 
-import flattenRpcFootprints from "@/lib/footprints-rpc-flattener";
 import {
   aggregateBy,
   getRpcCodeLevel,
@@ -20,8 +19,7 @@ import originWasteFactorsRestOfWorldAggregator from "@/lib/origin-waste-factors-
  * Ties all parts of computing the results into a singleton.
  */
 class ResultsEngine {
-  footprintsRpcsPerOrigin?: RpcFootprintsByOrigin;
-  footprintsRpcsMerged?: RpcFootprints;
+  footprintsRpcs?: RpcFootprintsByOrigin;
 
   rpcOriginWasteFull?: RpcOriginWaste;
   rpcOriginWaste?: RpcOriginWaste;
@@ -67,7 +65,7 @@ class ResultsEngine {
       return;
     }
 
-    if (!this.footprintsRpcsPerOrigin) {
+    if (!this.footprintsRpcs) {
       console.info(
         "Method rpcOriginWasteFull called before rpcOriginWasteFull was set."
       );
@@ -76,40 +74,15 @@ class ResultsEngine {
 
     this.rpcOriginWaste = originWasteFactorsRestOfWorldAggregator(
       this.rpcOriginWasteFull,
-      mapValues(
-        this.footprintsRpcsPerOrigin,
-        (obj) => new Set(Object.keys(obj))
-      )
-    );
-  }
-
-  private recomputeFlattenedRpcFootprints() {
-    if (!this.footprintsRpcsPerOrigin) {
-      console.info(
-        "Method recomputeEnvFootprints called before env factors file was set."
-      );
-      return;
-    }
-
-    if (!this.rpcOriginWaste) {
-      console.info(
-        "Method recomputeEnvFootprints called before rpcFactors were set."
-      );
-      return;
-    }
-
-    this.footprintsRpcsMerged = flattenRpcFootprints(
-      this.footprintsRpcsPerOrigin,
-      this.rpcOriginWaste
+      mapValues(this.footprintsRpcs, (obj) => new Set(Object.keys(obj)))
     );
   }
 
   public setFootprintsRpcs(footprintsRpcsPerOrigin: RpcFootprintsByOrigin) {
-    this.footprintsRpcsPerOrigin = footprintsRpcsPerOrigin;
+    this.footprintsRpcs = footprintsRpcsPerOrigin;
 
     if (this.rpcOriginWasteFull) {
       this.recomputeOriginAndWasteFactorsWithRoW();
-      this.recomputeFlattenedRpcFootprints();
     }
   }
 
@@ -118,9 +91,8 @@ class ResultsEngine {
   public setRpcOriginWaste(rpcOriginWasteFull: RpcOriginWaste) {
     this.rpcOriginWasteFull = rpcOriginWasteFull;
 
-    if (this.footprintsRpcsPerOrigin) {
+    if (this.footprintsRpcs) {
       this.recomputeOriginAndWasteFactorsWithRoW();
-      this.recomputeFlattenedRpcFootprints();
     }
   }
 
@@ -220,15 +192,18 @@ class ResultsEngine {
     );
   }
 
+  // TODO: This is the only place it's used.
+  // We could/should do the entire thing without merging first
+  // And then merge later, where needed.
   private getRpcFootprints(
     rpcCode: string,
     amountGram: number
-  ): number[] | null {
-    if (!this.footprintsRpcsMerged) {
+  ): Record<string, number[]> | null {
+    if (!this.footprintsRpcs) {
       throw new Error("getEnvImpact called before sheets were assigned.");
     }
 
-    if (!this.footprintsRpcsMerged[rpcCode]) {
+    if (!this.footprintsRpcs[rpcCode]) {
       console.warn(`Footprints RPC: Missing footprints for ${rpcCode}.`);
       return null;
     }
@@ -240,13 +215,23 @@ class ResultsEngine {
       return null;
     }
 
-    return this.footprintsRpcsMerged[rpcCode].map(
-      (x) => (x * amountGram) / 1000
+    // TODO: This is a good start, BUT, it does not give take the import shares
+    // into account.
+    // I think we _could_ achieve it by mutating the original 'Merging' code
+    // to, rather than add them all together, just multiply by the share but
+    // without aggregating them all.
+    return Object.fromEntries(
+      Object.entries(this.footprintsRpcs[rpcCode]).map(
+        ([originCode, values]) => [
+          originCode,
+          values.map((impactPerKg) => (impactPerKg * amountGram) / 1000),
+        ]
+      )
     );
   }
 
   public computeImpacts(diet: Diet, withWaste = true): ImpactsTuple {
-    if (!this.footprintsRpcsPerOrigin) {
+    if (!this.footprintsRpcs) {
       throw new Error(
         "Compute called when no environmentalFactorsSheet was set."
       );
@@ -285,12 +270,16 @@ class ResultsEngine {
       transportlessAmounts,
     ] = this.reduceDiet(diet, withWaste);
 
-    const rpcImpacts = Object.fromEntries(
+    // TODO 2: which in turn is used here.
+    const rpcImpacts: { [key: string]: RpcFootprints } = Object.fromEntries(
       rpcAmounts.map(([rpc, amountGram]) => [
         rpc,
         this.getRpcFootprints(rpc, amountGram),
       ])
     );
+
+    // TODO 3: We need to think about the process impacts. Are they 'per
+    // country' as well? Same with transport.
 
     // Per-process impacts
     const processesEnvImpacts = computeProcessImpacts(
