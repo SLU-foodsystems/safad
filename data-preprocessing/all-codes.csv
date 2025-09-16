@@ -1,0 +1,1806 @@
+Code,Name
+A.01.02.001,Wheat grain
+A.01.02.001.001,Wheat germ
+A.01.02.001.002,"Wheat grain, Durum"
+A.01.02.001.003,"Wheat grain, soft"
+A.01.02.001.004,Bulgur wheat
+A.01.02.002.001,"Barley grain, whole"
+A.01.02.002.002,"Barley, pearled"
+A.01.02.003,Corn grain
+A.01.02.004,Rye grain
+A.01.02.005,Spelt grain
+A.01.02.005.001,"Spelt grain, rippen"
+A.01.02.005.002,"Spelt grain, unrippen"
+A.01.02.006,Buckwheat grain
+A.01.02.007,Millet grain
+A.01.02.008,"Oats, grain"
+A.01.02.009,Rice
+A.01.02.009.001,"Rice, brown"
+A.01.02.009.002,"Rice, long-grain"
+A.01.02.009.003,"Rice, mixed"
+A.01.02.009.004,"Rice, parboiled"
+A.01.02.009.006,"Rice, white"
+A.01.02.009.007,"Rice, wild"
+A.01.02.010.001,Mixture of grains
+A.01.03.001.001,"Wheat flour, brown"
+A.01.03.001.002,"Wheat flour, Durum"
+A.01.03.001.003,"Wheat flour, white"
+A.01.03.001.004,"Wheat flour, wholemeal"
+A.01.03.001.005,Graham flour
+A.01.03.001.006,"Wheat flour, gluten free"
+A.01.03.001.007,Couscous
+A.01.03.001.008,Wheat bran
+A.01.03.001.009,Wheat groats
+A.01.03.001.012,"Wheat semolina, Durum"
+A.01.03.001.013,"Wheat semolina, soft wheat"
+A.01.03.001.014,Wheat starch
+A.01.03.002.002,"Rye flour, light"
+A.01.03.002.003,"Rye flour, medium"
+A.01.03.002.004,"Rye flour, wholemeal"
+A.01.03.002.005,Rye groats
+A.01.03.002.006,Rye starch
+A.01.03.002.007,Rye bran
+A.01.03.003.001,Buckwheat flour
+A.01.03.003.002,Buckwheat groats
+A.01.03.004.001,Corn flour
+A.01.03.004.002,Corn semolina
+A.01.03.004.003,Corn starch
+A.01.03.004.004,Cornmeal
+A.01.03.005.001,Oat bran
+A.01.03.005.002,Oat flour
+A.01.03.005.003,Oat groats
+A.01.03.006.001,Rice flour
+A.01.03.006.003,"Rice flour, instant"
+A.01.03.006.004,Rice starch
+A.01.03.007.003,"Spelt flour, wholemeal"
+A.01.03.008.002,Barley flour
+A.01.03.008.003,Chapatti flour
+A.01.03.008.004,"Flour mix, wheat/rye/barley/oats"
+A.01.03.008.005,Millet flour
+A.01.03.008.006,Millet groats
+A.01.04.001.001,"Wheat bread, white"
+A.01.04.001.002,"Wheat bread, white, gluten free"
+A.01.04.001.003,"Wheat bread, white, with oil seeds"
+A.01.04.001.004,"Wheat bread, brown"
+A.01.04.001.005,"Wheat bread, brown, gluten free"
+A.01.04.001.006,"Wheat bread, brown, with oil seeds"
+A.01.04.001.007,"Wheat bread, with bran"
+A.01.04.001.008,"Wheat bread, with oil seeds"
+A.01.04.001.009,Wheat germ bread
+A.01.04.001.010,"Wheat rolls, white"
+A.01.04.001.012,"Wheat rolls, white, with oil seeds"
+A.01.04.001.013,"Wheat rolls, brown"
+A.01.04.001.016,"Wheat toast bread, white"
+A.01.04.001.017,"Wheat toast bread, brown"
+A.01.04.001.018,"Wheat bread, gluten free"
+A.01.04.002.001,"Rye bread, light"
+A.01.04.002.002,"Rye bread, light, with oil seeds"
+A.01.04.002.003,"Rye bread, wholemeal"
+A.01.04.002.004,"Rye bread, wholemeal, with oil seeds"
+A.01.04.002.005,"Rye rolls, light"
+A.01.04.002.007,"Rye rolls, wholemeal"
+A.01.04.002.008,"Rye rolls, wholemeal, with oil seeds"
+A.01.04.002.009,"Rye toast bread, light"
+A.01.04.002.010,"Rye toast bread, wholemeal"
+A.01.04.003.001,"Rye-wheat bread, light"
+A.01.04.003.002,"Rye-wheat bread, wholemeal"
+A.01.04.003.003,"Rye-wheat bread, with oilseeds"
+A.01.04.003.004,"Rye-wheat toast bread, light"
+A.01.04.003.006,Wheat-rye bread with oilseeds
+A.01.04.003.007,"Wheat-rye bread, light"
+A.01.04.003.008,"Wheat-rye bread, wholemeal"
+A.01.04.003.009,"Wheat-rye toast bread, light"
+A.01.04.004.001,Multigrain bread
+A.01.04.004.002,Multigrain rolls
+A.01.04.004.003,Multigrain toast bread
+A.01.04.005.001,"Crisp bread, rye wholemeal"
+A.01.04.005.002,"Crisp bread, rye, light"
+A.01.04.005.003,"Crisp bread, wheat, wholemeal"
+A.01.04.005.004,"Crisp bread, wheat, light"
+A.01.04.005.005,"Rusk, light"
+A.01.04.005.006,"Rusk, wholemeal"
+A.01.04.005.007,Pita bread
+A.01.04.005.008,Matzo
+A.01.04.005.009,Tortilla
+A.01.04.006.001,Buckwheat bread
+A.01.04.006.002,Corn bread
+A.01.04.006.003,Extruded bread
+A.01.04.006.004,Muesli bread
+A.01.04.006.005,Oat bread
+A.01.04.006.006,Potato bread
+A.01.04.006.007,Potato-rye bread
+A.01.04.006.008,Rice bread
+A.01.04.006.009,Soya bread
+A.01.04.007.001,Breadcrumbs
+A.01.04.007.002,Croutons
+A.01.04.007.003,Bread stuffing
+A.01.05.001,Glass noodle
+A.01.05.002,"Noodle, rice"
+A.01.05.003,"Noodle, wheat flour, with eggs"
+A.01.05.004,"Noodle, wheat flour, without eggs"
+A.01.05.005,"Pasta, wheat flour, with eggs"
+A.01.05.006,"Pasta, wheat flour, without eggs"
+A.01.05.007,"Pasta, wheat flour, filled"
+A.01.05.008,"Pasta, mixed cereal flour"
+A.01.05.009,"Pasta, rye flour"
+A.01.05.012,"Pasta, spelt wholemeal"
+A.01.05.013,"Pasta, wheat wholemeal, without eggs"
+A.01.05.014,"Pasta, wheat wholemeal, with eggs"
+A.01.05.015,"Pasta, gluten free"
+A.01.06.001.001,Barley flakes
+A.01.06.001.002,Corn flakes
+A.01.06.001.003,Corn flakes and nuts
+A.01.06.001.004,Corn flakes with honey and nuts
+A.01.06.001.005,Corn flakes with honey and sugar
+A.01.06.001.006,Corn flakes with sugar
+A.01.06.001.007,Millet flakes
+A.01.06.001.008,Mixed cereal flakes
+A.01.06.001.009,Oat bran flakes
+A.01.06.001.010,"Oat bran flakes, with fruits"
+A.01.06.001.011,Oat flakes
+A.01.06.001.013,"Oat flakes, instant"
+A.01.06.001.014,"Oat flakes, wholemeal"
+A.01.06.001.015,Rice and wheat flakes with chocolate
+A.01.06.001.016,Rice flakes
+A.01.06.001.017,Rice flakes and chocolate
+A.01.06.001.018,Rye flakes
+A.01.06.001.019,Spelt flakes
+A.01.06.001.020,Wheat flakes
+A.01.06.001.021,Wheat flakes with chocolate and honey
+A.01.06.001.022,Wheat flakes with fruits and honey
+A.01.06.001.023,Wheat flakes with sugar
+A.01.06.001.024,Wheat germs flakes
+A.01.06.002.001,Muesli bars
+A.01.06.002.002,Muesli with added sugar
+A.01.06.002.003,Muesli with chocolate
+A.01.06.002.004,Muesli with fruits
+A.01.06.002.005,Muesli with fruits and chocolate
+A.01.06.002.006,Muesli with fruits and nuts
+A.01.06.002.007,"Muesli with fruits, nuts and chocolate"
+A.01.06.002.008,"Muesli, mixed"
+A.01.06.002.009,"Muesli, no added sugar"
+A.01.06.003.001,Cereal bar with fruits
+A.01.06.003.002,Cereal bar with added sugar
+A.01.06.003.003,Cereal bar with chocolate
+A.01.06.003.004,"Cereal bar, with no added sugar"
+A.01.06.004.001,"Maize, popped"
+A.01.06.004.003,"Maize, popped, with sugar"
+A.01.06.004.004,"Rice, popped"
+A.01.06.004.005,"Wheat, popped"
+A.01.06.004.006,"Wheat, popped, with sugar"
+A.01.06.004.007,"Rice, popped with sugar"
+A.01.06.005.001,"Breakfast cereals, mixed cereals and fruits"
+A.01.06.005.002,"Breakfast cereals, mixed cereals and honey"
+A.01.06.005.003,"Breakfast cereals, mixed cereals and nuts"
+A.01.06.005.004,"Breakfast cereals, mixed cereals with honey and fruits"
+A.01.06.005.005,"Breakfast cereals, mixed cereals, fruits and chocolate"
+A.01.06.005.006,"Breakfast cereals, mixed cereals, fruits, nuts and chocolate"
+A.01.06.006.001,Barley grits
+A.01.06.006.002,Oat grits
+A.01.06.006.003,Rye grits
+A.01.06.006.004,Spelt grits
+A.01.06.006.005,Wheat grits
+A.01.06.007.001,Oat porridge
+A.01.06.007.002,Rice porridge
+A.01.06.007.003,Cornmeal porridge
+A.01.06.007.004,Wheat semolina porridge
+A.01.06.007.005,Barley porridge
+A.01.07.001.002,Buns
+A.01.07.001.003,Cake from batter
+A.01.07.001.004,Cheese cream cake
+A.01.07.001.005,Cheese cream sponge cake
+A.01.07.001.006,Chocolate cake
+A.01.07.001.007,Chocolate cake with fruits
+A.01.07.001.008,Cream cake
+A.01.07.001.009,Cream cheese cake
+A.01.07.001.010,Cream custard cake
+A.01.07.001.011,Cream custard sponge cake
+A.01.07.001.012,Croissant
+A.01.07.001.013,"Croissant, filled with chocolate"
+A.01.07.001.014,"Croissant, filled with cream"
+A.01.07.001.015,"Croissant, filled with jam"
+A.01.07.001.016,Croquembouche
+A.01.07.001.017,Doughnuts
+A.01.07.001.018,Éclair
+A.01.07.001.020,Fruit cake
+A.01.07.001.021,Fruit pie
+A.01.07.001.022,Cheese pie
+A.01.07.001.023,Fruit tart
+A.01.07.001.024,Gingerbread
+A.01.07.001.025,Gougere
+A.01.07.001.026,Kringles
+A.01.07.001.027,Nut cream cake
+A.01.07.001.028,Pancakes
+A.01.07.001.029,Profiterole
+A.01.07.001.030,Pyramid cake
+A.01.07.001.031,Rhubarb flan
+A.01.07.001.032,Scone
+A.01.07.001.033,Sponge dough
+A.01.07.001.034,Sponge cake
+A.01.07.001.035,Sponge cake roll
+A.01.07.001.036,Muffins
+A.01.07.001.037,Waffles
+A.01.07.001.038,Apple strudel
+A.01.07.001.039,Cream-cheese strudel
+A.01.07.001.040,Cheese pastry goods from puff pastry
+A.01.07.001.041,Croissant from puff pastry
+A.01.07.001.042,Brioche
+A.01.07.001.043,Macaroons
+A.01.07.001.044,Lebkuchen
+A.01.07.001.045,Dumpling
+A.01.07.001.046,"Cake marbled, with chocolate"
+A.01.07.001.047,Marzipan pie
+A.01.07.001.048,Baklava
+A.01.07.002.001,"Biscuits, sweet, plain"
+A.01.07.002.002,"Biscuits, chocolate filling"
+A.01.07.002.003,"Biscuits, cream filling"
+A.01.07.002.004,"Biscuits, fruit filling"
+A.01.07.002.005,"Biscuits, vanilla filling"
+A.01.07.002.006,Butter biscuits
+A.01.07.002.007,"Biscuit, iced"
+A.01.07.002.008,Speculaas
+A.01.07.002.009,"Biscuits, sweet, wheat wholemeal"
+A.01.07.002.010,"Biscuits, oat meal"
+A.01.07.002.011,"Biscuits, spelt meal"
+A.01.07.002.012,"Biscuits, salty"
+A.01.07.002.013,"Biscuits, salty, with cheese"
+A.01.07.002.014,"Sticks, salty"
+A.02.01.001,Arrowroot (Maranta arundinacea)
+A.02.01.002,Beetroot (Beta vulgaris subsp. vulgaris)
+A.02.01.003,Carrots (Daucus carota)
+A.02.01.004,Celeriac (Apium graveolens var. rapaceum)
+A.02.01.005,Horseradish (Armoracia rusticana)
+A.02.01.006,Parsley root (Petroselinum crispum)
+A.02.01.007,Parsnips (Pastinaca sativa)
+A.02.01.008,Radishes (Raphanus sativus var. sativus)
+A.02.01.009,Salsify (Tragopogon porrifolius)
+A.02.01.010,Swedes (Brassica napus var. napobrassica)
+A.02.01.012,Turnips (Brassica rapa)
+A.02.02.001,"Garlic, bulb (Allium sativum)"
+A.02.02.002,"Onions, bulb (Allium cepa)"
+A.02.02.003,"Shallots, bulb (Allium ascalonicum, Allium cepa var. aggregatum)"
+A.02.02.004,"Spring onions, bulb (Allium cepa)"
+A.02.02.005,"Chives, bulb (Allium schoenoprasum)"
+A.02.03.001,Tomatoes (Lycopersicum esculentum)
+A.02.03.002,"Peppers, paprika (Capsicum annuum, var. grossum and var. longum)"
+A.02.03.003,Chilli pepper (Capsicum frutescens)
+A.02.03.004,Aubergines (egg plants) (Solanum melongena)
+A.02.03.005,"Okra, lady’s fingers (Hibiscus esculentus)"
+A.02.03.006,Cucumbers (Cucumis sativus)
+A.02.03.007,Gherkins (Cucumis sativus)
+A.02.03.008,Courgettes (Zucchini) (Cucurbita pepo var. melopepo)
+A.02.03.009,Melons (Cucumis melo)
+A.02.03.010,Pumpkins (Cucurbita maxima)
+A.02.03.011,Watermelons (Citrullus lanatus)
+A.02.03.012,Sweet corn (Zea mays var. saccharata)
+A.02.04.001,Broccoli (Brassica oleracea var. italica)
+A.02.04.002,Cauliflower (Brassica oleracea var. botrytis)
+A.02.04.003,Brussels sprouts (Brassica oleracea var. gemmifera)
+A.02.04.004,Head cabbage (Brassica oleracea convar. capitata)
+A.02.04.005,Chinese cabbage (Brassica pekinensis)
+A.02.04.006,Kale (Brassica oleracea convar. Acephalea)
+A.02.04.007,"Kohlrabi (Brassica oleracea convar. acephala, var. gongylodes)"
+A.02.05,Leaf vegetables
+A.02.05.001,Lamb's lettuce (Valerianella locusta)
+A.02.05.002,"Lettuce, excluding Iceberg-type lettuce (Lactuca sativa)"
+A.02.05.003,Iceberg-type lettuce
+A.02.05.004,"Endive, scarole (broad-leaf endive) (Cichorium endiva)"
+A.02.05.005,Cress (Lepidium sativum)
+A.02.05.006,Land cress (Barbarea verna)
+A.02.05.007,"Rocket, Rucola (Eruca sativa, Diplotaxis spec.)"
+A.02.05.010,Spinach (fresh) (Spinacia oleracea)
+A.02.05.011,"Spinach  (Spinacia oleracea), preserved, deep-frozen or frozen"
+A.02.05.012,Purslane (Portulaca oleracea)
+A.02.05.013,Beet leaves (Beta vulgaris)
+A.02.05.014,Vine leaves (grape leaves) (Vitis euvitis)
+A.02.05.015,Water cress (Nasturtium officinale)
+A.02.05.016,Witloof (Cichorium intybus. var. foliosum)
+A.02.05.017,Garden orache (Atriplex hortensis)
+A.02.05.019,Dandelion leaf (Taraxacum officinalis)
+A.02.05.020,Nettle (Urtica dioica)
+A.02.05.021,Sorrel (Rumex spp.)
+A.02.05.022,"Alfalfa spouts, fresh (Medicago sativa)"
+A.02.06.001,"Beans, with pods (Phaseolus vulgaris)"
+A.02.06.002,"Peas, with pods (Pisum sativum)"
+A.02.07.001,Asparagus (Asparagus officinalis)
+A.02.07.002,Cardoons (Cynara cardunculus)
+A.02.07.003,Celery (Apium graveolens var. dulce)
+A.02.07.004,Fennel (Foeniculum vulgare)
+A.02.07.005,Globe artichokes (Cynara scolymus)
+A.02.07.006,Leek (Allium porrum)
+A.02.07.007,Rhubarb (Rheum × hybridum)
+A.02.07.008,Bamboo shoots (Bambusa vulgaris)
+A.02.07.009,"Palm hearts (Euterpa oleracea, Cocos nucifera, Bactris gasipaes, Daemonorops schmidtiana)"
+A.02.08.001,Sugar beet (root) (Beta vulgaris)
+A.02.08.002,Sugar cane (Saccharum officinarum)
+A.02.08.003,Chicory roots (Cichorium intybus)
+A.02.09.001,Irish moss (Chondrus crispus)
+A.02.09.001.001,Kombu (Laminaria spp.)
+A.02.09.001.002,Laver (Porphyra spp.)
+A.02.09.001.003,Wakame (Undaria spp)
+A.02.10,Tea and herbs for infusions (Solid)
+A.02.10.001,"Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis)"
+A.02.10.004,Peppermint (Mentha × piperita)
+A.02.10.009,Strawberry leaves (Fragaria × ananassa)
+A.02.10.013,Ginseng root (Panax ginseng)
+A.02.11.001,Cocoa beans (fermented beans) (Theobroma cacao)
+A.02.11.002,Cocoa powder
+A.02.11.003,"Cocoa beverage-preparation, powder"
+A.02.11.004,Cocoa mass
+A.02.12.001,Coffee beans
+A.02.12.002,"Coffee beans, roasted"
+A.02.12.003,"Coffee beans, roasted, decaffeinated"
+A.02.12.004,"Coffee beans, roasted and ground"
+A.02.12.005,"Coffee beans, roasted and ground, decaffeinated"
+A.02.12.006,"Instant coffee, powder"
+A.02.12.007,"Instant coffee, powder, decaffeinated"
+A.02.13.001,Malt coffee
+A.02.13.002,Chicory coffee
+A.02.13.004,Wheat coffee
+A.02.13.005,Barley coffee
+A.02.13.008,Mixture of coffee imitates
+A.02.14.001,Mushy peas (Pisum sativum)
+A.02.14.002,Garlic purée
+A.02.14.003,Tomato purée
+A.02.14.004,Mixed vegetable purée
+A.02.14.005,Pickled vegetables
+A.02.14.006,Sauerkraut
+A.02.14.007,Sun-dried tomatoes
+A.02.14.008,Mashed vegetables
+A.02.14.009,Coconut milk (Cocos nucifera)
+A.02.14.010,Chestnut purée (Castanea vulgaris)
+A.02.14.011,Sesam paste (Tahini) (Sesamus indicum)
+A.02.14.012,"Hops (dried), including hop pellets and unconcentrated powder (Humulus lupulus)"
+A.02.15.001,Cultivated mushroom (syn. Button mushroom) (Agaricus bisporus)
+A.02.15.002,Oyster mushroom (Pleurotus ostreatus)
+A.02.15.003,Shiitake mushroom (Lentinus edodes)
+A.02.16,"Fungi, wild, edible"
+A.02.16.002,Honey mushroom (Armillaria mellea)
+A.02.16.003,Boletus (Boletus (and other) spp.)
+A.02.16.004,Truffle (Tuber spp.)
+A.02.16.005,Morel (Morchella esculanta)
+A.02.16.006,Cantharelle (Cantharellus cibarius)
+A.02.16.007,Orange agaric (Lactarius deliciosus)
+A.03.01.001,New potatoes
+A.03.01.002,Main-crop potatoes
+A.03.01.003,French fries
+A.03.01.004,Potato flakes
+A.03.01.005,Mashed potato powder
+A.03.01.006,Potato boiled
+A.03.01.007,Potato fried
+A.03.01.008,Potato baked
+A.03.01.009,Potato croquettes
+A.03.01.010,Potato starch
+A.03.01.011,Potato flour
+A.03.02.001,Sweet potatoes (Ipomoea batatas)
+A.03.02.002,Cassava root (Manihot esculenta)
+A.03.02.003,Tapioca
+A.03.02.004,Yam tubers (Dioscorea sp.)
+A.03.02.005,Jerusalem artichokes tubers (Helianthus tuberosus)
+A.04.01.001,"Beans, green, without pods (Phaseolus vulgaris)"
+A.04.01.002,"Peas, green, without pods (Pisum sativum)"
+A.04.02.001,Beans (Phaseolus vulgaris)
+A.04.02.002,Lentils (Lens culinaris syn. L. esculenta)
+A.04.02.003,Peas (Pisum sativum)
+A.04.02.005,Chick pea (Cicer arietinum)
+A.04.02.006,Chick pea flour
+A.04.02.007,Broad bean (Vicia faba)
+A.04.02.008,Lima bean (Phaseolus lunatis)
+A.04.02.009,Mung bean (Phaseolus aureus)
+A.04.02.011,Black eye bean (Vigna unguiculata)
+A.04.02.012,Soya beans (Glycine max)
+A.04.02.013,Soya beans flour
+A.04.02.013a,Wheat Protein Isolate
+A.04.02.013x,Pea flour
+A.04.02.013y,Soya beans Protein Isolate
+A.04.02.013z,Pea Protein Isolate
+A.04.02.014,Carob fruit (Ceratonia siliqua)
+A.04.02.019,"Pigeon pea, (Cajanus cajan)"
+A.04.02.020,Yam bean (Pachyrrizus erosus)
+A.04.02.021,Peanut (Arachis hypogea)
+A.04.03.001,"Almond, sweet (Prunus amygalus dulcis)"
+A.04.03.002,"Almond, bitter (Prunus amygalus amara)"
+A.04.03.003,Brazil nuts (Bertholletia excelsa)
+A.04.03.004,Cashew nuts (Anacardium occidentale)
+A.04.03.005,Chestnuts (Castanea sativa)
+A.04.03.006,Coconuts (Cocos nucifera)
+A.04.03.007,Hazelnuts (Corylus avellana)
+A.04.03.008,Macadamia (Macadamia ternifolia)
+A.04.03.009,Pecans (Carya illinoensis)
+A.04.03.010,Pine nuts (Pinus pinea)
+A.04.03.011,Pistachios (Pistachia vera)
+A.04.03.012,Walnuts (Juglans regia)
+A.04.04.001,Linseed (Linum usitatissimum)
+A.04.04.003,Poppy seed (Papaver somniferum)
+A.04.04.004,Sesame seed (Sesamum indicum syn. S. orientale)
+A.04.04.005,Sunflower seed (Helianthus annuus)
+A.04.04.006,Rape seed (Brassica napus)
+A.04.04.007,Mustard seed (Brassica nigra)
+A.04.04.008,Cotton seed (Gossypium spp.)
+A.04.04.009,Pumpkin seeds (Cucurbita pepo var. oleifera)
+A.04.04.010,Safflower (Carthamus tinctorius)
+A.04.04.011,Borage (Borago officinalis)
+A.04.04.013,Hempseed (Cannabis sativa)
+A.04.05,Other seeds
+A.05.01.001,Grapefruit (Citrus paradisi)
+A.05.01.002,Oranges (Citrus sinensis)
+A.05.01.003,Lemons (Citrus limon)
+A.05.01.004,Limes (Citrus aurantifolia)
+A.05.01.005,Mandarins (Citrus reticulata)
+A.05.01.006,Pomelo (Citrus grandis)
+A.05.02.001,Apple (Malus domesticus)
+A.05.02.002,Pear (Pyrus communis)
+A.05.02.003,Quince (Cydonia oblonga)
+A.05.02.004,Medlar (Mespilus germanica)
+A.05.02.005,Loquat (Eriobotrya japonica)
+A.05.02.007,Rowan (Sorbus)
+A.05.02.009,Nashi pear (Pyrus pyrifolia)
+A.05.03.001,Apricots (Prunus armeniaca)
+A.05.03.002,Plums (Prunus domestica)
+A.05.03.003,Damson plum (Prunus domestica var institia)
+A.05.03.004,Mirabelle (Prunus domestica var syriaca)
+A.05.03.005,Greengage (Prunus domestica var italica)
+A.05.03.006,Sweet cherry (Prunus avium)
+A.05.03.007,Sour cherry (Prunus cerasus)
+A.05.03.011,Peaches (Prunus persica)
+A.05.04.001,Table grapes (Vitis euvitis)
+A.05.04.002,Wine grapes (Vitis euvitis)
+A.05.04.003,Strawberries (Fragaria × ananassa)
+A.05.04.004,Blackberries (Rubus fruticosus)
+A.05.04.006,Raspberries (Rubus idaeus)
+A.05.04.008,Blueberries (Vaccinium corymbosum)
+A.05.04.009,Cranberries (Vaccinium macrocarpon)
+A.05.04.010,"Currants (red, black and white) (Ribes nigrum, Ribes rubrum)"
+A.05.04.011,Gooseberries (Ribes uva-crispa)
+A.05.04.012,Rose hips (Rosa canina)
+A.05.04.013,Mulberries (Morus spp.)
+A.05.04.014,Azarole (mediteranean medlar) (Crataegus azarolus)
+A.05.04.015,Elderberries (Sambucus nigra)
+A.05.04.016,Cloudberry (Rubus chamaemorus)
+A.05.04.017,Loganberry (Rubus loganobaccus)
+A.05.04.022,Bilberry or whortleberry (Vaccinium spp.)
+A.05.04.024,Cranberry (Vaccinium spp.)
+A.05.04.026,Lingonberry (Vaccinium vitis-idaea)
+A.05.04.029,Physalis (Physalis peruviana)
+A.05.04.030,Sea buckthorn (Hippophae rhamnoides)
+A.05.05.001,Olives for oil production (Olea europaea)
+A.05.05.003,Palmfruit (Elaeis guineensis)
+A.05.06.001,Dates (Phoenix dactylifera)
+A.05.06.002,Figs (Ficus carica)
+A.05.06.003,Table olives (Olea europaea)
+A.05.06.004,Kumquats (Fortunella species)
+A.05.06.005,Carambola (Averrhoa carambola)
+A.05.06.006,Persimmon (Sharon fruit) (Diospyros kaki)
+A.05.06.008,Kiwi (Actinidia deliciosa syn. A. chinensis)
+A.05.06.009,Lychee (Litchi) (Litchi chinensis)
+A.05.06.010,Passion fruit (Passiflora edulis)
+A.05.06.011,Prickly pear (cactus fruit) (Opuntia ficus-indica)
+A.05.06.013,American persimmon (Virginia kaki) (Diospyros virginiana)
+A.05.06.014,Avocados (Persea americana)
+A.05.06.015,Bananas (Musa × paradisica)
+A.05.06.016,Mangoes (Mangifera indica)
+A.05.06.017,Papaya (Carica papaya)
+A.05.06.018,Pomegranate (Punica granatum)
+A.05.06.019,Cherimoya (Annona cherimola)
+A.05.06.020,Guava (Psidium guajava)
+A.05.06.021,Pineapples (Ananas comosus)
+A.05.06.022,Bread fruit (jackfruit) (Artocarpus altilis)
+A.05.06.029,Pawpaw (Asimina)
+A.05.06.030,Chayote (Sechium edule)
+A.05.06.034,Longan fruit (Dimocarpus longan)
+A.05.07.001,"Dried vine fruits (currants, raisins and sultanas)"
+A.05.07.001a,Dried cranberries
+A.05.07.001b,Dried blueberries
+A.05.07.001c,Dried pineapple
+A.05.07.001d,Dried papaya
+A.05.07.001e,Dried strawberries
+A.05.07.001f,Dried raspberries
+A.05.07.002,Dried figs (Ficus carica)
+A.05.07.003,Dried prunes (Prunus domestica)
+A.05.07.004,Dried apricots (Prunus armeniaca)
+A.05.07.005,Dried pears  (Pyrus communis)
+A.05.07.006,Dried apples (Malus domesticus)
+A.05.07.007,Dried dates (Phoenix dactylifera)
+A.05.07.008,Dried bananas (Musa × paradisica)
+A.05.07.009,Dried mangoes (Mangifera indica)
+A.05.08.001,Jam
+A.05.08.001.001,"Jam, Strawberries (Fragaria × ananassa)"
+A.05.08.001.002,"Jam, Raspberries (Rubus idaeus)"
+A.05.08.001.003,"Jam, Blackberries (Rubus fruticosus)"
+A.05.08.001.004,"Jam, Currants (red) (Ribes rubrum)"
+A.05.08.001.005,"Jam, Currants (black) (Ribes nigrum)"
+A.05.08.001.006,"Jam, Lingonberry (Vaccinium vitis-idaea)"
+A.05.08.001.007,"Jam, Gooseberries (Ribes uva-crispa)"
+A.05.08.001.008,"Jam, Cranberries (Vaccinium macrocarpon)"
+A.05.08.001.009,"Jam, Blueberries (Vaccinium corymbosum)"
+A.05.08.001.010,"Jam, Rose hips (Rosa canina)"
+A.05.08.001.011,"Jam, Apricots (Prunus armeniaca)"
+A.05.08.001.012,"Jam, Plums (Prunus domestica)"
+A.05.08.001.013,"Jam, Peaches (Prunus persica)"
+A.05.08.001.014,"Jam, Sweet cherry (Prunus avium)"
+A.05.08.001.015,"Jam, Sour cherry (Prunus cerasus)"
+A.05.08.001.016,"Jam, Oranges (Citrus sinensis)"
+A.05.08.001.017,"Jam, Mandarins (Citrus reticulata)"
+A.05.08.001.018,"Jam, Mixed fruit"
+A.05.08.002.001,"Marmalade, Oranges (Citrus sinensis)"
+A.05.08.002.003,"Marmalade, Mixed fruit"
+A.05.09.001,Mixed dried fruits
+A.05.09.002,Fruit salad
+A.05.09.003,Fruit chips
+A.05.09.004,"Fruit, purèe"
+A.05.09.005,Fruit cocktail
+A.05.09.006.001,"Canned fruit, Mandarin (Citrus reticulata)"
+A.05.09.006.002,"Canned fruit, Apple (Malus domesticus)"
+A.05.09.006.003,"Canned fruit, Pear (Pyrus communis)"
+A.05.09.006.004,"Canned fruit, Apricot (Prunus armeniaca)"
+A.05.09.006.005,"Canned fruit, Plum (Prunus domestica)"
+A.05.09.006.006,"Canned fruit, Sweet cherry (Prunus avium)"
+A.05.09.006.007,"Canned fruit, Sour cherry (Prunus cerasus)"
+A.05.09.006.008,"Canned fruit, Peach (Prunus persica)"
+A.05.09.006.010,"Canned fruit, Cranberry (Vaccinium macrocarpon)"
+A.05.09.006.011,"Canned fruit, Pineapple (Ananas comosus)"
+A.05.09.006.012,"Canned fruit, Mixed fruit"
+A.05.09.007.001,"Fruit compote, Mandarin (Citrus reticulata)"
+A.05.09.007.002,"Fruit compote, Apple (Malus domesticus)"
+A.05.09.007.003,"Fruit compote, Pear (Pyrus communis)"
+A.05.09.007.004,"Fruit compote, Apricot (Prunus armeniaca)"
+A.05.09.007.005,"Fruit compote, Plum (Prunus domestica)"
+A.05.09.007.006,"Fruit compote, Sweet cherry (Prunus avium)"
+A.05.09.007.007,"Fruit compote, Sour cherry (Prunus cerasus)"
+A.05.09.007.008,"Fruit compote, Peach (Prunus persica)"
+A.05.09.007.009,"Fruit compote, Table grape (Vitis euvitis)"
+A.05.09.007.010,"Fruit compote, Cranberry (Vaccinium macrocarpon)"
+A.05.09.007.011,"Fruit compote, Pineapple (Ananas comosus)"
+A.05.09.007.012,"Fruit compote, Mixed fruit"
+A.05.09.008.001,"Candied fruit, Cheery"
+A.05.09.008.007,"Candied fruit, Mixed fruit"
+A.05.09.008.008,"Candied fruit, Orange peel"
+A.05.09.009,"Fruit in vinegar, oil, or brine"
+A.05.09.012,"Fruit, chocolate coated"
+A.06.01.001,Beef meat (Bos spp.)
+A.06.01.002,Veal meat
+A.06.01.003,Pork / piglet meat (Sus scrofa)
+A.06.01.004,Mutton / lamb meat (Ovis aries)
+A.06.01.005,Goat / kid meat (Capra hircus)
+A.06.01.006,"Horse, asses, mules or hinnies meat (Equus spp.)"
+A.06.01.007,Rabbit meat (Lepus cuniculus)
+A.06.02.001,Chicken meat (Gallus domesticus)
+A.06.02.002,Turkey meat (Meleagris gallopavo)
+A.06.02.003,Duck meat (Anas spp.)
+A.06.02.004,"Goose meat (Anser, Branta, Chen)"
+A.06.02.005,Pigeon meat (Columba spp.)
+A.06.02.006,Guinea fowl meat (Numida meleagris)
+A.06.02.007,Ostrich meat (Struthio camelus)
+A.06.03.001,Boar meat (wild pig) (Sus scrofa)
+A.06.03.002,Venison meat (Cervus spp.)
+A.06.03.003,Elk meat (Alces alces)
+A.06.03.004,Reindeer meat (Rangifer tarandus)
+A.06.03.006,Hare meat (Lepus europaeus)
+A.06.04.001,Pheasant meat (Phasianus colchius)
+A.06.04.003,Mallard (Anas platyrhynchos)
+A.06.04.004,Partridge meat (Perdix perdix)
+A.06.04.005,Quail meat (Coturnix coturnix)
+A.06.05.001,Mixed beef and pork meat
+A.06.05.002,Mixed pork and mutton/lamb meat
+A.06.05.003,Mixed beef and mutton/lamb meat
+A.06.05.004,Mixed poultry meat
+A.06.06.001,Beef liver
+A.06.06.002,Veal liver
+A.06.06.003,Pork liver
+A.06.06.004,Mutton / lamb liver
+A.06.06.005,Chicken liver
+A.06.06.006,Turkey liver
+A.06.06.007,Duck liver
+A.06.06.008,Goose liver
+A.06.06.009,Beef kidney
+A.06.06.010,Veal kidney
+A.06.06.011,Pork kidney
+A.06.06.012,Mutton / lamb kidney
+A.06.06.013,"Tongue (beef, veal, mutton, lamb, pork)"
+A.06.06.014,"Heart (beef, veal, pork, mutton, lamb)"
+A.06.06.015,"Brain (veal, lamb, pork)"
+A.06.06.016,Lungs (beef)
+A.06.06.017,Stomach (beef)
+A.06.06.019,"Spleen (beef, pork)"
+A.06.06.020,"Thymus (veal, lamb)"
+A.06.06.021,Marrowbone (beef)
+A.06.06.022,"Tail (beef, pork, lamb)"
+A.06.06.023,"Totters and feet (calf, pork)"
+A.06.06.024,"Giblets (chicken, turkey, duck, goose)"
+A.06.07.001,"Liver, game animals"
+A.06.08.001,"Ham, pork"
+A.06.08.002,"Ham, beef"
+A.06.08.003,"Beef, dried"
+A.06.08.004,"Pork, dried"
+A.06.08.006,"Ham, turkey"
+A.06.08.007,Bacon
+A.06.08.008,Corned beef
+A.06.08.009,Corned pork
+A.06.08.011,"Pastrami, pork"
+A.06.08.012,"Pastrami, beef"
+A.06.08.013,"Pastrami, lamb"
+A.06.08.014,Luncheon meat
+A.06.08.015,Preserved poultry
+A.06.09.001.001,Salsiccia
+A.06.09.001.002,Bratwurst
+A.06.09.001.003,Thuringer-Style Sausage
+A.06.09.001.004,Weisswurst
+A.06.09.001.005,Bockwurst
+A.06.09.002.002,"Mettwurst, sausage"
+A.06.09.002.003,"Kielbasa, sausage"
+A.06.09.003.001,Blood sausage
+A.06.09.003.002,Blood and tongue sausage
+A.06.09.003.003,"Liver sausage, liverwurst"
+A.06.09.004,Cooked smoked sausage
+A.06.09.004.001,"Berliner-Style, Sausage"
+A.06.09.004.002,"Bologna, sausage"
+A.06.09.004.003,Boterhamworst
+A.06.09.004.005,"Frankfurters, sausage"
+A.06.09.004.006,"Knackwurst, sausage"
+A.06.09.004.007,"Wiener, sausage"
+A.06.09.004.008x,Grillkorv (common Swedish sausage)
+A.06.09.004.009x,Falukorv (common Swedish sausage)
+A.06.09.005.004,Goteborg cervelat
+A.06.09.005.006,Landjaeger cervelat
+A.06.09.005.008,Mortadella
+A.06.09.005.009,Vienna Sausage
+A.06.09.006,Dry sausage
+A.06.09.006.001,Italian-type salami
+A.06.09.006.002,Arles
+A.06.09.006.003,Beerwurst
+A.06.09.006.005,Cooked salami
+A.06.09.006.008,German salami
+A.06.09.006.009,Hungarian-type salami
+A.06.09.006.010,Chorizo
+A.06.09.006.012,Cabanos
+A.06.10.001,Pork meat loaf
+A.06.10.002,Beef loaf
+A.06.10.003,Meat in aspic
+A.06.10.005,Liver cheese or liver loaf
+A.06.10.008,Head cheese (Brawn)
+A.06.10.009,Sulze
+A.06.11.002,"Pate, goose liver"
+A.06.11.003,"Pate, chicken liver"
+A.06.11.004,"Pate, pork liver"
+A.06.12.001,Textured soy protein
+A.06.12.001x,Textured wheat protein
+A.06.12.001y,Textured pea protein
+A.07.01.001,Herring (Clupea)
+A.07.01.002,Sprat (Sprattus sprattus)
+A.07.01.003,Sardine and pilchard (Sardina)
+A.07.01.004,Anchovy (Engraulis)
+A.07.01.007,Char (Salvelinus)
+A.07.01.008,Smelt (Osmerus)
+A.07.01.009,Whitefish (Coregonus)
+A.07.01.010,Perch (Perca)
+A.07.01.011,Bass (Marone)
+A.07.01.013,Mackeral (Scomber)
+A.07.01.014,Tuna (Thunnus)
+A.07.01.016,Grey mullet (Mugil)
+A.07.01.018,Hake (Merluccius)
+A.07.01.019,Flounder (Platichthys flesus)
+A.07.01.020,Halibut (Hippoglossus spp.)
+A.07.01.021,Plaice (Pleuronectes)
+A.07.01.024,Carp (Cyprinus)
+A.07.01.026,Bream (Charax)
+A.07.01.027,Eels (Apodes)
+A.07.01.029,Lophiiformes (Pediculati)
+A.07.01.030,Selachoidei (Pleurotremata)
+A.07.01.031,Rays (Hypotremata)
+A.07.01.032,Acipenseriformes (sturgeons) (Chondrostei)
+A.07.01.033,Bonito (Sarda Sarda)
+A.07.01.035,Sardinops (Sardinops sagax)
+A.07.01.036,Swordfish (Xiphidae spp.)
+A.07.02.001,Fish balls
+A.07.02.002,Fishcakes
+A.07.02.003,Fish fingers
+A.07.03.002,Other fish offal
+A.07.04.001,Crab (Cancer spp.)
+A.07.04.002,Lobster (Homarus vulgaris)
+A.07.04.003,Norway lobster (Nephrophs norvegicus)
+A.07.04.004,Prawns (Palaemon serratus)
+A.07.04.005,Shrimps (Crangon crangon)
+A.07.04.006,Crawfish (Panulirus spp.)
+A.07.04.007,Crayfish (Astacus spp.)
+A.07.05.001,Squid (Loligo vulgaris)
+A.07.05.002,Octopus (Octopus vulgaris)
+A.07.05.003,Cuttlefish (Sepia officinalis)
+A.07.05.005,Clam (Mya arenaria)
+A.07.05.006,Cockle (Cardium edule)
+A.07.05.007,Mussel (Mytilus edulis)
+A.07.05.008,Oyster (Ostrea edulis)
+A.07.05.010,Scallop (Pecten spp.)
+A.07.05.013,"Whelk (Buccinum undatum, Fusus antiquus)"
+A.07.05.014,Winkle (Littorina littorea)
+A.07.06.001,Frog legs (Rana spp.)
+A.07.06.004,Snail (Helix sp.)
+A.08.01.001.001,"Cow milk, > 4% fat (inc. Channel Island milk)"
+A.08.01.001.002,"Cow milk, 3 - 4% fat (whole milk)"
+A.08.01.001.003,"Cow milk, 1 - 2.9% fat (semi-skimmed milk)"
+A.08.01.001.004,"Cow milk, < 1% fat (skimmed milk)"
+A.08.01.002,Sheep milk
+A.08.01.003,Buffalo milk
+A.08.01.005,Goat milk
+A.08.01.007,Ass milk
+A.08.01.009,Human milk
+A.08.02.001.001,Fruit-flavoured milk
+A.08.02.001.002,Chocolate and fruit-flavoured milk
+A.08.02.001.003,Vanilla flavoured milk
+A.08.02.002.001,Chocolate milkshake
+A.08.02.002.002,Fruit milkshake
+A.08.02.002.003,Vanila milkshake
+A.08.02.002.004,Malted milkshake
+A.08.03.001,Evaporated milk (milk evaporated down to less than a half of its original volume. It is unsweetened.)
+A.08.03.002.001,Condensed milk low fat
+A.08.03.002.002,Condensed milk 4% fat
+A.08.03.002.003,Condensed milk 7.5 % fat
+A.08.03.002.004,Condensed milk 10 % fat
+A.08.03.003.001,"Milk powder, whole"
+A.08.03.003.002,"Milk powder, semi-skimmed"
+A.08.03.003.003,"Milk powder, skimmed"
+A.08.04.001.001,"Whey, plain"
+A.08.04.001.002,"Whey, sweet, fluid"
+A.08.04.001.003,Whey with cacao/chocolate
+A.08.04.001.005,Whey with fruit
+A.08.04.001.008,Whey with other ingredients
+A.08.04.001.010,"Whey, sour"
+A.08.04.002.002,Whey powder
+A.08.05.001.001,Cream 10% fat
+A.08.05.001.002,Cream 20% fat
+A.08.05.001.003,Cream 30 % fat
+A.08.05.001.004,Cream 40 % fat
+A.08.05.001.005,"Cream, > 50% fat (inc. clotted cream)"
+A.08.05.001.006,Cream powder
+A.08.05.002.001,Coffee cream 10 % fat
+A.08.05.002.002,Coffee cream 12% fat
+A.08.05.002.003,Coffee cream 15% fat
+A.08.05.002.004,Coffee cream 20% fat
+A.08.05.002.005,Coffee cream 30% fat
+A.08.05.003.001,Non-fat sour cream
+A.08.05.003.002,Sour cream 10 % fat
+A.08.05.003.003,Sour cream 12% fat
+A.08.05.003.004,Sour cream 20 % fat
+A.08.05.003.005,Sour cream 30 % fat
+A.08.05.003.006,Sour cream 40 % fat
+A.08.05.004,Crème fraîche
+A.08.05.004.001,"Crème fraîche, 13% fat"
+A.08.05.004.002,"Crème fraîche, 15-20% fat"
+A.08.05.004.003,"Crème fraîche, 28% fat"
+A.08.05.004.004,"Crème fraîche, 30% fat"
+A.08.05.004.005,"Crème fraîche, >30% fat"
+A.08.06.001.001,"Yoghurt, cow milk, > 3% fat"
+A.08.06.001.002,"Yoghurt, cow milk, 1 - 3% fat"
+A.08.06.001.003,"Yoghurt, cow milk, < 1% fat"
+A.08.06.002.001,"Yoghurt, cow milk, with fruit, > 3% fat"
+A.08.06.002.002,"Yoghurt cow milk, with fruit, 1 - 3% fat"
+A.08.06.002.003,"Yoghurt, cow milk, with fruit, < 1% fat"
+A.08.06.003,"Yoghurt, sheep milk"
+A.08.06.004,"Yoghurt, goat milk"
+A.08.06.005,Sour milk
+A.08.06.006,Acidophilus milk
+A.08.06.007,Kefir
+A.08.06.008,Buttermilk
+A.08.06.014,Filmjölk
+A.08.06.015,Viili
+A.08.07.001,Lactose
+A.08.07.002,Milk protein
+A.08.08.001,Quark
+A.08.08.002,Quark with fruit
+A.08.08.003,"Cheese, processed, sliceable"
+A.08.08.004,"Cheese, processed spreadable"
+A.08.08.005,"Cheese, processed, with condiments"
+A.08.08.006,"Cheese, processed, with ham"
+A.08.08.007,"Cheese, processed, with mushrooms"
+A.08.08.008,"Cheese, processed, with pepper herbs"
+A.08.08.009,"Cheese, processed, with walnuts"
+A.08.08.010,"Cheese, processed, low fat"
+A.08.08.011,"Cheese, processed cheese, plain"
+A.08.08.015,"Cheese, Appenzeller"
+A.08.08.017,"Cheese, Arzua Ulloa"
+A.08.08.018,"Cheese, Asiago"
+A.08.08.021,"Cheese, Bavarian Blue"
+A.08.08.022,"Cheese, Beaufort"
+A.08.08.025,"Cheese, Bleu d'Auvergne"
+A.08.08.027,"Cheese, Blue Castello"
+A.08.08.030,"Cheese, Boursin"
+A.08.08.032,"Cheese, Brie"
+A.08.08.033,"Cheese, Buche de Chevre"
+A.08.08.035,"Cheese, Burrata"
+A.08.08.036,"Cheese, Butterkase"
+A.08.08.037,"Cheese, Cabrales"
+A.08.08.039,"Cheese, Caciocavallo"
+A.08.08.040,"Cheese, Caerphilly"
+A.08.08.041,"Cheese, Camembert"
+A.08.08.043,"Cheese, Cantal"
+A.08.08.044,"Cheese, Capra"
+A.08.08.048,"Cheese, Chaource"
+A.08.08.049,"Cheese, Cheddar"
+A.08.08.050,"Cheese, Cheshire"
+A.08.08.051,"Cheese, Chevres"
+A.08.08.052,"Cheese, Chimay"
+A.08.08.054,"Cheese, Comte"
+A.08.08.057,"Cheese, Coulommiers"
+A.08.08.058,"Cheese, Cream Havarti"
+A.08.08.059,"Cheese, Danbo"
+A.08.08.061,"Cheese, Double Gloucester"
+A.08.08.064,"Cheese, Edam"
+A.08.08.065,"Cheese, Emmental"
+A.08.08.066,"Cheese, Epoisses"
+A.08.08.067,"Cheese, Esrom"
+A.08.08.069,"Cheese, Feta"
+A.08.08.073,"Cheese, Fontina"
+A.08.08.075,"Cheese, Fourme d'Ambert"
+A.08.08.079,"Cheese, Gorgonzola"
+A.08.08.080,"Cheese, Gouda"
+A.08.08.081,"Cheese, Graddost"
+A.08.08.082,"Cheese, Grana Padano"
+A.08.08.084,"Cheese, Gruyere"
+A.08.08.086,"Cheese, Harzer"
+A.08.08.092,"Cheese, Idiazabal"
+A.08.08.094,"Cheese, Juustoleipa"
+A.08.08.095,"Cheese, Kasseri"
+A.08.08.096,"Cheese, Kefalotyri"
+A.08.08.099,"Cheese, Lancashire"
+A.08.08.100,"Cheese, Langres"
+A.08.08.103,"Cheese, Leicester"
+A.08.08.104,"Cheese, Leyden"
+A.08.08.105,"Cheese, Limburger"
+A.08.08.107,"Cheese, Livarot"
+A.08.08.109,"Cheese, Maasdam"
+A.08.08.110,"Cheese, Mahon"
+A.08.08.111,"Cheese, Majorero"
+A.08.08.112,"Cheese, Manchego"
+A.08.08.113,"Cheese, Mascarpone"
+A.08.08.114,"Cheese, Mimolette"
+A.08.08.115,"Cheese, Mizithra"
+A.08.08.118,"Cheese, Morbier"
+A.08.08.120,"Cheese, Mozzarella"
+A.08.08.121,"Cheese, Munster"
+A.08.08.123,"Cheese, Nagelkaas"
+A.08.08.126,"Cheese, Oltermanni"
+A.08.08.129,"Cheese, Parmigiano Reggiano"
+A.08.08.130,"Cheese, Passendale"
+A.08.08.131,"Cheese, Pecorino Romano"
+A.08.08.132,"Cheese, Pecorino Toscano"
+A.08.08.136,"Cheese, Pont L'Eveque"
+A.08.08.137,"Cheese, Pouligny-Saint-Pierre"
+A.08.08.139,"Cheese, Provolone"
+A.08.08.140,"Cheese, Raclette"
+A.08.08.143,"Cheese, Reblochon"
+A.08.08.144,"Cheese, Ricotta"
+A.08.08.146,"Cheese, Robiola"
+A.08.08.148,"Cheese, Roquefort"
+A.08.08.150,"Cheese, Saint Marcellin"
+A.08.08.151,"Cheese, Saint Nectaire"
+A.08.08.152,"Cheese, Saint Paulin"
+A.08.08.158,"Cheese, Scamorza"
+A.08.08.161,"Cheese, Smoked Gouda"
+A.08.08.162,"Cheese, Stilton"
+A.08.08.164,"Cheese, Telemea"
+A.08.08.166,"Cheese, Tetilla"
+A.08.08.167,"Cheese, Tilsit"
+A.08.08.169,"Cheese, Tomme de Savoie"
+A.08.08.170,"Cheese, Torta del Casar"
+A.08.08.171,"Cheese, Trappist"
+A.08.08.176,"Cheese, Urda"
+A.08.08.178,"Cheese, Vacherin Mont d'Or"
+A.08.08.183,"Cheese, Wensleydale"
+A.08.08.184,"Cheese, White Stilton"
+A.08.08.187x,"Cheese, Halloumi"
+A.08.09.001,Almond drink
+A.08.09.002,Imitation cream
+A.08.09.003,Non dairy coffee creamer
+A.08.09.004,Oats drink
+A.08.09.005,Rice drink
+A.08.09.007,Soya cheese
+A.08.09.008,Soya drink
+A.08.09.009,Soya yoghurt
+A.08.09.011,Tofu
+A.09.01.001,"Whole egg, chicken"
+A.09.01.002,"Egg yolk, chicken"
+A.09.01.003,"Egg white, chicken"
+A.09.01.005,Duck eggs
+A.09.01.006,Goose eggs
+A.09.01.007,Quail eggs
+A.09.02.001,"Dried egg, whole"
+A.09.02.002,Dried egg yolk
+A.09.02.003,Dried egg white
+A.10.01.001,White sugar
+A.10.01.002,Brown sugar
+A.10.01.004,Cane sugar
+A.10.01.006,"Sugar, icing"
+A.10.01.007,Fructose
+A.10.01.008,Glucose
+A.10.01.011,Sucrose
+A.10.02.001,"Nutritive sweeteners (e.g., sorbitol, manitol)"
+A.10.02.001.007,Hydrogenated starch hydrolysates
+A.10.02.002.001,Saccharine
+A.10.02.002.002,Aspartam
+A.10.02.002.003,Acesulfame K
+A.10.02.002.004,Sucralose
+A.10.02.002.005,Cyclamate
+A.10.03.001,Bitter chocolate
+A.10.03.010,Pralines
+A.10.03.011,Cooking chocolate
+A.10.03.014,Chocolate substitutes
+A.10.04.001,"Candies, with sugar"
+A.10.04.002,"Candies, sugar free"
+A.10.04.003,Marzipan
+A.10.04.004,"Caramel, hard"
+A.10.04.005,"Caramel, soft"
+A.10.04.006,Toffee
+A.10.04.007,Fudge
+A.10.04.008,"Dragée, sugar coated"
+A.10.04.009,Sugar cotton
+A.10.04.010,Foamed sugar products (marshmallows)
+A.10.04.011,Liquorice candies
+A.10.04.012,Gum drops
+A.10.04.013,Jelly candies
+A.10.04.014,Nougat
+A.10.04.016,Chewing gum with added sugar
+A.10.04.017,Chewing gum without added sugar
+A.10.05.002,Chocolate sauce
+A.10.05.003,Fudge sauce
+A.10.05.004,Alcoholic sweet sauce
+A.10.06.001,Molasses
+A.10.06.002,Maple syrup
+A.10.06.003,Barley malt syrup
+A.10.06.004,Corn syrup
+A.10.06.005,Sugar beet syrup
+A.10.06.006,Treacle
+A.10.07,Honey
+A.10.07.001,"Honey, monofloral"
+A.10.07.002,"Honey, polyfloral"
+A.10.07.003,"Honey, blended"
+A.11.01,Animal fat
+A.11.01.001,Butter
+A.11.01.002,Butter oil
+A.11.01.003,Ghee
+A.11.01.004,Pork lard (Schmaltz)
+A.11.01.005,Chicken fat
+A.11.01.006,Goose fat
+A.11.01.007,Duck fat
+A.11.01.008,Turkey fat
+A.11.01.009,Tallow
+A.11.02.001,Herring oil
+A.11.02.003,Cod liver oil
+A.11.03,Vegetable fat
+A.11.03.001,Peanuts butter
+A.11.03.002,Coconut fat
+A.11.03.003,Cocoa butter
+A.11.03.004,Palm fat
+A.11.04,Vegetable oil
+A.11.04.001,Almond oil
+A.11.04.002,Coconut oil
+A.11.04.003,Corn oil
+A.11.04.004,Cottonseed oil
+A.11.04.005,Grape seed oil
+A.11.04.006,Linseed oil
+A.11.04.007,"Oil, frying, blend"
+A.11.04.008,Olive oil
+A.11.04.009,Palm kernel oil
+A.11.04.010,Palm oil
+A.11.04.011,Peanut oil
+A.11.04.012,Pumpkinseed oil
+A.11.04.013,Rapeseed oil
+A.11.04.014,Safflower oil
+A.11.04.015,Sesame oil
+A.11.04.016,Soybean oil
+A.11.04.017,Sunflower oil
+A.11.04.019,Walnut oil
+A.11.04.020,Wheat germ oil
+A.11.05,Fats of mixed origin
+A.11.06.001,"Margarine, normal fat"
+A.11.06.002,"Margarine, low fat"
+A.11.06.003,Margarine with other ingredients
+A.11.06.004,Fat emulsions
+A.12.01.001,"Juice, Apple"
+A.12.01.001a,"Juice, Carrot"
+A.12.01.002,"Juice, Orange"
+A.12.01.003,"Juice, Grapefruit"
+A.12.01.004,"Juice, Pineapple"
+A.12.01.006,"Juice, Grape"
+A.12.01.007,"Juice, Cranberry"
+A.12.01.008,"Juice, Pomegranate"
+A.12.01.009,"Juice, Peach"
+A.12.01.010,"Juice, Lemon"
+A.12.01.011,"Juice, Lime"
+A.12.01.012,"Juice, Pear"
+A.12.01.013,"Juice, Apricot"
+A.12.01.015,"Juice, Blackberry"
+A.12.01.016,"Juice, Blackcurrant"
+A.12.01.017,"Juice, Prune"
+A.12.01.018,"Juice, Redcurrant"
+A.12.01.019,"Juice, Elderberry"
+A.12.01.020,"Juice, Passion fruit"
+A.12.01.021,"Juice, Guava"
+A.12.02.002,"Juice concentrate, Raspberries"
+A.12.02.002a,"Juice concentrate, Elderberries"
+A.12.02.003,"Juice concentrate, Blackberries"
+A.12.02.004,"Juice concentrate, Currants (red)"
+A.12.02.005,"Juice concentrate, Currants (black)"
+A.12.02.006,"Juice concentrate, Gooseberries"
+A.12.02.008,"Juice concentrate, Blueberries"
+A.12.02.010,"Juice concentrate, Plums"
+A.12.02.011,"Juice concentrate, Peaches"
+A.12.02.012,"Juice concentrate, Sweet cherry"
+A.12.02.013,"Juice concentrate, Oranges"
+A.12.02.014,"Juice concentrate, Mandarins"
+A.12.03.001,"Nectar, Mango"
+A.12.03.002,"Nectar, Peach"
+A.12.03.003,"Nectar, Pear"
+A.12.03.004,"Nectar, Orange"
+A.12.03.005,"Nectar, Pineapple"
+A.12.03.006,"Nectar, Banana"
+A.12.03.007,"Nectar, Apple"
+A.12.04,Mixed fruit juice
+A.12.04.001,"Juice, Apple-Grape"
+A.12.04.002,"Juice, Apple-Cherry"
+A.12.04.003,"Juice, Orange-Grapefruit"
+A.12.04.006,"Juice, Mandarin-Banana"
+A.12.04.007,"Juice, Apricot-Orange"
+A.12.04.008,"Juice, Orange-Peach"
+A.12.04.009,"Juice, Berries-Grapes"
+A.12.05,Dehydrated/powdered fruit juice
+A.12.06.001,"Juice, Tomato"
+A.12.06.002,"Juice, Carrot"
+A.12.06.003,"Juice, Celery"
+A.12.06.004,"Juice, Beetroot"
+A.12.06.005,"Juice, White cabbage"
+A.12.06.006,"Juice, Potato"
+A.12.06.007,"Juice, Cucumber"
+A.12.07.001,"Juice, Tomato-Vegetable"
+A.12.07.003,Multi-vegetable juice
+A.12.08.001,Apple/carrot juice
+A.13.01.001.001,"Fruit soft drink, Currant  red"
+A.13.01.001.003,"Fruit soft drink, Gooseberry"
+A.13.01.001.004,"Fruit soft drink, Grape red"
+A.13.01.001.005,"Fruit soft drink, Grape white"
+A.13.01.001.006,"Fruit soft drink, Grapefruit"
+A.13.01.001.007,"Fruit soft drink, Mango"
+A.13.01.001.010,"Fruit soft drink, Orange"
+A.13.01.001.012,"Fruit soft drink, Peach"
+A.13.01.001.013,"Fruit soft drink, Pear"
+A.13.01.001.014,"Fruit soft drink, Pineapple"
+A.13.01.001.015,"Fruit soft drink, Plum/prune"
+A.13.01.001.017,"Fruit soft drink, Raspberry"
+A.13.01.001.020,"Fruit soft drink, mixed fruit"
+A.13.01.002.001,Soft drink with bitter principle
+A.13.01.002.002,"Soft drink, apple flavour"
+A.13.01.002.004,"Soft drink, banana flavour"
+A.13.01.002.005,"Soft drink, cherry flavour"
+A.13.01.002.006,"Soft drink, flavoured with herbs"
+A.13.01.002.008,"Soft drink, lemon flavour"
+A.13.01.002.010,"Soft drink, mixed flavours"
+A.13.01.002.011,"Soft drink, orange flavour"
+A.13.01.002.014,"Soft drink, raspberry flavour"
+A.13.01.003,"Cola beverages, caffeinic"
+A.13.01.004,"Cola beverages, decaffeinated"
+A.13.01.005,"Cola beverages, caffeinic, low calorie"
+A.13.01.006,"Cola beverages, decaffeinated, low calorie"
+A.13.01.007,Cola Mix
+A.13.02.001,"Black tea, infusion"
+A.13.02.002,"Green tee, infusion"
+A.13.02.003,"Fruit tee, infusion"
+A.13.02.004,"Herbal tea, infusion"
+A.13.02.005,"Instant tee powder, infusion"
+A.13.02.006,"Instant tea, liquid"
+A.13.03.001,"Coffee drink, espresso"
+A.13.03.002,"Coffee drink, café américano"
+A.13.03.003,"Coffee drink, cappuccino"
+A.13.03.004,"Coffee drink, café macchiato"
+A.13.03.005,Iced coffee
+A.13.03.006,"Coffee with milk (café latte, café au lait)"
+A.13.03.007,"Instant coffee, liquid"
+A.13.04,Coffee imitates beverage
+A.13.05.001,Hot chocolate
+A.13.05.002,Cocoa drink
+A.14.01.001,"Beer, strong"
+A.14.01.002,"Beer, regular"
+A.14.01.003,"Beer, light (reduced alcohol content)"
+A.14.01.004,"Beer, alcohol-free"
+A.14.02.001,"Wine, white"
+A.14.02.002,"Wine, white, sparkling"
+A.14.02.003,"Wine, red"
+A.14.03.001,Vermouth
+A.14.03.002,Sherry
+A.14.04.001,Cider
+A.14.04.002,Perry
+A.14.05.002,Herb liqueur
+A.14.05.004,Coffee liqueur
+A.14.05.005,Egg liqueur
+A.14.05.006,Cocos cream liqueur
+A.14.05.007,Cream liqueur
+A.14.06.001,Brandy
+A.14.06.002,Whisky
+A.14.06.003,Gin
+A.14.06.004,Vodka and vodka-like spirits
+A.14.06.005,Rum
+A.14.06.006,Spirits made from fruits
+A.14.07.002,Punch
+A.14.07.003,Alcopop
+A.15.01,Tap water
+A.15.02,Well water
+A.15.03,Bottled water
+A.15.03.001,Still mineral water
+A.15.03.002,Carbonated mineral water
+A.15.04,Water ice (for consumption)
+A.16.01,Herbs
+A.16.01.001,"Chervil, herb (Anthriscus cerefolium)"
+A.16.01.002,"Chives, herb (Allium schoenoprasum)"
+A.16.01.003,"Dill, herb (Anethum graveolens)"
+A.16.01.004,Celery leaves (Apium graveolens var. seccalinum)
+A.16.01.005,"Parsley, herb (Petroselinum crispum)"
+A.16.01.006,"Sage, herb (Salvia officinalis)"
+A.16.01.007,"Rosemary, herb (Rosmarinus officinalis)"
+A.16.01.008,"Thyme, herb (Thymus spp.)"
+A.16.01.009,"Basil, herb (Ocimum basilicum)"
+A.16.01.010,Bay leaves (laurel) (Laurus nobilis)
+A.16.01.011,"Tarragon, herb (Artemisia dracunculus)"
+A.16.02,Spices
+A.16.02.001,Paprika powder
+A.16.02.002,Chilli powder
+A.16.02.004,Allspice (Pimenta dioica)
+A.16.02.006,Anise seed (Pimpinella anisum)
+A.16.02.008,Black caraway seed (Nigella sativa)
+A.16.02.009,Capers (Capparis spinosa)
+A.16.02.010,Caraway (Carum carvi)
+A.16.02.011,Cardamom (Elettaria cardamomum)
+A.16.02.012,Cayenne pepper (Capsicum frutescens)
+A.16.02.014,Cinnamon (Cinnamonum verum syn. C. zeylanicum)
+A.16.02.015,Cloves (Syzygium aromaticum)
+A.16.02.016,Coriander seed (Coriandrum sativum)
+A.16.02.017,Cumin seed (Cuminum cyminum)
+A.16.02.018,Dill seed (Anethum graveolens)
+A.16.02.019,Fennel seed (Foeniculum vulgare)
+A.16.02.020,Fenugreek (Trigonella foenumgraecum)
+A.16.02.022,Ginger (Zingiber officinale)
+A.16.02.023,"Horseradish, powder (Armoracia rusticana)"
+A.16.02.024,Juniper berries (Juniperus communis)
+A.16.02.025,Mace (Myristica fragrans)
+A.16.02.027,Nutmeg (Myristica fragans)
+A.16.02.028,"Pepper, black and white (Piper nigrum)"
+A.16.02.029,Saffron (Crocus sativus)
+A.16.02.030,Tamarind (Tamarindus indica)
+A.16.02.031,Turmeric (Curcuma) (Curcuma domestica syn. C. longa)
+A.16.03,Herb and spice mixtures
+A.16.03.001,Mixed herbs
+A.16.03.002,Curry powder
+A.16.03.005,Garam masala
+A.16.03.006,Pickling spice
+A.16.04,Seasoning or extracts
+A.16.04.001,Salt
+A.16.04.002,"Salt, low sodium"
+A.16.04.003,"Salt, iodised"
+A.16.04.005,"Salt, iodised and fluoridated"
+A.16.04.006,"Salt, flavoured"
+A.16.04.007,Sea salt
+A.16.04.008,Stock cubes (bouillon cube)
+A.16.04.009,Gravy thickener
+A.16.04.010,Gravy browning
+A.16.04.011,Gravy instant granules
+A.16.04.012,Vegetable extracts
+A.16.04.013,Meat extract
+A.16.04.014,Malt extract
+A.16.04.015,Yeast extract
+A.16.04.016,Monosodium glutamate
+A.16.05,Condiment
+A.16.05.001,"Mustard, sweet"
+A.16.05.002,"Mustard, mild"
+A.16.05.003,"Mustard, hot"
+A.16.05.004,"Vinegar, wine"
+A.16.05.005,"Vinegar, apple"
+A.16.05.006,Tomato ketchup
+A.16.05.007,Barbecue sauce
+A.16.05.008,Tabasco sauce
+A.16.05.009,Horseradish sauce
+A.16.05.010,Mint sauce
+A.16.05.011,Soy sauce
+A.16.05.012,Curry sauce
+A.16.05.013,Salsa
+A.16.05.014,Tartar sauce
+A.16.06,Dressing
+A.16.06.001,"Salad dressing, > 50% oil"
+A.16.06.002,"Salad dressing, 25 - 50% oil"
+A.16.06.003,"Salad dressing, < 25% oil"
+A.16.06.004,"Mayonnaise, > 50% oil"
+A.16.06.005,"Mayonnaise, 25 - 50% oil"
+A.16.06.006,"Mayonnaise, < 25% oil"
+A.16.07.001,Tomato chutney
+A.16.07.002,Apple chutney
+A.16.07.004,Mango chutney
+A.16.07.005,Mixed chutney
+A.16.07.006,Piccalilli
+A.16.07.007,Chilli pickle
+A.16.07.008,Lime pickle
+A.16.07.009,Mango pickle
+A.16.07.010,Mixed pickle
+A.16.07.011,Relish
+A.16.08.002,"Brown sauce (Gravy, Lyonnais sauce)"
+A.16.08.004,Butter sauce
+A.16.09,Flavourings or essences
+A.16.09.001,Almond essence
+A.16.09.002,Vanilla essence
+A.16.09.003,Vanilla pods (Vanilla fragrans syn. Vanilla planifolia)
+A.16.09.004,Orange essence
+A.16.09.005,Lemon essence
+A.16.09.006,Rum essence
+A.16.09.008,Liquorice (Glycyrrhiza glabra)
+A.16.10.001,Yeast
+A.16.10.002,Sodium bicarbonate
+A.16.10.003,Baking powder
+A.16.10.006,Pectin
+A.16.10.007,Gum
+A.16.10.008,Gelatine
+A.16.10.009,Cream of tartar
+A.16.10.010,Glaze
+A.17.01,"Infant formulae, powder"
+A.17.01.001,"Infant formula, milk-based, powder"
+A.17.01.002,"Infant formula, hypoallergenic, powder"
+A.17.01.003,"Infant formula, soya-based, powder"
+A.17.01.004,"Infant formula, milk and soya-based, powder"
+A.17.01.005,"Infant formula, based on protein hydrolysates, powder"
+A.17.02,"Infant formulae, liquid"
+A.17.02.001,"Infant formula, milk-based, liquid"
+A.17.02.002,"Infant formula, hypoallergenic, liquid"
+A.17.02.003,"Infant formula, soya-based, liquid"
+A.17.02.004,"Infant formula, milk and soya-based, liquid"
+A.17.02.005,"Infant formula, based on protein hydrolysates, liquid"
+A.17.03,"Follow-on formulae, powder"
+A.17.03.001,"Follow-on formula, milk-based, powder"
+A.17.03.002,"Follow-on formula, hypoallergenic, powder"
+A.17.03.003,"Follow-on formula, soya-based, powder"
+A.17.03.005,"Follow-on formula, based on protein hydrolysates, powder"
+A.17.04,"Follow-on formulae, liquid"
+A.17.04.001,"Follow-on formula, milk-based, liquid"
+A.17.04.002,"Follow-on formula, hypoallergenic, liquid"
+A.17.04.003,"Follow-on formula, soya-based, liquid"
+A.17.04.005,"Follow-on formula, based on protein hydrolysates, liquid"
+A.17.05,Cereal-based food for infants and young children
+A.17.05.001,Simple cereals which are or have to be reconstituted with milk or other appropriate nutritious liquids
+A.17.05.002,Cereals with an added high protein food which are or have to be reconstituted with water or other protein-free liquid
+A.17.05.003,"Biscuits, rusks and cookies for children"
+A.17.05.004,Pasta for children
+A.17.06,Ready-to-eat meal for infants and young children
+A.17.06.001,"Ready-to-eat meal for children, vegetable-based"
+A.17.06.002,"Ready-to-eat meal for children, cereal-based"
+A.17.06.003,"Ready-to-eat meal for children, meat/fish-based"
+A.17.06.004,"Ready-to-eat meal for children, meat and vegetables"
+A.17.06.005,Fruit purée for children
+A.17.07,"Yoghurt, cheese and milk-based dessert for infants and young children"
+A.17.07.001,Yoghurt for infants and young children
+A.17.07.002,Cheese preparations for infants and young children
+A.17.07.003,Dessert and puddings for infants and young children
+A.17.08,Fruit juice and herbal tea for infants and young children
+A.17.08.001,Fruit juice for infants and young children
+A.17.08.002,Fruit nectar for infants and young children
+A.17.08.003,Tee for infants and young children
+A.17.08.004,Tee and juice mixture for infants and young children
+A.18.01,Food for weight reduction
+A.18.01.001,Products presented as a replacement for the whole of the daily diet
+A.18.01.002,Products presented as a replacement for one or more meals of the daily diet
+A.18.02,Dietary supplements
+A.18.02.001,Vitamin supplements
+A.18.02.002,Mineral supplements
+A.18.02.003,Combination of vitamins and minerals supplements
+A.18.02.004,"Supplements containing special fatty acids (e.g. omega-3, essential fatty acids)"
+A.18.02.005,Protein and amino acids supplements
+A.18.02.006,Fiber supplements
+A.18.02.007,Plant extract formula
+A.18.02.008,Coenzyme Q10 supplement
+A.18.02.009,Enzyme-based supplement
+A.18.02.010,Yeast based supplement
+A.18.02.011,"Algae formula (e.g. Spirulina, Chlorella)"
+A.18.02.012,Pollen-based supplement
+A.18.03,Food for sports people (labelled as such)
+A.18.03.001,Carbohydrate-rich energy food products for sports people
+A.18.03.002,Carbohydrate-electrolyte solutions for sports people
+A.18.03.003,Protein and protein components for sports people
+A.18.03.005,Carnitine-based supplement for sports people
+A.18.04.001,Fine bakery products for diabetics
+A.18.04.003,Chocolate and chocolate products for diabetics
+A.18.04.004,Confectionary for diabetics
+A.18.04.005,Fruit-based beverages for diabetics
+A.18.04.006,Alcohol-free beverages for diabetics (excluding fruit-based beverages)
+A.18.04.008,"Jam, marmalade and other fruit spreads for diabetics"
+A.18.04.009,Milk products for diabetics
+A.18.04.012,Beer for diabetics
+A.18.05.001,Nutritionally complete formulas
+A.18.05.002,Nutritionally incomplete formulas
+A.18.05.004,Oral rehydration products
+A.19.01.001.001,"Sandwich, cheese filling"
+A.19.01.001.002,"Sandwich, meat filling"
+A.19.01.001.003,"Sandwich, fish filling"
+A.19.01.001.004,"Sandwich, vegetarian"
+A.19.01.001.005,"Sandwich, cheese and vegetable filling"
+A.19.01.001.007,"Sandwich, meat and vegetable filling"
+A.19.01.001.008,"Sandwich, fish and vegetable filling"
+A.19.01.002.003,"Pizza and pizza-like pies, cheese, and vegetables and fruits"
+A.19.01.002.004,"Pizza and pizza-like pies, meat, and vegetables"
+A.19.01.002.005,"Pizza and pizza-like pies, cheese, meat, and vegetables"
+A.19.01.002.006,"Pizza and pizza-like pies, cheese, and mushrooms"
+A.19.01.002.007,"Pizza and pizza-like pies, cheese, meat, and mushrooms"
+A.19.01.002.008,"Pizza and pizza-like pies, cheese, meat, mushrooms, and vegetables"
+A.19.01.003.001,"Pasta, cooked, with vegetables"
+A.19.01.003.005,"Pasta, cooked, vegetable filling"
+A.19.02.001,Rice and vegetables meal
+A.19.02.002,Rice and meat meal
+A.19.02.003,"Rice, meat, and vegetables meal"
+A.19.03.004,Potatoes and cheese meal
+A.19.05.001,Meat burger
+A.19.05.002,Meat balls
+A.19.05.003,Goulash
+A.19.05.004,Meat stew
+A.19.06.002,Fish and rice meal
+A.19.07.001,"Mixed vegetables, grilled"
+A.19.07.004,"Mixed vegetables, boiled"
+A.19.07.006,Vegetable soufflé
+A.19.07.007,Ratatouille
+A.19.08.001,"Omelette, plain"
+A.19.08.002,Omelette with bacon
+A.19.08.003,Omelette with cheese
+A.19.08.004,Omelette with vegetables
+A.19.08.005,Omelette with mushrooms
+A.19.08.006,Fried eggs
+A.19.08.007,Poached eggs
+A.19.09,Mushroom-based meals
+A.19.10.001,Vegetable/herb soup
+A.19.10.002,Grain soup
+A.19.10.004,Meat/poultry soup
+A.19.10.005,Fish soup
+A.19.10.006,Legume (beans) soup
+A.19.10.007,Milk product/egg soup
+A.19.10.008,Mushroom soup
+A.19.11.001,Prepared green salad
+A.19.11.002,Prepared mixed vegetable salad
+A.19.11.004,Prepared pasta salad
+A.19.11.005,Prepared rice salad
+A.19.11.006,Prepared legume (beans) salad
+A.19.11.007,Prepared nut salad
+A.19.11.008,Prepared meat salad
+A.19.11.009,Prepared fish salad
+A.19.11.010,Prepared mixed egg/meat/fish/vegetable salad
+A.20.01.001,Potato crisps
+A.20.01.002,Corn chips
+A.20.01.003,Tortilla chips
+A.20.01.004,Corn curls
+A.20.01.005,Popcorn
+A.20.01.006,Pretzels
+A.20.01.007,Fish-based snacks
+A.20.01.008,Seafood chips
+A.20.01.009,Cheese puffs
+A.20.02.004,Custard
+A.20.02.005,Sorbet
+A.20.02.007,Granita
+A.20.03,Other foods (foods which cannot be included in any other group)
+A.X1.01.01,Cultured Meat (Bos. Spp.)
+A.X1.01.02,Microbial Protein (Solein)
+A.X1.01.03,Mycoprotein (Quorn)
+A.X1.02.01,Microbial Milk (T. reesei)
+A.X1.03.01,Microbial Ovalbumin (T. reesei)
+A.X1.04.01,Microbial Fat (yeast - M. pulcherrima)
+A.X1.04.02,Algae Fat (Schizochytrium)
+I.01.02.001.005,"Wheat, cooked"
+I.01.02.002.003,"Barley, cooked"
+I.01.02.009.008,"Rice, cooked, polished"
+I.01.02.009.009,"Rice, cooked, unpolished"
+I.01.02.010.005,Amaranth grain
+I.01.02.010.006,Quinoa grain
+I.01.03.008.008,Gluten-free flour
+I.01.04.005.010,"Crisp bread, gluten free"
+I.01.04.005.011,"Crisp bread, oats"
+I.01.05.016,"Plain pasta, cooked"
+I.01.05.016.001,"Plain pasta, cooked, without egg"
+I.01.05.016.002,"Plain pasta, cooked, with egg"
+I.01.07.001.049,Choux pastry
+I.01.07.001.050,Puff pastry
+I.01.07.001.051,Shortcrust pastry
+I.01.07.001.052,Sesame pie
+I.01.07.001.053,Karelian pie
+I.01.07.001.054,Rice pie
+I.01.07.001.055,Poppy seed cake
+I.01.07.001.056,Nut cake
+I.01.07.001.057,Carrot cake
+I.01.07.001.058,Toffee tart
+I.01.07.001.059,Chocolate tart
+I.01.07.001.060,Mille-feuille
+I.01.07.001.061,"Croissant filled, other"
+I.01.07.001.062,"Doughnuts, filled"
+I.01.07.001.063,"Dumpling, sweet filling"
+I.01.07.001.064,"Flan, nature"
+I.01.07.001.065,"Flan, with fruits"
+I.01.07.001.066,"Flan, caramel"
+I.01.07.001.067,"Muffins, blueberry"
+I.01.07.001.068,"Muffins, chocolate"
+I.01.07.001.069,"Muffins, plain"
+I.01.07.001.070,Meringue cake
+I.01.07.001.071,Meringue tart
+I.01.07.001.072,Meringue with chocolate
+I.01.07.001.073,Meringue with cream
+I.01.07.001.074,Meringue with nuts
+I.01.07.001.075,Meringues
+I.01.07.001.076,"Beignets, plain"
+I.01.07.001.077,"Beignets, filled"
+I.01.07.001.078,Almond macaroons
+I.01.07.001.079,Coconut macaroons
+I.01.07.002.015,"Biscuits, sweet, with nuts"
+I.01.07.002.016,"Wafer, plain"
+I.01.07.002.017,"Wafer, filled"
+I.02.05.023,Bean sprout
+I.02.08.004,Agave tequilana
+I.02.08.005,Maples (trunk sap)
+I.02.13.009,Malted barley
+I.02.14.013,"Tomato, canned"
+I.02.14.014,"Tomato, paste"
+I.03.01.012,Mashed potatoes (prepared from flakes or powder)
+I.03.01.013,Mashed potatoes (fresh)
+I.03.01.014,Roesti
+I.03.01.015,"Potato dumpling, plain"
+I.04.02.022,"Beans (dry), soaked/boiled/canned"
+I.04.02.023,"Lentils (dry), soaked/boiled/canned"
+I.04.02.024,"Peas (dry), soaked/boiled/canned"
+I.04.02.025,"Soya beans, soaked/boiled/canned"
+I.04.03.014,Mixed nuts and dried fruits
+I.04.03.015,Mixed nuts paste
+I.05.08.001.019,"Jam, Apricot & blackberry & strawberry"
+I.05.08.001.020,"Jam, Apricot & peach"
+I.05.08.001.021,"Jam, Berries"
+I.05.08.003.001,"Fruit spreads, Sirop de Liège"
+I.05.08.003.002,"Fruit spreads, Fig"
+I.05.08.003.003,"Fruit spreads, Lemon"
+I.05.08.003.004,"Fruit spreads, Jelly"
+I.05.09.007.013,"Fruit compote, Other"
+I.05.09.008.009,"Candied fruit, Ginger"
+I.06.08.016,"Cooked Ham, Pork"
+I.06.09.001.006,"Salsiccia, Beef"
+I.06.09.001.007,"Salsiccia, Pork"
+I.06.09.003.004,"Blood sausage, Beef"
+I.06.09.003.005,"Blood sausage, Pork"
+I.06.09.003.006,"Liver sausage, Beef"
+I.06.09.003.007,"Liver sausage, Pork"
+I.06.09.003.008,"Liver sausage, Poultry"
+I.06.09.003.009,"Liver sausage, Veal"
+I.06.11.001.001,"Meat paste, Poultry"
+I.06.11.001.002,"Meat paste, Pork"
+I.06.11.005.001,"Terrine, Pork"
+I.06.11.005.002,"Terrine, Rabbit"
+I.06.11.005.003,"Terrine, Poultry"
+I.07.01.006.001,Salmon (Salmo salar)
+I.07.01.006.002,Trout (Oncorhynchus mykiss)
+I.07.01.015.001,Sea catfish (Ariidae)
+I.07.01.015.002,Wolf-fish (Anarhichas lupus)
+I.07.01.017.001,Cod (Gadus morhua)
+I.07.01.017.002,Whiting (Merlangius merlangus)
+I.07.01.017.003,Coalfish (Pollachius virens)
+I.07.01.017.004,Haddock (Melanogrammus aeglefinus)
+I.07.02.004.001,"Fish paste, Anchovy"
+I.07.02.004.002,"Fish paste, Roe (Tarama)"
+I.07.02.004.003,"Fish paste, Salmon"
+I.07.02.004.004,"Fish paste, Tuna"
+I.07.02.005.001,"Fish pâté, Mackerel"
+I.07.02.005.002,"Fish pâté, Salmon"
+I.07.02.005.003,"Fish pâté, Shellfish"
+I.07.02.005.004,"Fish pâté, Tuna"
+I.07.03.001.001,"Fish roe, Cod"
+I.07.03.001.002,"Fish roe, Herring"
+I.07.03.001.003,"Fish roe, Lumpfish"
+I.07.03.001.004,"Fish roe, Sturgeon"
+I.07.03.002.001,Cod liver
+I.08.02.003,Fruit and dairy smoothie
+I.08.08.187,"Cheese, Cottage"
+I.08.08.188,Fresh uncured cheese
+I.08.08.189,"Soft-ripened cheese with bloomy rind (white mould) (brie, camembert type)"
+I.08.08.190,"Soft-ripened cheese veined with blue mould (blue bavarian, blue de graven type )"
+I.08.08.191,Firm/semi-hard cheese (gouda and edam type)
+I.08.08.192,"Hard cheese (cheddar, emmental type)"
+I.08.08.193,"Extra hard cheese (parmesan, grana type)"
+I.10.01.005.001,"Flavoured sugar, Aniseed"
+I.10.01.005.002,"Flavoured sugar, Cinnamon"
+I.10.01.005.003,"Flavoured sugar, Vanilla"
+I.10.03.002.001,"Bitter-sweet chocolate, other"
+I.10.03.002.002,"Bitter-sweet chocolate, plain"
+I.10.03.004.001,Chocolate spread
+I.10.03.004.002,Chocolate spread with nuts
+I.10.03.005.001,"Bitter-sweet chocolate, with nuts and fruits"
+I.10.03.005.002,"Milk chocolate, with nuts and fruits"
+I.10.03.005.003,"White chocolate, with nuts and fruits"
+I.10.03.006.001,Chocolate coated biscuit
+I.10.03.006.002,Chocolate coated toffee
+I.10.03.006.003,Chocolate coated nut
+I.10.03.006.004,Smarties
+I.10.03.006.005,"Chocolate coated biscuit, caramel filling"
+I.10.03.006.006,"Chocolate coated biscuit, nut and caramel filling"
+I.10.03.006.007,"Chocolate coated biscuit, nut filling"
+I.10.03.006.008,"Chocolate coated biscuit, cream filling"
+I.10.03.006.009,"Chocolate coated biscuit, fruit filling"
+I.10.03.006.010,"Chocolate coated nut, caramel filling"
+I.10.03.006.011,"Chocolate coated nougat, caramel filling"
+I.10.03.006.012,"Chocolate coated biscuit, marshmallow filling"
+I.10.03.007.001,"Filled chocolate, cream"
+I.10.03.007.002,"Filled chocolate, marmalade"
+I.10.03.007.003,"Filled chocolate, other"
+I.10.03.007.004,"Filled chocolate, flavoured cream"
+I.10.03.007.005,"Filled chocolate, caramel"
+I.10.03.008.001,"Milk chocolate, other"
+I.10.03.008.002,"Milk chocolate, plain"
+I.10.03.009.001,"White chocolate, other"
+I.10.03.009.002,"White chocolate, plain"
+I.10.03.013.001,Dietetic bitter-sweet chocolate
+I.10.03.013.002,Dietetic milk chocolate
+I.10.04.015.001,Halva with almonds
+I.10.04.015.002,Halva with cocoa
+I.10.04.015.003,Halva with peanuts
+I.10.04.015.004,"Halva, plain"
+I.10.04.018.001,"Loukoumi, chocolate"
+I.10.04.018.002,"Loukoumi, plain"
+I.10.04.019,Sugar coated nuts
+I.10.05.001.001,"Fruit sauce, Apple"
+I.10.05.001.002,"Fruit sauce, Lemon"
+I.10.05.001.003,"Fruit sauce, Raspberry"
+I.10.05.005,"Cheese sauce, Sweet"
+I.10.06.007,Agave syrup
+I.12.01.022,"Juice, Raspberry"
+I.12.01.023,"Juice, Cherry"
+I.12.01.024,"Juice, Strawberry"
+I.12.01.025,"Juice, Mandarin"
+I.12.01.026,"Juice, Kiwi"
+I.12.01.027,"Juice, Blueberry"
+I.12.02.015,"Juice concentrate, Rosehip"
+I.12.02.016,"Juice concentrate, Apple"
+I.12.02.017,"Juice concentrate, Lemon"
+I.12.02.018,"Juice concentrate, Pear"
+I.12.02.019,"Juice concentrate, Quince"
+I.12.02.020,"Juice concentrate, Lime"
+I.12.02.021,"Juice concentrate, Passion fruit"
+I.12.02.022,"Juice concentrate, Mango"
+I.12.02.023,"Juice concentrate, Papaya"
+I.12.02.024,"Juice concentrate, Mixed fruit"
+I.12.03.008,"Nectar, Apricot"
+I.12.03.009,"Nectar, Blackcurrant"
+I.12.03.010,"Nectar, Cherry"
+I.12.03.011,"Nectar, Cranberry"
+I.12.03.012,"Nectar, Grape"
+I.12.03.013,"Nectar, Lemon"
+I.12.03.014,"Nectar, Redcurrant"
+I.12.03.015,"Nectar, Mixed fruit"
+I.12.03.015.001,"Nectar, Berries"
+I.12.03.015.002,"Nectar, Carrot-orange-lemon"
+I.12.03.015.003,"Nectar, Apricot-orange"
+I.12.03.016,"Nectar, Other"
+I.12.04.011,"Juice, Tropical"
+I.12.04.012,"Juice, Mixed citrus fruit"
+I.12.04.013,"Juice, Berries"
+I.12.08.002.001,"Juice, Carrot-Apple -Orange"
+I.12.08.002.002,"Juice, Carrot-Apple-Pineapple"
+I.12.08.002.003,"Juice, Carrot-Apple-Strawberry"
+I.12.08.002.004,"Juice, Carrot-Orange-Banana"
+I.12.08.002.005,"Juice, Carrot-Orange-Lemon"
+I.13.01.001.022,"Fruit soft drink, Apple"
+I.13.01.001.023,"Fruit soft drink, Lemon"
+I.13.01.001.024,"Fruit soft drink, Blackcurrant"
+I.13.01.001.025,"Cordial, Mixed fruit"
+I.13.06,Energy drink
+I.14.01.006,Beer with limonade 1/1
+I.14.01.007,Malt drink
+I.14.01.008,Beer with coke 1/1
+I.14.05.001.001,Liquor orange
+I.14.05.001.002,Liquor safari
+I.14.05.001.003,Other fruits liquors
+I.14.06.007.001,"Anise spirits, undiluted"
+I.14.06.007.002,"Anise spirits, diluted 1/1"
+I.14.06.007.003,"Anise spirits, diluted 1/5"
+I.14.06.007.004,Tequila spirits
+I.14.06.008,Alcohol 90 - 95°
+I.14.06.009,Alcohol 40°
+I.14.07.001.001,Kir
+I.14.07.001.002,Pina colada
+I.14.07.001.003,Sangria
+I.16.01.012,Marjoram
+I.16.01.013,Origano
+I.16.01.014,Mint
+I.16.01.015,Coriander leaves
+I.16.01.016,Lovage leaves
+I.16.01.017,Winter savory
+I.16.01.018,"Herbs, dried"
+I.16.01.019,"Chives, dried"
+I.16.01.020,"Dill, dried"
+I.16.01.021,"Parsley, dried"
+I.16.01.022,"Sage, dried"
+I.16.01.023,"Rosemary, dried"
+I.16.01.024,"Thyme, dried"
+I.16.01.025,"Basil, dried"
+I.16.01.026,"Bay leaves (laurel), dried"
+I.16.01.027,"Tarragon, dried"
+I.16.01.028,"Marjoram, dried"
+I.16.01.029,"Origano, dried"
+I.16.01.030,"Mint, dried"
+I.16.01.031,"Coriander leaves, dried"
+I.16.01.032,"Winter savory, dried"
+I.16.02.032,"Ginger, dried"
+I.16.02.033,"Garlic, dried"
+I.16.02.034,"Onions, dried"
+I.16.03.003.001,"Mixed spices, Barbecue"
+I.16.03.003.002,"Mixed spices, Chinese five spice"
+I.16.05.015.001,Cocktail sauce
+I.16.05.015.002,Worcester/Worcestershire sauce
+I.16.06.007,"Salad dressing, non specified"
+I.16.06.008,Yogonaise
+I.16.06.009,Thousand Islands sauce
+I.16.08.001.001,Cheese sauce
+I.16.08.001.002,Roquefort sauce
+I.16.08.001.003,Roux
+I.16.08.001.004,White sauce / Bechamel
+I.16.08.001.005,Bread sauce
+I.16.08.003.001,"Cream sauce, basic"
+I.16.08.003.002,"Cream sauce, unspecified"
+I.16.08.003.003,"Cream sauce, with sour cream"
+I.16.08.003.004,"Curry sauce, with cream"
+I.16.08.003.005,"Cream sauce, with dill"
+I.16.08.003.006,"Cream sauce, with ham"
+I.16.08.003.007,"Cream sauce, with ham and mushroom"
+I.16.08.003.008,"Cream sauce, remoulade"
+I.16.08.003.009,"Cream sauce, tzatziki"
+I.16.08.003.010,"Cream sauce, with yoghurt"
+I.16.08.003.011,"Cream sauce, with herbs"
+I.16.08.005.001,Sauce béarnaise
+I.16.08.005.002,Sauce hollandaise
+I.16.08.006.001,Aioli/Garlic sauce
+I.16.08.006.002,"Pesto sauce, green"
+I.16.08.006.003,"Pesto sauce, red"
+I.16.08.006.004,Olive based spread
+I.16.08.007.001,Cider sauce
+I.16.08.007.002,Red wine sauce
+I.16.08.007.003,White wine sauce
+I.16.08.008.001,Bolognese sauce
+I.16.08.008.002,Carbonara sauce
+I.16.08.008.003,"Meat sauce, with pork"
+I.16.08.008.004,"Meat sauce, with sausage"
+I.16.08.009.001,Lobster sauce
+I.16.08.009.002,Oyster sauce
+I.16.08.009.003,Tuna sauce
+I.16.08.010.001,Black bean sauce
+I.16.08.010.002,Mushroom sauce
+I.16.08.010.003,Mustard sauce
+I.16.08.010.004,Onion sauce
+I.16.08.010.005,Peanut sauce
+I.16.08.010.006,Pepper sauce
+I.16.08.010.007,Sweet and sour sauce
+I.16.08.010.008,Sweet pepper sauce
+I.16.08.010.009,Tomato sauce
+I.16.08.010.010,Guacamole sauce
+I.16.09.009,Citric acid
+I.16.09.011,Caffeine
+I.16.09.012,Caramel color
+I.16.09.013,Phosphoric acid
+I.17.05.005,Simple cereals reconstituted with milk or other appropriate nutritious liquids
+I.17.05.006,Cereals with an added high protein food reconstituted with water or other protein-free liquid
+I.19.01.001.009,Cheeseburger
+I.19.01.001.010,Double burger
+I.19.01.001.011,Hamburger
+I.19.01.001.012,Doner kebab
+I.19.01.001.013,Hot dog
+I.19.01.001.014,Sausage roll
+I.19.01.001.015,Bapao sandwich
+I.19.01.001.016,Fish burger
+I.19.01.001.017,"Pierogi, with meat"
+I.19.01.001.018,"Pierogi, with vegetables"
+I.19.01.002.009,"Pizza base, cooked"
+I.19.01.002.010,"Pizza, cheese-fish"
+I.19.01.002.011,"Pizza, cheese-shellfish"
+I.19.01.002.012,"Laugengebaeck, cheese"
+I.19.01.002.013,"Pizza, cheese"
+I.19.01.002.014,"Bread roll, cheese"
+I.19.01.002.015,"Pizza, tomato"
+I.19.01.002.016,"Pizza, vegetarian"
+I.19.01.002.017,"Pizza, cheese-spinach"
+I.19.01.002.018,"Pizza, cheese-tomato"
+I.19.01.002.019,"Laugengebaeck, cheese-onion"
+I.19.01.002.020,"Pizza, cheese-ham"
+I.19.01.002.021,"Pizza, cheese-chicken"
+I.19.01.002.022,"Pizza, cheese-salami"
+I.19.01.002.023,"Pizza, cheese-kebab"
+I.19.01.002.024,"Pizza, cheese-beef"
+I.19.01.002.025,"Laugengebaeck, cheese-bacon"
+I.19.01.002.026,"Pizza, cheese-anchovy"
+I.19.01.002.027,"Pizza, cheese-artichoke-ham"
+I.19.01.003.007,"Pasta, cooked, with bolognese sauce"
+I.19.01.003.008,"Pasta, cooked, with carbonara sauce"
+I.19.01.003.009,"Pasta, cooked, with fish/shellfish"
+I.19.01.003.010,"Pasta, cooked, with tomato sauce"
+I.19.01.003.011,"Pasta, cooked, with garlic"
+I.19.01.003.012,"Pasta, cooked, with meat and vegetables"
+I.19.01.003.013,"Pasta, cooked, with tomato sauce and cheese"
+I.19.01.003.014,Tortellini with cheese
+I.19.01.003.015,Tortellini filled with meat
+I.19.01.003.016,"Tortellini, cooked, spinach and ricotta"
+I.19.01.003.017,"Lasagna/Canelloni, with meat"
+I.19.01.003.018,"Lasagna/Canelloni, vegetarian"
+I.19.01.003.019,Maultaschen
+I.19.01.003.020,Macaroni with white sauce
+I.19.01.003.021,"Noodles, cooked, chow mein"
+I.19.01.004,Grain patties
+I.19.03.001.001,Potato cream
+I.19.03.001.002,Potato vegetable cake
+I.19.03.001.003,Potato vegetable fried
+I.19.03.001.004,"Potato, swede"
+I.19.03.001.005,"Potato, tomato and bean"
+I.19.03.001.006,"Potato, tomato and olive oil"
+I.19.03.002.001,Potato beef casserole
+I.19.03.002.002,Potato ham casserole
+I.19.03.002.003,Potato meat casserole
+I.19.03.002.004,Potato sausage meal
+I.19.03.002.005,"Potato dumpling, meat filling"
+I.19.03.002.006,Pytti i panna
+I.19.03.003.001,Moussaka
+I.19.03.003.002,Sauerkraut dish
+I.19.03.003.003,Cottage pie
+I.19.04.001.001,Chili con carne
+I.19.04.001.002,Haricot bean stew
+I.19.04.001.003,Legume with sausage
+I.19.04.002.001,Beans in tomato sauce
+I.19.04.002.002,Falafel
+I.19.04.002.003,Soya sausage / pattie
+I.19.05.005,Pressed meat snacks
+I.19.05.006,Schnitzel
+I.19.05.007,Cordon bleu
+I.19.05.008,Meat croquettes
+I.19.05.009.001,Kidney pudding
+I.19.05.009.002,Liver dumpling
+I.19.06.003.001,Fish and vegetable gratin
+I.19.06.003.002,Salmon and broccoli meal
+I.19.06.003.003,Fish and vegetable casserole
+I.19.06.003.004,Fish and mushroom meal
+I.19.06.003.005,Fish and tomato meal
+I.19.06.004.001,Shrimp in white sauce
+I.19.06.004.002,Squid rings
+I.19.06.005,Sushi
+I.19.06.006,Salmon en croute
+I.19.06.007,Fish gratin
+I.19.07.002.001,"Mixed vegetables, fried, Chinese"
+I.19.07.002.002,"Mixed vegetables, fried, Mexican"
+I.19.07.002.003,"Mixed vegetables, fried, Peas-Carrots"
+I.19.07.003.001,"Mixed vegetables, braised, Chinese"
+I.19.07.003.002,"Mixed vegetables, braised, Peas-Carrots"
+I.19.07.003.003,"Mixed vegetables, braised, Pichelstein"
+I.19.07.003.004,"Mixed vegetables, braised, Mexican"
+I.19.07.004.001,"Mixed vegetables, boiled, Broccoli-Carrots-Cauliflower"
+I.19.07.004.002,"Mixed vegetables, boiled, Chinese"
+I.19.07.004.003,"Mixed vegetables, boiled, Mexican"
+I.19.07.004.004,"Mixed vegetables, boiled, Peas-Carrots"
+I.19.07.004.005,"Mixed vegetables, boiled, Carrots-Cauliflowers-Peas-Beans"
+I.19.07.004.006,"Mixed vegetables, boiled, Broccoli-Peas"
+I.19.07.005.001,"Vegetable gratin, Cauliflower"
+I.19.07.005.002,"Vegetable gratin, Broccoli"
+I.19.07.005.003,Vegetarian moussaka
+I.19.10.003.001,"Potato soup, liquid"
+I.19.10.003.002,"Potato soup, thick"
+I.19.10.009.001,"Fruit soup, Rosehip"
+I.19.10.009.002,"Fruit soup, Blueberry"
+I.19.10.010,Noodle soup
+I.19.10.011,Vegetable broth
+I.19.10.012,Meat/poultry broth
+I.19.11.003.001,Potato salad with vinaigrette
+I.19.11.003.002,Potato salad with mayonnaise
+I.20.02.001.001,"Ice cream, milk-based, chocolate coated, flavoured"
+I.20.02.001.002,"Ice cream, milk-based, chocolate coated, unflavoured"
+I.20.02.001.003,"Ice cream, milk-based, cornet, flavoured"
+I.20.02.001.004,"Ice cream, milk-based, cornet, unflavoured"
+I.20.02.001.005,"Ice cream, milk-based, sorbet coated, flavoured"
+I.20.02.001.006,"Ice cream, milk-based, without cornet and coat, flavoured"
+I.20.02.001.007,"Ice cream, milk-based, without cornet and coat, unflavoured"
+I.20.02.001.008,"Ice cream, milk-based, vanilla"
+I.20.02.001.009,"Ice cream, milk-based, chocolate"
+I.20.02.002.001,"Ice cream, milk-imitate based, chocolate coated"
+I.20.02.002.002,"Ice cream, milk-imitate based, cornet"
+I.20.02.002.003,"Ice cream, milk-imitate based, without cornet and coat"
+I.20.02.003.001,"Pudding, bread and butter"
+I.20.02.003.002,"Pudding, cereal based"
+I.20.02.003.003,"Pudding, flavoured"
+I.20.02.004.001,Dessert cream
+I.20.02.004.002,Patisserie cream
+I.20.02.004.003,Whipped cream
+I.20.02.006.001,Jelly dessert
+I.20.02.006.002,Rote gruetze
+I.20.02.006.003,Gelified milk
+I.20.02.008,Chocolate mousse
+I.20.02.009,Tiramisù
