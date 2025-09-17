@@ -67,7 +67,7 @@ function deselectItem(codeToDeselect: string) {
   onUpdate(selected.value);
 }
 
-// Ensure we remove items from the list of they disappear from the recipe
+// Ensure we remove items from the list if they disappear from the recipe
 // passed in as a props
 watch(
   () => props.foodNames,
