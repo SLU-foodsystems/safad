@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, onBeforeMount, ref, getCurrentInstance } from "vue";
+import { computed, onBeforeMount, ref, getCurrentInstance, watch } from "vue";
 import Listbox from "primevue/listbox";
-import { defaultRpcNames } from "@/lib/efsa-names";
 import PrimeVue from "primevue/config";
+
+import { defaultRpcNames } from "@/lib/efsa-names";
 
 getCurrentInstance()?.appContext.app.use(PrimeVue, {
   unstyled: true,
@@ -12,7 +13,7 @@ const MAX_ITEMS = 12;
 
 // Vue instance
 const props = defineProps<{
-  foodCodes: string[];
+  foodNames: Record<string, string>;
   initialValues: string[] | undefined;
 }>();
 
@@ -25,26 +26,34 @@ const rpcNames = ref<Record<string, string>>({});
 
 // Dynamic state
 
-// List of all items
-const items = computed(() =>
-  props.foodCodes.map((code) => ({ code, label: getName(code) }))
-);
 // Keep track of codes selected
 const selected = ref<string[]>([]);
 // Sorted list, for drawing in UI
 const selectedSorted = computed(() => [...selected.value].sort());
 // Helper for printing label name
-const getName = (code: string) => code + " " + (rpcNames.value[code] || "");
+const getName = (code: string, label: string = "") =>
+  code + " " + (label || props.foodNames[code] || "");
+// List of all items
+const items = computed(() => {
+  const sortedCodeLabels = Object.entries(props.foodNames).sort((a, b) =>
+    a[0].localeCompare(b[0])
+  );
+  return sortedCodeLabels.map(([code, label]) => ({
+    code,
+    label: getName(code, label),
+  }));
+});
 
 // Set initialValues
-onBeforeMount(() => {
+onBeforeMount(async () => {
   if (props.initialValues) selected.value = [...props.initialValues];
 
-  defaultRpcNames().then((names: Record<string, string>) => {
+  return defaultRpcNames().then((names: Record<string, string>) => {
     rpcNames.value = names;
   });
 });
 
+// Change which values are selected
 function onUpdate(items: string[]) {
   if (selected.value.length > MAX_ITEMS) {
     selected.value = items.slice(0, MAX_ITEMS);
@@ -57,6 +66,18 @@ function deselectItem(codeToDeselect: string) {
   selected.value = selected.value.filter((code) => code !== codeToDeselect);
   onUpdate(selected.value);
 }
+
+// Ensure we remove items from the list of they disappear from the recipe
+// passed in as a props
+watch(
+  () => props.foodNames,
+  (foodNames) => {
+    const filteredSelected = selected.value.filter((code) => code in foodNames);
+    if (filteredSelected.length !== selected.value.length) {
+      onUpdate(filteredSelected);
+    }
+  }
+);
 </script>
 
 <template>
@@ -105,7 +126,7 @@ function deselectItem(codeToDeselect: string) {
   font-size: 0.875em;
 
   &:empty::before {
-    content: "Select foods in the list below...";
+    content: "Select foods in the list above...";
     font-style: italic;
     display: inline-block;
     padding: 0.15em;
