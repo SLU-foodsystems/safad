@@ -74,6 +74,7 @@ watch(
   (foodNames) => {
     const filteredSelected = selected.value.filter((code) => code in foodNames);
     if (filteredSelected.length !== selected.value.length) {
+      selected.value = filteredSelected;
       onUpdate(filteredSelected);
     }
   }
