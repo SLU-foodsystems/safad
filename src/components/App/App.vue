@@ -77,15 +77,32 @@ const dietName = computed(() =>
     : defaultDietName.value
 );
 
-const foodCodes = ref<string[]>([]);
-const foodNamesPromise = computed(async () => {
-  const f = foodsRecipesFile.value;
+/**
+ * Helper for getting a map matching codes to food names of recipes
+ */
+const getFoodNamesFromRecipe = async (
+  f: InputFile<FoodsRecipes> = foodsRecipesFile.value,
+  fallbackDefaultNames: boolean = true
+) => {
   const rawData =
     f.state === "default"
       ? await f.getDefault(countryCode.value)
       : f.data || "";
-  return extractRpcNamesFromRecipe(rawData);
-});
+  return extractRpcNamesFromRecipe(rawData, fallbackDefaultNames);
+};
+
+// Keep a ref of foodNames (code -> name) for all foods in the recipes, which is
+// used in the recipes file
+// Only to be used in reactive cases, otherwise, use helper directly, as it may
+// be empty before state has saturated
+const foodNames = ref<Record<string, string>>({});
+watch(
+  [foodsRecipesFile.value],
+  async ([f]) => {
+    foodNames.value = await getFoodNamesFromRecipe(f, false);
+  },
+  { immediate: true }
+);
 
 const selectedFoodCodes = ref<string[]>([
   "A.19.01.002.003", // Pizza
@@ -123,7 +140,7 @@ const castData = (
 const downloadFootprintsOfFoods = async (filetype: "csv" | "xlsx") => {
   const impactsOfRecipe = labeledAndFilteredImpacts(
     RE.computeImpactsOfRecipe(),
-    await foodNamesPromise.value
+    await getFoodNamesFromRecipe()
   );
 
   const data = [DETAILED_RESULTS_HEADER, ...impactsOfRecipe];
@@ -144,7 +161,7 @@ const downloadFootprintsOfFoods = async (filetype: "csv" | "xlsx") => {
 const downloadFootprintsOfDiets = async (filetype: "csv" | "xlsx") => {
   const data = [
     DIET_RESULTS_HEADER,
-    ...computeDietFootprints(diet.value, RE, await foodNamesPromise.value),
+    ...computeDietFootprints(diet.value, RE, await getFoodNamesFromRecipe()),
   ];
 
   if (filetype === "csv") {
@@ -163,7 +180,7 @@ const downloadFootprintsOfSfaRecipes = async (filetype: "csv" | "xlsx") => {
   const sfaResultsRows = await generateSfaResults(
     sfaRecipes.value,
     RE,
-    await foodNamesPromise.value
+    await getFoodNamesFromRecipe()
   );
 
   const data = [SFA_RESULTS_HEADER, ...sfaResultsRows];
@@ -226,11 +243,13 @@ const downloadZip = async () => {
 
   zip.file("SAFAD Info.txt", metaFileHandler.toString());
 
+  const foodNames = await getFoodNamesFromRecipe();
+
   if (countryCode.value === "SE") {
     const sfaResultsRows = await generateSfaResults(
       sfaRecipes.value,
       RE,
-      await foodNamesPromise.value
+      foodNames
     );
     const data = stringifyCsvData([SFA_RESULTS_HEADER, ...sfaResultsRows]);
     zip.file(SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood, data);
@@ -238,7 +257,7 @@ const downloadZip = async () => {
 
   const impactsOfRecipe = labeledAndFilteredImpacts(
     RE.computeImpactsOfRecipe(),
-    await foodNamesPromise.value
+    foodNames
   );
   const impactsOfRecipeCsv = stringifyCsvData([
     DETAILED_RESULTS_HEADER,
@@ -249,7 +268,7 @@ const downloadZip = async () => {
 
   const detailedDietImpactsCsv = stringifyCsvData([
     DIET_RESULTS_HEADER,
-    ...computeDietFootprints(diet.value, RE, await foodNamesPromise.value),
+    ...computeDietFootprints(diet.value, RE, foodNames),
   ]);
   zip.file(SAFAD_FILE_NAMES.Output.FootprintsPerDiet, detailedDietImpactsCsv);
 
@@ -361,7 +380,6 @@ onMounted(async () => {
 
   await Promise.all(tasks);
 
-  foodCodes.value = [...RE.getFoodCodes()].sort();
   updateChartData();
 
   isLoading.value = false;
@@ -533,7 +551,7 @@ onMounted(async () => {
                 >
               </h3>
               <AsyncFoodsListbox
-                :food-codes="foodCodes"
+                :food-names="foodNames"
                 :initial-values="selectedFoodCodes"
                 @change="setSelectedFoodCodes"
               />

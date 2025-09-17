@@ -71,7 +71,7 @@ function validateCsv(
   };
 
   if (
-    (options.checkNotEmpty && csvData.length <= 1) ||
+    (options.checkNotEmpty && csvData.length === 0) ||
     csvData.every((row) => row.length === 0)
   ) {
     return CsvValidationErrorType.Empty;

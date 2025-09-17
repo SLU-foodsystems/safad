@@ -2,15 +2,16 @@ import categoryNamesCsv from "@/data/efsa-category-names.csv?raw";
 import { parseCsvFile } from "./utils";
 import * as DefaultInputFiles from "./default-input-files";
 
-const _extractRpcNamesFromRecipe = (recipesFileCsv: string) => {
+export const _extractRpcNamesFromRecipe = (recipesFileCsv: string) => {
   const names: Record<string, string> = {};
   parseCsvFile(recipesFileCsv)
     .slice(1) // drop header in csv file
     .forEach(([code, name, ingredientCode, ingredientName]) => {
-      if (typeof code === "string" && typeof name === "string") {
+      if (code && typeof code === "string" && typeof name === "string") {
         names[code] = name;
       }
       if (
+        ingredientCode &&
         typeof ingredientCode === "string" &&
         typeof ingredientName === "string"
       ) {
@@ -33,8 +34,11 @@ export const defaultRpcNames = async () => {
   return names;
 };
 
-export const extractRpcNamesFromRecipe = (recipesFileCsv: string) => ({
-  ...(_defaultRpcNames || {}),
+export const extractRpcNamesFromRecipe = (
+  recipesFileCsv: string,
+  withDefault = true
+) => ({
+  ...(withDefault ? _defaultRpcNames || {} : {}),
   ..._extractRpcNamesFromRecipe(recipesFileCsv),
 });
 
