@@ -265,6 +265,9 @@ function main(args) {
     );
   }
 
+  const tradeMatrixFileName =
+    (args.length >= 2 && args[1]) ? args[1] : "trade-matrix.csv";
+
   // Input file: csv of column with category (as defined in rpc) and waste
   // Create an object with { [country: string]: { [category: string]: number } }
   /** @type {Object.<string, Object.<string, number>>} */
@@ -287,7 +290,7 @@ function main(args) {
   const { suaToRpcs, rpcNames } = createRpcSuaTranslationMaps(rpcToSuaCodesCsv);
 
   // NOTE: the trade matrix csv-file uses semicolon (;) as its delimiter
-  const matrix = readCsv(path.resolve(DIRNAME, "./trade-matrix.csv"), ";");
+  const matrix = readCsv(path.resolve(DIRNAME, tradeMatrixFileName), ";");
 
   /** @type {Object.<string, Object.<string, number>>}*/
   const sharesPerItem = getFoodItemShares(matrix, consumerCountry);
