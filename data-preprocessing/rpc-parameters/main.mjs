@@ -106,7 +106,7 @@ function getFoodItemShares(matrix, consumerCountry) {
     .map((x) => ({
       amount: parseFloat(x[3]),
       producerCountry: x[7],
-      itemName: x[8].trim(),
+      itemCode: x[4].trim(),
     }))
     .map((x) =>
       x.producerCountry in COUNTRY_RENAME_MAP
@@ -117,9 +117,7 @@ function getFoodItemShares(matrix, consumerCountry) {
       ...x,
       producerCountry: countryCodes[x.producerCountry] || "NA",
     }))
-    .filter(
-      (x) => x.producerCountry !== "NA" && x.itemName !== "NA" && x.amount > 0
-    );
+    .filter((x) => x.producerCountry !== "NA" && x.itemCode && x.amount > 0);
 
   if (filtered.length === 0) {
     throw new Error("Country " + consumerCountry + " not found.");
@@ -129,31 +127,31 @@ function getFoodItemShares(matrix, consumerCountry) {
    * STEP 1: Compute the total of each item.
    */
   const totalAmounts = {};
-  filtered.forEach(({ amount, itemName }) => {
-    totalAmounts[itemName] = (totalAmounts[itemName] || 0) + amount;
+  filtered.forEach(({ amount, itemCode }) => {
+    totalAmounts[itemCode] = (totalAmounts[itemCode] || 0) + amount;
   });
 
   /**
    * STEP 2: Compute the proportions:
-   * { [itemName]: { [producerCountry]: percentage }}
+   * { [itemCode]: { [producerCountry]: percentage }}
    */
   /** @type {Object.<string, Object.<string, number>>} */
   const allProportions = {};
-  filtered.forEach(({ amount, producerCountry, itemName }) => {
-    if (!(itemName in allProportions)) {
-      allProportions[itemName] = {};
+  filtered.forEach(({ amount, producerCountry, itemCode }) => {
+    if (!(itemCode in allProportions)) {
+      allProportions[itemCode] = {};
     }
 
-    if (!totalAmounts[itemName]) {
+    if (!totalAmounts[itemCode]) {
       throw new Error(
         "Unexpected behaviour. Value totalAmount for " +
-          itemName +
+          itemCode +
           " not found or 0."
       );
     }
 
-    allProportions[itemName][producerCountry] =
-      (allProportions[itemName][producerCountry] || 0) + amount;
+    allProportions[itemCode][producerCountry] =
+      (allProportions[itemCode][producerCountry] || 0) + amount;
   });
 
   /**
@@ -163,9 +161,9 @@ function getFoodItemShares(matrix, consumerCountry) {
    * two countries are assigned that code due to our COUNTRY_RENAME_MAP
    */
   Object.entries(allProportions).forEach(
-    ([itemName, proportionsPerProdCountry]) => {
+    ([itemCode, proportionsPerProdCountry]) => {
       Object.keys(proportionsPerProdCountry).forEach((producerCountry) => {
-        const total = totalAmounts[itemName];
+        const total = totalAmounts[itemCode];
         const share = proportionsPerProdCountry[producerCountry] / total;
         if (share < MIN_SHARE_THRESHOLD) {
           delete proportionsPerProdCountry[producerCountry];
@@ -266,7 +264,7 @@ function main(args) {
   }
 
   const tradeMatrixFileName =
-    (args.length >= 2 && args[1]) ? args[1] : "trade-matrix.csv";
+    args.length >= 2 && args[1] ? args[1] : "trade-matrix.csv";
 
   // Input file: csv of column with category (as defined in rpc) and waste
   // Create an object with { [country: string]: { [category: string]: number } }
@@ -275,9 +273,8 @@ function main(args) {
     readCsv(path.resolve(DIRNAME, "./rpc-waste-factors.csv"), ",").slice(1)
   );
 
-  // A list of Sua Name, "match status", itemName, where
-  // - matchStatus is "Yes" (Sua name is exact same as itemName) or "No", in
-  //   which case the best-matching name is provided in the 3rd col
+  // A list of Sua Code, Sua Name, Category, Item Code, and Item Name, where
+  // `Item` refers to the standard used by the kastner file (FAO?)
   const suaKastnerList = readCsv(
     path.resolve(DIRNAME, "./sua-kastner-list.csv"),
     ","
@@ -303,23 +300,15 @@ function main(args) {
   /**
    * The part of script where we put all parts together.
    *
-   * We iterate over the "sua template", where each row is a food item (sua-code
-   * , name, and category) to construct the output file.
+   * We iterate over the "SUA kastner list", where each row is a food item
+   * (sua-code, name, and category) to construct the output file.
    *
-   * For each sua-code (in this list), we output the N origin rows.
+   * For each sua-code (in said list), we output N origin rows.
    */
   suaKastnerList.forEach((row, i) => {
-    const [suaCode, suaName, _category, isPerfectMatch, altItemName] = row;
+    const [suaCode, suaName, maybeCategory, itemCode, itemName] = row;
 
-    const itemName = isPerfectMatch === "Yes" ? suaName : altItemName;
-    if (!itemName) {
-      console.error(
-        `ERR (row ${i}): No matching for sua item "${suaName}" (${suaCode}) found.`
-      );
-      return;
-    }
-
-    let category = _category; // Ocerwritten if waste not found for this category
+    let category = maybeCategory; // Overwritten if waste not found for this category
     let waste = wasteFactorsMap[consumerCountry][category];
     if (!waste) {
       console.warn(
@@ -332,20 +321,41 @@ function main(args) {
     /** @type {string[]} a*/
     const rpcCodes = suaToRpcs[suaCode];
     if (!rpcCodes) {
-      console.error(`ERR (row ${i}): RPC codes missing for sua ${suaCode}`);
-      // throw new Error("No rpc-codes found for sua " + suaCode);
+      console.error(
+        `ERR (row ${i}): RPC codes missing for SUA item: ${suaName} (${suaCode})` +
+          `. Item is ${itemName} (${itemCode}).`
+      );
       return;
     }
 
-    const shares = sharesPerItem[itemName] || { RoW: 1 };
+    if (!itemCode && !suaCode.startsWith("BF-")) {
+      console.warn(
+        `ERR (row ${i}): No code found for sua item "${suaName}" (${suaCode}).`
+      );
+      return;
+    }
+
+    if (!sharesPerItem[itemCode]) {
+      console.warn(
+        `WARN (${i}): No shares found for sua item "${suaName}" (${suaCode}) ` +
+          `(item "${itemName}" with code "${itemCode}"). Allocating all to RoW.`
+      );
+    }
+
+    const shares = sharesPerItem[itemCode] || { RoW: 1 };
     rpcCodes.forEach((rpcCode) => {
       // Skip if we add this value manually
       if (OVERRIDE_CODES.has(rpcCode)) return;
       // Skip if we've already encountered this rpc-code
       if (_rpcCodesCache.has(rpcCode)) {
-        console.warn(`WARN: Duplicate entries for rpc-code ${rpcCode}.`);
+        console.warn(
+          `WARN: Duplicate entries for rpc ${rpcNames[rpcCode]} ` +
+            `${rpcCode}.`
+        );
         return;
-      } else _rpcCodesCache.add(rpcCode);
+      } else {
+        _rpcCodesCache.add(rpcCode);
+      }
 
       // And we store in the final results as a list, to be made into a csv.
       Object.entries(shares).forEach(([prodCountry, share]) => {
