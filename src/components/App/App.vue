@@ -462,6 +462,7 @@ onMounted(async () => {
             <label class="cluster">
               <span>Country:</span>
               <select v-model="countryCode">
+                <option value="DK">Denmark</option>
                 <option value="FR">France</option>
                 <option value="DE">Germany</option>
                 <option value="GR">Greece</option>

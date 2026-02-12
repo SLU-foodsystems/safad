@@ -31,6 +31,7 @@ const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
 
 const LL_COUNTRIES = {
   DE: "Germany",
+  DK: "Denmark",
   ES: "Spain",
   FR: "France",
   GR: "Greece",
