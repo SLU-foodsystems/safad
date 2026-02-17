@@ -10,11 +10,11 @@
  *
  * Usage:
  *
- *    node generate-csv-per-country.mjs SE > "SAFAD IP Origin and Waste of RPC SE.csv"
+ *    node main.mjs SE > "SAFAD IP Origin and Waste of RPC SE.csv"
  *
  * Or, for multiple files at once:
  *
- *    for c in DE ES FR GR HU IE IT PL SE; do node generate-csv-per-country.mjs "$c" > "SAFAD IP Origin and Waste of RPC $c.csv"; done
+ *    for c in DE ES FR GR HU IE IT PL SE; do node main.mjs "$c" > "SAFAD IP Origin and Waste of RPC $c.csv"; done
  */
 
 import * as path from "path";
@@ -22,7 +22,9 @@ import url from "url";
 
 import { asCsvString, readCsv, roundToPrecision } from "../utils.mjs";
 
-import countryCodes from "./country-codes.json" with { type: "json" };
+// It may seem superflous that we have a list of country-names here even though
+// we already have the country names in the original data. This is, however, to
+// ensure that the spelling stays consistent with what we expect.
 import countryNames from "./country-names.json" with { type: "json" };
 
 const RESULT_PRECISION = 3;
@@ -39,20 +41,6 @@ const LL_COUNTRIES = {
   IT: "Italy",
   PL: "Poland",
   SE: "Sweden",
-};
-
-// Avoid misspelling between our countries
-const COUNTRY_RENAME_MAP = {
-  "Bolivia (Plurinational State of)": "Bolivia",
-  "China, mainland": "China",
-  // Very problematic, but only concerns Arcea Nuts from Germany.
-  "China, Taiwan Province of": "China",
-  "Iran (Islamic Republic of)": "Iran",
-  "Rest of the World": "RoW",
-  "Russian Federation": "Russia",
-  "United Kingdom": "United Kingdom",
-  "United States of America": "USA",
-  "Côte d'Ivoire": "Cote d'Ivoire",
 };
 
 const ALL_COUNTRY_OVERRIDES = [
@@ -96,31 +84,29 @@ const OVERRIDE_CODES = new Set(ALL_COUNTRY_OVERRIDES.map((x) => x[0]));
  * portion (%) is produced in each producerCountry.
  *
  * @param {string[][]} matrix
- * @param {string} consumerCountry
+ * @param {string} consumerCountryName
  * @returns {Object.<string, Object.<string, number>>}
  */
-function getFoodItemShares(matrix, consumerCountry) {
+function getFoodItemShares(matrix, consumerCountryCode) {
+  // CSV Columns:
+  // 0 "Consumer Country Code"
+  // 1 "Consumer Country Name"
+  // 2 "Producer Country Code"
+  // 3 "Producer Country Name"
+  // 4 "Item Code"
+  // 5 "Item Name"
+  // 6 "Value"
   const filtered = matrix
-    // Skip all other countries
-    .filter((row) => row[6] == consumerCountry)
+    .filter((row) => row[0] == consumerCountryCode)
     .map((x) => ({
-      amount: parseFloat(x[3]),
-      producerCountry: x[7],
+      producerCountryCode: x[2],
       itemCode: x[4].trim(),
+      amount: parseFloat(x[6]),
     }))
-    .map((x) =>
-      x.producerCountry in COUNTRY_RENAME_MAP
-        ? { ...x, producerCountry: COUNTRY_RENAME_MAP[x.producerCountry] }
-        : x
-    )
-    .map((x) => ({
-      ...x,
-      producerCountry: countryCodes[x.producerCountry] || "NA",
-    }))
-    .filter((x) => x.producerCountry !== "NA" && x.itemCode && x.amount > 0);
+    .filter((x) => x.producerCountryCode && x.itemCode && x.amount > 0);
 
   if (filtered.length === 0) {
-    throw new Error("Country " + consumerCountry + " not found.");
+    throw new Error(`Data for country ${consumerCountry} not found.`);
   }
 
   /**
@@ -133,11 +119,11 @@ function getFoodItemShares(matrix, consumerCountry) {
 
   /**
    * STEP 2: Compute the proportions:
-   * { [itemCode]: { [producerCountry]: percentage }}
+   * { [itemCode]: { [producerCountryCode]: percentage }}
    */
   /** @type {Object.<string, Object.<string, number>>} */
   const allProportions = {};
-  filtered.forEach(({ amount, producerCountry, itemCode }) => {
+  filtered.forEach(({ amount, producerCountryCode, itemCode }) => {
     if (!(itemCode in allProportions)) {
       allProportions[itemCode] = {};
     }
@@ -150,8 +136,8 @@ function getFoodItemShares(matrix, consumerCountry) {
       );
     }
 
-    allProportions[itemCode][producerCountry] =
-      (allProportions[itemCode][producerCountry] || 0) + amount;
+    allProportions[itemCode][producerCountryCode] =
+      (allProportions[itemCode][producerCountryCode] || 0) + amount;
   });
 
   /**
@@ -162,13 +148,13 @@ function getFoodItemShares(matrix, consumerCountry) {
    */
   Object.entries(allProportions).forEach(
     ([itemCode, proportionsPerProdCountry]) => {
-      Object.keys(proportionsPerProdCountry).forEach((producerCountry) => {
+      Object.keys(proportionsPerProdCountry).forEach((producerCountryCode) => {
         const total = totalAmounts[itemCode];
-        const share = proportionsPerProdCountry[producerCountry] / total;
+        const share = proportionsPerProdCountry[producerCountryCode] / total;
         if (share < MIN_SHARE_THRESHOLD) {
-          delete proportionsPerProdCountry[producerCountry];
+          delete proportionsPerProdCountry[producerCountryCode];
         } else {
-          proportionsPerProdCountry[producerCountry] = share;
+          proportionsPerProdCountry[producerCountryCode] = share;
         }
       });
     }
@@ -186,12 +172,12 @@ function getFoodItemShares(matrix, consumerCountry) {
       0
     );
 
-    Object.keys(proportionsPerProdCountry).forEach((producerCountry) => {
+    Object.keys(proportionsPerProdCountry).forEach((producerCountryCode) => {
       const newShare = roundToPrecision(
-        proportionsPerProdCountry[producerCountry] / sum,
+        proportionsPerProdCountry[producerCountryCode] / sum,
         RESULT_PRECISION
       );
-      proportionsPerProdCountry[producerCountry] = newShare;
+      proportionsPerProdCountry[producerCountryCode] = newShare;
     });
   });
 
@@ -263,9 +249,6 @@ function main(args) {
     );
   }
 
-  const tradeMatrixFileName =
-    args.length >= 2 && args[1] ? args[1] : "trade-matrix.csv";
-
   // Input file: csv of column with category (as defined in rpc) and waste
   // Create an object with { [country: string]: { [category: string]: number } }
   /** @type {Object.<string, Object.<string, number>>} */
@@ -287,10 +270,10 @@ function main(args) {
   const { suaToRpcs, rpcNames } = createRpcSuaTranslationMaps(rpcToSuaCodesCsv);
 
   // NOTE: the trade matrix csv-file uses semicolon (;) as its delimiter
-  const matrix = readCsv(path.resolve(DIRNAME, tradeMatrixFileName), ";");
+  const matrix = readCsv(path.resolve(DIRNAME, "./trade-matrix.csv"), ";");
 
   /** @type {Object.<string, Object.<string, number>>}*/
-  const sharesPerItem = getFoodItemShares(matrix, consumerCountry);
+  const sharesPerItem = getFoodItemShares(matrix, consumerCountryCode);
   /** @type Array<string | number>[] */
   const fullKastnerDataRows = [];
 
