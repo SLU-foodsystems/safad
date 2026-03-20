@@ -188,6 +188,8 @@ export default function BarChart(
     .attr("y", (d) => yAxisScaler(d.value))
     .attr("height", (d) => innerHeight - yAxisScaler(d.value))
     .attr("width", xAxisScaler.bandwidth())
+    .attr("stroke", d3.color(cfg.color).darker(0.66).formatHex())
+    .attr("stroke-width", "1")
     .on("mouseover", function (event, d) {
       const subgroupName = cfg.labelTextMapper(d.category);
       const subgroupValue = d.value;

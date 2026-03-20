@@ -177,6 +177,8 @@ export default function StackedBarChart(
     .data(stackedData)
     .join("g")
     .attr("fill", (d) => color(d.key))
+    .attr("stroke", d => d3.color(color(d.key)).darker(0.66).formatHex())
+    .attr("stroke-width", "1")
     .selectAll("rect")
     // enter a second time = loop subgroup per subgroup to add all rectangles
     .data((d) => d)
