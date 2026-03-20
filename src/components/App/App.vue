@@ -784,17 +784,6 @@ onMounted(async () => {
       </div>
     </div>
 
-    <div class="citation-footer page-footer stack">
-      <div class="inner-thinner-wrap stack stack-l">
-        Röös, E., Jacobsen, M., Karlsson, L., Wanecek, W., Spångberg, J., Mazac,
-        R., &amp; Rydhmer, L. (2025). Introducing a comprehensive and
-        configurable tool for calculating environmental and social footprints
-        for use in dietary assessments. Journal of Cleaner Production, 519,
-        146002. <a href="https://doi.org/10.1016/j.jclepro.2025.146002"
-        target="_blank" rel="noopener nofollow"
-        >https://doi.org/10.1016/j.jclepro.2025.146002</a>
-      </div>
-    </div>
     <footer class="page-footer stack stack-l">
       <div class="page-wrap page-footer__content">
         <div class="stack">
@@ -852,15 +841,34 @@ onMounted(async () => {
         </div>
       </div>
     </footer>
-    <div class="sub-footer">
-      <div class="u-tac">
-        This code of this web-application is open-source and available on
-        <a
-          href="https://github.com/SLU-foodsystems/safad"
-          target="_blank"
-          ref="noopener nofollow"
-          >github.com/SLU-foodsystems/safad</a
-        >.
+    <div class="page-footer">
+      <div class="inner-thinner-wrap stack stack-l">
+        <p>
+          <strong
+            >Read the published article for a description of the method:</strong
+          ><br />
+          Röös, E., Jacobsen, M., Karlsson, L., Wanecek, W., Spångberg, J.,
+          Mazac, R., &amp; Rydhmer, L. (2025). Introducing a comprehensive and
+          configurable tool for calculating environmental and social footprints
+          for use in dietary assessments. Journal of Cleaner Production, 519,
+          146002.
+          <a
+            href="https://doi.org/10.1016/j.jclepro.2025.146002"
+            target="_blank"
+            rel="noopener nofollow"
+            >https://doi.org/10.1016/j.jclepro.2025.146002</a
+          >
+        </p>
+        <p>
+          <strong>The code behind this web-application</strong> is open-source
+          and available on
+          <a
+            href="https://github.com/SLU-foodsystems/safad"
+            target="_blank"
+            ref="noopener nofollow"
+            >github.com/SLU-foodsystems/safad</a
+          >.
+        </p>
       </div>
     </div>
   </section>
@@ -869,6 +877,10 @@ onMounted(async () => {
 <style lang="scss" scoped>
 @use "sass:color";
 @use "../../styles/constants";
+
+.start-page {
+  padding-bottom: 1em;
+}
 
 .inner-thinner-wrap {
   margin: 0 auto;
@@ -883,18 +895,19 @@ onMounted(async () => {
   }
 }
 
-
 .page-footer {
   padding: 4em 0;
   background: constants.$green_forest;
   color: white;
+  margin: 4em 1em 1em;
+  border-radius: 1em;
 }
 
-.citation-footer {
-  padding: 2em;
-  margin-top: 6em;
-  color: #111;
-  background: #eee !important;
+/* Second page footer */
+.page-footer + .page-footer {
+  margin: 0 1em;
+  padding: 2em 0;
+  background: constants.$type;
 }
 
 .page-footer__content {
@@ -907,13 +920,6 @@ onMounted(async () => {
     color: white;
     height: 4em;
   }
-}
-
-.sub-footer {
-  font-size: 0.75em;
-  padding: 1em 0;
-  background: color.scale(constants.$green_forest, $lightness: -10%);
-  color: white;
 }
 
 .download-section {

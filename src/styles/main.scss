@@ -225,6 +225,8 @@ p {
 .hero {
   background: constants.$green_forest;
   color: white;
+  margin: 0 1em;
+  border-radius: 0.5em;
 }
 
 .hero__inner {
