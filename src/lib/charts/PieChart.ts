@@ -100,6 +100,8 @@ export default function PieChart(
     .append("path")
     .attr("d", arcGenerator)
     .attr("fill", (d) => d.data.color)
+    .attr("stroke", (d) => d3.color(d.data.color).darker(0.66).formatHex())
+    .attr("stroke-width", "1")
     .on("mouseover", function (event, d) {
       if (!d || !d.data || !d.value) return;
 
