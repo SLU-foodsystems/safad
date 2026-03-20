@@ -405,12 +405,6 @@ onMounted(async () => {
               alt="SLU logo"
             />
           </a>
-          <nav class="cluster" hidden>
-            <a href="#0">Home</a>
-            <a href="#0">About</a>
-            <a href="#0">Support</a>
-            <a href="#0">Publications</a>
-          </nav>
         </div>
 
         <a
@@ -448,9 +442,12 @@ onMounted(async () => {
             Calculate the impact of foods and diets using eight environmental
             indicators and indicators for animal welfare and use of antibiotics.
           </h2>
-          <a href="https://doi.org/10.1016/j.jclepro.2025.146002"
-             target="_blank" rel="nofollow noopener"
-          >Read the published study</a>
+          <a
+            href="https://doi.org/10.1016/j.jclepro.2025.146002"
+            target="_blank"
+            rel="nofollow noopener"
+            >Read the published study</a
+          >
         </div>
       </div>
     </div>
@@ -485,7 +482,6 @@ onMounted(async () => {
         </h2>
         <div class="foods-footprints-intro">
           <p>
-
             Footprints shown here are for foods on the market of the choosen
             country, while considering the origin of the raw commodities. For
             example, a share of a commodity (e.g. wheat or tomateos) can be
@@ -494,7 +490,6 @@ onMounted(async () => {
             weighted according to the shares of the production taking place in
             different countries. Footprints here also account for waste in
             production, at the retailer and at the consumer.
-
           </p>
           <div class="stack">
             <h3>Download footprints of all foods</h3>
