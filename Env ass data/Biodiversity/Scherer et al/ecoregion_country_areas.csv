@@ -1,0 +1,1794 @@
+"ECO_ID","ECO_NAME","ISO3CD","ROMNAM","M49Code","area"
+-9999,"Rock and Ice","AFG","Afghanistan","4",689.360798057702
+40502,"Western Himalayan subalpine conifer forests","AFG","Afghanistan","4",216.13161947285
+80506,"East Afghan montane conifer forests","AFG","Afghanistan","4",12757.8541371339
+80808,"Gissaro-Alai open woodlands","AFG","Afghanistan","4",3644.18780487965
+81004,"Ghorat-Hazarajat alpine meadow","AFG","Afghanistan","4",66482.1027617189
+81005,"Hindu Kush alpine meadow","AFG","Afghanistan","4",28268.3421725328
+81006,"Karakoram-West Tibetan Plateau alpine steppe","AFG","Afghanistan","4",4506.02386524161
+81012,"Northwestern Himalayan alpine shrub and meadows","AFG","Afghanistan","4",1523.36762887246
+81014,"Pamir alpine desert and tundra","AFG","Afghanistan","4",5015.52656514659
+81018,"Sulaiman Range alpine meadows","AFG","Afghanistan","4",4265.09742249254
+81301,"Afghan Mountains semi-desert","AFG","Afghanistan","4",13682.4732289083
+81306,"Badghyz and Karabil semi-desert","AFG","Afghanistan","4",53773.487575093
+81307,"Baluchistan xeric woodlands","AFG","Afghanistan","4",33226.9540244558
+81309,"Central Afghan Mountains xeric woodlands","AFG","Afghanistan","4",139310.176457399
+81313,"Central Persian desert basins","AFG","Afghanistan","4",22623.5884859505
+81322,"Paropamisus xeric woodlands","AFG","Afghanistan","4",92418.8230284507
+81326,"Registan-North Pakistan sandy desert","AFG","Afghanistan","4",159410.855434327
+30102,"Atlantic Equatorial coastal forests","AGO","Angola","24",2474.00250130165
+30203,"Zambezian Cryptosepalum dry forests","AGO","Angola","24",3046.96291144982
+30701,"Angolan Miombo woodlands","AGO","Angola","24",628699.744196892
+30702,"Angolan Mopane woodlands","AGO","Angola","24",51052.4261170611
+30704,"Central Zambezian Miombo woodlands","AGO","Angola","24",40484.0527355537
+30718,"Southern Congolian forest-savanna mosaic","AGO","Angola","24",58332.5550893934
+30723,"Western Congolian forest-savanna mosaic","AGO","Angola","24",169161.996699125
+30724,"Western Zambezian grasslands","AGO","Angola","24",4602.26690509052
+30726,"Zambezian Baikiaea woodlands","AGO","Angola","24",130861.54742256
+30907,"Zambezian flooded grasslands","AGO","Angola","24",3169.69498675316
+31001,"Angolan montane forest-grassland mosaic","AGO","Angola","24",25418.4764148942
+31002,"Angolan scarp savanna and woodlands","AGO","Angola","24",73971.3037223647
+31310,"Kaokoveld desert","AGO","Angola","24",20636.025917194
+31316,"Namibian savanna woodlands","AGO","Angola","24",33506.931601666
+31401,"Central African mangroves","AGO","Angola","24",1156.39832930975
+80404,"Balkan mixed forests","ALB","Albania","8",588.832698992356
+80418,"Dinaric Mountains mixed forests","ALB","Albania","8",1887.47523940662
+81201,"Aegean and Western Turkey sclerophyllous and mixed forests","ALB","Albania","8",0.978093909314416
+81210,"Illyrian deciduous forests","ALB","Albania","8",12769.0105782624
+81217,"Pindus Mountains mixed forests","ALB","Albania","8",13152.3797678389
+80433,"Pyrenees conifer and mixed forests","AND","Andorra","20",464.453989814887
+30801,"Al Hajar montane woodlands","ARE","United Arab Emirates","784",80.7438641630838
+31306,"Gulf of Oman desert and semi-desert","ARE","United Arab Emirates","784",10919.3793801818
+81303,"Arabian Desert and East Sahero-Arabian xeric shrublands","ARE","United Arab Emirates","784",56785.6792040785
+81323,"Persian Gulf desert and semi-desert","ARE","United Arab Emirates","784",2141.08657686559
+-9999,"Rock and Ice","ARG","Argentina","32",1427.04901987048
+60101,"Araucaria moist forests","ARG","Argentina","32",4620.83108927069
+60150,"Alto Paraná Atlantic forests","ARG","Argentina","32",22564.178313864
+60165,"Southern Andean Yungas","ARG","Argentina","32",47466.0799561571
+60210,"Dry Chaco","ARG","Argentina","32",489166.147750212
+60402,"Magellanic subpolar forests","ARG","Argentina","32",28782.501618373
+60404,"Valdivian temperate forests","ARG","Argentina","32",44561.8194515847
+60708,"Humid Chaco","ARG","Argentina","32",162171.238179723
+60710,"Uruguayan savanna","ARG","Argentina","32",231.913160003644
+60801,"Espinal","ARG","Argentina","32",298563.501304157
+60802,"Low Monte","ARG","Argentina","32",353596.034599066
+60803,"Humid Pampas","ARG","Argentina","32",398433.776254242
+60805,"Patagonian steppe","ARG","Argentina","32",536361.542114312
+60908,"Paraná flooded savanna","ARG","Argentina","32",36991.5728498514
+60909,"Southern Cone Mesopotamian savanna","ARG","Argentina","32",26770.8267547694
+61001,"Central Andean dry puna","ARG","Argentina","32",29655.7171212748
+61002,"Central Andean puna","ARG","Argentina","32",87049.5523332843
+61008,"Southern Andean steppe","ARG","Argentina","32",94896.6281026077
+61010,"High Monte","ARG","Argentina","32",116566.891967806
+80408,"Caucasus mixed forests","ARM","Armenia","51",15423.9767924324
+80805,"Eastern Anatolian montane steppe","ARM","Armenia","51",14290.4343612817
+81305,"Azerbaijan shrub desert and steppe","ARM","Armenia","51",0.602001919985235
+-9999,"Rock and Ice","ATA","Antarctica","1055",9111743.76564864
+21101,"Marielandia Antarctic tundra","ATA","Antarctica","1055",1064025.78680968
+21102,"Maudlandia Antarctic desert","ATA","Antarctica","1055",2053437.97045316
+21103,"Scotia Sea Islands tundra","ATA","Antarctica","1055",3346.09227176145
+60134,"Leeward Islands moist forests","ATG","Antigua and Barbuda","28",27.0091138586646
+60220,"Lesser Antillean dry forests","ATG","Antigua and Barbuda","28",71.9130851401042
+61305,"Caribbean shrublands","ATG","Antigua and Barbuda","28",328.80721591407
+10109,"Lord Howe Island subtropical forests","AUS","Australia","36",8.95609870733866
+10114,"Norfolk Island subtropical forests","AUS","Australia","36",34.5739573150182
+10117,"Queensland tropical rain forests","AUS","Australia","36",32202.8639244479
+10402,"Eastern Australian temperate forests","AUS","Australia","36",220925.663806234
+10409,"Southeast Australia temperate forests","AUS","Australia","36",271801.287320623
+10411,"Tasmanian Central Highland forests","AUS","Australia","36",18680.271999229
+10412,"Tasmanian temperate forests","AUS","Australia","36",17912.0946732203
+10413,"Tasmanian temperate rain forests","AUS","Australia","36",30997.0735297385
+10701,"Arnhem Land tropical savanna","AUS","Australia","36",156469.392331419
+10702,"Brigalow tropical savanna","AUS","Australia","36",341188.300026102
+10703,"Cape York Peninsula tropical savanna","AUS","Australia","36",115579.177806652
+10704,"Carpentaria tropical savanna","AUS","Australia","36",357979.55496487
+10705,"Einasleigh upland savanna","AUS","Australia","36",128067.431174572
+10706,"Kimberly tropical savanna","AUS","Australia","36",345343.407485005
+10707,"Mitchell grass downs","AUS","Australia","36",459495.913238473
+10709,"Victoria Plains tropical savanna","AUS","Australia","36",224881.539989132
+10802,"Eastern Australia mulga shrublands","AUS","Australia","36",253515.374978459
+10803,"Southeast Australia temperate savanna","AUS","Australia","36",321998.86201329
+11001,"Australian Alps montane grasslands","AUS","Australia","36",11999.4183326447
+11101,"Antipodes Subantarctic Islands tundra","AUS","Australia","36",103.922570232466
+11201,"Coolgardie woodlands","AUS","Australia","36",137255.088596131
+11202,"Esperance mallee","AUS","Australia","36",115419.751123052
+11203,"Eyre and York mallee","AUS","Australia","36",60670.2696844997
+11204,"Jarrah-Karri forest and shrublands","AUS","Australia","36",10409.1124827737
+11205,"Swan Coastal Plain Scrub and Woodlands","AUS","Australia","36",15149.0957680752
+11206,"Mount Lofty woodlands","AUS","Australia","36",23681.5389870366
+11207,"Murray-Darling woodlands and mallee","AUS","Australia","36",197880.063299127
+11208,"Naracoorte woodlands","AUS","Australia","36",27401.3547981953
+11209,"Southwest Australia savanna","AUS","Australia","36",168378.568508286
+11210,"Southwest Australia woodlands","AUS","Australia","36",46022.0240886375
+11301,"Carnarvon xeric shrublands","AUS","Australia","36",89819.2047182327
+11302,"Central Ranges xeric scrub","AUS","Australia","36",281050.878892437
+11303,"Gibson desert","AUS","Australia","36",155523.721847132
+11304,"Great Sandy-Tanami desert","AUS","Australia","36",820766.086423156
+11305,"Great Victoria desert","AUS","Australia","36",423734.03815624
+11306,"Nullarbor Plains xeric shrublands","AUS","Australia","36",195000.533182097
+11307,"Pilbara shrublands","AUS","Australia","36",179053.581006083
+11308,"Simpson desert","AUS","Australia","36",583394.408258733
+11309,"Tirari-Sturt stony desert","AUS","Australia","36",376449.235330106
+11310,"Western Australian Mulga shrublands","AUS","Australia","36",459615.982987618
+11401,"New Guinea mangroves","AUS","Australia","36",3.75458555902664
+21104,"Southern Indian Ocean Islands tundra","AUS","Australia","36",346.354745814374
+40110,"Christmas and Cocos Islands tropical forests","AUS","Australia","36",40.1731636715699
+80412,"Central European mixed forests","AUT","Austria","40",2212.6889534514
+80431,"Pannonian mixed forests","AUT","Austria","40",16001.5579844003
+80445,"Western European broadleaf forests","AUT","Austria","40",17080.7557637309
+80501,"Alps conifer and mixed forests","AUT","Austria","40",48642.3730484605
+-9998,"Lake","AZE","Azerbaijan","31",78375.9112411937
+80407,"Caspian Hyrcanian mixed forests","AZE","Azerbaijan","31",3977.91793182462
+80408,"Caucasus mixed forests","AZE","Azerbaijan","31",25661.0352921434
+80805,"Eastern Anatolian montane steppe","AZE","Azerbaijan","31",5149.22826008877
+81305,"Azerbaijan shrub desert and steppe","AZE","Azerbaijan","31",51199.6533098809
+-9998,"Lake","BDI","Burundi","108",1798.32567080481
+30101,"Albertine Rift montane forests","BDI","Burundi","108",6757.76615044231
+30704,"Central Zambezian Miombo woodlands","BDI","Burundi","108",15241.7452015642
+30721,"Victoria Basin forest-savanna mosaic","BDI","Burundi","108",3046.15288113226
+80402,"Atlantic mixed forests","BEL","Belgium","56",22782.1120257067
+80445,"Western European broadleaf forests","BEL","Belgium","56",7846.20107971713
+30111,"Eastern Guinean forests","BEN","Benin","204",641.461089466431
+30123,"Nigerian lowland forests","BEN","Benin","204",799.796131867008
+30707,"Guinean forest-savanna mosaic","BEN","Benin","204",16322.282487193
+30722,"West Sudanian savanna","BEN","Benin","204",97830.9766986542
+30713,"Sahelian Acacia savanna","BFA","Burkina Faso","854",22973.0246621853
+30722,"West Sudanian savanna","BFA","Burkina Faso","854",250274.135541939
+40105,"Brahmaputra Valley semi-evergreen forests","BGD","Bangladesh","50",40.9341615758814
+40120,"Lower Gangetic Plains moist deciduous forests","BGD","Bangladesh","50",107385.074226989
+40126,"Meghalaya subtropical forests","BGD","Bangladesh","50",133.764362188973
+40131,"Mizoram-Manipur-Kachin rain forests","BGD","Bangladesh","50",6967.64513612883
+40132,"Myanmar coastal rain forests","BGD","Bangladesh","50",21.3278630700812
+40162,"Sundarbans freshwater swamp forests","BGD","Bangladesh","50",7664.89501717407
+40701,"Terai-Duar savanna and grasslands","BGD","Bangladesh","50",129.873289716927
+41404,"Myanmar Coast mangroves","BGD","Bangladesh","50",317.818098911752
+41406,"Sundarbans mangroves","BGD","Bangladesh","50",14095.6925245899
+80404,"Balkan mixed forests","BGR","Bulgaria","100",79896.7760159181
+80419,"East European forest steppe","BGR","Bulgaria","100",2339.11203573157
+80422,"Euxine-Colchic broadleaf forests","BGR","Bulgaria","100",189.631569667453
+80435,"Rodope montane mixed forests","BGR","Bulgaria","100",27856.7625895117
+80814,"Pontic steppe","BGR","Bulgaria","100",470.440582313141
+81201,"Aegean and Western Turkey sclerophyllous and mixed forests","BGR","Bulgaria","100",208.828401663228
+81323,"Persian Gulf desert and semi-desert","BHR","Bahrain","48",537.029241870436
+60301,"Bahamian pine mosaic","BHS","Bahamas","44",6443.19568357579
+61402,"Bahamian-Antillean mangroves","BHS","Bahamas","44",6207.43758584254
+80404,"Balkan mixed forests","BIH","Bosnia and Herzegovina","70",1795.33899007382
+80418,"Dinaric Mountains mixed forests","BIH","Bosnia and Herzegovina","70",27498.48469051
+80431,"Pannonian mixed forests","BIH","Bosnia and Herzegovina","70",16947.3334529485
+81210,"Illyrian deciduous forests","BIH","Bosnia and Herzegovina","70",4956.32942492073
+80412,"Central European mixed forests","BLR","Belarus","112",120399.540798785
+80436,"Sarmatic mixed forests","BLR","Belarus","112",87220.7402499882
+60111,"Central American Atlantic moist forests","BLZ","Belize","84",0.466913369733713
+60154,"Petén-Veracruz moist forests","BLZ","Belize","84",16676.8844852117
+60181,"Yucatán moist forests","BLZ","Belize","84",66.7800068354751
+60302,"Belizian pine forests","BLZ","Belize","84",2815.19089050305
+61403,"Mesoamerican Gulf-Caribbean mangroves","BLZ","Belize","84",2368.53087676872
+-9998,"Lake","BOL","Bolivia (Plurinational State of)","68",2986.34149695895
+60105,"Bolivian Yungas","BOL","Bolivia (Plurinational State of)","68",85517.8430578474
+60128,"Iquitos varzeá","BOL","Bolivia (Plurinational State of)","68",27.6959872315924
+60135,"Madeira-Tapajós moist forests","BOL","Bolivia (Plurinational State of)","68",59418.2669977833
+60141,"Monte Alegre varzeá","BOL","Bolivia (Plurinational State of)","68",32.3391012246597
+60157,"Purus-Madeira moist forests","BOL","Bolivia (Plurinational State of)","68",5.84117417735941
+60165,"Southern Andean Yungas","BOL","Bolivia (Plurinational State of)","68",27691.20735232
+60166,"Southwest Amazon moist forests","BOL","Bolivia (Plurinational State of)","68",168840.228350395
+60206,"Bolivian montane dry forests","BOL","Bolivia (Plurinational State of)","68",72779.57265828
+60210,"Dry Chaco","BOL","Bolivia (Plurinational State of)","68",122675.653968693
+60212,"Chiquitano dry forests","BOL","Bolivia (Plurinational State of)","68",164080.802965732
+60702,"Beni savanna","BOL","Bolivia (Plurinational State of)","68",125429.085180471
+60704,"Cerrado","BOL","Bolivia (Plurinational State of)","68",5930.89478239797
+60907,"Pantanal","BOL","Bolivia (Plurinational State of)","68",32111.3391307032
+61001,"Central Andean dry puna","BOL","Bolivia (Plurinational State of)","68",142426.578619694
+61002,"Central Andean puna","BOL","Bolivia (Plurinational State of)","68",56209.8925764732
+61003,"Central Andean wet puna","BOL","Bolivia (Plurinational State of)","68",17778.6242763677
+60101,"Araucaria moist forests","BRA","Brazil","76",211052.378703659
+60102,"Atlantic Coast restingas","BRA","Brazil","76",7829.63670029683
+60103,"Bahia coastal forests","BRA","Brazil","76",109290.040229298
+60104,"Bahia interior forests","BRA","Brazil","76",229241.326210727
+60106,"Caatinga Enclaves moist forests","BRA","Brazil","76",4776.26551394664
+60107,"Caqueta moist forests","BRA","Brazil","76",12675.3444456628
+60123,"Fernando de Noronha-Atol das Rocas moist forests","BRA","Brazil","76",18.4982062170772
+60124,"Guianan Highlands moist forests","BRA","Brazil","76",27182.9901732251
+60125,"Guianan moist forests","BRA","Brazil","76",68038.3841311978
+60126,"Gurupa varzeá","BRA","Brazil","76",9880.96151110832
+60128,"Iquitos varzeá","BRA","Brazil","76",31089.9172389305
+60132,"Japurá-Solimoes-Negro moist forests","BRA","Brazil","76",233654.657070236
+60133,"Juruá-Purus moist forests","BRA","Brazil","76",241492.722818319
+60135,"Madeira-Tapajós moist forests","BRA","Brazil","76",657263.599805057
+60138,"Marajó varzeá","BRA","Brazil","76",87167.0083602558
+60139,"Maranhão Babaçu forests","BRA","Brazil","76",141633.232605218
+60140,"Mato Grosso seasonal forests","BRA","Brazil","76",412314.04971892
+60141,"Monte Alegre varzeá","BRA","Brazil","76",66473.8377574639
+60143,"Negro-Branco moist forests","BRA","Brazil","76",48603.8020453671
+60144,"Northeastern Brazil restingas","BRA","Brazil","76",10003.3788582393
+60150,"Alto Paraná Atlantic forests","BRA","Brazil","76",374370.25547278
+60151,"Pernambuco coastal forests","BRA","Brazil","76",17501.4039880866
+60152,"Pernambuco interior forests","BRA","Brazil","76",22595.7859398672
+60156,"Purus varzeá","BRA","Brazil","76",143818.28964532
+60157,"Purus-Madeira moist forests","BRA","Brazil","76",173255.556249402
+60158,"Rio Negro campinarana","BRA","Brazil","76",80322.318377252
+60160,"Serra do Mar coastal forests","BRA","Brazil","76",104522.183062328
+60163,"Solimões-Japurá moist forests","BRA","Brazil","76",36028.0109181734
+60166,"Southwest Amazon moist forests","BRA","Brazil","76",316809.301571679
+60168,"Tapajós-Xingu moist forests","BRA","Brazil","76",335099.353823802
+60169,"Pantepui","BRA","Brazil","76",5091.99764507044
+60170,"Tocantins/Pindare moist forests","BRA","Brazil","76",192763.037864768
+60173,"Uatuma-Trombetas moist forests","BRA","Brazil","76",469521.57977166
+60180,"Xingu-Tocantins-Araguaia moist forests","BRA","Brazil","76",265071.843996545
+60182,"Guianan piedmont and lowland moist forests","BRA","Brazil","76",84980.532340873
+60202,"Atlantic dry forests","BRA","Brazil","76",114660.154861038
+60210,"Dry Chaco","BRA","Brazil","76",120.646471245274
+60212,"Chiquitano dry forests","BRA","Brazil","76",65685.1388339445
+60702,"Beni savanna","BRA","Brazil","76",9.50385306137648
+60703,"Campos Rupestres montane savanna","BRA","Brazil","76",26312.9380971757
+60704,"Cerrado","BRA","Brazil","76",1895968.88549442
+60707,"Guianan savanna","BRA","Brazil","76",77427.669682456
+60708,"Humid Chaco","BRA","Brazil","76",1193.35575645582
+60710,"Uruguayan savanna","BRA","Brazil","76",174370.905973687
+60801,"Espinal","BRA","Brazil","76",1.61431608103786
+60907,"Pantanal","BRA","Brazil","76",136392.668667236
+60909,"Southern Cone Mesopotamian savanna","BRA","Brazil","76",88.1790333450293
+61304,"Caatinga","BRA","Brazil","76",731303.092204762
+61401,"Amazon-Orinoco-Southern Caribbean mangroves","BRA","Brazil","76",17297.12441223
+61406,"Southern Atlantic mangroves","BRA","Brazil","76",9977.3798986639
+61305,"Caribbean shrublands","BRB","Barbados","52",436.683643582233
+40102,"Borneo lowland rain forests","BRN","Brunei Darussalam","96",3667.14250870913
+40103,"Borneo montane rain forests","BRN","Brunei Darussalam","96",76.7762276238634
+40104,"Borneo peat swamp forests","BRN","Brunei Darussalam","96",1994.83133982046
+41405,"Sunda Shelf mangroves","BRN","Brunei Darussalam","96",135.325525417106
+-9999,"Rock and Ice","BTN","Bhutan","64",1182.41783719587
+40105,"Brahmaputra Valley semi-evergreen forests","BTN","Bhutan","64",223.805905000307
+40115,"Himalayan subtropical broadleaf forests","BTN","Bhutan","64",4158.61366300569
+40301,"Himalayan subtropical pine forests","BTN","Bhutan","64",669.431098428479
+40401,"Eastern Himalayan broadleaf forests","BTN","Bhutan","64",16194.8857824312
+40501,"Eastern Himalayan subalpine conifer forests","BTN","Bhutan","64",9077.02539800626
+40701,"Terai-Duar savanna and grasslands","BTN","Bhutan","64",108.258848057225
+80514,"Northeastern Himalayan subalpine conifer forests","BTN","Bhutan","64",66.3438067650788
+81003,"Eastern Himalayan alpine shrub and meadows","BTN","Bhutan","64",7007.25137409378
+81022,"Yarlung Tsangpo arid steppe","BTN","Bhutan","64",1.45688231369713
+30709,"Kalahari Acacia-Baikiaea woodlands","BWA","Botswana","72",215229.119477917
+30717,"Southern Africa bushveld","BWA","Botswana","72",46061.9194307962
+30725,"Zambezian and Mopane woodlands","BWA","Botswana","72",28865.936335818
+30726,"Zambezian Baikiaea woodlands","BWA","Botswana","72",19533.6167738091
+30907,"Zambezian flooded grasslands","BWA","Botswana","72",24595.6760193015
+30908,"Zambezian halophytics","BWA","Botswana","72",22082.1627315986
+31309,"Kalahari xeric savanna","BWA","Botswana","72",221674.868012886
+30124,"Northeastern Congolian lowland forests","CAF","Central African Republic","140",30540.5716868885
+30126,"Northwestern Congolian lowland forests","CAF","Central African Republic","140",34028.3048039882
+30129,"Western Congolian swamp forests","CAF","Central African Republic","140",98.3274896340856
+30705,"East Sudanian savanna","CAF","Central African Republic","140",265215.968596872
+30712,"Northern Congolian forest-savanna mosaic","CAF","Central African Republic","140",276015.900840848
+30713,"Sahelian Acacia savanna","CAF","Central African Republic","140",13898.7586546103
+-9999,"Rock and Ice","CAN","Canada","124",126319.604192429
+-9998,"Lake","CAN","Canada","124",195539.318189802
+50406,"Eastern forest-boreal transition","CAN","Canada","124",319311.920146912
+50407,"Eastern Great Lakes lowland forests","CAN","Canada","124",90410.6759489375
+50408,"Gulf of St. Lawrence lowland forests","CAN","Canada","124",38944.4180012339
+50410,"New England-Acadian forests","CAN","Canada","124",117322.885587615
+50414,"Southern Great Lakes forests","CAN","Canada","124",24356.0836650954
+50416,"Western Great Lakes forests","CAN","Canada","124",73996.9907795384
+50501,"Alberta Mountain forests","CAN","Canada","124",39932.6049031521
+50502,"Alberta-British Columbia foothills forests","CAN","Canada","124",121016.9283058
+50506,"British Columbia mainland coastal forests","CAN","Canada","124",121869.593961899
+50507,"Cascade Mountains leeward forests","CAN","Canada","124",30406.5974913011
+50509,"Central British Columbia Mountain forests","CAN","Canada","124",72089.9104679973
+50510,"Central Pacific coastal forests","CAN","Canada","124",32322.8090625612
+50514,"Fraser Plateau and Basin complex","CAN","Canada","124",137635.853707855
+50518,"North Central Rockies forests","CAN","Canada","124",143898.027272291
+50521,"Northern transitional alpine forests","CAN","Canada","124",25783.0572247305
+50522,"Okanagan dry forests","CAN","Canada","124",39161.3176706243
+50524,"Puget lowland forests","CAN","Canada","124",5811.28664431752
+50525,"Queen Charlotte Islands","CAN","Canada","124",9587.14915217864
+50602,"Central Canadian Shield forests","CAN","Canada","124",463345.321471895
+50605,"Eastern Canadian forests","CAN","Canada","124",484777.903356031
+50606,"Eastern Canadian Shield taiga","CAN","Canada","124",756103.405547209
+50607,"Interior Alaska-Yukon lowland taiga","CAN","Canada","124",41244.3737770566
+50608,"Mid-Continental Canadian forests","CAN","Canada","124",369628.407426643
+50609,"Midwestern Canadian Shield forests","CAN","Canada","124",548394.250456197
+50610,"Muskwa-Slave Lake forests","CAN","Canada","124",263805.376473873
+50611,"Newfoundland Highland forests","CAN","Canada","124",16329.8071828564
+50612,"Northern Canadian Shield taiga","CAN","Canada","124",617318.699437092
+50613,"Northern Cordillera forests","CAN","Canada","124",264217.518241168
+50614,"Northwest Territories taiga","CAN","Canada","124",348138.020372923
+50615,"South Avalon-Burin oceanic barrens","CAN","Canada","124",1898.3597639741
+50616,"Southern Hudson Bay taiga","CAN","Canada","124",374025.747673154
+50617,"Yukon Interior dry forests","CAN","Canada","124",62742.2183547974
+50802,"Canadian Aspen forests and parklands","CAN","Canada","124",393148.243563526
+50808,"Montana Valley and Foothill grasslands","CAN","Canada","124",14919.3607045095
+50810,"Northern mixed grasslands","CAN","Canada","124",110183.843642789
+50811,"Northern short grasslands","CAN","Canada","124",133592.296477494
+50812,"Northern tall grasslands","CAN","Canada","124",33916.2623642112
+50813,"Palouse grasslands","CAN","Canada","124",27.2717165750218
+51101,"Alaska-St. Elias Range tundra","CAN","Canada","124",24041.5651158459
+51103,"Arctic coastal tundra","CAN","Canada","124",48155.9462703706
+51104,"Arctic foothills tundra","CAN","Canada","124",5547.8359755076
+51105,"Baffin coastal tundra","CAN","Canada","124",8926.392688708
+51108,"Brooks-British Range tundra","CAN","Canada","124",26850.992969819
+51109,"Davis Highlands tundra","CAN","Canada","124",87009.6628052853
+51110,"High Arctic tundra","CAN","Canada","124",461441.093831996
+51111,"Interior Yukon-Alaska alpine tundra","CAN","Canada","124",119026.18546238
+51114,"Low Arctic tundra","CAN","Canada","124",798453.381147408
+51115,"Middle Arctic tundra","CAN","Canada","124",1028948.20894786
+51116,"Ogilvie-MacKenzie alpine tundra","CAN","Canada","124",199081.174351491
+51117,"Pacific Coastal Mountain icefields and tundra","CAN","Canada","124",24628.2701534639
+51118,"Torngat Mountain tundra","CAN","Canada","124",31971.5899949987
+80432,"Po Basin mixed forests","CHE","Switzerland","756",33.86311735339
+80445,"Western European broadleaf forests","CHE","Switzerland","756",17687.990422705
+80501,"Alps conifer and mixed forests","CHE","Switzerland","756",23568.9872948239
+-9999,"Rock and Ice","CHL","Chile","152",15997.643021126
+60401,"Juan Fernández Islands temperate forests","CHL","Chile","152",139.182531257974
+60402,"Magellanic subpolar forests","CHL","Chile","152",133343.329684059
+60403,"San Félix-San Ambrosio Islands temperate forests","CHL","Chile","152",3.67054726757634
+60404,"Valdivian temperate forests","CHL","Chile","152",202987.973246957
+60805,"Patagonian steppe","CHL","Chile","152",28147.5567735476
+61001,"Central Andean dry puna","CHL","Chile","152",82735.7771405417
+61002,"Central Andean puna","CHL","Chile","152",940.453603517193
+61008,"Southern Andean steppe","CHL","Chile","152",29881.6752998031
+61201,"Chilean matorral","CHL","Chile","152",148289.123891446
+61303,"Atacama desert","CHL","Chile","152",104885.183257329
+61315,"Sechura desert","CHL","Chile","152",1410.35715209027
+70111,"Rapa Nui subtropical broadleaf forests","CHL","Chile","152",173.667079901201
+-9999,"Rock and Ice","CHN","China","156",51943.3760377848
+40118,"Jian Nan subtropical evergreen forests","CHN","China","156",661244.253614361
+40131,"Mizoram-Manipur-Kachin rain forests","CHN","China","156",21.2772593506248
+40137,"Northern Indochina subtropical forests","CHN","China","156",146711.711751922
+40140,"Northern Triangle subtropical forests","CHN","China","156",70.2548439951603
+40149,"South China-Vietnam subtropical evergreen forests","CHN","China","156",184221.801142128
+40152,"Southern Annamites montane rain forests","CHN","China","156",0.197726999751925
+40169,"Hainan Island monsoon rain forests","CHN","China","156",15486.9123078831
+40171,"South Taiwan monsoon rain forests","CHN","China","156",2483.57918457855
+40172,"Taiwan subtropical evergreen forests","CHN","China","156",32977.3536149611
+40401,"Eastern Himalayan broadleaf forests","CHN","China","156",14.3240338676249
+40402,"Northern Triangle temperate forests","CHN","China","156",8.43885641781084
+40501,"Eastern Himalayan subalpine conifer forests","CHN","China","156",704.687211553135
+80101,"Guizhou Plateau broadleaf and mixed forests","CHN","China","156",269131.877885689
+80102,"Yunnan Plateau subtropical evergreen forests","CHN","China","156",239854.425654567
+80411,"Central China loess plateau mixed forests","CHN","China","156",359866.705867903
+80414,"Changbai Mountains mixed forests","CHN","China","156",46079.2633562122
+80415,"Changjiang Plain evergreen forests","CHN","China","156",436963.151185342
+80417,"Daba Mountains evergreen forests","CHN","China","156",168169.924958104
+80424,"Huang He Plain mixed forests","CHN","China","156",433422.501867415
+80426,"Manchurian mixed forests","CHN","China","156",356942.066029538
+80430,"Northeast China Plain deciduous forests","CHN","China","156",232338.752441044
+80434,"Qin Ling Mountains deciduous forests","CHN","China","156",123278.574272785
+80437,"Sichuan Basin evergreen broadleaf forests","CHN","China","156",98008.3798261038
+80442,"Tarim Basin deciduous forests and steppe","CHN","China","156",54533.0457757303
+80502,"Altai montane forest and forest steppe","CHN","China","156",17020.338910322
+80505,"Da Hinggan-Dzhagdy Mountains conifer forests","CHN","China","156",151627.473774871
+80508,"Helanshan montane conifer forests","CHN","China","156",24704.0226966805
+80509,"Hengduan Mountains subalpine conifer forests","CHN","China","156",99290.8431377875
+80514,"Northeastern Himalayan subalpine conifer forests","CHN","China","156",40769.6861406779
+80516,"Nujiang Langcang Gorge alpine conifer and mixed forests","CHN","China","156",78199.9224687795
+80517,"Qilian Mountains conifer forests","CHN","China","156",16653.006793909
+80518,"Qionglai-Minshan conifer forests","CHN","China","156",80134.0218387636
+80521,"Tian Shan montane conifer forests","CHN","China","156",12816.0318968071
+80601,"East Siberian taiga","CHN","China","156",306.840044415552
+80802,"Altai steppe and semi-desert","CHN","China","156",2201.93180569246
+80804,"Daurian forest steppe","CHN","China","156",2905.75485533999
+80806,"Emin Valley steppe","CHN","China","156",46272.4195824091
+80813,"Mongolian-Manchurian grassland","CHN","China","156",578295.256658261
+80818,"Tian Shan foothill arid steppe","CHN","China","156",8733.23687692968
+80901,"Amur meadow steppe","CHN","China","156",53700.8499331819
+80902,"Bohai Sea saline meadow","CHN","China","156",11413.3264780633
+80903,"Nenjiang River grassland","CHN","China","156",23259.8302022793
+80907,"Suiphun-Khanka meadows and forest meadows","CHN","China","156",15221.0527667482
+80908,"Yellow Sea saline meadow","CHN","China","156",4895.14179662029
+81001,"Altai alpine meadow and tundra","CHN","China","156",15994.2851426391
+81002,"Central Tibetan Plateau alpine steppe","CHN","China","156",615645.615544331
+81003,"Eastern Himalayan alpine shrub and meadows","CHN","China","156",86969.4308384834
+81006,"Karakoram-West Tibetan Plateau alpine steppe","CHN","China","156",26052.3871010917
+81011,"North Tibetan Plateau-Kunlun Mountains alpine desert","CHN","China","156",363188.410459272
+81012,"Northwestern Himalayan alpine shrub and meadows","CHN","China","156",849.952404876363
+81013,"Ordos Plateau steppe","CHN","China","156",215604.420031517
+81014,"Pamir alpine desert and tundra","CHN","China","156",34494.5773324963
+81015,"Qilian Mountains subalpine meadows","CHN","China","156",73284.1229985973
+81017,"Southeast Tibet shrublands and meadows","CHN","China","156",460547.625112288
+81019,"Tian Shan montane steppe and meadows","CHN","China","156",195041.083443046
+81020,"Tibetan Plateau alpine shrublands and meadows","CHN","China","156",272009.720204575
+81021,"Western Himalayan alpine shrub and Meadows","CHN","China","156",35107.4500191321
+81022,"Yarlung Tsangpo arid steppe","CHN","China","156",59379.2766247982
+81302,"Alashan Plateau semi-desert","CHN","China","156",457411.042782328
+81314,"Eastern Gobi desert steppe","CHN","China","156",103870.869665557
+81317,"Junggar Basin semi-desert","CHN","China","156",239395.894664901
+81324,"Qaidam Basin semi-desert","CHN","China","156",192126.79426496
+81330,"Taklimakan desert","CHN","China","156",742655.378164111
+30111,"Eastern Guinean forests","CIV","Côte d'Ivoire","384",102685.959107627
+30114,"Guinean montane forests","CIV","Côte d'Ivoire","384",2921.7672264322
+30130,"Western Guinean lowland forests","CIV","Côte d'Ivoire","384",43562.2287757426
+30707,"Guinean forest-savanna mosaic","CIV","Côte d'Ivoire","384",88357.1790264749
+30722,"West Sudanian savanna","CIV","Côte d'Ivoire","384",83555.5437065397
+31403,"Guinean mangroves","CIV","Côte d'Ivoire","384",601.472369961289
+-9998,"Lake","CMR","Cameroon","120",3880.5859655385
+30102,"Atlantic Equatorial coastal forests","CMR","Cameroon","120",33213.5204321505
+30103,"Cameroonian Highlands forests","CMR","Cameroon","120",28751.1211377654
+30107,"Cross-Sanaga-Bioko coastal forests","CMR","Cameroon","120",33987.6930179375
+30121,"Mount Cameroon and Bioko montane forests","CMR","Cameroon","120",1016.29032677401
+30126,"Northwestern Congolian lowland forests","CMR","Cameroon","120",145794.947274941
+30705,"East Sudanian savanna","CMR","Cameroon","120",37193.4801186006
+30707,"Guinean forest-savanna mosaic","CMR","Cameroon","120",7967.19642684662
+30710,"Mandara Plateau mosaic","CMR","Cameroon","120",5591.9754620779
+30712,"Northern Congolian forest-savanna mosaic","CMR","Cameroon","120",142643.743873433
+30713,"Sahelian Acacia savanna","CMR","Cameroon","120",21923.9627181855
+30722,"West Sudanian savanna","CMR","Cameroon","120",7.33232099315057
+30904,"Lake Chad flooded savanna","CMR","Cameroon","120",525.383030686787
+31401,"Central African mangroves","CMR","Cameroon","120",2721.88707402098
+-9998,"Lake","COD","Democratic Republic of the Congo","180",17465.6522011693
+30101,"Albertine Rift montane forests","COD","Democratic Republic of the Congo","180",64281.087936763
+30102,"Atlantic Equatorial coastal forests","COD","Democratic Republic of the Congo","180",8967.81872251608
+30104,"Central Congolian lowland forests","COD","Democratic Republic of the Congo","180",412881.754147644
+30110,"Eastern Congolian swamp forests","COD","Democratic Republic of the Congo","180",92315.1906883978
+30124,"Northeastern Congolian lowland forests","COD","Democratic Republic of the Congo","180",500527.22858252
+30126,"Northwestern Congolian lowland forests","COD","Democratic Republic of the Congo","180",1386.40439526975
+30129,"Western Congolian swamp forests","COD","Democratic Republic of the Congo","180",55832.9106074398
+30701,"Angolan Miombo woodlands","COD","Democratic Republic of the Congo","180",28763.2687537887
+30704,"Central Zambezian Miombo woodlands","COD","Democratic Republic of the Congo","180",410782.256148592
+30705,"East Sudanian savanna","COD","Democratic Republic of the Congo","180",2013.93546217182
+30708,"Itigi-Sumbu thicket","COD","Democratic Republic of the Congo","180",528.893160953339
+30712,"Northern Congolian forest-savanna mosaic","COD","Democratic Republic of the Congo","180",131597.143019329
+30718,"Southern Congolian forest-savanna mosaic","COD","Democratic Republic of the Congo","180",508855.258640978
+30721,"Victoria Basin forest-savanna mosaic","COD","Democratic Republic of the Congo","180",4393.28648835431
+30723,"Western Congolian forest-savanna mosaic","COD","Democratic Republic of the Congo","180",85431.5353552168
+30907,"Zambezian flooded grasslands","COD","Democratic Republic of the Congo","180",2309.63623610708
+31013,"Rwenzori-Virunga montane moorlands","COD","Democratic Republic of the Congo","180",745.054093756971
+31401,"Central African mangroves","COD","Democratic Republic of the Congo","180",698.391244155831
+30102,"Atlantic Equatorial coastal forests","COG","Congo","178",7559.8415133213
+30126,"Northwestern Congolian lowland forests","COG","Congo","178",150925.575004735
+30129,"Western Congolian swamp forests","COG","Congo","178",72128.9714162635
+30723,"Western Congolian forest-savanna mosaic","COG","Congo","178",111752.835993748
+60107,"Caqueta moist forests","COL","Colombia","170",170682.96979036
+60108,"Catatumbo moist forests","COL","Colombia","170",6625.33406929683
+60109,"Cauca Valley montane forests","COL","Colombia","170",31915.2719252792
+60115,"Chocó-Darién moist forests","COL","Colombia","170",59711.2858916376
+60118,"Cordillera Oriental montane forests","COL","Colombia","170",58866.30715967
+60121,"Eastern Cordillera real montane forests","COL","Colombia","170",10837.8554045574
+60122,"Eastern Panamanian montane forests","COL","Colombia","170",837.07703841023
+60128,"Iquitos varzeá","COL","Colombia","170",233.482053431002
+60132,"Japurá-Solimoes-Negro moist forests","COL","Colombia","170",34714.082748483
+60136,"Magdalena Valley montane forests","COL","Colombia","170",104598.32516032
+60137,"Magdalena-Urabá moist forests","COL","Colombia","170",76421.2493212092
+60142,"Napo moist forests","COL","Colombia","170",39999.6922540039
+60143,"Negro-Branco moist forests","COL","Colombia","170",97205.3333298302
+60145,"Northwestern Andean montane forests","COL","Colombia","170",48693.9451212171
+60156,"Purus varzeá","COL","Colombia","170",30056.8000607425
+60158,"Rio Negro campinarana","COL","Colombia","170",3219.32464396642
+60159,"Santa Marta montane forests","COL","Colombia","170",4765.52425396681
+60163,"Solimões-Japurá moist forests","COL","Colombia","170",72115.8931491213
+60166,"Southwest Amazon moist forests","COL","Colombia","170",3.34323260516325
+60175,"Venezuelan Andes montane forests","COL","Colombia","170",38.246483280733
+60178,"Western Ecuador moist forests","COL","Colombia","170",2336.07794610213
+60182,"Guianan piedmont and lowland moist forests","COL","Colombia","170",81.8824467046907
+60201,"Apure-Villavicencio dry forests","COL","Colombia","170",24541.375517132
+60207,"Cauca Valley dry forests","COL","Colombia","170",7312.79652197275
+60209,"Central American dry forests","COL","Colombia","170",5.81282855507571
+60221,"Magdalena Valley dry forests","COL","Colombia","170",19548.7341087182
+60225,"Patía Valley dry forests","COL","Colombia","170",2260.58037148619
+60229,"Sinú Valley dry forests","COL","Colombia","170",24855.6532888448
+60709,"Llanos","COL","Colombia","170",152666.239457904
+61006,"Northern Andean páramo","COL","Colombia","170",14217.4823726457
+61007,"Santa Marta páramo","COL","Colombia","170",1238.65916720897
+61308,"Guajira-Barranquilla xeric scrub","COL","Colombia","170",27613.7858023609
+61311,"Malpelo Island xeric scrub","COL","Colombia","170",7.5188331804091
+61401,"Amazon-Orinoco-Southern Caribbean mangroves","COL","Colombia","170",3293.54061604563
+61405,"South American Pacific mangroves","COL","Colombia","170",5640.31991799528
+30105,"Comoros forests","COM","Comoros","174",1534.73667037494
+30201,"Cape Verde Islands dry forests","CPV","Cabo Verde","132",3582.65745393067
+60116,"Cocos Island moist forests","CRI","Costa Rica","188",22.27261332526
+60119,"Costa Rican seasonal moist forests","CRI","Costa Rica","188",8485.28465569165
+60129,"Isthmian-Atlantic moist forests","CRI","Costa Rica","188",16663.3524205028
+60130,"Isthmian-Pacific moist forests","CRI","Costa Rica","188",9014.08629124955
+60167,"Talamancan montane forests","CRI","Costa Rica","188",9137.28405428171
+60209,"Central American dry forests","CRI","Costa Rica","188",6075.93462498398
+61403,"Mesoamerican Gulf-Caribbean mangroves","CRI","Costa Rica","188",296.467741899838
+61407,"Southern Mesoamerican Pacific mangroves","CRI","Costa Rica","188",816.359489427051
+60120,"Cuban moist forests","CUB","Cuba","192",21241.7168229632
+60213,"Cuban dry forests","CUB","Cuba","192",65396.5818728684
+60304,"Cuban pine forests","CUB","Cuba","192",6366.44327208898
+60902,"Cuban wetlands","CUB","Cuba","192",5635.76476402098
+61306,"Cuban cactus scrub","CUB","Cuba","192",3117.65426408978
+61402,"Bahamian-Antillean mangroves","CUB","Cuba","192",6869.04336061226
+81206,"Cyprus Mediterranean forests","CYP","Cyprus","196",8852.67210020954
+80412,"Central European mixed forests","CZE","Czechia","203",20703.2891451055
+80431,"Pannonian mixed forests","CZE","Czechia","203",8862.60232609723
+80445,"Western European broadleaf forests","CZE","Czechia","203",47816.4918909992
+80504,"Carpathian montane forests","CZE","Czechia","203",1491.55206103128
+80402,"Atlantic mixed forests","DEU","Germany","276",77748.9809784667
+80405,"Baltic mixed forests","DEU","Germany","276",31227.6662015904
+80412,"Central European mixed forests","DEU","Germany","276",48890.2442702275
+80445,"Western European broadleaf forests","DEU","Germany","276",194923.531047265
+80501,"Alps conifer and mixed forests","DEU","Germany","276",3454.10697636804
+31304,"Eritrean coastal desert","DJI","Djibouti","262",1672.96475256038
+31305,"Ethiopian xeric grasslands and shrublands","DJI","Djibouti","262",19948.49166384
+60179,"Windward Islands moist forests","DMA","Dominica","212",569.221067212173
+61305,"Caribbean shrublands","DMA","Dominica","212",139.418592067132
+-9999,"Rock and Ice","DNK","Denmark","208",1679867.10081761
+51112,"Kalaallit Nunaat high arctic tundra","DNK","Denmark","208",293646.497365865
+51113,"Kalaallit Nunaat low arctic tundra","DNK","Denmark","208",165713.858653885
+80402,"Atlantic mixed forests","DNK","Denmark","208",10150.3851884643
+80405,"Baltic mixed forests","DNK","Denmark","208",29237.8820935537
+80807,"Faroe Islands boreal grasslands","DNK","Denmark","208",1218.7524217072
+60127,"Hispaniolan moist forests","DOM","Dominican Republic","214",28629.5562830592
+60215,"Hispaniolan dry forests","DOM","Dominican Republic","214",9540.39479484089
+60305,"Hispaniolan pine forests","DOM","Dominican Republic","214",8344.04594390328
+60903,"Enriquillo wetlands","DOM","Dominican Republic","214",424.46270990874
+61402,"Bahamian-Antillean mangroves","DOM","Dominican Republic","214",1124.00869973823
+80513,"Mediterranean conifer and mixed forests","DZA","Algeria","12",9413.31402756295
+80905,"Saharan halophytics","DZA","Algeria","12",14348.9867010212
+81213,"Mediterranean dry woodlands and steppe","DZA","Algeria","12",157415.882576094
+81214,"Mediterranean woodlands and forests","DZA","Algeria","12",134844.319092363
+81321,"North Saharan steppe and woodlands","DZA","Algeria","12",600832.356960472
+81327,"Sahara desert","DZA","Algeria","12",1168440.09514709
+81329,"South Saharan steppe and woodlands","DZA","Algeria","12",27788.8005457431
+81332,"West Saharan montane xeric woodlands","DZA","Algeria","12",194821.377620822
+60115,"Chocó-Darién moist forests","ECU","Ecuador","218",14.5334971520958
+60121,"Eastern Cordillera real montane forests","ECU","Ecuador","218",65379.0376750934
+60128,"Iquitos varzeá","ECU","Ecuador","218",3.51512542698742
+60142,"Napo moist forests","ECU","Ecuador","218",70616.4085547967
+60145,"Northwestern Andean montane forests","ECU","Ecuador","218",32112.1224958113
+60178,"Western Ecuador moist forests","ECU","Ecuador","218",31598.4067158991
+60214,"Ecuadorian dry forests","ECU","Ecuador","218",21059.5316809111
+60232,"Tumbes-Piura dry forests","ECU","Ecuador","218",3025.69974984628
+60905,"Guayaquil flooded grasslands","ECU","Ecuador","218",2923.87733982442
+61004,"Cordillera Central páramo","ECU","Ecuador","218",448.130361591606
+61006,"Northern Andean páramo","ECU","Ecuador","218",15318.4021566491
+61307,"Galápagos Islands scrubland mosaic","ECU","Ecuador","218",7798.62837308806
+61405,"South American Pacific mangroves","ECU","Ecuador","218",5211.31936406466
+80904,"Nile Delta flooded savanna","EGY","Egypt","818",50891.2606446964
+80905,"Saharan halophytics","EGY","Egypt","818",20758.0530452617
+81213,"Mediterranean dry woodlands and steppe","EGY","Egypt","818",3654.44529912058
+81303,"Arabian Desert and East Sahero-Arabian xeric shrublands","EGY","Egypt","818",48994.3746980372
+81320,"Mesopotamian shrub desert","EGY","Egypt","818",6.04591203040759
+81321,"North Saharan steppe and woodlands","EGY","Egypt","818",63786.8072994121
+81325,"Red Sea Nubo-Sindian tropical desert and semi-desert","EGY","Egypt","818",7979.65572444993
+81327,"Sahara desert","EGY","Egypt","818",745702.552696128
+81329,"South Saharan steppe and woodlands","EGY","Egypt","818",5.91760640927517
+81331,"Tibesti-Jebel Uweinat montane xeric woodlands","EGY","Egypt","818",170.411883733211
+81333,"Red Sea coastal desert","EGY","Egypt","818",39071.110018875
+30112,"Ethiopian montane forests","ERI","Eritrea","232",15479.5190058496
+30705,"East Sudanian savanna","ERI","Eritrea","232",4469.68058248019
+30713,"Sahelian Acacia savanna","ERI","Eritrea","232",46113.887356835
+30715,"Somali Acacia-Commiphora bushlands and thickets","ERI","Eritrea","232",4930.31058677269
+31007,"Ethiopian montane grasslands and woodlands","ERI","Eritrea","232",7184.4360269343
+31304,"Eritrean coastal desert","ERI","Eritrea","232",2891.29797570589
+31305,"Ethiopian xeric grasslands and shrublands","ERI","Eritrea","232",39213.5877016418
+80905,"Saharan halophytics","ESH","Western Sahara","732",358.920529828028
+81212,"Mediterranean acacia-argania dry woodlands and succulent thickets","ESH","Western Sahara","732",2008.33269034653
+81304,"Atlantic coastal desert","ESH","Western Sahara","732",22818.7661360785
+81321,"North Saharan steppe and woodlands","ESH","Western Sahara","732",243329.581632341
+80406,"Cantabrian mixed forests","ESP","Spain","724",61427.5974059589
+80433,"Pyrenees conifer and mixed forests","ESP","Spain","724",13272.447891675
+81203,"Canary Islands dry woodlands and forests","ESP","Spain","724",4810.15032250705
+81208,"Iberian conifer forests","ESP","Spain","724",34461.0379525155
+81209,"Iberian sclerophyllous and semi-deciduous forests","ESP","Spain","724",278242.510288203
+81212,"Mediterranean acacia-argania dry woodlands and succulent thickets","ESP","Spain","724",2480.74587681432
+81214,"Mediterranean woodlands and forests","ESP","Spain","724",30.6578286299378
+81215,"Northeastern Spain and Southern France Mediterranean forests","ESP","Spain","724",32632.7869498621
+81216,"Northwest Iberian montane forests","ESP","Spain","724",44819.9025928004
+81219,"Southeastern Iberian shrubs and woodlands","ESP","Spain","724",2712.36234035139
+81221,"Southwest Iberian Mediterranean sclerophyllous and mixed forests","ESP","Spain","724",29426.6644943898
+80436,"Sarmatic mixed forests","EST","Estonia","233",44547.402517772
+-9998,"Lake","ETH","Ethiopia","231",448.169286685532
+30112,"Ethiopian montane forests","ETH","Ethiopia","231",227514.638571109
+30705,"East Sudanian savanna","ETH","Ethiopia","231",94671.3747168264
+30711,"Northern Acacia-Commiphora bushlands and thickets","ETH","Ethiopia","231",4121.07895181746
+30713,"Sahelian Acacia savanna","ETH","Ethiopia","231",12170.5876371209
+30715,"Somali Acacia-Commiphora bushlands and thickets","ETH","Ethiopia","231",458334.556260699
+30721,"Victoria Basin forest-savanna mosaic","ETH","Ethiopia","231",4059.84297786945
+30905,"Saharan flooded grasslands","ETH","Ethiopia","231",737.339377030113
+31007,"Ethiopian montane grasslands and woodlands","ETH","Ethiopia","231",236596.89526664
+31008,"Ethiopian montane moorlands","ETH","Ethiopia","231",25049.1266249442
+31305,"Ethiopian xeric grasslands and shrublands","ETH","Ethiopia","231",60483.192705141
+31313,"Masai xeric grasslands and shrublands","ETH","Ethiopia","231",4793.51909655851
+80436,"Sarmatic mixed forests","FIN","Finland","246",4359.22248163684
+80608,"Scandinavian and Russian taiga","FIN","Finland","246",325457.701714435
+81110,"Scandinavian Montane Birch forest and grasslands","FIN","Finland","246",3832.22229157903
+70105,"Fiji tropical moist forests","FJI","Fiji","242",10916.9342099656
+70201,"Fiji tropical dry forests","FJI","Fiji","242",6818.6825160093
+10113,"New Caledonia rain forests","FRA","France","250",13908.8836756355
+10202,"New Caledonia dry forests","FRA","France","250",4288.46918229151
+21104,"Southern Indian Ocean Islands tundra","FRA","France","250",6709.75475930255
+30105,"Comoros forests","FRA","France","250",379.566578658106
+30120,"Mascarene forests","FRA","France","250",2475.71719045004
+30802,"Amsterdam and Saint-Paul Islands temperate grasslands","FRA","France","250",32.5125194066664
+31308,"Ile Europa and Bassas da India xeric scrub","FRA","France","250",8.56606073462036
+60124,"Guianan Highlands moist forests","FRA","France","250",245.912835397135
+60125,"Guianan moist forests","FRA","France","250",81029.2641763503
+60134,"Leeward Islands moist forests","FRA","France","250",719.710789580028
+60179,"Windward Islands moist forests","FRA","France","250",714.771894748272
+60220,"Lesser Antillean dry forests","FRA","France","250",85.3809489867064
+60705,"Clipperton Island shrub and grasslands","FRA","France","250",0.830866587312579
+61305,"Caribbean shrublands","FRA","France","250",1030.63441067502
+61401,"Amazon-Orinoco-Southern Caribbean mangroves","FRA","France","250",2327.09768016073
+61402,"Bahamian-Antillean mangroves","FRA","France","250",248.819720991334
+70105,"Fiji tropical moist forests","FRA","France","250",78.856550378881
+70108,"Marquesas tropical moist forests","FRA","France","250",1062.15923535624
+70113,"Society Islands tropical moist forests","FRA","France","250",1591.22230339855
+70115,"Tuamotu tropical moist forests","FRA","France","250",781.275585088766
+70116,"Tubuai tropical moist forests","FRA","France","250",132.415651298482
+80402,"Atlantic mixed forests","FRA","France","250",249108.854033359
+80406,"Cantabrian mixed forests","FRA","France","250",3197.39042934084
+80433,"Pyrenees conifer and mixed forests","FRA","France","250",12193.1835519737
+80445,"Western European broadleaf forests","FRA","France","250",198374.690207522
+80501,"Alps conifer and mixed forests","FRA","France","250",18029.9662935474
+81204,"Corsican montane broadleaf and mixed forests","FRA","France","250",3633.64548979381
+81211,"Italian sclerophyllous and semi-deciduous forests","FRA","France","250",1139.46357967242
+81215,"Northeastern Spain and Southern France Mediterranean forests","FRA","France","250",57070.011925257
+81222,"Tyrrhenian-Adriatic Sclerophyllous and mixed forests","FRA","France","250",4848.98689560344
+70101,"Carolines tropical moist forests","FSM","Micronesia (Federated States of)","583",568.39657794763
+70104,"Eastern Micronesia tropical moist forests","FSM","Micronesia (Federated States of)","583",10.6110890287547
+70204,"Yap tropical dry forests","FSM","Micronesia (Federated States of)","583",99.3100222490296
+30102,"Atlantic Equatorial coastal forests","GAB","Gabon","266",112506.041139035
+30126,"Northwestern Congolian lowland forests","GAB","Gabon","266",100054.732540539
+30723,"Western Congolian forest-savanna mosaic","GAB","Gabon","266",45191.8910641646
+31401,"Central African mangroves","GAB","Gabon","266",5222.55678338836
+21103,"Scotia Sea Islands tundra","GBR","United Kingdom of Great Britain & Northern Ireland","826",3652.5138341441
+30703,"Ascension scrub and grasslands","GBR","United Kingdom of Great Britain & Northern Ireland","826",83.8573101718126
+30720,"St. Helena scrub and woodlands","GBR","United Kingdom of Great Britain & Northern Ireland","826",107.148511787526
+30803,"Tristan Da Cunha-Gough Islands shrub and grasslands","GBR","United Kingdom of Great Britain & Northern Ireland","826",79.7081979595216
+50301,"Bermuda subtropical conifer forests","GBR","United Kingdom of Great Britain & Northern Ireland","826",24.6620966151074
+60134,"Leeward Islands moist forests","GBR","United Kingdom of Great Britain & Northern Ireland","826",44.4586449987008
+60213,"Cuban dry forests","GBR","United Kingdom of Great Britain & Northern Ireland","826",118.289757342959
+60220,"Lesser Antillean dry forests","GBR","United Kingdom of Great Britain & Northern Ireland","826",51.4883559563728
+60301,"Bahamian pine mosaic","GBR","United Kingdom of Great Britain & Northern Ireland","826",267.301003341235
+60805,"Patagonian steppe","GBR","United Kingdom of Great Britain & Northern Ireland","826",11590.7955965027
+61305,"Caribbean shrublands","GBR","United Kingdom of Great Britain & Northern Ireland","826",163.486324210442
+61402,"Bahamian-Antillean mangroves","GBR","United Kingdom of Great Britain & Northern Ireland","826",345.455574199037
+70115,"Tuamotu tropical moist forests","GBR","United Kingdom of Great Britain & Northern Ireland","826",34.0943950030175
+80402,"Atlantic mixed forests","GBR","United Kingdom of Great Britain & Northern Ireland","826",149.152894867969
+80409,"Celtic broadleaf forests","GBR","United Kingdom of Great Britain & Northern Ireland","826",153587.644384625
+80421,"English Lowlands beech forests","GBR","United Kingdom of Great Britain & Northern Ireland","826",44743.2958093183
+80429,"North Atlantic moist mixed forests","GBR","United Kingdom of Great Britain & Northern Ireland","826",19858.3081643805
+80503,"Caledon conifer forests","GBR","United Kingdom of Great Britain & Northern Ireland","826",21682.127908149
+81206,"Cyprus Mediterranean forests","GBR","United Kingdom of Great Britain & Northern Ireland","826",245.931810196563
+81221,"Southwest Iberian Mediterranean sclerophyllous and mixed forests","GBR","United Kingdom of Great Britain & Northern Ireland","826",4.89335049765421
+80408,"Caucasus mixed forests","GEO","Georgia","268",51032.8608165141
+80422,"Euxine-Colchic broadleaf forests","GEO","Georgia","268",6300.90426727483
+80805,"Eastern Anatolian montane steppe","GEO","Georgia","268",5410.19069952241
+81305,"Azerbaijan shrub desert and steppe","GEO","Georgia","268",6898.90590269422
+30111,"Eastern Guinean forests","GHA","Ghana","288",79129.3777019939
+30707,"Guinean forest-savanna mosaic","GHA","Ghana","288",69058.7336064253
+30722,"West Sudanian savanna","GHA","Ghana","288",88880.0376334772
+31401,"Central African mangroves","GHA","Ghana","288",1662.09631811949
+31403,"Guinean mangroves","GHA","Ghana","288",39.5289524453448
+30114,"Guinean montane forests","GIN","Guinea","324",25919.2853869939
+30130,"Western Guinean lowland forests","GIN","Guinea","324",21486.6994702698
+30707,"Guinean forest-savanna mosaic","GIN","Guinea","324",134923.660065231
+30722,"West Sudanian savanna","GIN","Guinea","324",59866.2681051621
+31403,"Guinean mangroves","GIN","Guinea","324",2834.81303190942
+30707,"Guinean forest-savanna mosaic","GMB","Gambia","270",2867.7529550594
+30722,"West Sudanian savanna","GMB","Gambia","270",6714.01021924213
+31403,"Guinean mangroves","GMB","Gambia","270",949.948257118462
+30707,"Guinean forest-savanna mosaic","GNB","Guinea-Bissau","624",24930.6704241661
+31403,"Guinean mangroves","GNB","Guinea-Bissau","624",8614.15734786104
+30102,"Atlantic Equatorial coastal forests","GNQ","Equatorial Guinea","226",24087.6286865116
+30107,"Cross-Sanaga-Bioko coastal forests","GNQ","Equatorial Guinea","226",1813.5223399184
+30121,"Mount Cameroon and Bioko montane forests","GNQ","Equatorial Guinea","226",124.822297737868
+30127,"Sao Tome, Principe and Annobon moist lowland forests","GNQ","Equatorial Guinea","226",14.6449868179639
+31401,"Central African mangroves","GNQ","Equatorial Guinea","226",931.408897989188
+80404,"Balkan mixed forests","GRC","Greece","300",10716.030088134
+80435,"Rodope montane mixed forests","GRC","Greece","300",1749.33925122732
+81201,"Aegean and Western Turkey sclerophyllous and mixed forests","GRC","Greece","300",80070.1581301954
+81205,"Crete Mediterranean forests","GRC","Greece","300",7777.45835761537
+81210,"Illyrian deciduous forests","GRC","Greece","300",5133.73024968211
+81217,"Pindus Mountains mixed forests","GRC","Greece","300",23197.1664152679
+60179,"Windward Islands moist forests","GRD","Grenada","308",222.052668591954
+60220,"Lesser Antillean dry forests","GRD","Grenada","308",85.993366434926
+61305,"Caribbean shrublands","GRD","Grenada","308",27.613410380974
+61402,"Bahamian-Antillean mangroves","GRD","Grenada","308",16.915750006154
+60111,"Central American Atlantic moist forests","GTM","Guatemala","320",8441.30807867727
+60112,"Central American montane forests","GTM","Guatemala","320",5948.69762730739
+60113,"Chiapas montane forests","GTM","Guatemala","320",189.008129900058
+60154,"Petén-Veracruz moist forests","GTM","Guatemala","320",47766.8720131182
+60162,"Sierra Madre de Chiapas moist forests","GTM","Guatemala","320",5744.79904591013
+60181,"Yucatán moist forests","GTM","Guatemala","320",114.277292303619
+60209,"Central American dry forests","GTM","Guatemala","320",6605.23301457078
+60211,"Chiapas Depression dry forests","GTM","Guatemala","320",898.5086590506
+60303,"Central American pine-oak forests","GTM","Guatemala","320",29354.4465782244
+61312,"Motagua Valley thornscrub","GTM","Guatemala","320",2328.4130798001
+61403,"Mesoamerican Gulf-Caribbean mangroves","GTM","Guatemala","320",364.351727989531
+61407,"Southern Mesoamerican Pacific mangroves","GTM","Guatemala","320",1110.38486576121
+60124,"Guianan Highlands moist forests","GUY","Guyana","328",26600.9623574524
+60125,"Guianan moist forests","GUY","Guyana","328",164953.444314517
+60147,"Orinoco Delta swamp forests","GUY","Guyana","328",3885.40652794572
+60169,"Pantepui","GUY","Guyana","328",1211.69378969043
+60173,"Uatuma-Trombetas moist forests","GUY","Guyana","328",391.71619428337
+60182,"Guianan piedmont and lowland moist forests","GUY","Guyana","328",124.568029565333
+60707,"Guianan savanna","GUY","Guyana","328",13604.0448717946
+61401,"Amazon-Orinoco-Southern Caribbean mangroves","GUY","Guyana","328",719.77589115232
+60111,"Central American Atlantic moist forests","HND","Honduras","340",33740.4822485107
+60112,"Central American montane forests","HND","Honduras","340",5420.82842774946
+60209,"Central American dry forests","HND","Honduras","340",18995.0439601949
+60303,"Central American pine-oak forests","HND","Honduras","340",44421.7929245442
+60306,"Miskito pine forests","HND","Honduras","340",6856.46613674043
+61403,"Mesoamerican Gulf-Caribbean mangroves","HND","Honduras","340",2247.82384802776
+61407,"Southern Mesoamerican Pacific mangroves","HND","Honduras","340",827.012740902195
+80418,"Dinaric Mountains mixed forests","HRV","Croatia","191",11369.8324823294
+80431,"Pannonian mixed forests","HRV","Croatia","191",30774.0139620233
+81210,"Illyrian deciduous forests","HRV","Croatia","191",10487.4559846282
+81222,"Tyrrhenian-Adriatic Sclerophyllous and mixed forests","HRV","Croatia","191",2568.15082592671
+60127,"Hispaniolan moist forests","HTI","Haiti","332",16965.2102633808
+60215,"Hispaniolan dry forests","HTI","Haiti","332",5778.34473142661
+60305,"Hispaniolan pine forests","HTI","Haiti","332",3215.99743989763
+60903,"Enriquillo wetlands","HTI","Haiti","332",201.738278204301
+61402,"Bahamian-Antillean mangroves","HTI","Haiti","332",583.45151231545
+80431,"Pannonian mixed forests","HUN","Hungary","348",93009.4353390448
+10102,"Banda Sea Islands moist deciduous forests","IDN","Indonesia","360",7207.1858856278
+10103,"Biak-Numfoor rain forests","IDN","Indonesia","360",2770.02095893102
+10104,"Buru rain forests","IDN","Indonesia","360",8543.3454331429
+10105,"Central Range montane rain forests","IDN","Indonesia","360",74502.3897395602
+10106,"Halmahera rain forests","IDN","Indonesia","360",26339.4229037144
+10108,"Yapen rain forests","IDN","Indonesia","360",2346.26462971141
+10115,"Northern New Guinea lowland rain and freshwater swamp forests","IDN","Indonesia","360",59305.0276481636
+10116,"Northern New Guinea montane rain forests","IDN","Indonesia","360",16561.1724688685
+10118,"Seram rain forests","IDN","Indonesia","360",18961.6034578576
+10121,"Southern New Guinea freshwater swamp forests","IDN","Indonesia","360",50200.7934387461
+10122,"Southern New Guinea lowland rain forests","IDN","Indonesia","360",75276.7932103533
+10123,"Sulawesi lowland rain forests","IDN","Indonesia","360",112972.589659697
+10124,"Sulawesi montane rain forests","IDN","Indonesia","360",75471.6862602619
+10127,"Vogelkop montane rain forests","IDN","Indonesia","360",21780.8370612468
+10128,"Vogelkop-Aru lowland rain forests","IDN","Indonesia","360",75432.8137946249
+10201,"Lesser Sundas deciduous forests","IDN","Indonesia","360",38503.6979149263
+10203,"Sumba deciduous forests","IDN","Indonesia","360",10602.8028535235
+10204,"Timor and Wetar deciduous forests","IDN","Indonesia","360",18096.8298408895
+10708,"Trans Fly savanna and grasslands","IDN","Indonesia","360",8272.69209301658
+11002,"Central Range sub-alpine grasslands","IDN","Indonesia","360",9720.48024801156
+11401,"New Guinea mangroves","IDN","Indonesia","360",19478.5391333485
+40102,"Borneo lowland rain forests","IDN","Indonesia","360",290030.437860498
+40103,"Borneo montane rain forests","IDN","Indonesia","360",80981.6406139046
+40104,"Borneo peat swamp forests","IDN","Indonesia","360",46042.1016820811
+40112,"Eastern Java-Bali montane rain forests","IDN","Indonesia","360",15826.0378956302
+40113,"Eastern Java-Bali rain forests","IDN","Indonesia","360",53399.6798761861
+40127,"Mentawai Islands rain forests","IDN","Indonesia","360",6250.90475974076
+40146,"Peninsular Malaysian rain forests","IDN","Indonesia","360",5134.4016071104
+40153,"Southwest Borneo freshwater swamp forests","IDN","Indonesia","360",36588.3434825406
+40157,"Sumatran freshwater swamp forests","IDN","Indonesia","360",17922.6267379638
+40158,"Sumatran lowland rain forests","IDN","Indonesia","360",257340.540075952
+40159,"Sumatran montane rain forests","IDN","Indonesia","360",72617.8325252724
+40160,"Sumatran peat swamp forests","IDN","Indonesia","360",86980.9547865124
+40161,"Sundaland heath forests","IDN","Indonesia","360",75385.0730905628
+40167,"Western Java montane rain forests","IDN","Indonesia","360",26170.9512532715
+40168,"Western Java rain forests","IDN","Indonesia","360",41152.5088018731
+40304,"Sumatran tropical pine forests","IDN","Indonesia","360",2748.01918643626
+41405,"Sunda Shelf mangroves","IDN","Indonesia","360",27720.4052310437
+-9999,"Rock and Ice","IND","India","356",8587.40364526015
+40101,"Andaman Islands rain forests","IND","India","356",5095.5071385557
+40105,"Brahmaputra Valley semi-evergreen forests","IND","India","356",56348.2412219356
+40109,"Chin Hills-Arakan Yoma montane forests","IND","India","356",54.6719622459497
+40111,"Eastern highlands moist deciduous forests","IND","India","356",340058.31525625
+40115,"Himalayan subtropical broadleaf forests","IND","India","356",5742.78452465136
+40120,"Lower Gangetic Plains moist deciduous forests","IND","India","356",145479.071081707
+40124,"Malabar Coast moist forests","IND","India","356",34845.5447605747
+40125,"Maldives-Lakshadweep-Chagos Archipelago tropical moist forests","IND","India","356",8.57435812837468
+40126,"Meghalaya subtropical forests","IND","India","356",41495.4586524071
+40131,"Mizoram-Manipur-Kachin rain forests","IND","India","356",57910.4136712607
+40133,"Nicobar Islands rain forests","IND","India","356",1389.26439860736
+40134,"North Western Ghats moist deciduous forests","IND","India","356",48040.9263315885
+40135,"North Western Ghats montane rain forests","IND","India","356",30824.6365518723
+40142,"Orissa semi-evergreen forests","IND","India","356",22155.342196338
+40150,"South Western Ghats moist deciduous forests","IND","India","356",23675.7127148514
+40151,"South Western Ghats montane rain forests","IND","India","356",22545.0808617572
+40162,"Sundarbans freshwater swamp forests","IND","India","356",6818.52703697472
+40166,"Upper Gangetic Plains moist deciduous forests","IND","India","356",262637.639538019
+40201,"Central Deccan Plateau dry deciduous forests","IND","India","356",239398.054229635
+40203,"Chhota-Nagpur dry deciduous forests","IND","India","356",122134.33266225
+40204,"East Deccan dry-evergreen forests","IND","India","356",25271.322651256
+40206,"Khathiar-Gir dry deciduous forests","IND","India","356",266147.065606936
+40207,"Narmada Valley dry deciduous forests","IND","India","356",169457.114741866
+40208,"Northern dry deciduous forests","IND","India","356",58154.1542824922
+40209,"South Deccan Plateau dry deciduous forests","IND","India","356",81925.4582506299
+40301,"Himalayan subtropical pine forests","IND","India","356",31928.3604553959
+40303,"Northeast India-Myanmar pine forests","IND","India","356",9640.84571013729
+40401,"Eastern Himalayan broadleaf forests","IND","India","356",51255.4970841965
+40402,"Northern Triangle temperate forests","IND","India","356",26.7912798377483
+40403,"Western Himalayan broadleaf forests","IND","India","356",24223.7887787236
+40501,"Eastern Himalayan subalpine conifer forests","IND","India","356",12643.2566104144
+40502,"Western Himalayan subalpine conifer forests","IND","India","356",4019.42361651737
+40701,"Terai-Duar savanna and grasslands","IND","India","356",11879.4262931783
+40901,"Rann of Kutch seasonal salt marsh","IND","India","356",23836.7092932801
+41301,"Deccan thorn scrub forests","IND","India","356",336157.692164572
+41303,"Northwestern thorn scrub forests","IND","India","356",238741.10651297
+41304,"Thar desert","IND","India","356",159847.718552812
+41401,"Goadavari-Krishna mangroves","IND","India","356",6705.55184007785
+41403,"Indus River Delta-Arabian Sea mangroves","IND","India","356",2594.85996217157
+41406,"Sundarbans mangroves","IND","India","356",3808.30747393036
+80514,"Northeastern Himalayan subalpine conifer forests","IND","India","356",5384.23153281045
+81003,"Eastern Himalayan alpine shrub and meadows","IND","India","356",13189.5849147807
+81006,"Karakoram-West Tibetan Plateau alpine steppe","IND","India","356",166.754604479488
+81012,"Northwestern Himalayan alpine shrub and meadows","IND","India","356",18342.3244691837
+81021,"Western Himalayan alpine shrub and Meadows","IND","India","356",12181.9120729076
+81307,"Baluchistan xeric woodlands","IND","India","356",16.0562829922889
+80409,"Celtic broadleaf forests","IRL","Ireland","372",52397.5795919649
+80429,"North Atlantic moist mixed forests","IRL","Ireland","372",16346.6460799755
+-9998,"Lake","IRN","Iran (Islamic Republic of)","364",59540.5989196726
+80407,"Caspian Hyrcanian mixed forests","IRN","Iran (Islamic Republic of)","364",51147.0913352888
+80446,"Zagros Mountains forest steppe","IRN","Iran (Islamic Republic of)","364",351336.477425026
+80507,"Elburz Range forest steppe","IRN","Iran (Islamic Republic of)","364",63289.5324678431
+80805,"Eastern Anatolian montane steppe","IRN","Iran (Islamic Republic of)","364",64298.4147323861
+80812,"Middle East steppe","IRN","Iran (Islamic Republic of)","364",12.854423854895
+80906,"Tigris-Euphrates alluvial salt marsh","IRN","Iran (Islamic Republic of)","364",7296.16884556978
+81008,"Kopet Dag woodlands and forest steppe","IRN","Iran (Islamic Republic of)","364",23895.2032950426
+81009,"Kuh Rud and Eastern Iran montane woodlands","IRN","Iran (Islamic Republic of)","364",124140.068644718
+81303,"Arabian Desert and East Sahero-Arabian xeric shrublands","IRN","Iran (Islamic Republic of)","364",2877.38226603083
+81305,"Azerbaijan shrub desert and steppe","IRN","Iran (Islamic Republic of)","364",5991.04974989478
+81306,"Badghyz and Karabil semi-desert","IRN","Iran (Islamic Republic of)","364",1803.89044615741
+81307,"Baluchistan xeric woodlands","IRN","Iran (Islamic Republic of)","364",18.1748570136399
+81308,"Caspian lowland desert","IRN","Iran (Islamic Republic of)","364",4765.38457599908
+81313,"Central Persian desert basins","IRN","Iran (Islamic Republic of)","364",558034.679547186
+81319,"Kopet Dag semi-desert","IRN","Iran (Islamic Republic of)","364",6583.63753433667
+81320,"Mesopotamian shrub desert","IRN","Iran (Islamic Republic of)","364",1790.39870017271
+81326,"Registan-North Pakistan sandy desert","IRN","Iran (Islamic Republic of)","364",50078.7167903764
+81328,"South Iran Nubo-Sindian desert and semi-desert","IRN","Iran (Islamic Republic of)","364",300675.239236769
+80446,"Zagros Mountains forest steppe","IRQ","Iraq","368",30321.9653482006
+80812,"Middle East steppe","IRQ","Iraq","368",37905.6606021562
+80906,"Tigris-Euphrates alluvial salt marsh","IRQ","Iraq","368",28275.869001793
+81207,"Eastern Mediterranean conifer-sclerophyllous-broadleaf forests","IRQ","Iraq","368",1220.02914537357
+81303,"Arabian Desert and East Sahero-Arabian xeric shrublands","IRQ","Iraq","368",193976.496556562
+81320,"Mesopotamian shrub desert","IRQ","Iraq","368",130463.729639681
+81323,"Persian Gulf desert and semi-desert","IRQ","Iraq","368",1032.52827856498
+81325,"Red Sea Nubo-Sindian tropical desert and semi-desert","IRQ","Iraq","368",5172.97773814238
+81328,"South Iran Nubo-Sindian desert and semi-desert","IRQ","Iraq","368",8568.94271796486
+-9999,"Rock and Ice","ISL","Iceland","352",10515.6460947784
+80602,"Iceland boreal birch forests and alpine tundra","ISL","Iceland","352",90864.7792137778
+80812,"Middle East steppe","ISR","Israel","376",44.1301668147142
+81207,"Eastern Mediterranean conifer-sclerophyllous-broadleaf forests","ISR","Israel","376",7245.13583466715
+81220,"Southern Anatolian montane conifer and deciduous forests","ISR","Israel","376",57.9660471566712
+81303,"Arabian Desert and East Sahero-Arabian xeric shrublands","ISR","Israel","376",9113.51434676961
+81320,"Mesopotamian shrub desert","ISR","Israel","376",4146.87603563084
+81325,"Red Sea Nubo-Sindian tropical desert and semi-desert","ISR","Israel","376",96.8024963890499
+80401,"Appenine deciduous montane forests","ITA","Italy","380",16147.1813828899
+80418,"Dinaric Mountains mixed forests","ITA","Italy","380",761.78083920745
+80432,"Po Basin mixed forests","ITA","Italy","380",42291.0098380264
+80501,"Alps conifer and mixed forests","ITA","Italy","380",52299.3139041165
+81210,"Illyrian deciduous forests","ITA","Italy","380",440.890083015421
+81211,"Italian sclerophyllous and semi-deciduous forests","ITA","Italy","380",100128.014522049
+81215,"Northeastern Spain and Southern France Mediterranean forests","ITA","Italy","380",60.2531403359941
+81218,"South Appenine mixed montane forests","ITA","Italy","380",13094.7951536919
+81222,"Tyrrhenian-Adriatic Sclerophyllous and mixed forests","ITA","Italy","380",73366.0041067109
+60131,"Jamaican moist forests","JAM","Jamaica","388",8267.49006622471
+60218,"Jamaican dry forests","JAM","Jamaica","388",2284.6871309303
+61402,"Bahamian-Antillean mangroves","JAM","Jamaica","388",429.699550370727
+80812,"Middle East steppe","JOR","Jordan","400",11485.5905444937
+81207,"Eastern Mediterranean conifer-sclerophyllous-broadleaf forests","JOR","Jordan","400",9544.75901332791
+81303,"Arabian Desert and East Sahero-Arabian xeric shrublands","JOR","Jordan","400",35844.5305789119
+81320,"Mesopotamian shrub desert","JOR","Jordan","400",20794.457571872
+81325,"Red Sea Nubo-Sindian tropical desert and semi-desert","JOR","Jordan","400",11453.4038347883
+40170,"Nansei Islands subtropical evergreen forests","JPN","Japan","392",3592.07168931314
+70109,"Ogasawara subtropical moist forests","JPN","Japan","392",87.0250034167638
+80423,"Hokkaido deciduous forests","JPN","Japan","392",25102.669512421
+80427,"Nihonkai evergreen forests","JPN","Japan","392",21333.3395214243
+80428,"Nihonkai montane deciduous forests","JPN","Japan","392",82074.5696685461
+80440,"Taiheiyo evergreen forests","JPN","Japan","392",134661.664657714
+80441,"Taiheiyo montane deciduous forests","JPN","Japan","392",41877.2780735232
+80510,"Hokkaido montane conifer forests","JPN","Japan","392",45511.6798170037
+80511,"Honshu alpine conifer forests","JPN","Japan","392",11504.5373595309
+-9998,"Lake","KAZ","Kazakhstan","398",149326.951420916
+80502,"Altai montane forest and forest steppe","KAZ","Kazakhstan","398",10091.436240984
+80521,"Tian Shan montane conifer forests","KAZ","Kazakhstan","398",4767.74802649195
+80801,"Alai-Western Tian Shan steppe","KAZ","Kazakhstan","398",47968.7560578332
+80802,"Altai steppe and semi-desert","KAZ","Kazakhstan","398",80988.0813309437
+80806,"Emin Valley steppe","KAZ","Kazakhstan","398",18862.4003186528
+80808,"Gissaro-Alai open woodlands","KAZ","Kazakhstan","398",20437.0583421646
+80809,"Kazakh forest steppe","KAZ","Kazakhstan","398",47389.1261958074
+80810,"Kazakh steppe","KAZ","Kazakhstan","398",665489.073927507
+80811,"Kazakh upland","KAZ","Kazakhstan","398",72199.3168516925
+80814,"Pontic steppe","KAZ","Kazakhstan","398",74188.9494446835
+80818,"Tian Shan foothill arid steppe","KAZ","Kazakhstan","398",69351.7130983985
+81001,"Altai alpine meadow and tundra","KAZ","Kazakhstan","398",21222.0888912472
+81019,"Tian Shan montane steppe and meadows","KAZ","Kazakhstan","398",19335.9823332383
+81308,"Caspian lowland desert","KAZ","Kazakhstan","398",152664.570260981
+81310,"Central Asian northern desert","KAZ","Kazakhstan","398",554735.733231938
+81311,"Central Asian riparian woodlands","KAZ","Kazakhstan","398",46879.5733970037
+81312,"Central Asian southern desert","KAZ","Kazakhstan","398",70752.2117038194
+81317,"Junggar Basin semi-desert","KAZ","Kazakhstan","398",31814.1987653523
+81318,"Kazakh semi-desert","KAZ","Kazakhstan","398",680440.64947886
+-9998,"Lake","KEN","Kenya","404",10873.5678649213
+30108,"East African montane forests","KEN","Kenya","404",44004.9940252085
+30109,"Eastern Arc forests","KEN","Kenya","404",633.746034028521
+30125,"Northern Zanzibar-Inhambane coastal forest mosaic","KEN","Kenya","404",31446.7989176999
+30705,"East Sudanian savanna","KEN","Kenya","404",76.7980691749029
+30711,"Northern Acacia-Commiphora bushlands and thickets","KEN","Kenya","404",264174.187609691
+30715,"Somali Acacia-Commiphora bushlands and thickets","KEN","Kenya","404",102949.701656146
+30716,"Southern Acacia-Commiphora bushlands and thickets","KEN","Kenya","404",15822.5645020616
+30721,"Victoria Basin forest-savanna mosaic","KEN","Kenya","404",12433.7198882995
+30901,"East African halophytics","KEN","Kenya","404",135.393608413212
+31005,"East African montane moorlands","KEN","Kenya","404",1724.74317460203
+31313,"Masai xeric grasslands and shrublands","KEN","Kenya","404",95655.1991169069
+31402,"East African mangroves","KEN","Kenya","404",2862.86817940298
+-9999,"Rock and Ice","KGZ","Kyrgyzstan","417",392.139382108739
+-9998,"Lake","KGZ","Kyrgyzstan","417",6269.30697034263
+80521,"Tian Shan montane conifer forests","KGZ","Kyrgyzstan","417",9985.26523468684
+80801,"Alai-Western Tian Shan steppe","KGZ","Kyrgyzstan","417",306.5692368381
+80808,"Gissaro-Alai open woodlands","KGZ","Kyrgyzstan","417",46132.9080702398
+80818,"Tian Shan foothill arid steppe","KGZ","Kyrgyzstan","417",51144.7620511684
+81014,"Pamir alpine desert and tundra","KGZ","Kyrgyzstan","417",14687.7144305968
+81019,"Tian Shan montane steppe and meadows","KGZ","Kyrgyzstan","417",65540.1344108672
+81310,"Central Asian northern desert","KGZ","Kyrgyzstan","417",3861.03396152549
+40106,"Cardamom Mountains rain forests","KHM","Cambodia","116",31355.3449217977
+40152,"Southern Annamites montane rain forests","KHM","Cambodia","116",322.03661392532
+40163,"Tenasserim-South Thailand semi-evergreen rain forests","KHM","Cambodia","116",22.5854655179473
+40164,"Tonle Sap freshwater swamp forests","KHM","Cambodia","116",15808.908654375
+40165,"Tonle Sap-Mekong peat swamp forests","KHM","Cambodia","116",14752.0079064124
+40202,"Central Indochina dry forests","KHM","Cambodia","116",70615.4636472311
+40210,"Southeastern Indochina dry evergreen forests","KHM","Cambodia","116",47314.9242001255
+41402,"Indochina mangroves","KHM","Cambodia","116",1063.58836247168
+70102,"Central Polynesian tropical moist forests","KIR","Kiribati","296",556.134750263353
+70104,"Eastern Micronesia tropical moist forests","KIR","Kiribati","296",305.59953882864
+70117,"Western Polynesian tropical moist forests","KIR","Kiribati","296",53.1556231709911
+60134,"Leeward Islands moist forests","KNA","Saint Kitts and Nevis","659",63.3935704399239
+61305,"Caribbean shrublands","KNA","Saint Kitts and Nevis","659",15.793187765995
+61402,"Bahamian-Antillean mangroves","KNA","Saint Kitts and Nevis","659",191.682879814286
+80413,"Central Korean deciduous forests","KOR","Republic of Korea","410",75799.7064232667
+80426,"Manchurian mixed forests","KOR","Republic of Korea","410",5743.7101364474
+80439,"Southern Korea evergreen forests","KOR","Republic of Korea","410",13865.7438864192
+81303,"Arabian Desert and East Sahero-Arabian xeric shrublands","KWT","Kuwait","414",990.513832769078
+81323,"Persian Gulf desert and semi-desert","KWT","Kuwait","414",15703.3913243684
+40121,"Luang Prabang montane rain forests","LAO","Lao People's Democratic Republic","418",50966.0399716776
+40136,"Northern Annamites rain forests","LAO","Lao People's Democratic Republic","418",35207.8089898528
+40137,"Northern Indochina subtropical forests","LAO","Lao People's Democratic Republic","418",70611.7818753157
+40138,"Northern Khorat Plateau moist deciduous forests","LAO","Lao People's Democratic Republic","418",5559.31668964621
+40139,"Northern Thailand-Laos moist deciduous forests","LAO","Lao People's Democratic Republic","418",11574.466289213
+40141,"Northern Vietnam lowland rain forests","LAO","Lao People's Democratic Republic","418",73.2775255435898
+40152,"Southern Annamites montane rain forests","LAO","Lao People's Democratic Republic","418",14793.4061983371
+40202,"Central Indochina dry forests","LAO","Lao People's Democratic Republic","418",30414.3620004761
+40210,"Southeastern Indochina dry evergreen forests","LAO","Lao People's Democratic Republic","418",11181.0802744042
+81207,"Eastern Mediterranean conifer-sclerophyllous-broadleaf forests","LBN","Lebanon","422",6403.61375612852
+81220,"Southern Anatolian montane conifer and deciduous forests","LBN","Lebanon","422",3704.75446989437
+30114,"Guinean montane forests","LBR","Liberia","430",429.427395888957
+30130,"Western Guinean lowland forests","LBR","Liberia","430",93903.586954934
+30707,"Guinean forest-savanna mosaic","LBR","Liberia","430",144.18376608445
+31403,"Guinean mangroves","LBR","Liberia","430",1324.66264820277
+80905,"Saharan halophytics","LBY","Libya","434",2089.77553353961
+81213,"Mediterranean dry woodlands and steppe","LBY","Libya","434",51110.8990352301
+81214,"Mediterranean woodlands and forests","LBY","Libya","434",12523.0744413411
+81321,"North Saharan steppe and woodlands","LBY","Libya","434",344435.066627379
+81327,"Sahara desert","LBY","Libya","434",1195744.29138008
+81331,"Tibesti-Jebel Uweinat montane xeric woodlands","LBY","Libya","434",7889.62533710753
+81332,"West Saharan montane xeric woodlands","LBY","Libya","434",2542.36266416899
+60179,"Windward Islands moist forests","LCA","Saint Lucia","662",322.089100210044
+60220,"Lesser Antillean dry forests","LCA","Saint Lucia","662",268.548213423654
+61305,"Caribbean shrublands","LCA","Saint Lucia","662",18.6667101869528
+80445,"Western European broadleaf forests","LIE","Liechtenstein","438",47.1331194974855
+80501,"Alps conifer and mixed forests","LIE","Liechtenstein","438",112.861604220318
+40154,"Sri Lanka lowland rain forests","LKA","Sri Lanka","144",12487.4273479779
+40155,"Sri Lanka montane rain forests","LKA","Sri Lanka","144",3065.68511120478
+40212,"Sri Lanka dry-zone dry evergreen forests","LKA","Sri Lanka","144",47944.7474810507
+41301,"Deccan thorn scrub forests","LKA","Sri Lanka","144",2347.77910089092
+31003,"Drakensberg alti-montane grasslands and woodlands","LSO","Lesotho","426",8208.39868687491
+31004,"Drakensberg montane grasslands, woodlands and forests","LSO","Lesotho","426",16272.6464480978
+31009,"Highveld grasslands","LSO","Lesotho","426",6093.74751236578
+80412,"Central European mixed forests","LTU","Lithuania","440",22163.3059885658
+80436,"Sarmatic mixed forests","LTU","Lithuania","440",42742.2333835498
+80445,"Western European broadleaf forests","LUX","Luxembourg","442",2595.90714848725
+80436,"Sarmatic mixed forests","LVA","Latvia","428",64565.0387113897
+80513,"Mediterranean conifer and mixed forests","MAR","Morocco","504",10944.9856635456
+81010,"Mediterranean High Atlas juniper steppe","MAR","Morocco","504",6327.64948034812
+81212,"Mediterranean acacia-argania dry woodlands and succulent thickets","MAR","Morocco","504",95294.8673356378
+81213,"Mediterranean dry woodlands and steppe","MAR","Morocco","504",64702.3430844116
+81214,"Mediterranean woodlands and forests","MAR","Morocco","504",145648.00729811
+81321,"North Saharan steppe and woodlands","MAR","Morocco","504",90944.0301024772
+81211,"Italian sclerophyllous and semi-deciduous forests","MCO","Monaco","492",2.48081490961121
+80412,"Central European mixed forests","MDA","Moldova","498",16659.1302146054
+80419,"East European forest steppe","MDA","Moldova","498",9693.93715444291
+80814,"Pontic steppe","MDA","Moldova","498",7500.73773113329
+30117,"Madagascar lowland forests","MDG","Madagascar","450",111444.796115877
+30118,"Madagascar subhumid forests","MDG","Madagascar","450",198885.428007471
+30202,"Madagascar dry deciduous forests","MDG","Madagascar","450",151112.955091382
+31011,"Madagascar ericoid thickets","MDG","Madagascar","450",1273.46825919278
+31311,"Madagascar spiny thickets","MDG","Madagascar","450",43179.7320680907
+31312,"Madagascar succulent woodlands","MDG","Madagascar","450",79482.5993898242
+31404,"Madagascar mangroves","MDG","Madagascar","450",5137.80049490548
+40125,"Maldives-Lakshadweep-Chagos Archipelago tropical moist forests","MDV","Maldives","462",58.5181831246241
+50201,"Sonoran-Sinaloan transition subtropical dry forest","MEX","Mexico","484",50898.824242667
+50302,"Sierra Madre Occidental pine-oak forests","MEX","Mexico","484",215039.086357505
+50303,"Sierra Madre Oriental pine-oak forests","MEX","Mexico","484",61491.8809104363
+50526,"Sierra Juarez and San Pedro Martir pine-oak forests","MEX","Mexico","484",3998.10397891977
+50701,"Western Gulf coastal grasslands","MEX","Mexico","484",3550.99830748121
+51201,"California coastal sage and chaparral","MEX","Mexico","484",11763.6816146815
+51301,"Baja California desert","MEX","Mexico","484",77444.3967508991
+51302,"Central Mexican matorral","MEX","Mexico","484",59194.8299496983
+51303,"Chihuahuan desert","MEX","Mexico","484",303349.071752777
+51306,"Gulf of California xeric scrub","MEX","Mexico","484",23030.5851653909
+51307,"Meseta Central matorral","MEX","Mexico","484",124975.134861346
+51310,"Sonoran desert","MEX","Mexico","484",105876.402750167
+51311,"Tamaulipan matorral","MEX","Mexico","484",16236.7682899269
+51312,"Tamaulipan mezquital","MEX","Mexico","484",83447.9455678725
+60112,"Central American montane forests","MEX","Mexico","484",1.7510855094339
+60113,"Chiapas montane forests","MEX","Mexico","484",5569.9307552128
+60114,"Chimalapas montane forests","MEX","Mexico","484",2076.65997953318
+60146,"Oaxacan montane forests","MEX","Mexico","484",7576.9178896418
+60148,"Pantanos de Centla","MEX","Mexico","484",17099.2429976506
+60154,"Petén-Veracruz moist forests","MEX","Mexico","484",84064.3458532871
+60161,"Sierra de los Tuxtlas","MEX","Mexico","484",3846.22700009447
+60162,"Sierra Madre de Chiapas moist forests","MEX","Mexico","484",5409.59193981453
+60176,"Veracruz moist forests","MEX","Mexico","484",68817.2280112095
+60177,"Veracruz montane forests","MEX","Mexico","484",4942.45309383966
+60181,"Yucatán moist forests","MEX","Mexico","484",69098.048859626
+60204,"Bajío dry forests","MEX","Mexico","484",37383.768087218
+60205,"Balsas dry forests","MEX","Mexico","484",62246.5984642775
+60209,"Central American dry forests","MEX","Mexico","484",3230.22604416304
+60211,"Chiapas Depression dry forests","MEX","Mexico","484",13075.1237938851
+60216,"Islas Revillagigedo dry forests","MEX","Mexico","484",131.138512679097
+60217,"Jalisco dry forests","MEX","Mexico","484",25295.5731588704
+60227,"Sierra de la Laguna dry forests","MEX","Mexico","484",3954.20528411816
+60228,"Sinaloan dry forests","MEX","Mexico","484",77307.6096156515
+60230,"Southern Pacific dry forests","MEX","Mexico","484",41738.5171138533
+60233,"Veracruz dry forests","MEX","Mexico","484",6605.68450130956
+60235,"Yucatán dry forests","MEX","Mexico","484",49602.495402283
+60303,"Central American pine-oak forests","MEX","Mexico","484",15933.3908122344
+60307,"Sierra de la Laguna pine-oak forests","MEX","Mexico","484",1061.0735936161
+60308,"Sierra Madre de Oaxaca pine-oak forests","MEX","Mexico","484",14298.3100386685
+60309,"Sierra Madre del Sur pine-oak forests","MEX","Mexico","484",60973.4879577762
+60310,"Trans-Mexican Volcanic Belt pine-oak forests","MEX","Mexico","484",92025.5286522473
+61314,"San Lucan xeric scrub","MEX","Mexico","484",3620.20791332016
+61316,"Tehuacán Valley matorral","MEX","Mexico","484",9861.77513225971
+61403,"Mesoamerican Gulf-Caribbean mangroves","MEX","Mexico","484",15846.5428485241
+61404,"Northern Mesoamerican Pacific mangroves","MEX","Mexico","484",7674.22206942387
+61407,"Southern Mesoamerican Pacific mangroves","MEX","Mexico","484",1510.42441434277
+70104,"Eastern Micronesia tropical moist forests","MHL","Marshall Islands","584",176.647158965411
+80404,"Balkan mixed forests","MKD","North Macedonia","807",18502.7702795407
+80435,"Rodope montane mixed forests","MKD","North Macedonia","807",1388.77859636299
+81201,"Aegean and Western Turkey sclerophyllous and mixed forests","MKD","North Macedonia","807",2530.36807653753
+81217,"Pindus Mountains mixed forests","MKD","North Macedonia","807",3011.30273335485
+30713,"Sahelian Acacia savanna","MLI","Mali","466",339506.613120733
+30722,"West Sudanian savanna","MLI","Mali","466",343442.836022612
+30903,"Inner Niger Delta flooded savanna","MLI","Mali","466",45868.1157064813
+81327,"Sahara desert","MLI","Mali","466",275718.183572399
+81329,"South Saharan steppe and woodlands","MLI","Mali","466",232192.018078423
+81332,"West Saharan montane xeric woodlands","MLI","Mali","466",18014.9143494072
+81222,"Tyrrhenian-Adriatic Sclerophyllous and mixed forests","MLT","Malta","470",219.55180521677
+40101,"Andaman Islands rain forests","MMR","Myanmar","104",11.1289682962511
+40109,"Chin Hills-Arakan Yoma montane forests","MMR","Myanmar","104",29561.1038822665
+40116,"Irrawaddy freshwater swamp forests","MMR","Myanmar","104",15092.0324374595
+40117,"Irrawaddy moist deciduous forests","MMR","Myanmar","104",137907.344109216
+40119,"Kayah-Karen montane rain forests","MMR","Myanmar","104",54983.2882523241
+40120,"Lower Gangetic Plains moist deciduous forests","MMR","Myanmar","104",25.0609106098615
+40131,"Mizoram-Manipur-Kachin rain forests","MMR","Myanmar","104",70346.3504824847
+40132,"Myanmar coastal rain forests","MMR","Myanmar","104",65461.3964716734
+40137,"Northern Indochina subtropical forests","MMR","Myanmar","104",136733.608739909
+40140,"Northern Triangle subtropical forests","MMR","Myanmar","104",53703.2788049107
+40163,"Tenasserim-South Thailand semi-evergreen rain forests","MMR","Myanmar","104",29980.260808176
+40202,"Central Indochina dry forests","MMR","Myanmar","104",2.70710635782086
+40205,"Irrawaddy dry forests","MMR","Myanmar","104",34987.3850985359
+40303,"Northeast India-Myanmar pine forests","MMR","Myanmar","104",44.7053498127212
+40401,"Eastern Himalayan broadleaf forests","MMR","Myanmar","104",144.841869877813
+40402,"Northern Triangle temperate forests","MMR","Myanmar","104",10673.3038629712
+40501,"Eastern Himalayan subalpine conifer forests","MMR","Myanmar","104",14.9117444337837
+41404,"Myanmar Coast mangroves","MMR","Myanmar","104",15826.4430271422
+80516,"Nujiang Langcang Gorge alpine conifer and mixed forests","MMR","Myanmar","104",4499.26723791304
+81003,"Eastern Himalayan alpine shrub and meadows","MMR","Myanmar","104",5253.27822345985
+80404,"Balkan mixed forests","MNE","Montenegro","499",148.013204745866
+80418,"Dinaric Mountains mixed forests","MNE","Montenegro","499",9546.6173029023
+81210,"Illyrian deciduous forests","MNE","Montenegro","499",4158.30581608343
+80502,"Altai montane forest and forest steppe","MNG","Mongolia","496",90342.2226451979
+80512,"Khangai Mountains conifer forests","MNG","Mongolia","496",2902.01770370789
+80519,"Sayan montane conifer forests","MNG","Mongolia","496",38603.9557280899
+80609,"Trans-Baikal conifer forests","MNG","Mongolia","496",37943.4949954885
+80804,"Daurian forest steppe","MNG","Mongolia","496",94660.5728278621
+80813,"Mongolian-Manchurian grassland","MNG","Mongolia","496",308544.625935683
+80815,"Sayan Intermontane steppe","MNG","Mongolia","496",289.698212619974
+80816,"Selenge-Orkhon forest steppe","MNG","Mongolia","496",202187.135060972
+81001,"Altai alpine meadow and tundra","MNG","Mongolia","496",25674.8767633701
+81007,"Khangai Mountains alpine meadow","MNG","Mongolia","496",37167.6336107356
+81016,"Sayan Alpine meadows and tundra","MNG","Mongolia","496",21756.4836381714
+81302,"Alashan Plateau semi-desert","MNG","Mongolia","496",216938.19623548
+81314,"Eastern Gobi desert steppe","MNG","Mongolia","496",178498.440537245
+81315,"Gobi Lakes Valley desert steppe","MNG","Mongolia","496",139708.313557619
+81316,"Great Lakes Basin desert steppe","MNG","Mongolia","496",135917.145715161
+81317,"Junggar Basin semi-desert","MNG","Mongolia","496",33739.8668008788
+81330,"Taklimakan desert","MNG","Mongolia","496",0.941956497996211
+-9998,"Lake","MOZ","Mozambique","508",6808.93157873689
+30119,"Maputaland coastal forest mosaic","MOZ","Mozambique","508",17865.0515131175
+30128,"Southern Zanzibar-Inhambane coastal forest mosaic","MOZ","Mozambique","508",126065.655304039
+30706,"Eastern Miombo woodlands","MOZ","Mozambique","508",281102.542174532
+30717,"Southern Africa bushveld","MOZ","Mozambique","508",221.221324550267
+30719,"Southern Miombo woodlands","MOZ","Mozambique","508",126198.10810891
+30725,"Zambezian and Mopane woodlands","MOZ","Mozambique","508",187948.189973395
+30906,"Zambezian coastal flooded savanna","MOZ","Mozambique","508",19467.0291151779
+30907,"Zambezian flooded grasslands","MOZ","Mozambique","508",1741.40880691369
+30908,"Zambezian halophytics","MOZ","Mozambique","508",8206.93850304489
+31006,"Eastern Zimbabwe montane forest-grassland mosaic","MOZ","Mozambique","508",949.066890279749
+31015,"Southern Rift montane forest-grassland mosaic","MOZ","Mozambique","508",1385.70304357754
+31402,"East African mangroves","MOZ","Mozambique","508",7388.44632213607
+31405,"Southern Africa mangroves","MOZ","Mozambique","508",90.2438536217572
+30713,"Sahelian Acacia savanna","MRT","Mauritania","478",372645.346301788
+30722,"West Sudanian savanna","MRT","Mauritania","478",787.640956158559
+80905,"Saharan halophytics","MRT","Mauritania","478",5557.36073653993
+81304,"Atlantic coastal desert","MRT","Mauritania","478",16970.7789497277
+81321,"North Saharan steppe and woodlands","MRT","Mauritania","478",267528.139619056
+81327,"Sahara desert","MRT","Mauritania","478",203886.301488729
+81329,"South Saharan steppe and woodlands","MRT","Mauritania","478",153368.913255017
+81332,"West Saharan montane xeric woodlands","MRT","Mauritania","478",15424.6387158123
+30120,"Mascarene forests","MUS","Mauritius","480",1595.70038122308
+40125,"Maldives-Lakshadweep-Chagos Archipelago tropical moist forests","MUS","Mauritius","480",29.7937622750593
+-9998,"Lake","MWI","Malawi","454",22024.3030836511
+30128,"Southern Zanzibar-Inhambane coastal forest mosaic","MWI","Malawi","454",37.7758735565155
+30704,"Central Zambezian Miombo woodlands","MWI","Malawi","454",38068.9669740106
+30706,"Eastern Miombo woodlands","MWI","Malawi","454",5918.41445632392
+30719,"Southern Miombo woodlands","MWI","Malawi","454",14718.050034931
+30725,"Zambezian and Mopane woodlands","MWI","Malawi","454",12674.6113721439
+30907,"Zambezian flooded grasslands","MWI","Malawi","454",4450.9745882205
+31014,"South Malawi montane forest-grassland mosaic","MWI","Malawi","454",10191.3507743495
+31015,"Southern Rift montane forest-grassland mosaic","MWI","Malawi","454",10387.6001371871
+40102,"Borneo lowland rain forests","MYS","Malaysia","458",131325.750629641
+40103,"Borneo montane rain forests","MYS","Malaysia","458",34019.9473111831
+40104,"Borneo peat swamp forests","MYS","Malaysia","458",18942.606429946
+40144,"Peninsular Malaysian montane rain forests","MYS","Malaysia","458",16374.2498527203
+40145,"Peninsular Malaysian peat swamp forests","MYS","Malaysia","458",3609.63082358979
+40146,"Peninsular Malaysian rain forests","MYS","Malaysia","458",108354.956507597
+40149,"South China-Vietnam subtropical evergreen forests","MYS","Malaysia","458",1.38932752908032
+40153,"Southwest Borneo freshwater swamp forests","MYS","Malaysia","458",1.13745979661583
+40161,"Sundaland heath forests","MYS","Malaysia","458",571.540068359928
+40163,"Tenasserim-South Thailand semi-evergreen rain forests","MYS","Malaysia","458",2351.42070155862
+41001,"Kinabalu montane alpine meadows","MYS","Malaysia","458",4320.05035408024
+41404,"Myanmar Coast mangroves","MYS","Malaysia","458",417.951402899192
+41405,"Sunda Shelf mangroves","MYS","Malaysia","458",7802.90318231446
+30702,"Angolan Mopane woodlands","NAM","Namibia","516",81976.4226081813
+30709,"Kalahari Acacia-Baikiaea woodlands","NAM","Namibia","516",105682.01754418
+30725,"Zambezian and Mopane woodlands","NAM","Namibia","516",4360.33889168244
+30726,"Zambezian Baikiaea woodlands","NAM","Namibia","516",49447.0168647615
+30902,"Etosha Pan halophytics","NAM","Namibia","516",7208.25175020462
+30907,"Zambezian flooded grasslands","NAM","Namibia","516",3269.49399276091
+31309,"Kalahari xeric savanna","NAM","Namibia","516",199856.889253281
+31310,"Kaokoveld desert","NAM","Namibia","516",24788.4594342652
+31314,"Nama Karoo","NAM","Namibia","516",54934.4853713664
+31315,"Namib desert","NAM","Namibia","516",80676.2483137576
+31316,"Namibian savanna woodlands","NAM","Namibia","516",191396.325227761
+31322,"Succulent Karoo","NAM","Namibia","516",20595.6308089867
+-9998,"Lake","NER","Niger","562",931.868392385293
+30713,"Sahelian Acacia savanna","NER","Niger","562",439268.556833195
+30722,"West Sudanian savanna","NER","Niger","562",111838.985434588
+30904,"Lake Chad flooded savanna","NER","Niger","562",3113.04243044856
+81327,"Sahara desert","NER","Niger","562",390685.007872019
+81329,"South Saharan steppe and woodlands","NER","Niger","562",209829.805959393
+81332,"West Saharan montane xeric woodlands","NER","Niger","562",26646.7787131211
+-9998,"Lake","NGA","Nigeria","566",3994.97043806834
+30103,"Cameroonian Highlands forests","NGA","Nigeria","566",9128.34851662989
+30106,"Cross-Niger transition forests","NGA","Nigeria","566",20628.6110570555
+30107,"Cross-Sanaga-Bioko coastal forests","NGA","Nigeria","566",16019.1852637895
+30122,"Niger Delta swamp forests","NGA","Nigeria","566",14343.288433204
+30123,"Nigerian lowland forests","NGA","Nigeria","566",66243.4954092547
+30705,"East Sudanian savanna","NGA","Nigeria","566",813.806449262081
+30707,"Guinean forest-savanna mosaic","NGA","Nigeria","566",266144.880943413
+30710,"Mandara Plateau mosaic","NGA","Nigeria","566",1886.55164819472
+30712,"Northern Congolian forest-savanna mosaic","NGA","Nigeria","566",64.0161257668032
+30713,"Sahelian Acacia savanna","NGA","Nigeria","566",36465.4650742489
+30722,"West Sudanian savanna","NGA","Nigeria","566",437933.905179125
+30904,"Lake Chad flooded savanna","NGA","Nigeria","566",5264.2914670682
+31010,"Jos Plateau forest-grassland mosaic","NGA","Nigeria","566",13281.3484113613
+31401,"Central African mangroves","NGA","Nigeria","566",17973.440020672
+-9998,"Lake","NIC","Nicaragua","558",7982.8975187365
+60110,"Cayos Miskitos-San Andrés and Providencia moist forests","NIC","Nicaragua","558",42.964940416816
+60111,"Central American Atlantic moist forests","NIC","Nicaragua","558",47248.2023295979
+60112,"Central American montane forests","NIC","Nicaragua","558",917.5655893539
+60119,"Costa Rican seasonal moist forests","NIC","Nicaragua","558",2100.81433433717
+60129,"Isthmian-Atlantic moist forests","NIC","Nicaragua","558",18525.8688180438
+60209,"Central American dry forests","NIC","Nicaragua","558",24346.9008437281
+60303,"Central American pine-oak forests","NIC","Nicaragua","558",10506.7483182072
+60306,"Miskito pine forests","NIC","Nicaragua","558",11995.0415782677
+61403,"Mesoamerican Gulf-Caribbean mangroves","NIC","Nicaragua","558",3392.67077639097
+61407,"Southern Mesoamerican Pacific mangroves","NIC","Nicaragua","558",938.842945222856
+60220,"Lesser Antillean dry forests","NLD","Netherlands","528",21.5295134232189
+61305,"Caribbean shrublands","NLD","Netherlands","528",464.619889182231
+61401,"Amazon-Orinoco-Southern Caribbean mangroves","NLD","Netherlands","528",410.83843722432
+80402,"Atlantic mixed forests","NLD","Netherlands","528",34667.2407242713
+80445,"Western European broadleaf forests","NLD","Netherlands","528",20.8853136998051
+21103,"Scotia Sea Islands tundra","NOR","Norway","578",38.4516547722202
+80429,"North Atlantic moist mixed forests","NOR","Norway","578",109.510770355418
+80436,"Sarmatic mixed forests","NOR","Norway","578",8860.2714660628
+80520,"Scandinavian coastal conifer forests","NOR","Norway","578",16525.7153839774
+80608,"Scandinavian and Russian taiga","NOR","Norway","578",97420.6528801236
+81101,"Arctic desert","NOR","Norway","578",60007.7559769084
+81106,"Kola Peninsula tundra","NOR","Norway","578",3673.59839193081
+81110,"Scandinavian Montane Birch forest and grasslands","NOR","Norway","578",183545.616227816
+-9999,"Rock and Ice","NPL","Nepal","524",6766.46375075772
+40115,"Himalayan subtropical broadleaf forests","NPL","Nepal","524",28222.8346867658
+40120,"Lower Gangetic Plains moist deciduous forests","NPL","Nepal","524",210.074646880813
+40166,"Upper Gangetic Plains moist deciduous forests","NPL","Nepal","524",4.89949493591297
+40301,"Himalayan subtropical pine forests","NPL","Nepal","524",22742.9379640355
+40401,"Eastern Himalayan broadleaf forests","NPL","Nepal","524",15305.8772447786
+40403,"Western Himalayan broadleaf forests","NPL","Nepal","524",4804.96391316814
+40501,"Eastern Himalayan subalpine conifer forests","NPL","Nepal","524",4995.97231694645
+40502,"Western Himalayan subalpine conifer forests","NPL","Nepal","524",12090.760899272
+40701,"Terai-Duar savanna and grasslands","NPL","Nepal","524",22401.1066550341
+81003,"Eastern Himalayan alpine shrub and meadows","NPL","Nepal","524",8594.44931433314
+81021,"Western Himalayan alpine shrub and Meadows","NPL","Nepal","524",21469.1865374149
+10401,"Chatham Island temperate forests","NZL","New Zealand","554",566.594149914164
+10403,"Fiordland temperate forests","NZL","New Zealand","554",10683.4737900275
+10404,"Nelson Coast temperate forests","NZL","New Zealand","554",14512.4250399303
+10405,"North Island temperate forests","NZL","New Zealand","554",83145.3092344523
+10406,"Northland temperate kauri forests","NZL","New Zealand","554",28165.9544635885
+10407,"Rakiura Island temperate forests","NZL","New Zealand","554",1392.05815305668
+10408,"Richmond temperate forests","NZL","New Zealand","554",12481.300409428
+10410,"South Island temperate forests","NZL","New Zealand","554",11328.5326055429
+10414,"Westland temperate forests","NZL","New Zealand","554",5246.5738069153
+10801,"Cantebury-Otago tussock grasslands","NZL","New Zealand","554",52237.3600252856
+11003,"South Island montane grasslands","NZL","New Zealand","554",40006.3064328695
+11101,"Antipodes Subantarctic Islands tundra","NZL","New Zealand","554",521.38325672215
+70102,"Central Polynesian tropical moist forests","NZL","New Zealand","554",32.860092808879
+70103,"Cook Islands tropical moist forests","NZL","New Zealand","554",203.915289423182
+70107,"Kermadec Islands subtropical moist forests","NZL","New Zealand","554",31.0176144146452
+70114,"Tongan tropical moist forests","NZL","New Zealand","554",263.323738781025
+30801,"Al Hajar montane woodlands","OMN","Oman","512",25405.6986499467
+31302,"Arabian Peninsula coastal fog desert","OMN","Oman","512",29527.7367630893
+31306,"Gulf of Oman desert and semi-desert","OMN","Oman","512",50472.3261592806
+31320,"Southwestern Arabian foothills savanna","OMN","Oman","512",4130.74177474105
+81303,"Arabian Desert and East Sahero-Arabian xeric shrublands","OMN","Oman","512",114579.610901541
+81325,"Red Sea Nubo-Sindian tropical desert and semi-desert","OMN","Oman","512",83633.7960083624
+-9999,"Rock and Ice","PAK","Pakistan","586",1507.83406947071
+40149,"South China-Vietnam subtropical evergreen forests","PAK","Pakistan","586",14.5416661943631
+40301,"Himalayan subtropical pine forests","PAK","Pakistan","586",8766.9615790091
+40403,"Western Himalayan broadleaf forests","PAK","Pakistan","586",2567.0755626055
+40502,"Western Himalayan subalpine conifer forests","PAK","Pakistan","586",16263.6617745199
+40901,"Rann of Kutch seasonal salt marsh","PAK","Pakistan","586",3070.88330309734
+41302,"Indus Valley desert","PAK","Pakistan","586",19479.3844542634
+41303,"Northwestern thorn scrub forests","PAK","Pakistan","586",243494.062539862
+41304,"Thar desert","PAK","Pakistan","586",78406.0688810083
+41403,"Indus River Delta-Arabian Sea mangroves","PAK","Pakistan","586",2558.07709991186
+80506,"East Afghan montane conifer forests","PAK","Pakistan","586",7313.28994803414
+81006,"Karakoram-West Tibetan Plateau alpine steppe","PAK","Pakistan","586",9483.9307547785
+81009,"Kuh Rud and Eastern Iran montane woodlands","PAK","Pakistan","586",2084.68478892879
+81012,"Northwestern Himalayan alpine shrub and meadows","PAK","Pakistan","586",15634.7804510073
+81018,"Sulaiman Range alpine meadows","PAK","Pakistan","586",19584.6847291168
+81307,"Baluchistan xeric woodlands","PAK","Pakistan","586",255144.603939402
+81309,"Central Afghan Mountains xeric woodlands","PAK","Pakistan","586",25.5438163382677
+81326,"Registan-North Pakistan sandy desert","PAK","Pakistan","586",67508.9316716117
+81328,"South Iran Nubo-Sindian desert and semi-desert","PAK","Pakistan","586",40016.4439019407
+60115,"Chocó-Darién moist forests","PAN","Panama","591",13539.7206578854
+60122,"Eastern Panamanian montane forests","PAN","Panama","591",2194.13366341866
+60129,"Isthmian-Atlantic moist forests","PAN","Panama","591",22700.1698301967
+60130,"Isthmian-Pacific moist forests","PAN","Panama","591",19956.0683998526
+60167,"Talamancan montane forests","PAN","Panama","591",7137.15941083749
+60224,"Panamanian dry forests","PAN","Panama","591",5079.54381538219
+61403,"Mesoamerican Gulf-Caribbean mangroves","PAN","Panama","591",502.814115192433
+61405,"South American Pacific mangroves","PAN","Panama","591",2005.72024965339
+61407,"Southern Mesoamerican Pacific mangroves","PAN","Panama","591",1160.90395209695
+-9998,"Lake","PER","Peru","604",5001.24671630419
+60105,"Bolivian Yungas","PER","Peru","604",4711.36438005444
+60121,"Eastern Cordillera real montane forests","PER","Peru","604",25845.463823931
+60128,"Iquitos varzeá","PER","Peru","604",83151.7513122989
+60142,"Napo moist forests","PER","Peru","604",139974.840578359
+60153,"Peruvian Yungas","PER","Peru","604",185961.878888933
+60156,"Purus varzeá","PER","Peru","604",2885.28014186261
+60163,"Solimões-Japurá moist forests","PER","Peru","604",58787.2769052007
+60166,"Southwest Amazon moist forests","PER","Peru","604",260999.916127332
+60174,"Ucayali moist forests","PER","Peru","604",114442.969452693
+60223,"Marañón dry forests","PER","Peru","604",11322.2997858222
+60232,"Tumbes-Piura dry forests","PER","Peru","604",38071.5155363157
+60702,"Beni savanna","PER","Peru","604",150.556830382584
+61001,"Central Andean dry puna","PER","Peru","604",113.965840233852
+61002,"Central Andean puna","PER","Peru","604",67279.7537434173
+61003,"Central Andean wet puna","PER","Peru","604",99095.1701521803
+61004,"Cordillera Central páramo","PER","Peru","604",11671.573372102
+61315,"Sechura desert","PER","Peru","604",182781.799785078
+61405,"South American Pacific mangroves","PER","Peru","604",330.576443997677
+40102,"Borneo lowland rain forests","PHL","Philippines","608",63.6949718187663
+40114,"Greater Negros-Panay rain forests","PHL","Philippines","608",34322.035160628
+40122,"Luzon montane rain forests","PHL","Philippines","608",8272.79028034529
+40123,"Luzon rain forests","PHL","Philippines","608",94061.4206185515
+40125,"Maldives-Lakshadweep-Chagos Archipelago tropical moist forests","PHL","Philippines","608",238.585524227088
+40128,"Mindanao montane rain forests","PHL","Philippines","608",18120.233741295
+40129,"Mindanao-Eastern Visayas rain forests","PHL","Philippines","608",103622.915033048
+40130,"Mindoro rain forests","PHL","Philippines","608",9977.48248272456
+40143,"Palawan rain forests","PHL","Philippines","608",13859.9940179712
+40156,"Sulu Archipelago rain forests","PHL","Philippines","608",2133.30190224061
+40302,"Luzon tropical pine forests","PHL","Philippines","608",7052.43926771659
+70110,"Palau tropical moist forests","PLW","Palau","585",454.413663418492
+10101,"Admiralty Islands lowland rain forests","PNG","Papua New Guinea","598",2015.8917750198
+10105,"Central Range montane rain forests","PNG","Papua New Guinea","598",96727.1802028739
+10107,"Huon Peninsula montane rain forests","PNG","Papua New Guinea","598",16439.2687197217
+10110,"Louisiade Archipelago rain forests","PNG","Papua New Guinea","598",1378.57756988462
+10111,"New Britain-New Ireland lowland rain forests","PNG","Papua New Guinea","598",34252.3117354538
+10112,"New Britain-New Ireland montane rain forests","PNG","Papua New Guinea","598",12081.1856424863
+10115,"Northern New Guinea lowland rain and freshwater swamp forests","PNG","Papua New Guinea","598",75216.980324398
+10116,"Northern New Guinea montane rain forests","PNG","Papua New Guinea","598",6593.36704427511
+10119,"Solomon Islands rain forests","PNG","Papua New Guinea","598",9110.8622647748
+10120,"Southeastern Papuan rain forests","PNG","Papua New Guinea","598",76503.7402244253
+10121,"Southern New Guinea freshwater swamp forests","PNG","Papua New Guinea","598",48936.0311491783
+10122,"Southern New Guinea lowland rain forests","PNG","Papua New Guinea","598",46931.4663110683
+10125,"Trobriand Islands rain forests","PNG","Papua New Guinea","598",3726.75620794115
+10708,"Trans Fly savanna and grasslands","PNG","Papua New Guinea","598",18122.2826180929
+11002,"Central Range sub-alpine grasslands","PNG","Papua New Guinea","598",5782.27998018585
+11401,"New Guinea mangroves","PNG","Papua New Guinea","598",4951.94030429311
+80405,"Baltic mixed forests","POL","Poland","616",43888.1074391894
+80412,"Central European mixed forests","POL","Poland","616",241077.218303933
+80445,"Western European broadleaf forests","POL","Poland","616",7442.56044923106
+80504,"Carpathian montane forests","POL","Poland","616",19295.2814410927
+80413,"Central Korean deciduous forests","PRK","Democratic People's Republic of Korea","408",27980.6266392948
+80414,"Changbai Mountains mixed forests","PRK","Democratic People's Republic of Korea","408",47358.4735760726
+80426,"Manchurian mixed forests","PRK","Democratic People's Republic of Korea","408",46313.4711869321
+80430,"Northeast China Plain deciduous forests","PRK","Democratic People's Republic of Korea","408",33.9066670712788
+80403,"Azores temperate mixed forests","PRT","Portugal","620",2239.25210580252
+80406,"Cantabrian mixed forests","PRT","Portugal","620",14807.036273955
+80425,"Madeira evergreen forests","PRT","Portugal","620",769.176878457234
+81209,"Iberian sclerophyllous and semi-deciduous forests","PRT","Portugal","620",19659.4887392275
+81216,"Northwest Iberian montane forests","PRT","Portugal","620",12586.001590819
+81221,"Southwest Iberian Mediterranean sclerophyllous and mixed forests","PRT","Portugal","620",40942.1127916234
+60150,"Alto Paraná Atlantic forests","PRY","Paraguay","600",85943.4084707275
+60210,"Dry Chaco","PRY","Paraguay","600",174827.026655611
+60704,"Cerrado","PRY","Paraguay","600",8139.12073583505
+60708,"Humid Chaco","PRY","Paraguay","600",128230.672869062
+60907,"Pantanal","PRY","Paraguay","600",1997.12910225184
+60908,"Paraná flooded savanna","PRY","Paraguay","600",88.8674524072891
+60909,"Southern Cone Mesopotamian savanna","PRY","Paraguay","600",6.36811758705226
+81207,"Eastern Mediterranean conifer-sclerophyllous-broadleaf forests","PSE","Gaza","1027",234.474562323042
+81303,"Arabian Desert and East Sahero-Arabian xeric shrublands","PSE","Gaza","1027",72.2526573053996
+81320,"Mesopotamian shrub desert","PSE","Gaza","1027",55.6678936124199
+81207,"Eastern Mediterranean conifer-sclerophyllous-broadleaf forests","PSE","West Bank","1049",4830.66603972012
+81303,"Arabian Desert and East Sahero-Arabian xeric shrublands","PSE","West Bank","1049",916.563515970895
+81320,"Mesopotamian shrub desert","PSE","West Bank","1049",111.898879445013
+81303,"Arabian Desert and East Sahero-Arabian xeric shrublands","QAT","Qatar","634",6326.48576059133
+81323,"Persian Gulf desert and semi-desert","QAT","Qatar","634",5015.54577140348
+80404,"Balkan mixed forests","ROU","Romania","642",34873.7514166221
+80412,"Central European mixed forests","ROU","Romania","642",36214.3132283123
+80419,"East European forest steppe","ROU","Romania","642",17765.6459938453
+80431,"Pannonian mixed forests","ROU","Romania","642",70598.5569291131
+80504,"Carpathian montane forests","ROU","Romania","642",53497.0158086543
+80814,"Pontic steppe","ROU","Romania","642",24640.9793138997
+-9998,"Lake","RUS","Russian Federation","643",119295.55381537
+80408,"Caucasus mixed forests","RUS","Russian Federation","643",57631.5857840316
+80412,"Central European mixed forests","RUS","Russian Federation","643",34059.4713513726
+80416,"Crimean Submediterranean forest complex","RUS","Russian Federation","643",22184.1773091536
+80419,"East European forest steppe","RUS","Russian Federation","643",580950.396787589
+80426,"Manchurian mixed forests","RUS","Russian Federation","643",95733.4861254478
+80436,"Sarmatic mixed forests","RUS","Russian Federation","643",474064.639370746
+80438,"South Sakhalin-Kurile mixed forests","RUS","Russian Federation","643",11094.2527532794
+80443,"Ussuri broadleaf and mixed forests","RUS","Russian Federation","643",197408.557280286
+80444,"Western Siberian hemiboreal forests","RUS","Russian Federation","643",224503.918138837
+80502,"Altai montane forest and forest steppe","RUS","Russian Federation","643",25419.8570564656
+80505,"Da Hinggan-Dzhagdy Mountains conifer forests","RUS","Russian Federation","643",97648.3350601121
+80519,"Sayan montane conifer forests","RUS","Russian Federation","643",320201.347403048
+80601,"East Siberian taiga","RUS","Russian Federation","643",3922198.21492953
+80603,"Kamchatka-Kurile meadows and sparse forests","RUS","Russian Federation","643",140829.134502958
+80604,"Kamchatka-Kurile taiga","RUS","Russian Federation","643",15294.8303907256
+80605,"Northeast Siberian taiga","RUS","Russian Federation","643",1131160.62498076
+80606,"Okhotsk-Manchurian taiga","RUS","Russian Federation","643",400145.407926842
+80607,"Sakhalin Island taiga","RUS","Russian Federation","643",65166.0304337454
+80608,"Scandinavian and Russian taiga","RUS","Russian Federation","643",1481217.80763257
+80609,"Trans-Baikal conifer forests","RUS","Russian Federation","643",163237.335228846
+80610,"Ural montane forests and tundra","RUS","Russian Federation","643",175549.321923629
+80611,"West Siberian taiga","RUS","Russian Federation","643",1679969.23007083
+80802,"Altai steppe and semi-desert","RUS","Russian Federation","643",3.37224069039376
+80804,"Daurian forest steppe","RUS","Russian Federation","643",112070.961255919
+80809,"Kazakh forest steppe","RUS","Russian Federation","643",374993.946312433
+80810,"Kazakh steppe","RUS","Russian Federation","643",142077.358969591
+80813,"Mongolian-Manchurian grassland","RUS","Russian Federation","643",2619.84985576462
+80814,"Pontic steppe","RUS","Russian Federation","643",647421.02003843
+80815,"Sayan Intermontane steppe","RUS","Russian Federation","643",33794.8378662043
+80816,"Selenge-Orkhon forest steppe","RUS","Russian Federation","643",26183.0252504494
+80817,"South Siberian forest steppe","RUS","Russian Federation","643",162595.632359677
+80901,"Amur meadow steppe","RUS","Russian Federation","643",69924.7371750902
+80907,"Suiphun-Khanka meadows and forest meadows","RUS","Russian Federation","643",18594.4801228888
+81001,"Altai alpine meadow and tundra","RUS","Russian Federation","643",27547.9409446655
+81016,"Sayan Alpine meadows and tundra","RUS","Russian Federation","643",59452.9124802984
+81101,"Arctic desert","RUS","Russian Federation","643",87877.0579307439
+81102,"Bering tundra","RUS","Russian Federation","643",473806.0456328
+81103,"Cherskii-Kolyma mountain tundra","RUS","Russian Federation","643",560271.343291931
+81104,"Chukchi Peninsula tundra","RUS","Russian Federation","643",295520.482600895
+81105,"Kamchatka Mountain tundra and forest tundra","RUS","Russian Federation","643",118563.488327445
+81106,"Kola Peninsula tundra","RUS","Russian Federation","643",52339.7339258205
+81107,"Northeast Siberian coastal tundra","RUS","Russian Federation","643",221962.403988624
+81108,"Northwest Russian-Novaya Zemlya tundra","RUS","Russian Federation","643",273005.002614216
+81109,"Novosibirsk Islands arctic desert","RUS","Russian Federation","643",35425.6496398048
+81110,"Scandinavian Montane Birch forest and grasslands","RUS","Russian Federation","643",1.12245761922455
+81111,"Taimyr-Central Siberian tundra","RUS","Russian Federation","643",953268.567243877
+81112,"Trans-Baikal Bald Mountain tundra","RUS","Russian Federation","643",218604.452808587
+81113,"Wrangel Island arctic desert","RUS","Russian Federation","643",7461.70739806284
+81114,"Yamal-Gydan tundra","RUS","Russian Federation","643",406284.762104889
+81308,"Caspian lowland desert","RUS","Russian Federation","643",86828.9270704776
+81316,"Great Lakes Basin desert steppe","RUS","Russian Federation","643",21795.2317110753
+30101,"Albertine Rift montane forests","RWA","Rwanda","646",11020.9853772951
+30704,"Central Zambezian Miombo woodlands","RWA","Rwanda","646",3.93287782246831
+30721,"Victoria Basin forest-savanna mosaic","RWA","Rwanda","646",13731.8996988665
+31013,"Rwenzori-Virunga montane moorlands","RWA","Rwanda","646",623.426377307895
+31302,"Arabian Peninsula coastal fog desert","SAU","Saudi Arabia","682",15113.6496849167
+31320,"Southwestern Arabian foothills savanna","SAU","Saudi Arabia","682",118782.825948689
+31321,"Southwestern Arabian montane woodlands","SAU","Saudi Arabia","682",46239.8253033967
+81303,"Arabian Desert and East Sahero-Arabian xeric shrublands","SAU","Saudi Arabia","682",1322763.53375136
+81323,"Persian Gulf desert and semi-desert","SAU","Saudi Arabia","682",47350.882384632
+81325,"Red Sea Nubo-Sindian tropical desert and semi-desert","SAU","Saudi Arabia","682",372892.622463663
+30112,"Ethiopian montane forests","SDN","Sudan","729",2697.93031372929
+30705,"East Sudanian savanna","SDN","Sudan","729",81984.6812477432
+30713,"Sahelian Acacia savanna","SDN","Sudan","729",1044860.75621491
+30715,"Somali Acacia-Commiphora bushlands and thickets","SDN","Sudan","729",317.673690516961
+31007,"Ethiopian montane grasslands and woodlands","SDN","Sudan","729",567.924195362144
+31303,"East Saharan montane xeric woodlands","SDN","Sudan","729",2056.81380749988
+31305,"Ethiopian xeric grasslands and shrublands","SDN","Sudan","729",869.155304352569
+81327,"Sahara desert","SDN","Sudan","729",322122.820191681
+81329,"South Saharan steppe and woodlands","SDN","Sudan","729",385531.661042493
+81331,"Tibesti-Jebel Uweinat montane xeric woodlands","SDN","Sudan","729",528.185009748497
+81333,"Red Sea coastal desert","SDN","Sudan","729",20042.0085779762
+30707,"Guinean forest-savanna mosaic","SEN","Senegal","686",26508.5269802181
+30713,"Sahelian Acacia savanna","SEN","Senegal","686",54179.7223515477
+30722,"West Sudanian savanna","SEN","Senegal","686",114523.010617098
+31403,"Guinean mangroves","SEN","Senegal","686",1488.78622567626
+40146,"Peninsular Malaysian rain forests","SGP","Singapore","702",563.600689860439
+10119,"Solomon Islands rain forests","SLB","Solomon Islands","90",24762.0814030215
+10126,"Vanuatu rain forests","SLB","Solomon Islands","90",455.376050993989
+30114,"Guinean montane forests","SLE","Sierra Leone","694",1653.06330312784
+30130,"Western Guinean lowland forests","SLE","Sierra Leone","694",45161.6277771973
+30707,"Guinean forest-savanna mosaic","SLE","Sierra Leone","694",18684.4256901981
+31403,"Guinean mangroves","SLE","Sierra Leone","694",6857.49685085235
+60112,"Central American montane forests","SLV","El Salvador","222",962.261519527829
+60162,"Sierra Madre de Chiapas moist forests","SLV","El Salvador","222",63.4557301678111
+60209,"Central American dry forests","SLV","El Salvador","222",8243.66629177795
+60303,"Central American pine-oak forests","SLV","El Salvador","222",10725.1281068427
+61407,"Southern Mesoamerican Pacific mangroves","SLV","El Salvador","222",654.67173303433
+81211,"Italian sclerophyllous and semi-deciduous forests","SMR","San Marino","674",60.9393234857105
+30112,"Ethiopian montane forests","SOM","Somalia","706",2042.25767987029
+30125,"Northern Zanzibar-Inhambane coastal forest mosaic","SOM","Somalia","706",28168.8315060482
+30715,"Somali Acacia-Commiphora bushlands and thickets","SOM","Somalia","706",482759.737112076
+31305,"Ethiopian xeric grasslands and shrublands","SOM","Somalia","706",31875.7567037563
+31307,"Hobyo grasslands and shrublands","SOM","Somalia","706",25441.0934459936
+31319,"Somali montane xeric woodlands","SOM","Somalia","706",62353.210700138
+31402,"East African mangroves","SOM","Somalia","706",465.566533131289
+80404,"Balkan mixed forests","SRB","Serbia","688",60112.5634132518
+80418,"Dinaric Mountains mixed forests","SRB","Serbia","688",2461.67783024472
+80431,"Pannonian mixed forests","SRB","Serbia","688",24965.808229009
+80435,"Rodope montane mixed forests","SRB","Serbia","688",693.399001680568
+81217,"Pindus Mountains mixed forests","SRB","Serbia","688",222.766641254436
+30108,"East African montane forests","SSD","South Sudan","728",4701.41641611597
+30705,"East Sudanian savanna","SSD","South Sudan","728",195016.059478544
+30711,"Northern Acacia-Commiphora bushlands and thickets","SSD","South Sudan","728",33215.5171903403
+30712,"Northern Congolian forest-savanna mosaic","SSD","South Sudan","728",152343.653096001
+30713,"Sahelian Acacia savanna","SSD","South Sudan","728",63406.3921731672
+30715,"Somali Acacia-Commiphora bushlands and thickets","SSD","South Sudan","728",3.3093735853114
+30721,"Victoria Basin forest-savanna mosaic","SSD","South Sudan","728",6227.55732191971
+30905,"Saharan flooded grasslands","SSD","South Sudan","728",177942.981140934
+31313,"Masai xeric grasslands and shrublands","SSD","South Sudan","728",56.3023121120899
+30127,"Sao Tome, Principe and Annobon moist lowland forests","STP","Sao Tome and Principe","678",972.683041875457
+60124,"Guianan Highlands moist forests","SUR","Suriname","740",2143.06532777662
+60125,"Guianan moist forests","SUR","Suriname","740",129791.195344155
+60149,"Guianan freshwater swamp forests","SUR","Suriname","740",7688.93845035884
+60169,"Pantepui","SUR","Suriname","740",317.222415380695
+60173,"Uatuma-Trombetas moist forests","SUR","Suriname","740",135.142484053075
+60707,"Guianan savanna","SUR","Suriname","740",541.446621046174
+61401,"Amazon-Orinoco-Southern Caribbean mangroves","SUR","Suriname","740",4221.91092485782
+80431,"Pannonian mixed forests","SVK","Slovakia","703",31489.5891120815
+80504,"Carpathian montane forests","SVK","Slovakia","703",17536.6603764191
+80418,"Dinaric Mountains mixed forests","SVN","Slovenia","705",4759.88790336415
+80431,"Pannonian mixed forests","SVN","Slovenia","705",10199.2602491057
+80432,"Po Basin mixed forests","SVN","Slovenia","705",3.39833905758541
+80501,"Alps conifer and mixed forests","SVN","Slovenia","705",3762.60810020751
+81210,"Illyrian deciduous forests","SVN","Slovenia","705",1532.45763596363
+-9998,"Lake","SWE","Sweden","752",5733.00616096489
+80405,"Baltic mixed forests","SWE","Sweden","752",8658.35788476563
+80436,"Sarmatic mixed forests","SWE","Sweden","752",119736.094047414
+80608,"Scandinavian and Russian taiga","SWE","Sweden","752",260173.637400717
+81110,"Scandinavian Montane Birch forest and grasslands","SWE","Sweden","752",50630.7726724473
+30119,"Maputaland coastal forest mosaic","SWZ","Eswatini","748",3071.00354860898
+30725,"Zambezian and Mopane woodlands","SWZ","Eswatini","748",7002.73187206825
+31004,"Drakensberg montane grasslands, woodlands and forests","SWZ","Eswatini","748",7295.81999195221
+30113,"Granitic Seychelles forests","SYC","Seychelles","690",205.899919247919
+31301,"Aldabra Island xeric scrub","SYC","Seychelles","690",154.267120734012
+80812,"Middle East steppe","SYR","Syrian Arab Republic","760",81783.4064562436
+81207,"Eastern Mediterranean conifer-sclerophyllous-broadleaf forests","SYR","Syrian Arab Republic","760",46990.3860025391
+81220,"Southern Anatolian montane conifer and deciduous forests","SYR","Syrian Arab Republic","760",5062.52627175757
+81320,"Mesopotamian shrub desert","SYR","Syrian Arab Republic","760",53537.357018263
+-9998,"Lake","TCD","Chad","148",4417.26122503353
+30705,"East Sudanian savanna","TCD","Chad","148",172017.070210661
+30713,"Sahelian Acacia savanna","TCD","Chad","148",567359.444547392
+30904,"Lake Chad flooded savanna","TCD","Chad","148",9858.48764517881
+31303,"East Saharan montane xeric woodlands","TCD","Chad","148",25717.7897932385
+81327,"Sahara desert","TCD","Chad","148",327119.650961009
+81329,"South Saharan steppe and woodlands","TCD","Chad","148",89543.4125923012
+81331,"Tibesti-Jebel Uweinat montane xeric woodlands","TCD","Chad","148",73421.0880561266
+30111,"Eastern Guinean forests","TGO","Togo","768",6256.17938647272
+30707,"Guinean forest-savanna mosaic","TGO","Togo","768",14309.2130161513
+30722,"West Sudanian savanna","TGO","Togo","768",36105.5103873287
+40106,"Cardamom Mountains rain forests","THA","Thailand","764",12058.5650299546
+40107,"Chao Phraya freshwater swamp forests","THA","Thailand","764",38858.3036397442
+40108,"Chao Phraya lowland moist deciduous forests","THA","Thailand","764",20189.4691600178
+40119,"Kayah-Karen montane rain forests","THA","Thailand","764",64174.953784662
+40121,"Luang Prabang montane rain forests","THA","Thailand","764",19247.8654112821
+40137,"Northern Indochina subtropical forests","THA","Thailand","764",4401.23892374396
+40138,"Northern Khorat Plateau moist deciduous forests","THA","Thailand","764",11234.9815633235
+40139,"Northern Thailand-Laos moist deciduous forests","THA","Thailand","764",30435.6580603005
+40144,"Peninsular Malaysian montane rain forests","THA","Thailand","764",723.244959527651
+40146,"Peninsular Malaysian rain forests","THA","Thailand","764",9901.24402841634
+40163,"Tenasserim-South Thailand semi-evergreen rain forests","THA","Thailand","764",64073.3702948639
+40202,"Central Indochina dry forests","THA","Thailand","764",211120.539033843
+40210,"Southeastern Indochina dry evergreen forests","THA","Thailand","764",15030.3975308858
+41402,"Indochina mangroves","THA","Thailand","764",8147.62154929212
+41404,"Myanmar Coast mangroves","THA","Thailand","764",3575.25684693687
+-9999,"Rock and Ice","TJK","Tajikistan","762",7586.16177887328
+80801,"Alai-Western Tian Shan steppe","TJK","Tajikistan","762",3974.20378728162
+80808,"Gissaro-Alai open woodlands","TJK","Tajikistan","762",62047.1104092692
+81005,"Hindu Kush alpine meadow","TJK","Tajikistan","762",0.213498425264359
+81006,"Karakoram-West Tibetan Plateau alpine steppe","TJK","Tajikistan","762",5.03914044139705
+81014,"Pamir alpine desert and tundra","TJK","Tajikistan","762",63683.1261730543
+81306,"Badghyz and Karabil semi-desert","TJK","Tajikistan","762",3859.77020080376
+81322,"Paropamisus xeric woodlands","TJK","Tajikistan","762",190.988228409206
+-9998,"Lake","TKM","Turkmenistan","795",75774.0325245118
+80801,"Alai-Western Tian Shan steppe","TKM","Turkmenistan","795",3644.64781616167
+81008,"Kopet Dag woodlands and forest steppe","TKM","Turkmenistan","795",34421.5411177492
+81306,"Badghyz and Karabil semi-desert","TKM","Turkmenistan","795",62957.7594372959
+81308,"Caspian lowland desert","TKM","Turkmenistan","795",23716.1071618209
+81310,"Central Asian northern desert","TKM","Turkmenistan","795",538.795189019571
+81311,"Central Asian riparian woodlands","TKM","Turkmenistan","795",13412.2181987388
+81312,"Central Asian southern desert","TKM","Turkmenistan","795",321011.829173668
+81319,"Kopet Dag semi-desert","TKM","Turkmenistan","795",19700.8194135549
+10204,"Timor and Wetar deciduous forests","TLS","Timor-Leste","626",14655.2397382775
+70114,"Tongan tropical moist forests","TON","Tonga","776",544.757909244713
+60171,"Trinidad and Tobago moist forests","TTO","Trinidad and Tobago","780",4709.834255297
+60220,"Lesser Antillean dry forests","TTO","Trinidad and Tobago","780",267.007633668566
+61401,"Amazon-Orinoco-Southern Caribbean mangroves","TTO","Trinidad and Tobago","780",183.701880305926
+80513,"Mediterranean conifer and mixed forests","TUN","Tunisia","788",2642.38608579502
+80905,"Saharan halophytics","TUN","Tunisia","788",10730.9249856364
+81213,"Mediterranean dry woodlands and steppe","TUN","Tunisia","788",14899.4673436663
+81214,"Mediterranean woodlands and forests","TUN","Tunisia","788",64016.4831246329
+81321,"North Saharan steppe and woodlands","TUN","Tunisia","788",62719.1588430061
+80404,"Balkan mixed forests","TUR","Turkey","792",17904.2091776291
+80408,"Caucasus mixed forests","TUR","Turkey","792",20507.1548145676
+80410,"Central Anatolian steppe and woodlands","TUR","Turkey","792",101492.508729323
+80420,"Eastern Anatolian deciduous forests","TUR","Turkey","792",81627.573343215
+80422,"Euxine-Colchic broadleaf forests","TUR","Turkey","792",67443.9895087504
+80446,"Zagros Mountains forest steppe","TUR","Turkey","792",15898.4951763083
+80515,"Northern Anatolian conifer and deciduous forests","TUR","Turkey","792",101409.647034007
+80803,"Central Anatolian steppe","TUR","Turkey","792",24934.2167172839
+80805,"Eastern Anatolian montane steppe","TUR","Turkey","792",79233.2775896725
+80812,"Middle East steppe","TUR","Turkey","792",1054.77730993906
+81201,"Aegean and Western Turkey sclerophyllous and mixed forests","TUR","Turkey","792",46439.8860233334
+81202,"Anatolian conifer and deciduous mixed forests","TUR","Turkey","792",86135.5363679916
+81207,"Eastern Mediterranean conifer-sclerophyllous-broadleaf forests","TUR","Turkey","792",67208.0963333309
+81220,"Southern Anatolian montane conifer and deciduous forests","TUR","Turkey","792",67624.2968014026
+70117,"Western Polynesian tropical moist forests","TUV","Tuvalu","798",28.0907208836813
+-9998,"Lake","TZA","United Republic of Tanzania","834",48644.340772136
+30101,"Albertine Rift montane forests","TZA","United Republic of Tanzania","834",1926.814291268
+30108,"East African montane forests","TZA","United Republic of Tanzania","834",11908.268400395
+30109,"Eastern Arc forests","TZA","United Republic of Tanzania","834",22922.3584719139
+30125,"Northern Zanzibar-Inhambane coastal forest mosaic","TZA","United Republic of Tanzania","834",52373.8529670395
+30128,"Southern Zanzibar-Inhambane coastal forest mosaic","TZA","United Republic of Tanzania","834",19768.3587427989
+30704,"Central Zambezian Miombo woodlands","TZA","United Republic of Tanzania","834",274404.596826554
+30706,"Eastern Miombo woodlands","TZA","United Republic of Tanzania","834",194992.352051486
+30708,"Itigi-Sumbu thicket","TZA","United Republic of Tanzania","834",3527.83514850095
+30711,"Northern Acacia-Commiphora bushlands and thickets","TZA","United Republic of Tanzania","834",4404.88591834382
+30714,"Serengeti volcanic grasslands","TZA","United Republic of Tanzania","834",17947.5968499193
+30716,"Southern Acacia-Commiphora bushlands and thickets","TZA","United Republic of Tanzania","834",210947.056715494
+30721,"Victoria Basin forest-savanna mosaic","TZA","United Republic of Tanzania","834",15483.2898009032
+30901,"East African halophytics","TZA","United Republic of Tanzania","834",2490.37140837442
+30907,"Zambezian flooded grasslands","TZA","United Republic of Tanzania","834",31781.0533936232
+31005,"East African montane moorlands","TZA","United Republic of Tanzania","834",1280.8832161811
+31015,"Southern Rift montane forest-grassland mosaic","TZA","United Republic of Tanzania","834",20271.3569316622
+31402,"East African mangroves","TZA","United Republic of Tanzania","834",4880.63820504515
+-9998,"Lake","UGA","Uganda","800",31704.9896640798
+30101,"Albertine Rift montane forests","UGA","Uganda","800",19416.9230155157
+30108,"East African montane forests","UGA","Uganda","800",4584.15750358508
+30705,"East Sudanian savanna","UGA","Uganda","800",57643.7943270651
+30711,"Northern Acacia-Commiphora bushlands and thickets","UGA","Uganda","800",18566.3066926779
+30712,"Northern Congolian forest-savanna mosaic","UGA","Uganda","800",2351.2589699414
+30721,"Victoria Basin forest-savanna mosaic","UGA","Uganda","800",105666.147638301
+31005,"East African montane moorlands","UGA","Uganda","800",267.666751240333
+31013,"Rwenzori-Virunga montane moorlands","UGA","Uganda","800",1292.83608606654
+80412,"Central European mixed forests","UKR","Ukraine","804",190765.274778903
+80416,"Crimean Submediterranean forest complex","UKR","Ukraine","804",7468.21629592799
+80419,"East European forest steppe","UKR","Ukraine","804",119367.397081758
+80431,"Pannonian mixed forests","UKR","Ukraine","804",4868.49360520048
+80504,"Carpathian montane forests","UKR","Ukraine","804",33515.0460794435
+80814,"Pontic steppe","UKR","Ukraine","804",240941.787944189
+60102,"Atlantic Coast restingas","URY","Uruguay","858",2.66051861419441
+60710,"Uruguayan savanna","URY","Uruguay","858",177811.219148514
+60801,"Espinal","URY","Uruguay","858",117.053990897768
+60803,"Humid Pampas","URY","Uruguay","858",78.2989943411614
+-9999,"Rock and Ice","USA","United States of America","840",40779.2971431393
+-9998,"Lake","USA","United States of America","840",157772.506083881
+50302,"Sierra Madre Occidental pine-oak forests","USA","United States of America","840",7294.89890985571
+50303,"Sierra Madre Oriental pine-oak forests","USA","United States of America","840",4004.51457998796
+50401,"Allegheny Highlands forests","USA","United States of America","840",84010.8957733047
+50402,"Appalachian mixed mesophytic forests","USA","United States of America","840",192263.360256489
+50403,"Appalachian-Blue Ridge forests","USA","United States of America","840",159342.535811897
+50404,"Central U.S. hardwood forests","USA","United States of America","840",296135.268381658
+50405,"East Central Texas forests","USA","United States of America","840",52583.1450243104
+50406,"Eastern forest-boreal transition","USA","United States of America","840",29215.3706072491
+50407,"Eastern Great Lakes lowland forests","USA","United States of America","840",26196.9905434087
+50409,"Mississippi lowland forests","USA","United States of America","840",112235.613459856
+50410,"New England-Acadian forests","USA","United States of America","840",118653.843405443
+50411,"Northeastern coastal forests","USA","United States of America","840",89135.574119365
+50412,"Ozark Mountain forests","USA","United States of America","840",62008.3485003946
+50413,"Southeastern mixed forests","USA","United States of America","840",347607.575641258
+50414,"Southern Great Lakes forests","USA","United States of America","840",220472.02655086
+50415,"Upper Midwest forest-savanna transition","USA","United States of America","840",166476.717618964
+50416,"Western Great Lakes forests","USA","United States of America","840",200724.33460141
+50417,"Willamette Valley forests","USA","United States of America","840",14883.0225867376
+50503,"Arizona Mountains forests","USA","United States of America","840",109051.721478152
+50504,"Atlantic coastal pine barrens","USA","United States of America","840",8774.45908565513
+50505,"Blue Mountains forests","USA","United States of America","840",64844.1650263124
+50506,"British Columbia mainland coastal forests","USA","United States of America","840",14387.1108343265
+50507,"Cascade Mountains leeward forests","USA","United States of America","840",16044.8177786039
+50508,"Central and Southern Cascades forests","USA","United States of America","840",44950.279794494
+50510,"Central Pacific coastal forests","USA","United States of America","840",41021.7647955198
+50511,"Colorado Rockies forests","USA","United States of America","840",132840.82086025
+50512,"Eastern Cascades forests","USA","United States of America","840",55298.7173902826
+50513,"Florida sand pine scrub","USA","United States of America","840",3878.97631059026
+50515,"Great Basin montane forests","USA","United States of America","840",5788.19962956556
+50516,"Klamath-Siskiyou forests","USA","United States of America","840",50369.6051661062
+50517,"Middle Atlantic coastal forests","USA","United States of America","840",132632.239504208
+50518,"North Central Rockies forests","USA","United States of America","840",102615.283343502
+50519,"Northern California coastal forests","USA","United States of America","840",13267.0965407564
+50520,"Northern Pacific coastal forests","USA","United States of America","840",60014.7387360833
+50522,"Okanagan dry forests","USA","United States of America","840",14334.9007738821
+50523,"Piney Woods forests","USA","United States of America","840",140797.401011286
+50524,"Puget lowland forests","USA","United States of America","840",16268.196832332
+50526,"Sierra Juarez and San Pedro Martir pine-oak forests","USA","United States of America","840",3.85302327824661
+50527,"Sierra Nevada forests","USA","United States of America","840",52871.5649854956
+50528,"South Central Rockies forests","USA","United States of America","840",159693.61125744
+50529,"Southeastern conifer forests","USA","United States of America","840",235927.910052124
+50530,"Wasatch and Uinta montane forests","USA","United States of America","840",41508.5295197637
+50601,"Alaska Peninsula montane taiga","USA","United States of America","840",47488.35774586
+50603,"Cook Inlet taiga","USA","United States of America","840",27907.6640715796
+50604,"Copper Plateau taiga","USA","United States of America","840",17275.0944935087
+50605,"Eastern Canadian forests","USA","United States of America","840",1.67496066661339
+50607,"Interior Alaska-Yukon lowland taiga","USA","United States of America","840",404987.419127833
+50613,"Northern Cordillera forests","USA","United States of America","840",16.3725188500541
+50701,"Western Gulf coastal grasslands","USA","United States of America","840",75629.4733914522
+50801,"California Central Valley grasslands","USA","United States of America","840",55090.8942302298
+50802,"Canadian Aspen forests and parklands","USA","United States of America","840",5890.11874679671
+50803,"Central and Southern mixed grasslands","USA","United States of America","840",282267.423498647
+50804,"Central forest-grasslands transition","USA","United States of America","840",407235.628773018
+50805,"Central tall grasslands","USA","United States of America","840",248865.336565831
+50806,"Edwards Plateau savanna","USA","United States of America","840",61733.6941511257
+50807,"Flint Hills tall grasslands","USA","United States of America","840",29632.2747481392
+50808,"Montana Valley and Foothill grasslands","USA","United States of America","840",67009.7022310063
+50809,"Nebraska Sand Hills mixed grasslands","USA","United States of America","840",61212.4010057987
+50810,"Northern mixed grasslands","USA","United States of America","840",109431.600039655
+50811,"Northern short grasslands","USA","United States of America","840",506516.218297991
+50812,"Northern tall grasslands","USA","United States of America","840",42343.18275963
+50813,"Palouse grasslands","USA","United States of America","840",46965.4521259324
+50814,"Texas blackland prairies","USA","United States of America","840",50214.7973050759
+50815,"Western short grasslands","USA","United States of America","840",435312.90819429
+51101,"Alaska-St. Elias Range tundra","USA","United States of America","840",128624.82785633
+51102,"Aleutian Islands tundra","USA","United States of America","840",11388.5336235753
+51103,"Arctic coastal tundra","USA","United States of America","840",50024.0490076975
+51104,"Arctic foothills tundra","USA","United States of America","840",124407.299210765
+51106,"Beringia lowland tundra","USA","United States of America","840",151389.175392391
+51107,"Beringia upland tundra","USA","United States of America","840",97826.7704496388
+51108,"Brooks-British Range tundra","USA","United States of America","840",133790.57957103
+51111,"Interior Yukon-Alaska alpine tundra","USA","United States of America","840",115115.971729065
+51116,"Ogilvie-MacKenzie alpine tundra","USA","United States of America","840",10724.5493968792
+51117,"Pacific Coastal Mountain icefields and tundra","USA","United States of America","840",82476.8496026376
+51201,"California coastal sage and chaparral","USA","United States of America","840",24125.5620740523
+51202,"California interior chaparral and woodlands","USA","United States of America","840",64473.4761739966
+51203,"California montane chaparral and woodlands","USA","United States of America","840",20380.3646131629
+51303,"Chihuahuan desert","USA","United States of America","840",205542.547196637
+51304,"Colorado Plateau shrublands","USA","United States of America","840",326501.006002248
+51305,"Great Basin shrub steppe","USA","United States of America","840",336212.323498681
+51308,"Mojave desert","USA","United States of America","840",130647.029144501
+51309,"Snake-Columbia shrub steppe","USA","United States of America","840",218532.688406449
+51310,"Sonoran desert","USA","United States of America","840",116719.433070172
+51312,"Tamaulipan mezquital","USA","United States of America","840",57783.0856685313
+51313,"Wyoming Basin shrub steppe","USA","United States of America","840",132577.084177534
+60134,"Leeward Islands moist forests","USA","United States of America","840",95.5464843671976
+60155,"Puerto Rican moist forests","USA","United States of America","840",7448.20540653377
+60164,"South Florida rocklands","USA","United States of America","840",2003.13601927564
+60226,"Puerto Rican dry forests","USA","United States of America","840",1229.81575479841
+60904,"Everglades","USA","United States of America","840",19975.9818569603
+61305,"Caribbean shrublands","USA","United States of America","840",196.874143822101
+61402,"Bahamian-Antillean mangroves","USA","United States of America","840",222.547317161879
+70102,"Central Polynesian tropical moist forests","USA","United States of America","840",10.0822631085871
+70104,"Eastern Micronesia tropical moist forests","USA","United States of America","840",4.48228302272562
+70106,"Hawaii tropical moist forests","USA","United States of America","840",6674.92752036361
+70112,"Samoan tropical moist forests","USA","United States of America","840",171.581370267202
+70117,"Western Polynesian tropical moist forests","USA","United States of America","840",3.81451633992517
+70202,"Hawaii tropical dry forests","USA","United States of America","840",6565.04542241886
+70203,"Marianas tropical dry forests","USA","United States of America","840",939.308025189969
+70701,"Hawaii tropical high shrublands","USA","United States of America","840",1847.59039175004
+70702,"Hawaii tropical low shrublands","USA","United States of America","840",1437.56287260271
+70703,"Northwestern Hawaii scrub","USA","United States of America","840",7.99690712977473
+-9998,"Lake","UZB","Uzbekistan","860",20330.3391627697
+80801,"Alai-Western Tian Shan steppe","UZB","Uzbekistan","860",71788.5721834215
+80808,"Gissaro-Alai open woodlands","UZB","Uzbekistan","860",35940.7735267981
+81014,"Pamir alpine desert and tundra","UZB","Uzbekistan","860",85.3511605522581
+81019,"Tian Shan montane steppe and meadows","UZB","Uzbekistan","860",694.243023722051
+81306,"Badghyz and Karabil semi-desert","UZB","Uzbekistan","860",11249.2821639861
+81310,"Central Asian northern desert","UZB","Uzbekistan","860",104716.491332681
+81311,"Central Asian riparian woodlands","UZB","Uzbekistan","860",28509.0281569454
+81312,"Central Asian southern desert","UZB","Uzbekistan","860",175611.318311734
+81211,"Italian sclerophyllous and semi-deciduous forests","VAT","Holy See","336",0.553825872151969
+60179,"Windward Islands moist forests","VCT","Saint Vincent and the Grenadines","670",179.70607463036
+60220,"Lesser Antillean dry forests","VCT","Saint Vincent and the Grenadines","670",33.9153770581257
+61305,"Caribbean shrublands","VCT","Saint Vincent and the Grenadines","670",51.4894514219624
+61402,"Bahamian-Antillean mangroves","VCT","Saint Vincent and the Grenadines","670",128.545888027822
+60108,"Catatumbo moist forests","VEN","Venezuela","862",16127.4453243733
+60117,"Cordillera La Costa montane forests","VEN","Venezuela","862",14279.8994481523
+60118,"Cordillera Oriental montane forests","VEN","Venezuela","862",8710.84343651451
+60124,"Guianan Highlands moist forests","VEN","Venezuela","862",89788.2114878719
+60125,"Guianan moist forests","VEN","Venezuela","862",32324.0953151089
+60132,"Japurá-Solimoes-Negro moist forests","VEN","Venezuela","862",75.665304558606
+60143,"Negro-Branco moist forests","VEN","Venezuela","862",55122.7883449916
+60147,"Orinoco Delta swamp forests","VEN","Venezuela","862",24141.9453205106
+60158,"Rio Negro campinarana","VEN","Venezuela","862",12444.5041256732
+60169,"Pantepui","VEN","Venezuela","862",44054.2697658476
+60175,"Venezuelan Andes montane forests","VEN","Venezuela","862",29230.653058569
+60182,"Guianan piedmont and lowland moist forests","VEN","Venezuela","862",144648.873377628
+60201,"Apure-Villavicencio dry forests","VEN","Venezuela","862",43704.0288711119
+60219,"Lara-Falcón dry forests","VEN","Venezuela","862",16869.7242803794
+60222,"Maracaibo dry forests","VEN","Venezuela","862",30077.9119877337
+60707,"Guianan savanna","VEN","Venezuela","862",12858.8905515563
+60709,"Llanos","VEN","Venezuela","862",223120.366574012
+60906,"Orinoco wetlands","VEN","Venezuela","862",5988.43661603424
+61005,"Cordillera de Merida páramo","VEN","Venezuela","862",2797.59997270188
+61006,"Northern Andean páramo","VEN","Venezuela","862",274.614557173362
+61301,"Araya and Paria xeric scrub","VEN","Venezuela","862",5244.19040920136
+61308,"Guajira-Barranquilla xeric scrub","VEN","Venezuela","862",3666.05972026821
+61309,"La Costa xeric shrublands","VEN","Venezuela","862",68177.9946006282
+61313,"Paraguana xeric scrub","VEN","Venezuela","862",15876.2642327713
+61401,"Amazon-Orinoco-Southern Caribbean mangroves","VEN","Venezuela","862",12167.9673242281
+40106,"Cardamom Mountains rain forests","VNM","Viet Nam","704",547.253697390256
+40121,"Luang Prabang montane rain forests","VNM","Viet Nam","704",1371.16469545061
+40136,"Northern Annamites rain forests","VNM","Viet Nam","704",11844.7564587364
+40137,"Northern Indochina subtropical forests","VNM","Viet Nam","704",77411.4396907615
+40141,"Northern Vietnam lowland rain forests","VNM","Viet Nam","704",22304.9937316035
+40147,"Red River freshwater swamp forests","VNM","Viet Nam","704",10724.0724986992
+40149,"South China-Vietnam subtropical evergreen forests","VNM","Viet Nam","704",37805.1714933951
+40152,"Southern Annamites montane rain forests","VNM","Viet Nam","704",31191.6769971289
+40164,"Tonle Sap freshwater swamp forests","VNM","Viet Nam","704",10115.4885618276
+40165,"Tonle Sap-Mekong peat swamp forests","VNM","Viet Nam","704",14493.9290456882
+40202,"Central Indochina dry forests","VNM","Viet Nam","704",6781.35079717296
+40210,"Southeastern Indochina dry evergreen forests","VNM","Viet Nam","704",50257.6406897478
+40211,"Southern Vietnam lowland dry forests","VNM","Viet Nam","704",34383.1452578743
+41402,"Indochina mangroves","VNM","Viet Nam","704",17039.3125794669
+10126,"Vanuatu rain forests","VUT","Vanuatu","548",11019.6225090038
+70112,"Samoan tropical moist forests","WSM","Samoa","882",2860.20745619284
+30705,"East Sudanian savanna","xAB","Abyei","1029",2594.99922895578
+30713,"Sahelian Acacia savanna","xAB","Abyei","1029",7622.57570417264
+30905,"Saharan flooded grasslands","xAB","Abyei","1029",271.459829633342
+-9999,"Rock and Ice","xAC","Aksai Chin","1013",4667.97232270272
+81002,"Central Tibetan Plateau alpine steppe","xAC","Aksai Chin","1013",12439.5659624754
+81006,"Karakoram-West Tibetan Plateau alpine steppe","xAC","Aksai Chin","1013",2049.05397024629
+81011,"North Tibetan Plateau-Kunlun Mountains alpine desert","xAC","Aksai Chin","1013",11288.7750936566
+-9999,"Rock and Ice","xJK","Jammu and Kashmir","1052",24337.7615207208
+40301,"Himalayan subtropical pine forests","xJK","Jammu and Kashmir","1052",12017.8396677086
+40403,"Western Himalayan broadleaf forests","xJK","Jammu and Kashmir","1052",24229.0147647502
+40502,"Western Himalayan subalpine conifer forests","xJK","Jammu and Kashmir","1052",7059.97320004649
+41303,"Northwestern thorn scrub forests","xJK","Jammu and Kashmir","1052",4883.55428306962
+81002,"Central Tibetan Plateau alpine steppe","xJK","Jammu and Kashmir","1052",930.608437832512
+81006,"Karakoram-West Tibetan Plateau alpine steppe","xJK","Jammu and Kashmir","1052",99854.0232353517
+81011,"North Tibetan Plateau-Kunlun Mountains alpine desert","xJK","Jammu and Kashmir","1052",12.0048163938195
+81012,"Northwestern Himalayan alpine shrub and meadows","xJK","Jammu and Kashmir","1052",12672.965259371
+81014,"Pamir alpine desert and tundra","xJK","Jammu and Kashmir","1052",73.0781608432118
+40148,"South China Sea Islands","xPI","Paracel Islands","1042",1.50235276961248
+40148,"South China Sea Islands","xSI","Spratly Islands","1046",5.4761829610401
+-9999,"Rock and Ice","xxx","China/India","1021",526.613967831949
+81002,"Central Tibetan Plateau alpine steppe","xxx","China/India","1021",184.654859110698
+81006,"Karakoram-West Tibetan Plateau alpine steppe","xxx","China/India","1021",1150.10058302218
+81012,"Northwestern Himalayan alpine shrub and meadows","xxx","China/India","1021",366.509744406731
+81021,"Western Himalayan alpine shrub and Meadows","xxx","China/India","1021",1331.90320499124
+31302,"Arabian Peninsula coastal fog desert","YEM","Yemen","887",35907.4834671069
+31318,"Socotra Island xeric shrublands","YEM","Yemen","887",3784.38244665193
+31320,"Southwestern Arabian foothills savanna","YEM","Yemen","887",150820.136709486
+31321,"Southwestern Arabian montane woodlands","YEM","Yemen","887",40392.8499480411
+81303,"Arabian Desert and East Sahero-Arabian xeric shrublands","YEM","Yemen","887",53942.7930872563
+81325,"Red Sea Nubo-Sindian tropical desert and semi-desert","YEM","Yemen","887",167905.401335805
+21104,"Southern Indian Ocean Islands tundra","ZAF","South Africa","710",275.882046117687
+30115,"Knysna-Amatole montane forests","ZAF","South Africa","710",3058.31692768229
+30116,"KwaZulu-Cape coastal forest mosaic","ZAF","South Africa","710",17646.3859119181
+30119,"Maputaland coastal forest mosaic","ZAF","South Africa","710",9061.94765901124
+30709,"Kalahari Acacia-Baikiaea woodlands","ZAF","South Africa","710",10446.3181885707
+30717,"Southern Africa bushveld","ZAF","South Africa","710",114084.604557843
+30725,"Zambezian and Mopane woodlands","ZAF","South Africa","710",44260.4761013047
+31003,"Drakensberg alti-montane grasslands and woodlands","ZAF","South Africa","710",3685.16745002974
+31004,"Drakensberg montane grasslands, woodlands and forests","ZAF","South Africa","710",178382.101930612
+31009,"Highveld grasslands","ZAF","South Africa","710",179769.476016868
+31012,"Maputaland-Pondoland bushland and thickets","ZAF","South Africa","710",19507.9795162171
+31201,"Albany thickets","ZAF","South Africa","710",17062.9469428398
+31202,"Lowland fynbos and renosterveld","ZAF","South Africa","710",32599.9044471527
+31203,"Montane fynbos and renosterveld","ZAF","South Africa","710",45734.901591313
+31309,"Kalahari xeric savanna","ZAF","South Africa","710",165313.130156686
+31314,"Nama Karoo","ZAF","South Africa","710",295790.913313936
+31322,"Succulent Karoo","ZAF","South Africa","710",81912.7435983458
+31405,"Southern Africa mangroves","ZAF","South Africa","710",874.769325665816
+-9998,"Lake","ZMB","Zambia","894",1940.59870886726
+30203,"Zambezian Cryptosepalum dry forests","ZMB","Zambia","894",35037.7140642384
+30701,"Angolan Miombo woodlands","ZMB","Zambia","894",22.3680448582298
+30704,"Central Zambezian Miombo woodlands","ZMB","Zambia","894",400335.70290709
+30708,"Itigi-Sumbu thicket","ZMB","Zambia","894",3752.46547692705
+30719,"Southern Miombo woodlands","ZMB","Zambia","894",89797.7562984791
+30724,"Western Zambezian grasslands","ZMB","Zambia","894",29287.5547690294
+30725,"Zambezian and Mopane woodlands","ZMB","Zambia","894",77998.6010989018
+30726,"Zambezian Baikiaea woodlands","ZMB","Zambia","894",29853.7493619212
+30907,"Zambezian flooded grasslands","ZMB","Zambia","894",81560.3084496911
+31015,"Southern Rift montane forest-grassland mosaic","ZMB","Zambia","894",1315.77009819519
+30709,"Kalahari Acacia-Baikiaea woodlands","ZWE","Zimbabwe","716",3189.47337230445
+30717,"Southern Africa bushveld","ZWE","Zimbabwe","716",62171.5758313141
+30719,"Southern Miombo woodlands","ZWE","Zimbabwe","716",176208.908144683
+30725,"Zambezian and Mopane woodlands","ZWE","Zimbabwe","716",108753.796010205
+30726,"Zambezian Baikiaea woodlands","ZWE","Zimbabwe","716",33857.5948373712
+31004,"Drakensberg montane grasslands, woodlands and forests","ZWE","Zimbabwe","716",11.2653412430217
+31006,"Eastern Zimbabwe montane forest-grassland mosaic","ZWE","Zimbabwe","716",6855.00331121494
