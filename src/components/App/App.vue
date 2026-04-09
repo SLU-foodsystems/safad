@@ -840,7 +840,8 @@ onMounted(async () => {
       <div class="inner-thinner-wrap stack stack-l">
         <p>
           <strong
-            >Read the published article for a description of the method:</strong
+            >Read the published article for a more detailed description of the
+            model:</strong
           ><br />
           Röös, E., Jacobsen, M., Karlsson, L., Wanecek, W., Spångberg, J.,
           Mazac, R., &amp; Rydhmer, L. (2025). Introducing a comprehensive and
