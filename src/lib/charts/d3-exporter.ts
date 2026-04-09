@@ -9,10 +9,14 @@ function inlineStyles(
     return;
   }
 
-  // @ts-ignore.next.line
-  for (const styleKey of computed) {
-    if (!styleKey || !computed[styleKey]) continue;
-    target.style[styleKey] = computed[styleKey];
+  for (let i = 0; i < computed.length; i++) {
+    const prop = computed.item(i); // string
+    if (!prop) continue;
+
+    const value = computed.getPropertyValue(prop);
+    if (!value) continue;
+
+    target.style.setProperty(prop, value, computed.getPropertyPriority(prop));
   }
 
   // recursively call inlineStyles for the element children
