@@ -819,10 +819,10 @@ onMounted(async () => {
             target="_blank"
           >
             <img
-              src="@/assets/eu-flag.svg"
+              src="@/assets/eu-flag-monochrome.svg"
               width="81"
               height="54"
-              alt="EU Flag"
+              alt="Flag of the European Union"
               loading="lazy"
             />
           </a>
