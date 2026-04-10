@@ -22,9 +22,6 @@ import url from "url";
 
 import { asCsvString, readCsv, roundToPrecision } from "../utils.mjs";
 
-// It may seem superflous that we have a list of country-names here even though
-// we already have the country names in the original data. This is, however, to
-// ensure that the spelling stays consistent with what we expect.
 import countryNames from "./country-names.json" with { type: "json" };
 
 const RESULT_PRECISION = 3;
@@ -80,33 +77,34 @@ const OVERRIDE_CODES = new Set(ALL_COUNTRY_OVERRIDES.map((x) => x[0]));
  * Most complex logic in this file, where we extract the shares from the trade
  * matrix for a specific country.
  *
- * We essentially, for every consumerCountry and food item, compute how large a
- * portion (%) is produced in each producerCountry.
+ * For a given counsumerCountry, we compute how large a portion (%) of every
+ * foodItem is imported from each producerCountry.
+ *
+ * Output is an object mapping foodItem -> { [prodCountryCode]: share }
  *
  * @param {string[][]} matrix
- * @param {string} consumerCountryName
+ * @param {string} consumerCountryCode
  * @returns {Object.<string, Object.<string, number>>}
  */
 function getFoodItemShares(matrix, consumerCountryCode) {
-  // CSV Columns:
-  // 0 "Consumer Country Code"
-  // 1 "Consumer Country Name"
-  // 2 "Producer Country Code"
-  // 3 "Producer Country Name"
-  // 4 "Item Code"
-  // 5 "Item Name"
-  // 6 "Value"
   const filtered = matrix
-    .filter((row) => row[0] == consumerCountryCode)
+    // Look at only this particular country's imports
+    .filter((row) => row[0] === consumerCountryCode)
     .map((x) => ({
-      producerCountryCode: x[2],
+      producerCountry: x[2].trim() || "NA", // The ISO2 country code
       itemCode: x[4].trim(),
       amount: parseFloat(x[6]),
     }))
-    .filter((x) => x.producerCountryCode && x.itemCode && x.amount > 0);
+    .filter(
+      (x) =>
+        x.producerCountry !== "NA" &&
+        x.itemCode &&
+        x.itemCode !== "NA" &&
+        x.amount > 0
+    );
 
   if (filtered.length === 0) {
-    throw new Error(`Data for country ${consumerCountry} not found.`);
+    throw new Error(`Data for country ${consumerCountryCode} not found.`);
   }
 
   /**
@@ -123,7 +121,7 @@ function getFoodItemShares(matrix, consumerCountryCode) {
    */
   /** @type {Object.<string, Object.<string, number>>} */
   const allProportions = {};
-  filtered.forEach(({ amount, producerCountryCode, itemCode }) => {
+  filtered.forEach(({ amount, producerCountry, itemCode }) => {
     if (!(itemCode in allProportions)) {
       allProportions[itemCode] = {};
     }
@@ -136,8 +134,8 @@ function getFoodItemShares(matrix, consumerCountryCode) {
       );
     }
 
-    allProportions[itemCode][producerCountryCode] =
-      (allProportions[itemCode][producerCountryCode] || 0) + amount;
+    allProportions[itemCode][producerCountry] =
+      (allProportions[itemCode][producerCountry] || 0) + amount;
   });
 
   /**
@@ -145,16 +143,18 @@ function getFoodItemShares(matrix, consumerCountryCode) {
    *
    * Necessary since some producerCountries can appear twice (mostly only CN, as
    * two countries are assigned that code due to our COUNTRY_RENAME_MAP
+   *
+   * MODIFIES the allProportions object
    */
   Object.entries(allProportions).forEach(
     ([itemCode, proportionsPerProdCountry]) => {
-      Object.keys(proportionsPerProdCountry).forEach((producerCountryCode) => {
+      Object.keys(proportionsPerProdCountry).forEach((producerCountry) => {
         const total = totalAmounts[itemCode];
-        const share = proportionsPerProdCountry[producerCountryCode] / total;
+        const share = proportionsPerProdCountry[producerCountry] / total;
         if (share < MIN_SHARE_THRESHOLD) {
-          delete proportionsPerProdCountry[producerCountryCode];
+          delete proportionsPerProdCountry[producerCountry];
         } else {
-          proportionsPerProdCountry[producerCountryCode] = share;
+          proportionsPerProdCountry[producerCountry] = share;
         }
       });
     }
@@ -212,14 +212,14 @@ function createRpcSuaTranslationMaps(rpcToSuaCodesCsv) {
   const rpcNames = {};
   rpcToSuaCodesCsv.forEach(([_foodEx2Code, rpcCode, rpcName, suaCode]) => {
     // Add rpcToSua codes: many-to-one
-    rpcToSua[rpcCode] = suaCode;
-    rpcNames[rpcCode] = rpcName;
+    rpcToSua[rpcCode] = suaCode.trim();
+    rpcNames[rpcCode] = rpcName.trim();
 
     // Add suaToRpcs codes: one-to-many
     if (!suaToRpcs[suaCode]) {
       suaToRpcs[suaCode] = [];
     }
-    suaToRpcs[suaCode].push(rpcCode);
+    suaToRpcs[suaCode].push(rpcCode.trim());
   });
 
   return { rpcToSua, suaToRpcs, rpcNames };
@@ -256,10 +256,9 @@ function main(args) {
     readCsv(path.resolve(DIRNAME, "./rpc-waste-factors.csv"), ",").slice(1)
   );
 
-  // A list of Sua Code, Sua Name, Category, Item Code, and Item Name, where
-  // `Item` refers to the standard used by the kastner file (FAO?)
-  const suaKastnerList = readCsv(
-    path.resolve(DIRNAME, "./sua-kastner-list.csv"),
+  // A translation between the FAO item codes and the SUA codes
+  const faoToSuaCodes = readCsv(
+    path.resolve(DIRNAME, "./fao-to-sua.csv"),
     ","
   ).slice(1);
 
@@ -269,8 +268,7 @@ function main(args) {
   // Extract rpcNames and a suaToRpcs conversion map
   const { suaToRpcs, rpcNames } = createRpcSuaTranslationMaps(rpcToSuaCodesCsv);
 
-  // NOTE: the trade matrix csv-file uses semicolon (;) as its delimiter
-  const matrix = readCsv(path.resolve(DIRNAME, "./trade-matrix.csv"), ";");
+  const matrix = readCsv(path.resolve(DIRNAME, "./trade-matrix.csv"), ",");
 
   /** @type {Object.<string, Object.<string, number>>}*/
   const sharesPerItem = getFoodItemShares(matrix, consumerCountryCode);
@@ -288,8 +286,22 @@ function main(args) {
    *
    * For each sua-code (in said list), we output N origin rows.
    */
-  suaKastnerList.forEach((row, i) => {
+  const suaCodesMissingFaoCodes = new Set();
+  faoToSuaCodes.forEach((row, i) => {
     const [suaCode, suaName, maybeCategory, itemCode, itemName] = row;
+
+    // Cancel for regular SUA codes where we miss the relationship to a
+    // FAO-code (kastner), i.e. we do cannot pair it with import data.
+    // Unless it is blue food (BF), which we all assign to RoW.
+    if ((!itemCode || itemCode == "NA") && !suaCode.startsWith("BF")) {
+      if (suaCodesMissingFaoCodes.has(suaCode)) {
+        console.error(
+          `ERR (row ${i}): No matching FAO itemCode for SUA item "${suaName}" (${suaCode}) found.`
+        );
+        suaCodesMissingFaoCodes.add(suaCode);
+      }
+      return;
+    }
 
     let category = maybeCategory; // Overwritten if waste not found for this category
     let waste = wasteFactorsMap[consumerCountry][category];
@@ -301,26 +313,22 @@ function main(args) {
       waste = wasteFactorsMap[consumerCountry][category];
     }
 
-    /** @type {string[]} a*/
+    /** @type {string[]} rpcCodes for each suaCode */
     const rpcCodes = suaToRpcs[suaCode];
     if (!rpcCodes) {
       console.error(
         `ERR (row ${i}): RPC codes missing for SUA item: ${suaName} (${suaCode})` +
           `. Item is ${itemName} (${itemCode}).`
       );
+      // throw new Error("No rpc-codes found for sua " + suaCode);
       return;
     }
 
-    if (!itemCode && !suaCode.startsWith("BF-")) {
+    // Warn if no trade data found for this SUA item. Skip warning for BF-,
+    // wish will all have RoW only for now.
+    if (!sharesPerItem[itemCode] && !suaCode.startsWith("BF-")) {
       console.warn(
-        `ERR (row ${i}): No code found for sua item "${suaName}" (${suaCode}).`
-      );
-      return;
-    }
-
-    if (!sharesPerItem[itemCode]) {
-      console.warn(
-        `WARN (${i}): No shares found for sua item "${suaName}" (${suaCode}) ` +
+        `WARN (${i}): No shares found for SUA item "${suaName}" (${suaCode}) ` +
           `(item "${itemName}" with code "${itemCode}"). Allocating all to RoW.`
       );
     }
@@ -329,16 +337,16 @@ function main(args) {
     rpcCodes.forEach((rpcCode) => {
       // Skip if we add this value manually
       if (OVERRIDE_CODES.has(rpcCode)) return;
-      // Skip if we've already encountered this rpc-code
+      // Skip if we've already encountered this rpc-code, which will happen
+      // since there is a many(foodex2)-to-one(foodex1) relationship
       if (_rpcCodesCache.has(rpcCode)) {
         console.warn(
           `WARN: Duplicate entries for rpc ${rpcNames[rpcCode]} ` +
             `${rpcCode}.`
         );
         return;
-      } else {
-        _rpcCodesCache.add(rpcCode);
       }
+      _rpcCodesCache.add(rpcCode);
 
       // And we store in the final results as a list, to be made into a csv.
       Object.entries(shares).forEach(([prodCountry, share]) => {
@@ -370,6 +378,8 @@ function main(args) {
     "Waste",
     "SUA Code",
   ];
+
+  fullKastnerDataRows.sort((a, b) => a[0].localeCompare(b[0]));
 
   console.log(
     asCsvString([HEADER, ...fullKastnerDataRows], {
