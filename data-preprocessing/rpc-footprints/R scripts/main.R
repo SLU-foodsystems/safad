@@ -1282,6 +1282,8 @@ df_crops_averages <- df_crops |>
 merged_data <- df_crops |>
   filter(!grepl("(_of|_gh)$", `Crop code`)) |>
   bind_rows(df_crops_averages) |>
+  # Remove suffix from some crop names
+  mutate(Crop = gsub(", average$", "", Crop)) |>
   # Set the order
   transmute(
     Code = `Crop code`,
