@@ -245,7 +245,8 @@ normalise_country_names <- function(df, col) {
         "Venezuela" ~ "Venezuela (Bolivarian Republic of)",
         "Vietnam" ~ "Viet Nam",
         .default = !!col
-      ))
+      )
+    )
 }
 
 ################################################################################
@@ -1191,6 +1192,7 @@ expand_biodiv <- function(biodiv_df, yields_df) {
     transmute(
       `Crop code`,
       `Country code`,
+      # TODO: Only correct if we multiply by (10 * 1e6 / 365.25)
       Biodiversity = abs_CF_cty / yield
     )
 }
