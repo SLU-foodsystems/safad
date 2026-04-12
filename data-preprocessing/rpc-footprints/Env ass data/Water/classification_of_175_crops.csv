@@ -1,0 +1,179 @@
+﻿Classification of 175 simulated crops in ACEA aligned with FAOSTAT,,,,
+DOI: https://doi.org/10.4121/7b45bcc6-686b-404d-a910-13c87156716a,,,,
+,,,,
+crop_name,crop_group,crop_season,faostat_code,acea_code
+Wheat,Cereals,annual,15,wh
+Rice,Cereals,annual,27,ri
+Barley,Cereals,annual,44,bar
+Maize (corn),Cereals,annual,56,mai
+Rye,Cereals,annual,71,rye
+Oats,Cereals,annual,75,oat
+Millet,Cereals,annual,79,mil
+Sorghum,Cereals,annual,83,sor
+Buckwheat,Cereals,annual,89,bkw
+Quinoa,Cereals,annual,92,qna
+Fonio,Cereals,annual,94,fon
+Triticale,Cereals,annual,97,trc
+Canary seed,Cereals,annual,101,cns
+Mixed grain,Cereals,annual,103,grm
+Cereals n.e.c.,Cereals,annual,108,crl
+Potatoes,Root and Tubers,annual,116,pot
+Sweet potatoes,Root and Tubers,annual,122,spt
+"Cassava, fresh",Root and Tubers,annual,125,cas
+Yautia,Root and Tubers,annual,135,yut
+Taro,Root and Tubers,annual,136,tar
+Yams,Root and Tubers,annual,137,yam
+"Edible Root and Tubers and tubers with high starch or inulin content, n.e.c., fresh",Root and Tubers,annual,149,rtn
+Sugar cane,Sugar crops,perennial,156,sgc
+Sugar beet,Sugar crops,annual,157,sgb
+Other sugar crops n.e.c.,Sugar crops,perennial,161,scn
+"Beans, dry",Pulses,annual,176,bea
+"Broad beans and horse beans, dry",Pulses,annual,181,bbd
+"Peas, dry",Pulses,annual,187,pea
+"Chick peas, dry",Pulses,annual,191,ckp
+"Cow peas, dry",Pulses,annual,195,cwp
+"Pigeon peas, dry",Pulses,annual,197,pgp
+"Lentils, dry",Pulses,annual,201,lnt
+"Bambara beans, dry",Pulses,annual,203,bmb
+Vetches,Pulses,annual,205,vtc
+Lupins,Pulses,annual,210,lpn
+Other pulses n.e.c.,Pulses,annual,211,pls
+"Brazil nuts, in shell",Treenuts,perennial,216,bzn
+"Cashew nuts, in shell",Treenuts,perennial,217,csh
+"Chestnuts, in shell",Treenuts,perennial,220,csn
+"Almonds, in shell",Treenuts,perennial,221,alm
+"Walnuts, in shell",Treenuts,perennial,222,wln
+"Pistachios, in shell",Treenuts,perennial,223,pst
+Kola nuts,Treenuts,perennial,224,kln
+"Hazelnuts, in shell",Treenuts,perennial,225,hzl
+Areca nuts,Treenuts,perennial,226,arn
+"Other nuts (excluding wild edible nuts and groundnuts), in shell, n.e.c.",Treenuts,perennial,234,nts
+Soya beans,Oil crops,annual,236,soy
+"Groundnuts, excluding shelled",Oil crops,annual,242,nut
+"Coconuts, in shell",Oil crops,perennial,249,cnt
+Oil palm fruit,Oil crops,perennial,254,plm
+Olives,Oil crops,perennial,260,oli
+Karite nuts (sheanuts),Oil crops,perennial,263,shn
+Castor oil seeds,Oil crops,annual,265,cos
+Sunflower seed,Oil crops,annual,267,sun
+Rape or colza seed,Oil crops,annual,270,rap
+Tung nuts,Oil crops,perennial,275,tng
+Jojoba seeds,Oil crops,perennial,277,jjb
+Safflower seed,Oil crops,annual,280,sfl
+Sesame seed,Oil crops,annual,289,ses
+Mustard seed,Oil crops,annual,292,mrd
+Poppy seed,Oil crops,annual,296,pps
+Melonseed,Oil crops,annual,299,mls
+Tallowtree seeds,Oil crops,perennial,305,tls
+Kapok fruit,Oil crops,perennial,310,kpk
+"Seed cotton, unginned",Fibre crops,annual,328,cot
+Linseed,Oil crops,annual,333,lns
+Hempseed,Oil crops,annual,336,hmp
+"Other oil seeds, n.e.c.",Oil crops,annual,339,ols
+Cabbages,Vegetables,annual,358,cbg
+Artichokes,Vegetables,annual,366,art
+Asparagus,Vegetables,annual,367,asp
+Lettuce and chicory,Vegetables,annual,372,ltc
+Spinach,Vegetables,annual,373,spn
+Tomatoes,Vegetables,annual,388,tmt
+Cauliflowers and broccoli,Vegetables,annual,393,cfl
+"Pumpkins, squash and gourds",Vegetables,annual,394,pmp
+Cucumbers and gherkins,Vegetables,annual,397,cmb
+Eggplants (aubergines),Vegetables,annual,399,egp
+"Chillies and peppers, green (Capsicum spp. and Pimenta spp.)",Vegetables,annual,401,ppr
+"Onions and shallots, green",Vegetables,annual,402,ong
+"Onions and shallots, dry (excluding dehydrated)",Vegetables,annual,403,oni
+Green garlic,Vegetables,annual,406,gar
+Leeks and other alliaceous vegetables,Vegetables,annual,407,lek
+"Other beans, green",Vegetables,annual,414,beg
+"Peas, green",Vegetables,annual,417,peg
+"Broad beans and horse beans, green",Vegetables,annual,420,bdb
+String beans,Vegetables,annual,423,stb
+Carrots and turnips,Vegetables,annual,426,crt
+Okra,Vegetables,annual,430,okr
+Green corn (maize),Vegetables,annual,446,mzg
+Mushrooms and truffles,Vegetables,annual,449,msh
+Chicory Root and Tubers,Vegetables,annual,459,chr
+Locust beans (carobs),Fruits,perennial,461,crs
+Fruit vegetable,Vegetables,annual,463,veg
+Bananas,Fruits,perennial,486,bnn
+Plantains and cooking bananas,Fruits,perennial,489,plt
+Oranges,Fruits,perennial,490,ora
+"Tangerines, mandarins, clementines",Fruits,perennial,495,mnd
+Lemons and limes,Fruits,perennial,497,lme
+Pomelos and grapefruits,Fruits,perennial,507,gpf
+"Other citrus fruit, n.e.c.",Fruits,perennial,512,fcn
+Apples,Fruits,perennial,515,apl
+Pears,Fruits,perennial,521,per
+Quinces,Fruits,perennial,523,qnc
+Apricots,Fruits,perennial,526,apr
+Sour cherries,Fruits,perennial,530,chs
+Cherries,Fruits,perennial,531,che
+Peaches and nectarines,Fruits,perennial,534,pch
+Plums and sloes,Fruits,perennial,536,plu
+Other stone fruits,Fruits,perennial,541,fsn
+Other pome fruits,Fruits,perennial,542,fpn
+Strawberries,Fruits,perennial,544,swb
+Raspberries,Fruits,perennial,547,rsb
+Gooseberries,Fruits,perennial,549,gsb
+Currants,Fruits,perennial,550,crr
+Blueberries,Fruits,perennial,552,bbs
+Cranberries,Fruits,perennial,554,crb
+Other berries and fruits of the genus vaccinium n.e.c.,Fruits,perennial,558,brn
+Grapes,Fruits,perennial,560,grp
+Watermelons,Vegetables,annual,567,wml
+Cantaloupes and other melons,Vegetables,annual,568,mln
+Figs,Fruits,perennial,569,fig
+"Mangoes, guavas and mangosteens",Fruits,perennial,571,mng
+Avocados,Fruits,perennial,572,avo
+Pineapples,Fruits,perennial,574,pna
+Dates,Fruits,perennial,577,dts
+Persimmons,Fruits,perennial,587,prm
+Cashewapple,Fruits,perennial,591,cwa
+Kiwi fruit,Fruits,perennial,592,kwf
+Papayas,Fruits,perennial,600,ppy
+"Other tropical fruits, n.e.c.",Fruits,perennial,603,ftn
+"Other fruits, n.e.c.",Fruits,perennial,619,ffn
+"Forage and silage, maize",Fodder crops,annual,636,mzf
+"Forage and silage, sorghum",Fodder crops,annual,637,sgf
+"Forage and silage, rye grass",Fodder crops,annual,638,rgf
+Other grasses for forage,Fodder crops,perennial,639,ogf
+Clover for forage,Fodder crops,perennial,640,cvf
+"Forage and silage, alfalfa",Fodder crops,perennial,641,aff
+"Forage and silage, green oilseeds",Fodder crops,annual,642,gsf
+Other legumes for forage,Fodder crops,annual,643,olf
+Cabbage for fodder,Fodder crops,annual,644,cbf
+Mixed Grasses and Legumes,Fodder crops,annual,645,glf
+Turnips for forage,Fodder crops,annual,646,tpf
+Beets for fodder,Fodder crops,annual,647,btf
+Carrots for fodder,Fodder crops,annual,648,ctf
+Swedes for fodder,Fodder crops,annual,649,sdf
+"Other forage products, n.e.c.",Fodder crops,perennial,651,ofp
+Vegetables and Root and Tubers fodder,Fodder crops,annual,655,vrf
+"Coffee, green",Stimulants,perennial,656,cof
+Cocoa beans,Stimulants,perennial,661,coc
+Tea leaves,Stimulants,perennial,667,tea
+Maté leaves,Stimulants,perennial,671,mat
+Hop cones,Spices,perennial,677,hps
+"Pepper (Piper spp.), raw",Spices,annual,687,ppd
+"Chillies and peppers, dry (Capsicum spp., Pimenta spp.), raw",Spices,annual,689,cpd
+"Vanilla, raw",Spices,perennial,692,vnl
+"Cinnamon and cinnamon-tree flowers, raw",Spices,perennial,693,cnm
+"Cloves (whole stems), raw",Spices,perennial,698,clv
+"Nutmeg, mace, cardamoms, raw",Spices,perennial,702,nmg
+"Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw",Spices,annual,711,abf
+"Ginger, raw",Spices,annual,720,gng
+"Other stimulant, spice and aromatic crops, n.e.c.",Spices,annual,723,sps
+"Peppermint, spearmint",Spices,annual,748,ppm
+"Pyrethrum, dried flowers",Others,perennial,754,pth
+"Flax, processed but not spun",Fibre crops,annual,773,fft
+"True hemp, raw or retted",Fibre crops,annual,777,htw
+"Jute, raw or retted",Fibre crops,annual,780,jut
+"Kenaf, and other textile bast fibres, raw or retted",Fibre crops,annual,782,btn
+"Ramie, raw or retted",Fibre crops,annual,788,rme
+"Sisal, raw",Fibre crops,perennial,789,sis
+"Agave fibres, raw, n.e.c.",Fibre crops,perennial,800,agv
+"Abaca, manila hemp, raw",Fibre crops,perennial,809,mnf
+"Other fibre crops, raw, n.e.c.",Fibre crops,perennial,821,fbn
+Unmanufactured tobacco,Others,annual,826,tbc
+Natural rubber in primary forms,Others,perennial,836,rub

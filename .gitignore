@@ -24,3 +24,13 @@ dist-ssr
 *.sw?
 
 data-preprocessing/rpc-parameters/csv-out/*.csv
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+**/.Rproj.user/
+**/.Rhistory
+**/.RData
+**/.Ruserdata
+
+SAFAD files/
