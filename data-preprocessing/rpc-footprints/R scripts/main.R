@@ -1187,13 +1187,19 @@ expand_biodiv <- function(biodiv_df, yields_df) {
       .groups = "drop"
     )
 
+  # To convert from PSL (potential species lost) to E/MSY
+  # (extinctions per million-species-years), we first divide by 100 (to
+  # allocate the extinction over a time-horizon of 100 years) and then by
+  # one millionth of the total number of recognised species (352323).
+  # See manuscript for more details.
+  CF_TO_EMSY_FACTOR = (1 / 100) * (352323 / 1e6)
+
   yields_df |>
     left_join(biodiv_df, by = "Country code") |>
     transmute(
       `Crop code`,
       `Country code`,
-      # TODO: Only correct if we multiply by (10 * 1e6 / 365.25)
-      Biodiversity = abs_CF_cty / yield
+      Biodiversity = (abs_CF_cty / CF_TO_EMSY_FACTOR) / yield
     )
 }
 
