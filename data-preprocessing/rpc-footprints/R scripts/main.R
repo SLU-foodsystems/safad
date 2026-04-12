@@ -16,7 +16,7 @@ if (!require("tidyr")) {
   library(tibble)
 }
 
-setwd("~/dev/safad-scripts/R scripts")
+setwd("~/dev/safad/data-preprocessing/rpc-footprints/R scripts")
 
 # MJ energy per kg diesel
 HEATING_VALUE_DIESEL <- 35.2
