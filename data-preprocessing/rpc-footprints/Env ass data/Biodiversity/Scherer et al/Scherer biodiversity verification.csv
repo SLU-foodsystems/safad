@@ -1,0 +1,21 @@
+,,,,,,,,Cropland_intense,
+ECO_ID,ECO_NAME,ISO3CD,ROMNAM,M49Code,area,Share,No of plant species in ecoregion,CF_occ_avg_glo (relative SL),CF absolute calculated
+-9998,Lake,SWE,Sweden,752,5733,0.01,,,
+80405,Baltic mixed forests,SWE,Sweden,752,8658,0.02,230,3.71E-16,1.66E-15
+80436,Sarmatic mixed forests,SWE,Sweden,752,119736,0.27,1658,3.60E-16,1.61E-13
+80608,Scandinavian and Russian taiga,SWE,Sweden,752,260174,0.58,809,1.53E-16,7.22E-14
+81110,Scandinavian Montane Birch forest and grasslands,SWE,Sweden,752,50631,0.11,1008,1.89E-15,2.16E-13
+,,,,,,,,Average:,4.51E-13
+,,,,,,,,,
+ECO_ID,ECO_NAME,ISO3CD,ROMNAM,M49Code,area,,,,
+21103,Scotia Sea Islands tundra,NOR,Norway,578,38,0.00,406,7.56E-19,3.19E-20
+80429,North Atlantic moist mixed forests,NOR,Norway,578,110,0.00,597,4.73E-16,8.35E-17
+80436,Sarmatic mixed forests,NOR,Norway,578,8860,0.02,1658,3.60E-16,1.43E-14
+80520,Scandinavian coastal conifer forests,NOR,Norway,578,16526,0.04,1268,1.44E-15,8.16E-14
+80608,Scandinavian and Russian taiga,NOR,Norway,578,97421,0.26,809,1.53E-16,3.25E-14
+81101,Arctic desert,NOR,Norway,578,60008,0.16,650,1.22E-15,1.28E-13
+81106,Kola Peninsula tundra,NOR,Norway,578,3674,0.01,183,2.55E-15,4.64E-15
+81110,Scandinavian Montane Birch forest and grasslands,NOR,Norway,578,183546,0.50,1008,1.89E-15,9.43E-13
+,,,,,,,,Average:,1.20E-12
+,,,,,,,,,
+,Scandinavian Montane Birch forest and grasslands,,,,,,,,
