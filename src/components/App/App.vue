@@ -404,6 +404,9 @@ onMounted(async () => {
               height="64"
               alt="SLU logo"
             />
+            <span>
+              Swedish University of Agricultural Sciences
+            </span>
           </a>
         </div>
 

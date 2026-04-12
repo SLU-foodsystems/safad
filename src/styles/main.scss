@@ -210,6 +210,15 @@ p {
   nav {
     padding: 0 1em;
   }
+
+  @media (max-width: 600px) {
+    .cluster.cluster--between {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 500px) {
+    font-size: 0.875em;
+  }
 }
 
 .top-bar__logo,
@@ -219,6 +228,27 @@ p {
   img {
     width: auto;
     height: 3em;
+  }
+}
+
+.top-bar__logo {
+  $gap: 1em;
+  display: flex;
+  align-items: center;
+  gap: $gap;
+
+  text-decoration: none;
+
+  span {
+    display: inline-block;
+    max-width: 15em;
+    padding: 0.25em 0 0.25em $gap;
+    border-left: 1px solid currentcolor;
+
+    word-wrap: wrap;
+    text-transform: uppercase;
+    font-weight: 300;
+    line-height: 1.15;
   }
 }
 
