@@ -494,8 +494,8 @@ df_water <- read_csv(
   transmute(
     `Country code`,
     `Crop code` = `SUA Code`,
-    # Note: m3 per 1000 kg is the same as L (=dm3) per kg
-    Water = wfb_i_m3_t
+    # Note: Convert from m3 per tonne to m3 per kg
+    Water = wfb_i_m3_t / 1000
   ) |>
   split_avg_into_gh_crops(gh_crops)
 
