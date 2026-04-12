@@ -857,6 +857,7 @@ df_gh_energy_use_per_ha <- df_emission_factors_gh |>
     energy_mj_per_ha = coalesce(Value, 0),
   )
 
+
 # Step 2: Get the energy allocation factors.
 # For some countries (mostly NL), energy is re-used and funneled into
 # the district heating, and is therefore not to be counted as energy use.
@@ -869,6 +870,31 @@ df_gh_allocation_factors <- df_emission_factors_gh |>
   )
 
 # Step 3: Calculate the emissions per hectare of each crop and country
+
+## Step 3a: Prepare emission factors for district heating and electricity, which
+##          are per-country whereas the others are universal
+df_emission_factors_gh_per_country <- df_emission_factors_country |>
+  filter(
+    startsWith(Factor, "EF_district_heating_") |
+      startsWith(Factor, "EF_electricity_")
+  ) |>
+  separate(
+    Factor,
+    into = c("Energy source", "Gas"),
+    sep = "_(?=[^_]+$)",
+    remove = TRUE
+  ) |>
+  mutate(
+    `Energy source` = case_match(
+      `Energy source`,
+      "EF_electricity" ~ "Electricity",
+      "EF_district_heating" ~ "District heating"
+    )
+  ) |>
+  pivot_wider(names_from = "Gas", values_from = "Value")
+
+## Step 3b: Start by structuring the data as share of each energy source for
+#           each gh-crop.
 df_gh_emissions_per_ha <- df_emission_factors_gh |>
   # Filter out: only the energy source fractions
   filter(
@@ -876,6 +902,7 @@ df_gh_emissions_per_ha <- df_emission_factors_gh |>
       !startsWith(Factor, "Energy_") &
       !startsWith(Factor, "Allocation_")
   ) |>
+  mutate(Value = coalesce(Value, 0)) |>
   # Factor out the energy source and the crop code from the energy Factor name
   separate(
     Factor,
@@ -883,14 +910,32 @@ df_gh_emissions_per_ha <- df_emission_factors_gh |>
     sep = "_(?=[^_]+$)",
     remove = TRUE
   ) |>
-  # Clean up the energy source name (remove _), and consistent naming for wood chips
+  # Clean up the energy source name (remove _), and consistent naming for
+  # wood chips
   mutate(`Energy source` = gsub("_", " ", `Energy source`)) |>
   rename(energy_share = Value) |>
-  # Add in the allocation factors
+  # Add in the allocation factors. For some countries (at the time of writing,
+  # only the Netherlands) only part of the energy/emissions is to be allocated
+  # to growing crops, as the heat is re-used for housing (and thus accounted)
+  # for in that sector.
   left_join(df_gh_allocation_factors, by = c("Country code")) |>
-  # Add in the emissions factors (kg ghg per MJ)
+  # Add in the emissions factors for different energy sources (kg GHG per MJ)
   left_join(df_emission_factors_energy, by = "Energy source") |>
-  # We can now multiply the energy share (0-1) and the emissions (kg ghg per MJ energy)
+  # ... and the ones that are specific per country.
+  # We add suffixes since we need to pick the specific were available, and the
+  # general one otherwise.
+  left_join(
+    df_emission_factors_gh_per_country,
+    by = c("Energy source", "Country code"),
+    suffix = c("", "_country")
+  ) |>
+  mutate(
+    CO2 = coalesce(CO2_country, CO2),
+    CH4 = coalesce(CH4_country, CH4),
+    N2O = coalesce(N2O_country, N2O)
+  ) |>
+  # We can now multiply the energy share (0-1) and the emissions # (kg GHG per
+  # MJ energy)
   transmute(
     `Crop code`,
     `Country code`,
@@ -933,7 +978,33 @@ df_gh_emissions <- df_gh_emissions_per_ha |>
 # Per-country emission Factors
 # ----------------------------------------------------------
 
-df_N_emission_factors <- df_emission_factors_country |>
+# The emissions factors for the N fertiliser is on a different format than the
+# other sheets, where we need to calculate the weighted sum across different
+# fertilies-categories based on their share of usage.
+df_N_fert_emission_factors <- read_crop_excel(
+  "Emission factors.xlsx",
+  sheet = "EF_N_fert",
+  skip = 0
+) |>
+  normalise_country_names(Country) |>
+  left_join(country_name_code_map, by = c("Country" = "Country name")) |>
+  # Drop remaining na-country codes that we do not use. (e.g. "Others Oceania")
+  filter(!is.na(`Country code`)) |>
+  # Combine the different sources of N-fert. emission factors as a weighted sum
+  group_by(`Country code`) |>
+  summarise(
+    EF_Nfert_CO2 = sum(
+      EF_Nfert_CO2 * `Share of fertiliser product`,
+      na.rm = TRUE
+    ),
+    EF_Nfert_N2O = sum(
+      EF_Nfert_N2O * `Share of fertiliser product`,
+      na.rm = TRUE
+    ),
+    .groups = "drop"
+  )
+
+df_N2O_emission_factors <- df_emission_factors_country |>
   filter(startsWith(Factor, "EF_")) |>
   # Transpose it, so that we have one row for each country with the EFs in cols
   pivot_wider(
@@ -946,14 +1017,12 @@ df_N_emission_factors <- df_emission_factors_country |>
       "EF_N2O_soils_min_fert",
       "EF_N2O_soils_crop_res",
       "EF_N2O_soils_indirect",
-      "EF_Nfert_CO2",
-      "EF_Nfert_CH4",
-      "EF_Nfert_N2O"
     )
   )
 
 df_N_emissions <- df_N |>
-  left_join(df_N_emission_factors, by = "Country code") |>
+  left_join(df_N2O_emission_factors, by = "Country code") |>
+  left_join(df_N_fert_emission_factors, by = "Country code") |>
   # N2O from crop residues: join df and multiply by emissions factor
   left_join(
     df_N_resid,
@@ -963,7 +1032,7 @@ df_N_emissions <- df_N |>
     # N2O from mineral fertiliser use
     N2O_soils_min_fert = N_fert * EF_N2O_soils_min_fert,
     # N2O from crop residuals
-    N2O_soils_crop_res = N_resid * EF_N2O_soils_crop_res
+    N2O_soils_crop_res = N_resid * EF_N2O_soils_crop_res,
   ) |>
   transmute(
     `Crop code`,
@@ -978,9 +1047,9 @@ df_N_emissions <- df_N |>
     N2O_soils_indirect = EF_N2O_soils_indirect *
       (N2O_soils_min_fert + N2O_soils_crop_res),
     # Add the direct emissions from the manufacturing of the fertiliser
-    CO2_Nfert = EF_Nfert_CO2 * N_fert,
-    CH4_Nfert = EF_Nfert_CH4 * N_fert,
-    N2O_Nfert = EF_Nfert_N2O * N_fert
+    CO2_Nfert = coalesce(EF_Nfert_CO2 * N_fert, 0),
+    N2O_Nfert = coalesce(EF_Nfert_N2O * N_fert, 0),
+    CH4_Nfert = 0 # TODO: Remove completely
   )
 
 
