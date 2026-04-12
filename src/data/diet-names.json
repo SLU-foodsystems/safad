@@ -9,6 +9,11 @@
     "surveyName": "Eating Study as a KiGGS Module (EsKiMo, 2006)",
     "ageClass": "Adolescents"
   },
+  "DK": {
+    "country": "Denmark",
+    "surveyName": "TODO",
+    "ageClass": "TODO"
+  },
   "GR": {
     "country": "Greece",
     "surveyName":
