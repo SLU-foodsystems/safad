@@ -1973,10 +1973,10 @@ merged_codes <- merged_codes[!is.na(merged_codes$"Long code"), ]
 # Create dir '../SAFAD FILES/Input files"
 dir.create(file.path("..", "SAFAD files"), showWarnings = FALSE)
 dir.create(file.path("../SAFAD files", "Input files"), showWarnings = FALSE)
-write.csv(
+# The _excel version includes a UT8 BOM
+write_excel_csv(
   merged_codes,
   file = "../SAFAD files/Input files/SAFAD ID Footprints RPC.csv",
-  row.names = FALSE,
   na = ""
 )
 
