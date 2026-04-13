@@ -2027,3 +2027,5 @@ write.csv(
   row.names = FALSE,
   na = ""
 )
+
+source("./compare_output.R")
