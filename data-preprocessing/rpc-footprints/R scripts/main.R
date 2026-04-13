@@ -1962,14 +1962,17 @@ merged_codes <- bind_rows(merged_codes, misc_ing, blue_food)
 ################################################################################
 
 # Divide the biodiversity indicator according to the time perspective
-merged_codes$Biodiversity <- as.numeric(merged_codes$Biodiversity) / 100
+merged_codes <- merged_codes |>
+  mutate(
+    Biodiversity = as.numeric(Biodiversity) / 100
+  )
 
 ################################################################################
 ############################ WRITE THE FINAL FILE  #############################
 ################################################################################
 
 # Remove empty rows that appear for some reason and write a file
-merged_codes <- merged_codes[!is.na(merged_codes$"Long code"), ]
+merged_codes <- merged_codes |> filter(!is.na(`Long code`))
 # Create dir '../SAFAD FILES/Input files"
 dir.create(file.path("..", "SAFAD files"), showWarnings = FALSE)
 dir.create(file.path("../SAFAD files", "Input files"), showWarnings = FALSE)
