@@ -383,8 +383,11 @@ gh_of_yields <- read_csv("EUROSTAT_gh_yields.csv", show_col_types = FALSE) |>
 
 # TEST: List all countries for which we have trade data, but not yields
 {
+  MUSHROOMS_CODE = "01270"
+
   missing_yields <- trade_data |>
-    anti_join(fao_yields, by = c("Crop code", "Country code"))
+    anti_join(fao_yields, by = c("Crop code", "Country code")) |>
+    filter(`Crop code` != MUSHROOMS_CODE)
 
   if (nrow(missing_yields) > 0) {
     warning(paste0(
@@ -1414,6 +1417,11 @@ merged_data <- df_crops |>
     N2O_rm_energy,
     N2O_rm_manure,
   )
+
+# Append mushrooms
+df_mushrooms <- read_crop_excel("Mushrooms.xlsx", sheet = "Crop Data", skip = 0)
+merged_data <- bind_rows(merged_data, df_mushrooms)
+
 
 ################################################################################
 ################################ LIVESTOCK #####################################
