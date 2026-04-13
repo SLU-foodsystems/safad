@@ -1957,23 +1957,21 @@ blue_food <- read_excel(
 
 merged_codes <- bind_rows(merged_codes, misc_ing, blue_food)
 
-
 ################################################################################
 ############################ ADJUST BIODIVERSITY ###############################
 ################################################################################
 
 # Divide the biodiversity indicator according to the time perspective
 merged_codes <- merged_codes |>
-  mutate(
-    Biodiversity = as.numeric(Biodiversity) / 100
-  )
+  mutate(Biodiversity = as.numeric(Biodiversity) / 100)
 
 ################################################################################
 ############################ WRITE THE FINAL FILE  #############################
 ################################################################################
 
 # Remove empty rows that appear for some reason and write a file
-merged_codes <- merged_codes |> filter(!is.na(`Long code`))
+merged_codes <- merged_codes |>
+  filter(!is.na(`Long code`))
 # Create dir '../SAFAD FILES/Input files"
 dir.create(file.path("..", "SAFAD files"), showWarnings = FALSE)
 dir.create(file.path("../SAFAD files", "Input files"), showWarnings = FALSE)
@@ -2016,13 +2014,10 @@ feed_countries <- c(
   "UK"
 )
 
-# Select the data
-feed_data <- merged_data[
-  merged_data$Code %in%
-    feed_products &
-    merged_data$Country_name %in% feed_countries,
-] |>
-  # Add a column for sorting, as per the order in feed_products above
+feed_data <- merged_data |>
+  # Select the data
+  filter(Code %in% feed_products & Country_name %in% feed_countries) |>
+  # Add a column for sorting (integer index), as per the order in feed_products
   mutate(Order = match(Code, feed_products))
 
 # Write to file
