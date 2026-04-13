@@ -397,9 +397,10 @@ gh_of_yields <- read_csv("EUROSTAT_gh_yields.csv", show_col_types = FALSE) |>
 yields <- fao_yields |>
   select(-`Country name`) |>
   mutate(
-    `Crop code` = case_when(
-      `Crop code` %in% gh_crops$`Crop code` ~ paste0(`Crop code`, "_of"),
-      TRUE ~ `Crop code`
+    `Crop code` = if_else(
+      `Crop code` %in% gh_crops$`Crop code`,
+      paste0(`Crop code`, "_of"),
+      `Crop code`
     )
   ) |>
   rows_upsert(gh_of_yields, by = c("Crop code", "Country code")) |>
