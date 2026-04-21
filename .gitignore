@@ -34,3 +34,5 @@ data-preprocessing/rpc-parameters/csv-out/*.csv
 **/.Ruserdata
 
 SAFAD files/
+# Temporary excel files 
+$~*
