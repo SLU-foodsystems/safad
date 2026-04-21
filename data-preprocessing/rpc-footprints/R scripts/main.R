@@ -1037,9 +1037,10 @@ df_N_emissions <- df_N |>
   ) |>
   mutate(
     # N2O from mineral fertiliser use
-    N2O_soils_min_fert = N_fert * EF_N2O_soils_min_fert,
+    # NOTE: 44/28 converts molecular weights between N and N2O
+    N2O_soils_min_fert = N_fert * EF_N2O_soils_min_fert * (44 / 28),
     # N2O from crop residuals
-    N2O_soils_crop_res = N_resid * EF_N2O_soils_crop_res,
+    N2O_soils_crop_res = N_resid * EF_N2O_soils_crop_res * (44 / 28),
   ) |>
   transmute(
     `Crop code`,
