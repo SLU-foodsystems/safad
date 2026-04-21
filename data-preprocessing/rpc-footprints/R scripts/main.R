@@ -18,8 +18,6 @@ if (!require("tidyr")) {
 
 setwd("~/dev/safad/data-preprocessing/rpc-footprints/R scripts")
 
-# MJ energy per kg diesel
-HEATING_VALUE_DIESEL <- 35.2
 
 # Set up which crops we differentiate growing in greenhouses and open-field.
 # TODO: Could be read from energy emissions file
@@ -817,6 +815,9 @@ df_N_resid <- df_crop_resid_frac_rm |>
 ef_diesel <- df_emission_factors_energy |>
   filter(`Energy source` == "Diesel fuel") |>
   slice(1)
+
+# MJ energy per kg diesel
+HEATING_VALUE_DIESEL <- 35.2
 
 df_field_ops <- read_crop_excel("Field operations.xlsx", sheet = "Data") |>
   resolve_references(n_index_cols = 3) |>
