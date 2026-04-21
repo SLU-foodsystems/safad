@@ -909,6 +909,7 @@ df_emission_factors_gh_per_country <- df_emission_factors_country |>
 
 ## Step 3b: Start by structuring the data as share of each energy source for
 #           each gh-crop.
+# TODO: Figure out why this does not match the verification files
 df_gh_emissions_per_ha <- df_emission_factors_gh |>
   # Filter out: only the energy source fractions
   filter(
