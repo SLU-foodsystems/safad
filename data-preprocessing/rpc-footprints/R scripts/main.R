@@ -997,17 +997,17 @@ df_N_fert_emission_factors <- read_crop_excel(
   left_join(country_name_code_map, by = c("Country" = "Country name")) |>
   # Drop remaining na-country codes that we do not use. (e.g. "Others Oceania")
   filter(!is.na(`Country code`)) |>
+  # Drop all rows that lack data.
+  filter(!is.na(EF_Nfert_CO2) & !is.na(EF_Nfert_N2O)) |>
   # Combine the different sources of N-fert. emission factors as a weighted sum
   group_by(`Country code`) |>
+  mutate(
+    w = `Share of fertiliser product` /
+      sum(`Share of fertiliser product`, na.rm = TRUE)
+  ) |>
   summarise(
-    EF_Nfert_CO2 = sum(
-      EF_Nfert_CO2 * `Share of fertiliser product`,
-      na.rm = TRUE
-    ),
-    EF_Nfert_N2O = sum(
-      EF_Nfert_N2O * `Share of fertiliser product`,
-      na.rm = TRUE
-    ),
+    EF_Nfert_CO2 = sum(EF_Nfert_CO2 * w, na.rm = TRUE),
+    EF_Nfert_N2O = sum(EF_Nfert_N2O * w, na.rm = TRUE),
     .groups = "drop"
   )
 
