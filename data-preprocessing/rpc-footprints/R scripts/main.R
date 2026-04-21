@@ -329,6 +329,20 @@ fao_yields <- read_csv("./FAOSTAT_yield.csv", show_col_types = FALSE) |>
 # Calculate the separate yields for greenhouse and open-field yields
 # ----------------------------------------------------------
 
+# Adjust the yields manually for cucumber and tomato for Sweden, which we know
+# is better data than eurostat.
+# https://statistik.sjv.se/PXWeb/sq/0ccae0a8-a0ab-4a31-8c74-69121603d345
+se_gh_yields <- tribble(
+  ~`Crop code` , ~`Country code`, ~quantity_t, ~area_m2,
+  "01234_gh"   , "SE"           , 16100      , 450400,  # ton -> kg, m2 -> ha
+  "01232_gh"   , "SE"           , 29800      , 600200
+) |>
+  transmute(
+    `Crop code`,
+    `Country code`,
+    `yield` = quantity_t * 1000 / (area_m2 / 1e4)
+  )
+
 # Fetched from: https://ec.europa.eu/eurostat/databrowser/view/apro_cpsh1__custom_20725936/default/table
 gh_of_yields <- read_csv("EUROSTAT_gh_yields.csv", show_col_types = FALSE) |>
   # Drop the "for consumption/production" rows
@@ -377,7 +391,12 @@ gh_of_yields <- read_csv("EUROSTAT_gh_yields.csv", show_col_types = FALSE) |>
   summarize(
     yield = mean(yield),
     .groups = "drop"
+  ) |>
+  rows_patch(
+    se_gh_yields,
+    by = c("Crop code", "Country code")
   )
+
 
 # TEST: List all countries for which we have trade data, but not yields
 {
