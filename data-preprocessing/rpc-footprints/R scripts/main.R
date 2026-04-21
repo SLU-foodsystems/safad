@@ -1352,15 +1352,16 @@ df_crops_averages <- df_crops |>
   )) |>
   select(-frac_gh, -`Crop code`) |>
   rename(`Crop code` = base_code) |>
-  group_by(`Crop code`, Crop, Category, `Country code`, `Country name`) |>
+  # Replace names for unity
+  mutate(Crop = sub(", (greenhouse|openfield)$", "", Crop)) |>
   summarise(
+    Crop = first(Crop), # In case greenhouse/openfield were not properly removed
     across(
       where(is.numeric),
       ~ sum(.x, na.rm = TRUE)
     ),
-    .groups = "drop"
-  ) |>
-  mutate(Crop = sub(", (greenhouse|openfield)$", "", Crop))
+    .by = c(`Crop code`, Category, `Country code`, `Country name`)
+  )
 
 # Start working towards the merged data
 merged_data <- df_crops |>
