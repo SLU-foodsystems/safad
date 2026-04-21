@@ -804,9 +804,7 @@ df_N_resid <- df_crop_resid_frac_rm |>
     df_crop_resid_N_params,
     by = c("Crop code", "Crop", "Category")
   ) |>
-  #left_join(yields, by = c("Crop code", "Country code")) |>
   mutate(
-    # TODO: BEFORE, * by yield. Seems wrong?
     N_resid = DRY * (R_AG * N_AG * (1 - frac_remove) + (1 + R_AG) * RS * N_BG)
   ) |>
   select(c("Crop code", "Crop", "Category", "Country code", "N_resid")) |>
