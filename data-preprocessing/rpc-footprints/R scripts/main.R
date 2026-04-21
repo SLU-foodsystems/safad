@@ -925,8 +925,7 @@ df_gh_emissions_per_ha <- df_emission_factors_gh |>
   # only the Netherlands) only part of the energy/emissions is to be allocated
   # to growing crops, as the heat is re-used for housing (and thus accounted)
   # for in that sector.
-  left_join(df_gh_allocation_factors, by = c("Country code")) |>
-  # TODO: District heating is removed, do not need to handle the redundancy anymore.
+  left_join(df_gh_allocation_factors, by = "Country code") |>
   # Add in the emissions factors for different energy sources (kg GHG per MJ)
   left_join(df_emission_factors_energy, by = "Energy source") |>
   # ... and the ones that are specific per country.
