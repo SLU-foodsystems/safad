@@ -658,18 +658,6 @@ ef_cap_goods <- df_emission_factors_general |>
     names_from = "Gas"
   )
 
-# Ammonia emissions
-# ----------------------------------------------------------
-
-df_ef_ammonia <- df_emission_factors_general |>
-  filter(Parameter == "N_Nfert_volatiles") |>
-  select(Parameter, Gas, Value) |>
-  pivot_wider(
-    values_from = "Value",
-    names_from = "Gas"
-  )
-
-
 # Blue water (irrigation) emissions
 # ----------------------------------------------------------
 
@@ -1030,6 +1018,21 @@ df_N_fert_emission_factors <- read_crop_excel(
     .groups = "drop"
   )
 
+df_NH3_emission_factors <- read_crop_excel(
+  "Emission factors.xlsx",
+  sheet = "EF_N_fert",
+  skip = 0
+) |>
+  normalise_country_names(Country) |>
+  left_join(country_name_code_map, by = c("Country" = "Country name")) |>
+  # Drop remaining na-country codes that we do not use. (e.g. "Others Oceania")
+  filter(!is.na(`Country code`)) |>
+  # Combine the different sources of N-fert. emission factors as a weighted sum
+  summarise(
+    EF_NH3 = sum(`Share of fertiliser product` * EF_NH3, na.rm = TRUE),
+    .by = `Country code`
+  )
+
 df_N2O_emission_factors <- df_emission_factors_country |>
   filter(startsWith(Factor, "EF_")) |>
   # Transpose it, so that we have one row for each country with the EFs in cols
@@ -1321,12 +1324,14 @@ biodiv_joined <- bind_rows(biodiv_cropland, biodiv_greenhouse)
 df_N_extended <- df_N |>
   # Combine with data frame with N content (fixation)
   left_join(df_N_contents, by = c("Crop code", "Crop", "Category")) |>
+  # And ammonia emission factors
+  left_join(df_NH3_emission_factors, by = "Country code") |>
   transmute(
     `Crop code`,
     Crop,
     Category,
     `Country code`,
-    Ammonia = N_fert * df_ef_ammonia$NH3[1],
+    Ammonia = N_fert * coalesce(EF_NH3, 0),
     # Rename to ensure we separate the fertiliser use and the net input
     N_input = N_fert + coalesce(`N content`, 0),
   )
@@ -1346,6 +1351,7 @@ df_crops <- df_GHGs |>
   # Biodiversity
   left_join(biodiv_joined, by = c("Crop code", "Country code")) |>
   mutate(Antibiotics = 0, `Animal welfare` = 0)
+
 
 # Take out the rows for the gh/of crops, and combine them into averages
 df_crops_averages <- df_crops |>
