@@ -385,6 +385,10 @@ gh_of_yields <- read_csv("EUROSTAT_gh_yields.csv", show_col_types = FALSE) |>
 {
   MUSHROOMS_CODE = "01270"
 
+  missing_trade <- fao_yields |>
+    anti_join(trade_data, by = c("Crop code", "Country code")) |>
+    filter(`Crop code` != MUSHROOMS_CODE)
+
   missing_yields <- trade_data |>
     anti_join(fao_yields, by = c("Crop code", "Country code")) |>
     filter(`Crop code` != MUSHROOMS_CODE)
