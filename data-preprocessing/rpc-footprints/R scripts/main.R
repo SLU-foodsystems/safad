@@ -333,9 +333,9 @@ fao_yields <- read_csv("./FAOSTAT_yield.csv", show_col_types = FALSE) |>
 # is better data than eurostat.
 # https://statistik.sjv.se/PXWeb/sq/0ccae0a8-a0ab-4a31-8c74-69121603d345
 se_gh_yields <- tribble(
-  ~`Crop code` , ~`Country code`, ~quantity_t, ~area_m2,
-  "01234_gh"   , "SE"           , 16100      , 450400,  # ton -> kg, m2 -> ha
-  "01232_gh"   , "SE"           , 29800      , 600200
+  ~`Crop code` , ~`Country code` , ~quantity_t , ~area_m2 ,
+  "01234_gh"   , "SE"            ,       16100 ,   450400 , # ton -> kg, m2 -> ha
+  "01232_gh"   , "SE"            ,       29800 ,   600200
 ) |>
   transmute(
     `Crop code`,
@@ -1008,6 +1008,7 @@ df_N_fert_emission_factors <- read_crop_excel(
   filter(!is.na(EF_Nfert_CO2) & !is.na(EF_Nfert_N2O)) |>
   # Combine the different sources of N-fert. emission factors as a weighted sum
   group_by(`Country code`) |>
+  # Create an adjusted weight that accounts for the rwos that we have removed
   mutate(
     w = `Share of fertiliser product` /
       sum(`Share of fertiliser product`, na.rm = TRUE)
@@ -1945,7 +1946,7 @@ merged_codes <- inner_join(
     `Methane, fossil, primary production` = `Methane_fossil`,
     `Methane, biogenic, primary production` = `Methane_bio`,
     `Nitrous oxide, primary production` = `Nitrous_Oxide`,
-    Land,
+    Land, # m2 * year / kg product
     `N input` = `N_input`,
     `P input` = `P_input`,
     Water,
