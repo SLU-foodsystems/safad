@@ -1057,8 +1057,7 @@ df_N_emissions <- df_N |>
       (N2O_soils_min_fert + N2O_soils_crop_res),
     # Add the direct emissions from the manufacturing of the fertiliser
     CO2_Nfert = coalesce(EF_Nfert_CO2 * N_fert, 0),
-    N2O_Nfert = coalesce(EF_Nfert_N2O * N_fert, 0),
-    CH4_Nfert = 0 # TODO: Remove completely
+    N2O_Nfert = coalesce(EF_Nfert_N2O * N_fert, 0)
   )
 
 
@@ -1116,7 +1115,8 @@ df_GHGs <- df_N_emissions |>
     # "Soil emissions (CH4, biogenic)",
     # "Enteric fermentation (CH4, biogenic)",
     # "Manure management (CH4, biogenic)",
-    CH4_fossil_rm_fert_prod = CH4_Nfert,
+    # NOTE: CH4 from N fertiliser not included in data, and judged to be negligable
+    CH4_fossil_rm_fert_prod = 0,
     CH4_fossil_rm_cap_goods = CH4_cap_goods,
     CH4_fossil_rm_energy = CH4_postharvest + CH4_irr + CH4_field_ops + CH4_gh,
     CH4_bio_rm_soils_dir = CH4_rice_kg,
