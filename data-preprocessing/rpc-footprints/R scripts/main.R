@@ -1945,6 +1945,7 @@ merged_codes <- inner_join(
     `FoodEx2 name` = `FoodEx2 Name`,
     `SUA code` = Code,
     `SUA name` = Name,
+    `Category`,
     `Country name` = `Country_name`,
     `Country code` = `Country_code`,
     `Carbon footprint, primary production` = `Carbon_Footprint`,
