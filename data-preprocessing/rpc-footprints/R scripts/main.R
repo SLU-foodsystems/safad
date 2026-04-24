@@ -258,7 +258,7 @@ normalise_country_names <- function(df, col) {
 # ==========================================================
 
 trade_data <- list.files(
-  "../7 - Trade data/",
+  "../../../src/default-input-files/SAFAD IP Origin and Waste of RPC/",
   pattern = "\\.csv$",
   full.names = TRUE
 ) |>
