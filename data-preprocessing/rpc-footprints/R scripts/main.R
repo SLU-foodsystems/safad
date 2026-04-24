@@ -2028,6 +2028,11 @@ write_excel_csv(
   file = "../SAFAD files/Input files/SAFAD ID Footprints RPC.csv",
   na = ""
 )
+write_excel_csv(
+  merged_codes,
+  file = "../../../src/default-input-files/SAFAD ID Footprints RPC.csv",
+  na = ""
+)
 
 ################################################################################
 ############################ SELECT THE FEED DATA  #############################
