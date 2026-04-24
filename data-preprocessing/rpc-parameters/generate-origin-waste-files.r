@@ -51,7 +51,7 @@ trade_data <- readRDS("./production_consumption_data_level1_2022-2024.rds") |>
   group_by(Consumer.Country, Producer.Country, Item.Code) |>
   summarise(
     Value = mean(primary.equivalents, na.rm = TRUE),
-    .groups = 'drop' # Removes grouping
+    .groups = "drop" # Removes grouping
   ) |>
   # Extend with Item Names and Country Codes
   left_join(item_names, by = c("Item.Code" = "Item Code")) |>
