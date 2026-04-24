@@ -244,13 +244,13 @@
 "A01AR","A.16.02.029","Saffron","01699","Other stimulant, spice and aromatic crops, n.e.c."
 "A019J","A.16.02.030","Tamarind","01699","Other stimulant, spice and aromatic crops, n.e.c."
 "A01AC","A.16.02.031","Turmeric roots","01699","Other stimulant, spice and aromatic crops, n.e.c."
-"A042P","A.16.04.001","Salt","0",0
-"A042Q","A.16.04.002","Salt, low sodium","0",0
-"A042R","A.16.04.003","Salt, iodised","0",0
-"A042T","A.16.04.005","Salt, iodised and fluoridated","0",0
-"A042X","A.16.04.007","Sea salt","0",0
+"A042P","A.16.04.001","Salt","MI-12",0
+"A042Q","A.16.04.002","Salt, low sodium","MI-12",0
+"A042R","A.16.04.003","Salt, iodised","MI-12",0
+"A042T","A.16.04.005","Salt, iodised and fluoridated","MI-12",0
+"A042X","A.16.04.007","Sea salt","MI-12",0
 "A019H","A.16.09.003","Vanilla","01699","Other stimulant, spice and aromatic crops, n.e.c."
-"A048Z","A.16.10.001","Yeast cultures","0",0
+"A048Z","A.16.10.001","Yeast cultures","MI-12","Yeast"
 "A000R","I.01.02.010.006","Quinoa grain","01194","Quinoa"
 "A00XX","I.16.01.012","Marjoram","01699","Other stimulant, spice and aromatic crops, n.e.c."
 "A00XV","I.16.01.013","Oregano","01699","Other stimulant, spice and aromatic crops, n.e.c."
@@ -379,6 +379,7 @@
 "AX12A","A.X1.01.02","Microbial Protein (Solein)","NF-04","Microbial Protein (Solein)"
 "AX13A","A.X1.01.03","Mycoprotein (Quorn)","NF-05","Mycoprotein (Quorn)"
 "AX14A","A.X1.04.01","Microbial Fat (yeast - M. pulcherrima)","NF-06","Microbial Fat (yeast - M. pulcherrima)"
+"AX14B","A.X1.04.02","Algae Fat (Schizochytrium)","NF-07","Algae Fat (Schizochytrium)"
 "A00YZ","A.02.14.012","Hops (dried), including hop pellets and unconcentrated powder (Humulus lupulus)","MI-01","Hops (dried), including hop pellets and unconcentrated powder (Humulus lupulus)"
 "A046P","A.10.02.002.002","Aspartam","MI-02","Aspartam"
 "A046Q","A.10.02.002.003","Acesulfame K","MI-03","Acesulfame K"
