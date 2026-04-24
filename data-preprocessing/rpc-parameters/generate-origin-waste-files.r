@@ -82,16 +82,72 @@ MIN_SHARE_THRESHOLD <- 0.01
 waste_factors <- read_csv("rpc-waste-factors.csv", show_col_types = FALSE) |>
   setNames(c("Category", "Country name", "Waste"))
 
-fao_to_sua <- read_csv("fao-to-sua.csv", show_col_types = FALSE)
+misc_waste_factors <- read_csv("misc-waste-factors.csv", show_col_types = FALSE)
+
+sua_to_fao <- read_csv("sua-to-fao.csv", show_col_types = FALSE)
 rpc_to_sua <- read_csv("rpc-to-sua.csv", show_col_types = FALSE) |>
   select(-`SUA Name`)
 
-ALL_COUNTRY_OVERRIDES <- tribble(
-  ~`RPC Code`   , ~`RPC Name`                          , ~`Producer Country Name` , ~`Producer Country Code` , ~Share , ~Waste , ~`SUA Code` ,
-  "A.02.08.002" , "Sugar cane (Saccharum officinarum)" , "Spain"                  , "ES"                     ,      1 , 0.045  , "01802"     ,
+# ==============================================================================
+# General Overrides: Novel foods, Misc Ingredients, and  manual Sugar Cane
+# ==============================================================================
+
+# Prepare blue foods
+blue_foods <- read_excel(
+  "../rpc-footprints/3 - Blue foods/Blue food.xlsx",
+  sheet = "Footprints, results per kg"
 )
 
-OVERRIDE_CODES <- unique(ALL_COUNTRY_OVERRIDES$`RPC Code`)
+# Prepare overrides for novel foods
+novel_foods <- read_excel(
+  "../rpc-footprints/4 - Novel foods/Novel foods.xlsx",
+  skip = 4,
+  sheet = "Footprints, results per kg"
+) |>
+  transmute(
+    `SUA Code` = `Code`,
+    `Producer Country Name` = `Country`,
+    `Producer Country Code` = `Country code`
+  ) |>
+  group_by(`SUA Code`) |>
+  mutate(
+    Share = 1 / n(),
+  ) |>
+  ungroup() |>
+  left_join(rpc_to_sua, by = "SUA Code") |>
+  left_join(misc_waste_factors, by = "SUA Code") |>
+  transmute(
+    `RPC Code`,
+    `RPC Name` = `FoodEx2 Name`,
+    `Producer Country Name`,
+    `Producer Country Code`,
+    Share,
+    Waste,
+    `SUA Code`,
+  )
+
+misc_ingredients <- read_excel(
+  "../rpc-footprints/5 - Misc ingredients/Misc ingredients.xlsx",
+  sheet = "Used in recipes"
+) |>
+  group_by(`SUA code`) |>
+  mutate(Share = 1 / n()) |>
+  ungroup() |>
+  transmute(
+    `RPC Code` = `Long code`,
+    `RPC Name` = `FoodEx2 name`,
+    `Producer Country Name` = `Country name`,
+    `Producer Country Code` = `Country code`,
+    Share,
+    Waste = 0,
+    `SUA Code` = `SUA code`,
+  )
+
+manual_entries <- tribble(
+  ~`RPC Code`   , ~`RPC Name`                          , ~`Producer Country Name` , ~`Producer Country Code` , ~Share , ~Waste , ~`SUA Code` ,
+  "A.02.08.002" , "Sugar cane (Saccharum officinarum)" , "Spain"                  , "ES"                     ,      1 , 0.045  , "01802"     ,
+) |>
+  bind_rows(novel_foods, misc_ingredients)
 
 round_to_precision <- function(x, digits) round(x, digits = digits)
 
@@ -129,14 +185,11 @@ for (i in seq_len(nrow(ll_countries))) {
   shares_tbl <- get_food_item_shares_tbl(consumer_country_code)
 
   # ---- build SUA template + validate missing FAO item code (non-BF) ----
-  sua_template <- fao_to_sua |>
-    mutate(
-      is_blue_food = str_starts(`SUA Code`, "BF-"),
-      fao_item_missing = is.na(`Item Code`) | is.na(`Item Code`)
-    )
-
-  missing_fao <- sua_template |>
-    filter(fao_item_missing, !is_blue_food) |>
+  missing_fao <- sua_to_fao |>
+    filter(
+      is.na(`Item Code`) | `Item Code` == "",
+      !str_starts(`SUA Code`, "BF-")
+    ) |>
     distinct(`SUA Code`, `SUA Name`)
 
   if (nrow(missing_fao) > 0) {
@@ -153,8 +206,10 @@ for (i in seq_len(nrow(ll_countries))) {
       walk(warning)
   }
 
-  sua_template <- sua_template |>
-    filter(!(fao_item_missing & !is_blue_food))
+  sua_template <- sua_to_fao |>
+    filter(
+      !(is.na(`Item Code`) | `Item Code` == "" & !str_starts(`SUA Code`, "BF-"))
+    )
 
   # ---- join SUA -> RPC (expands one SUA to many RPC codes) ----
   # Keep exactly one row per RPC Code like your _rpcCodesCache:
@@ -163,8 +218,7 @@ for (i in seq_len(nrow(ll_countries))) {
     distinct(`RPC Code`, .keep_all = TRUE)
 
   base <- sua_template |>
-    left_join(rpc_map_unique, by = "SUA Code") |>
-    select(-is_blue_food, -fao_item_missing)
+    left_join(rpc_map_unique, by = "SUA Code")
 
   # Warn on missing RPC codes
   missing_rpc <- base |>
@@ -200,6 +254,27 @@ for (i in seq_len(nrow(ll_countries))) {
     left_join(waste_filtered, by = "Category") |>
     mutate(Waste = if_else(is.na(Waste), waste_fallback, Waste))
 
+  blue_foods_for_country <- blue_foods |>
+    # If we have country-specific data: use that, otherwise, use RoW
+    group_by(`Long code`, `SUA code`) |>
+    filter(
+      if (any(`Country code` == consumer_country_code)) {
+        `Country code` == consumer_country_code
+      } else {
+        `Country code` == "RoW"
+      }
+    ) |>
+    ungroup() |>
+    transmute(
+      `RPC Code` = `Long code`,
+      `RPC Name` = `FoodEx2 name`,
+      `Producer Country Name` = `Country name`,
+      `Producer Country Code` = `Country code`,
+      Share = 1,
+      Waste = (waste_filtered |> filter(Category == "Fish"))$Waste,
+      `SUA Code` = `SUA code`,
+    )
+
   # ---- shares: join on FAO item code ----
   out <- base |>
     left_join(shares_tbl, by = "Item Code", relationship = "many-to-many") |>
@@ -227,9 +302,9 @@ for (i in seq_len(nrow(ll_countries))) {
       `SUA Code`
     ) |>
     # Skip override codes (added later)
-    filter(!(`RPC Code` %in% OVERRIDE_CODES)) |>
-    bind_rows(ALL_COUNTRY_OVERRIDES) |>
-    arrange(`RPC Code`)
+    filter(!(`RPC Code` %in% unique(manual_entries$`RPC Code`))) |>
+    bind_rows(blue_foods_for_country, manual_entries) |>
+    arrange(`RPC Code`, `Producer Country Code`)
 
   write_excel_csv(
     out,
