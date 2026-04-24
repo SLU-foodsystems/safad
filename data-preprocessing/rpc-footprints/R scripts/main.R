@@ -866,7 +866,7 @@ gh_fractions <- df_emission_factors_gh |>
 df_gh_energy_use_per_ha <- df_emission_factors_gh |>
   filter(startsWith(Factor, "Energy_")) |>
   transmute(
-    `Crop code` = gsub("Energy_", "", Factor),
+    `Crop code` = paste0(gsub("Energy_", "", Factor), "_gh"),
     `Country code`,
     energy_mj_per_ha = coalesce(Value, 0),
   )
@@ -907,9 +907,14 @@ df_emission_factors_gh_per_country <- df_emission_factors_country |>
   ) |>
   pivot_wider(names_from = "Gas", values_from = "Value")
 
-## Step 3b: Start by structuring the data as share of each energy source for
-#           each gh-crop.
-# TODO: Figure out why this does not match the verification files
+## Step 3b: Compute the emissions per ha of crop.
+## - Get the share of each energy source (MJ for source / MJ total)
+## - Join in the emissions factors for each gas (kg gas / MJ)
+## - Multiply to get kg gas / MJ
+## - Join in MJ per ha data
+## - Multiply to get kg gas / ha
+## NOTE: Includes allocation factor as well as separated emission factors
+#        (general and per-country) into the calculations.
 df_gh_emissions_per_ha <- df_emission_factors_gh |>
   # Filter out: only the energy source fractions
   filter(
@@ -925,9 +930,11 @@ df_gh_emissions_per_ha <- df_emission_factors_gh |>
     sep = "_(?=[^_]+$)",
     remove = TRUE
   ) |>
-  # Clean up the energy source name (remove _), and consistent naming for
-  # wood chips
-  mutate(`Energy source` = gsub("_", " ", `Energy source`)) |>
+  # Clean up the energy source name (remove _), and add _gh to crop code
+  mutate(
+    `Energy source` = gsub("_", " ", `Energy source`),
+    `Crop code` = paste0(`Crop code`, "_gh")
+  ) |>
   rename(energy_share = Value) |>
   # Add in the allocation factors. For some countries (at the time of writing,
   # only the Netherlands) only part of the energy/emissions is to be allocated
@@ -949,8 +956,7 @@ df_gh_emissions_per_ha <- df_emission_factors_gh |>
     CH4 = coalesce(CH4_country, CH4),
     N2O = coalesce(N2O_country, N2O)
   ) |>
-  # We can now multiply the energy share (0-1) and the emissions # (kg GHG per
-  # MJ energy)
+  # We can now multiply the energy share (0-1) and the emissions (kg gas per MJ)
   transmute(
     `Crop code`,
     `Country code`,
@@ -960,17 +966,16 @@ df_gh_emissions_per_ha <- df_emission_factors_gh |>
     N2O_per_MJ = energy_share * N2O * allocation_gh
   ) |>
   # Sum across energy sources
-  group_by(`Crop code`, `Country code`) |>
   summarise(
     CO2_per_MJ = sum(CO2_per_MJ, na.rm = TRUE),
     CH4_per_MJ = sum(CH4_per_MJ, na.rm = TRUE),
     N2O_per_MJ = sum(N2O_per_MJ, na.rm = TRUE),
-    .groups = "drop"
+    .by = c("Crop code", "Country code")
   ) |>
-  # Translate the GHG / mj to GHG / ha
+  # Translate the GHG / MJ to GHG / ha
   left_join(df_gh_energy_use_per_ha, by = c("Crop code", "Country code")) |>
   transmute(
-    `Crop code` = paste0(`Crop code`, "_gh"),
+    `Crop code`,
     `Country code`,
     CO2_per_ha = CO2_per_MJ * energy_mj_per_ha,
     CH4_per_ha = CH4_per_MJ * energy_mj_per_ha,
