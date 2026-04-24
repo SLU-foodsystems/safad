@@ -36,4 +36,5 @@ data-preprocessing/rpc-parameters/csv-out/*.csv
 SAFAD files/
 # Temporary excel files 
 $~*
+.Rproj
 .Rproj.user
