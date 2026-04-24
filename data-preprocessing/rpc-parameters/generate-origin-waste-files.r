@@ -89,7 +89,6 @@ rpc_to_sua <- read_csv("rpc-to-sua.csv", show_col_types = FALSE) |>
 ALL_COUNTRY_OVERRIDES <- tribble(
   ~`RPC Code`,    ~`RPC Name`,                            ~`Producer Country Name`, ~`Producer Country Code`, ~Share, ~Waste, ~`SUA Code`,
   "A.02.08.002",  "Sugar cane (Saccharum officinarum)",   "Spain",                  "ES",                     1,     0.045,  "01802",
-  # TODO: Fix palm. 254
 )
 
 OVERRIDE_CODES <- unique(ALL_COUNTRY_OVERRIDES$`RPC Code`)
