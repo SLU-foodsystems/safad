@@ -2041,35 +2041,36 @@ write_excel_csv(
 
 # Select the feed products
 feed_products <- c(
-  "0115",
-  "0112",
-  "0117",
-  "0116",
-  "0111",
-  "01705",
-  "01702"
+  "0115", # Barley
+  "0112", # Maize
+  "0117", # Oats
+  "0116", # Rye
+  "0111", # Wheat
+  "01705", # Peas, dry
+  "01702" # Broad beans and horse beans, dry
 )
 
 # Select the countries for which we need feed data
 feed_countries <- c(
-  "Denmark",
-  "France",
-  "Germany",
-  "Greece",
-  "Hungary",
-  "Ireland",
-  "Italy",
-  "Netherlands",
-  "New Zealand",
-  "Poland",
-  "Spain",
-  "Sweden",
-  "UK"
+  "BR", # "Brazil"
+  "DK", # "Denmark"
+  "FR", # "France"
+  "DE", # "Germany"
+  "GR", # "Greece"
+  "GU", # "Hungary"
+  "IE", # "Ireland"
+  "IT", # "Italy"
+  "NL", # "Netherlands"
+  "NZ", # "New Zealand"
+  "PL", # "Poland"
+  "ES", # "Spain"
+  "SE", # "Sweden"
+  "GB" # "UK
 )
 
 feed_data <- merged_data |>
   # Select the data
-  filter(Code %in% feed_products & Country_name %in% feed_countries) |>
+  filter(Code %in% feed_products & Country_code %in% feed_countries) |>
   # Add a column for sorting (integer index), as per the order in feed_products
   mutate(Order = match(Code, feed_products))
 
