@@ -149,6 +149,21 @@ resolve_references <- function(df, n_index_cols) {
     mutate(across(-all_of(index_col_names), ~ suppressWarnings(as.double(.))))
 }
 
+# Apply the value of the 'Default' col to all other value-cols in a wide
+# data-frame. In our use case, it is for the rest of the countries.
+apply_defaults <- function(df, default_index = 0) {
+  if (default_index == 0) {
+    default_index <- which(names(df) == "Default")
+  }
+  value_cols <- names(df)[(default_index + 1):ncol(df)]
+  df |>
+    mutate(across(
+      all_of(value_cols),
+      ~ coalesce(., Default)
+    )) |>
+    select(-Default)
+}
+
 
 # Factor in the yields, pivoting from wide to long format.
 adjust_by_yield <- function(df, yield_df, n_index_cols, values_to = "value") {
@@ -175,20 +190,6 @@ adjust_by_yield <- function(df, yield_df, n_index_cols, values_to = "value") {
     rename(!!values_to := value)
 }
 
-# Apply the value of the 'Default' col to all other value-cols in a wide
-# data-frame. In our use case, it is for the rest of the countries.
-apply_defaults <- function(df, default_index = 0) {
-  if (default_index == 0) {
-    default_index <- which(names(df) == "Default")
-  }
-  value_cols <- names(df)[(default_index + 1):ncol(df)]
-  df |>
-    mutate(across(
-      all_of(value_cols),
-      ~ coalesce(., Default)
-    )) |>
-    select(-Default)
-}
 
 split_avg_into_gh_crops <- function(df, gh_crops) {
   bind_rows(
