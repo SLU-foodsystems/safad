@@ -859,7 +859,7 @@ gh_fractions <- df_emission_factors_gh |>
   transmute(
     `Crop code` = sub(".*_", "", Factor),
     `Country code`,
-    frac_gh = Value / 100
+    frac_gh = Value
   )
 
 
