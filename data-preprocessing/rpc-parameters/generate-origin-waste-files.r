@@ -7,7 +7,7 @@
 ll_countries <- tribble(
   ~`Country code` , ~`Country name` ,
   "DE"            , "Germany"       ,
-  "DK"            , "Germany"       ,
+  "DK"            , "Denmark"       ,
   "ES"            , "Spain"         ,
   "FR"            , "France"        ,
   "GR"            , "Greece"        ,
