@@ -45,8 +45,8 @@ resolve_references <- function(df, n_index_cols) {
   # Sanity-check
   if (!("Default" %in% country_cols)) {
     warning(
-      "Col name 'Default' not in the 4:N-th columns of df. " +
-        "Make sure the data is not malformatted."
+      "Col name 'Default' not in the non-index columns of df. " +
+        "Make sure the data is not malformatted, and check n_index_cols."
     )
     return(NA)
   }
@@ -164,7 +164,6 @@ apply_defaults <- function(df, default_index = 0) {
     select(-Default)
 }
 
-
 # Factor in the yields, pivoting from wide to long format.
 adjust_by_yield <- function(df, yield_df, n_index_cols, values_to = "value") {
   country_cols <- names(df) |> tail(-n_index_cols)
@@ -189,7 +188,6 @@ adjust_by_yield <- function(df, yield_df, n_index_cols, values_to = "value") {
     select(-abs_value, -yield) |>
     rename(!!values_to := value)
 }
-
 
 split_avg_into_gh_crops <- function(df, gh_crops) {
   bind_rows(
