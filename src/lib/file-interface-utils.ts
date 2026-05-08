@@ -1,3 +1,7 @@
+import {
+  CsvValidationError,
+  CsvValidationErrorType,
+} from "./input-files-parsers";
 import { downloadAsPlaintext } from "./io";
 
 const MDATES = __INPUT_FILE_MDATES__;
@@ -30,7 +34,23 @@ export const setFile = async <T>(
 ) => {
   if (!fileInterface) return;
 
-  fileInterface.setter(fileInterface.parser(payload.data));
+  // We try first to parse the file using a comma, but if that fails, we try to
+  // reconver with a semi-colon. This is because excel makes it notoriously
+  // difficult for users to actually export csvs with commas
+  try {
+    fileInterface.setter(fileInterface.parser(payload.data, ","));
+  } catch (err) {
+    if (
+      err &&
+      err instanceof CsvValidationError &&
+      err.type === CsvValidationErrorType.SemiColon
+    ) {
+      fileInterface.setter(fileInterface.parser(payload.data, ";"));
+    } else {
+      throw err;
+    }
+  }
+
   Object.assign(fileInterface, {
     name: payload.name,
     state: "custom",

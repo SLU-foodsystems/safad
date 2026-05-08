@@ -1,6 +1,7 @@
-import { describe, test } from "vitest";
 import * as Parsers from "./input-files-parsers";
 import { parseCsvFile } from "./utils";
+import { describe, expect, test, vi } from "vitest";
+import { setFile } from "./file-interface-utils";
 
 import emissionsFactorsEnergyCsv from "@/default-input-files/SAFAD IEF Energy.csv?raw";
 import emissionsFactorsPackagingCsv from "@/default-input-files/SAFAD IEF Packaging.csv?raw";
@@ -15,55 +16,83 @@ import wasteRetailAndConsumerCsv from "@/default-input-files/SAFAD IP Waste Reta
 import dietCsv from "@/default-input-files/SAFAD ID Diet Spec/SAFAD ID Diet Spec SE.csv?raw";
 import rpcOriginWasteCsv from "@/default-input-files/SAFAD IP Origin and Waste of RPC/SAFAD IP Origin and Waste of RPC SE.csv?raw";
 
-function parseWithSemicolon(
-  parser: (csvStr: string, delim?: string) => any,
-  csvString: string
-) {
-  const reencodedWithSC = parseCsvFile(csvString, { delimiter: "," })
-    .map((row) => row.map((cell) => `"${cell}"`).join(";"))
-    .join("\n");
-  
-  parser(reencodedWithSC, ";");
+function mockFileInterface<T>(
+  parser: (data: string, delim?: string) => T
+): InputFile<T> {
+  const fileInterface: InputFile<T> = {
+    state: "default",
+    comment: "",
+    defaultName: () => "test-file.csv",
+
+    // Not needed
+    getDefault: () => Promise.resolve(""),
+    lastModified: () => "",
+
+    // Spy on:
+    parser,
+    setter: vi.fn(),
+
+    name: "Mock file interface",
+    data: "",
+  };
+
+  vi.spyOn(fileInterface, "parser");
+  vi.spyOn(fileInterface, "setter");
+
+  return fileInterface;
 }
 
-describe("default-input-files.ts", () => {
-  test("parseEmissionsFactorsPackaging", async () => {
-    Parsers.parseEmissionsFactorsPackaging(emissionsFactorsPackagingCsv);
-  });
-  test("parseEmissionsFactorsEnergy", () => {
-    Parsers.parseEmissionsFactorsEnergy(emissionsFactorsEnergyCsv);
-  });
-  test("parseEmissionsFactorsTransport", () => {
-    Parsers.parseEmissionsFactorsTransport(emissionsFactorsTransportCsv);
-  });
-  test("parseProcessesEnergyDemands", () => {
-    Parsers.parseProcessesEnergyDemands(processesEnergyDemandsCsv);
-  });
-  test("parsePreparationProcesses", () => {
-    Parsers.parsePreparationProcesses(preparationProcessesCsv);
-  });
-  test("parsePackagingCodes", () => {
-    Parsers.parsePackagingCodes(packagingCodesCsv);
-  });
-  test("parseFootprintsRpcs", () => {
-    Parsers.parseFootprintsRpcs(footprintsRpcsCsv);
-  });
-  test("parseFoodsRecipes", () => {
-    Parsers.parseFoodsRecipes(foodsRecipesCsv);
-  });
-  test("parseWasteRetailAndConsumer", () => {
-    Parsers.parseWasteRetailAndConsumer(wasteRetailAndConsumerCsv);
-  });
-  test("parseDiet", () => {
-    Parsers.parseDiet(dietCsv);
-  });
-  test("parseRpcOriginWaste", () => {
-    Parsers.parseRpcOriginWaste(rpcOriginWasteCsv);
-  });
-  test("parseSfaRecipes", () => {
-    Parsers.parseSfaRecipes(sfaRecipesCsv);
-  });
+const makeCsvString = (data: string[][], delim: string) =>
+  data
+    .map((row) =>
+      row
+        .map((cell) => (cell && cell.includes(delim) ? `"${cell}"` : cell))
+        .join(delim)
+    )
+    .join("\n");
 
+/**
+ * Test that the file setter recovers when we try to upload a file with
+ * semicolons.
+ *
+ * This is a bit of a ruckus, as we're somewhat testing the implementation
+ * details by parsing actual parsers, rather than a more generic test.
+ * But it's convenient in that it catches more things that could go wrong, i.e.,
+ * it's somewhat of an abomination between a unit and an integration tests.
+ *
+ * Could mock the parser and the data, and test on a more abstract level.
+ *
+ * Sorry!
+ */
+
+function parseWithSemicolon<T>(
+  parser: (csvStr: string, delim?: string) => T,
+  csvString: string
+) {
+  const reencodedWithSemiColon = makeCsvString(
+    parseCsvFile(csvString, { delimiter: "," }),
+    ";"
+  );
+
+  const fileInterface = mockFileInterface<T>(parser);
+  const payload = {
+    data: reencodedWithSemiColon,
+    name: "test-file-x.csv",
+  };
+
+  setFile(payload, fileInterface);
+
+  expect(fileInterface.setter).toHaveBeenCalledOnce();
+  // Called twice: one with "," and once with ";". No need to be specific about
+  // that though, as it's more of an implementation detail
+  expect(fileInterface.parser).toHaveBeenCalled();
+
+  // Set the file-name correctly
+  expect(fileInterface.state).toEqual("custom");
+  expect(fileInterface.name).toEqual("test-file-x.csv");
+}
+
+describe("FileInterfaceUtils.setFile", () => {
   describe("Successfully recovers when csv is encoded with a semi-colon", () => {
     test("parseEmissionsFactorsPackaging", async () => {
       parseWithSemicolon(
