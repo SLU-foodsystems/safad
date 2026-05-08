@@ -19,7 +19,7 @@ clean_data <- function(df) {
     arrange(`SUA code`, `Country code`)
 }
 
-prod_data <- read_csv("../../../src/default-input-files/SAFAD ID Footprints RPC.csv", show_col_types = FALSE) |>
+prod_data <- read_csv("../SAFAD files/Input files/OLD SAFAD ID Footprints RPC.csv", show_col_types = FALSE) |>
   clean_data()
 
 dev_data <- read_csv("../SAFAD files/Input files/SAFAD ID Footprints RPC.csv", show_col_types = FALSE) |>
