@@ -67,7 +67,7 @@ const makeCsvString = (data: string[][], delim: string) =>
  * Sorry!
  */
 
-function parseWithSemicolon<T>(
+async function parseWithSemicolon<T>(
   parser: (csvStr: string, delim?: string) => T,
   csvString: string
 ) {
@@ -82,7 +82,7 @@ function parseWithSemicolon<T>(
     name: "test-file-x.csv",
   };
 
-  setFile(payload, fileInterface);
+  await setFile(payload, fileInterface);
 
   expect(fileInterface.setter).toHaveBeenCalledOnce();
   // Called twice: one with "," and once with ";". No need to be specific about
@@ -97,63 +97,63 @@ function parseWithSemicolon<T>(
 describe("FileInterfaceUtils.setFile", () => {
   describe("Successfully recovers when csv is encoded with a semi-colon", () => {
     test("parseEmissionsFactorsPackaging", async () => {
-      parseWithSemicolon(
+      await parseWithSemicolon(
         Parsers.parseEmissionsFactorsPackaging,
         emissionsFactorsPackagingCsv
       );
     });
 
-    test("parseEmissionsFactorsEnergy", () => {
-      parseWithSemicolon(
+    test("parseEmissionsFactorsEnergy", async () => {
+      await parseWithSemicolon(
         Parsers.parseEmissionsFactorsEnergy,
         emissionsFactorsEnergyCsv
       );
     });
 
-    test("parseEmissionsFactorsTransport", () => {
-      parseWithSemicolon(
+    test("parseEmissionsFactorsTransport", async () => {
+      await parseWithSemicolon(
         Parsers.parseEmissionsFactorsTransport,
         emissionsFactorsTransportCsv
       );
     });
 
-    test("parseProcessesEnergyDemands", () => {
-      parseWithSemicolon(
+    test("parseProcessesEnergyDemands", async () => {
+      await parseWithSemicolon(
         Parsers.parseProcessesEnergyDemands,
         processesEnergyDemandsCsv
       );
     });
 
-    test("parsePreparationProcesses", () => {
-      parseWithSemicolon(
+    test("parsePreparationProcesses", async () => {
+      await parseWithSemicolon(
         Parsers.parsePreparationProcesses,
         preparationProcessesCsv
       );
     });
-    test("parsePackagingCodes", () => {
-      parseWithSemicolon(Parsers.parsePackagingCodes, packagingCodesCsv);
+    test("parsePackagingCodes", async () => {
+      await parseWithSemicolon(Parsers.parsePackagingCodes, packagingCodesCsv);
     });
 
-    test("parseFootprintsRpcs", () => {
-      parseWithSemicolon(Parsers.parseFootprintsRpcs, footprintsRpcsCsv);
+    test("parseFootprintsRpcs", async () => {
+      await parseWithSemicolon(Parsers.parseFootprintsRpcs, footprintsRpcsCsv);
     });
-    test("parseFoodsRecipes", () => {
-      parseWithSemicolon(Parsers.parseFoodsRecipes, foodsRecipesCsv);
+    test("parseFoodsRecipes", async () => {
+      await parseWithSemicolon(Parsers.parseFoodsRecipes, foodsRecipesCsv);
     });
-    test("parseWasteRetailAndConsumer", () => {
-      parseWithSemicolon(
+    test("parseWasteRetailAndConsumer", async () => {
+      await parseWithSemicolon(
         Parsers.parseWasteRetailAndConsumer,
         wasteRetailAndConsumerCsv
       );
     });
-    test("parseDiet", () => {
-      parseWithSemicolon(Parsers.parseDiet, dietCsv);
+    test("parseDiet", async () => {
+      await parseWithSemicolon(Parsers.parseDiet, dietCsv);
     });
-    test("parseRpcOriginWaste", () => {
-      parseWithSemicolon(Parsers.parseRpcOriginWaste, rpcOriginWasteCsv);
+    test("parseRpcOriginWaste", async () => {
+      await parseWithSemicolon(Parsers.parseRpcOriginWaste, rpcOriginWasteCsv);
     });
-    test("parseSfaRecipes", () => {
-      parseWithSemicolon(Parsers.parseSfaRecipes, sfaRecipesCsv);
+    test("parseSfaRecipes", async () => {
+      await parseWithSemicolon(Parsers.parseSfaRecipes, sfaRecipesCsv);
     });
   });
 });
