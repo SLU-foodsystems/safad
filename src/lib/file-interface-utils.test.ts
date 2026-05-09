@@ -56,11 +56,13 @@ const makeCsvString = (data: string[][], delim: string) =>
  * semicolons.
  *
  * This is a bit of a ruckus, as we're somewhat testing the implementation
- * details by parsing actual parsers, rather than a more generic test.
+ * details by passing actual parsers, rather than a more generic test.
  * But it's convenient in that it catches more things that could go wrong, i.e.,
  * it's somewhat of an abomination between a unit and an integration tests.
  *
- * Could mock the parser and the data, and test on a more abstract level.
+ * Could mock the parser and the data, and test on a more abstract level. That
+ * would require the implementation detail of the specific semi-colon error,
+ * and also some type juggling
  *
  * Sorry!
  */
