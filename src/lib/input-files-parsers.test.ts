@@ -1,4 +1,4 @@
-import { describe, test } from "vitest";
+import { describe, expect, test } from "vitest";
 import * as Parsers from "./input-files-parsers";
 import { parseCsvFile } from "./utils";
 
@@ -15,114 +15,96 @@ import wasteRetailAndConsumerCsv from "@/default-input-files/SAFAD IP Waste Reta
 import dietCsv from "@/default-input-files/SAFAD ID Diet Spec/SAFAD ID Diet Spec SE.csv?raw";
 import rpcOriginWasteCsv from "@/default-input-files/SAFAD IP Origin and Waste of RPC/SAFAD IP Origin and Waste of RPC SE.csv?raw";
 
-function parseWithSemicolon(
+function expectThrowsForSemicolon(
   parser: (csvStr: string, delim?: string) => any,
   csvString: string
 ) {
   const reencodedWithSC = parseCsvFile(csvString, { delimiter: "," })
-    .map((row) => row.map((cell) => `"${cell}"`).join(";"))
+    .map((row) =>
+      row
+        .map((cell) => (cell && cell.includes(";") ? `"${cell}"` : cell))
+        .join(";")
+    )
     .join("\n");
-  
-  parser(reencodedWithSC, ";");
+
+  return expect(() => parser(reencodedWithSC, ",")).toThrow(
+    expect.objectContaining({
+      type: Parsers.CsvValidationErrorType.SemiColon,
+    })
+  );
 }
 
 describe("default-input-files.ts", () => {
-  test("parseEmissionsFactorsPackaging", async () => {
-    Parsers.parseEmissionsFactorsPackaging(emissionsFactorsPackagingCsv);
-  });
-  test("parseEmissionsFactorsEnergy", () => {
-    Parsers.parseEmissionsFactorsEnergy(emissionsFactorsEnergyCsv);
-  });
-  test("parseEmissionsFactorsTransport", () => {
-    Parsers.parseEmissionsFactorsTransport(emissionsFactorsTransportCsv);
-  });
-  test("parseProcessesEnergyDemands", () => {
-    Parsers.parseProcessesEnergyDemands(processesEnergyDemandsCsv);
-  });
-  test("parsePreparationProcesses", () => {
-    Parsers.parsePreparationProcesses(preparationProcessesCsv);
-  });
-  test("parsePackagingCodes", () => {
-    Parsers.parsePackagingCodes(packagingCodesCsv);
-  });
-  test("parseFootprintsRpcs", () => {
-    Parsers.parseFootprintsRpcs(footprintsRpcsCsv);
-  });
-  test("parseFoodsRecipes", () => {
-    Parsers.parseFoodsRecipes(foodsRecipesCsv);
-  });
-  test("parseWasteRetailAndConsumer", () => {
-    Parsers.parseWasteRetailAndConsumer(wasteRetailAndConsumerCsv);
-  });
-  test("parseDiet", () => {
-    Parsers.parseDiet(dietCsv);
-  });
-  test("parseRpcOriginWaste", () => {
-    Parsers.parseRpcOriginWaste(rpcOriginWasteCsv);
-  });
-  test("parseSfaRecipes", () => {
-    Parsers.parseSfaRecipes(sfaRecipesCsv);
-  });
+  test("parseEmissionsFactorsPackaging", () =>
+    Parsers.parseEmissionsFactorsPackaging(emissionsFactorsPackagingCsv));
+  test("parseEmissionsFactorsEnergy", () =>
+    Parsers.parseEmissionsFactorsEnergy(emissionsFactorsEnergyCsv));
+  test("parseEmissionsFactorsTransport", () =>
+    Parsers.parseEmissionsFactorsTransport(emissionsFactorsTransportCsv));
+  test("parseProcessesEnergyDemands", () =>
+    Parsers.parseProcessesEnergyDemands(processesEnergyDemandsCsv));
+  test("parsePreparationProcesses", () =>
+    Parsers.parsePreparationProcesses(preparationProcessesCsv));
+  test("parsePackagingCodes", () =>
+    Parsers.parsePackagingCodes(packagingCodesCsv));
+  test("parseFootprintsRpcs", () =>
+    Parsers.parseFootprintsRpcs(footprintsRpcsCsv));
+  test("parseFoodsRecipes", () => Parsers.parseFoodsRecipes(foodsRecipesCsv));
+  test("parseWasteRetailAndConsumer", () =>
+    Parsers.parseWasteRetailAndConsumer(wasteRetailAndConsumerCsv));
+  test("parseDiet", () => Parsers.parseDiet(dietCsv));
+  test("parseRpcOriginWaste", () =>
+    Parsers.parseRpcOriginWaste(rpcOriginWasteCsv));
+  test("parseSfaRecipes", () => Parsers.parseSfaRecipes(sfaRecipesCsv));
 
   describe("Successfully recovers when csv is encoded with a semi-colon", () => {
-    test("parseEmissionsFactorsPackaging", async () => {
-      parseWithSemicolon(
+    test("parseEmissionsFactorsPackaging", () =>
+      expectThrowsForSemicolon(
         Parsers.parseEmissionsFactorsPackaging,
         emissionsFactorsPackagingCsv
-      );
-    });
+      ));
 
-    test("parseEmissionsFactorsEnergy", () => {
-      parseWithSemicolon(
+    test("parseEmissionsFactorsEnergy", () =>
+      expectThrowsForSemicolon(
         Parsers.parseEmissionsFactorsEnergy,
         emissionsFactorsEnergyCsv
-      );
-    });
+      ));
 
-    test("parseEmissionsFactorsTransport", () => {
-      parseWithSemicolon(
+    test("parseEmissionsFactorsTransport", () =>
+      expectThrowsForSemicolon(
         Parsers.parseEmissionsFactorsTransport,
         emissionsFactorsTransportCsv
-      );
-    });
+      ));
 
-    test("parseProcessesEnergyDemands", () => {
-      parseWithSemicolon(
+    test("parseProcessesEnergyDemands", () =>
+      expectThrowsForSemicolon(
         Parsers.parseProcessesEnergyDemands,
         processesEnergyDemandsCsv
-      );
-    });
+      ));
 
-    test("parsePreparationProcesses", () => {
-      parseWithSemicolon(
+    test("parsePreparationProcesses", () =>
+      expectThrowsForSemicolon(
         Parsers.parsePreparationProcesses,
         preparationProcessesCsv
-      );
-    });
-    test("parsePackagingCodes", () => {
-      parseWithSemicolon(Parsers.parsePackagingCodes, packagingCodesCsv);
-    });
+      ));
 
-    test("parseFootprintsRpcs", () => {
-      parseWithSemicolon(Parsers.parseFootprintsRpcs, footprintsRpcsCsv);
-    });
-    test("parseFoodsRecipes", () => {
-      parseWithSemicolon(Parsers.parseFoodsRecipes, foodsRecipesCsv);
-    });
-    test("parseWasteRetailAndConsumer", () => {
-      parseWithSemicolon(
+    test("parsePackagingCodes", () =>
+      expectThrowsForSemicolon(Parsers.parsePackagingCodes, packagingCodesCsv));
+
+    test("parseFootprintsRpcs", () =>
+      expectThrowsForSemicolon(Parsers.parseFootprintsRpcs, footprintsRpcsCsv));
+    test("parseFoodsRecipes", () =>
+      expectThrowsForSemicolon(Parsers.parseFoodsRecipes, foodsRecipesCsv));
+    test("parseWasteRetailAndConsumer", () =>
+      expectThrowsForSemicolon(
         Parsers.parseWasteRetailAndConsumer,
         wasteRetailAndConsumerCsv
-      );
-    });
-    test("parseDiet", () => {
-      parseWithSemicolon(Parsers.parseDiet, dietCsv);
-    });
-    test("parseRpcOriginWaste", () => {
-      parseWithSemicolon(Parsers.parseRpcOriginWaste, rpcOriginWasteCsv);
-    });
-    test("parseSfaRecipes", () => {
-      parseWithSemicolon(Parsers.parseSfaRecipes, sfaRecipesCsv);
-    });
+      ));
+    test("parseDiet", () =>
+      expectThrowsForSemicolon(Parsers.parseDiet, dietCsv));
+    test("parseRpcOriginWaste", () =>
+      expectThrowsForSemicolon(Parsers.parseRpcOriginWaste, rpcOriginWasteCsv));
+    test("parseSfaRecipes", () =>
+      expectThrowsForSemicolon(Parsers.parseSfaRecipes, sfaRecipesCsv));
   });
 });

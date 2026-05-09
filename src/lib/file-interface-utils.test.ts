@@ -1,20 +1,6 @@
 import * as Parsers from "./input-files-parsers";
-import { parseCsvFile } from "./utils";
 import { describe, expect, test, vi } from "vitest";
 import { setFile } from "./file-interface-utils";
-
-import emissionsFactorsEnergyCsv from "@/default-input-files/SAFAD IEF Energy.csv?raw";
-import emissionsFactorsPackagingCsv from "@/default-input-files/SAFAD IEF Packaging.csv?raw";
-import emissionsFactorsTransportCsv from "@/default-input-files/SAFAD IEF Transport.csv?raw";
-import processesEnergyDemandsCsv from "@/default-input-files/SAFAD IP Energy Proc.csv?raw";
-import preparationProcessesCsv from "@/default-input-files/SAFAD IP Preparation Processes.csv?raw";
-import packagingCodesCsv from "@/default-input-files/SAFAD IP Packaging.csv?raw";
-import footprintsRpcsCsv from "@/default-input-files/SAFAD ID Footprints RPC.csv?raw";
-import foodsRecipesCsv from "@/default-input-files/SAFAD IP Recipes.csv?raw";
-import sfaRecipesCsv from "@/default-input-files/SAFAD IP SFA Recipes.csv?raw";
-import wasteRetailAndConsumerCsv from "@/default-input-files/SAFAD IP Waste Retail and Cons/SAFAD IP Waste Retail and Cons SE.csv?raw";
-import dietCsv from "@/default-input-files/SAFAD ID Diet Spec/SAFAD ID Diet Spec SE.csv?raw";
-import rpcOriginWasteCsv from "@/default-input-files/SAFAD IP Origin and Waste of RPC/SAFAD IP Origin and Waste of RPC SE.csv?raw";
 
 function mockFileInterface<T>(
   parser: (data: string, delim?: string) => T
@@ -42,43 +28,13 @@ function mockFileInterface<T>(
   return fileInterface;
 }
 
-const makeCsvString = (data: string[][], delim: string) =>
-  data
-    .map((row) =>
-      row
-        .map((cell) => (cell && cell.includes(delim) ? `"${cell}"` : cell))
-        .join(delim)
-    )
-    .join("\n");
-
-/**
- * Test that the file setter recovers when we try to upload a file with
- * semicolons.
- *
- * This is a bit of a ruckus, as we're somewhat testing the implementation
- * details by passing actual parsers, rather than a more generic test.
- * But it's convenient in that it catches more things that could go wrong, i.e.,
- * it's somewhat of an abomination between a unit and an integration tests.
- *
- * Could mock the parser and the data, and test on a more abstract level. That
- * would require the implementation detail of the specific semi-colon error,
- * and also some type juggling
- *
- * Sorry!
- */
-
 async function parseWithSemicolon<T>(
   parser: (csvStr: string, delim?: string) => T,
-  csvString: string
+  semiColonCsvString: string
 ) {
-  const reencodedWithSemiColon = makeCsvString(
-    parseCsvFile(csvString, { delimiter: "," }),
-    ";"
-  );
-
   const fileInterface = mockFileInterface<T>(parser);
   const payload = {
-    data: reencodedWithSemiColon,
+    data: semiColonCsvString,
     name: "test-file-x.csv",
   };
 
@@ -95,65 +51,24 @@ async function parseWithSemicolon<T>(
 }
 
 describe("FileInterfaceUtils.setFile", () => {
-  describe("Successfully recovers when csv is encoded with a semi-colon", () => {
-    test("parseEmissionsFactorsPackaging", async () => {
-      await parseWithSemicolon(
-        Parsers.parseEmissionsFactorsPackaging,
-        emissionsFactorsPackagingCsv
-      );
-    });
+  /**
+   * Ensure that the file-setter recovers when we try to upload a file with
+   * semicolons.
+   */
+  test("Successfully recovers when parser throws semicolon error", async () => {
+    function mockParser(csvString: string, delimiter = ",") {
+      const data = csvString.split("\n").map((row) => row.split(delimiter));
 
-    test("parseEmissionsFactorsEnergy", async () => {
-      await parseWithSemicolon(
-        Parsers.parseEmissionsFactorsEnergy,
-        emissionsFactorsEnergyCsv
-      );
-    });
+      // Dummy, simplified catch of semicolon-delimited csv
+      if (data.every((row) => row.some((cell) => cell.includes(";")))) {
+        throw new Parsers.CsvValidationError(
+          Parsers.CsvValidationErrorType.SemiColon
+        );
+      }
 
-    test("parseEmissionsFactorsTransport", async () => {
-      await parseWithSemicolon(
-        Parsers.parseEmissionsFactorsTransport,
-        emissionsFactorsTransportCsv
-      );
-    });
+      return data;
+    }
 
-    test("parseProcessesEnergyDemands", async () => {
-      await parseWithSemicolon(
-        Parsers.parseProcessesEnergyDemands,
-        processesEnergyDemandsCsv
-      );
-    });
-
-    test("parsePreparationProcesses", async () => {
-      await parseWithSemicolon(
-        Parsers.parsePreparationProcesses,
-        preparationProcessesCsv
-      );
-    });
-    test("parsePackagingCodes", async () => {
-      await parseWithSemicolon(Parsers.parsePackagingCodes, packagingCodesCsv);
-    });
-
-    test("parseFootprintsRpcs", async () => {
-      await parseWithSemicolon(Parsers.parseFootprintsRpcs, footprintsRpcsCsv);
-    });
-    test("parseFoodsRecipes", async () => {
-      await parseWithSemicolon(Parsers.parseFoodsRecipes, foodsRecipesCsv);
-    });
-    test("parseWasteRetailAndConsumer", async () => {
-      await parseWithSemicolon(
-        Parsers.parseWasteRetailAndConsumer,
-        wasteRetailAndConsumerCsv
-      );
-    });
-    test("parseDiet", async () => {
-      await parseWithSemicolon(Parsers.parseDiet, dietCsv);
-    });
-    test("parseRpcOriginWaste", async () => {
-      await parseWithSemicolon(Parsers.parseRpcOriginWaste, rpcOriginWasteCsv);
-    });
-    test("parseSfaRecipes", async () => {
-      await parseWithSemicolon(Parsers.parseSfaRecipes, sfaRecipesCsv);
-    });
+    await parseWithSemicolon(mockParser, "foo;bar;baz\ndata1;data2;data3");
   });
 });

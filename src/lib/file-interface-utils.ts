@@ -37,6 +37,7 @@ export const setFile = async <T>(
   // We try first to parse the file using a comma, but if that fails, we try to
   // recover with a semi-colon. This is because excel makes it notoriously
   // difficult for users to actually export csvs with commas
+  //
   try {
     fileInterface.setter(fileInterface.parser(payload.data, ","));
   } catch (err) {
