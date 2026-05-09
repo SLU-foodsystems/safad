@@ -64,7 +64,7 @@ declare global {
     defaultName: (country: string) => string;
 
     getDefault: (country: string) => Promise<string>;
-    parser: (data: string) => T;
+    parser: (data: string, delim?: string) => T;
     setter: (data: T) => void;
 
     // Default-only

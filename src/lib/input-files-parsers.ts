@@ -98,8 +98,11 @@ function validateCsv(
   return null;
 }
 
-export function parseEmissionsFactorsPackaging(csvString: string) {
-  const csv = parseCsvFile(csvString)
+export function parseEmissionsFactorsPackaging(
+  csvString: string,
+  delimiter = ","
+) {
+  const csv = parseCsvFile(csvString, { delimiter })
     .slice(1) // Drop header
     // Remove empty rows
     .filter((row) => row.some((cell) => cell.length > 0));
@@ -118,8 +121,11 @@ export function parseEmissionsFactorsPackaging(csvString: string) {
   );
 }
 
-export function parseEmissionsFactorsEnergy(csvString: string) {
-  const csv = parseCsvFile(csvString).slice(1); // Drop Header
+export function parseEmissionsFactorsEnergy(
+  csvString: string,
+  delimiter = ","
+) {
+  const csv = parseCsvFile(csvString, { delimiter }).slice(1); // Drop Header
 
   const emissionsFactors: Record<string, number[] | Record<string, number[]>> =
     { Electricity: {} };
@@ -143,8 +149,11 @@ export function parseEmissionsFactorsEnergy(csvString: string) {
   return emissionsFactors;
 }
 
-export function parseEmissionsFactorsTransport(csvString: string) {
-  const csv = parseCsvFile(csvString).slice(1); // Drop Header
+export function parseEmissionsFactorsTransport(
+  csvString: string,
+  delimiter = ","
+) {
+  const csv = parseCsvFile(csvString, { delimiter }).slice(1); // Drop Header
 
   // maxCols = 12 for some flexibility for comments etc
   const err = validateCsv(csv, { minCols: 7, maxCols: 12 });
@@ -195,9 +204,10 @@ export function parseEmissionsFactorsTransport(csvString: string) {
 }
 
 export function parseProcessesEnergyDemands(
-  csvString: string
+  csvString: string,
+  delimiter = ","
 ): Record<string, number[]> {
-  const csv = parseCsvFile(csvString).slice(1);
+  const csv = parseCsvFile(csvString, { delimiter }).slice(1);
 
   // MaxCols with some margin for comments etc
   const err = validateCsv(csv, { minCols: 13, maxCols: 18 });
@@ -215,9 +225,10 @@ export function parseProcessesEnergyDemands(
   );
 }
 export function parsePreparationProcesses(
-  csvString: string
+  csvString: string,
+  delimiter = ","
 ): Record<string, string[]> {
-  const data = parseCsvFile(csvString).slice(1);
+  const data = parseCsvFile(csvString, { delimiter }).slice(1);
 
   const err = validateCsv(data, { minCols: 3 });
   if (err) {
@@ -248,8 +259,11 @@ export function parsePreparationProcesses(
   );
 }
 
-export function parsePackagingCodes(csvString: string): Record<string, string> {
-  const data = parseCsvFile(csvString).slice(1);
+export function parsePackagingCodes(
+  csvString: string,
+  delimiter = ","
+): Record<string, string> {
+  const data = parseCsvFile(csvString, { delimiter }).slice(1);
 
   const err = validateCsv(data, { minCols: 3 });
   if (err) {
@@ -273,8 +287,8 @@ export function parsePackagingCodes(csvString: string): Record<string, string> {
   );
 }
 
-export function parseFootprintsRpcs(csvString: string) {
-  const data = parseCsvFile(csvString).slice(1);
+export function parseFootprintsRpcs(csvString: string, delimiter = ",") {
+  const data = parseCsvFile(csvString, { delimiter }).slice(1);
 
   const err = validateCsv(data, { minCols: 44 });
   if (err) {
@@ -355,8 +369,11 @@ export function parseFootprintsRpcs(csvString: string) {
   return rpcFootprints;
 }
 
-export function parseWasteRetailAndConsumer(csvString: string) {
-  const csv = parseCsvFile(csvString).slice(1);
+export function parseWasteRetailAndConsumer(
+  csvString: string,
+  delimiter = ","
+) {
+  const csv = parseCsvFile(csvString, { delimiter }).slice(1);
 
   const err = validateCsv(csv, { minCols: 4 });
   if (err) {
@@ -391,8 +408,8 @@ export function parseWasteRetailAndConsumer(csvString: string) {
   );
 }
 
-export function parseDiet(csvString: string): Diet {
-  const data = parseCsvFile(csvString).slice(1);
+export function parseDiet(csvString: string, delimiter = ","): Diet {
+  const data = parseCsvFile(csvString, { delimiter }).slice(1);
 
   const err = validateCsv(data, { minCols: 6, maxCols: 8 });
   if (err) {
@@ -426,8 +443,8 @@ export function parseDiet(csvString: string): Diet {
   return Object.entries(summarizedDiet);
 }
 
-export function parseRpcOriginWaste(csvString: string) {
-  const parametersCsv = parseCsvFile(csvString).slice(1);
+export function parseRpcOriginWaste(csvString: string, delimiter = ",") {
+  const parametersCsv = parseCsvFile(csvString, { delimiter }).slice(1);
 
   const err = validateCsv(parametersCsv, { minCols: 6 });
   if (err) {
@@ -478,7 +495,7 @@ export function parseRpcOriginWaste(csvString: string) {
   );
 }
 
-export function parseFoodsRecipes(recipesCsvStr: string) {
+export function parseFoodsRecipes(recipesCsvStr: string, delimiter = ",") {
   function removeCorruptValues(obj: FoodsRecipes) {
     Object.entries(obj).forEach(([id, _values]) => {
       obj[id] = obj[id]!.filter(
@@ -502,7 +519,7 @@ export function parseFoodsRecipes(recipesCsvStr: string) {
   const recipes: FoodsRecipes = {};
 
   // drop header in csv file
-  const data = parseCsvFile(recipesCsvStr).slice(1);
+  const data = parseCsvFile(recipesCsvStr, { delimiter }).slice(1);
 
   const err = validateCsv(data, { minCols: 10 });
   if (err) {
@@ -567,8 +584,11 @@ export function parseFoodsRecipes(recipesCsvStr: string) {
   return recipes;
 }
 
-export function parseSfaRecipes(recipesCsvStr: string): SfaRecipeComponent[] {
-  const data: string[][] = parseCsvFile(recipesCsvStr).slice(1);
+export function parseSfaRecipes(
+  recipesCsvStr: string,
+  delimiter = ","
+): SfaRecipeComponent[] {
+  const data: string[][] = parseCsvFile(recipesCsvStr, { delimiter }).slice(1);
 
   const err = validateCsv(data, { minCols: 10 }); // don't need the last 2
   if (err) {
