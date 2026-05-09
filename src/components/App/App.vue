@@ -404,9 +404,7 @@ onMounted(async () => {
               height="64"
               alt="SLU logo"
             />
-            <span>
-              Swedish University of Agricultural Sciences
-            </span>
+            <span>Swedish University of Agricultural Sciences</span>
           </a>
         </div>
 
@@ -843,7 +841,8 @@ onMounted(async () => {
       <div class="inner-thinner-wrap stack stack-l">
         <p>
           <strong
-            >Read the published article for more information about SAFAD:</strong
+            >Read the published article for more information about
+            SAFAD:</strong
           ><br />
           Röös, E., Jacobsen, M., Karlsson, L., Wanecek, W., Spångberg, J.,
           Mazac, R., &amp; Rydhmer, L. (2025). Introducing a comprehensive and
