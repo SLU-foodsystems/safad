@@ -18,6 +18,9 @@ if (!require("tidyr")) {
 
 setwd("~/dev/safad/data-preprocessing/rpc-footprints/R scripts")
 
+# Helper logic for resolving refs + adjusting yields
+source("./resolve-refs-and-yield.R")
+
 
 # Set up which crops we differentiate growing in greenhouses and open-field.
 # TODO: Could be read from energy emissions file
@@ -38,156 +41,6 @@ sua_fao_codes <- read_csv("../Codes/FAO to SUA.csv", show_col_types = FALSE) |>
 ################################################################################
 # Helper functions
 ################################################################################
-
-resolve_references <- function(df, n_index_cols) {
-  crop_codes <- df[1] |> pull()
-  country_cols <- df |> colnames() |> tail(-n_index_cols)
-  # Sanity-check
-  if (!("Default" %in% country_cols)) {
-    warning(
-      "Col name 'Default' not in the non-index columns of df. " +
-        "Make sure the data is not malformatted, and check n_index_cols."
-    )
-    return(NA)
-  }
-
-  # Iterate until no more references found
-  changed <- TRUE
-  iteration <- 0
-
-  # Max N^2 iterations
-  while (changed && iteration < length(country_cols)) {
-    changed <- FALSE
-    iteration <- iteration + 1
-
-    # For each row in each col
-    for (col in country_cols) {
-      for (row in seq_along(df)) {
-        cell_val <- df[[col]][row]
-
-        # Case 1: It's an empty cell, and we leave it as-is.
-        if (is.na(cell_val)) {
-          next
-        }
-
-        # Refs can be country codes (e.g., SE) or country-SUA (e.g., SE-01232)
-        ref <- c()
-        if (cell_val %in% country_cols) {
-          ref <- c(cell_val, row)
-        } else if (is.character(cell_val)) {
-          parts <- unlist(strsplit(cell_val, "-"))
-          if (
-            length(parts) == 2 &&
-              parts[1] %in% country_cols &&
-              parts[2] %in% crop_codes
-          ) {
-            ref_row <- match(parts[2], crop_codes)
-            ref <- c(parts[1], ref_row)
-          }
-        }
-
-        # Case 2: it looks like a reference, so we try to resolve it.
-        if (length(ref) > 0) {
-          # Fetch reference value
-          ref_val <- df[[ref[1]]][as.numeric(ref[2])]
-          if (is.na(ref_val)) {
-            crop_code <- df[row, 1]
-            stop(
-              "The following (crop, country) references an empty cell:\n\t",
-              paste(
-                c(
-                  crop_code,
-                  ", ",
-                  col,
-                  " -> ",
-                  cell_val,
-                  " = (",
-                  ref[1],
-                  ", ",
-                  ref[2],
-                  ") = ",
-                  ref_val,
-                  ". Iteration = ",
-                  iteration
-                ),
-                collapse = ""
-              )
-            )
-            next
-          }
-
-          # Note: If the value in the cell we are referencing is a country
-          # (e.g., it is 'SE') we need to append the crop-code, i.e. a reference
-          # to the row, as it is implicit. Otherwise, recursive references break
-          if (ref_val %in% country_cols) {
-            ref_val_row_name <- crop_codes[as.numeric(ref[2])]
-            ref_val <- paste(c(ref_val, ref_val_row_name), collapse = "-")
-          }
-
-          df[[col]][row] <- ref_val
-          changed <- TRUE
-          next
-        }
-
-        # Case 3: it doesn't look like a reference, so it will either:
-        # a) be a number            => all is well, leave it
-        # b) be an illegal value    => raise warning
-        if (is.na(suppressWarnings(as.numeric(cell_val)))) {
-          crop_code <- df[row, 1]
-          stop(
-            "The following (crop,country) references an invalid country:\n\t",
-            paste(c(crop_code, ", ", col, " = ", cell_val), collapse = "")
-          )
-        }
-      }
-    }
-  }
-
-  # Return, and cast the type to double instead of char.
-  index_col_names <- names(df)[1:n_index_cols]
-  df |>
-    mutate(across(-all_of(index_col_names), ~ suppressWarnings(as.double(.))))
-}
-
-# Apply the value of the 'Default' col to all other value-cols in a wide
-# data-frame. In our use case, it is for the rest of the countries.
-apply_defaults <- function(df, default_index = 0) {
-  if (default_index == 0) {
-    default_index <- which(names(df) == "Default")
-  }
-  value_cols <- names(df)[(default_index + 1):ncol(df)]
-  df |>
-    mutate(across(
-      all_of(value_cols),
-      ~ coalesce(., Default)
-    )) |>
-    select(-Default)
-}
-
-# Factor in the yields, pivoting from wide to long format.
-adjust_by_yield <- function(df, yield_df, n_index_cols, values_to = "value") {
-  country_cols <- names(df) |> tail(-n_index_cols)
-  df |>
-    # Reshape to long format
-    pivot_longer(
-      cols = all_of(country_cols),
-      names_to = "Country code",
-      values_to = "abs_value"
-    ) |>
-    # Join with yields
-    left_join(
-      yield_df,
-      by = c("Crop code", "Country code")
-    ) |>
-    # Drop rows where yield data is missing for crop+country combo
-    drop_na("yield") |>
-    # Multiply by yield (handle missing yields)
-    mutate(value = abs_value / yield) |>
-    drop_na("value") |>
-    # Remove intermediate columns
-    select(-abs_value, -yield) |>
-    rename(!!values_to := value)
-}
 
 split_avg_into_gh_crops <- function(df, gh_crops) {
   bind_rows(
@@ -417,6 +270,17 @@ gh_of_yields <- read_csv("EUROSTAT_gh_yields.csv", show_col_types = FALSE) |>
   }
 }
 
+patched_yields <- tribble(
+  ~`Country code` , ~`Crop code` , ~yield ,
+  # Missing from trade data (value from FAO)
+  "SE"            , "01213"      ,  11382 ,
+  "SE"            , "01330"      ,   1883 ,
+  "SE"            , "01709.90"   ,   2097 ,
+  # Missing from FAO data
+  "SE"            , "01701"      ,   1800 ,
+  "SE"            , "01704"      ,    900 ,
+)
+
 yields <- fao_yields |>
   select(-`Country name`) |>
   mutate(
@@ -427,7 +291,8 @@ yields <- fao_yields |>
     )
   ) |>
   rows_upsert(gh_of_yields, by = c("Crop code", "Country code")) |>
-  right_join(trade_data, by = c("Crop code", "Country code"))
+  right_join(trade_data, by = c("Crop code", "Country code")) |>
+  rows_upsert(patched_yields, by = c("Crop code", "Country code"))
 
 # ==========================================================
 # Land use
@@ -448,18 +313,24 @@ df_N <- read_excel(
   sheet = "Data",
   skip = 4
 ) |>
-  resolve_references(n_index_cols = 3) |>
-  apply_defaults() |>
-  adjust_by_yield(yields, n_index_cols = 3, values_to = "N_fert")
+  resolve_refs_adjust_yield(
+    yields = yields,
+    yield_strategy = "yield-last",
+    n_index_cols = 3,
+    values_to = "N_fert"
+  )
 
 df_P <- read_excel(
   "../1 - Crops/P fertiliser.xlsx",
   sheet = "Data",
   skip = 4
 ) |>
-  resolve_references(n_index_cols = 3) |>
-  apply_defaults() |>
-  adjust_by_yield(yields, n_index_cols = 3, values_to = "P_fert")
+  resolve_refs_adjust_yield(
+    yields = yields,
+    yield_strategy = "yield-last",
+    n_index_cols = 3,
+    values_to = "P_fert"
+  )
 
 df_N_contents <- read_excel(
   "../1 - Crops/N fertiliser.xlsx",
@@ -477,10 +348,12 @@ df_pest <- read_excel(
   sheet = "Data",
   skip = 4
 ) |>
-  resolve_references(n_index_cols = 3) |>
-  # Populate with default values
-  apply_defaults() |>
-  adjust_by_yield(yields, n_index_cols = 3, values_to = "pesticides_use")
+  resolve_refs_adjust_yield(
+    yields,
+    yield_strategy = "yield-last",
+    n_index_cols = 3,
+    values_to = "pesticides_use"
+  )
 
 
 # ==========================================================
@@ -564,16 +437,15 @@ df_emission_factors_country <- read_crop_excel(
   sheet = "EF country spec"
 ) |>
   select(-Description, -Unit) |>
-  filter(Factor != "Climate") |> # Remove row not used in data calculation
-  resolve_references(1) |>
-  # Cast all columns to double
-  mutate(across(-c("Factor"), as.double)) |>
-  apply_defaults() |>
+  filter(Factor != "Climate") |> # Only used internally
+  mutate(across(-c(Factor), ~ suppressWarnings(as.double(.)))) |>
   pivot_longer(
-    cols = -c(Factor),
+    cols = -c(Factor, Default),
     names_to = "Country code",
     values_to = "Value"
-  )
+  ) |>
+  mutate(Value = coalesce(Value, Default)) |>
+  select(-Default)
 
 # Land Use Change
 # ----------------------------------------------------------
@@ -791,13 +663,7 @@ df_crop_resid_frac_rm <- read_crop_excel(
   "Crop residues.xlsx",
   sheet = "Frac_removed"
 ) |>
-  resolve_references(3) |>
-  apply_defaults() |>
-  pivot_longer(
-    values_to = "frac_remove",
-    names_to = "Country code",
-    cols = -c("Crop code", "Crop", "Category")
-  )
+  resolve_refs_adjust_yield(yields, "no-yield", 3, "frac_remove")
 
 # Then, join with the constant, country-independent factors and compute the
 # N content for residues per kg of crop.
@@ -826,10 +692,7 @@ ef_diesel <- df_emission_factors_energy |>
 HEATING_VALUE_DIESEL <- 35.2
 
 df_field_ops <- read_crop_excel("Field operations.xlsx", sheet = "Data") |>
-  resolve_references(n_index_cols = 3) |>
-  apply_defaults() |>
-  # Convert from kg diesel per ha -> kg diesel per kg Crop
-  adjust_by_yield(yields, n_index_cols = 3, values_to = "diesel_kg") |>
+  resolve_refs_adjust_yield(yields, "yield-last", 3, "diesel_kg") |>
   # Ensure diesel use is set 0 for all gh crops
   mutate(diesel_kg = if_else(endsWith(`Crop code`, "_gh"), 0, diesel_kg)) |>
   # Convert from kg diesel per kg crop to kg GHG per kg Crop
