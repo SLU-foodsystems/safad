@@ -60,7 +60,7 @@ normalise_country_names <- function(df, col) {
 
   df |>
     mutate(
-      !!col := case_match(
+      !!col := recode_values(
         !!col,
         "Bolivia" ~ "Bolivia (Plurinational State of)",
         "Brunei" ~ "Brunei Darussalam",
@@ -94,7 +94,8 @@ normalise_country_names <- function(df, col) {
         "United States" ~ "United States of America",
         "Venezuela" ~ "Venezuela (Bolivarian Republic of)",
         "Vietnam" ~ "Viet Nam",
-        .default = !!col
+        unmatched = "default",
+        default = !!col
       )
     )
 }
@@ -478,7 +479,7 @@ df_LUC <- suppressWarnings(
   normalise_country_names(Country) |>
   left_join(country_name_code_map, by = c("Country" = "Country name")) |>
   mutate(
-    Commodity = case_match(
+    Commodity = recode_values(
       Commodity,
       "Barley" ~ "Barley, average",
       "Cauliflowers and broccoli" ~ "Cauliflowers and broccoli, average",
@@ -488,7 +489,8 @@ df_LUC <- suppressWarnings(
       "Rape or colza seed" ~ "Rape or colza seed, average",
       "Tomatoes" ~ "Tomatoes, greenhouse",
       "Wheat" ~ "Wheat, average",
-      .default = c(Commodity)
+      unmatched = "default",
+      default = c(Commodity)
     )
   ) |>
   LUC_duplicate_gh_rows(org_str = ", greenhouse", new_str = ", openfield") |>
@@ -761,10 +763,11 @@ df_emission_factors_gh_per_country <- df_emission_factors_country |>
     remove = TRUE
   ) |>
   mutate(
-    `Energy source` = case_match(
+    `Energy source` = recode_values(
       `Energy source`,
       "EF_electricity" ~ "Electricity",
-      "EF_district_heating" ~ "District heating"
+      "EF_district_heating" ~ "District heating",
+      unmatched = "error"
     )
   ) |>
   pivot_wider(names_from = "Gas", values_from = "Value")
