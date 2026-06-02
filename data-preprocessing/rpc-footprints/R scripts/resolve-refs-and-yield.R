@@ -228,7 +228,20 @@ resolve_references_long <- function(df) {
     }
 
     target_key <- paste(crop, head, sep = "||")
-    target_i <- row_index[[target_key]]
+    tryCatch(
+      {
+        target_i <- row_index[[target_key]]
+      },
+      error = function(e) {
+        stop(
+          "Failed accessing target_key=",
+          target_key,
+          ". Error was: ",
+          e$message
+        )
+      }
+    )
+
     if (is.null(target_i)) {
       stop("Missing target row for ref ", ref_string, " => ", target_key)
     }
