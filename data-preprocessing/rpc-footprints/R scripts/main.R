@@ -21,9 +21,21 @@ setwd("~/dev/safad/data-preprocessing/rpc-footprints/R scripts")
 # Helper logic for resolving refs + adjusting yields
 source("./resolve-refs-and-yield.R")
 
+ll_countries <- c(
+  "DE",
+  "DK",
+  "ES",
+  "FR",
+  "GR",
+  "HU",
+  "IR",
+  "IT",
+  "PL",
+  "SE"
+)
+
 
 # Set up which crops we differentiate growing in greenhouses and open-field.
-# TODO: Could be read from energy emissions file
 gh_crops <- tribble(
   ~`Name`     , ~`Crop code` ,
   "tomatoes"  , "01234"      ,
@@ -127,6 +139,26 @@ trade_data <- list.files(
   filter(`Country code` != "RoW") |>
   split_avg_into_gh_crops(gh_crops)
 
+# Add a list of all crops in all (living-lab) countries, to not exclude crops
+# from living-lab countries based on trade data (note: crops can still be
+# excluded from an ll-country where if there is no yield data).
+{
+  missing_ll_crops <- trade_data |>
+    distinct(`Crop code`) |>
+    crossing(`Country code` = ll_countries) |>
+    anti_join(trade_data, by = c("Crop code", "Country code")) |>
+    # TODO: Temporary fix to handle our missing trade data for sugar canes/beets:
+    # We have yield data for many countries for sugar canes, but no trade data.
+    # Without this 'filter'-statement, we add back the crop for Sweden etc,
+    # which holds references to Brazil (default) - but Brazil is removed since
+    # we don't have trade_data for it. Needs to be fixed.
+    filter(`Crop code` != "01802")
+
+  trade_data <- bind_rows(
+    trade_data,
+    missing_ll_crops
+  )
+}
 
 # ==========================================================
 # Yield
@@ -255,17 +287,19 @@ gh_of_yields <- read_csv("EUROSTAT_gh_yields.csv", show_col_types = FALSE) |>
 {
   MUSHROOMS_CODE = "01270"
 
+  # where we have yield data, but not trade (expected to be many)
   missing_trade <- fao_yields |>
     anti_join(trade_data, by = c("Crop code", "Country code")) |>
     filter(`Crop code` != MUSHROOMS_CODE)
 
+  # where we have trade data, but not yield (not desirable)
   missing_yields <- trade_data |>
     anti_join(fao_yields, by = c("Crop code", "Country code")) |>
     filter(`Crop code` != MUSHROOMS_CODE)
 
   if (nrow(missing_yields) > 0) {
-    warning(paste0(
-      "See `missing_yields` for a list of crop-and-country ",
+    warning(paste(
+      "See `missing_yields` for a list of crop-and-country",
       "combinations for which we have trade data but no fao_yield."
     ))
   }
