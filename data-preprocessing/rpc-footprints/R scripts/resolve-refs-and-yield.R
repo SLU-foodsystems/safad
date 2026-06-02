@@ -289,18 +289,19 @@ resolve_refs_adjust_yield <- function(
     prepare_df_long(yields, n_index_cols) |>
     resolve_references_long()
 
-    yield_adjusted_values <- if (yield_strategy == "yield-first") {
-      df_resolved$value_resolved / coalesce(
+  yield_adjusted_values <- if (yield_strategy == "yield-first") {
+    df_resolved$value_resolved /
+      coalesce(
         df_resolved$ref_yield,
         df_resolved$yield
       )
-    } else if (yield_strategy == "yield-last") {
-      df_resolved$value_resolved / df_resolved$yield
-    } else if (yield_strategy == "no-yield") {
-      df_resolved$value_resolved
-    } else {
-      stop("Unknown yield_strategy: ", yield_strategy)
-    }
+  } else if (yield_strategy == "yield-last") {
+    df_resolved$value_resolved / df_resolved$yield
+  } else if (yield_strategy == "no-yield") {
+    df_resolved$value_resolved
+  } else {
+    stop("Unknown yield_strategy: ", yield_strategy)
+  }
 
   result <- df_resolved |>
     transmute(

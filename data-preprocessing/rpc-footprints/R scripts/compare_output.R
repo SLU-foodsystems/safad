@@ -6,12 +6,18 @@
   library(tibble)
 }
 
-keys <- c("SUA code", "Country code") 
+keys <- c("SUA code", "Country code")
 
 
 clean_data <- function(df) {
   df |>
-    select(-`Long code`, -`FoodEx2 code`, -`FoodEx2 name`, -Category, -`Country name`) |>
+    select(
+      -`Long code`,
+      -`FoodEx2 code`,
+      -`FoodEx2 name`,
+      -Category,
+      -`Country name`,
+    ) |>
     distinct(across(all_of(keys)), .keep_all = TRUE) |>
     # Add Yield
     mutate(Yield = 1e4 / Land) |>
@@ -19,17 +25,24 @@ clean_data <- function(df) {
     arrange(`SUA code`, `Country code`)
 }
 
-prod_data <- read_csv("../SAFAD files/Input files/OLD SAFAD ID Footprints RPC.csv", show_col_types = FALSE) |>
+prod_data <- read_csv(
+  "../SAFAD files/Input files/OLD SAFAD ID Footprints RPC.csv",
+  show_col_types = FALSE
+) |>
   clean_data()
 
-dev_data <- read_csv("../SAFAD files/Input files/SAFAD ID Footprints RPC.csv", show_col_types = FALSE) |>
+dev_data <- read_csv(
+  "../SAFAD files/Input files/SAFAD ID Footprints RPC.csv",
+  show_col_types = FALSE
+) |>
+  select(-`Direct Values (N-P-Diesel)`) |>
   clean_data()
 
 # TEST 1: Were codes added and/or removed?
 {
   rows_added <- dev_data |>
     anti_join(prod_data, by = c("SUA code", "Country code"))
-  
+
   rows_removed <- prod_data |>
     anti_join(dev_data, by = c("SUA code", "Country code"))
 }
@@ -48,7 +61,7 @@ pct_diff <- dev_data |>
   mutate(
     across(
       where(is.numeric) & ends_with("_dev"),
-        ~ {
+      ~ {
         dev <- .x
         prod <- get(sub("_dev$", "_prod", cur_column()))
         (dev - prod) / prod
@@ -63,9 +76,9 @@ abs_diff <- dev_data |>
   mutate(
     across(
       where(is.numeric) & ends_with("_dev"),
-        ~ {
+      ~ {
         dev <- .x
-        prod <- get(sub("_dev$", "_prod", cur_column())) 
+        prod <- get(sub("_dev$", "_prod", cur_column()))
         (dev - prod)
       },
       .names = "{sub('_dev$', '', .col)}_abs_diff"
