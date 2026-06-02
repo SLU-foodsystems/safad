@@ -327,7 +327,8 @@ yields <- fao_yields |>
   ) |>
   rows_upsert(gh_of_yields, by = c("Crop code", "Country code")) |>
   right_join(trade_data, by = c("Crop code", "Country code")) |>
-  rows_upsert(patched_yields, by = c("Crop code", "Country code"))
+  rows_upsert(patched_yields, by = c("Crop code", "Country code")) |>
+  drop_na(yield)
 
 # ==========================================================
 # Land use
