@@ -264,7 +264,8 @@ resolve_refs_adjust_yield <- function(
   yields,
   yield_strategy = "yield-last",
   n_index_cols = 3,
-  values_to = "value"
+  values_to = "value",
+  approximated_to = ""
 ) {
   if (!(yield_strategy %in% c("yield-first", "yield-last", "no-yield"))) {
     stop("Invalid value for yield_strategy", yield_strategy)
@@ -288,13 +289,19 @@ resolve_refs_adjust_yield <- function(
       stop("Unknown yield_strategy: ", yield_strategy)
     }
 
-  df_resolved |>
+  result <- df_resolved |>
     transmute(
       `Crop code`,
       `Crop`,
       `Category`,
       `Country code`,
-      !!values_to := yield_adjusted_values
+      !!values_to := yield_adjusted_values,
+      is_approximated = datum_type != "RAW_ABS"
     )
-}
 
+  if (approximated_to == "") {
+    result |> select(-is_approximated)
+  } else {
+    result |> rename(!!approximated_to := is_approximated)
+  }
+}
