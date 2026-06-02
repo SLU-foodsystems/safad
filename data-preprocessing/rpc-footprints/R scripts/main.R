@@ -353,7 +353,8 @@ df_N <- read_excel(
     yields = yields,
     yield_strategy = "yield-last",
     n_index_cols = 3,
-    values_to = "N_fert"
+    values_to = "N_fert",
+    approximated_to = "N_approximated"
   )
 
 df_P <- read_excel(
@@ -365,7 +366,8 @@ df_P <- read_excel(
     yields = yields,
     yield_strategy = "yield-last",
     n_index_cols = 3,
-    values_to = "P_fert"
+    values_to = "P_fert",
+    approximated_to = "P_approximated"
   )
 
 df_N_contents <- read_excel(
@@ -466,7 +468,6 @@ df_emission_factors_energy <- df_emission_factors_general |>
     names_from = "Gas",
   ) |>
   rename(`Energy source` = Parameter)
-
 
 df_emission_factors_country <- read_crop_excel(
   "Emission factors.xlsx",
@@ -729,7 +730,13 @@ ef_diesel <- df_emission_factors_energy |>
 HEATING_VALUE_DIESEL <- 35.2
 
 df_field_ops <- read_crop_excel("Field operations.xlsx", sheet = "Data") |>
-  resolve_refs_adjust_yield(yields, "yield-last", 3, "diesel_kg") |>
+  resolve_refs_adjust_yield(
+    yields,
+    "yield-last",
+    n_index_cols = 3,
+    values_to = "diesel_kg",
+    approximated_to = "field_ops_approximated"
+  ) |>
   # Ensure diesel use is set 0 for all gh crops
   mutate(diesel_kg = if_else(endsWith(`Crop code`, "_gh"), 0, diesel_kg)) |>
   # Convert from kg diesel per kg crop to kg GHG per kg Crop
@@ -741,7 +748,8 @@ df_field_ops <- read_crop_excel("Field operations.xlsx", sheet = "Data") |>
     `Country code`,
     CO2_field_ops = diesel_kg * HEATING_VALUE_DIESEL * ef_diesel$CO2,
     CH4_field_ops = diesel_kg * HEATING_VALUE_DIESEL * ef_diesel$CH4,
-    N2O_field_ops = diesel_kg * HEATING_VALUE_DIESEL * ef_diesel$N2O
+    N2O_field_ops = diesel_kg * HEATING_VALUE_DIESEL * ef_diesel$N2O,
+    field_ops_approximated
   )
 
 
@@ -997,6 +1005,26 @@ CO2E_CH4_b <- 27 # biogenic
 CO2E_CH4_f <- 29.8 # fossil
 CO2E_N2O <- 273
 
+approximated_label <- function(
+  N_approximated,
+  P_approximated,
+  field_ops_approximated
+) {
+  labels <- c("N", "P", "Diesel")
+
+  # out is a vector of strings
+  out <- character(length(N_approximated))
+  for (i in seq_along(out)) {
+    parts <- labels[c(
+      !N_approximated[i],
+      !P_approximated[i],
+      !field_ops_approximated[i]
+    )]
+    out[i] <- if (length(parts) == 0) "" else paste(parts, collapse = "-")
+  }
+  out
+}
+
 # We start with the emissions from N per kg of food
 df_GHGs <- df_N_emissions |>
   # Add capital goods emissions
@@ -1145,7 +1173,10 @@ df_GHGs <- df_N_emissions |>
     N2O_rm_cap_goods,
     N2O_rm_soils,
     N2O_rm_energy,
-    N2O_rm_manure
+    N2O_rm_manure,
+
+    # Keep for later
+    field_ops_approximated
   )
 
 # ==========================================================
@@ -1241,6 +1272,7 @@ df_N_extended <- df_N |>
     Ammonia = N_fert * coalesce(EF_NH3, 0),
     # Rename to ensure we separate the fertiliser use and the net input
     N_input = N_fert + coalesce(`N content`, 0),
+    N_approximated,
   )
 
 df_crops <- df_GHGs |>
@@ -1257,7 +1289,15 @@ df_crops <- df_GHGs |>
   left_join(df_water, by = c("Crop code", "Country code")) |>
   # Biodiversity
   left_join(biodiv_joined, by = c("Crop code", "Country code")) |>
-  mutate(Antibiotics = 0, `Animal welfare` = 0)
+  mutate(Antibiotics = 0, `Animal welfare` = 0) |>
+  # Approximation
+  mutate(
+    direct_values = approximated_label(
+      N_approximated,
+      P_approximated,
+      field_ops_approximated
+    )
+  )
 
 
 # Take out the rows for the gh/of crops, and combine them into averages
@@ -1278,7 +1318,8 @@ df_crops_averages <- df_crops |>
       `Country code`,
       `Country name`,
       frac_gh,
-      base_code
+      base_code,
+      direct_values,
     ),
     ~ frac_gh * .x
   )) |>
@@ -1353,6 +1394,8 @@ merged_data <- df_crops |>
     N2O_rm_soils,
     N2O_rm_energy,
     N2O_rm_manure,
+
+    direct_values
   )
 
 # Append mushrooms
@@ -1419,7 +1462,7 @@ for (j in 1:length(livestock_files)) {
       Name = as.character(Name),
       Category = as.character(Category),
       Country_name = as.character(Country_name),
-      Country_code = as.character(Country_code)
+      Country_code = as.character(Country_code),
     )
 
   # Read all the disaggregated climate impact data
@@ -1583,12 +1626,15 @@ for (k in seq_along(products_zero)) {
     "Wild foods",
     "Rest of World",
     "RoW",
-    rep("0", ncol(merged_data) - 5) # adjust if first 5 fields are the non-zeros
+    rep("0", ncol(merged_data) - 6), # adjust if first 5 fields are the non-zeros,
+    NA # approximated-flag
   )
+  ncols = length(names(merged_data))
   zero_row <- as_tibble_row(setNames(as.list(zero_data), names(merged_data))) |>
     mutate(
       across(1:5, as.character),
-      across(6:length(names(merged_data)), as.double)
+      across(6:(ncols - 1), as.double),
+      across(all_of(ncols:ncols), as.character) # Approximated / direct_values
     )
 
   # Store also that in the common dataset
@@ -1883,7 +1929,8 @@ merged_codes <- inner_join(
     `Capital goods (N2O)` = N2O_rm_cap_goods,
     `Soil emissions (N2O)` = N2O_rm_soils,
     `Energy primary production (N2O)` = N2O_rm_energy,
-    `Manure management (N2O)` = N2O_rm_manure
+    `Manure management (N2O)` = N2O_rm_manure,
+    `Direct Values (N-P-Diesel)` = coalesce(direct_values, NA)
   )
 
 ################################################################################
