@@ -305,6 +305,14 @@ export function parseFootprintsRpcs(csvString: string, delimiter = ",") {
     );
   }
 
+  // We recently introduced a column at the end of the file indicating if the
+  // data is approximated or holds direct values.
+  // To maintain backward-compatibility, we try to find and drop any rows with a
+  // "too long" set of indicators and drop them.
+  // This would turn complicated if we want to add or remove more indicators in
+  // the future.
+  data.filter(row => row.length == 45).forEach(row => row.pop());
+
   const rpcFootprints = {} as RpcFootprintsByOrigin;
 
   // First, we store all footprints in a nested map, like this:
