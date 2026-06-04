@@ -8,7 +8,8 @@
  * Colors
  */
 
-$background: #fff;
+$background: #f9f7ee;
+$background: color.adjust(#f9f7ee, $saturation: -35%);
 $gray: color.scale($background, $lightness: -9%);
 $pink: #f8b8c9;
 $lightgray: color.scale($background, $lightness: -4%);

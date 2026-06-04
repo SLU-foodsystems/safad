@@ -312,7 +312,7 @@ const onDrop = (e: DragEvent) => {
 
 .file-selector-box {
   width: 100%;
-  background: white;
+  background: constants.$background;
   text-align: left;
   position: relative;
 

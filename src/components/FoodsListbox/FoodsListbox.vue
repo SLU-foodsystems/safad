@@ -223,6 +223,7 @@ watch(
 
   .p-virtualscroller {
     border: 2px solid constants.$gray;
+    background: white;
     overflow: auto;
 
     &:focus-within {
