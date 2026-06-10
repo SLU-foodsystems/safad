@@ -88,6 +88,8 @@ onMounted(drawChart);
 </template>
 
 <style lang="scss" scoped>
+@use "../styles/constants";
+
 .planetary-boundaries-chart {
   border-radius: 50%;
   position: relative;
@@ -101,7 +103,7 @@ onMounted(drawChart);
     height: 100%;
     border-radius: 50%;
     position: absolute;
-    box-shadow: inset 0 0 1.5em 1em white;
+    box-shadow: inset 0 0 1.5em 1em constants.$background;
   }
 }
 </style>
