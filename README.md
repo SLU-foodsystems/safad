@@ -34,18 +34,9 @@ push.
 
 ### Update the version
 
-The version consists of two component: one "major" and one "minor" version,
-separated by a period. Example: `2.34`, where `2` is the major and `34` is the
-minor version.
-
-The major version is defined explicitly, while the minor version is increased by
-1 each time a commit is made, starting from a specific date.
-
-To change it, you will need to edit the file `vite.config.ts`, where the
-variables `VERSION_MAJOR` (a number) and `VERSION_MINOR_COUNT_SINCE` (a date)
-can be defined. You can do this directly from github.com, using the built-in
-editor ([go to the file](./vite.config.ts) and press the edit-button in the
-top-right corner, which is a pen-icon).
+Versions are handled manually. Any time changes are made to the project, please
+also update the CHANGELOG.md file describing the changes, as well as the
+version-part of the file [`package.json`](./package.json).
 
 ## Project Structure
 
