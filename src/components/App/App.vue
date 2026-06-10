@@ -482,7 +482,17 @@ onMounted(async () => {
     <div class="info-bar">
       <div class="page-wrap">
         <div class="cluster cluster--between">
-          <div><strong>Version:</strong> {{ APP_VERSION }}</div>
+          <div>
+            <div>SAFAD v{{ APP_VERSION }}</div>
+            <div>
+              <a
+                href="https://github.com/SLU-foodsystems/safad/blob/main/CHANGELOG.md"
+                rel="nofollow"
+                target="_blank"
+                >View changelog</a
+              >
+            </div>
+          </div>
           <div class="country-select">
             <label class="cluster">
               <span>Country:</span>
