@@ -1,7 +1,6 @@
 import * as fs from "node:fs/promises";
 import * as path from "path";
 import { exec } from "node:child_process";
-import { type Stats } from "node:fs";
 import { promisify } from "node:util";
 
 /**
