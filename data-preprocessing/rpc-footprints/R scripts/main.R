@@ -381,6 +381,8 @@ df_N_contents <- read_excel(
 # Pesticides
 # ==========================================================
 
+# From: kg active substance per hectare
+# To: k active substance per kg crop
 df_pest <- read_excel(
   "../1 - Crops/Pesticides.xlsx",
   sheet = "Data",
@@ -391,8 +393,8 @@ df_pest <- read_excel(
     yield_strategy = "yield-last",
     n_index_cols = 3,
     values_to = "pesticides_use"
-  )
-
+  ) |>
+  mutate(pesticides_use = pesticides_use * 1000)
 
 # ==========================================================
 # Blue Water
