@@ -1185,9 +1185,7 @@ df_GHGs <- df_N_emissions |>
 #  Biodiversity
 # ==========================================================
 
-biodiv_factors <- read_excel(
-  "../Env ass data/Biodiversity/Biodiversity factors Scherer et al modified as used in SAFAD.xlsx"
-) |>
+biodiv_factors <- read_excel("../1 - Crops/Biodiversity factors.xlsx") |>
   filter(
     habitat == "Cropland_Intense" |
       habitat == "Cropland_LightIntense" |
