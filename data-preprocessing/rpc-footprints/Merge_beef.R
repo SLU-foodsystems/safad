@@ -1,5 +1,10 @@
 # install.packages("readxl")
-# library(readxl)
+library(readxl)
+library(dplyr)
+
+.drop_empty_name_columns <- function(df) {
+  df[, nzchar(names(df)) & !is.na(names(df))]
+}
 
 merge_beef <- function() {
   suckler_data <- NULL
@@ -8,209 +13,200 @@ merge_beef <- function() {
   dairy9m_data <- NULL
   beef_average <- NULL
 
-  ############################################################################################################
-  ####################################### SUCKLER HERD #######################################################
-  ############################################################################################################
+  ####################################################################
+  ################### SUCKLER HERD ###################################
+  ####################################################################
 
   # Read the suckler herd data
   suckler_data <- read_excel(
-    "../2 - Livestock/Suckler beef.xlsx",
-    sheet = "Footprints, results per kg"
-  )
-
-  # Assign new names to the columns
-  columns_names <- c(
-    "Code",
-    "Name",
-    "Category",
-    "Country_name",
-    "Country_code",
-    "Carbon_Footprint",
-    "Carbon_Dioxide",
-    "Methane_fossil",
-    "Methane_bio",
-    "Nitrous_Oxide",
-    "HFC",
-    "Land",
-    "N_input",
-    "P_input",
-    "Water",
-    "Pesticides",
-    "Biodiversity",
-    "Ammonia",
-    "Labour",
-    "Animal_Welfare",
-    "Antibiotics"
-  )
-  colnames(suckler_data) <- columns_names
-
-  # Remove the first four rows
-  suckler_data <- suckler_data[-c(1:4), ]
+    "./2 - Livestock/Suckler beef.xlsx",
+    sheet = "Footprints, results per kg",
+    skip = 5,
+  ) |>
+    # Assign new names to the columns
+    setNames(
+      c(
+        "Code",
+        "Name",
+        "Category",
+        "Country_name",
+        "Country_code",
+        "Carbon_Footprint",
+        "Carbon_Dioxide",
+        "Methane_fossil",
+        "Methane_bio",
+        "Nitrous_Oxide",
+        "HFC",
+        "Land",
+        "N_input",
+        "P_input",
+        "Water",
+        "Pesticides",
+        "Biodiversity",
+        "Ammonia",
+        "Labour",
+        "Animal_Welfare",
+        "Antibiotics"
+      )
+    ) |>
+    .drop_empty_name_columns()
 
   # Read all the disaggregated climate impact data
   suckler_data_CF_dis_all <- read_excel(
-    "../2 - Livestock/Suckler beef.xlsx",
-    sheet = "GHG detailed, results per kg"
-  )
-
-  # Assign new names to the columns
-  columns_names_CF_dis <- c(
-    "Code",
-    "Name",
-    "Category",
-    "Country_name",
-    "Country_code",
-    "Gas",
-    "Sum",
-    "CO2e_rm_fert_prod",
-    "CO2e_rm_cap_goods",
-    "CO2e_rm_soils_dir",
-    "CO2e_rm_soils_indir",
-    "Energy_diesel",
-    "Energy_gh",
-    "Energy_irr",
-    "Energy_ph",
-    "CO2e_rm_LUC",
-    "Energy_feed_proc",
-    "Energy_feed_t",
-    "CO2e_rm_ent_ferm",
-    "CO2e_rm_manure",
-    "Manure_dir",
-    "Manure_indir",
-    "Energy_stables",
-    "Energy_slaughter"
-  )
-  colnames(suckler_data_CF_dis_all) <- columns_names_CF_dis
-
-  # Remove the first rows
-  suckler_data_CF_dis_all <- suckler_data_CF_dis_all[-c(1:4), ]
+    "./2 - Livestock/Suckler beef.xlsx",
+    sheet = "GHG detailed, results per kg",
+    skip = 5
+  ) |>
+    # Assign new names to the columns
+    setNames(
+      c(
+        "Code",
+        "Name",
+        "Category",
+        "Country_name",
+        "Country_code",
+        "Gas",
+        "Sum",
+        "CO2e_rm_fert_prod",
+        "CO2e_rm_cap_goods",
+        "CO2e_rm_soils_dir",
+        "CO2e_rm_soils_indir",
+        "Energy_diesel",
+        "Energy_gh",
+        "Energy_irr",
+        "Energy_ph",
+        "CO2e_rm_LUC",
+        "Energy_feed_proc",
+        "Energy_feed_t",
+        "CO2e_rm_ent_ferm",
+        "CO2e_rm_manure",
+        "Manure_dir",
+        "Manure_indir",
+        "Energy_stables",
+        "Energy_slaughter"
+      )
+    ) |>
+    .drop_empty_name_columns()
 
   # Select the different rows with either CO2-equivalents, CO2, CH4 fossil, CH4 biogenic and N2O
-  suckler_data_CF_dis <- suckler_data_CF_dis_all[
-    suckler_data_CF_dis_all$Gas == "CO2e",
-  ]
-  suckler_data_CF_dis1 <- suckler_data_CF_dis_all[
-    suckler_data_CF_dis_all$Gas == "CO2",
-  ]
-  suckler_data_CF_dis2 <- suckler_data_CF_dis_all[
-    suckler_data_CF_dis_all$Gas == "CH4, fossil",
-  ]
-  suckler_data_CF_dis3 <- suckler_data_CF_dis_all[
-    suckler_data_CF_dis_all$Gas == "CH4, biogenic",
-  ]
-  suckler_data_CF_dis4 <- suckler_data_CF_dis_all[
-    suckler_data_CF_dis_all$Gas == "N2O",
-  ]
-
-  # Now rename also the rest of the datasets
-  columns_names_CF_dis1 <- c(
-    "Code",
-    "Name",
-    "Category",
-    "Country_name",
-    "Country_code",
-    "Gas",
-    "Sum",
-    "CO2_rm_fert_prod",
-    "CO2_rm_cap_goods",
-    "CO2_rm_soils_dir",
-    "CO2_rm_soils_indir",
-    "Energy_diesel",
-    "Energy_gh",
-    "Energy_irr",
-    "Energy_ph",
-    "CO2_rm_LUC",
-    "Energy_feed_proc",
-    "Energy_feed_t",
-    "CO2_rm_ent_ferm",
-    "CO2_rm_manure",
-    "Manure_dir",
-    "Manure_indir",
-    "Energy_stables",
-    "Energy_slaughter"
-  )
-  colnames(suckler_data_CF_dis1) <- columns_names_CF_dis1
-  columns_names_CF_dis2 <- c(
-    "Code",
-    "Name",
-    "Category",
-    "Country_name",
-    "Country_code",
-    "Gas",
-    "Sum",
-    "CH4_fossil_rm_fert_prod",
-    "CH4_fossil_rm_cap_goods",
-    "CH4_fossil_rm_soils_dir",
-    "CH4_fossil_rm_soils_indir",
-    "Energy_diesel",
-    "Energy_gh",
-    "Energy_irr",
-    "Energy_ph",
-    "CH4_fossil_rm_LUC",
-    "Energy_feed_proc",
-    "Energy_feed_t",
-    "CH4_fossil_rm_ent_ferm",
-    "CH4_fossil_rm_manure",
-    "Manure_dir",
-    "Manure_indir",
-    "Energy_stables",
-    "Energy_slaughter"
-  )
-  colnames(suckler_data_CF_dis2) <- columns_names_CF_dis2
-  columns_names_CF_dis3 <- c(
-    "Code",
-    "Name",
-    "Category",
-    "Country_name",
-    "Country_code",
-    "Gas",
-    "Sum",
-    "CH4_bio_rm_fert_prod",
-    "CH4_bio_rm_cap_goods",
-    "CH4_bio_rm_soils_dir",
-    "CH4_bio_rm_soils_indir",
-    "Energy_diesel",
-    "Energy_gh",
-    "Energy_irr",
-    "Energy_ph",
-    "CO2e_rm_LUC",
-    "Energy_feed_proc",
-    "Energy_feed_t",
-    "CH4_bio_rm_ent_ferm",
-    "CH4_bio_rm_manure",
-    "Manure_dir",
-    "Manure_indir",
-    "Energy_stables",
-    "Energy_slaughter"
-  )
-  colnames(suckler_data_CF_dis3) <- columns_names_CF_dis3
-  columns_names_CF_dis4 <- c(
-    "Code",
-    "Name",
-    "Category",
-    "Country_name",
-    "Country_code",
-    "Gas",
-    "Sum",
-    "N2O_rm_fert_prod",
-    "N2O_rm_cap_goods",
-    "N2O_rm_soils_dir",
-    "N2O_rm_soils_indir",
-    "Energy_diesel",
-    "Energy_gh",
-    "Energy_irr",
-    "Energy_ph",
-    "N2O_rm_LUC",
-    "Energy_feed_proc",
-    "Energy_feed_t",
-    "CO2e_rm_ent_ferm",
-    "N2O_rm_manure",
-    "Manure_dir",
-    "Manure_indir",
-    "Energy_stables",
-    "Energy_slaughter"
-  )
-  colnames(suckler_data_CF_dis4) <- columns_names_CF_dis4
+  suckler_data_CF_dis <- suckler_data_CF_dis_all |>
+    filter(Gas == "CO2e")
+  suckler_data_CF_dis1 <- suckler_data_CF_dis_all |>
+    filter(Gas == "CO2") |>
+    setNames(
+      c(
+        "Code",
+        "Name",
+        "Category",
+        "Country_name",
+        "Country_code",
+        "Gas",
+        "Sum",
+        "CO2_rm_fert_prod",
+        "CO2_rm_cap_goods",
+        "CO2_rm_soils_dir",
+        "CO2_rm_soils_indir",
+        "Energy_diesel",
+        "Energy_gh",
+        "Energy_irr",
+        "Energy_ph",
+        "CO2_rm_LUC",
+        "Energy_feed_proc",
+        "Energy_feed_t",
+        "CO2_rm_ent_ferm",
+        "CO2_rm_manure",
+        "Manure_dir",
+        "Manure_indir",
+        "Energy_stables",
+        "Energy_slaughter"
+      )
+    )
+  suckler_data_CF_dis2 <- suckler_data_CF_dis_all |>
+    filter(Gas == "CH4, fossil") |>
+    setNames(
+      c(
+        "Code",
+        "Name",
+        "Category",
+        "Country_name",
+        "Country_code",
+        "Gas",
+        "Sum",
+        "CH4_fossil_rm_fert_prod",
+        "CH4_fossil_rm_cap_goods",
+        "CH4_fossil_rm_soils_dir",
+        "CH4_fossil_rm_soils_indir",
+        "Energy_diesel",
+        "Energy_gh",
+        "Energy_irr",
+        "Energy_ph",
+        "CH4_fossil_rm_LUC",
+        "Energy_feed_proc",
+        "Energy_feed_t",
+        "CH4_fossil_rm_ent_ferm",
+        "CH4_fossil_rm_manure",
+        "Manure_dir",
+        "Manure_indir",
+        "Energy_stables",
+        "Energy_slaughter"
+      )
+    )
+  suckler_data_CF_dis3 <- suckler_data_CF_dis_all |>
+    filter(Gas == "CH4, biogenic") |>
+    setNames(c(
+      "Code",
+      "Name",
+      "Category",
+      "Country_name",
+      "Country_code",
+      "Gas",
+      "Sum",
+      "CH4_bio_rm_fert_prod",
+      "CH4_bio_rm_cap_goods",
+      "CH4_bio_rm_soils_dir",
+      "CH4_bio_rm_soils_indir",
+      "Energy_diesel",
+      "Energy_gh",
+      "Energy_irr",
+      "Energy_ph",
+      "CO2e_rm_LUC",
+      "Energy_feed_proc",
+      "Energy_feed_t",
+      "CH4_bio_rm_ent_ferm",
+      "CH4_bio_rm_manure",
+      "Manure_dir",
+      "Manure_indir",
+      "Energy_stables",
+      "Energy_slaughter"
+    ))
+  suckler_data_CF_dis4 <- suckler_data_CF_dis_all |>
+    filter(Gas == "N2O") |>
+    setNames(c(
+      "Code",
+      "Name",
+      "Category",
+      "Country_name",
+      "Country_code",
+      "Gas",
+      "Sum",
+      "N2O_rm_fert_prod",
+      "N2O_rm_cap_goods",
+      "N2O_rm_soils_dir",
+      "N2O_rm_soils_indir",
+      "Energy_diesel",
+      "Energy_gh",
+      "Energy_irr",
+      "Energy_ph",
+      "N2O_rm_LUC",
+      "Energy_feed_proc",
+      "Energy_feed_t",
+      "CO2e_rm_ent_ferm",
+      "N2O_rm_manure",
+      "Manure_dir",
+      "Manure_indir",
+      "Energy_stables",
+      "Energy_slaughter"
+    ))
 
   # Fill NA-values with 0
   suckler_data_CF_dis$Energy_gh[is.na(suckler_data_CF_dis$Energy_gh)] <- 0
@@ -360,13 +356,13 @@ merge_beef <- function() {
     "N2O_rm_manure"
   )]
 
-  ############################################################################################################
-  ####################################### DAIRY CALVES 24 MONTHS #############################################
-  ############################################################################################################
+  ####################################################################
+  ################### DAIRY CALVES 24 MONTHS #########################
+  ####################################################################
 
   # Read the data for the calves slaughtered at 24 months
   dairy24m_data <- read_excel(
-    "../2 - Livestock/Dairy calves 24m.xlsx",
+    "./2 - Livestock/Dairy calves 24m.xlsx",
     sheet = "Footprints, results per kg"
   )
 
@@ -401,7 +397,7 @@ merge_beef <- function() {
 
   # Read all the disaggregated climate impact data
   dairy24m_data_CF_dis_all <- read_excel(
-    "../2 - Livestock/Dairy calves 24m.xlsx",
+    "./2 - Livestock/Dairy calves 24m.xlsx",
     sheet = "GHG detailed, results per kg"
   )
 
@@ -712,13 +708,13 @@ merge_beef <- function() {
     "N2O_rm_manure"
   )]
 
-  ############################################################################################################
-  ####################################### DAIRY CALVES 9 MONTHS #############################################
-  ############################################################################################################
+  ####################################################################
+  ################### DAIRY CALVES 9 MONTHS #########################
+  ####################################################################
 
   # Read the data for the calves slaughtered at 24 months
   dairy9m_data <- read_excel(
-    "../2 - Livestock/Dairy calves 9m.xlsx",
+    "./2 - Livestock/Dairy calves 9m.xlsx",
     sheet = "Footprints, results per kg"
   )
 
@@ -753,7 +749,7 @@ merge_beef <- function() {
 
   # Read all the disaggregated climate impact data
   dairy9m_data_CF_dis_all <- read_excel(
-    "../2 - Livestock/Dairy calves 9m.xlsx",
+    "./2 - Livestock/Dairy calves 9m.xlsx",
     sheet = "GHG detailed, results per kg"
   )
 
@@ -1064,13 +1060,13 @@ merge_beef <- function() {
     "N2O_rm_manure"
   )]
 
-  ############################################################################################################
-  ####################################### DAIRY COW MEAT #####################################################
-  ############################################################################################################
+  ####################################################################
+  ######################## DAIRY COW MEAT ############################
+  ####################################################################
 
   # Read the data for the dairy cow meat
   dairycows_data <- read_excel(
-    "../2 - Livestock/Dairy.xlsx",
+    "./2 - Livestock/Dairy.xlsx",
     sheet = "Footprints, results per kg meat"
   )
 
@@ -1105,7 +1101,7 @@ merge_beef <- function() {
 
   # Read all the disaggregated climate impact data
   dairycows_data_CF_dis_all <- read_excel(
-    "../2 - Livestock/Dairy.xlsx",
+    "./2 - Livestock/Dairy.xlsx",
     sheet = "GHG det, results per kg meat"
   )
 
@@ -1416,16 +1412,16 @@ merge_beef <- function() {
     "N2O_rm_manure"
   )]
 
-  ############################################################################################################
-  ####################################### READ THE SHARES ####################################################
-  ############################################################################################################
+  ####################################################################
+  ################### READ THE SHARES ################################
+  ####################################################################
 
   # Read the shares
-  shares <- read_excel("../2 - Livestock/Beef shares.xlsx", sheet = "Summary")
+  shares <- read_excel("./2 - Livestock/Beef shares.xlsx", sheet = "Summary")
 
-  ############################################################################################################
-  ####################################### CALCULATE WEIGHTED AVERAGE #########################################
-  ############################################################################################################
+  ####################################################################
+  ################### CALCULATE WEIGHTED AVERAGE #####################
+  ####################################################################
 
   for (i in 1:12) {
     # Read the shares for this country
