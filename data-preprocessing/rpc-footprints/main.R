@@ -16,10 +16,10 @@ if (!require("tidyr")) {
   library(tibble)
 }
 
-setwd("~/dev/safad/data-preprocessing/rpc-footprints/R scripts")
+setwd("~/dev/safad/data-preprocessing/rpc-footprints")
 
 # Helper logic for resolving refs + adjusting yields
-source("./resolve-refs-and-yield.R")
+source("resolve-refs-and-yield.R")
 
 ll_countries <- c(
   "DE",
@@ -46,7 +46,7 @@ gh_crops <- tribble(
     `of_code` = paste0(`Crop code`, "_of")
   )
 
-sua_fao_codes <- read_csv("../Codes/FAO to SUA.csv", show_col_types = FALSE) |>
+sua_fao_codes <- read_csv("Codes/FAO to SUA.csv", show_col_types = FALSE) |>
   select(`SUA Code`, `Item Code`) |>
   filter(!is.na(`Item Code`))
 
@@ -123,7 +123,7 @@ normalise_country_names <- function(df, col) {
 # ==========================================================
 
 trade_data <- list.files(
-  "../../../src/default-input-files/SAFAD IP Origin and Waste of RPC/",
+  "../../src/default-input-files/SAFAD IP Origin and Waste of RPC/",
   pattern = "\\.csv$",
   full.names = TRUE
 ) |>
@@ -165,7 +165,7 @@ trade_data <- list.files(
 # ==========================================================
 
 country_name_code_map <- read_csv(
-  "../Codes/Country codes.csv",
+  "./Codes/Country codes.csv",
   na = "", # Prevent Namibia (NA) from being interpreted as a missing value
   show_col_types = FALSE
 )
@@ -173,7 +173,7 @@ country_name_code_map <- read_csv(
 FAO_COUNTRIES_TO_DROP <- c("China") # We use 'China, mainland' instead
 
 fao_yields <- read_csv(
-  "../1 - Crops/FAOSTAT_yield.csv",
+  "./1 - Crops/FAOSTAT_yield.csv",
   show_col_types = FALSE
 ) |>
   # Remove any non-yield rows, in case of invalid download
@@ -233,7 +233,7 @@ se_gh_yields <- tribble(
 
 # Fetched from: https://ec.europa.eu/eurostat/databrowser/view/apro_cpsh1__custom_20725936/default/table
 gh_of_yields <- read_csv(
-  "../1 - Crops/EUROSTAT_gh_yields.csv",
+  "./1 - Crops/EUROSTAT_gh_yields.csv",
   show_col_types = FALSE
 ) |>
   # Drop the "for consumption/production" rows
@@ -351,7 +351,7 @@ df_land_use = yields |>
 # ==========================================================
 
 df_N <- read_excel(
-  "../1 - Crops/N fertiliser.xlsx",
+  "./1 - Crops/N fertiliser.xlsx",
   sheet = "Data",
   skip = 4
 ) |>
@@ -364,7 +364,7 @@ df_N <- read_excel(
   )
 
 df_P <- read_excel(
-  "../1 - Crops/P fertiliser.xlsx",
+  "./1 - Crops/P fertiliser.xlsx",
   sheet = "Data",
   skip = 4
 ) |>
@@ -377,7 +377,7 @@ df_P <- read_excel(
   )
 
 df_N_contents <- read_excel(
-  "../1 - Crops/N fertiliser.xlsx",
+  "./1 - Crops/N fertiliser.xlsx",
   sheet = "N content",
   skip = 4
 ) |>
@@ -390,7 +390,7 @@ df_N_contents <- read_excel(
 # From: kg active substance per hectare
 # To: k active substance per kg crop
 df_pest <- read_excel(
-  "../1 - Crops/Pesticides.xlsx",
+  "./1 - Crops/Pesticides.xlsx",
   sheet = "Data",
   skip = 4
 ) |>
@@ -413,7 +413,7 @@ df_pest <- read_excel(
 
 # Blue water footprint from irrigation (m3 per kg food product per year)
 df_water <- read_csv(
-  "../Env ass data/Water/national_wf_175_crops_annual_1990_2019.csv",
+  "./Env ass data/Water/national_wf_175_crops_annual_1990_2019.csv",
   skip = 3,
   show_col_types = FALSE
 ) |>
@@ -450,7 +450,7 @@ df_water <- read_csv(
 # Helper for reading excel-files
 read_crop_excel <- function(fname, sheet, skip = 4) {
   readxl::read_excel(
-    paste(c("../1 - Crops/", fname), collapse = ""),
+    paste(c("./1 - Crops/", fname), collapse = ""),
     sheet = sheet,
     skip = skip
   )
@@ -503,7 +503,7 @@ LUC_duplicate_gh_rows <- function(df, org_str, new_str) {
 }
 
 df_LUC <- suppressWarnings(
-  read_xlsx("../Env ass data/LUC/Deforest_per_kg.xlsx")
+  read_xlsx("./Env ass data/LUC/Deforest_per_kg.xlsx")
 ) |>
   # Some, but not all, have Average values. Drop them, re-compute mean.
   filter(Year != "Average") |>
@@ -601,7 +601,7 @@ df_water_emissions <- df_water |>
 # thus calculate the kg CH4 / kg rice as TOTAL_EMISSIONS / TOTAL_QUANTITY
 
 df_rice_production_t <- read_csv(
-  "../Env ass data/Rice/FAOSTAT_data_en_3-17-2026 RICE PRODUCTION.csv",
+  "./Env ass data/Rice/FAOSTAT_data_en_3-17-2026 RICE PRODUCTION.csv",
   show_col_types = FALSE
 ) |>
   transmute(
@@ -612,7 +612,7 @@ df_rice_production_t <- read_csv(
   drop_na(qty_t)
 
 df_ch4_rice <- read_csv(
-  "../Env ass data/Rice/FAOSTAT_data_en_3-17-2026 RICE EMISSIONS CH4.csv",
+  "./Env ass data/Rice/FAOSTAT_data_en_3-17-2026 RICE EMISSIONS CH4.csv",
   show_col_types = FALSE
 ) |>
   filter(Item == "Rice") |>
@@ -1191,7 +1191,7 @@ df_GHGs <- df_N_emissions |>
 #  Biodiversity
 # ==========================================================
 
-biodiv_factors <- read_excel("../1 - Crops/Biodiversity factors.xlsx") |>
+biodiv_factors <- read_excel("./1 - Crops/Biodiversity factors.xlsx") |>
   filter(
     habitat == "Cropland_Intense" |
       habitat == "Cropland_LightIntense" |
@@ -1434,7 +1434,7 @@ for (j in 1:length(livestock_files)) {
   print(paste0(j, " ", livestock_files[j]))
   # Read the indicator data from the file
   livestock_data <- read_excel(
-    paste0("../2 - Livestock/", livestock_files[j]),
+    paste0("./2 - Livestock/", livestock_files[j]),
     sheet = "Footprints, results per kg",
     skip = 5
   ) |>
@@ -1473,7 +1473,7 @@ for (j in 1:length(livestock_files)) {
 
   # Read all the disaggregated climate impact data
   livestock_data_CF_dis_all <- read_excel(
-    paste0("../2 - Livestock/", livestock_files[j]),
+    paste0("./2 - Livestock/", livestock_files[j]),
     sheet = "GHG detailed, results per kg",
     skip = 5
   ) |>
@@ -1651,7 +1651,7 @@ for (k in seq_along(products_zero)) {
 ############################ NOVEL FOODS #######################################
 ################################################################################
 
-path_novel <- "../4 - Novel foods/Novel foods.xlsx"
+path_novel <- "./4 - Novel foods/Novel foods.xlsx"
 
 id_cols <- c("Code", "Name", "Category", "Country_name", "Country_code")
 num <- function(x) as.numeric(x)
@@ -1875,7 +1875,7 @@ merged_data <- bind_rows(merged_data, new_rows)
 ################################################################################
 
 # Start by reading the file with all the codes
-RPC_SUA_codes <- read_excel("../Codes/RPC to SUA.xlsx", sheet = "All") |>
+RPC_SUA_codes <- read_excel("./Codes/RPC to SUA.xlsx", sheet = "All") |>
   select(
     "Code",
     "FoodEx2 Code",
@@ -1945,13 +1945,13 @@ merged_codes <- inner_join(
 
 # Add the misc ingredients that are already on the correct format
 misc_ing <- read_excel(
-  "../5 - Misc ingredients/Misc ingredients.xlsx",
+  "./5 - Misc ingredients/Misc ingredients.xlsx",
   sheet = "Used in recipes"
 )
 
 # Add the blue food that are already in the correct format
 blue_food <- read_excel(
-  "../3 - Blue foods/Blue food.xlsx",
+  "./3 - Blue foods/Blue food.xlsx",
   sheet = "Footprints, results per kg"
 )
 
@@ -1972,18 +1972,18 @@ merged_codes <- merged_codes |>
 # Remove empty rows that appear for some reason and write a file
 merged_codes <- merged_codes |>
   filter(!is.na(`Long code`))
-# Create dir '../SAFAD FILES/Input files"
-dir.create(file.path("..", "SAFAD files"), showWarnings = FALSE)
-dir.create(file.path("../SAFAD files", "Input files"), showWarnings = FALSE)
+# Create dir './SAFAD FILES/Input files"
+dir.create(file.path("SAFAD files"), showWarnings = FALSE)
+dir.create(file.path("SAFAD files", "Input files"), showWarnings = FALSE)
 # The _excel version includes a UT8 BOM
 write_excel_csv(
   merged_codes,
-  file = "../SAFAD files/Input files/SAFAD ID Footprints RPC.csv",
+  file = "./SAFAD files/Input files/SAFAD ID Footprints RPC.csv",
   na = ""
 )
 write_excel_csv(
   merged_codes,
-  file = "../../../src/default-input-files/SAFAD ID Footprints RPC.csv",
+  file = "../../src/default-input-files/SAFAD ID Footprints RPC.csv",
   na = ""
 )
 
@@ -2029,7 +2029,7 @@ feed_data <- merged_data |>
 # Write to file
 write.csv(
   feed_data,
-  file = "../2 - Livestock/Feed Footprints.csv",
+  file = "./2 - Livestock/Feed Footprints.csv",
   row.names = FALSE,
   na = ""
 )
