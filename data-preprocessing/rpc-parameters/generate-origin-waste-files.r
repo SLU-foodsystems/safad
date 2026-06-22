@@ -4,6 +4,7 @@
   library(tibble)
 }
 
+# Living-lab countries
 ll_countries <- tribble(
   ~`Country code` , ~`Country name` ,
   "DE"            , "Germany"       ,
@@ -18,8 +19,9 @@ ll_countries <- tribble(
   "SE"            , "Sweden"
 )
 
-# PART 1: Parse the RDS file
+# PART 1: Parse the input data
 
+## List of item names and FAO item codes
 item_names <-
   bind_rows(
     readxl::read_excel(
@@ -35,6 +37,7 @@ item_names <-
   ) |>
   distinct()
 
+## List of country codes (ISO2 and FAO) and names
 country_codes <- readxl::read_excel(
   "./metadata_level1_tracing.xlsx",
   sheet = "Country Codes",
@@ -46,6 +49,7 @@ country_codes <- readxl::read_excel(
     `Country Name` = Country
   )
 
+## RDS file with trade data: Average across years
 trade_data <- readRDS("./production_consumption_data_level1_2022-2024.rds") |>
   # Average across years
   group_by(Consumer.Country, Producer.Country, Item.Code) |>
