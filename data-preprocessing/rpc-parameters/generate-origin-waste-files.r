@@ -62,7 +62,7 @@ trade_data <- readRDS("./production_consumption_data_level1_2022-2024.rds") |>
     `Consumer Country Code`,
     `Consumer Country Name`,
     `Producer Country Code` = `Country Code`,
-    `Produced Country Name` = `Country Name`,
+    `Producer Country Name` = `Country Name`,
     `Item Code` = `Item.Code`,
     `Item Name` = Item,
     Value
