@@ -23,17 +23,10 @@ ll_countries <- tribble(
 
 ## List of item names and FAO item codes
 item_names <-
-  bind_rows(
-    readxl::read_excel(
-      "./metadata_level1_tracing.xlsx",
-      sheet = "Item Codes",
-      skip = 2
-    ),
-    readxl::read_excel(
-      "./metadata_level1_tracing.xlsx",
-      sheet = "Item Codes",
-      skip = 2
-    )
+  readxl::read_excel(
+    "./metadata_level1_tracing.xlsx",
+    sheet = "Item Codes",
+    skip = 2
   ) |>
   distinct()
 
