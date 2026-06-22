@@ -172,7 +172,10 @@ country_name_code_map <- read_csv(
 
 FAO_COUNTRIES_TO_DROP <- c("China") # We use 'China, mainland' instead
 
-fao_yields <- read_csv("./FAOSTAT_yield.csv", show_col_types = FALSE) |>
+fao_yields <- read_csv(
+  "../1 - Crops/FAOSTAT_yield.csv",
+  show_col_types = FALSE
+) |>
   # Remove any non-yield rows, in case of invalid download
   filter(Element == "Yield") |>
   # Rename for consistency in code
@@ -229,7 +232,10 @@ se_gh_yields <- tribble(
   )
 
 # Fetched from: https://ec.europa.eu/eurostat/databrowser/view/apro_cpsh1__custom_20725936/default/table
-gh_of_yields <- read_csv("EUROSTAT_gh_yields.csv", show_col_types = FALSE) |>
+gh_of_yields <- read_csv(
+  "../1 - Crops/EUROSTAT_gh_yields.csv",
+  show_col_types = FALSE
+) |>
   # Drop the "for consumption/production" rows
   filter(!grepl("for", Crops, ignore.case = TRUE)) |>
   # Filter out irrelevant columns
