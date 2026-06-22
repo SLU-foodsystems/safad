@@ -10,33 +10,45 @@ A web-based implementation of the SAFAD model developed by [Röös et al.
 (2025)](https://doi.org/10.1016/j.jclepro.2025.146002) to benchmark
 environmental impacts of diets.
 
-> Röös, E., Jacobsen, M., Karlsson, L., Wanecek, W., Spångberg, J., Mazac, R., & Rydhmer, L. (2025). Introducing a comprehensive and configurable tool for calculating environmental and social footprints for use in dietary assessments. Journal of Cleaner Production, 519, 146002. https://doi.org/10.1016/j.jclepro.2025.146002
+> Röös, E., Jacobsen, M., Karlsson, L., Wanecek, W., Spångberg, J., Mazac, R.,
+> & Rydhmer, L. (2025). Introducing a comprehensive and configurable tool for
+> calculating environmental and social footprints for use in dietary
+> assessments. Journal of Cleaner Production, 519, 146002.
+> https://doi.org/10.1016/j.jclepro.2025.146002
 
-## Instructions for common maintenance tasks
+## Data sources
 
-Every time a change is made on the main branch, the website is deployed to
-safad.se, thanks to the service [Netlify](https://netlify.app).
+SAFAD consolidates a number of data sets to assess the sustainability of foods
+and diets. For some indicators, we have needed to draw on different data sets
+for different crops and different countries.
 
-### Upload new input files
+### Environmental footprinting
 
-**From GitHub.com:** Go to [`src/default-input-files`](src/default-input-files)
-and, in the top-right corner, press the "Add File" button and select "Upload
-files". You will then be redirected to a page where you can upload the new files
-which will replace the old files. Remember that the name of the file is
-important, as is the order of the columns in the file. Files that you do not
-upload will remain unchanged (e.g. if you upload `SAFAD IP Recipes.csv`, that
-file will be replaced, and all other files remain unchanged).
+For detailed source data on N fertiliser, P fertiliser, Pesticides, Field
+operations, and Emissions factors, see tab "Sources" under individual excel
+files.
 
-![Screenshot of location of Upload button](./docs/github-howto-upload-file.png)
+- Crop blue-water footprint from [Mialyk et al. (2024)](https://doi.org/10.1038/s41597-024-03051-3)
+  (see file `national_wf_175_crops_annual_1990_2019.csv`)
+- Land-use change data from [DeDuCE model](https://deforestationfootprint.earth/)
+  by [Sigh et al. (2026)](https://doi.org/10.5281/zenodo.18953516)
+- Biodiversity data from [Scherer et al. (2023)](https://doi.org/10.1021/acs.est.3c04191)
+- Trade data provided by Thomas Kastner (thomas.kastner@senckenberg.de), last
+  updated 2026-06-23. See [Kasnter et al.
+  (2011)](https://doi.org/10.1016/j.ecolecon.2011.01.012) and [Laroche et al.
+  (2020)](https://doi.org/10.1016/j.gloenvcha.2020.102066) for methods.
+- Rice methane emissions: FAOSTAT (per-country rice total emissions CH4 divided
+  by per-country rice production data)
 
-**From CLI:** Update the file in `./src/default-input-files/`, stage, commit and
-push.
 
-### Update the version
+### Crop data
+- Crop yields: FAOSTAT for majority of crops, Eurostat for greenhouse-grown
+  crops, and Swedish Board of Agriculture for specific greenhouse-grown crops.
 
-Versions are handled manually. Any time changes are made to the project, please
-also update the CHANGELOG.md file describing the changes, as well as the
-version-part of the file [`package.json`](./package.json).
+### Overall
+- Waste data
+-
+
 
 ## Project Structure
 
