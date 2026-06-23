@@ -19,6 +19,8 @@ ll_countries <- tribble(
   "SE"            , "Sweden"
 )
 
+.round_to_precision <- function(x, digits) round(x, digits = digits)
+
 # PART 1: Parse the input data
 
 ## List of item names and FAO item codes
@@ -43,7 +45,10 @@ country_codes <- readxl::read_excel(
   )
 
 ## RDS file with trade data: Average across years
-trade_data <- readRDS("./production_consumption_data_level1_2022-2024.rds") |>
+trade_data <- read_csv(
+  "./production_consumption_data_level1_2022-2024.csv",
+  show_col_types = FALSE
+) |>
   # Average across years
   group_by(Consumer.Country, Producer.Country, Item.Code) |>
   summarise(
@@ -86,7 +91,7 @@ rpc_to_sua <- read_csv("rpc-to-sua.csv", show_col_types = FALSE) |>
   select(-`SUA Name`)
 
 # ==============================================================================
-# General Overrides: Novel foods, Misc Ingredients, and  manual Sugar Cane
+# General Overrides: Blue foods, Novel foods and Misc Ingredients
 # ==============================================================================
 
 # Prepare blue foods
@@ -140,11 +145,7 @@ misc_ingredients <- read_excel(
     `SUA Code` = `SUA code`,
   )
 
-manual_entries <- tribble(
-  ~`RPC Code`   , ~`RPC Name`                          , ~`Producer Country Name` , ~`Producer Country Code` , ~Share , ~Waste , ~`SUA Code` ,
-  "A.02.08.002" , "Sugar cane (Saccharum officinarum)" , "Spain"                  , "ES"                     ,      1 , 0.045  , "01802"     ,
-) |>
-  bind_rows(novel_foods, misc_ingredients)
+manual_entries <- bind_rows(novel_foods, misc_ingredients)
 
 round_to_precision <- function(x, digits) round(x, digits = digits)
 
