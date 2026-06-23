@@ -44,16 +44,15 @@ country_codes <- readxl::read_excel(
     `Country Name` = Country
   )
 
-## RDS file with trade data: Average across years
+## Raw file with trade data: Average across years
 trade_data <- read_csv(
   "./production_consumption_data_level1_2022-2024.csv",
   show_col_types = FALSE
 ) |>
   # Average across years
-  group_by(Consumer.Country, Producer.Country, Item.Code) |>
   summarise(
     Value = mean(primary.equivalents, na.rm = TRUE),
-    .groups = "drop" # Removes grouping
+    .by = c("Consumer.Country", "Producer.Country", "Item.Code")
   ) |>
   # Extend with Item Names and Country Codes
   left_join(item_names, by = c("Item.Code" = "Item Code")) |>
@@ -75,7 +74,9 @@ trade_data <- read_csv(
   filter(`Consumer Country Code` %in% ll_countries$`Country code`)
 
 
+# ==============================================================================
 # PART 2: Convert into final output
+# ==============================================================================
 RESULT_PRECISION <- 3
 MIN_SHARE_THRESHOLD <- 0.01
 
@@ -90,9 +91,8 @@ sua_to_fao <- read_csv("sua-to-fao.csv", show_col_types = FALSE)
 rpc_to_sua <- read_csv("rpc-to-sua.csv", show_col_types = FALSE) |>
   select(-`SUA Name`)
 
-# ==============================================================================
-# General Overrides: Blue foods, Novel foods and Misc Ingredients
-# ==============================================================================
+# Manual overrides: Blue foods, Novel foods and Misc Ingredients
+# ------------------------------------------------------------------------------
 
 # Prepare blue foods
 blue_foods <- read_excel(
@@ -111,11 +111,10 @@ novel_foods <- read_excel(
     `Producer Country Name` = `Country`,
     `Producer Country Code` = `Country code`
   ) |>
-  group_by(`SUA Code`) |>
   mutate(
     Share = 1 / n(),
+    .by = c("SUA Code")
   ) |>
-  ungroup() |>
   left_join(rpc_to_sua, by = "SUA Code") |>
   left_join(misc_waste_factors, by = "SUA Code") |>
   transmute(
@@ -132,9 +131,7 @@ misc_ingredients <- read_excel(
   "../rpc-footprints/5 - Misc ingredients/Misc ingredients.xlsx",
   sheet = "Used in recipes"
 ) |>
-  group_by(`SUA code`) |>
-  mutate(Share = 1 / n()) |>
-  ungroup() |>
+  mutate(Share = 1 / n(), .by = c("SUA code")) |>
   transmute(
     `RPC Code` = `Long code`,
     `RPC Name` = `FoodEx2 name`,
@@ -147,7 +144,8 @@ misc_ingredients <- read_excel(
 
 manual_entries <- bind_rows(novel_foods, misc_ingredients)
 
-round_to_precision <- function(x, digits) round(x, digits = digits)
+# Compute 'shares' (%) from absolute values
+# ------------------------------------------------------------------------------
 
 get_food_item_shares_tbl <- function(consumer_country_code) {
   filtered <- trade_data |>
@@ -161,18 +159,18 @@ get_food_item_shares_tbl <- function(consumer_country_code) {
   }
 
   filtered |>
-    group_by(`Item Code`) |>
     mutate(
       total = sum(Value),
-      share = Value / total
+      share = Value / total,
+      .by = c("Item Code")
     ) |>
-    ungroup() |>
     # DROP all below share threshold
     filter(share >= MIN_SHARE_THRESHOLD) |>
     # Re-adjust so percentages add up to 100%
-    group_by(`Item Code`) |>
-    mutate(share = round_to_precision(share / sum(share), RESULT_PRECISION)) |>
-    ungroup() |>
+    mutate(
+      share = .round_to_precision(share / sum(share), RESULT_PRECISION),
+      .by = c("Item Code")
+    ) |>
     select(`Item Code`, `Producer Country Code`, share)
 }
 
