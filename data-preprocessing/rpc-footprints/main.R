@@ -1034,7 +1034,7 @@ approximated_label <- function(
 }
 
 # We start with the emissions from N per kg of food
-df_GHGs <- df_N_emissions |>
+df_GHGs_disaggr <- df_N_emissions |>
   # Add capital goods emissions
   mutate(
     CO2_cap_goods = ef_cap_goods$CO2,
@@ -1146,7 +1146,9 @@ df_GHGs <- df_N_emissions |>
       CO2E_CH4_f * Methane_fossil +
       CO2E_CH4_b * Methane_bio +
       CO2E_N2O * Nitrous_Oxide,
-  ) |>
+  )
+
+df_GHGs <- df_GHGs_disaggr |>
   # Select and order the GHGs, dropping the now-redundant (~20) columns
   select(
     `Crop code`,
@@ -2020,11 +2022,79 @@ feed_countries <- c(
   "GB" # "UK
 )
 
+
 feed_data <- merged_data |>
   # Select the data
   filter(Code %in% feed_products & Country_code %in% feed_countries) |>
   # Add a column for sorting (integer index), as per the order in feed_products
-  mutate(Order = match(Code, feed_products))
+  mutate(Order = match(Code, feed_products)) |>
+  left_join(
+    df_GHGs_disaggr |> select(-Crop, -Category),
+    by = c(
+      "Code"="Crop code",
+      "Country_code" = "Country code"
+    ),
+    suffix = c("", "_dup")
+  ) |>
+  select(!ends_with("_dup")) |>
+  select(
+    Code,
+    Name,
+    Category,
+    Country_name,
+    Country_code,
+
+    CO2_rm_fert_prod,
+    CO2_rm_cap_goods,
+    # Disaggregated energy footprints
+    CO2_field_ops,
+    CO2_gh,
+    CO2_irr,
+    CO2_postharvest,
+    CO2_rm_LUC,
+
+    # "Mineral fertiliser production (CH4, fossil)",
+    # "Capital goods (CH4, fossil)",
+    # "Energy primary production (CH4, fossil)",
+    # "Soil emissions (CH4, biogenic)",
+    # "Enteric fermentation (CH4, biogenic)",
+    # "Manure management (CH4, biogenic)",
+    # NOTE: CH4 from N fertiliser not included in data, and judged to be negligable
+    CH4_fossil_rm_fert_prod,
+    CH4_fossil_rm_cap_goods,
+    CH4_field_ops,
+    CH4_gh,
+    CH4_irr,
+    CH4_postharvest,
+    CH4_bio_rm_soils_dir,
+    CH4_bio_rm_ent_ferm,
+    CH4_bio_rm_manure,
+
+    # "Mineral fertiliser production (N2O)",
+    # "Capital goods (N2O)",
+    # "Soil emissions (N2O)",
+    # "Energy primary production (N2O)",
+    # "Manure management (N2O)"
+    N2O_rm_fert_prod,
+    N2O_rm_cap_goods,
+    N2O_soils_min_fert,
+    N2O_soils_crop_res,
+    N2O_soils_indirect,
+    N2O_field_ops,
+    N2O_gh,
+    N2O_irr,
+    N2O_postharvest,
+    N2O_rm_manure,
+
+    Land,
+    N_input,
+    P_input,
+    Water,
+    Pesticides,
+    Biodiversity,
+    Ammonia
+  )
+
 
 # Write to file
 write.csv(
