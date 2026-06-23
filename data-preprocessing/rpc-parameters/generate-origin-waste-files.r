@@ -77,7 +77,7 @@ trade_data <- read_csv(
 # ==============================================================================
 # PART 2: Convert into final output
 # ==============================================================================
-RESULT_PRECISION <- 3
+RESULT_PRECISION <- 4
 MIN_SHARE_THRESHOLD <- 0.01
 
 # Waste factors are keyed by country-name (e.g. "Sweden") and rpc-category
