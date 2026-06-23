@@ -224,8 +224,7 @@ get_food_item_shares_tbl <- function(consumer_country_code) {
 
   filtered |>
     mutate(
-      total = sum(Value),
-      share = Value / total,
+      share = Value / sum(Value),
       .by = c("Item Code")
     ) |>
     # DROP all below share threshold
