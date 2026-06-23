@@ -87,9 +87,73 @@ waste_factors <- read_csv("rpc-waste-factors.csv", show_col_types = FALSE) |>
 
 misc_waste_factors <- read_csv("misc-waste-factors.csv", show_col_types = FALSE)
 
+# Build SUA template and validate missing FAO item code (non-BF)
+# ------------------------------------------------------------------------------
+
 sua_to_fao <- read_csv("sua-to-fao.csv", show_col_types = FALSE)
 rpc_to_sua <- read_csv("rpc-to-sua.csv", show_col_types = FALSE) |>
   select(-`SUA Name`)
+
+missing_fao <- sua_to_fao |>
+  filter(
+    is.na(`Item Code`) | `Item Code` == "",
+    !str_starts(`SUA Code`, "BF-")
+  ) |>
+  distinct(`SUA Code`, `SUA Name`)
+
+if (nrow(missing_fao) > 0) {
+  # print errors but continue
+  missing_fao |>
+    mutate(
+      msg = sprintf(
+        'ERR: No matching FAO itemCode for SUA item "%s" (%s) found.',
+        `SUA Name`,
+        `SUA Code`
+      )
+    ) |>
+    pull(msg) |>
+    walk(warning)
+}
+
+sua_template <- sua_to_fao |>
+  filter(
+    !(is.na(`Item Code`) | `Item Code` == "" & !str_starts(`SUA Code`, "BF-"))
+  )
+
+# ---- join SUA -> RPC (expands one SUA to many RPC codes) ----
+# Keep exactly one row per RPC Code like your _rpcCodesCache:
+# If rpc-to-sua has duplicates for RPC Code, keep first.
+rpc_map_unique <- rpc_to_sua |>
+  distinct(`RPC Code`, .keep_all = TRUE)
+
+base <- sua_template |>
+  left_join(rpc_map_unique, by = "SUA Code")
+
+# TEST: Warn on missing RPC codes
+{
+  missing_rpc <- base |>
+    filter(is.na(`RPC Code`)) |>
+    distinct(`SUA Code`, `SUA Name`, `Item Name`, `Item Code`)
+
+  if (nrow(missing_rpc) > 0) {
+    missing_rpc |>
+      mutate(
+        msg = sprintf(
+          'ERR: RPC codes missing for SUA item: %s (%s). Item is %s (%s).',
+          `SUA Name`,
+          `SUA Code`,
+          `Item Name`,
+          `Item Code`
+        )
+      ) |>
+      pull(msg) |>
+      walk(warning)
+  }
+}
+
+# Drop any items with missing long codes
+base <- base |>
+  filter(!is.na(`RPC Code`))
 
 # Manual overrides: Blue foods, Novel foods and Misc Ingredients
 # ------------------------------------------------------------------------------
@@ -180,73 +244,13 @@ for (i in seq_len(nrow(ll_countries))) {
 
   shares_tbl <- get_food_item_shares_tbl(consumer_country_code)
 
-  # ---- build SUA template + validate missing FAO item code (non-BF) ----
-  missing_fao <- sua_to_fao |>
-    filter(
-      is.na(`Item Code`) | `Item Code` == "",
-      !str_starts(`SUA Code`, "BF-")
-    ) |>
-    distinct(`SUA Code`, `SUA Name`)
-
-  if (nrow(missing_fao) > 0) {
-    # mimic your JS: print errors but continue
-    missing_fao |>
-      mutate(
-        msg = sprintf(
-          'ERR: No matching FAO itemCode for SUA item "%s" (%s) found.',
-          `SUA Name`,
-          `SUA Code`
-        )
-      ) |>
-      pull(msg) |>
-      walk(warning)
-  }
-
-  sua_template <- sua_to_fao |>
-    filter(
-      !(is.na(`Item Code`) | `Item Code` == "" & !str_starts(`SUA Code`, "BF-"))
-    )
-
-  # ---- join SUA -> RPC (expands one SUA to many RPC codes) ----
-  # Keep exactly one row per RPC Code like your _rpcCodesCache:
-  # If rpc-to-sua has duplicates for RPC Code, keep first.
-  rpc_map_unique <- rpc_to_sua |>
-    distinct(`RPC Code`, .keep_all = TRUE)
-
-  base <- sua_template |>
-    left_join(rpc_map_unique, by = "SUA Code")
-
-  # Warn on missing RPC codes
-  missing_rpc <- base |>
-    filter(is.na(`RPC Code`)) |>
-    distinct(`SUA Code`, `SUA Name`, `Item Name`, `Item Code`)
-
-  if (nrow(missing_rpc) > 0) {
-    missing_rpc |>
-      mutate(
-        msg = sprintf(
-          'ERR: RPC codes missing for SUA item: %s (%s). Item is %s (%s).',
-          `SUA Name`,
-          `SUA Code`,
-          `Item Name`,
-          `Item Code`
-        )
-      ) |>
-      pull(msg) |>
-      walk(warning)
-  }
-
-  # Drop any items with missing long codes
-  base <- base |>
-    filter(!is.na(`RPC Code`))
-
   # ---- waste factors ----
   # If category missing, fall back to "Other"
   waste_filtered <- waste_factors |>
     filter(`Country name` == consumer_country_name) |>
     select(-`Country name`)
   waste_fallback <- (waste_filtered |> filter(Category == "Other"))$Waste
-  base <- base |>
+  base_cc <- base |>
     left_join(waste_filtered, by = "Category") |>
     mutate(Waste = if_else(is.na(Waste), waste_fallback, Waste))
 
@@ -272,7 +276,7 @@ for (i in seq_len(nrow(ll_countries))) {
     )
 
   # ---- shares: join on FAO item code ----
-  out <- base |>
+  out <- base_cc |>
     left_join(shares_tbl, by = "Item Code", relationship = "many-to-many") |>
     # Some items will not have had shares. Assign them to RoW with share = 1
     mutate(
