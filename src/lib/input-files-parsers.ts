@@ -311,7 +311,7 @@ export function parseFootprintsRpcs(csvString: string, delimiter = ",") {
   // "too long" set of indicators and drop them.
   // This would turn complicated if we want to add or remove more indicators in
   // the future.
-  data.filter(row => row.length == 45).forEach(row => row.pop());
+  data.filter((row) => row.length == 45).forEach((row) => row.pop());
 
   const rpcFootprints = {} as RpcFootprintsByOrigin;
 
@@ -461,10 +461,10 @@ export function parseRpcOriginWaste(csvString: string, delimiter = ",") {
 
   const firstNRows = parametersCsv.slice(0, 20);
   const codesInFirstCol = firstNRows.every(([maybeCode]) => isCode(maybeCode));
-  const wasteCols = firstNRows.every(
-    ([_0, _1, _2, _3, w1, w2]) => isNumber(w1!) && isNumber(w2!)
+  const numCols = firstNRows.every(
+    ([_0, _1, _2, _3, share, waste]) => isNumber(share!) && isNumber(waste!)
   );
-  if (!codesInFirstCol || !wasteCols) {
+  if (!codesInFirstCol || !numCols) {
     throw new CsvValidationError(CsvValidationErrorType.Unknown);
   }
 
