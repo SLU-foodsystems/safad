@@ -1938,19 +1938,19 @@ merged_codes <- inner_join(
 ############################ ADD MISC AND BLUE FOODS ###########################
 ################################################################################
 
-# Add the misc ingredients that are already on the correct format
-misc_ing <- read_excel(
-  "./5 - Misc ingredients/Misc ingredients.xlsx",
-  sheet = "Used in recipes"
-)
-
 # Add the blue food that are already in the correct format
 blue_food <- read_excel(
   "./3 - Blue foods/Blue food.xlsx",
   sheet = "Footprints, results per kg"
 )
 
-merged_codes <- bind_rows(merged_codes, misc_ing, blue_food)
+# Add the misc ingredients that are already on the correct format
+misc_ing <- read_excel(
+  "./5 - Misc ingredients/Misc ingredients.xlsx",
+  sheet = "Used in recipes"
+)
+
+merged_codes <- bind_rows(merged_codes, blue_food, misc_ing)
 
 ################################################################################
 ############################ ADJUST BIODIVERSITY ###############################
