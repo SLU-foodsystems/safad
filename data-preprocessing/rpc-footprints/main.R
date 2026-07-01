@@ -12,28 +12,22 @@ p_load(readxl, dplyr, readr, tidyr, tibble, here, fs)
 
 setwd(here())
 
+CONFIG <- list(
+  ll_countries = c("DE", "DK", "ES", "FR", "GR", "HU", "IR", "IT", "PL", "SE"),
+  # MJ energy per kg diesel
+  heating_value_diesel = 35.2,
+  # kg Gas -> kg CO2e
+  co2e_factors = list(CO2 = 1, CH4_b = 27, CH4_f = 29.8, N2O = 273)
+)
+
 # Helper logic for resolving refs + adjusting yields
 source("resolve-refs-and-yield.R")
 
-ll_countries <- c(
-  "DE",
-  "DK",
-  "ES",
-  "FR",
-  "GR",
-  "HU",
-  "IR",
-  "IT",
-  "PL",
-  "SE"
-)
-
-
 # Set up which crops we differentiate growing in greenhouses and open-field.
 gh_crops <- tribble(
-  ~`Name`     , ~`Crop code` ,
-  "tomatoes"  , "01234"      ,
-  "cucumbers" , "01232"
+  ~`Name`, ~`Crop code`,
+  "tomatoes", "01234",
+  "cucumbers", "01232"
 ) |>
   mutate(
     `gh_code` = paste0(`Crop code`, "_gh"),
@@ -139,7 +133,7 @@ trade_data <- list.files(
 {
   missing_ll_crops <- trade_data |>
     distinct(`Crop code`) |>
-    crossing(`Country code` = ll_countries) |>
+    crossing(`Country code` = CONFIG$ll_countries) |>
     anti_join(trade_data, by = c("Crop code", "Country code")) |>
     # TODO: Temporary fix to handle our missing trade data for sugar canes/beets:
     # We have yield data for many countries for sugar canes, but no trade data.
@@ -282,17 +276,17 @@ gh_of_yields <- read_csv(
 
 # TEST: List all countries for which we have trade data, but not yields
 {
-  MUSHROOMS_CODE = "01270"
+  .mushrooms_code <- "01270"
 
   # where we have yield data, but not trade (expected to be many)
   missing_trade <- fao_yields |>
     anti_join(trade_data, by = c("Crop code", "Country code")) |>
-    filter(`Crop code` != MUSHROOMS_CODE)
+    filter(`Crop code` != .mushrooms_code)
 
   # where we have trade data, but not yield (not desirable)
   missing_yields <- trade_data |>
     anti_join(fao_yields, by = c("Crop code", "Country code")) |>
-    filter(`Crop code` != MUSHROOMS_CODE)
+    filter(`Crop code` != .mushrooms_code)
 
   if (nrow(missing_yields) > 0) {
     warning(paste(
@@ -332,7 +326,7 @@ yields <- fao_yields |>
 # ==========================================================
 
 # Land use is the inverse of the yield, but in m2 instead of ha
-df_land_use = yields |>
+df_land_use <- yields |>
   mutate(Land = if_else(yield > 0, 10000 / yield, 0)) |>
   select(-yield)
 
@@ -537,7 +531,9 @@ df_LUC <- suppressWarnings(
 
 # TEST to make sure we do not miss any codes with the renaming-shenanigans above
 {
-  LUC_crop_codes <- df_LUC |> select(`Crop code`) |> unique()
+  LUC_crop_codes <- df_LUC |>
+    select(`Crop code`) |>
+    unique()
   codes_missing_from_LUC <- df_N |>
     select(`Crop code`, Crop) |>
     unique() |>
@@ -721,8 +717,6 @@ ef_diesel <- df_emission_factors_energy |>
   filter(`Energy source` == "Diesel fuel") |>
   slice(1)
 
-# MJ energy per kg diesel
-HEATING_VALUE_DIESEL <- 35.2
 
 df_field_ops <- read_crop_excel("Field operations.xlsx", sheet = "Data") |>
   resolve_refs_adjust_yield(
@@ -741,9 +735,9 @@ df_field_ops <- read_crop_excel("Field operations.xlsx", sheet = "Data") |>
     Crop,
     Category,
     `Country code`,
-    CO2_field_ops = diesel_kg * HEATING_VALUE_DIESEL * ef_diesel$CO2,
-    CH4_field_ops = diesel_kg * HEATING_VALUE_DIESEL * ef_diesel$CH4,
-    N2O_field_ops = diesel_kg * HEATING_VALUE_DIESEL * ef_diesel$N2O,
+    CO2_field_ops = diesel_kg * CONFIG$heating_value_diesel * ef_diesel$CO2,
+    CH4_field_ops = diesel_kg * CONFIG$heating_value_diesel * ef_diesel$CH4,
+    N2O_field_ops = diesel_kg * CONFIG$heating_value_diesel * ef_diesel$N2O,
     field_ops_approximated
   )
 
@@ -995,11 +989,6 @@ df_N_emissions <- df_N |>
 # Join it all together
 # ----------------------------------------------------------
 
-CO2E_CO2 <- 1
-CO2E_CH4_b <- 27 # biogenic
-CO2E_CH4_f <- 29.8 # fossil
-CO2E_N2O <- 273
-
 approximated_label <- function(
   N_approximated,
   P_approximated,
@@ -1089,26 +1078,26 @@ df_GHGs_disaggr <- df_N_emissions |>
   mutate(
     # "Mineral fertiliser production (CO2e)",
     CO2e_rm_fert_prod = CO2_rm_fert_prod +
-      CH4_fossil_rm_fert_prod * CO2E_CH4_f +
-      N2O_rm_fert_prod * CO2E_N2O,
+      CH4_fossil_rm_fert_prod * CONFIG$co2e_factors$CH4_f +
+      N2O_rm_fert_prod * CONFIG$co2e_factors$N2O,
     # "Capital goods (CO2e)",
     CO2e_rm_cap_goods = CO2_rm_cap_goods +
-      CH4_fossil_rm_cap_goods * CO2E_CH4_f +
-      N2O_rm_cap_goods * CO2E_N2O,
+      CH4_fossil_rm_cap_goods * CONFIG$co2e_factors$CH4_f +
+      N2O_rm_cap_goods * CONFIG$co2e_factors$N2O,
     # "Soil emissions (CO2e)",
-    CO2e_rm_soils = CO2E_CH4_b *
+    CO2e_rm_soils = CONFIG$co2e_factors$CH4_b *
       CH4_bio_rm_soils_dir +
-      N2O_rm_soils * CO2E_N2O,
+      N2O_rm_soils * CONFIG$co2e_factors$N2O,
     # "Energy primary production (CO2e)",
     CO2e_rm_energy = CO2_rm_energy +
-      CH4_fossil_rm_energy * CO2E_CH4_f +
-      N2O_rm_energy * CO2E_N2O,
+      CH4_fossil_rm_energy * CONFIG$co2e_factors$CH4_f +
+      N2O_rm_energy * CONFIG$co2e_factors$N2O,
     # "Land use change (CO2e)",
     CO2e_rm_LUC = CO2_rm_LUC,
     # "Enteric fermentation (CO2e)",
-    CO2e_rm_ent_ferm = CO2E_CH4_b * CH4_bio_rm_ent_ferm,
+    CO2e_rm_ent_ferm = CONFIG$co2e_factors$CH4_b * CH4_bio_rm_ent_ferm,
     # "Manure management (CO2e)",
-    CO2e_rm_manure = CO2E_CH4_b * CH4_bio_rm_manure + CO2E_N2O * N2O_rm_manure
+    CO2e_rm_manure = CONFIG$co2e_factors$CH4_b * CH4_bio_rm_manure + CONFIG$co2e_factors$N2O * N2O_rm_manure
   ) |>
   mutate(
     Carbon_Dioxide = CO2_rm_fert_prod +
@@ -1128,11 +1117,11 @@ df_GHGs_disaggr <- df_N_emissions |>
       N2O_rm_manure,
   ) |>
   mutate(
-    Carbon_Footprint = CO2E_CO2 *
+    Carbon_Footprint = CONFIG$co2e_factors$CO2 *
       Carbon_Dioxide +
-      CO2E_CH4_f * Methane_fossil +
-      CO2E_CH4_b * Methane_bio +
-      CO2E_N2O * Nitrous_Oxide,
+      CONFIG$co2e_factors$CH4_f * Methane_fossil +
+      CONFIG$co2e_factors$CH4_b * Methane_bio +
+      CONFIG$co2e_factors$N2O * Nitrous_Oxide,
   )
 
 df_GHGs <- df_GHGs_disaggr |>
@@ -1224,7 +1213,7 @@ expand_biodiv <- function(biodiv_df, yields_df) {
   # - 10 000 to convert between ha and m2
   # - 100 to allocate the extinction over a time-horizon of 100 years (later)
   # See manuscript for more details.
-  CF_TO_EMSY_FACTOR = (352323 / 1e6) / 1e4
+  CF_TO_EMSY_FACTOR <- (352323 / 1e6) / 1e4
 
   yields_df |>
     left_join(biodiv_df, by = "Country code") |>
@@ -1611,19 +1600,21 @@ merged_data <- bind_rows(merged_data, beef_data)
 ################# SET SOME COMMODITIES TO ZERO FOR NOW #########################
 ################################################################################
 
-products_zero <- list("Game meat", "Honey")
-products_zero_codes <- list("21170.02", "02910")
-for (k in seq_along(products_zero)) {
+zero_products <- list(
+  names = c("Game meat", "Honey"),
+  codes = c("21170.02", "02910")
+)
+for (k in seq_along(zero_products$codes)) {
   zero_data <- c(
-    products_zero_codes[[k]],
-    products_zero[[k]],
+    zero_products$codes[[k]],
+    zero_products$names[[k]],
     "Wild foods",
     "Rest of World",
     "RoW",
     rep("0", ncol(merged_data) - 6), # adjust if first 5 fields are the non-zeros,
     NA # approximated-flag
   )
-  ncols = length(names(merged_data))
+  ncols <- length(names(merged_data))
   zero_row <- as_tibble_row(setNames(as.list(zero_data), names(merged_data))) |>
     mutate(
       across(1:5, as.character),
