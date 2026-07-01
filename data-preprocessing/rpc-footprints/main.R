@@ -2022,7 +2022,7 @@ feed_data <- merged_data |>
   filter(Code %in% feed_products & Country_code %in% feed_countries) |>
   # Sorting (integer index) according to the order in the feed_products vector
   mutate(Order = match(Code, feed_products)) |>
-  aggregate(Order) |>
+  arrange(Order) |>
   left_join(
     df_GHGs_disaggr |> select(-Crop, -Category),
     by = c(
