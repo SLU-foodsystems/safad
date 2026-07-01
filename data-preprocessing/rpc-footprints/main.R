@@ -3,7 +3,10 @@ if (!requireNamespace("pacman", quietly = TRUE)) {
   if (interactive()) {
     install.packages("pacman")
   } else {
-    stop("pacman is required but not installed. Please install it.", call. = FALSE)
+    stop(
+      "pacman is required but not installed. Please install it.",
+      call. = FALSE
+    )
   }
 }
 
@@ -32,9 +35,9 @@ source("resolve-refs-and-yield.R")
 
 # Set up which crops we differentiate growing in greenhouses and open-field.
 gh_crops <- tribble(
-  ~`Name`, ~`Crop code`,
-  "tomatoes", "01234",
-  "cucumbers", "01232"
+  ~`Name`     , ~`Crop code` ,
+  "tomatoes"  , "01234"      ,
+  "cucumbers" , "01232"
 ) |>
   mutate(
     `gh_code` = paste0(`Crop code`, "_gh"),
@@ -1104,7 +1107,9 @@ df_GHGs_disaggr <- df_N_emissions |>
     # "Enteric fermentation (CO2e)",
     CO2e_rm_ent_ferm = CONFIG$co2e_factors$CH4_b * CH4_bio_rm_ent_ferm,
     # "Manure management (CO2e)",
-    CO2e_rm_manure = CONFIG$co2e_factors$CH4_b * CH4_bio_rm_manure + CONFIG$co2e_factors$N2O * N2O_rm_manure
+    CO2e_rm_manure = CONFIG$co2e_factors$CH4_b *
+      CH4_bio_rm_manure +
+      CONFIG$co2e_factors$N2O * N2O_rm_manure
   ) |>
   mutate(
     Carbon_Dioxide = CO2_rm_fert_prod +
