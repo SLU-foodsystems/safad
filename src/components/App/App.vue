@@ -482,6 +482,25 @@ onMounted(async () => {
         </div>
       </div>
     </div>
+    <div class="email-prompt">
+      <div>
+        <p>
+          <strong>Are you using SAFAD?</strong>
+        </p>
+        <p>
+          We are preparing for the release of version 2.0, with updates to the
+          environmental data and increased transparency. Register your email if
+          you wish to be notified of the release and of future updates.
+        </p>
+      </div>
+      <a
+        class="button button--accent"
+        target="_blank"
+        rel="nofollow"
+        href="https://forms.cloud.microsoft/e/s6Ygp7TF0z"
+        >Register your email address</a
+      >
+    </div>
     <div class="info-bar">
       <div class="page-wrap">
         <div class="cluster cluster--between">
@@ -977,6 +996,42 @@ onMounted(async () => {
   }
 }
 
+.email-prompt {
+  $bg: #152e51; /* blue */
+  $bg: constants.$red_grape;
+
+  margin: 1em;
+  padding: 2em;
+
+  background: $bg;
+  color: white;
+  border-radius: 0.5em;
+
+  display: flex;
+  align-items: center;
+  gap: 2em;
+
+  > div {
+    flex-grow: 1;
+  }
+
+  > a {
+    flex-shrink: 0;
+  }
+
+  .button--accent,
+  ::selection {
+    background: #fff;
+    color: $bg;
+  }
+
+  @media (max-width: 54em) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0em;
+  }
+}
+
 .inner-thinner-wrap {
   margin: 0 auto;
   max-width: 70rem;
@@ -1076,7 +1131,7 @@ onMounted(async () => {
   gap: 2em;
   align-items: flex-start;
 
-  > div  {
+  > div {
     flex: 1 1 30em;
     margin: 0 auto;
     max-width: 800px;
