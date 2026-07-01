@@ -8,7 +8,7 @@ if (!requireNamespace("pacman", quietly = TRUE)) {
 }
 
 library(pacman)
-p_load(readxl, dplyr, readr, tidyr, tibble, here)
+p_load(readxl, dplyr, readr, tidyr, tibble, here, fs)
 
 setwd(here())
 
@@ -1962,8 +1962,7 @@ merged_codes <- merged_codes |>
 merged_codes <- merged_codes |>
   filter(!is.na(`Long code`))
 # Create dir './SAFAD FILES/Input files"
-dir.create(file.path("SAFAD files"), showWarnings = FALSE)
-dir.create(file.path("SAFAD files", "Input files"), showWarnings = FALSE)
+dir_create(path("SAFAD files", "Input files"))
 # The _excel version includes a UT8 BOM
 write_excel_csv(
   merged_codes,
