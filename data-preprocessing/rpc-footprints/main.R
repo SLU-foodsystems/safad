@@ -17,7 +17,14 @@ CONFIG <- list(
   # MJ energy per kg diesel
   heating_value_diesel = 35.2,
   # kg Gas -> kg CO2e
-  co2e_factors = list(CO2 = 1, CH4_b = 27, CH4_f = 29.8, N2O = 273)
+  co2e_factors = list(CO2 = 1, CH4_b = 27, CH4_f = 29.8, N2O = 273),
+  # To convert from PSL (potential species lost) to E/MSY
+  # (extinctions per million-species-years), we divide by...
+  # - one million of the total number of recognised species (352323),
+  # - 10 000 to convert between ha and m2
+  # - 100 to allocate the extinction over a time-horizon of 100 years (later)
+  # See manuscript for more details.
+  biodiv_psl_to_emsy = (352323 / 1e6) / 1e4
 )
 
 # Helper logic for resolving refs + adjusting yields
@@ -1207,20 +1214,12 @@ expand_biodiv <- function(biodiv_df, yields_df) {
       .by = c("Country code")
     )
 
-  # To convert from PSL (potential species lost) to E/MSY
-  # (extinctions per million-species-years), we divide by...
-  # - one million of the total number of recognised species (352323),
-  # - 10 000 to convert between ha and m2
-  # - 100 to allocate the extinction over a time-horizon of 100 years (later)
-  # See manuscript for more details.
-  CF_TO_EMSY_FACTOR <- (352323 / 1e6) / 1e4
-
   yields_df |>
     left_join(biodiv_df, by = "Country code") |>
     transmute(
       `Crop code`,
       `Country code`,
-      Biodiversity = (abs_CF_cty / CF_TO_EMSY_FACTOR) / yield
+      Biodiversity = (abs_CF_cty / CONFIG$biodiv_psl_to_emsy) / yield
     )
 }
 
