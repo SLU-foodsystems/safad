@@ -436,7 +436,7 @@ onMounted(async () => {
         </div>
         <div>
           <h1>
-            SAFAD<br />Sustainability Assessment of
+            SAFAD &mdash;<br />Sustainability Assessment of
             <br data-remove-on-mobile />Foods and Diets
           </h1>
           <h2>
