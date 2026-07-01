@@ -253,7 +253,11 @@ p {
 }
 
 .hero {
+  position: relative;
   background: constants.$green_forest;
+  background-image: url("../assets/terrain.svg");
+  background-size: cover;
+  background-position: center center;
   color: white;
   margin: 0 1em;
   border-radius: 0.5em;
@@ -268,7 +272,6 @@ p {
   gap: 2em;
   align-items: center;
   justify-content: space-around;
-  text-align: center;
   flex-wrap: wrap-reverse;
 
   h1 {
@@ -279,6 +282,10 @@ p {
     max-width: 24em;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  h2 {
+    opacity: 0.9;
   }
 
   img {
