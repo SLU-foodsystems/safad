@@ -2016,15 +2016,17 @@ feed_countries <- c(
 )
 
 
+# To use the feed data in the animal files, we need to disaggregate the GHGs
 feed_data <- merged_data |>
-  # Select the data
+  # Select the data from the merged_data
   filter(Code %in% feed_products & Country_code %in% feed_countries) |>
-  # Add a column for sorting (integer index), as per the order in feed_products
+  # Sorting (integer index) according to the order in the feed_products vector
   mutate(Order = match(Code, feed_products)) |>
+  aggregate(Order) |>
   left_join(
     df_GHGs_disaggr |> select(-Crop, -Category),
     by = c(
-      "Code"="Crop code",
+      "Code" = "Crop code",
       "Country_code" = "Country code"
     ),
     suffix = c("", "_dup")
