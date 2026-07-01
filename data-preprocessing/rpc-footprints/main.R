@@ -1,20 +1,14 @@
-if (!require("readxl")) {
-  install.packages("readxl")
-}
-if (!require("readr")) {
-  install.packages("readr")
-}
-if (!require("tidyr")) {
-  install.packages("tidyr")
+# Bootstrap Renv, used to manage dependencies
+if (!requireNamespace("pacman", quietly = TRUE)) {
+  if (interactive()) {
+    install.packages("pacman")
+  } else {
+    stop("pacman is required but not installed. Please install it.", call. = FALSE)
+  }
 }
 
-{
-  library(readxl)
-  library(dplyr)
-  library(readr)
-  library(tidyr)
-  library(tibble)
-}
+library(pacman)
+p_load(readxl, dplyr, readr, tidyr, tibble)
 
 setwd("~/dev/safad/data-preprocessing/rpc-footprints")
 
