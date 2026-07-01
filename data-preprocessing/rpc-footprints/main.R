@@ -1662,7 +1662,7 @@ energy_cols <- c(
 )
 
 # ---- main novel foods table ----
-novel_food <- read_excel(
+novel_foods <- read_excel(
   path_novel,
   sheet = "Footprints, results per kg",
   skip = 4
@@ -1727,7 +1727,8 @@ novel_food_CF_dis_all <- read_excel(
   )) |>
   remove_unnamed_cols()
 
-# ---- split-by-gas, rename, compute derived metrics, and keep only needed cols ----
+# Split by gas, rename, compute derived metrics, and keep only needed cols
+# ------------------------------------------------------------------------
 
 # CO2e (already has correct rm_* names in the file)
 novel_food_CF_dis <- novel_food_CF_dis_all |>
@@ -1812,8 +1813,8 @@ novel_food_CF_dis4 <- novel_food_CF_dis_all |>
     N2O_rm_manure
   )
 
-# ---- combine + append ----
-novel_food <- novel_food |>
+# Combine GHG cols to construct complete dataset
+novel_foods <- novel_foods |>
   bind_cols(
     novel_food_CF_dis,
     novel_food_CF_dis1,
@@ -1823,7 +1824,7 @@ novel_food <- novel_food |>
   )
 
 merged_data <- merged_data |>
-  bind_rows(novel_food)
+  bind_rows(novel_foods)
 
 ################################################################################
 ############################ APPROXIMATIONS ####################################
