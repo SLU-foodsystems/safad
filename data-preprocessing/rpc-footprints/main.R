@@ -100,7 +100,8 @@ normalise_country_names <- function(df, col) {
         "Turkey" ~ "Türkiye",
         "UK" ~ "United Kingdom of Great Britain and Northern Ireland",
         "USA" ~ "United States of America",
-        "United Kingdom" ~ "United Kingdom of Great Britain and Northern Ireland",
+        "United Kingdom" ~
+          "United Kingdom of Great Britain and Northern Ireland",
         "United States" ~ "United States of America",
         "Venezuela" ~ "Venezuela (Bolivarian Republic of)",
         "Vietnam" ~ "Viet Nam",
@@ -144,13 +145,7 @@ trade_data <- list.files(
   missing_ll_crops <- trade_data |>
     distinct(`Crop code`) |>
     crossing(`Country code` = CONFIG$ll_countries) |>
-    anti_join(trade_data, by = c("Crop code", "Country code")) |>
-    # TODO: Temporary fix to handle our missing trade data for sugar canes/beets:
-    # We have yield data for many countries for sugar canes, but no trade data.
-    # Without this 'filter'-statement, we add back the crop for Sweden etc,
-    # which holds references to Brazil (default) - but Brazil is removed since
-    # we don't have trade_data for it. Needs to be fixed.
-    filter(`Crop code` != "01802")
+    anti_join(trade_data, by = c("Crop code", "Country code"))
 
   trade_data <- bind_rows(
     trade_data,
@@ -168,7 +163,7 @@ country_name_code_map <- read_csv(
   show_col_types = FALSE
 )
 
-FAO_COUNTRIES_TO_DROP <- c("China") # We use 'China, mainland' instead
+.fao_countries_to_drop <- c("China") # We use 'China, mainland' instead
 
 fao_yields <- read_csv(
   "./1 - Crops/FAOSTAT_yield.csv",
@@ -183,7 +178,7 @@ fao_yields <- read_csv(
     yield = `Value`
   ) |>
   filter(yield > 0 & !is.na(yield)) |>
-  filter(!(`Country name` %in% FAO_COUNTRIES_TO_DROP)) |>
+  filter(!(`Country name` %in% .fao_countries_to_drop)) |>
   # Group to get mean across years
   summarise(
     yield = mean(yield, na.rm = TRUE),
@@ -227,7 +222,8 @@ se_gh_yields <- tribble(
     `yield` = quantity_t * 1000 / (area_m2 / 1e4)
   )
 
-# Fetched from: https://ec.europa.eu/eurostat/databrowser/view/apro_cpsh1__custom_20725936/default/table
+# Fetched from:
+# https://ec.europa.eu/eurostat/databrowser/view/apro_cpsh1__custom_20725936/default/table
 gh_of_yields <- read_csv(
   "./1 - Crops/EUROSTAT_gh_yields.csv",
   show_col_types = FALSE
@@ -422,7 +418,7 @@ df_water <- read_csv(
   ) |>
   # We have the country names but not the country codes
   left_join(country_name_code_map, by = c("country_name" = "Country name")) |>
-  # Use inner_join instead of left_join as we have several SUA codes for some Item codes
+  # Inner_join, not left_join: we have several SUA codes for some Item codes
   inner_join(
     sua_fao_codes,
     by = c("crop_code" = "Item Code"),
@@ -431,7 +427,7 @@ df_water <- read_csv(
   transmute(
     `Country code`,
     `Crop code` = `SUA Code`,
-    # Note: Convert from m3 per tonne to m3 per kg
+    # Convert from m3 per tonne to m3 per kg
     Water = wfb_i_m3_t / 1000
   ) |>
   split_avg_into_gh_crops(gh_crops)
@@ -520,7 +516,8 @@ df_LUC <- suppressWarnings(
       Commodity,
       "Barley" ~ "Barley, average",
       "Cauliflowers and broccoli" ~ "Cauliflowers and broccoli, average",
-      "Chillies and peppers, green (Capsicum spp. and Pimenta spp.)" ~ "Chillies and peppers, green (Capsicum spp. and Pimenta spp.), raw",
+      "Chillies and peppers, green (Capsicum spp. and Pimenta spp.)" ~
+        "Chillies and peppers, green (Capsicum spp. and Pimenta spp.), raw",
       "Coconuts, in shell" ~ "Coconut, in shell",
       "Cucumbers and gherkins" ~ "Cucumbers and gherkins, greenhouse",
       "Rape or colza seed" ~ "Rape or colza seed, average",
