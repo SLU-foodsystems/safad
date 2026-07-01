@@ -187,12 +187,10 @@ fao_yields <- read_csv(
   filter(yield > 0 & !is.na(yield)) |>
   filter(!(`Country name` %in% FAO_COUNTRIES_TO_DROP)) |>
   # Group to get mean across years
-  group_by(`Country name`, `Crop code`) |>
   summarise(
     yield = mean(yield, na.rm = TRUE),
-    .groups = "drop"
+    .by = c("Country name", "Crop code")
   ) |>
-  ungroup() |>
   left_join(country_name_code_map, by = "Country name")
 
 # TEST: See if any countries are missing codes
@@ -278,10 +276,9 @@ gh_of_yields <- read_csv(
     Year = TIME_PERIOD,
   ) |>
   filter(!is.na(yield) & yield > 0) |>
-  group_by(`Country code`, `Crop code`) |>
   summarize(
     yield = mean(yield),
-    .groups = "drop"
+    .by = c("Country code", "Crop code")
   ) |>
   rows_patch(
     se_gh_yields,
@@ -421,10 +418,9 @@ df_water <- read_csv(
   select(crop_code, country_name, year, wfb_i_m3_t) |>
   # Only get the 5 most recent years
   filter(year >= 2015 & year <= 2019) |> # 2015-2019
-  group_by(crop_code, country_name) |>
   summarise(
     wfb_i_m3_t = mean(wfb_i_m3_t, na.rm = TRUE),
-    .groups = 'drop' # Removes grouping
+    .by = c("crop_code", "country_name")
   ) |>
   # We have the country names but not the country codes
   left_join(country_name_code_map, by = c("country_name" = "Country name")) |>
@@ -514,10 +510,9 @@ df_LUC <- suppressWarnings(
   ) |>
   # Some values have an "inf"-value. Replace with 0
   mutate(CO2_LUC = if_else(is.infinite(CO2_LUC), 0, CO2_LUC)) |>
-  group_by(Country, Commodity) |>
   summarise(
     CO2_LUC = coalesce(mean(CO2_LUC, na.rm = TRUE), 0),
-    .groups = "drop"
+    .by = c("Country", "Commodity")
   ) |>
   # Fix names to match FAO naming
   normalise_country_names(Country) |>
@@ -623,10 +618,9 @@ df_ch4_rice <- read_csv(
     CH4_total_kt = Value
   ) |>
   left_join(df_rice_production_t, by = c("Country code", "Year")) |>
-  group_by(`Country code`, `Crop code`) |>
   summarise(
     CH4_rice_kg = mean(1000 * CH4_total_kt / qty_t),
-    .groups = "drop"
+    .by = c("Country code", "Crop code")
   )
 
 
@@ -686,12 +680,11 @@ df_post_harvest_emissions <- read_crop_excel(
     ),
   ) |>
   # Group so that we can aggregate the values for each category-country pair
-  group_by(Category, `Country code`) |>
   summarise(
     CO2_postharvest = sum(CO2, na.rm = TRUE),
     CH4_postharvest = sum(CH4, na.rm = TRUE),
     N2O_postharvest = sum(N2O, na.rm = TRUE),
-    .groups = "drop" # Drop any remaining columns
+    .by = c("Category", "Country code")
   )
 
 
@@ -1226,10 +1219,9 @@ expand_biodiv <- function(biodiv_df, yields_df) {
   # we can add the e.g. Cropland_Intense and _LightIntense as they concern
   # different species
   biodiv_df <- biodiv_df |>
-    group_by(`Country code`) |>
     summarise(
       abs_CF_cty = sum(abs_CF_cty, na.rm = TRUE),
-      .groups = "drop"
+      .by = c("Country code")
     )
 
   # To convert from PSL (potential species lost) to E/MSY
