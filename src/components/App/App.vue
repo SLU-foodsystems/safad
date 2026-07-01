@@ -452,6 +452,32 @@ onMounted(async () => {
         </div>
       </div>
     </div>
+    <div class="email-prompt">
+      <div>
+        <p>
+          <strong>Are you using SAFAD?</strong>
+        </p>
+        <p>
+          We are preparing for the release of version 2.0, with improvements to
+          the underlying data and the configurability. Sign up with your email
+          to be notified of the release and any further updates.
+        </p>
+      </div>
+      <form netlify>
+        <label>
+          <p>Sign up using your email:</p>
+          <div class="cluster">
+            <input
+              type="email"
+              placeholder="firstname.lastname@email.com"
+              name="email-address"
+              size="24"
+            />
+            <button type="submit" class="button button--accent">Sign up</button>
+          </div>
+        </label>
+      </form>
+    </div>
     <div class="info-bar">
       <div class="page-wrap">
         <div class="cluster cluster--between">
@@ -877,6 +903,57 @@ onMounted(async () => {
 
 .start-page {
   padding-bottom: 1em;
+}
+
+.email-prompt {
+  $bg: #152e51; /* blue */
+  $bg: constants.$red_grape;
+
+  background: $bg;
+  border-radius: 0.5em;
+  margin: 1em;
+  padding: 2em;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  gap: 2em;
+
+  > div {
+    flex-grow: 1;
+  }
+
+  > form {
+    flex-shrink: 0;
+  }
+
+  input {
+    max-width: 100%;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  .cluster {
+    align-items: stretch;
+  }
+
+  button {
+    background: #fff;
+    color: $bg;
+  }
+
+  ::selection {
+    color: $bg;
+    background: white;
+  }
+
+  @media (max-width: 54em) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0em;
+  }
 }
 
 .inner-thinner-wrap {
