@@ -8,9 +8,9 @@ if (!requireNamespace("pacman", quietly = TRUE)) {
 }
 
 library(pacman)
-p_load(readxl, dplyr, readr, tidyr, tibble)
+p_load(readxl, dplyr, readr, tidyr, tibble, here)
 
-setwd("~/dev/safad/data-preprocessing/rpc-footprints")
+setwd(here())
 
 # Helper logic for resolving refs + adjusting yields
 source("resolve-refs-and-yield.R")
