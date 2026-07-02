@@ -909,11 +909,12 @@ onMounted(async () => {
   $bg: #152e51; /* blue */
   $bg: constants.$red_grape;
 
-  background: $bg;
-  border-radius: 0.5em;
   margin: 1em;
   padding: 2em;
+
+  background: $bg;
   color: white;
+  border-radius: 0.5em;
 
   display: flex;
   align-items: center;
@@ -927,26 +928,22 @@ onMounted(async () => {
     flex-shrink: 0;
   }
 
-  input {
-    max-width: 100%;
-  }
-
   label {
     font-weight: bold;
+  }
+
+  input {
+    max-width: 100%;
   }
 
   .cluster {
     align-items: stretch;
   }
 
-  button {
+  button,
+  ::selection {
     background: #fff;
     color: $bg;
-  }
-
-  ::selection {
-    color: $bg;
-    background: white;
   }
 
   @media (max-width: 54em) {
