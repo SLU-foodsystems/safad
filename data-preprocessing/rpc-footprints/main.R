@@ -1408,7 +1408,7 @@ remove_unnamed_cols <- function(df) {
 }
 
 # Read all the livestock files
-for (j in 1:length(livestock_files)) {
+for (j in seq_along(livestock_files)) {
   print(paste0(j, " ", livestock_files[j]))
   # Read the indicator data from the file
   livestock_data <- read_excel(
@@ -1487,7 +1487,8 @@ for (j in 1:length(livestock_files)) {
   # Helper function
   num <- function(x) as.numeric(x)
 
-  # Select the different rows with either CO2-equivalents, CO2, CH4 fossil, CH4 biogenic and N2O
+  # Select the different rows with either CO2-equivalents, CO2, CH4 fossil,
+  # CH4 biogenic and N2O
   livestock_data_CF_dis <- livestock_data_CF_dis_all |>
     filter(Gas == "CO2e") |>
     mutate(
@@ -1500,7 +1501,7 @@ for (j in 1:length(livestock_files)) {
         num(Energy_stables) +
         num(Energy_slaughter)
     ) |>
-    # Select only the columns that are needed and rename columns to reflect gases.
+    # Select only the cols needed, and rename columns to reflect gases.
     transmute(
       CO2e_rm_fert_prod = Fert_prod,
       CO2e_rm_cap_goods = Cap_goods,
