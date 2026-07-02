@@ -50,9 +50,12 @@ export default function flattenRpcFootprints(
             origin = "RoW";
           }
 
-          if (origin === "RoW" && !envImpacts[origin]) {
+          if (!envImpacts[origin]) {
+            // This can happen if origin == "RoW" and there are no RoW
+            // footprints for this RPC.
             console.error("RoW missing for rpc " + rpcCode);
-            // TODO: Return null, and then filter out nulls.
+            // TODO: Return null, and then filter out nulls later. Handle the
+            // case where we might not have any rpc footprints at all.
           }
           return envImpacts[origin]!.map((x) => ratio * x);
         })
