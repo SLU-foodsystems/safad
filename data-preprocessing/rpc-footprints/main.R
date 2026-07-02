@@ -1599,29 +1599,29 @@ beef_data <- merge_beef()
 merged_data <- bind_rows(merged_data, beef_data)
 
 ################################################################################
-################# SET SOME COMMODITIES TO ZERO FOR NOW #########################
+#################### Set some commodities to zero for now ######################
 ################################################################################
 
 zero_products <- list(
-  names = c("Game meat", "Honey"),
-  codes = c("21170.02", "02910")
+  names = c("Honey"),
+  codes = c("02910")
 )
 for (k in seq_along(zero_products$codes)) {
+  ncols <- ncol(merged_data)
   zero_data <- c(
     zero_products$codes[[k]],
     zero_products$names[[k]],
     "Wild foods",
     "Rest of World",
     "RoW",
-    rep("0", ncol(merged_data) - 6), # adjust if first 5 fields are the non-zeros,
+    rep("0", ncols - 6),
     NA_character_ # approximated-flag
   )
-  ncols <- length(names(merged_data))
   zero_row <- as_tibble_row(setNames(as.list(zero_data), names(merged_data))) |>
     mutate(
       across(1:5, as.character),
       across(6:(ncols - 1), as.double),
-      across(all_of(ncols:ncols), as.character) # Approximated / direct_values
+      across(all_of(ncols:ncols), as.character) # Flag for direct_values
     )
 
   # Store also that in the common dataset
@@ -1940,9 +1940,6 @@ wild_foods <- read_excel(
 )
 
 merged_codes <- merged_codes |>
-  # Some wild food already exists in the merged_codes (set to 0 footprint), so
-  # we want to remove them before adding our improved estimates.
-  anti_join(wild_foods, by = c("Long code", "SUA code")) |>
   bind_rows(blue_foods, misc_ing, wild_foods)
 
 ################################################################################
