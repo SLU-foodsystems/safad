@@ -1921,22 +1921,28 @@ merged_codes <- inner_join(
   )
 
 ################################################################################
-############################ ADD MISC AND BLUE FOODS ###########################
+######################## ADD BLUE, MISC, AND WILD FOODS ########################
 ################################################################################
 
 # Add the blue food that are already in the correct format
-blue_food <- read_excel(
+blue_foods <- read_excel(
   "./3 - Blue foods/Blue food.xlsx",
   sheet = "Footprints, results per kg"
 )
-
-# Add the misc ingredients that are already on the correct format
 misc_ing <- read_excel(
   "./5 - Misc ingredients/Misc ingredients.xlsx",
   sheet = "Used in recipes"
 )
+wild_foods <- read_excel(
+  "./6 - Wild foods/Wild foods.xlsx",
+  sheet = "Wild foods"
+)
 
-merged_codes <- bind_rows(merged_codes, blue_food, misc_ing)
+merged_codes <- merged_codes |>
+  # Some wild food already exists in the merged_codes (set to 0 footprint), so
+  # we want to remove them before adding our improved estimates.
+  anti_join(wild_foods, by = c("Long code", "SUA code")) |>
+  bind_rows(blue_foods, misc_ing, wild_foods)
 
 ################################################################################
 ############################ ADJUST BIODIVERSITY ###############################
