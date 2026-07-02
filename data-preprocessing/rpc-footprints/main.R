@@ -1613,7 +1613,7 @@ for (k in seq_along(zero_products$codes)) {
     "Rest of World",
     "RoW",
     rep("0", ncol(merged_data) - 6), # adjust if first 5 fields are the non-zeros,
-    NA # approximated-flag
+    NA_character_ # approximated-flag
   )
   ncols <- length(names(merged_data))
   zero_row <- as_tibble_row(setNames(as.list(zero_data), names(merged_data))) |>
@@ -1956,9 +1956,51 @@ merged_codes <- merged_codes |>
 ############################ WRITE THE FINAL FILE  #############################
 ################################################################################
 
-# Remove empty rows that appear for some reason and write a file
 merged_codes <- merged_codes |>
+  # Remove empty rows that appear for some reason and write a file
   filter(!is.na(`Long code`))
+
+merged_codes_better_names <- merged_codes |>
+  # Set better names
+  rename(
+    "Carbon footprint, primary production (kg CO2e)" = "Carbon footprint, primary production",
+    "Carbon dioxide, primary production (kg CO2)" = "Carbon dioxide, primary production",
+    "Methane, fossil, primary production (kg CH4)" = "Methane, fossil, primary production",
+    "Methane, biogenic, primary production (kg CH4)" = "Methane, biogenic, primary production",
+    "Nitrous oxide, primary production (kg N2O)" = "Nitrous oxide, primary production",
+    "Cropland (m2*year)" = "Land",
+    "New N input (kg N)" = "N input",
+    "New P input (kg P)" = "P input",
+    "Water (m3)" = "Water",
+    "Pesticides (g a.i)" = "Pesticides",
+    "Biodiversity (E/MSY)" = "Biodiversity",
+    "Ammonia (kg NH3)" = "Ammonia",
+    "Animal welfare (index)" = "Animal welfare",
+    "Antibiotics (index)" = "Antibiotics",
+    "Mineral fertiliser production (kg CO2e)" = "Mineral fertiliser production (CO2e)",
+    "Capital goods (kg CO2e)" = "Capital goods (CO2e)",
+    "Soil emissions (kg CO2e)" = "Soil emissions (CO2e)",
+    "Energy primary production (kg CO2e)" = "Energy primary production (CO2e)",
+    "Land use change (kg CO2e)" = "Land use change (CO2e)",
+    "Enteric fermentation (kg CO2e)" = "Enteric fermentation (CO2e)",
+    "Manure management (kg CO2e)" = "Manure management (CO2e)",
+    "Mineral fertiliser production (kg CO2)" = "Mineral fertiliser production (CO2)",
+    "Capital goods (kg CO2)" = "Capital goods (CO2)",
+    "Energy primary production (kg CO2)" = "Energy primary production (CO2)",
+    "Land use change (kg CO2)" = "Land use change (CO2)",
+    "Mineral fertiliser production (kg CH4, fossil)" = "Mineral fertiliser production (CH4, fossil)",
+    "Capital goods (kg CH4, fossil)" = "Capital goods (CH4, fossil)",
+    "Energy primary production (kg CH4, fossil)" = "Energy primary production (CH4, fossil)",
+    "Soil emissions (kg CH4, biogenic)" = "Soil emissions (CH4, biogenic)",
+    "Enteric fermentation (kg CH4, biogenic)" = "Enteric fermentation (CH4, biogenic)",
+    "Manure management (kg CH4, biogenic)" = "Manure management (CH4, biogenic)",
+    "Mineral fertiliser production (kg N2O)" = "Mineral fertiliser production (N2O)",
+    "Capital goods (kg N2O)" = "Capital goods (N2O)",
+    "Soil emissions (kg N2O)" = "Soil emissions (N2O)",
+    "Energy primary production (kg N2O)" = "Energy primary production (N2O)",
+    "Manure management (kg N2O)" = "Manure management (N2O)",
+  )
+
 # Create dir './SAFAD FILES/Input files"
 dir_create(path("SAFAD files", "Input files"))
 # The _excel version includes a UT8 BOM
@@ -1968,7 +2010,7 @@ write_excel_csv(
   na = ""
 )
 write_excel_csv(
-  merged_codes,
+  merged_codes_better_names,
   file = "../../src/default-input-files/SAFAD ID Footprints RPC.csv",
   na = ""
 )
