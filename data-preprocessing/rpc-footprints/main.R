@@ -1,4 +1,4 @@
-# Bootstrap Renv, used to manage dependencies
+# Bootstrap pacman, used to manage dependencies
 if (!requireNamespace("pacman", quietly = TRUE)) {
   if (interactive()) {
     install.packages("pacman")
