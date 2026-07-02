@@ -1996,7 +1996,7 @@ merged_codes_better_names <- merged_codes |>
     "Capital goods (kg N2O)" = "Capital goods (N2O)",
     "Soil emissions (kg N2O)" = "Soil emissions (N2O)",
     "Energy primary production (kg N2O)" = "Energy primary production (N2O)",
-    "Manure management (kg N2O)" = "Manure management (N2O)",
+    "Manure management (kg N2O)" = "Manure management (N2O)"
   )
 
 # Create dir './SAFAD FILES/Input files"
