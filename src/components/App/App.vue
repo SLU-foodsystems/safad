@@ -459,8 +459,8 @@ onMounted(async () => {
         </p>
         <p>
           We are preparing for the release of version 2.0, with improvements to
-          the underlying data and the configurability. Sign up with your email
-          to be notified of the release and any further updates.
+          the environmental data and increased transparency. Sign up with your
+          email to be notified of the release and of future updates.
         </p>
       </div>
       <form netlify>
