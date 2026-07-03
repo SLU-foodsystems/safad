@@ -326,7 +326,7 @@ class ResultsEngine {
     const emissionsFactorsTransport =
       this.emissionsFactorsTransport[countryCode];
     if (!emissionsFactorsTransport) {
-      throw new Error(`No emissions factors found for country ${countryCode}`);
+      throw new Error(`No transport emissions factors found for country ${countryCode}`);
     }
 
     // Transport impacts
