@@ -49,9 +49,13 @@ export const SAFAD_FILE_NAMES = {
     SfaRecipes: () => "SAFAD IP SFA Recipes.csv",
   },
   Output: {
-    FootprintsPerFood: "SAFAD OR Footprints per Food.csv",
-    FootprintsPerDiet: "SAFAD OR Footprints per Diet.csv",
-    BreakdownPerFood: "SAFAD OS Breakdown per Food.csv",
-    FootprintsPerSfaFood: "SAFAD OR Footprints per SFA Food.csv",
+    FootprintsPerFood: (country: string) =>
+      `SAFAD OR Footprints per Food ${country}.csv`,
+    FootprintsPerDiet: (country: string) =>
+      `SAFAD OR Footprints per Diet ${country}.csv`,
+    BreakdownPerFood: (country: string) =>
+      `SAFAD OS Breakdown per Food ${country}.csv`,
+    FootprintsPerSfaFood: (country: string) =>
+      `SAFAD OR Footprints per SFA Food ${country}.csv`,
   },
 };
