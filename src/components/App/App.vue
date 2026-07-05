@@ -146,13 +146,19 @@ const downloadFootprintsOfFoods = async (filetype: "csv" | "xlsx") => {
   const data = [DETAILED_RESULTS_HEADER, ...impactsOfRecipe];
 
   if (filetype === "csv") {
-    downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerFood, data);
+    downloadAsCsv(
+      SAFAD_FILE_NAMES.Output.FootprintsPerFood(countryCode.value),
+      data
+    );
   } else {
     const nbrStartIndex = DETAILED_RESULTS_HEADER.indexOf("Amount (g)");
     const nbrEndIndex = DETAILED_RESULTS_HEADER.indexOf("Processes") - 1;
 
     await downloadAsXlsx(
-      SAFAD_FILE_NAMES.Output.FootprintsPerFood.replace(".csv", ".xlsx"),
+      SAFAD_FILE_NAMES.Output.FootprintsPerFood(countryCode.value).replace(
+        ".csv",
+        ".xlsx"
+      ),
       [["Data", castData(data, nbrStartIndex, nbrEndIndex)]]
     );
   }
@@ -165,12 +171,18 @@ const downloadFootprintsOfDiets = async (filetype: "csv" | "xlsx") => {
   ];
 
   if (filetype === "csv") {
-    downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerDiet, data);
+    downloadAsCsv(
+      SAFAD_FILE_NAMES.Output.FootprintsPerDiet(countryCode.value),
+      data
+    );
   } else {
     const nbrStartIndex = DIET_RESULTS_HEADER.indexOf("Amount (g)");
     const nbrEndIndex = DIET_RESULTS_HEADER.indexOf("Processes") - 1;
     await downloadAsXlsx(
-      SAFAD_FILE_NAMES.Output.FootprintsPerDiet.replace(".csv", ".xlsx"),
+      SAFAD_FILE_NAMES.Output.FootprintsPerDiet(countryCode.value).replace(
+        ".csv",
+        ".xlsx"
+      ),
       [["Diet footprints", castData(data, nbrStartIndex, nbrEndIndex)]]
     );
   }
@@ -185,12 +197,18 @@ const downloadFootprintsOfSfaRecipes = async (filetype: "csv" | "xlsx") => {
 
   const data = [SFA_RESULTS_HEADER, ...sfaResultsRows];
   if (filetype === "csv") {
-    downloadAsCsv(SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood, data);
+    downloadAsCsv(
+      SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood(countryCode.value),
+      data
+    );
   } else {
     const nbrStartIndex = SFA_RESULTS_HEADER.indexOf("Gross Amount (g)");
     const nbrEndIndex = SFA_RESULTS_HEADER.indexOf("Processes") - 1;
     await downloadAsXlsx(
-      SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood.replace(".csv", ".xlsx"),
+      SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood(countryCode.value).replace(
+        ".csv",
+        ".xlsx"
+      ),
       [["Data", castData(data, nbrStartIndex, nbrEndIndex)]]
     );
   }
@@ -252,7 +270,10 @@ const downloadZip = async () => {
       foodNames
     );
     const data = stringifyCsvData([SFA_RESULTS_HEADER, ...sfaResultsRows]);
-    zip.file(SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood, data);
+    zip.file(
+      SAFAD_FILE_NAMES.Output.FootprintsPerSfaFood(countryCode.value),
+      data
+    );
   }
 
   const impactsOfRecipe = labeledAndFilteredImpacts(
@@ -264,13 +285,19 @@ const downloadZip = async () => {
     ...impactsOfRecipe,
   ]);
 
-  zip.file(SAFAD_FILE_NAMES.Output.FootprintsPerFood, impactsOfRecipeCsv);
+  zip.file(
+    SAFAD_FILE_NAMES.Output.FootprintsPerFood(countryCode.value),
+    impactsOfRecipeCsv
+  );
 
   const detailedDietImpactsCsv = stringifyCsvData([
     DIET_RESULTS_HEADER,
     ...computeDietFootprints(diet.value, RE, foodNames),
   ]);
-  zip.file(SAFAD_FILE_NAMES.Output.FootprintsPerDiet, detailedDietImpactsCsv);
+  zip.file(
+    SAFAD_FILE_NAMES.Output.FootprintsPerDiet(countryCode.value),
+    detailedDietImpactsCsv
+  );
 
   await Promise.allSettled(addFilePromises);
 
