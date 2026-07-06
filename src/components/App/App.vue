@@ -463,20 +463,7 @@ onMounted(async () => {
           email to be notified of the release and of future updates.
         </p>
       </div>
-      <form netlify>
-        <label>
-          <p>Sign up using your email:</p>
-          <div class="cluster">
-            <input
-              type="email"
-              placeholder="firstname.lastname@email.com"
-              name="email-address"
-              size="24"
-            />
-            <button type="submit" class="button button--accent">Sign up</button>
-          </div>
-        </label>
-      </form>
+      <a class="button button--accent">Register your email address</a>
     </div>
     <div class="info-bar">
       <div class="page-wrap">
@@ -924,23 +911,11 @@ onMounted(async () => {
     flex-grow: 1;
   }
 
-  > form {
+  > a {
     flex-shrink: 0;
   }
 
-  label {
-    font-weight: bold;
-  }
-
-  input {
-    max-width: 100%;
-  }
-
-  .cluster {
-    align-items: stretch;
-  }
-
-  button,
+  .button--accent,
   ::selection {
     background: #fff;
     color: $bg;
