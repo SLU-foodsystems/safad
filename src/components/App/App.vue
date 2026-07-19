@@ -519,24 +519,35 @@ onMounted(async () => {
           <span>Impacts from foods</span>
         </h2>
         <div class="foods-footprints-intro">
-          <p>
-            Footprints shown here are for foods on the market of the choosen
-            country, while considering the origin of the raw commodities. For
-            example, a share of a commodity (e.g. wheat or tomateos) can be
-            grown domestically while the rest is imported. The footprint of the
-            commoditiy is thus an average of the footprint from these countries
-            weighted according to the shares of the production taking place in
-            different countries. Footprints here also account for waste in
-            production, at the retailer and at the consumer.
-          </p>
+          <div>
+            <p>
+              Footprints shown here are for foods on the market of the choosen
+              country, while considering the origin of the raw commodities. For
+              example, a share of a commodity (e.g. wheat or tomateos) can be
+              grown domestically while the rest is imported. The footprint of
+              the commoditiy is thus an average of the footprint from these
+              countries weighted according to the shares of the production
+              taking place in different countries. Footprints here also account
+              for waste in production, at the retailer and at the consumer.
+            </p>
+            <p>
+              Food footprints can be downloaded according to the European Food
+              Safety Authority's (EFSA) recipes or the Swedish Food Authority's
+              (SFA) recipes.
+            </p>
+          </div>
           <div class="stack">
             <h3>Download footprints of all foods</h3>
             <div class="cluster">
-              Plain data (.csv):
+              <div class="cluster cluster--m-gap">
+                <img src="@/assets/file-csv.svg" width="16" />
+                As CSV file:
+              </div>
               <div class="cluster">
                 <button
                   class="button button--accent button--slim"
                   @click="() => downloadFootprintsOfFoods('csv')"
+                  title="Download footprints of foods as defined by the European Food Safety Authority's recipes, as a csv file."
                 >
                   <img src="@/assets/download-w.svg" alt="" />
                   Download for EFSA recipes
@@ -544,6 +555,7 @@ onMounted(async () => {
                 <button
                   class="button button--slim"
                   @click="() => downloadFootprintsOfSfaRecipes('csv')"
+                  title="Download footprints of foods as defined by the Swedish Food Authority's recipes, as a csv file."
                 >
                   <img src="@/assets/download.svg" alt="" />
                   Download for SFA recipes
@@ -551,11 +563,15 @@ onMounted(async () => {
               </div>
             </div>
             <div class="cluster">
-              Spreadsheet (.xlsx):
+              <div class="cluster cluster--m-gap">
+                <img src="@/assets/file-excel.svg" width="16" />
+                As Excel file:
+              </div>
               <div class="cluster">
                 <LoadingButton
                   class="button button--accent button--slim"
                   :click-handler="() => downloadFootprintsOfFoods('xlsx')"
+                  title="Download footprints of foods as defined by the European Food Safety Authority's recipes, as an excel file."
                 >
                   <img src="@/assets/download-w.svg" alt="" />
                   Download for EFSA recipes
@@ -563,6 +579,7 @@ onMounted(async () => {
                 <LoadingButton
                   class="button button--slim"
                   :click-handler="() => downloadFootprintsOfSfaRecipes('xlsx')"
+                  title="Download footprints of foods as defined by the Swedish Food Authority's recipes, as an excel file."
                 >
                   <img src="@/assets/download.svg" alt="" />
                   Download for SFA recipes
@@ -626,23 +643,29 @@ onMounted(async () => {
             </p>
             <h3>Download footprints of the selected diet</h3>
             <div class="cluster">
-              Plain data:
+              <div class="cluster cluster--m-gap">
+                <img src="@/assets/file-csv.svg" width="16" />
+                As CSV file:
+              </div>
               <button
                 class="button button--accent button--slim"
                 @click="() => downloadFootprintsOfDiets('csv')"
               >
                 <img src="@/assets/download-w.svg" alt="" />
-                Download as .csv-file
+                Download Footprints of Diet (.csv)
               </button>
             </div>
             <div class="cluster">
-              Spreadsheet:
+              <div class="cluster cluster--m-gap">
+                <img src="@/assets/file-excel.svg" width="16" />
+                As Excel file:
+              </div>
               <LoadingButton
                 class="button--accent button--slim"
                 :click-handler="() => downloadFootprintsOfDiets('xlsx')"
               >
                 <img src="@/assets/download-w.svg" alt="" />
-                Download as .xlsx-file
+                Download Footprints of Diet (.xlsx)
               </LoadingButton>
             </div>
           </div>
