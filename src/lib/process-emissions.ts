@@ -14,12 +14,6 @@ const CARRIER_ORDER = [
   "District heating",
 ] as const;
 
-const hasCountryDependentDemands = (
-  carrier: string,
-  demands: number[] | Record<string, number[]>
-): demands is Record<string, number[]> =>
-  carrier === "Electricity" || carrier == "District heating";
-
 /**
  * Create a mapping between processes and ghg impacts per kilo for a given
  * country.
@@ -27,7 +21,7 @@ const hasCountryDependentDemands = (
 export function getProcessEnvFactors(
   countryCode: string,
   processEnergyDemands: Record<string, number[]>,
-  emissionsFactors: Record<string, number[] | Record<string, number[]>>
+  emissionsFactors: Record<string, Record<string, number[]>>
 ): Record<string, number[]> {
   const result: Record<string, number[]> = {};
   Object.entries(processEnergyDemands).forEach(
@@ -41,15 +35,15 @@ export function getProcessEnvFactors(
         if (!carrier) {
           throw new Error(`Index out of bounds for carrierIdx ${carrierIdx}.`);
         }
+
         const demands = emissionsFactors[carrier];
         if (!demands) {
           throw new Error(
             `No energy demands found for given carrier ${carrier}`
           );
         }
-        const ghgsPerMj: number[] = hasCountryDependentDemands(carrier, demands)
-          ? demands[countryCode]!
-          : demands;
+
+        const ghgsPerMj: number[] = demands[countryCode] ?? demands.RoW;
 
         if (!ghgsPerMj) {
           throw new Error(
@@ -59,7 +53,7 @@ export function getProcessEnvFactors(
         }
 
         ghgsPerMj.forEach((factor, i) => {
-          factors[i]! += factor * mjPerKg;
+          factors[i] += factor * mjPerKg;
         });
       });
 

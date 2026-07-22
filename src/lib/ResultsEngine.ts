@@ -32,7 +32,7 @@ class ResultsEngine {
   processEnvFactors?: Record<string, number[]>;
 
   emissionsFactorsPackaging?: Record<string, number[]>;
-  emissionsFactorsEnergy?: Record<string, number[] | Record<string, number[]>>;
+  emissionsFactorsEnergy?: Record<string, Record<string, number[]>>;
   emissionsFactorsTransport?: NestedRecord<string, number[]>;
 
   processesEnergyDemands?: Record<string, number[]>;
@@ -136,7 +136,7 @@ class ResultsEngine {
     this.foodsRecipes = foodsRecipes;
   }
 
-  private attemptUpdateProcessEmissionsFactors() {
+  private updateProcessEmissionsFactors() {
     if (
       this.countryCode &&
       this.processesEnergyDemands &&
@@ -152,24 +152,21 @@ class ResultsEngine {
 
   public setCountryCode(countryCode: string) {
     this.countryCode = countryCode;
-    this.attemptUpdateProcessEmissionsFactors();
+    this.updateProcessEmissionsFactors();
   }
 
   public setEmissionsFactorsEnergy(
-    emissionsFactorsProcesses: Record<
-      string,
-      number[] | Record<string, number[]>
-    >
+    emissionsFactorsProcesses: Record<string, Record<string, number[]>>
   ) {
     this.emissionsFactorsEnergy = emissionsFactorsProcesses;
-    this.attemptUpdateProcessEmissionsFactors();
+    this.updateProcessEmissionsFactors();
   }
 
   public setProcessesEnergyDemands(
     processesEnergyDemands: Record<string, number[]>
   ) {
     this.processesEnergyDemands = processesEnergyDemands;
-    this.attemptUpdateProcessEmissionsFactors();
+    this.updateProcessEmissionsFactors();
   }
 
   public setEmissionsFactorsPackaging(
@@ -326,7 +323,9 @@ class ResultsEngine {
     const emissionsFactorsTransport =
       this.emissionsFactorsTransport[countryCode];
     if (!emissionsFactorsTransport) {
-      throw new Error(`No transport emissions factors found for country ${countryCode}`);
+      throw new Error(
+        `No transport emissions factors found for country ${countryCode}`
+      );
     }
 
     // Transport impacts

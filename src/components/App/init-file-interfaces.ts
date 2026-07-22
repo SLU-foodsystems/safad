@@ -86,7 +86,7 @@ export default function initInputFiles(RE: ResultsEngine) {
     ),
 
     emissionsFactorsEnergyFile: ref(
-      initInputFile<Record<string, number[] | Record<string, number[]>>>({
+      initInputFile<Record<string, Record<string, number[]>>>({
         defaultName: SAFAD_FILE_NAMES.Input.EmissionsFactorsEnergy,
         getDefault: DefaultInputFiles.raw.emissionsFactorsEnergy,
         parser: InputFileParsers.parseEmissionsFactorsEnergy,
