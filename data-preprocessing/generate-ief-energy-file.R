@@ -41,13 +41,15 @@ EF_general <- read_excel(
     names_from = "Gas",
   ) |>
   rename(`Energy carrier` = Parameter) |>
-  mutate(`Energy carrier` = case_when(
-    `Energy carrier` == "Other fossil" ~ "Other fossil energy sources",
-    `Energy carrier` == "Wood chips" ~ "Bark and chips",
-    `Energy carrier` == "Pellets" ~ "Pellets and briquettes",
-    `Energy carrier` == "Other renew" ~ "Other renewable energy sources",
-    TRUE ~ `Energy carrier`
-  ))|>
+  mutate(
+    `Energy carrier` = case_when(
+      `Energy carrier` == "Other fossil" ~ "Other fossil energy sources",
+      `Energy carrier` == "Wood chips" ~ "Bark and chips",
+      `Energy carrier` == "Pellets" ~ "Pellets and briquettes",
+      `Energy carrier` == "Other renew" ~ "Other renewable energy sources",
+      TRUE ~ `Energy carrier`
+    )
+  ) |>
   mutate(`Country code` = "RoW") |>
   filter(`Energy carrier` != "Irrigation")
 
@@ -55,7 +57,7 @@ EF_general <- read_excel(
 EF_country_specific <- read_excel(
   "rpc-footprints/1 - Crops/Emission factors.xlsx",
   sheet = "EF country spec",
-  skip=4
+  skip = 4
 ) |>
   select(-Description, -Unit) |>
   filter(
