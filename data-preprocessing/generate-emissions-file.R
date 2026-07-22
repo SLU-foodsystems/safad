@@ -13,6 +13,19 @@ if (!requireNamespace("pacman", quietly = TRUE)) {
 library(pacman)
 p_load(readxl, dplyr, readr, tidyr, tibble, here, fs)
 
+LL_countries <- c(
+  "DE",
+  "DK",
+  "ES",
+  "FR",
+  "GR",
+  "HU",
+  "IR",
+  "IT",
+  "PL",
+  "SE"
+)
+
 
 # CO2, CH4 and N2O emission factors (kg per MJ) across energy sources,
 # irregardless of country
@@ -73,6 +86,9 @@ EF_country_specific <- read_excel(
     values_from = "Value",
     names_from = "Gas"
   ) |>
+  # The process energy factors are only used for the LL countries, and we're
+  # thus only interested in these country rows. Exclude any others.
+  filter(`Country code` %in% c(LL_countries, "RoW")) |>
   arrange(`Energy carrier`, `Country code`)
 
 out <- bind_rows(
@@ -88,4 +104,3 @@ out <- bind_rows(
   )
 
 write_csv(out, "../src/default-input-files/SAFAD IEF Energy.csv")
-prev <- read_csv("../src/default-input-files/SAFAD IEF Energy.csv")
