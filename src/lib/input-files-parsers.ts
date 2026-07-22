@@ -127,11 +127,7 @@ export function parseEmissionsFactorsEnergy(
 ) {
   const csv = parseCsvFile(csvString, { delimiter }).slice(1); // Drop Header
 
-  const emissionsFactors: Record<string, number[] | Record<string, number[]>> =
-    {
-      Electricity: {},
-      "District heating": {},
-    };
+  const emissionsFactors: Record<string, Record<string, number[]>> = {};
 
   // maxCols = 9 for some flexibility for comments etc
   const err = validateCsv(csv, { minCols: 5, maxCols: 9 });
@@ -139,14 +135,17 @@ export function parseEmissionsFactorsEnergy(
     throw new CsvValidationError(err);
   }
 
-  csv.forEach(([carrier, countryCode, ...ghgsStrs]: string[]) => {
+  csv.forEach(([carrier, countryCode, ...ghgsStrs]: string[], idx: number) => {
     const ghgs = ghgsStrs.map((x) => asNumber(x, 0));
-    if (carrier === "Electricity" || carrier === "District heating") {
-      (emissionsFactors[carrier] as Record<string, number[]>)[countryCode!] =
-        ghgs;
-    } else {
-      emissionsFactors[carrier!] = ghgs;
+    if (!countryCode) {
+      throw new Error(
+        `Missing countryCode when parsing energy emissions factors file for row ${idx}.`
+      );
     }
+    if (!emissionsFactors[carrier]) {
+      emissionsFactors[carrier] = {};
+    }
+    emissionsFactors[carrier][countryCode] = ghgs;
   });
 
   return emissionsFactors;
