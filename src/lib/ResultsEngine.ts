@@ -41,6 +41,8 @@ class ResultsEngine {
 
   wasteRetailAndConsumer?: Record<string, number[]>;
 
+  missingFootprintsCodes = new Set<string>();
+
   constructor() {
     // JavaScript needs this so that we can pass references directly to the
     // methods of the class, while still retailinig the reference to `this`
@@ -229,7 +231,10 @@ class ResultsEngine {
     }
 
     if (!this.footprintsRpcsMerged[rpcCode]) {
-      console.warn(`Footprints RPC: Missing footprints for ${rpcCode}.`);
+      if (!this.missingFootprintsCodes.has(rpcCode)) {
+        console.warn(`Footprints RPC: Missing footprints for ${rpcCode}.`);
+        this.missingFootprintsCodes.add(rpcCode);
+      }
       return null;
     }
 
