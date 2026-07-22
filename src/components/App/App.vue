@@ -458,9 +458,9 @@ onMounted(async () => {
           <strong>Are you using SAFAD?</strong>
         </p>
         <p>
-          We are preparing for the release of version 2.0, with improvements to
-          the environmental data and increased transparency. Sign up with your
-          email to be notified of the release and of future updates.
+          We are preparing for the release of version 2.0, with updates to the
+          environmental data and increased transparency. Sign up with your email
+          to be notified of the release and of future updates.
         </p>
       </div>
       <a class="button button--accent">Register your email address</a>
