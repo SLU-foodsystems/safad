@@ -139,8 +139,8 @@ class ResultsEngine {
   private attemptUpdateProcessEmissionsFactors() {
     if (
       this.countryCode &&
-      this.emissionsFactorsEnergy &&
-      this.processesEnergyDemands
+      this.processesEnergyDemands &&
+      this.emissionsFactorsEnergy
     ) {
       this.processEnvFactors = getProcessEnvFactors(
         this.countryCode,

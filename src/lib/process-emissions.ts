@@ -1,6 +1,7 @@
 import { N_PROCESS_GHGS } from "@/lib/constants";
 import { mapValues } from "@/lib/utils";
 
+// Hard-coded to match the order of columns in IP Energy Proc.csv
 const CARRIER_ORDER = [
   "Electricity",
   "Heating oil",
@@ -16,7 +17,8 @@ const CARRIER_ORDER = [
 const hasCountryDependentDemands = (
   carrier: string,
   demands: number[] | Record<string, number[]>
-): demands is Record<string, number[]> => carrier === "Electricity";
+): demands is Record<string, number[]> =>
+  carrier === "Electricity" || carrier == "District heating";
 
 /**
  * Create a mapping between processes and ghg impacts per kilo for a given
@@ -32,7 +34,7 @@ export function getProcessEnvFactors(
     ([processCode, demandPerCarrier]) => {
       const factors = Array.from({ length: N_PROCESS_GHGS }).map((_) => 0);
       demandPerCarrier.forEach((mjPerKg, carrierIdx) => {
-        // Exit early if it's not using this energyType
+        // Exit early if we're not using this energyType
         if (mjPerKg === 0) return;
 
         const carrier = CARRIER_ORDER[carrierIdx];
