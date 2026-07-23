@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 /**
- * Script for extracting diets from a large CREA database csv.
+ * Script for extracting diets from the large CREA database (csv) of diets.
  *
  * Takes two parameters:
- * - path to CREA file, with foods and their amounts
- * - path to CREA-EFSA code conversion file
+ * - path to CREA file, with foods and their amounts (efsa-main.csv)
+ * - path to CREA-EFSA code conversion file (crea-to-efsa.csv)
  */
 
 import * as fs from "fs";
 import * as path from "path";
 import url from "url";
 
-import { readCsv, roundToPrecision } from "../utils.mjs";
+import { readCsv, roundToPrecision } from "./utils.mjs";
 
 const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
 

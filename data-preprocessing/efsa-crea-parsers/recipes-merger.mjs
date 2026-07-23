@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 /**
- * Merges the two recipe files from the original EFSA recipes, table 4 and 5,
+ * Merges the two recipe files from the original EFSA recipes (table 4 and 5)
  * into a single, consolidated file.
+ *
+ * Only used initially to construct the SAFAD IP Recipes.csv file, but kept for
+ * documentation purposes or in case we need to re-do the export.
  */
 import { readCsv } from "./utils.mjs";
 
