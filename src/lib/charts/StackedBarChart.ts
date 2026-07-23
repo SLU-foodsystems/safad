@@ -14,6 +14,7 @@ interface Config {
   maxValue: number;
   minValue: number;
   innerPadding: number;
+  showGridLines?: boolean;
 
   colors: string[]; // could also be function?
 
@@ -38,6 +39,7 @@ export default function StackedBarChart(
     maxValue: 1,
     minValue: 0,
     innerPadding: 0.2,
+    showGridLines: false,
 
     labelLayout: "normal",
     labelTextMapper: (id: string) => id, // no change
@@ -102,6 +104,32 @@ export default function StackedBarChart(
     .range([0, innerWidth])
     .padding(cfg.innerPadding);
 
+  const yAxis = d3
+    .scaleLinear()
+    .domain([cfg.minValue, cfg.maxValue])
+    .range([innerHeight, 0]);
+
+  // Grid lines - drawn before axes and bars
+  if (cfg.showGridLines) {
+    svg
+      .append("g")
+      .attr("class", "grid")
+      .call(
+        d3
+          .axisLeft(yAxis)
+          .tickFormat(() => "")
+          .tickSize(-innerWidth)
+      )
+      .call((g) => g.select(".domain").remove())
+      .call((g) =>
+        g
+          .selectAll(".tick line")
+          .attr("stroke", "#e0e0e0")
+          .attr("stroke-dasharray", "3,3")
+      )
+      .call((g) => g.selectAll(".tick text").remove());
+  }
+
   const xAxisG = svg
     .append("g")
     .attr("transform", `translate(0, ${innerHeight})`)
@@ -123,13 +151,6 @@ export default function StackedBarChart(
       .attr("transform", "translate(0, 16)");
   }
 
-  // Add Y axis
-  const yAxis = d3
-    .scaleLinear()
-    .domain([cfg.minValue, cfg.maxValue])
-    .range([innerHeight, 0]);
-
-  // TODO: Only implemented y-label
   if (cfg.axisLabels && cfg.axisLabels.y) {
     const labelXPos = -30;
     const labelYPos = (cfg.height - cfg.margin.bottom - cfg.margin.top) / -2;
@@ -149,12 +170,12 @@ export default function StackedBarChart(
 
   const color = d3.scaleOrdinal(cfg.colors).domain(columns);
 
-  type DataPoint = { [key: string]: number };
-  type StackedData = d3.Series<{ [key: string]: number }, string>[];
+  type StackedDataPoint = { [key: string]: number };
+  type StackedData = d3.Series<StackedDataPoint, string>[];
 
   // Stack the data.
   const stackedData: StackedData = d3.stack().keys(reversed(columns))(
-    data as unknown as DataPoint[]
+    data as unknown as StackedDataPoint[]
   );
 
   // Create the tooltip element, outside of the svg
@@ -186,8 +207,7 @@ export default function StackedBarChart(
     // enter a second time = loop subgroup per subgroup to add all rectangles
     .data((d) => d)
     .join("rect")
-    //@ts-ignore-next-line
-    .attr("x", (d) => xAxis(d.data.category))
+    .attr("x", (d) => xAxis(d.data.category as string) as number)
     .attr("y", (d) => yAxis(d[1]))
     .attr("height", (d) => yAxis(d[0]) - yAxis(d[1]))
     .attr("width", xAxis.bandwidth())
@@ -199,7 +219,7 @@ export default function StackedBarChart(
       if (!thisData || !thisData.key) return;
 
       const subgroupName = thisData.key;
-      const subgroupValue = d.data[subgroupName] || 0;
+      const subgroupValue = d.data[subgroupName] || 0;
 
       const spaceBeforeUnit = cfg.tooltipUnit !== "%";
       const tooltipHtml =
