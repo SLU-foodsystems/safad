@@ -107,6 +107,10 @@ h6 {
   margin-bottom: 0.5em;
 }
 
+h1, h2, h3 {
+  font-family: 'PT Serif', Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+}
+
 h1 {
   font-size: constants.$s2;
 }
@@ -120,7 +124,7 @@ h3 {
 }
 
 h4 {
-  font-weight: normal;
+  font-weight: bold;
 }
 
 p {
@@ -276,6 +280,9 @@ p {
 
   h1 {
     font-weight: bold;
+    span {
+      color: #4aa467;
+    }
   }
 
   h1, h2 {

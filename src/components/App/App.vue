@@ -463,7 +463,7 @@ onMounted(async () => {
         </div>
         <div>
           <h1>
-            SAFAD &mdash;<br />Sustainability Assessment of
+            <span>SAFAD &mdash;</span><br />Sustainability Assessment of
             <br data-remove-on-mobile />Foods and Diets
           </h1>
           <h2>
@@ -629,7 +629,7 @@ onMounted(async () => {
             </p>
           </div>
           <div v-else class="stack diet-info-box">
-            <h3><strong>Selected diet:</strong> {{ dietName }}</h3>
+            <p style="font-size: 1.25em"><strong>Selected diet:</strong> {{ dietName }}</p>
             <p>
               The footprints for the whole diet is calculated by multiplying the
               amount of different food products with the footprints of the food
