@@ -60,6 +60,7 @@ const drawChart = async () => {
     labelLayout: "slanted",
     color: props.color,
     axisLabels: props.yLabel ? { y: props.yLabel } : undefined,
+    showGridLines: true,
   });
 
   hasLoadedOnce.value = true;
