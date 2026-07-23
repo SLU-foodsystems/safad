@@ -478,6 +478,20 @@ onMounted(async () => {
           >
         </div>
       </div>
+      <div class="hero__footer">
+        <div class="hero__footer-segment">
+          <span>9</span>
+          <span>Consumption countries</span>
+        </div>
+        <div class="hero__footer-segment">
+          <span>1805</span>
+          <span>Food products</span>
+        </div>
+        <div class="hero__footer-segment">
+          <span>10</span>
+          <span>Footprint indicators</span>
+        </div>
+      </div>
     </div>
     <div class="info-bar">
       <div class="page-wrap">
