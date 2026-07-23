@@ -19,3 +19,12 @@ export const contrastingTextColor = (color: string): string => {
   const b = brightness(color);
   return Number.isNaN(b) || b > 128 ? "#000" : "#fff";
 };
+
+export const getYTickFormat = (
+  val: number,
+  domain: [number, number],
+  threshold = 5
+) =>
+  Math.ceil(Math.abs(Math.log10(val))) > threshold
+    ? d3.format(".2e")
+    : d3.scaleLinear().domain(domain).tickFormat();
