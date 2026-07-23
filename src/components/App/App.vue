@@ -516,28 +516,27 @@ onMounted(async () => {
     <div class="page-wrap stack stack-l">
       <section class="stack stack-l">
         <h2 class="hr-header">
-          <span>Impacts from foods</span>
+          <span>Food commodity footprints</span>
         </h2>
         <div class="foods-footprints-intro">
           <div>
             <p>
-              Footprints shown here are for foods on the market of the choosen
-              country, while considering the origin of the raw commodities. For
-              example, a share of a commodity (e.g. wheat or tomateos) can be
-              grown domestically while the rest is imported. The footprint of
-              the commoditiy is thus an average of the footprint from these
-              countries weighted according to the shares of the production
-              taking place in different countries. Footprints here also account
-              for waste in production, at the retailer and at the consumer.
+
+              Food commodity footprints are calculated per 1 kg of food (e.g.
+              tomatoes or a lasagna). The footprints are modeled as if consumed
+              in the chosen country, weighing import shares, waste, processes
+              and energy use, packaging and transport into the aggregate
+              footprint. By changing the country in the drop-down above, the
+              footprint files generated change accordingly.
             </p>
             <p>
-              Food footprints can be downloaded according to the European Food
-              Safety Authority's (EFSA) recipes or the Swedish Food Authority's
-              (SFA) recipes.
+              Food commodities can be downloaded as specified according to the
+              European Food Safety Authority's (EFSA) recipes or the Swedish
+              Food Authority's (SFA) recipes.
             </p>
           </div>
           <div class="stack">
-            <h3>Download footprints of all foods</h3>
+            <h3>Download footprints of all foods in SAFAD</h3>
             <div class="cluster">
               <div class="cluster cluster--m-gap">
                 <img src="@/assets/file-csv.svg" width="16" />
@@ -618,7 +617,7 @@ onMounted(async () => {
 
       <section class="stack stack-l">
         <h2 class="hr-header">
-          <span>Impacts from diet</span>
+          <span>Diet footprinting</span>
         </h2>
         <div class="cluster planetary-boundaries-section">
           <div v-if="missingDietPoland" class="stack diet-info-box">
@@ -631,10 +630,10 @@ onMounted(async () => {
           <div v-else class="stack diet-info-box">
             <p style="font-size: 1.25em"><strong>Selected diet:</strong> {{ dietName }}</p>
             <p>
-              The footprints for the whole diet is calculated by multiplying the
-              amount of different food products with the footprints of the food
-              items. Download the footprints below, or see the charts on this
-              page for examples of what the data can show.
+              By joining the food commodity footprints above with dietary survey
+              data, SAFAD can estimate the footprint of an entire diet. Download
+              the diet footprints below, or see the charts on this page for
+              examples of what the data can show.
             </p>
             <p>
               Upon changing the country at the top of the page, another diet
