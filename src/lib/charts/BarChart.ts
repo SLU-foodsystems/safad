@@ -1,7 +1,5 @@
 import * as d3 from "d3";
-import { contrastingTextColor } from "./charts-utils";
-
-const MAX_Y_AXIS_DIGITS = 5;
+import { contrastingTextColor, getYTickFormat } from "./charts-utils";
 
 interface Config {
   margin: { top: number; right: number; bottom: number; left: number };
@@ -25,15 +23,6 @@ type DataPoint = {
   category: string;
   value: number;
 };
-
-const getYTickFormat = (
-  val: number,
-  domain: [number, number],
-  threshold = 5
-) =>
-  Math.ceil(Math.abs(Math.log10(val))) > threshold
-    ? d3.format(".2e")
-    : d3.scaleLinear().domain(domain).tickFormat();
 
 export default function BarChart(
   container: HTMLElement,
@@ -76,8 +65,7 @@ export default function BarChart(
 
   const yTickFormat = getYTickFormat(
     cfg.maxValue,
-    [cfg.minValue, cfg.maxValue],
-    MAX_Y_AXIS_DIGITS
+    [cfg.minValue, cfg.maxValue]
   );
   const yTickCharLen = yTickFormat(cfg.maxValue).length;
 
@@ -193,8 +181,7 @@ export default function BarChart(
     .style("text-align", "left");
 
   const moveTooltip = (event: MouseEvent) => {
-    const x = event.layerX + 10;
-    const y = event.layerY;
+    const [x, y] = d3.pointer(event);
     tooltip.style("transform", `translate(${x}px, ${y}px)`);
   };
 

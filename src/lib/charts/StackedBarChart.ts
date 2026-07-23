@@ -1,7 +1,7 @@
 //@ts-disable
 import * as d3 from "d3";
 import { reversed } from "@/lib/utils";
-import { contrastingTextColor } from "./charts-utils";
+import { contrastingTextColor, getYTickFormat } from "./charts-utils";
 
 type DataPoint = {
   [k: string]: number | string;
@@ -75,6 +75,11 @@ export default function StackedBarChart(
   if (cfg.axisLabels?.y) {
     cfg.margin.left += 30;
   }
+
+  const yTickFormat = getYTickFormat(
+    cfg.maxValue,
+    [cfg.minValue, cfg.maxValue]
+  );
 
   // set the dimensions and margins of the graph
   const innerWidth = cfg.width - cfg.margin.left - cfg.margin.right;
@@ -166,7 +171,7 @@ export default function StackedBarChart(
       .text(cfg.axisLabels.y);
   }
 
-  svg.append("g").call(d3.axisLeft(yAxis));
+  svg.append("g").call(d3.axisLeft(yAxis).tickFormat(yTickFormat));
 
   const color = d3.scaleOrdinal(cfg.colors).domain(columns);
 
@@ -185,8 +190,7 @@ export default function StackedBarChart(
     .attr("class", "d3-tooltip");
 
   const moveTooltip = (event: MouseEvent) => {
-    const x = event.layerX + 10;
-    const y = event.layerY;
+    const [x, y] = d3.pointer(event);
     tooltip.style("transform", `translate(${x}px, ${y}px)`);
   };
 
