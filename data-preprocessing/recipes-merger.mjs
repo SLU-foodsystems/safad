@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * Merges the two recipe files from the original EFSA recipes, table 4 and 5,
  * into a single, consolidated file.
