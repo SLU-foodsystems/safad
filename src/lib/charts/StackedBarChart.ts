@@ -39,7 +39,7 @@ export default function StackedBarChart(
     maxValue: 1,
     minValue: 0,
     innerPadding: 0.2,
-    showGridLines: false,
+    showGridLines: true,
 
     labelLayout: "normal",
     labelTextMapper: (id: string) => id, // no change

@@ -55,7 +55,7 @@ export default function BarChart(
     labelLayout: "normal",
     color: "#06f",
     labelTextMapper: (id: string) => id,
-    showGridLines: false,
+    showGridLines: true,
 
     ...options,
   };
