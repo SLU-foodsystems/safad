@@ -21,8 +21,7 @@ body {
 html {
   background: constants.$background;
   color: constants.$type;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: constants.$ff_body;
 }
 
 body {
@@ -108,7 +107,7 @@ h6 {
 }
 
 h1, h2, h3 {
-  font-family: 'PT Serif', Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  font-family: constants.$ff_serif;
 }
 
 h1 {
@@ -265,13 +264,15 @@ p {
   color: white;
   margin: 0 1em;
   border-radius: 0.5em;
+  overflow: hidden;
+  padding-top: 4em;
 }
 
 .hero__inner {
   display: flex;
 
   margin: 0 auto;
-  padding: 4em 1em;
+  padding: 0 1em;
 
   gap: 2em;
   align-items: center;
@@ -347,6 +348,56 @@ p {
     margin-left: auto;
     margin-right: auto;
     flex-grow: 1;
+  }
+}
+
+.hero__footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: rgba(black, 0.2);
+  padding: 0 2em;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.hero__footer-segment {
+  padding: 1em;
+
+  @media (max-width: 800px) {
+    padding: 1.5em;
+    font-size: 0.875em;
+  }
+
+  span {
+    display: block;
+  }
+
+  span:first-child {
+    font-size: 2em;
+    font-family: 'PT Serif';
+  }
+  span:last-child {
+    text-transform: uppercase;
+    font-size: 0.875em;
+  }
+
+  @media (max-width: 500px) {
+    display: block;
+    padding: 0.5em;
+    span {
+      display: inline;
+      margin-right: 0.5ch;
+      vertical-align: baseline;
+    }
+  }
+
+  ::selection {
+    background: white;
+    color: constants.$green_forest;
   }
 }
 
