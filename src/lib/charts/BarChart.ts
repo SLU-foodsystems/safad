@@ -13,6 +13,7 @@ interface Config {
   labelLayout: "normal" | "slanted" | "offset";
   color: string;
   labelTextMapper: (id: string) => string;
+  showGridLines?: boolean;
 
   axisLabels?: {
     // x: string; // TODO: Not implemented
@@ -54,6 +55,7 @@ export default function BarChart(
     labelLayout: "normal",
     color: "#06f",
     labelTextMapper: (id: string) => id,
+    showGridLines: false,
 
     ...options,
   };
@@ -119,6 +121,27 @@ export default function BarChart(
     .range([0, innerWidth])
     .padding(cfg.innerPadding);
 
+  // Grid lines - drawn before axes and bars so they're in the background
+  if (cfg.showGridLines) {
+    svg
+      .append("g")
+      .attr("class", "grid")
+      .call(
+        d3
+          .axisLeft(yAxisScaler)
+          .tickFormat(() => "")
+          .tickSize(-innerWidth)
+      )
+      .call((g) => g.select(".domain").remove())
+      .call((g) =>
+        g
+          .selectAll(".tick line")
+          .attr("stroke", "#e0e0e0")
+          .attr("stroke-dasharray", "3,3")
+      )
+      .call((g) => g.selectAll(".tick text").remove());
+  }
+
   const xAxisG = svg
     .append("g")
     .attr("transform", `translate(0, ${innerHeight})`)
@@ -183,8 +206,7 @@ export default function BarChart(
     .enter()
     .append("rect")
     .attr("fill", () => cfg.color)
-    // @ts-ignore-next-line
-    .attr("x", (d) => xAxisScaler(d.category))
+    .attr("x", (d) => xAxisScaler(d.category) as number)
     .attr("y", (d) => yAxisScaler(d.value))
     .attr("height", (d) => innerHeight - yAxisScaler(d.value))
     .attr("width", xAxisScaler.bandwidth())
