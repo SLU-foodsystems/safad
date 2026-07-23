@@ -97,6 +97,7 @@ normalise_country_names <- function(df, col) {
         "Syria" ~ "Syrian Arab Republic",
         "São Tomé and Príncipe" ~ "Sao Tome and Principe",
         "Tanzania" ~ "United Republic of Tanzania",
+        "Turkiye" ~ "Türkiye",
         "Turkey" ~ "Türkiye",
         "UK" ~ "United Kingdom of Great Britain and Northern Ireland",
         "USA" ~ "United States of America",
@@ -416,6 +417,7 @@ df_water <- read_csv(
     wfb_i_m3_t = mean(wfb_i_m3_t, na.rm = TRUE),
     .by = c("crop_code", "country_name")
   ) |>
+  normalise_country_names("country_name") |>
   # We have the country names but not the country codes
   left_join(country_name_code_map, by = c("country_name" = "Country name")) |>
   # Inner_join, not left_join: we have several SUA codes for some Item codes
