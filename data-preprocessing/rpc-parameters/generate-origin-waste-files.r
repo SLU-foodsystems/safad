@@ -90,9 +90,9 @@ misc_waste_factors <- read_csv("misc-waste-factors.csv", show_col_types = FALSE)
 # Build SUA template and validate missing FAO item code (non-BF)
 # ------------------------------------------------------------------------------
 
-sua_to_fao <- read_csv("sua-to-fao.csv", show_col_types = FALSE)
-rpc_to_sua <- read_csv("rpc-to-sua.csv", show_col_types = FALSE) |>
-  select(-`SUA Name`)
+sua_to_fao <- read_csv("../codes/sua-to-fao.csv", show_col_types = FALSE)
+rpc_to_sua <- read_excel("../codes/rpc-to-sua.xlsx") |>
+  transmute(`FoodEx2 Code`, `RPC Code` = `Long Code`, `FoodEx2 Name`, `SUA Code` = Code)
 
 missing_fao <- sua_to_fao |>
   filter(

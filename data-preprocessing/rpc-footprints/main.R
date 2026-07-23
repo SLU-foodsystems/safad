@@ -44,7 +44,7 @@ gh_crops <- tribble(
     `of_code` = paste0(`Crop code`, "_of")
   )
 
-sua_fao_codes <- read_csv("Codes/FAO to SUA.csv", show_col_types = FALSE) |>
+sua_fao_codes <- read_csv("../codes/sua-to-fao.csv", show_col_types = FALSE) |>
   select(`SUA Code`, `Item Code`) |>
   filter(!is.na(`Item Code`))
 
@@ -158,7 +158,7 @@ trade_data <- list.files(
 # ==========================================================
 
 country_name_code_map <- read_csv(
-  "./Codes/Country codes.csv",
+  "../codes/country-codes.csv",
   na = "", # Prevent Namibia (NA) from being interpreted as a missing value
   show_col_types = FALSE
 )
@@ -1857,7 +1857,7 @@ merged_data <- bind_rows(merged_data, new_rows)
 ################################################################################
 
 # Start by reading the file with all the codes
-RPC_SUA_codes <- read_excel("./Codes/RPC to SUA.xlsx", sheet = "All") |>
+RPC_SUA_codes <- read_excel("../codes/rpc-to-sua.xlsx", sheet = "All") |>
   select(
     "Code",
     "FoodEx2 Code",

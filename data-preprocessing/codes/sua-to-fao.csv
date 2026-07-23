@@ -76,7 +76,7 @@ SUA Code,SUA Name,Category,Item Code,Item Name
 02910,natural honey,Other,1182,"Honey, natural"
 01653,"nutmeg, mace, cardamoms, raw",Spices,702,"Nutmeg, mace and cardamoms"
 0117,Oats,"Cereals, incl feed",75,Oats
-01491.01,Oil palm fruit,"Oil crops, tree",339,Oilseeds nes
+01491.01,Oil palm fruit,"Oil crops, tree",254,Oil palm fruit
 01491.02,Oil palm seeds,"Oil crops, tree",339,Oilseeds nes
 01450,Olives,"Oil crops, tree",260,Olives
 01253.02,"Onions and shallots, dry (excluding dehydrated)",Vegetables,403,"Onions, dry"
@@ -138,7 +138,6 @@ SUA Code,SUA Name,Category,Item Code,Item Name
 01658,Water buffalo milk,Dairy,882,"Milk, whole fresh cow"
 02212,"Vanilla, raw",Spices,692,Vanilla
 02292,Goat milk,Dairy,982,"Milk, whole fresh sheep"
-01491.01,Oil palm fruit,"Oil crops, tree",254,Oil palm fruit
 21113.02,Pig meat,Meat,1035,"Meat, pig"
 21170.01,Pigeon fresh meat,Meat,1166,Meat nes
 21170.92,"Other meat n.e.c, fresh, chilled or frozen",Meat,1166,Meat nes
