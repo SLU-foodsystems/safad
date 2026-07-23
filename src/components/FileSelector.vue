@@ -317,7 +317,6 @@ const onDrop = (e: DragEvent) => {
   position: relative;
 
   h4 {
-    font-weight: bold;
     margin-bottom: 0;
   }
 }
