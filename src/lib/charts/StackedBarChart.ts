@@ -211,7 +211,7 @@ export default function StackedBarChart(
     // enter a second time = loop subgroup per subgroup to add all rectangles
     .data((d) => d)
     .join("rect")
-    .attr("x", (d) => xAxis(d.data.category as string) as number)
+    .attr("x", (d) => xAxis(d.data.category) || 0)
     .attr("y", (d) => yAxis(d[1]))
     .attr("height", (d) => yAxis(d[0]) - yAxis(d[1]))
     .attr("width", xAxis.bandwidth())
