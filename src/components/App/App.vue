@@ -71,8 +71,9 @@ const missingDietPoland = computed(
   () => dietFile.value.state === "default" && countryCode.value === "PL"
 );
 const defaultDietName = readableDietName(countryCode);
+const isCustomDiet = computed(() => dietFile.value.state === "custom");
 const dietName = computed(() =>
-  dietFile.value.state === "custom"
+  isCustomDiet.value
     ? `Custom diet, ${dietFile.value.name}`
     : defaultDietName.value
 );
@@ -549,7 +550,7 @@ onMounted(async () => {
                   title="Download footprints of foods as defined by the European Food Safety Authority's recipes, as a csv file."
                 >
                   <img src="@/assets/download-w.svg" alt="" />
-                  Download for EFSA recipes
+                  Download for {{ isCustomDiet ? "uploaded" : "EFSA" }} recipes
                 </button>
                 <button
                   class="button button--slim"
@@ -573,7 +574,7 @@ onMounted(async () => {
                   title="Download footprints of foods as defined by the European Food Safety Authority's recipes, as an excel file."
                 >
                   <img src="@/assets/download-w.svg" alt="" />
-                  Download for EFSA recipes
+                  Download for {{ isCustomDiet ? "uploaded" : "EFSA" }} recipes
                 </LoadingButton>
                 <LoadingButton
                   class="button button--slim"
