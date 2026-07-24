@@ -15,7 +15,7 @@ const labels = [
   {
     l1Code: "A.02",
     text: "Vegetables",
-    color: "#548235"
+    color: "#548235",
   },
   {
     l1Code: "A.04",
@@ -35,18 +35,18 @@ const labels = [
   {
     l1Code: "A.08",
     text: "Milk",
-    color: "#deebf7"
+    color: "#deebf7",
   },
   { l1Code: "A.09", text: "Eggs", color: "#9dc3e6" },
   {
     l1Code: "A.07",
     text: "Fish and other seafood",
-    color: "#2e75b6"
+    color: "#2e75b6",
   },
   {
     l1Code: "A.06",
     text: "Meats",
-    color: "#af2834"
+    color: "#af2834",
   },
 ];
 
