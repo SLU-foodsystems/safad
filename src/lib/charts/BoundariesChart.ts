@@ -1,6 +1,8 @@
 import * as d3 from "d3";
 
 import GlobeSvg from "@/assets/globe.svg";
+import { roundToPrecision } from "../utils";
+import SLU_COLORS from "../slu-colors";
 
 interface Config {
   width: number; // Width of the circle
@@ -73,6 +75,48 @@ export default function BoundariesChart(
   const root = svg
     .append("g")
     .attr("transform", `translate(${cfg.width / 2}, ${cfg.height / 2})`);
+
+  /////////////////////////////////////////////////////////
+  ////////////////////// Tooltip //////////////////////////
+  /////////////////////////////////////////////////////////
+
+  const tooltip = d3
+    .select(el)
+    .append("div")
+    .attr("class", "d3-tooltip")
+    .style("text-align", "left")
+    .style("pointer-events", "none")
+    .style("opacity", 0);
+
+  const showTooltip = (event: MouseEvent, d: RadarDataPoint) => {
+    const bgColor =
+      d.value > 1
+        ? SLU_COLORS.Red.Rapsberry
+        : d.value > 0.85
+          ? SLU_COLORS.Yellow.Cinnamon
+          : SLU_COLORS.Green.Forest;
+
+    const tooltipHtml =
+      `<strong>${d.axis}</strong><br />` +
+      `${roundToPrecision(100 * d.value, 2)}% of boundary`;
+
+    tooltip
+      .html(tooltipHtml)
+      .style("opacity", 1)
+      .style("background-color", bgColor);
+    moveTooltip(event);
+  };
+
+  const moveTooltip = (event: MouseEvent) => {
+    const [x, y] = d3.pointer(event);
+    const xOffset = cfg.width / 2;
+    const yOffset = cfg.height / 2;
+    tooltip.style("transform", `translate(${x + xOffset}px, ${y + yOffset}px)`);
+  };
+
+  const hideTooltip = () => {
+    tooltip.style("opacity", 0);
+  };
 
   /////////////////////////////////////////////////////////
   //////////////// Draw a circle overlay //////////////////
@@ -151,7 +195,10 @@ export default function BoundariesChart(
     .append("path")
     .attr("d", arcGenerator)
     .style("fill", "url(#radial-gradient)")
-    .style("fill-opacity", 0.8);
+    .style("fill-opacity", 0.8)
+    .on("mouseover", showTooltip)
+    .on("mousemove", moveTooltip)
+    .on("mouseleave", hideTooltip);
 
   /////////////////////////////////////////////////////////
   ////////////// Add the globe-background /////////////////
@@ -160,9 +207,10 @@ export default function BoundariesChart(
   const worldImgSize = rScale(1) * 2;
   root
     .append("image")
-    .attr("xlink:href", GlobeSvg) // Path to your image
-    .attr("x", 0) // X position
-    .attr("y", 0) // Y position
+    .style("pointer-events", "none")
+    .attr("xlink:href", GlobeSvg)
+    .attr("x", 0)
+    .attr("y", 0)
     .attr("width", worldImgSize)
     .attr("height", worldImgSize)
     .attr("decoding", "async")

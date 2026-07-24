@@ -104,6 +104,7 @@ onMounted(drawChart);
     border-radius: 50%;
     position: absolute;
     box-shadow: inset 0 0 1.5em 1em constants.$background;
+    pointer-events: none;
   }
 }
 </style>
