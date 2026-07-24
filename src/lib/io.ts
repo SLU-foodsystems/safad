@@ -23,14 +23,16 @@ function downloadBlob(filename: string, blob: Blob) {
 }
 
 export function downloadAsPlaintext(data: string, filename: string) {
-  const blob = new Blob(["\ufeff" + data], {
-    type: "text/csv;charset=utf-8;",
-  });
-  downloadBlob(filename, blob);
+  return new Promise(() => {
+    const blob = new Blob(["\ufeff" + data], {
+      type: "text/csv;charset=utf-8;",
+    });
+    downloadBlob(filename, blob);
+  })
 }
 
 export function downloadAsCsv(filename: string, data: string[][]) {
-  downloadAsPlaintext(stringifyCsvData(data), filename);
+  return downloadAsPlaintext(stringifyCsvData(data), filename);
 }
 
 export async function downloadAsXlsx(

@@ -146,7 +146,7 @@ const downloadFootprintsOfFoods = async (filetype: "csv" | "xlsx") => {
   const data = [DETAILED_RESULTS_HEADER, ...impactsOfRecipe];
 
   if (filetype === "csv") {
-    downloadAsCsv(
+    await downloadAsCsv(
       SAFAD_FILE_NAMES.Output.FootprintsPerFood(countryCode.value),
       data
     );
