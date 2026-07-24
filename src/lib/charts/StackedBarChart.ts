@@ -76,10 +76,10 @@ export default function StackedBarChart(
     cfg.margin.left += 30;
   }
 
-  const yTickFormat = getYTickFormat(
+  const yTickFormat = getYTickFormat(cfg.maxValue, [
+    cfg.minValue,
     cfg.maxValue,
-    [cfg.minValue, cfg.maxValue]
-  );
+  ]);
 
   // set the dimensions and margins of the graph
   const innerWidth = cfg.width - cfg.margin.left - cfg.margin.right;
