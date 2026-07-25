@@ -1076,11 +1076,12 @@ onMounted(async () => {
   gap: 2em;
   align-items: flex-start;
 
-  > div:first-child {
+  > div  {
     flex: 1 1 30em;
+    margin: 0 auto;
+    max-width: 800px;
   }
   > div:last-child {
-    flex: 1 1 30em;
     max-width: 100%;
   }
 }
