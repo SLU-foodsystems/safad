@@ -525,20 +525,19 @@ onMounted(async () => {
           <div class="stack">
             <h3>Download footprints of all foods</h3>
             <p>
-              Download the footprints of each food item in the recipes file.
-            </p>
-            <p>
-              Food commodity footprints are calculated per kilogram of food
-              (e.g., 1kg of tomatoes or 1kg lasagna). The footprints are modeled
-              as if consumed in the chosen country, weighing import shares,
-              waste, processes and energy use, packaging and transport into the
+              Download the footprints of each food item in the recipes file. The
+              footprints are calculated per kilogram of food (e.g., 1kg of
+              tomatoes or 1kg lasagna). The footprints are modeled as if
+              consumed in the chosen country, weighing import shares, waste,
+              processes and energy use, packaging and transport into the
               aggregate footprint. By changing the country in the drop-down
-              above, the footprint files generated change accordingly.
+              above, the footprint files change accordingly.
             </p>
             <p>
-              Food commodities can be downloaded as specified according to the
-              European Food Safety Authority's (EFSA) recipes or the Swedish
-              Food Authority's (SFA) recipes.
+              Food commodities can be specified according to the European Food
+              Safety Authority's (EFSA) recipes or the Swedish Food Authority's
+              (SFA) recipes, as well as custom recipes by uploading your own
+              file(s) at the bottom of the page.
             </p>
             <div class="cluster">
               <div class="cluster cluster--m-gap">
@@ -674,19 +673,22 @@ onMounted(async () => {
 
       <section class="stack stack-l">
         <h2 class="hr-header">
-          <span>Diet footprints</span>
+          <span>Overview of diet footprints</span>
         </h2>
-        <div class="cluster diet-preview-section">
-          <div v-if="missingDietPoland" class="stack">
-            <h3><strong>No diet data available for Poland.</strong></h3>
-            <p>
-              You can still upload a custom diet at the bottom of the page, or
-              select another country at the top of the page.
-            </p>
-          </div>
-          <div v-else class="stack">
+        <p class="u-tac" v-if="!missingDietPoland">
+          <strong>Selected diet:</strong> {{ dietName }}
+        </p>
+        <div v-if="missingDietPoland" class="stack">
+          <h3><strong>No diet data available for Poland.</strong></h3>
+          <p>
+            You can still upload a custom diet at the bottom of the page, or
+            select another country at the top of the page.
+          </p>
+        </div>
+        <div v-else class="cluster diet-preview-section">
+          <div class="stack">
             <h3 class="hr-header hr-header--right-only">
-              <span>Diet overview</span>
+              <span>Diet overview: food commodities</span>
             </h3>
             <DietAmountsChart
               :amounts-per-category="dietAmountsPerRpcCategory"
@@ -745,11 +747,12 @@ onMounted(async () => {
           <p>
             In the SAFAD tool, input data (Input, parameter, and emission factor
             files) can easily be configured. To configure a file, download the
-            default file using the Download file button. Once configured, the
-            custom file can be uploaded using the Upload Custom file. The custom
-            file must be in the same format and uploaded as a .csv file. When
-            all custom files are uploaded, the new footprint for the diet or
-            foods can be downloaded.
+            default file using the Download file button. Make the desired
+            changes to the data, but do not change the order of the columns. The
+            edited file can then be uploaded using the Upload Custom file. The
+            custom file must be in the uploaded as a .csv file. When all custom
+            files are uploaded, the new footprint for the diet or foods can be
+            downloaded again at the top of the page.
           </p>
         </div>
         <h3 class="hr-header hr-header--right-only">
