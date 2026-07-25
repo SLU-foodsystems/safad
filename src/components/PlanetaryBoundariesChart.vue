@@ -91,7 +91,6 @@ onMounted(drawChart);
 @use "../styles/constants";
 
 .planetary-boundaries-chart {
-  border-radius: 50%;
   position: relative;
   overflow: hidden;
 
