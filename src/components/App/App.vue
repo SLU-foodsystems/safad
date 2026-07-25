@@ -42,6 +42,7 @@ import {
   DIET_RESULTS_HEADER,
   computeDietFootprints,
 } from "@/lib/diet-output-generator";
+import DietAmountsChart from "../DietAmountsChart.vue";
 
 const APP_VERSION = __APP_VERSION__;
 
@@ -71,8 +72,9 @@ const missingDietPoland = computed(
   () => dietFile.value.state === "default" && countryCode.value === "PL"
 );
 const defaultDietName = readableDietName(countryCode);
+const isCustomDiet = computed(() => dietFile.value.state === "custom");
 const dietName = computed(() =>
-  dietFile.value.state === "custom"
+  isCustomDiet.value
     ? `Custom diet, ${dietFile.value.name}`
     : defaultDietName.value
 );
@@ -146,7 +148,7 @@ const downloadFootprintsOfFoods = async (filetype: "csv" | "xlsx") => {
   const data = [DETAILED_RESULTS_HEADER, ...impactsOfRecipe];
 
   if (filetype === "csv") {
-    downloadAsCsv(
+    await downloadAsCsv(
       SAFAD_FILE_NAMES.Output.FootprintsPerFood(countryCode.value),
       data
     );
@@ -316,6 +318,7 @@ const {
   dietFootprintsTotal,
   dietFootprintsPerRpcCategory,
   dietFootprintsPerFoodsCategory,
+  dietAmountsPerRpcCategory,
   recompute: updateChartData,
 } = setupCharts(RE, diet, selectedFoodCodes);
 
@@ -495,7 +498,7 @@ onMounted(async () => {
           </div>
           <div class="country-select">
             <label class="cluster">
-              <span>Country:</span>
+              <span>Selected country:</span>
               <select v-model="countryCode">
                 <option value="FR">France</option>
                 <option value="DE">Germany</option>
@@ -516,27 +519,26 @@ onMounted(async () => {
     <div class="page-wrap stack stack-l">
       <section class="stack stack-l">
         <h2 class="hr-header">
-          <span>Food commodity footprints</span>
+          <span>Download results</span>
         </h2>
-        <div class="foods-footprints-intro">
-          <div>
-            <p>
-
-              Food commodity footprints are calculated per 1 kg of food (e.g.
-              tomatoes or a lasagna). The footprints are modeled as if consumed
-              in the chosen country, weighing import shares, waste, processes
-              and energy use, packaging and transport into the aggregate
-              footprint. By changing the country in the drop-down above, the
-              footprint files generated change accordingly.
-            </p>
-            <p>
-              Food commodities can be downloaded as specified according to the
-              European Food Safety Authority's (EFSA) recipes or the Swedish
-              Food Authority's (SFA) recipes.
-            </p>
-          </div>
+        <div class="downloads-grid">
           <div class="stack">
-            <h3>Download footprints of all foods in SAFAD</h3>
+            <h3>Download footprints of all foods</h3>
+            <p>
+              Download the footprints of each food item in the recipes file. The
+              footprints are calculated per kilogram of food (e.g., 1kg of
+              tomatoes or 1kg lasagna). The footprints are modeled as if
+              consumed in the chosen country, weighing import shares, waste,
+              processes and energy use, packaging and transport into the
+              aggregate footprint. By changing the country in the drop-down
+              above, the footprint files change accordingly.
+            </p>
+            <p>
+              Food commodities can be specified according to the European Food
+              Safety Authority's (EFSA) recipes or the Swedish Food Authority's
+              (SFA) recipes, as well as custom recipes by uploading your own
+              file(s) at the bottom of the page.
+            </p>
             <div class="cluster">
               <div class="cluster cluster--m-gap">
                 <img src="@/assets/file-csv.svg" width="16" />
@@ -549,7 +551,7 @@ onMounted(async () => {
                   title="Download footprints of foods as defined by the European Food Safety Authority's recipes, as a csv file."
                 >
                   <img src="@/assets/download-w.svg" alt="" />
-                  Download for EFSA recipes
+                  Download for {{ isCustomDiet ? "uploaded" : "EFSA" }} recipes
                 </button>
                 <button
                   class="button button--slim"
@@ -573,7 +575,7 @@ onMounted(async () => {
                   title="Download footprints of foods as defined by the European Food Safety Authority's recipes, as an excel file."
                 >
                   <img src="@/assets/download-w.svg" alt="" />
-                  Download for EFSA recipes
+                  Download for {{ isCustomDiet ? "uploaded" : "EFSA" }} recipes
                 </LoadingButton>
                 <LoadingButton
                   class="button button--slim"
@@ -586,7 +588,63 @@ onMounted(async () => {
               </div>
             </div>
           </div>
+          <div v-if="missingDietPoland" class="stack">
+            <h3>No diet data available for Poland.</h3>
+            <p>
+              You can still upload a custom diet at the bottom of the page, or
+              select another country at the top of the page.
+            </p>
+          </div>
+          <div class="stack" v-else>
+            <h3>Download footprints of the selected diet</h3>
+            <p class="u-callout">
+              <strong>Selected diet:</strong> {{ dietName }}
+            </p>
+            <p>
+              By joining the food commodity footprints above with dietary survey
+              data, SAFAD can estimate the footprint of an entire diet. Download
+              the diet footprints below, or see the charts on this page for
+              examples of what the data can show.
+            </p>
+            <p>
+              Upon changing the country at the top of the page, another diet
+              will be selected. If you want to test a modified or custom diet,
+              you can upload a file towards the bottom of the page.
+            </p>
+            <div class="cluster">
+              <div class="cluster cluster--m-gap">
+                <img src="@/assets/file-csv.svg" width="16" />
+                As CSV file:
+              </div>
+              <button
+                class="button button--accent button--slim"
+                @click="() => downloadFootprintsOfDiets('csv')"
+              >
+                <img src="@/assets/download-w.svg" alt="" />
+                Download footprints of diet
+              </button>
+            </div>
+            <div class="cluster">
+              <div class="cluster cluster--m-gap">
+                <img src="@/assets/file-excel.svg" width="16" />
+                As Excel file:
+              </div>
+              <LoadingButton
+                class="button--accent button--slim"
+                :click-handler="() => downloadFootprintsOfDiets('xlsx')"
+              >
+                <img src="@/assets/download-w.svg" alt="" />
+                Download footprints of diet
+              </LoadingButton>
+            </div>
+          </div>
         </div>
+      </section>
+
+      <section class="stack stack-l">
+        <h2 class="hr-header">
+          <span>Food commodity footprints</span>
+        </h2>
         <div class="results-grid-large">
           <div class="results-grid-large__graph">
             <h3>Carbon footprint preview (per kg food)</h3>
@@ -617,60 +675,31 @@ onMounted(async () => {
 
       <section class="stack stack-l">
         <h2 class="hr-header">
-          <span>Diet footprinting</span>
+          <span>Overview of diet footprints</span>
         </h2>
-        <div class="cluster planetary-boundaries-section">
-          <div v-if="missingDietPoland" class="stack diet-info-box">
-            <h3><strong>No diet data available for Poland.</strong></h3>
-            <p>
-              You can still upload a custom diet at the bottom of the page, or
-              select another country at the top of the page.
-            </p>
-          </div>
-          <div v-else class="stack diet-info-box">
-            <p style="font-size: 1.25em"><strong>Selected diet:</strong> {{ dietName }}</p>
-            <p>
-              By joining the food commodity footprints above with dietary survey
-              data, SAFAD can estimate the footprint of an entire diet. Download
-              the diet footprints below, or see the charts on this page for
-              examples of what the data can show.
-            </p>
-            <p>
-              Upon changing the country at the top of the page, another diet
-              will be selected. If you want to test a modified or custom diet,
-              you can upload a file towards the bottom of the page.
-            </p>
-            <h3>Download footprints of the selected diet</h3>
-            <div class="cluster">
-              <div class="cluster cluster--m-gap">
-                <img src="@/assets/file-csv.svg" width="16" />
-                As CSV file:
-              </div>
-              <button
-                class="button button--accent button--slim"
-                @click="() => downloadFootprintsOfDiets('csv')"
-              >
-                <img src="@/assets/download-w.svg" alt="" />
-                Download Footprints of Diet (.csv)
-              </button>
-            </div>
-            <div class="cluster">
-              <div class="cluster cluster--m-gap">
-                <img src="@/assets/file-excel.svg" width="16" />
-                As Excel file:
-              </div>
-              <LoadingButton
-                class="button--accent button--slim"
-                :click-handler="() => downloadFootprintsOfDiets('xlsx')"
-              >
-                <img src="@/assets/download-w.svg" alt="" />
-                Download Footprints of Diet (.xlsx)
-              </LoadingButton>
-            </div>
+        <p class="u-tac" v-if="!missingDietPoland">
+          <strong>Selected diet:</strong> {{ dietName }}
+        </p>
+        <div v-if="missingDietPoland" class="stack">
+          <h3><strong>No diet data available for Poland.</strong></h3>
+          <p>
+            You can still upload a custom diet at the bottom of the page, or
+            select another country at the top of the page.
+          </p>
+        </div>
+        <div v-else class="cluster diet-preview-section">
+          <div class="stack">
+            <h3 class="hr-header hr-header--right-only">
+              <span>Diet overview: food commodities</span>
+            </h3>
+            <DietAmountsChart
+              :amounts-per-category="dietAmountsPerRpcCategory"
+              :diet-missing="missingDietPoland"
+            />
           </div>
           <div class="stack">
             <h3 class="hr-header hr-header--right-only">
-              <span>Impacts in relation to the planetary boundaries</span>
+              <span>Diet footprints in relation to planetary boundaries</span>
             </h3>
             <PlanetaryBoundariesChart
               :data="dietFootprintsTotal"
@@ -720,11 +749,12 @@ onMounted(async () => {
           <p>
             In the SAFAD tool, input data (Input, parameter, and emission factor
             files) can easily be configured. To configure a file, download the
-            default file using the Download file button. Once configured, the
-            custom file can be uploaded using the Upload Custom file. The custom
-            file must be in the same format and uploaded as a .csv file. When
-            all custom files are uploaded, the new footprint for the diet or
-            foods can be downloaded.
+            default file using the Download file button. Make the desired
+            changes to the data, but do not change the order of the columns. The
+            edited file can then be uploaded using the Upload Custom file. The
+            custom file must be in the uploaded as a .csv file. When all custom
+            files are uploaded, the new footprint for the diet or foods can be
+            downloaded again at the top of the page.
           </p>
         </div>
         <h3 class="hr-header hr-header--right-only">
@@ -938,6 +968,15 @@ onMounted(async () => {
   padding-bottom: 1em;
 }
 
+.downloads-grid {
+  display: grid;
+  gap: 2em;
+
+  @media (min-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .inner-thinner-wrap {
   margin: 0 auto;
   max-width: 70rem;
@@ -995,28 +1034,6 @@ onMounted(async () => {
   }
 }
 
-.foods-footprints-intro {
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-
-  display: grid;
-  gap: 2em;
-  grid-template-columns: 1fr 1fr;
-
-  @media (max-width: 45rem) {
-    grid-template-columns: 1fr;
-  }
-
-  h4 {
-    margin-top: 0;
-  }
-
-  > div .cluster {
-    flex-wrap: wrap;
-  }
-}
-
 .results-grid-large {
   --aside-width: 24em;
   display: grid;
@@ -1055,17 +1072,16 @@ onMounted(async () => {
   }
 }
 
-.planetary-boundaries-section {
+.diet-preview-section {
   gap: 2em;
   align-items: flex-start;
 
-  > div:first-child {
-    flex: 1 1 20em;
+  > div  {
+    flex: 1 1 30em;
+    margin: 0 auto;
+    max-width: 800px;
   }
   > div:last-child {
-    flex-basis: 40em;
-    flex-grow: 0;
-    flex-shrink: 1;
     max-width: 100%;
   }
 }

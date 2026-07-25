@@ -16,6 +16,7 @@ export default function setupCharts(
   const dietFootprintsTotal = ref<number[]>([]);
   const dietFootprintsPerRpcCategory = ref<{ [key: string]: number[] }>({});
   const dietFootprintsPerFoodsCategory = ref<{ [key: string]: number[] }>({});
+  const dietAmountsPerRpcCategory = ref<{ [key: string]: number }>({});
 
   const aggregateNonNullImpacts = (impacts: ImpactsTuple): number[] => {
     const [rpcFootprintsMaybeNull, ...rest] = impacts;
@@ -47,7 +48,19 @@ export default function setupCharts(
           ),
         ];
       })
-      .filter((x): x is [string, number[]] => x !== null)
+      .filter((x): x is [string, number[]] => x !== null);
+  };
+
+  const computedDietAmountsPerRpcCategory = () => {
+    if (!diet.value) return {};
+    // TODO: could avoid reducing the diet first, to instead get the food groups
+    const [rpcAmounts] = RE.reduceDiet(diet.value, true);
+    const amountsPerCategory: Record<string, number> = {};
+    rpcAmounts.forEach(([code, amount]) => {
+      const l1Code = getRpcCodeSubset(code, 1);
+      amountsPerCategory[l1Code] = (amountsPerCategory[l1Code] || 0) + amount;
+    });
+    return amountsPerCategory;
   };
 
   const computeDietFootprintsTotal = () => {
@@ -88,6 +101,7 @@ export default function setupCharts(
     dietFootprintsPerRpcCategory.value = computeDietFootprintsPerRpcCategory();
     dietFootprintsPerFoodsCategory.value =
       computeDietFootprintsPerFoodsCategory();
+    dietAmountsPerRpcCategory.value = computedDietAmountsPerRpcCategory();
   };
 
   return {
@@ -96,5 +110,6 @@ export default function setupCharts(
     dietFootprintsTotal,
     dietFootprintsPerRpcCategory,
     dietFootprintsPerFoodsCategory,
+    dietAmountsPerRpcCategory,
   };
 }

@@ -448,6 +448,11 @@ p {
   display: none;
 }
 
+.u-callout {
+  padding-left: 0.5em;
+  border-left: 0.25em solid constants.$green_forest-bright;
+}
+
 .u-visually-hidden {
   position: absolute;
   overflow: hidden;
