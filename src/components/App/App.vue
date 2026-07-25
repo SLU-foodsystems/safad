@@ -597,7 +597,9 @@ onMounted(async () => {
           </div>
           <div class="stack" v-else>
             <h3>Download footprints of the selected diet</h3>
-            <p><strong>Selected diet:</strong> {{ dietName }}</p>
+            <p class="u-callout">
+              <strong>Selected diet:</strong> {{ dietName }}
+            </p>
             <p>
               By joining the food commodity footprints above with dietary survey
               data, SAFAD can estimate the footprint of an entire diet. Download
