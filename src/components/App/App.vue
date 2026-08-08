@@ -602,9 +602,9 @@ onMounted(async () => {
             </p>
             <p>
               By joining the food commodity footprints above with dietary survey
-              data, SAFAD can estimate the footprint of an entire diet. Download
-              the diet footprints below, or see the charts on this page for
-              examples of what the data can show.
+              data, SAFAD can calculate the footprint of an entire diet.
+              Download the diet footprints below, or see the charts on this page
+              for examples of what the data can show.
             </p>
             <p>
               Upon changing the country at the top of the page, another diet
