@@ -2053,6 +2053,24 @@ write_excel_csv(
 ############################ SELECT THE FEED DATA  #############################
 ################################################################################
 
+add_wheat_bran <- function(df) {
+  wheat_bran <- df |>
+    filter(Code == "0111") |>
+    mutate(
+      Code = "0111b",
+      Name = "Wheat bran",
+      Category = "By-products",
+      across(
+        !any_of(c(
+          "Code", "Name", "Category", "Country_name", "Country_code",
+          "direct_values", "field_ops_approximated")),
+        ~ . * 0.09
+      )
+    )
+
+  df |> rows_upsert(wheat_bran, by = c("Code", "Country_code"))
+}
+
 # To use the feed data in the animal files, we need to disaggregate the GHGs
 feed_data <- merged_data |>
   # Select the data from the merged_data
@@ -2060,6 +2078,7 @@ feed_data <- merged_data |>
   # Sorting (integer index) according to the order in the feed_products vector
   mutate(Order = match(Code, feed_products)) |>
   arrange(Order) |>
+  select(-Order) |>
   left_join(
     df_GHGs_disaggr |> select(-Crop, -Category),
     by = c(
@@ -2068,7 +2087,7 @@ feed_data <- merged_data |>
     ),
     suffix = c("", "_dup")
   ) |>
-  select(!ends_with("_dup")) |>
+  add_wheat_bran() |>
   select(
     Code,
     Name,
