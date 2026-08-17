@@ -30,6 +30,35 @@ CONFIG <- list(
   biodiv_psl_to_emsy = (352323 / 1e6) / 1e4
 )
 
+# Select the feed products
+feed_products <- c(
+  "0115", # Barley
+  "0112", # Maize
+  "0117", # Oats
+  "0116", # Rye
+  "0111", # Wheat
+  "01705", # Peas, dry
+  "01702" # Broad beans and horse beans, dry
+)
+
+# Select the countries for which we need feed data
+feed_countries <- c(
+  "BR", # "Brazil"
+  "DK", # "Denmark"
+  "FR", # "France"
+  "DE", # "Germany"
+  "GR", # "Greece"
+  "HU", # "Hungary"
+  "IE", # "Ireland"
+  "IT", # "Italy"
+  "NL", # "Netherlands"
+  "NZ", # "New Zealand"
+  "PL", # "Poland"
+  "ES", # "Spain"
+  "SE", # "Sweden"
+  "GB" # "UK
+)
+
 # Helper logic for resolving refs + adjusting yields
 source("resolve-refs-and-yield.R")
 
@@ -314,6 +343,11 @@ patched_yields <- tribble(
   "SE"            , "01704"      ,    900 ,
 )
 
+feed_set <- crossing(`Crop code` = feed_products, `Country code` = feed_countries)
+# Use upsert rather than bind_rows to avoid duplicates
+yield_rows_to_keep <- trade_data |>
+  rows_upsert(feed_set, by = c("Crop code", "Country code"))
+
 yields <- fao_yields |>
   select(-`Country name`) |>
   mutate(
@@ -324,7 +358,7 @@ yields <- fao_yields |>
     )
   ) |>
   rows_upsert(gh_of_yields, by = c("Crop code", "Country code")) |>
-  right_join(trade_data, by = c("Crop code", "Country code")) |>
+  right_join(yield_rows_to_keep, by = c("Crop code", "Country code")) |>
   rows_upsert(patched_yields, by = c("Crop code", "Country code")) |>
   drop_na(yield)
 
@@ -2018,36 +2052,6 @@ write_excel_csv(
 ################################################################################
 ############################ SELECT THE FEED DATA  #############################
 ################################################################################
-
-# Select the feed products
-feed_products <- c(
-  "0115", # Barley
-  "0112", # Maize
-  "0117", # Oats
-  "0116", # Rye
-  "0111", # Wheat
-  "01705", # Peas, dry
-  "01702" # Broad beans and horse beans, dry
-)
-
-# Select the countries for which we need feed data
-feed_countries <- c(
-  "BR", # "Brazil"
-  "DK", # "Denmark"
-  "FR", # "France"
-  "DE", # "Germany"
-  "GR", # "Greece"
-  "GU", # "Hungary"
-  "IE", # "Ireland"
-  "IT", # "Italy"
-  "NL", # "Netherlands"
-  "NZ", # "New Zealand"
-  "PL", # "Poland"
-  "ES", # "Spain"
-  "SE", # "Sweden"
-  "GB" # "UK
-)
-
 
 # To use the feed data in the animal files, we need to disaggregate the GHGs
 feed_data <- merged_data |>
