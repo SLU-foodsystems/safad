@@ -333,14 +333,18 @@ gh_of_yields <- read_csv(
 }
 
 patched_yields <- tribble(
-  ~`Country code` , ~`Crop code` , ~yield ,
+  ~`Country code` , ~`Crop code` , ~yield,
   # Missing from trade data (value from FAO)
-  "SE"            , "01213"      ,  11382 ,
-  "SE"            , "01330"      ,   1883 ,
-  "SE"            , "01709.90"   ,   2097 ,
+  "SE"            , "01213"      ,   11382,
+  "SE"            , "01330"      ,    1883,
+  "SE"            , "01709.90"   ,    2097,
   # Missing from FAO data
-  "SE"            , "01701"      ,   1800 ,
-  "SE"            , "01704"      ,    900 ,
+  "SE"            , "01701"      ,    1800,
+  "SE"            , "01704"      ,     900,
+  # Missing from FAO, used for feed data
+  "IE"            , "0116"       ,  3912.06, # Ireland approximated from GB
+  # Peas, dry in NL: Last data (avg 2014-2017)
+  "NL"            , "01705"      ,  4939.03,
 )
 
 feed_set <- crossing(`Crop code` = feed_products, `Country code` = feed_countries)
