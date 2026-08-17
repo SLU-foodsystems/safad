@@ -2088,7 +2088,7 @@ feed_data <- merged_data |>
     suffix = c("", "_dup")
   ) |>
   add_wheat_bran() |>
-  select(
+  transmute(
     Code,
     Name,
     Category,
@@ -2128,8 +2128,7 @@ feed_data <- merged_data |>
     # "Manure management (N2O)"
     N2O_rm_fert_prod,
     N2O_rm_cap_goods,
-    N2O_soils_min_fert,
-    N2O_soils_crop_res,
+    N2O_soils_direct = N2O_soils_min_fert +  N2O_soils_crop_res,
     N2O_soils_indirect,
     N2O_field_ops,
     N2O_gh,
