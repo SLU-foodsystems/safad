@@ -135,6 +135,8 @@ resolve_references_long <- function(df) {
   key_row <- paste(df[["Crop code"]], df[["Country code"]], sep = "||")
   if (any(duplicated(key_row))) {
     dup <- unique(key_row[duplicated(key_row)])
+    # If we error here, it means we have duplicates in the key_row, i.e., that
+    # there are at least two rows with the same Crop+country combo in the df.
     stop(
       "Expected unique (Crop code, Country code) rows. Duplicates found for: ",
       paste(dup, collapse = ", ")
