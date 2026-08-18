@@ -459,6 +459,7 @@ onMounted(async () => {
             width="1000"
             height="803"
             alt="People cooking"
+            loading="lazy"
           />
         </div>
         <div>
