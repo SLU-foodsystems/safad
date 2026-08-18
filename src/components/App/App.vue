@@ -887,7 +887,7 @@ onMounted(async () => {
             />
           </a>
           <p>
-            The Plan’eat project has received funding from the European Union’s
+            The PLAN’EAT project has received funding from the European Union’s
             Horizon Europe Research and Innovation programme under Grant
             Agreement n° 101061023. Views and opinions expressed are however
             those of the author(s) only and do not necessarily reflect those of
