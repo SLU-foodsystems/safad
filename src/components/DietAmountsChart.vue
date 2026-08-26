@@ -119,7 +119,7 @@ const drawChart = () => {
     maxValue: getRoundedMax(data.map((d) => d.value)),
     tooltipUnit: "g / day",
 
-    labelTextMapper: (c) => labels[c] || "foo",
+    labelTextMapper: (c) => labels[c],
     color: (c) => colors[c] || "#f0f",
   });
 };
