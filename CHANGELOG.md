@@ -4,6 +4,14 @@ A record of changes to SAFAD since version 1.4.0 (2026-07-06). For previous
 changes, see the [commit
 history](https://github.com/SLU-foodsystems/safad/commits/main).
 
+## Version 1.4.2 (2026-08-26)
+
+### New in this version
+
+- Changes to the layout of the main homepage, with download-buttons now
+  appearing at the top of the page and a diet-overview chart added. No changes
+  to the input- or output data made.
+
 ## Version 1.4.1 (2026-07-22)
 
 ### Changes to data or file format
