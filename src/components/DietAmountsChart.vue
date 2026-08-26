@@ -115,9 +115,9 @@ const drawChart = () => {
   HorizontalBarChart(svgContainer.value, data, {
     width,
     height,
-    axisLabels: { x: "Amount in diet, g" },
+    axisLabels: { x: "Amount in diet, g / day" },
     maxValue: getRoundedMax(data.map((d) => d.value)),
-    tooltipUnit: "g",
+    tooltipUnit: "g / day",
 
     labelTextMapper: (c) => labels[c] || "foo",
     color: (c) => colors[c] || "#f0f",
