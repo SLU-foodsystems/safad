@@ -4,6 +4,14 @@ A record of changes to SAFAD since version 1.4.0 (2026-07-06). For previous
 changes, see the [commit
 history](https://github.com/SLU-foodsystems/safad/commits/main).
 
+## Version 1.4.3 (2026-09-03)
+
+### Changes to data or file format
+
+- Add FoodEx2 code for Swordfish (missing from data, not yet used in app)
+- Fixed a few recipes that did not add up to 100%. These were almost exclusively
+  L2, aggregate products (spices, dressing, etc).
+
 ## Version 1.4.2 (2026-08-26)
 
 ### New in this version
