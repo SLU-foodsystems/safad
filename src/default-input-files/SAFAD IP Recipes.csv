@@ -2348,7 +2348,7 @@ A.12.04.009,"Juice, Berries-Grapes",A.12.01.006,"Juice, Grape",To be further dis
 A.12.04.009,"Juice, Berries-Grapes",A.12.01.007,"Juice, Cranberry",To be further disaggregated (d),,8,1,1,1
 A.12.04.009,"Juice, Berries-Grapes",I.12.01.022,"Juice, Raspberry",To be further disaggregated (d),,6,1,1,1
 A.12.04.009,"Juice, Berries-Grapes",I.12.01.027,"Juice, Blueberry",To be further disaggregated (d),,3,1,1,1
-A.12.05,Dehydrated/powdered fruit juice,A.05.01.002,Oranges (Citrus sinensis),F28.A07LN$F28.A07KG,"PROCESS=Juicing, PROCESS=Drying (dehydration)",100,0.36,14,1
+A.12.05,Dehydrated/powdered fruit juice,A.05.01.002,Oranges (Citrus sinensis),F28.A07LN$F28.A07KG,"PROCESS=Juicing, PROCESS=Drying (dehydration)",100,0.35,14,1
 A.12.05,Dehydrated/powdered fruit juice,A.05.02.001,Apple (Malus domesticus),F28.A07LN$F28.A07KG,"PROCESS=Juicing, PROCESS=Drying (dehydration)",100,0.38,11,1
 A.12.05,Dehydrated/powdered fruit juice,A.05.06.016,Mangoes (Mangifera indica),F28.A07LN$F28.A07KG,"PROCESS=Juicing, PROCESS=Drying (dehydration)",100,0.14,100,1
 A.12.05,Dehydrated/powdered fruit juice,A.05.06.021,Pineapples (Ananas comosus),F28.A07LN$F28.A07KG,"PROCESS=Juicing, PROCESS=Drying (dehydration)",100,0.13,50,1
@@ -2625,7 +2625,11 @@ A.16.01.008,"Thyme, herb (Thymus spp.)",A.16.01.008,"Thyme, herb (Thymus spp.)",
 A.16.01.009,"Basil, herb (Ocimum basilicum)",A.16.01.009,"Basil, herb (Ocimum basilicum)",F28.A07XD,PROCESS=Unspecified,100,1,1,1
 A.16.01.010,Bay leaves (laurel) (Laurus nobilis),A.16.01.010,Bay leaves (laurel) (Laurus nobilis),F28.A07XD,PROCESS=Unspecified,100,1,1,1
 A.16.01.011,"Tarragon, herb (Artemisia dracunculus)",A.16.01.011,"Tarragon, herb (Artemisia dracunculus)",F28.A07XD,PROCESS=Unspecified,100,1,1,1
+A.16.02,Spices,A.16.02.001,Paprika powder,,,20,1,1,1
 A.16.02,Spices,A.16.02.002,Chilli powder,,,20,1,1,1
+A.16.02,Spices,A.16.02.017,Cumin seed (Cuminum cyminum),,,20,1,1,1
+A.16.02,Spices,A.16.02.022,"Ginger (Zingiber officinale)",,,20,1,1,1
+A.16.02,Spices,A.16.02.028,"Pepper, black and white (Piper nigrum)",,,20,1,1,1
 A.16.02.001,Paprika powder,A.02.03.002,"Peppers, paprika (Capsicum annuum, var. grossum and var. longum)",F28.A07KG$F28.A07LA,"PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,20.4,1
 A.16.02.002,Chilli powder,A.02.03.003,Chilli pepper (Capsicum frutescens),F28.A07KG$F28.A07LA,"PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,10,1
 A.16.02.004,Allspice (Pimenta dioica),A.16.02.004,Allspice (Pimenta dioica),F28.A07KG$F28.A07LA,"PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,1,1
@@ -2649,7 +2653,7 @@ A.16.02.028,"Pepper, black and white (Piper nigrum)",A.16.02.028,"Pepper, black 
 A.16.02.029,Saffron (Crocus sativus),A.16.02.029,Saffron (Crocus sativus),F28.A07KG,PROCESS=Drying (dehydration),100,1,1,1
 A.16.02.030,Tamarind (Tamarindus indica),A.16.02.030,Tamarind (Tamarindus indica),F28.A07KG$F28.A07LA,"PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,1,1
 A.16.02.031,Turmeric (Curcuma) (Curcuma domestica syn. C. longa),A.16.02.031,Turmeric (Curcuma) (Curcuma domestica syn. C. longa),F28.A07KG$F28.A07LA,"PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,1,1
-A.16.03,Herb and spice mixtures,A.16.02.014,Cinnamon (Cinnamonum verum syn. C. zeylanicum),,,20,1,1,1
+A.16.03,Herb and spice mixtures,A.16.03.001,Mixed herbs,,,100,1,1,1
 A.16.03.001,Mixed herbs,A.16.01.001,"Chervil, herb (Anthriscus cerefolium)",F28.A07KG$F28.A07LA,"PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",20,1,5,1
 A.16.03.001,Mixed herbs,A.16.01.002,"Chives, herb (Allium schoenoprasum)",F28.A07KG$F28.A07LA,"PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",20,1,7,1
 A.16.03.001,Mixed herbs,A.16.01.003,"Dill, herb (Anethum graveolens)",F28.A07KG$F28.A07LA,"PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",20,1,7,1
@@ -2681,7 +2685,7 @@ A.16.03.006,Pickling spice,A.16.02.014,Cinnamon (Cinnamonum verum syn. C. zeylan
 A.16.03.006,Pickling spice,A.16.02.015,Cloves (Syzygium aromaticum),F28.A07KG$F28.A07LA,"PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",4,1,1,1
 A.16.03.006,Pickling spice,A.16.02.016,Coriander seed (Coriandrum sativum),F28.A07KG$F28.A07LA,"PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",12,1,1,1
 A.16.03.006,Pickling spice,A.16.02.022,Ginger (Zingiber officinale),F28.A07XD,PROCESS=Unspecified,6,1,1,1
-A.16.04,Seasoning or extracts,A.16.02.022,Ginger (Zingiber officinale),,,20,1,1,1
+A.16.04,Seasoning or extracts,A.16.04.001,Salt,,,100,1,1,1
 A.16.04.001,Salt,A.16.04.001,Salt,F28.A07XD,PROCESS=Unspecified,100,1,1,1
 A.16.04.002,"Salt, low sodium",A.16.04.001,Salt,F28.A07XD,PROCESS=Unspecified,100,1,1,1
 A.16.04.003,"Salt, iodised",A.16.04.001,Salt,F28.A07XD,PROCESS=Unspecified,100,1,1,1
@@ -2736,7 +2740,11 @@ A.16.04.013,Meat extract,A.16.04.001,Salt,F28.A07XD,PROCESS=Unspecified,11.5,1,1
 A.16.04.013,Meat extract,A.16.04.015,Yeast extract,To be further disaggregated (d),,24,1,1,1
 A.16.04.014,Malt extract,A.01.02.002.001,"Barley grain, whole",F28.A0C0L$F28.A07MJ,"PROCESS=Malting, PROCESS=Extraction",100,1,1.71,1
 A.16.04.015,Yeast extract,A.16.10.001,Yeast,F28.A07MJ,PROCESS=Extraction,100,1,1,1
-A.16.05,Condiment,A.16.02.028,"Pepper, black and white (Piper nigrum)",,,20,1,1,1
+A.16.05,Condiment,A.16.05.001,"Mustard, sweet",,,20,1,1,1
+A.16.05,Condiment,A.16.05.006,Tomato ketchup,,,20,1,1,1
+A.16.05,Condiment,A.16.05.007,Barbecue sauce,,,20,1,1,1
+A.16.05,Condiment,A.16.05.011,Soy sauce,,,20,1,1,1
+A.16.05,Condiment,A.16.05.013,Salsa,,,20,1,1,1
 A.16.05.001,"Mustard, sweet",A.04.04.007,Mustard seed (Brassica nigra),F28.A07LA,PROCESS=Grinding / milling / crushing,18,1,1.25,1
 A.16.05.001,"Mustard, sweet",A.10.01.001,White sugar,To be further disaggregated (d),,3.5,1,1,1
 A.16.05.001,"Mustard, sweet",A.15.01,Tap water,F28.A07XD,PROCESS=Unspecified,53.5,1,1,1
@@ -2798,7 +2806,7 @@ A.16.05.014,Tartar sauce,A.02.03.007,Gherkins (Cucumis sativus),F28.A07KC,PROCES
 A.16.05.014,Tartar sauce,A.12.01.010,"Juice, Lemon",To be further disaggregated (d),,1.96,1,1,1
 A.16.05.014,Tartar sauce,A.16.05.002,"Mustard, mild",To be further disaggregated (d),,1.96,1,1,1
 A.16.05.014,Tartar sauce,A.16.06.005,"Mayonnaise, 25 - 50% oil",To be further disaggregated (d),,92.16,1,1,1
-A.16.06,Dressing,A.16.02.018,Dill seed (Anethum graveolens),,,20,1,1,1
+A.16.06,Dressing,A.16.06.002,"Salad dressing, 25 - 50% oil",,,100,1,1,1
 A.16.06.001,"Salad dressing, > 50% oil",A.02.02.001,"Garlic, bulb (Allium sativum)",F28.A07XD,PROCESS=Unspecified,0.85,1,1,1
 A.16.06.001,"Salad dressing, > 50% oil",A.10.01.001,White sugar,To be further disaggregated (d),,1.4,1,1,1
 A.16.06.001,"Salad dressing, > 50% oil",A.11.04.008,Olive oil,To be further disaggregated (d),,75,0.13,1,1
@@ -4589,7 +4597,7 @@ I.19.01.001.016,Fish burger,A.16.06.005,"Mayonnaise, 25 - 50% oil",To be further
 I.19.01.001.017,"Pierogi, with meat",A.01.07.001.045,Dumpling,To be further disaggregated (d),,70,1,1,1
 I.19.01.001.017,"Pierogi, with meat",A.02.02.002,"Onions, bulb (Allium cepa)",F28.A07GR,PROCESS=Frying,10,1,1.61,1
 I.19.01.001.017,"Pierogi, with meat",A.06.01.001,Beef meat (Bos spp.),F28.A07GY,PROCESS=Roasting,20,0.37,1.61,1
-I.19.01.001.017,"Pierogi, with meat",A.06.01.003,Pork / piglet meat (Sus scrofa),F28.A07GY,PROCESS=Roasting,20,0.54,1.61,1
+I.19.01.001.017,"Pierogi, with meat",A.06.01.003,Pork / piglet meat (Sus scrofa),F28.A07GY,PROCESS=Roasting,20,0.53,1.61,1
 I.19.01.001.017,"Pierogi, with meat",A.06.02.001,Chicken meat (Gallus domesticus),F28.A07GY,PROCESS=Roasting,20,0.1,1.33,1
 I.19.01.001.018,"Pierogi, with vegetables",A.01.03.001.003,"Wheat flour, white",To be further disaggregated (d),,22.63,1,1,1
 I.19.01.001.018,"Pierogi, with vegetables",A.02.02.002,"Onions, bulb (Allium cepa)",F28.A07GR,PROCESS=Frying,8.45,1,1.61,1
