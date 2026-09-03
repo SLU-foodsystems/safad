@@ -81,6 +81,8 @@ sua_fao_codes <- read_csv("../codes/sua-to-fao.csv", show_col_types = FALSE) |>
 # Helper functions
 ################################################################################
 
+num <- function(x) as.numeric(x)
+
 split_avg_into_gh_crops <- function(df, gh_crops) {
   bind_rows(
     df |>
@@ -333,21 +335,24 @@ gh_of_yields <- read_csv(
 }
 
 patched_yields <- tribble(
-  ~`Country code` , ~`Crop code` , ~yield,
+  ~`Country code` , ~`Crop code` , ~yield   ,
   # Missing from trade data (value from FAO)
-  "SE"            , "01213"      ,   11382,
-  "SE"            , "01330"      ,    1883,
-  "SE"            , "01709.90"   ,    2097,
+  "SE"            , "01213"      , 11382    ,
+  "SE"            , "01330"      ,  1883    ,
+  "SE"            , "01709.90"   ,  2097    ,
   # Missing from FAO data
-  "SE"            , "01701"      ,    1800,
-  "SE"            , "01704"      ,     900,
+  "SE"            , "01701"      ,  1800    ,
+  "SE"            , "01704"      ,   900    ,
   # Missing from FAO, used for feed data
-  "IE"            , "0116"       ,  3912.06, # Ireland approximated from GB
+  "IE"            , "0116"       ,  3912.06 , # Ireland approximated from GB
   # Peas, dry in NL: Last data (avg 2014-2017)
-  "NL"            , "01705"      ,  4939.03,
+  "NL"            , "01705"      ,  4939.03 ,
 )
 
-feed_set <- crossing(`Crop code` = feed_products, `Country code` = feed_countries)
+feed_set <- crossing(
+  `Crop code` = feed_products,
+  `Country code` = feed_countries
+)
 # Use upsert rather than bind_rows to avoid duplicates
 yield_rows_to_keep <- trade_data |>
   rows_upsert(feed_set, by = c("Crop code", "Country code"))
@@ -1675,7 +1680,6 @@ for (k in seq_along(zero_products$codes)) {
 path_novel <- "./4 - Novel foods/Novel foods.xlsx"
 
 id_cols <- c("Code", "Name", "Category", "Country_name", "Country_code")
-num <- function(x) as.numeric(x)
 
 energy_cols <- c(
   "Energy_diesel",
@@ -2066,8 +2070,14 @@ add_wheat_bran <- function(df) {
       Category = "By-products",
       across(
         !any_of(c(
-          "Code", "Name", "Category", "Country_name", "Country_code",
-          "direct_values", "field_ops_approximated")),
+          "Code",
+          "Name",
+          "Category",
+          "Country_name",
+          "Country_code",
+          "direct_values",
+          "field_ops_approximated"
+        )),
         ~ . * 0.09
       )
     )
@@ -2132,7 +2142,7 @@ feed_data <- merged_data |>
     # "Manure management (N2O)"
     N2O_rm_fert_prod,
     N2O_rm_cap_goods,
-    N2O_soils_direct = N2O_soils_min_fert +  N2O_soils_crop_res,
+    N2O_soils_direct = N2O_soils_min_fert + N2O_soils_crop_res,
     N2O_soils_indirect,
     N2O_field_ops,
     N2O_gh,
