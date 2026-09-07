@@ -121,8 +121,6 @@ sua_template <- sua_to_fao |>
   )
 
 # ---- join SUA -> RPC (expands one SUA to many RPC codes) ----
-# Keep exactly one row per RPC Code like your _rpcCodesCache:
-# If rpc-to-sua has duplicates for RPC Code, keep first.
 rpc_map_unique <- rpc_to_sua |>
   distinct(`RPC Code`, .keep_all = TRUE)
 
