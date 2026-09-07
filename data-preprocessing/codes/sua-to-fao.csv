@@ -69,6 +69,10 @@ SUA Code,SUA Name,Category,Item Code,Item Name
 21114,"meat of rabbits and hares, fresh or chilled",Meat,1141,"Meat, rabbit"
 21115,"meat of sheep, fresh or chilled",Meat,977,"Meat, sheep"
 21124,"meat of turkeys, fresh or chilled",Meat,1080,"Meat, turkey"
+21151,"Edible offal of cattle, fresh, chilled or frozen",Meat,868,"Edible offal of cattle, fresh, chilled or frozen"
+21153,"Edible offal of pigs, fresh, chilled or frozen",Meat,1036,"Edible offal of cattle, fresh, chilled or frozen"
+21511.01,"Fat of pigs",Meat,1037,"Fat of pigs"
+21523,Tallow,Meat,1225,Tallow
 0118,Millet,Cereals,79,Millet
 01199.02,Mixed grain,Cereals,103,"Grain, mixed"
 01270,Mushrooms and truffles,Mushrooms,449,Mushrooms and truffles
