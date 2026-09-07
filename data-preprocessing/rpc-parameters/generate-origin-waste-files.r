@@ -91,8 +91,19 @@ misc_waste_factors <- read_csv("misc-waste-factors.csv", show_col_types = FALSE)
 # ------------------------------------------------------------------------------
 
 sua_to_fao <- read_csv("../codes/sua-to-fao.csv", show_col_types = FALSE)
-rpc_to_sua <- read_excel("../codes/rpc-to-sua.xlsx") |>
+rpc_to_sua <- read_excel("../codes/rpc-to-sua.xlsx", sheet = "All") |>
   transmute(`FoodEx2 Code`, `RPC Code` = `Long Code`, `FoodEx2 Name`, `SUA Code` = Code)
+
+sua_to_fao <- sua_to_fao |>
+  # There does not seem to be a FAO code for chicken offals: thus, approximate
+  # its import shares with the import of chicken itself.
+  add_row(
+    `SUA Code` = "21160.01",
+    `SUA Name` = "Edible offals and liver of chickens and guinea fowl, fresh, chilled or frozen",
+    `Category`= "Meat",
+    `Item Code` = 1058,
+    `Item Name` = "Meat of chickens, fresh or chilled"
+  )
 
 missing_fao <- sua_to_fao |>
   filter(
