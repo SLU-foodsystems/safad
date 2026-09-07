@@ -1370,17 +1370,17 @@ A.06.05.004,Mixed poultry meat,A.06.02.001,Chicken meat (Gallus domesticus),F28.
 A.06.05.004,Mixed poultry meat,A.06.02.002,Turkey meat (Meleagris gallopavo),F28.A07XD,PROCESS=Unspecified,25,1,1,1
 A.06.05.004,Mixed poultry meat,A.06.02.003,Duck meat (Anas spp.),F28.A07XD,PROCESS=Unspecified,25,1,1,1
 A.06.05.004,Mixed poultry meat,A.06.02.004,"Goose meat (Anser, Branta, Chen)",F28.A07XD,PROCESS=Unspecified,25,1,1,1
-A.06.06.001,Beef liver,A.06.01.001,Beef meat (Bos spp.),F28.A07XD$F02.A069M,"PROCESS=Unspecified, PART-NATURE=Liver (as part-nature)",100,1,1,1
-A.06.06.002,Veal liver,A.06.01.002,Veal meat,F28.A07XD$F02.A069M,"PROCESS=Unspecified, PART-NATURE=Liver (as part-nature)",100,1,1,1
-A.06.06.003,Pork liver,A.06.01.003,Pork / piglet meat (Sus scrofa),F28.A07XD$F02.A069M,"PROCESS=Unspecified, PART-NATURE=Liver (as part-nature)",100,1,1,1
+A.06.06.001,Beef liver,A.06.01.001,Beef liver,F28.A07XD$F02.A069M,"PROCESS=Unspecified, PART-NATURE=Liver (as part-nature)",100,1,1,1
+A.06.06.002,Veal liver,A.06.06.002,Veal liver,F28.A07XD$F02.A069M,"PROCESS=Unspecified, PART-NATURE=Liver (as part-nature)",100,1,1,1
+A.06.06.003,Pork liver,A.06.06.003,Pork liver,F28.A07XD$F02.A069M,"PROCESS=Unspecified, PART-NATURE=Liver (as part-nature)",100,1,1,1
 A.06.06.004,Mutton / lamb liver,A.06.01.004,Mutton / lamb meat (Ovis aries),F28.A07XD$F02.A069M,"PROCESS=Unspecified, PART-NATURE=Liver (as part-nature)",100,1,1,1
-A.06.06.005,Chicken liver,A.06.02.001,Chicken meat (Gallus domesticus),F28.A07XD$F02.A069M,"PROCESS=Unspecified, PART-NATURE=Liver (as part-nature)",100,1,1,1
+A.06.06.005,Chicken liver,A.06.06.005,Chicken liver,F28.A07XD$F02.A069M,"PROCESS=Unspecified, PART-NATURE=Liver (as part-nature)",100,1,1,1
 A.06.06.006,Turkey liver,A.06.02.002,Turkey meat (Meleagris gallopavo),F28.A07XD$F02.A069M,"PROCESS=Unspecified, PART-NATURE=Liver (as part-nature)",100,1,1,1
 A.06.06.007,Duck liver,A.06.02.003,Duck meat (Anas spp.),F28.A07XD$F02.A069M,"PROCESS=Unspecified, PART-NATURE=Liver (as part-nature)",100,1,1,1
 A.06.06.008,Goose liver,A.06.02.004,"Goose meat (Anser, Branta, Chen)",F28.A07XD$F02.A069M,"PROCESS=Unspecified, PART-NATURE=Liver (as part-nature)",100,1,1,1
-A.06.06.009,Beef kidney,A.06.01.001,Beef meat (Bos spp.),F28.A07XD$F02.A069N,"PROCESS=Unspecified, PART-NATURE=Kidney (as part-nature)",100,1,1,1
-A.06.06.010,Veal kidney,A.06.01.002,Veal meat,F28.A07XD$F02.A069N,"PROCESS=Unspecified, PART-NATURE=Kidney (as part-nature)",100,1,1,1
-A.06.06.011,Pork kidney,A.06.01.003,Pork / piglet meat (Sus scrofa),F28.A07XD$F02.A069N,"PROCESS=Unspecified, PART-NATURE=Kidney (as part-nature)",100,1,1,1
+A.06.06.009,Beef kidney,A.06.06.009,Beef kidney,F28.A07XD$F02.A069N,"PROCESS=Unspecified, PART-NATURE=Kidney (as part-nature)",100,1,1,1
+A.06.06.010,Veal kidney,A.06.06.010,Veal kidney,F28.A07XD$F02.A069N,"PROCESS=Unspecified, PART-NATURE=Kidney (as part-nature)",100,1,1,1
+A.06.06.011,Pork kidney,A.06.06.011,Pork kidney,F28.A07XD$F02.A069N,"PROCESS=Unspecified, PART-NATURE=Kidney (as part-nature)",100,1,1,1
 A.06.06.012,Mutton / lamb kidney,A.06.01.004,Mutton / lamb meat (Ovis aries),F28.A07XD$F02.A069N,"PROCESS=Unspecified, PART-NATURE=Kidney (as part-nature)",100,1,1,1
 A.06.06.013,"Tongue (beef, veal, mutton, lamb, pork)",A.06.01.001,Beef meat (Bos spp.),F28.A07XD$F02.A06AB,"PROCESS=Unspecified, PART-NATURE=Tongue (as part-nature)",100,0.82,1,1
 A.06.06.013,"Tongue (beef, veal, mutton, lamb, pork)",A.06.01.003,Pork / piglet meat (Sus scrofa),F28.A07XD$F02.A06AB,"PROCESS=Unspecified, PART-NATURE=Tongue (as part-nature)",100,0.18,1,1
@@ -1396,7 +1396,7 @@ A.06.06.020,"Thymus (veal, lamb)",A.06.01.002,Veal meat,F28.A07XD$F02.A069X,"PRO
 A.06.06.021,Marrowbone (beef),A.06.01.001,Beef meat (Bos spp.),F28.A07XD$F02.A06AE,"PROCESS=Unspecified, PART-NATURE=Bone marrow (as part-nature)",100,1,1,1
 A.06.06.022,"Tail (beef, pork, lamb)",A.06.01.001,Beef meat (Bos spp.),F28.A07XD$F02.A06AF,"PROCESS=Unspecified, PART-NATURE=Tail (as part-nature)",100,1,1,1
 A.06.06.023,"Totters and feet (calf, pork)",A.06.01.003,Pork / piglet meat (Sus scrofa),F28.A07XD$F02.A06AJ,"PROCESS=Unspecified, PART-NATURE=Trotter / feet (as part-nature)",100,1,1,1
-A.06.06.024,"Giblets (chicken, turkey, duck, goose)",A.06.02.001,Chicken meat (Gallus domesticus),F28.A07XD$F02.A07XR,"PROCESS=Unspecified, PART-NATURE=Giblet (as part-nature)",100,0.54,1,1
+A.06.06.024,"Giblets (chicken, turkey, duck, goose)",A.06.06.024,"Giblets (chicken, turkey, duck, goose)",F28.A07XD$F02.A07XR,"PROCESS=Unspecified, PART-NATURE=Giblet (as part-nature)",100,0.54,1,1
 A.06.06.024,"Giblets (chicken, turkey, duck, goose)",A.06.02.002,Turkey meat (Meleagris gallopavo),To be further disaggregated (p),,100,0.46,1,1
 A.06.07.001,"Liver, game animals",A.06.03.004,Reindeer meat (Rangifer tarandus),F28.A07XD$F02.A069M,"PROCESS=Unspecified, PART-NATURE=Liver (as part-nature)",100,1,1,1
 A.06.08.001,"Ham, pork",A.06.01.003,Pork / piglet meat (Sus scrofa),F28.A07KD,PROCESS=Curing,95,1,1.3,1
@@ -2195,15 +2195,15 @@ A.11.01,Animal fat,A.11.01.001,Butter,,,70,1,1,1
 A.11.01,Animal fat,A.11.01.002,Butter oil,,,10,1,1,1
 A.11.01,Animal fat,A.11.01.004,Pork lard (Schmaltz),,,10,1,1,1
 A.11.01,Animal fat,A.11.01.009,Tallow,,,10,1,1,1
+A.11.01.009,Tallow,A.11.01.009,Tallow,F28.A07XD$F02.A069J,"PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",100,1,1,1
 A.11.01.001,Butter,A.08.05.001.004,Cream 40 % fat,F28.A07MH$F02.A06BE,"PROCESS=Churning, PART-NATURE=Butter (as part-nature)",100,1,2,0.91
 A.11.01.002,Butter oil,A.08.05.001.004,Cream 40 % fat,F28.A07MH$F28.A0BZT$F02.A06BE,"PROCESS=Churning, PROCESS=Refining, PART-NATURE=Butter (as part-nature)",100,1,2,0.91
 A.11.01.003,Ghee,A.08.01.001.002,"Cow milk, 3 - 4% fat (whole milk)",F28.A07MH$F28.A0BZT$F02.A06BE,"PROCESS=Churning, PROCESS=Refining, PART-NATURE=Butter (as part-nature)",100,1,25,0.48
-A.11.01.004,Pork lard (Schmaltz),A.06.01.003,Pork / piglet meat (Sus scrofa),F28.A07XD$F02.A069J,"PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",100,1,1,1
-A.11.01.005,Chicken fat,A.06.02.001,Chicken meat (Gallus domesticus),F28.A07XD$F02.A069J,"PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",100,1,1,1
+A.11.01.004,Pork lard (Schmaltz),A.11.01.004,Pork lard (Schmaltz),F28.A07XD$F02.A069J,"PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",100,1,1,1
+A.11.01.005,Chicken fat,A.11.01.005,Chicken fat,F28.A07XD$F02.A069J,"PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",100,1,1,1
 A.11.01.006,Goose fat,A.06.02.004,"Goose meat (Anser, Branta, Chen)",F28.A07XD$F02.A069J,"PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",100,1,1,1
 A.11.01.007,Duck fat,A.06.02.003,Duck meat (Anas spp.),F28.A07XD$F02.A069J,"PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",100,1,1,1
 A.11.01.008,Turkey fat,A.06.02.002,Turkey meat (Meleagris gallopavo),F28.A07XD$F02.A069J,"PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",100,1,1,1
-A.11.01.009,Tallow,A.06.01.001,Beef meat (Bos spp.),F28.A07XD$F02.A069J,"PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",100,1,1,1
 A.11.02.001,Herring oil,A.07.01.001,Herring (Clupea),F28.A0C02$F02.A068M,"PROCESS=Oil production, PART-NATURE=Vegetable fats and oils (as part-nature)",100,1,20,0.85
 A.11.02.003,Cod liver oil,I.07.01.017.001,Cod (Gadus morhua),F28.A0C02$F02.A069M,"PROCESS=Oil production, PART-NATURE=Liver (as part-nature)",100,1,20,0.85
 A.11.03,Vegetable fat,A.11.03.001,Peanuts butter,,,20,1,1,1
