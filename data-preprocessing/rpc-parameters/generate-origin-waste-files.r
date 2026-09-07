@@ -145,6 +145,10 @@ base <- sua_template |>
     distinct(`SUA Code`, `SUA Name`, `Item Name`, `Item Code`)
 
   if (nrow(missing_rpc) > 0) {
+    # There are most certainly codes missing here.
+    # - If their respective SUA code is present in the crop- or livestock data,
+    #   that's a missed data point
+    # - If not, it is fine to ignore the code.
     missing_rpc |>
       mutate(
         msg = sprintf(

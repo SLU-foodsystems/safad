@@ -11,7 +11,7 @@ if (!requireNamespace("pacman", quietly = TRUE)) {
 }
 
 library(pacman)
-p_load(readxl, dplyr, readr, tidyr, tibble, here, fs)
+p_load(readxl, dplyr, readr, tidyr, tibble, here, fs, purrr)
 
 setwd(here())
 
@@ -1436,13 +1436,13 @@ merged_data <- bind_rows(merged_data, df_mushrooms)
 ################################ LIVESTOCK #####################################
 ################################################################################
 
-livestock_files <- c(
-  "Chicken.xlsx",
-  "Pig.xlsx",
-  "Dairy.xlsx",
-  "Egg.xlsx",
-  "Lamb.xlsx",
-  "Rabbit.xlsx"
+livestock_files <- list(
+  "Chicken.xlsx" = c("meat", "offal", "fat"),
+  "Pig.xlsx" = c("meat", "offal", "lard"),
+  "Dairy.xlsx" = c("milk"), # rest are handled in Merge_beef.R
+  "Egg.xlsx" = c("egg"),
+  "Lamb.xlsx" = c("meat"),
+  "Rabbit.xlsx" = c("meat")
 )
 
 # Some excel-files have values that are outside of the intended ranges.
@@ -1452,196 +1452,215 @@ remove_unnamed_cols <- function(df) {
     select(all_of(names(df)[!is.na(names(df)) & names(df) != ""]))
 }
 
-# Read all the livestock files
-for (j in seq_along(livestock_files)) {
-  print(paste0(j, " ", livestock_files[j]))
-  # Read the indicator data from the file
-  livestock_data <- read_excel(
-    paste0("./2 - Livestock/", livestock_files[j]),
-    sheet = "Footprints, results per kg",
-    skip = 5
-  ) |>
-    # Assign new names to the columns
-    setNames(c(
-      "Code",
-      "Name",
-      "Category",
-      "Country_name",
-      "Country_code",
-      "Carbon_Footprint",
-      "Carbon_Dioxide",
-      "Methane_fossil",
-      "Methane_bio",
-      "Nitrous_Oxide",
-      "HFC",
-      "Land",
-      "N_input",
-      "P_input",
-      "Water",
-      "Pesticides",
-      "Biodiversity",
-      "Ammonia",
-      "Labour",
-      "Animal_Welfare",
-      "Antibiotics"
-    )) |>
-    remove_unnamed_cols() |>
-    mutate(
-      Code = as.character(Code),
-      Name = as.character(Name),
-      Category = as.character(Category),
-      Country_name = as.character(Country_name),
-      Country_code = as.character(Country_code),
-    )
+livestock_footprints_cnames <- c(
+  "Code",
+  "Name",
+  "Category",
+  "Country_name",
+  "Country_code",
+  "Carbon_Footprint",
+  "Carbon_Dioxide",
+  "Methane_fossil",
+  "Methane_bio",
+  "Nitrous_Oxide",
+  "HFC",
+  "Land",
+  "N_input",
+  "P_input",
+  "Water",
+  "Pesticides",
+  "Biodiversity",
+  "Ammonia",
+  "Labour",
+  "Animal_Welfare",
+  "Antibiotics"
+)
 
-  # Read all the disaggregated climate impact data
-  livestock_data_CF_dis_all <- read_excel(
-    paste0("./2 - Livestock/", livestock_files[j]),
-    sheet = "GHG detailed, results per kg",
-    skip = 5
-  ) |>
-    # Assign new names to the columns
-    setNames(c(
-      "Code",
-      "Name",
-      "Category",
-      "Country_name",
-      "Country_code",
-      "Gas",
-      "Sum",
-      "Fert_prod",
-      "Cap_goods",
-      "Soils_dir",
-      "Soils_indir",
-      "Energy_diesel",
-      "Energy_gh",
-      "Energy_irr",
-      "Energy_ph",
-      "LUC",
-      "Energy_feed_proc",
-      "Energy_feed_t",
-      "Ent_ferm",
-      "Manure_tot",
-      "Manure_dir",
-      "Manure_indir",
-      "Energy_stables",
-      "Energy_slaughter"
-    )) |>
-    remove_unnamed_cols()
+livestock_ghgs_cnames <- c(
+  "Code",
+  "Name",
+  "Category",
+  "Country_name",
+  "Country_code",
+  "Gas",
+  "Sum",
+  "Fert_prod",
+  "Cap_goods",
+  "Soils_dir",
+  "Soils_indir",
+  "Energy_diesel",
+  "Energy_gh",
+  "Energy_irr",
+  "Energy_ph",
+  "LUC",
+  "Energy_feed_proc",
+  "Energy_feed_t",
+  "Ent_ferm",
+  "Manure_tot",
+  "Manure_dir",
+  "Manure_indir",
+  "Energy_stables",
+  "Energy_slaughter"
+)
 
-  # Helper function
-  num <- function(x) as.numeric(x)
 
-  # Select the different rows with either CO2-equivalents, CO2, CH4 fossil,
-  # CH4 biogenic and N2O
-  livestock_data_CF_dis <- livestock_data_CF_dis_all |>
-    filter(Gas == "CO2e") |>
-    mutate(
-      CO2e_rm_soils = num(Soils_dir) + num(Soils_indir),
-      CO2e_rm_energy = num(Energy_diesel) +
-        num(Energy_irr) +
-        num(Energy_ph) +
-        num(Energy_feed_proc) +
-        num(Energy_feed_t) +
-        num(Energy_stables) +
-        num(Energy_slaughter)
+livestock_rows <- map(names(livestock_files), function(file) {
+  # Map over each product (fat, offals, meat etc) in the given animal file
+  products <- livestock_files[[file]]
+  map(products, function(product) {
+    print(paste0(file, " ", product))
+
+    fname <- paste0("./2 - Livestock/", file)
+    sheet_footprints <- paste0("Footprints, per kg ", product)
+    sheet_ghgs <- paste0("GHG det, per kg ", product)
+
+    # Read the indicator data from the file
+    livestock_data <- read_excel(fname, sheet = sheet_footprints, skip = 5) |>
+      # Assign new names to the columns
+      setNames(livestock_footprints_cnames) |>
+      remove_unnamed_cols() |>
+      mutate(
+        Code = as.character(Code),
+        Name = as.character(Name),
+        Category = as.character(Category),
+        Country_name = as.character(Country_name),
+        Country_code = as.character(Country_code),
+      )
+
+    # Read all the disaggregated climate impact data
+    livestock_data_CF_dis_all <- read_excel(
+      fname,
+      sheet = sheet_ghgs,
+      skip = 5
     ) |>
-    # Select only the cols needed, and rename columns to reflect gases.
-    transmute(
-      CO2e_rm_fert_prod = Fert_prod,
-      CO2e_rm_cap_goods = Cap_goods,
-      CO2e_rm_soils = CO2e_rm_soils,
-      CO2e_rm_energy = CO2e_rm_energy,
-      CO2e_rm_LUC = LUC,
-      CO2e_rm_ent_ferm = Ent_ferm,
-      CO2e_rm_manure = Manure_tot
+      # Assign new names to the columns
+      setNames(livestock_ghgs_cnames) |>
+      remove_unnamed_cols()
+
+    # Select the different rows with either CO2-equivalents, CO2, CH4 fossil,
+    # CH4 biogenic and N2O
+    livestock_data_CF_dis_co2e <- livestock_data_CF_dis_all |>
+      filter(Gas == "CO2e") |>
+      # Select only the cols needed, and rename columns to reflect gases.
+      transmute(
+        CO2e_rm_fert_prod = Fert_prod,
+        CO2e_rm_cap_goods = Cap_goods,
+        CO2e_rm_soils = num(Soils_dir) + num(Soils_indir),
+        CO2e_rm_energy = num(Energy_diesel) +
+          num(Energy_irr) +
+          num(Energy_ph) +
+          num(Energy_feed_proc) +
+          num(Energy_feed_t) +
+          num(Energy_stables) +
+          num(Energy_slaughter),
+        CO2e_rm_LUC = LUC,
+        CO2e_rm_ent_ferm = Ent_ferm,
+        CO2e_rm_manure = Manure_tot
+      )
+
+    # CO2
+    livestock_data_CF_dis_co2 <- livestock_data_CF_dis_all |>
+      filter(Gas == "CO2") |>
+      transmute(
+        CO2_rm_fert_prod = Fert_prod,
+        CO2_rm_cap_goods = Cap_goods,
+        CO2_rm_energy = num(Energy_diesel) +
+          num(Energy_irr) +
+          num(Energy_ph) +
+          num(Energy_feed_proc) +
+          num(Energy_feed_t) +
+          num(Energy_stables) +
+          num(Energy_slaughter),
+        CO2_rm_LUC = LUC
+      )
+
+    # CH4 fossil
+    livestock_data_CF_dis_ch4f <- livestock_data_CF_dis_all |>
+      filter(Gas == "CH4, fossil") |>
+      transmute(
+        CH4_fossil_rm_fert_prod = Fert_prod,
+        CH4_fossil_rm_cap_goods = Cap_goods,
+        CH4_fossil_rm_energy = num(Energy_diesel) +
+          num(Energy_irr) +
+          num(Energy_ph) +
+          num(Energy_feed_proc) +
+          num(Energy_feed_t) +
+          num(Energy_stables) +
+          num(Energy_slaughter)
+      )
+
+    # CH4 biogenic (your original code did not compute a combined metric here; keep as-is but rename)
+    livestock_data_CF_dis_ch4b <- livestock_data_CF_dis_all |>
+      filter(Gas == "CH4, biogenic") |>
+      transmute(
+        CH4_bio_rm_soils_dir = Soils_dir,
+        CH4_bio_rm_ent_ferm = Ent_ferm,
+        CH4_bio_rm_manure = Manure_tot
+      )
+
+    # N2O
+    livestock_data_CF_dis_n2o <- livestock_data_CF_dis_all |>
+      filter(Gas == "N2O") |>
+      transmute(
+        N2O_rm_fert_prod = Fert_prod,
+        N2O_rm_cap_goods = Cap_goods,
+        N2O_rm_soils = num(Soils_dir) + num(Soils_indir),
+        N2O_rm_energy = num(Energy_diesel) +
+          num(Energy_irr) +
+          num(Energy_ph) +
+          num(Energy_feed_proc) +
+          num(Energy_feed_t) +
+          num(Energy_stables) +
+          num(Energy_slaughter),
+        N2O_rm_manure = Manure_tot
+      )
+
+    # Add the disaggregated carbon footprint to the other indicators
+    livestock_data_all <- bind_cols(
+      livestock_data,
+      livestock_data_CF_dis_co2e,
+      livestock_data_CF_dis_co2,
+      livestock_data_CF_dis_ch4f,
+      livestock_data_CF_dis_ch4b,
+      livestock_data_CF_dis_n2o
     )
 
-  # CO2
-  livestock_data_CF_dis1 <- livestock_data_CF_dis_all |>
-    filter(Gas == "CO2") |>
-    mutate(
-      CO2_rm_energy = num(Energy_diesel) +
-        num(Energy_irr) +
-        num(Energy_ph) +
-        num(Energy_feed_proc) +
-        num(Energy_feed_t) +
-        num(Energy_stables) +
-        num(Energy_slaughter)
-    ) |>
-    transmute(
-      CO2_rm_fert_prod = Fert_prod,
-      CO2_rm_cap_goods = Cap_goods,
-      CO2_rm_energy = CO2_rm_energy,
-      CO2_rm_LUC = LUC
-    )
-
-  # CH4 fossil
-  livestock_data_CF_dis2 <- livestock_data_CF_dis_all |>
-    filter(Gas == "CH4, fossil") |>
-    mutate(
-      CH4_fossil_rm_energy = num(Energy_diesel) +
-        num(Energy_irr) +
-        num(Energy_ph) +
-        num(Energy_feed_proc) +
-        num(Energy_feed_t) +
-        num(Energy_stables) +
-        num(Energy_slaughter)
-    ) |>
-    transmute(
-      CH4_fossil_rm_fert_prod = Fert_prod,
-      CH4_fossil_rm_cap_goods = Cap_goods,
-      CH4_fossil_rm_energy = CH4_fossil_rm_energy
-    )
-
-  # CH4 biogenic (your original code did not compute a combined metric here; keep as-is but rename)
-  livestock_data_CF_dis3 <- livestock_data_CF_dis_all |>
-    filter(Gas == "CH4, biogenic") |>
-    transmute(
-      CH4_bio_rm_soils_dir = Soils_dir,
-      CH4_bio_rm_ent_ferm = Ent_ferm,
-      CH4_bio_rm_manure = Manure_tot
-    )
-
-  # N2O
-  livestock_data_CF_dis4 <- livestock_data_CF_dis_all |>
-    filter(Gas == "N2O") |>
-    mutate(
-      N2O_rm_soils = num(Soils_dir) + num(Soils_indir),
-      N2O_rm_energy = num(Energy_diesel) +
-        num(Energy_irr) +
-        num(Energy_ph) +
-        num(Energy_feed_proc) +
-        num(Energy_feed_t) +
-        num(Energy_stables) +
-        num(Energy_slaughter)
-    ) |>
-    transmute(
-      N2O_rm_fert_prod = Fert_prod,
-      N2O_rm_cap_goods = Cap_goods,
-      N2O_rm_soils = N2O_rm_soils,
-      N2O_rm_energy = N2O_rm_energy,
-      N2O_rm_manure = Manure_tot
-    )
-
-  # Add the disaggregated carbon footprint to the other indicators
-  livestock_data <- livestock_data |>
-    bind_cols(
-      livestock_data_CF_dis,
-      livestock_data_CF_dis1,
-      livestock_data_CF_dis2,
-      livestock_data_CF_dis3,
-      livestock_data_CF_dis4
-    )
-
-  # Store everything in one dataset
-  merged_data <- bind_rows(merged_data, livestock_data)
-}
+    # Store everything in one dataset
+    return(livestock_data_all)
+  }) |>
+    bind_rows()
+}) |>
+  bind_rows()
 
 # Add the beef data that is compiled in a function
 source("Merge_beef.R")
 beef_data <- merge_beef()
-merged_data <- bind_rows(merged_data, beef_data)
+
+# Approximate horses as beef, but with 25% of the enteric fermentation emissions
+# to account for their lower rates of methane emissions.
+horse_data <- beef_data |>
+  filter(Code == "21111.02") |>
+  mutate(
+    Code = "21118.01",
+    Name = "Horse meat, fresh or chilled",
+    CO2e_rm_ent_ferm = CO2e_rm_ent_ferm * 0.25,
+    CH4_bio_rm_ent_ferm = CH4_bio_rm_ent_ferm * 0.25,
+  ) |>
+  mutate(
+    Methane_bio = (CH4_bio_rm_soils_dir +
+      CH4_bio_rm_ent_ferm +
+      CH4_bio_rm_manure),
+    Carbon_Footprint = (CO2e_rm_fert_prod +
+      CO2e_rm_cap_goods +
+      CO2e_rm_soils +
+      CO2e_rm_energy +
+      CO2e_rm_LUC +
+      CO2e_rm_ent_ferm +
+      CO2e_rm_manure),
+  )
+
+merged_data <- bind_rows(merged_data, livestock_rows, beef_data, horse_data)
+
 
 ################################################################################
 #################### Set some commodities to zero for now ######################
@@ -1678,7 +1697,6 @@ for (k in seq_along(zero_products$codes)) {
 ################################################################################
 
 path_novel <- "./4 - Novel foods/Novel foods.xlsx"
-
 id_cols <- c("Code", "Name", "Category", "Country_name", "Country_code")
 
 energy_cols <- c(
@@ -1914,6 +1932,7 @@ merged_codes <- inner_join(
   RPC_SUA_codes,
   merged_data,
   by = "Code",
+  # TODO: look into this many-to-many. Is it reasonable?
   relationship = "many-to-many"
 ) |>
   # Rearrange the columns, remove HFC and Labour (not used), and rename
