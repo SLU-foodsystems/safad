@@ -4,12 +4,11 @@ import Listbox from "primevue/listbox";
 import PrimeVue from "primevue/config";
 
 import { defaultRpcNames } from "@/lib/efsa-names";
+import { MAX_SELECTED_FOODS } from "@/lib/constants";
 
 getCurrentInstance()?.appContext.app.use(PrimeVue, {
   unstyled: true,
 });
-
-const MAX_ITEMS = 12;
 
 // Vue instance
 const props = defineProps<{
@@ -55,8 +54,8 @@ onBeforeMount(async () => {
 
 // Change which values are selected
 function onUpdate(items: string[]) {
-  if (selected.value.length > MAX_ITEMS) {
-    selected.value = items.slice(0, MAX_ITEMS);
+  if (selected.value.length > MAX_SELECTED_FOODS) {
+    selected.value = items.slice(0, MAX_SELECTED_FOODS);
   }
 
   emit("change", [...selected.value].sort());
@@ -102,7 +101,7 @@ watch(
       @update:modelValue="onUpdate"
     />
     <div class="error-region" aria-live="polite">
-      <p v-if="selected.length === MAX_ITEMS">
+      <p v-if="selected.length === MAX_SELECTED_FOODS">
         Maximum number of food-items selected.
       </p>
     </div>

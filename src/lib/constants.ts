@@ -30,6 +30,29 @@ export const CO2E_CONV_FACTORS = {
   HCFC: 1960,
 };
 
+export const COUNTRIES: Record<string, string> = {
+  FR: "France",
+  DE: "Germany",
+  GR: "Greece",
+  HU: "Hungary",
+  IE: "Ireland",
+  IT: "Italy",
+  PL: "Poland",
+  ES: "Spain",
+  SE: "Sweden",
+};
+
+export const DEFAULT_COUNTRY = "SE";
+
+export const MAX_SELECTED_FOODS = 12;
+
+export const DEFAULT_FOOD_CODES = [
+  "A.19.01.002.003", // Pizza
+  "A.19.10.001", // Vegetable/herb soup
+  "I.19.01.001.018", // Pierogi, with vegetables
+  "I.19.01.003.017", // Lasagna
+];
+
 export const SAFAD_FILE_NAMES = {
   Input: {
     FootprintsRpc: () => "SAFAD ID Footprints RPC.csv",

@@ -5,8 +5,14 @@ import * as DefaultInputFiles from "@/lib/default-input-files";
 import MetaFile from "@/lib/MetaFile";
 import ResultsEngine from "@/lib/ResultsEngine";
 
-import { SAFAD_FILE_NAMES } from "@/lib/constants";
+import {
+  COUNTRIES,
+  DEFAULT_COUNTRY,
+  DEFAULT_FOOD_CODES,
+  SAFAD_FILE_NAMES,
+} from "@/lib/constants";
 import { resetFile } from "@/lib/file-interface-utils";
+import { readUrlState, useUrlState } from "@/lib/use-url-state";
 import { downloadAsCsv, downloadAsXlsx } from "@/lib/io";
 import { debounce, padLeft, stringifyCsvData } from "@/lib/utils";
 import {
@@ -48,7 +54,9 @@ const APP_VERSION = __APP_VERSION__;
 
 const RE = new ResultsEngine();
 
-const countryCode = ref("SE");
+const urlState = readUrlState();
+
+const countryCode = ref(urlState.country ?? DEFAULT_COUNTRY);
 const isLoading = ref(false);
 
 const {
@@ -106,12 +114,7 @@ watch(
   { immediate: true }
 );
 
-const selectedFoodCodes = ref<string[]>([
-  "A.19.01.002.003", // Pizza
-  "A.19.10.001", // Vegetable/herb soup
-  "I.19.01.001.018", // Pierogi, with vegetables
-  "I.19.01.003.017", // Lasagna
-]);
+const selectedFoodCodes = ref<string[]>(urlState.foods ?? DEFAULT_FOOD_CODES);
 
 const setSelectedFoodCodes = (codes: string[]) => {
   selectedFoodCodes.value = codes;
@@ -322,6 +325,8 @@ const {
   recompute: updateChartData,
 } = setupCharts(RE, diet, selectedFoodCodes);
 
+useUrlState(countryCode, selectedFoodCodes);
+
 /**
  * Whenever the countryCode dropdown is changed, we need to
  * - Update the ResultsEngine
@@ -519,15 +524,9 @@ onMounted(async () => {
             <label class="cluster">
               <span>Selected country:</span>
               <select v-model="countryCode">
-                <option value="FR">France</option>
-                <option value="DE">Germany</option>
-                <option value="GR">Greece</option>
-                <option value="HU">Hungary</option>
-                <option value="IE">Ireland</option>
-                <option value="IT">Italy</option>
-                <option value="PL">Poland</option>
-                <option value="ES">Spain</option>
-                <option value="SE">Sweden</option>
+                <option v-for="(name, code) in COUNTRIES" :key="code" :value="code">
+                  {{ name }}
+                </option>
               </select>
             </label>
           </div>
