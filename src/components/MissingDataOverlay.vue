@@ -19,6 +19,8 @@ export default defineComponent({
 </template>
 
 <style lang="scss">
+@use "../styles/_constants";
+
 .missing-data-overlay {
   position: absolute;
   display: flex;
@@ -30,7 +32,7 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
 
-  background: rgba(white, 0.85) !important;
+  background: rgba(constants.$background, 0.85) !important;
   font-size: 1.25em;
   font-weight: bold;
   text-align: center;
