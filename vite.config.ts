@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import UnpluginInjectPreload from "unplugin-inject-preload/vite";
 
-import statCsvFiles from "./build-utils/stat-input-files";
+import statCsvFiles from "./build-utils/stat-input-files.ts";
 
 // https://vitejs.dev/config/
 export default defineConfig({
