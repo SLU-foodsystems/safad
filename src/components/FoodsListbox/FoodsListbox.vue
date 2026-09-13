@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import { computed, onBeforeMount, ref, getCurrentInstance, watch } from "vue";
-import Listbox from "primevue/listbox";
-import PrimeVue from "primevue/config";
+import { computed, onBeforeMount, ref, watch } from "vue";
+import Listbox from "./Listbox.vue";
 
 import { defaultRpcNames } from "@/lib/efsa-names";
-
-getCurrentInstance()?.appContext.app.use(PrimeVue, {
-  unstyled: true,
-});
 
 const MAX_ITEMS = 12;
 
@@ -98,7 +93,7 @@ watch(
       filterPlaceholder="Filter codes and names..."
       emptyFilterMessage="No results found."
       emptyMessage="No results found."
-      aria-labelledby="listbox-label"
+      aria-label="Food codes"
       @update:modelValue="onUpdate"
     />
     <div class="error-region" aria-live="polite">
@@ -183,7 +178,7 @@ watch(
     font-size: 0.875em;
   }
 
-  [data-pc-name="pcfiltercontainer"] {
+  .listbox__filter {
     display: flex;
     flex-direction: column-reverse;
     gap: 0.25em;
@@ -198,11 +193,7 @@ watch(
       align-items: center;
       font-size: 0.9em;
       gap: 0.5rem;
-
-      &::after {
-        content: "Search:";
-        font-weight: bold;
-      }
+      font-weight: bold;
     }
   }
 
@@ -221,7 +212,7 @@ watch(
     }
   }
 
-  .p-virtualscroller {
+  .listbox__options {
     border: 2px solid constants.$gray;
     background: white;
     overflow: auto;
@@ -232,7 +223,6 @@ watch(
   }
 
   ul {
-    max-width: 100%;
     max-width: 95vw; // Hack: otherwise expands beyond viewport
 
     // Reset ul-styles
@@ -244,6 +234,7 @@ watch(
   li {
     margin: 0;
     padding: 0.25em 0.5em;
+    overflow-wrap: anywhere;
 
     font-size: 0.875em;
 
@@ -275,6 +266,19 @@ watch(
 
       width: auto;
       height: 0.75em;
+    }
+  }
+
+  .listbox__spacer {
+    padding: 0;
+    pointer-events: none;
+  }
+
+  .listbox__empty {
+    cursor: default;
+
+    &:hover {
+      background: transparent;
     }
   }
 
