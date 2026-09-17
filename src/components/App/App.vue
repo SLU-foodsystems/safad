@@ -1056,7 +1056,7 @@ onMounted(async () => {
 /* Second page footer */
 .page-footer + .page-footer {
   margin: 0 1em;
-  padding: 2em 0;
+  padding: 2em;
   background: constants.$type;
 }
 
