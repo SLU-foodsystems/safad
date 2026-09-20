@@ -1223,7 +1223,9 @@ df_GHGs <- df_GHGs_disaggr |>
 #  Biodiversity
 # ==========================================================
 
-biodiv_factors <- read_excel("./1 - Crops/Biodiversity factors.xlsx") |>
+biodiv_factors <- read_excel(
+  "./Env ass data/Biodiversity/Biodiversity factors.xlsx"
+) |>
   filter(
     habitat == "Cropland_Intense" |
       habitat == "Cropland_LightIntense" |
