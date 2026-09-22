@@ -392,7 +392,7 @@ df_N <- read_excel(
 ) |>
   resolve_refs_adjust_yield(
     yields = yields,
-    yield_strategy = "yield-last",
+    yield_strategy = "yield-first",
     n_index_cols = 3,
     values_to = "N_fert",
     approximated_to = "N_approximated"
@@ -405,7 +405,7 @@ df_P <- read_excel(
 ) |>
   resolve_refs_adjust_yield(
     yields = yields,
-    yield_strategy = "yield-last",
+    yield_strategy = "yield-first",
     n_index_cols = 3,
     values_to = "P_fert",
     approximated_to = "P_approximated"
@@ -423,7 +423,7 @@ df_N_contents <- read_excel(
 # ==========================================================
 
 # From: kg active substance per hectare
-# To: k active substance per kg crop
+# To: g active substance per kg crop
 df_pest <- read_excel(
   "./1 - Crops/Pesticides.xlsx",
   sheet = "Data",
@@ -436,6 +436,7 @@ df_pest <- read_excel(
     values_to = "pesticides_use"
   ) |>
   mutate(pesticides_use = pesticides_use * 1000)
+
 
 # ==========================================================
 # Blue Water
@@ -2179,7 +2180,6 @@ feed_data <- merged_data |>
     Biodiversity,
     Ammonia
   )
-
 
 # Write to file
 write.csv(
