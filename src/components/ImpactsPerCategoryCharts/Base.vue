@@ -206,6 +206,7 @@ onMounted(() => {
       height: $size;
       background: gray;
       border-radius: $size;
+      box-shadow: inset 0 0 0 1px rgba(black, 0.2);
     }
   }
 }

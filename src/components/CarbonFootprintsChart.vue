@@ -185,6 +185,7 @@ onMounted(drawChart);
     align-items: center;
     gap: 0.5em;
 
+    /* Label color indicators (circles) */
     > span {
       $size: 1.25em;
       content: "";
@@ -193,6 +194,7 @@ onMounted(drawChart);
       height: $size;
       background: gray;
       border-radius: $size;
+      box-shadow: inset 0 0 0 1px rgba(black, 0.2);
     }
   }
 }
