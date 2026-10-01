@@ -1,18 +1,11 @@
 {
-  "noEmit": true,
-  "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
-  "compilerOptions": {
-    "lib": ["es2019", "dom"],
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "typeRoots": ["./src/types"]
-  },
-
+  "files": [],
   "references": [
     {
-      "path": "./tsconfig.config.json"
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
     }
   ]
 }
