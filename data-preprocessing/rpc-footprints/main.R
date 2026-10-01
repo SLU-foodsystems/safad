@@ -538,49 +538,57 @@ LUC_duplicate_gh_rows <- function(df, org_str, new_str) {
   df |> bind_rows(new_rows)
 }
 
-df_LUC <- suppressWarnings(
-  read_xlsx("./Env ass data/LUC/Deforest_per_kg.xlsx")
+iso2_iso3_mapping <- read_csv(
+  "../codes/country-codes-iso2-iso3.csv",
+  show_col_types = FALSE,
+  na = ""
 ) |>
-  # Some, but not all, have Average values. Drop them, re-compute mean.
-  filter(Year != "Average") |>
-  transmute(
-    Country,
-    Commodity,
-    CO2_LUC = `Emissions per kg (kg CO2)`
-  ) |>
-  # Some values have an "inf"-value. Replace with 0
-  mutate(CO2_LUC = if_else(is.infinite(CO2_LUC), 0, CO2_LUC)) |>
-  summarise(
-    CO2_LUC = coalesce(mean(CO2_LUC, na.rm = TRUE), 0),
-    .by = c("Country", "Commodity")
-  ) |>
-  # Fix names to match FAO naming
-  normalise_country_names(Country) |>
-  left_join(country_name_code_map, by = c("Country" = "Country name")) |>
-  mutate(
-    Commodity = recode_values(
-      Commodity,
-      "Barley" ~ "Barley, average",
-      "Cauliflowers and broccoli" ~ "Cauliflowers and broccoli, average",
-      "Chillies and peppers, green (Capsicum spp. and Pimenta spp.)" ~
-        "Chillies and peppers, green (Capsicum spp. and Pimenta spp.), raw",
-      "Coconuts, in shell" ~ "Coconut, in shell",
-      "Cucumbers and gherkins" ~ "Cucumbers and gherkins, greenhouse",
-      "Rape or colza seed" ~ "Rape or colza seed, average",
-      "Tomatoes" ~ "Tomatoes, greenhouse",
-      "Wheat" ~ "Wheat, average",
-      unmatched = "default",
-      default = c(Commodity)
+  rename("Country code" = "Alpha-2 code", "Country code (ISO3)" = "Alpha-3 code")
+
+tropical_countries <- read_xlsx(
+  "./Env ass data/LUC/country_classification.xlsx"
+) |>
+  filter(`ECOREGION GROUP` == "Tropical") |>
+  # split Sudan (two countries)
+  filter(COUNTRY != "Sudan and South Sudan") |>
+  bind_rows(
+    tibble(
+      `ECOREGION GROUP` = "Tropical",
+      COUNTRY = c("Sudan", "South Sudan"),
+      GID_0   = c("SDN", "SSD")
     )
   ) |>
-  LUC_duplicate_gh_rows(org_str = ", greenhouse", new_str = ", openfield") |>
-  left_join(
-    # Use df_N for a list of all the unique codes
-    unique(select(df_N, Crop, `Crop code`)),
-    by = c("Commodity" = "Crop")
+  left_join(iso2_iso3_mapping, by = c("GID_0" = "Country code (ISO3)")) |>
+  # Removing five countries which we do not have country data for:
+  # XAD, XCL, ZNC, XPI, XSP
+  filter(!is.na(`Country code`)) |>
+  pull(`Country code`)
+
+
+df_LUC <- read_csv(
+  "./Env ass data/LUC/DeDuCE_LCIs_20_disc.csv",
+  show_col_types = FALSE
+) |>
+  # Verified: no NA country codes introduced
+  left_join(iso2_iso3_mapping, by = c("ISO" = "Country code (ISO3)")) |>
+  transmute(
+    `Country code`,
+    `Crop code` = CPC_item_code,
+    Year,
+    # We select the net emissions footprints, but there is also Gross,
+    # and clamp any negative values to 0.
+    CO2_LUC = pmax(`Net emissions footprint (tCO2/t)`, 0),
   ) |>
-  drop_na(`Crop code`) |>
-  select(`Country code`, `Crop code`, CO2_LUC)
+  # Data set contains Inf values. Drop these.
+  filter(!is.infinite(CO2_LUC)) |>
+  # Take the mean over all the years in the data (2020-2024) per crop and ctry
+  summarise(
+    CO2_LUC = mean(CO2_LUC),
+    .by = c("Country code", "Crop code")
+  ) |>
+  filter(`Country code` %in% tropical_countries) |>
+  split_avg_into_gh_crops(gh_crops)
+
 
 # TEST to make sure we do not miss any codes with the renaming-shenanigans above
 {
