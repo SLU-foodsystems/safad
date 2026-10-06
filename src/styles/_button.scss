@@ -122,6 +122,11 @@ button:not([disabled]) {
     animation: rotate 1s infinite linear;
   }
 
+  &:hover {
+    opacity: 1;
+    cursor: initial;
+  }
+
   &.button--accent::after {
     background-image: url("../assets/spinner-white.svg");
   }

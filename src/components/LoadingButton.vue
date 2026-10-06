@@ -2,17 +2,20 @@
 import { ref } from "vue";
 
 const props = defineProps<{
-  clickHandler: (event: Event) => void;
+  clickHandler: (event: Event) => void | Promise<void>;
 }>();
 
 const isLoading = ref(false);
 
 async function onClick(event: Event) {
+  if (isLoading.value) return;
+
   isLoading.value = true;
   try {
-    props.clickHandler(event);
-  } catch {}
-  isLoading.value = false;
+    await props.clickHandler(event);
+  } finally {
+    isLoading.value = false;
+  }
 }
 </script>
 
