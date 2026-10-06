@@ -485,20 +485,18 @@ onMounted(async () => {
     <div class="email-prompt">
       <div>
         <p>
-          <strong>Are you using SAFAD?</strong>
+          <strong>Legacy version</strong>
         </p>
         <p>
-          We are preparing for the release of version 2.0, with updates to the
-          environmental data and increased transparency. Register your email if
-          you wish to be notified of the release and of future updates.
+        This is an older version of the SAFAD application, prior to release of version 2.0.0.
         </p>
       </div>
       <a
         class="button button--accent"
         target="_blank"
         rel="nofollow"
-        href="https://forms.cloud.microsoft/e/s6Ygp7TF0z"
-        >Register your email address</a
+        href="https://safad.se"
+        >New version at safad.se</a
       >
     </div>
     <div class="info-bar">
@@ -997,8 +995,7 @@ onMounted(async () => {
 }
 
 .email-prompt {
-  $bg: #152e51; /* blue */
-  $bg: constants.$red_grape;
+  $bg: #b82a32;
 
   margin: 1em;
   padding: 2em;
