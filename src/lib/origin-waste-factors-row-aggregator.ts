@@ -50,7 +50,33 @@ export default function originWasteFactorsRestOfWorldAggregator(
     const nonRoWShare = sum(
       nonRoWOriginFactors.map(([_countryCode, [share]]) => share)
     );
+    // In case we have RoW shares but the nonRoWShares add up to less than
+    // 1, we adjust it here.
     const restOfWorldShare = Math.max(0, 1 - nonRoWShare);
+
+    // When we do not have RoW shares from missing env data or explicit RoW
+    // data, but we the shares add up to less than 1 (i.e. 1-rowshare > 0)
+    // we need to normalize so that we end up with a total share of 1.
+    if (rowOriginFactors.length === 0 && nonRoWShare > 0) {
+      const normalized = nonRoWOriginFactors.map(
+        ([countryCode, [share, waste]]) =>
+          [countryCode, [share / nonRoWShare, waste]] as [
+            string,
+            [number, number],
+          ]
+      );
+      const roundingResidual =
+        1 - sum(normalized.map(([_countryCode, [share]]) => share));
+
+      if (roundingResidual !== 0) {
+        const largest = normalized.reduce((max, entry) =>
+          entry[1][0] > max[1][0] ? entry : max
+        );
+        largest[1][0] += roundingResidual;
+      }
+
+      return Object.fromEntries(normalized);
+    }
 
     const restOfWorldWaste = computeRestOfWorldWaste(
       nonRoWOriginFactors,

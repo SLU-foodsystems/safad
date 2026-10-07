@@ -35,7 +35,7 @@ describe("origin-waste-factors-row-aggregator.ts", () => {
     });
   });
 
-  test("computes RoW when missing", () => {
+  test("normalizes shares when RoW is missing", () => {
     const rpcFactors: RpcOriginWaste = {
       a: {
         se: [0.2, 0.1],
@@ -57,22 +57,12 @@ describe("origin-waste-factors-row-aggregator.ts", () => {
     const a = result.a!;
     const b = result.b!;
 
-    // First, check those that should not be modified
-    expect(a.se).toEqual([0.2, 0.1]);
-    expect(a.es).toEqual([0.5, 0.15]);
-    expect(b.en).toEqual([0.5, 0]);
-    expect(b.fr).toEqual([0.4, 0.15]);
-
-    // Compute the weighted mean wastes
-    const rowWasteA = (0.2 * 0.1 + 0.5 * 0.15) / (0.2 + 0.5);
-    const rowWasteB = (0.4 * 0.15) / 0.9;
-
-    // Then, check RoW
-    // Compute the expected env footprints for A and B
-    expect(a.RoW![0]!).toBeCloseTo(0.3);
-    expect(a.RoW![1]).toBeCloseTo(rowWasteA);
-    expect(b.RoW![0]).toBeCloseTo(0.1);
-    expect(b.RoW![1]).toBeCloseTo(rowWasteB);
+    expect(a.se).toEqual([0.2 / 0.7, 0.1]);
+    expect(a.es).toEqual([0.5 / 0.7, 0.15]);
+    expect(b.en).toEqual([0.5 / 0.9, 0]);
+    expect(b.fr).toEqual([0.4 / 0.9, 0.15]);
+    expect(a).not.toHaveProperty("RoW");
+    expect(b).not.toHaveProperty("RoW");
   });
 
   test("merges into RoW based on threshold and env factors", () => {
@@ -110,6 +100,45 @@ describe("origin-waste-factors-row-aggregator.ts", () => {
     expect(a.RoW![1]).toBeCloseTo(expectedRoWWaste);
   });
 
+  test("assigns rounding residual to an existing RoW share", () => {
+    // Check for with and without env data
+    const result1 = originWasteFactorsRestOfWorldAggregator(
+      {
+        a: {
+          de: [0.2, 0.045],
+          dk: [0.3, 0.045],
+          se: [0.4998, 0.045],
+          RoW: [0.0001, 0.045],
+        },
+      },
+      { a: new Set(["de", "dk", "se", "RoW"]) }
+    );
+    const result2 = originWasteFactorsRestOfWorldAggregator(
+      {
+        a: {
+          de: [0.2, 0.045],
+          dk: [0.3, 0.045],
+          se: [0.4998, 0.045],
+          RoW: [0.0001, 0.045],
+        },
+      },
+      { a: new Set(["de", "dk", "se"]) }
+    );
+
+    [result1, result2].forEach((result) => {
+      expect(result.a!.de![0]).toBe(0.2);
+      expect(result.a!.dk![0]).toBe(0.3);
+      expect(result.a!.se![0]).toBe(0.4998);
+      expect(result.a!.RoW![0]).toBeCloseTo(0.0002);
+      expect(
+        Object.values(result.a!).reduce(([share], [nextShare]) => [
+          share + nextShare,
+          0,
+        ])[0]
+      ).toBe(1);
+    });
+  });
+
   test("merges into RoW based on threshold and env factors, when RoW missing", () => {
     const results: RpcOriginWaste = originWasteFactorsRestOfWorldAggregator(
       {
@@ -125,7 +154,7 @@ describe("origin-waste-factors-row-aggregator.ts", () => {
 
     expect(results).toHaveProperty("a");
 
-    const expectedRoWShare = 1 - (0.2 + 0.05 + 0.5);
+    const expectedRoWShare = 1 - (0.2 + 0.05 + 0.5); // de + rest
     // Should be (weighted) average of all wastes
     const expectedRoWWaste =
       (0.2 * 0.1 + 0.05 * 0.1 + 0.5 * 0.15 + 0.08 * 0.2) /
@@ -133,5 +162,27 @@ describe("origin-waste-factors-row-aggregator.ts", () => {
 
     expect(results.a!.RoW![0]).toEqual(expectedRoWShare);
     expect(results.a!.RoW![1]).toBeCloseTo(expectedRoWWaste);
+  });
+
+  test("does not introduce RoW when not needed", () => {
+    const results: RpcOriginWaste = originWasteFactorsRestOfWorldAggregator(
+      {
+        a: {
+          se: [0.2, 0.1],
+          fr: [0.05, 0.1],
+          es: [0.5, 0.15],
+        },
+      },
+      { a: new Set(["se", "fr", "es"]) }
+    );
+
+    expect(results).toHaveProperty("a");
+    expect(results.a!).not.toHaveProperty("RoW");
+
+    const total = 0.2 + 0.05 + 0.5;
+    const adjustmentFactor = 1 / total;
+    expect(results.a!.se![0]).toBeCloseTo(0.2 * adjustmentFactor);
+    expect(results.a!.fr![0]).toBeCloseTo(0.05 * adjustmentFactor);
+    expect(results.a!.es![0]).toBeCloseTo(0.5 * adjustmentFactor);
   });
 });
