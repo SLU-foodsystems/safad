@@ -19,7 +19,19 @@ ll_countries <- tribble(
   "SE"            , "Sweden"
 )
 
-.round_to_precision <- function(x, digits) round(x, digits = digits)
+.round_to_precision <- function(x, digits) {
+  scale <- 10^digits
+  scaled <- x * scale
+  rounded_down <- floor(scaled)
+  remainder <- as.integer(round(scale - sum(rounded_down)))
+
+  if (remainder > 0) {
+    indices <- order(scaled - rounded_down, decreasing = TRUE)[seq_len(remainder)]
+    rounded_down[indices] <- rounded_down[indices] + 1
+  }
+
+  rounded_down / scale
+}
 
 # PART 1: Parse the input data
 
