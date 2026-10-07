@@ -485,21 +485,30 @@ onMounted(async () => {
     <div class="email-prompt">
       <div>
         <p>
-          <strong>Are you using SAFAD?</strong>
+          <strong>Version 2.0 released!</strong>
         </p>
         <p>
-          We are preparing for the release of version 2.0, with updates to the
-          environmental data and increased transparency. Register your email if
-          you wish to be notified of the release and of future updates.
+          We have revised SAFAD with updates to the underlying data and
+          adjustments to the methods. You can
+          <a
+            href="https://github.com/SLU-foodsystems/safad/blob/main/CHANGELOG.md"
+            target="_blank"
+            rel="nofollow noopener"
+            >read more about the changes</a
+          >
+          or <a href="https://v1.safad.se">use the old version</a>.
         </p>
       </div>
-      <a
-        class="button button--accent"
-        target="_blank"
-        rel="nofollow"
-        href="https://forms.cloud.microsoft/e/s6Ygp7TF0z"
-        >Register your email address</a
-      >
+      <div>
+        <p><strong>Want to be notified about future updates?</strong></p>
+        <a
+          class="button button--accent"
+          target="_blank"
+          rel="nofollow"
+          href="https://forms.cloud.microsoft/e/s6Ygp7TF0z"
+          >Register your email address</a
+        >
+      </div>
     </div>
     <div class="info-bar">
       <div class="page-wrap">
@@ -997,8 +1006,8 @@ onMounted(async () => {
 }
 
 .email-prompt {
-  $bg: #152e51; /* blue */
   $bg: constants.$red_grape;
+  $bg: #152e51; /* blue */
 
   margin: 1em;
   padding: 2em;
@@ -1011,11 +1020,12 @@ onMounted(async () => {
   align-items: center;
   gap: 2em;
 
-  > div {
+  > :first-child {
     flex-grow: 1;
   }
 
-  > a {
+  > :last-child {
+    text-align: right;
     flex-shrink: 0;
   }
 
