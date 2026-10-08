@@ -1,5 +1,10 @@
 import * as d3 from "d3";
-import { contrastingTextColor, getYTickFormat } from "./charts-utils";
+import {
+  contrastingTextColor,
+  getYTickFormat,
+  insetStroke,
+  type RectGeom,
+} from "./charts-utils";
 
 interface Config {
   margin: { top: number; right: number; bottom: number; left: number };
@@ -18,14 +23,14 @@ interface Config {
   };
 }
 
-type DataPoint = {
+type BarDatum = {
   category: string;
   value: number;
 };
 
 export default function HorizontalBarChart(
   container: HTMLElement,
-  data: DataPoint[],
+  data: BarDatum[],
   options: Partial<Config>
 ) {
   const cfg: Config = {
@@ -154,22 +159,32 @@ export default function HorizontalBarChart(
     tooltip.style("transform", `translate(${x + xOffset}px, ${y + yOffset}px)`);
   };
 
+  const barGeom = (d: BarDatum): RectGeom => {
+    const x0 = xAxisScaler(0);
+    const x1 = xAxisScaler(d.value);
+    return {
+      x: Math.min(x0, x1),
+      y: yAxisScaler(d.category) as number,
+      width: Math.abs(x1 - x0),
+      height: yAxisScaler.bandwidth(),
+    };
+  };
+
+  const strokeWidth = 1;
+
   svg
     .append("g")
-    .selectAll("rect")
+    .selectAll<SVGRectElement, BarDatum>("rect")
     .data(data)
     .enter()
     .append("rect")
     .attr("fill", (d) => cfg.color(d.category))
-    .attr("y", (d) => yAxisScaler(d.category) as number)
-    .attr("x", 0)
-    .attr("width", (d) => xAxisScaler(d.value))
-    .attr("height", yAxisScaler.bandwidth())
     .attr("stroke", (d) => {
       const c = cfg.color(d.category);
       return c ? d3.rgb(c).darker(0.66).formatHex() : "transparent";
     })
-    .attr("stroke-width", "1")
+    .attr("stroke-width", strokeWidth)
+    .call(insetStroke, barGeom, strokeWidth)
     .on("mouseover", function (event, d) {
       const subgroupName = cfg.labelTextMapper(d.category);
       const subgroupValue = d.value;
