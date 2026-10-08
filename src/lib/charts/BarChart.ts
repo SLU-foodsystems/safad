@@ -1,5 +1,10 @@
 import * as d3 from "d3";
-import { contrastingTextColor, getYTickFormat } from "./charts-utils";
+import {
+  contrastingTextColor,
+  getYTickFormat,
+  insetStroke,
+  type RectGeom,
+} from "./charts-utils";
 
 interface Config {
   margin: { top: number; right: number; bottom: number; left: number };
@@ -14,19 +19,18 @@ interface Config {
   showGridLines?: boolean;
 
   axisLabels?: {
-    // x: string; // TODO: Not implemented
     y: string;
   };
 }
 
-type DataPoint = {
+type BarDatum = {
   category: string;
   value: number;
 };
 
 export default function BarChart(
   container: HTMLElement,
-  data: DataPoint[],
+  data: BarDatum[],
   options: Partial<Config>
 ) {
   const cfg: Config = {
@@ -63,10 +67,10 @@ export default function BarChart(
     cfg.maxValue = 1;
   }
 
-  const yTickFormat = getYTickFormat(
+  const yTickFormat = getYTickFormat(cfg.maxValue, [
+    cfg.minValue,
     cfg.maxValue,
-    [cfg.minValue, cfg.maxValue]
-  );
+  ]);
   const yTickCharLen = yTickFormat(cfg.maxValue).length;
 
   // Add left-margin for the ticks
@@ -185,23 +189,29 @@ export default function BarChart(
     tooltip.style("transform", `translate(${x}px, ${y}px)`);
   };
 
+  const barGeom = (d: BarDatum): RectGeom => ({
+    x: xAxisScaler(d.category) as number,
+    y: yAxisScaler(d.value),
+    width: xAxisScaler.bandwidth(),
+    height: innerHeight - yAxisScaler(d.value),
+  });
+
+  const strokeWidth = 1;
+
   // Show the bars
   svg
     .append("g")
-    .selectAll("rect")
+    .selectAll<SVGRectElement, BarDatum>("rect")
     .data(data)
     .enter()
     .append("rect")
     .attr("fill", () => cfg.color)
-    .attr("x", (d) => xAxisScaler(d.category) as number)
-    .attr("y", (d) => yAxisScaler(d.value))
-    .attr("height", (d) => innerHeight - yAxisScaler(d.value))
-    .attr("width", xAxisScaler.bandwidth())
     .attr("stroke", () => {
       const c = cfg.color;
       return c ? d3.rgb(c).darker(0.66).formatHex() : "transparent";
     })
-    .attr("stroke-width", "1")
+    .attr("stroke-width", strokeWidth)
+    .call(insetStroke, barGeom, strokeWidth)
     .on("mouseover", function (event, d) {
       const subgroupName = cfg.labelTextMapper(d.category);
       const subgroupValue = d.value;
