@@ -155,9 +155,14 @@ export default function BarChart(
       .attr("transform", "translate(0, 16)");
   }
 
-  svg.append("g").call(d3.axisLeft(yAxisScaler).tickFormat(yTickFormat));
+  const yAxisG = svg
+    .append("g")
+    .call(d3.axisLeft(yAxisScaler).tickFormat(yTickFormat));
 
   // TODO: Only implemented y-label
+  let axisLabel: d3.Selection<SVGTextElement, unknown, null, undefined> | null =
+    null;
+
   if (cfg.axisLabels && cfg.axisLabels.y) {
     const labelXPos = -15 - yTickCharLen * APPROX_CHAR_WIDTH;
     let labelYPos = cfg.height / -2 + cfg.margin.top;
@@ -167,7 +172,7 @@ export default function BarChart(
     }
 
     // Axis labels
-    svg
+    axisLabel = svg
       .append("text")
       .attr("x", labelYPos)
       .attr("y", labelXPos)
@@ -232,4 +237,11 @@ export default function BarChart(
     .on("mouseleave", () => {
       tooltip.style("opacity", 0);
     });
+
+  // Bars are appended last, so they cover the axes. Re-raise the axes
+  // to put them back on top. Grid lines are deliberately left alone —
+  // they should stay behind the bars.
+  xAxisG.raise();
+  yAxisG.raise();
+  axisLabel?.raise();
 }

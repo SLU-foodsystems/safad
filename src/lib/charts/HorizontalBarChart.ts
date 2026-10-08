@@ -206,4 +206,6 @@ export default function HorizontalBarChart(
     .on("mouseleave", () => {
       tooltip.style("opacity", 0);
     });
+
+  yAxisG.raise();
 }
