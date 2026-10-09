@@ -38,7 +38,9 @@ feed_products <- c(
   "0116", # Rye
   "0111", # Wheat
   "01705", # Peas, dry
-  "01702" # Broad beans and horse beans, dry
+  "01702", # Broad beans and horse beans, dry
+  "01443", # Rape or colza seeds
+  "0141"   # soya beans
 )
 
 # Select the countries for which we need feed data
