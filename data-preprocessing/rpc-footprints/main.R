@@ -45,20 +45,21 @@ feed_products <- c(
 
 # Select the countries for which we need feed data
 feed_countries <- c(
-  "BR", # "Brazil"
-  "DK", # "Denmark"
-  "FR", # "France"
-  "DE", # "Germany"
-  "GR", # "Greece"
-  "HU", # "Hungary"
-  "IE", # "Ireland"
-  "IT", # "Italy"
-  "NL", # "Netherlands"
-  "NZ", # "New Zealand"
-  "PL", # "Poland"
-  "ES", # "Spain"
-  "SE", # "Sweden"
-  "GB" # "UK
+  "AR", # Argentina
+  "BR", # Brazil
+  "DK", # Denmark
+  "FR", # France
+  "DE", # Germany
+  "GR", # Greece
+  "HU", # Hungary
+  "IE", # Ireland
+  "IT", # Italy
+  "NL", # Netherlands
+  "NZ", # New Zealand
+  "PL", # Poland
+  "ES", # Spain
+  "SE", # Sweden
+  "GB"  # UK
 )
 
 # Helper logic for resolving refs + adjusting yields
