@@ -23,20 +23,27 @@ export const SFA_RESULTS_HEADER = [
 
 import foodexTranslationTableUrl from "@/data/foodex-code-translations.csv?url";
 
+/**
+ * Maps foodex2-codes (e.g. A001A) to foodex1-codes (A.01.02.003) so that well
+ * can consume the SFA recipe files, which only has fx2 codes.
+ */
 function parseSfaFoodExTranslationFile(csvString: string) {
   const mappings: Record<string, string> = {};
   parseCsvFile(csvString)
     .slice(1)
-    .forEach(([fe1Code, _fe1Name, fe2CodeA, fe2CodeB]) => {
-      if (fe1Code === "-" || !fe2CodeA) return;
-      // @ts-ignore-next-line
-      mappings[fe2CodeA] = fe1Code;
-      // some rows have a second column of codes as well.
-      if (fe2CodeB) {
-        // @ts-ignore-next-line
-        mappings[fe2CodeB] = fe1Code;
+    .forEach(
+      ([shortToLongFlag, fe2Code, _fe2Name, _longToShortFlag, fe1Code]) => {
+        // Skip non-canonical mappings
+        if (shortToLongFlag === "0") return;
+        if (fe2Code in mappings) {
+          console.warn(
+            `Duplicated mappings in fx2->fx1 for SFA recipes (${fe2Code}).`
+          );
+          return;
+        }
+        mappings[fe2Code] = fe1Code;
       }
-    });
+    );
 
   return mappings;
 }

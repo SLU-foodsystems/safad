@@ -1932,14 +1932,35 @@ merged_data <- bind_rows(merged_data, new_rows)
 ############################ ONE ROW FOR EACH FOODEX2 CODE #####################
 ################################################################################
 
-# Start by reading the file with all the codes
-RPC_SUA_codes <- read_excel("../codes/rpc-to-sua.xlsx", sheet = "All") |>
+# Start by reading code files we will need to translate between systems
+# (SUA/CPC -> FoodEx1 -> FoodEx2)
+foodex_mappings <- read_excel(
+  "../codes/foodex-code-translations.xlsx",
+  sheet = "Data"
+) |>
   select(
-    "Code",
+    "Short to Long",
     "FoodEx2 Code",
+    "FoodEx2 Name",
+    "Long to Short",
     "Long Code",
-    "FoodEx2 Name"
+    "Long Code Name"
   )
+
+foodex_mappings |>
+  write_excel_csv( "../../src/data/foodex-code-translations.csv", na = "")
+
+foodex2_to_1 <- foodex_mappings |>
+  filter(`Short to Long` != 0 | is.na(`Short to Long`)) |>
+  select("FoodEx2 Code", "Long Code", "Long Code Name") 
+  
+foodex1_to_2 <- foodex_mappings |>
+  filter(`Long to Short` != 0 | is.na(`Long to Short`)) |>
+  select("FoodEx2 Code", "FoodEx2 Name", "Long Code")
+
+RPC_SUA_codes <- read_excel("../codes/rpc-to-sua.xlsx", sheet = "All") |>
+  select("Code", "Long Code") |> # "Code" here refers to SUA Code
+  left_join(foodex1_to_2, by = "Long Code")
 
 # Merge the two datasets so that there is one row per FoodEx2 code
 merged_codes <- inner_join(

@@ -427,7 +427,9 @@ export function parseDiet(csvString: string, delimiter = ","): Diet {
   }
 
   const firstNRows = data.slice(0, 10);
-  const codesInFirstCol = firstNRows.every(([maybeCode]) => isCode(maybeCode));
+  const codesInFirstCol = firstNRows.every(([_fx2Code, maybeFx1Code]) =>
+    isCode(maybeFx1Code)
+  );
   const amountsInLastCol = firstNRows.every(([_0, _1, _2, _3, _4, amount]) =>
     isNumber(amount!)
   );
@@ -444,9 +446,16 @@ export function parseDiet(csvString: string, delimiter = ","): Diet {
     );
   }
 
+  const fx2Fx1Map: Record<string, string> = {};
+
   // Collect diet in a map to merge any food items that re-occur.
   const summarizedDiet: Record<string, number> = {};
-  data.forEach(([code, _fx2code, _l1, _l2, _name, amount]) => {
+  data.forEach(([fx2Code, fx1Code, _l1, _l2, _name, amount], i) => {
+    const code = fx2Fx1Map[fx2Code] || fx1Code;
+    if (!code) {
+      console.warn(`Missing diet code for row ${i} (fx2: ${fx2Code})`);
+      return;
+    }
     summarizedDiet[code!] = (summarizedDiet[code!] || 0) + asNumber(amount!);
   });
 
