@@ -43,6 +43,7 @@ import {
   computeDietFootprints,
 } from "@/lib/diet-output-generator";
 import DietAmountsChart from "../DietAmountsChart.vue";
+import SourcesSection from "./SourcesSection.vue";
 
 const APP_VERSION = __APP_VERSION__;
 
@@ -899,6 +900,8 @@ onMounted(async () => {
         </section>
       </div>
     </div>
+
+    <SourcesSection />
 
     <footer class="page-footer stack stack-l">
       <div class="page-wrap page-footer__content">
