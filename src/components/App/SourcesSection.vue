@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { nextTick, onMounted, onUnmounted, ref } from "vue";
+import { defineComponent, h, nextTick, onMounted, onUnmounted, ref } from "vue";
 
 const selectedTab = ref("model");
 const isWide = ref(false);
@@ -48,6 +48,18 @@ onMounted(() => {
 onUnmounted(() => {
   mediaQuery?.removeEventListener("change", updateOrientation);
 });
+
+const ExternalLink = defineComponent({
+  props: { href: String },
+  setup(props, { slots }) {
+    const attrs = {
+      href: props.href,
+      rel: "nofollow noopener",
+      target: "_blank",
+    };
+    return () => h("a", attrs, slots.default?.());
+  },
+});
 </script>
 
 <template>
@@ -56,20 +68,15 @@ onUnmounted(() => {
     <p>
       SAFAD combines scientific literature, life-cycle databases and official
       statistics.
-      <a
-        href="https://doi.org/10.1016/j.jclepro.2025.146002"
-        target="_blank"
-        rel="noopener nofollow"
-        >Röös et al. (2025)</a
+      <ExternalLink href="https://doi.org/10.1016/j.jclepro.2025.146002"
+        >Röös et al. (2025)</ExternalLink
       >
       describes the SAFAD model and its indicator framework. The main sources
       are grouped below by what they are used for; detailed crop-specific
       sources are available in the
-      <a
+      <ExternalLink
         href="https://github.com/SLU-foodsystems/safad/tree/main/data-preprocessing/rpc-footprints"
-        target="_blank"
-        rel="noopener nofollow"
-        >data-preprocessing workbooks</a
+        >data-preprocessing workbooks</ExternalLink
       >.
     </p>
     <div class="sources-box">
@@ -113,14 +120,32 @@ onUnmounted(() => {
           <li>
             ecoinvent 3.12, Ludemann et al. (2025), IFA and crop-specific
             studies provide fertiliser, pesticide, field-operation and
-            emission-factor data. These include Tidåker et al. (2021), Stoessel
-            et al. (2012), Jensen et al. (2024), Jordbruksverket (2011, 2013),
-            and the Danish EPA pesticide-use report (2024).
+            emission-factor data. These include
+            <ExternalLink href="https://doi.org/10.1016/j.spc.2021.01.017"
+              >Tidåker et al. (2021)</ExternalLink
+            >,
+            <ExternalLink href="https://doi.org/10.1021/es2030577"
+              >Stoessel et al. (2012)</ExternalLink
+            >, Jensen et al. (2024), Jordbruksverket (2011, 2013), and the
+            Danish EPA pesticide-use report (2024).
           </li>
           <li>
             Trade shares and transport origins use data from Thomas Kastner,
-            with methods described by Kastner et al. (2011) and Laroche et al.
-            (2020).
+            with methods described by
+            <ExternalLink href="https://doi.org/10.1016/j.ecolecon.2011.01.012"
+              >Kastner et al. (2011)</ExternalLink
+            >
+            and
+            <ExternalLink href="https://doi.org/10.1016/j.gloenvcha.2020.102066"
+              >Laroche et al. (2020).</ExternalLink
+            >
+          </li>
+          <li>
+            Crop residue calculations based on
+            <ExternalLink
+              href="https://www.ipcc.ch/report/2019-refinement-to-the-2006-ipcc-guidelines-for-national-greenhouse-gas-inventories"
+              >IPCC (2019)</ExternalLink
+            >.
           </li>
         </ul>
       </div>
@@ -135,25 +160,36 @@ onUnmounted(() => {
         <h3>Environmental indicators</h3>
         <ul>
           <li>
-            <a
-              href="https://doi.org/10.1038/s41597-024-03051-3"
-              target="_blank"
-              rel="noopener nofollow"
-              >Mialyk et al. (2024)</a
+            <ExternalLink href="https://doi.org/10.1038/s41597-024-03051-3"
+              >Mialyk et al. (2024)</ExternalLink
             >
             provide crop blue-water footprints.
           </li>
           <li>
             Land-use change uses the DeDuCE model and
-            <a
-              href="https://zenodo.org/records/19133750"
-              rel="nofollow"
-              target="_blank"
-              >Sigh et al. (2026)</a
+            <ExternalLink href="https://zenodo.org/records/19133750"
+              >Sigh et al. (2026)</ExternalLink
             >
           </li>
-          <li>Biodiversity uses Scherer et al. (2023)</li>
+          <li>
+            Biodiversity uses
+            <ExternalLink href="https://doi.org/10.1021/acs.est.3c04191"
+              >Scherer et al. (2023)</ExternalLink
+            >
+          </li>
           <li>Rice methane uses FAOSTAT rice emissions and production data.</li>
+          <li>
+            Mineral fertiliser emissions factors are from
+            <ExternalLink href="">Hoxha &amp; Christensen (2018)</ExternalLink>.
+          </li>
+          <li>
+            District heating is based on Gode et al. (2011) for Sweden and
+            Trafik-, Bygge- og Boligstyrelsen (2020) for Denmark.
+          </li>
+          <li>
+            For a list of emissions factors sources, see the corresponding excel
+            file.
+          </li>
         </ul>
       </div>
       <div
@@ -178,12 +214,8 @@ onUnmounted(() => {
           </li>
           <li>
             Animal-welfare and antibiotic indicators use
-            <a
-              href="https://doi.org/10.1016/j.spc.2025.08.020"
-              target="_blank"
-              rel="nofollow"
-            >
-              Rydhmer and Röös (2025)</a
+            <ExternalLink href="https://doi.org/10.1016/j.spc.2025.08.020">
+              Rydhmer and Röös (2025)</ExternalLink
             >.
           </li>
           <li>
@@ -230,7 +262,8 @@ $bg: constants.$red_grape;
 $bg-light: color.adjust($bg, $lightness: 10%);
 
 .sources-section {
-  max-width: 70rem;
+  width: 70rem;
+  max-width: calc(100vw - 2rem);
   margin: 4em auto 0;
 
   > p {
