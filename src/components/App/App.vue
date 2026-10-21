@@ -78,6 +78,7 @@ const dietName = computed(() =>
     ? `Custom diet, ${dietFile.value.name}`
     : defaultDietName.value
 );
+const showSfaButtons = computed(() => countryCode.value == "SE")
 
 /**
  * Helper for getting a map matching codes to food names of recipes
@@ -582,6 +583,7 @@ onMounted(async () => {
                   Download for {{ isCustomDiet ? "uploaded" : "EFSA" }} recipes
                 </button>
                 <button
+                  v-if="showSfaButtons"
                   class="button button--slim"
                   @click="() => downloadFootprintsOfSfaRecipes('csv')"
                   title="Download footprints of foods as defined by the Swedish Food Authority's recipes, as a csv file."
@@ -606,6 +608,7 @@ onMounted(async () => {
                   Download for {{ isCustomDiet ? "uploaded" : "EFSA" }} recipes
                 </LoadingButton>
                 <LoadingButton
+                  v-if="showSfaButtons"
                   class="button button--slim"
                   :click-handler="() => downloadFootprintsOfSfaRecipes('xlsx')"
                   title="Download footprints of foods as defined by the Swedish Food Authority's recipes, as an excel file."
