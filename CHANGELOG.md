@@ -4,6 +4,15 @@ A record of changes to SAFAD since version 1.4.0 (2026-07-06). For previous
 changes, see the [commit
 history](https://github.com/SLU-foodsystems/safad/commits/main).
 
+## Version 1.4.4 (2026-10-21)
+
+### Changes to data or file format
+
+- Round floating-point values in the file `SAFAD IP Energy Proc.csv`, as they
+  had needlessly many decimal point values originating from imprecise handling
+  of floating points in JavaScript. Rounded to 5 decimal points, anything beyond
+  that is simply false precision.
+
 ## Version 1.4.3 (2026-09-03)
 
 ### Changes to data or file format
