@@ -17,6 +17,11 @@ const asNumber = (str: string, elseValue = 0): number => {
 const isNumber = (str: string): boolean =>
   !Number.isNaN(Number.parseFloat(str));
 
+const isFx2Code = (maybeCode: string) =>
+  !!maybeCode &&
+  maybeCode.startsWith("A") &&
+  maybeCode.split("#")[0].length === 5;
+
 const isCode = (maybeCode: string | undefined): boolean =>
   !!maybeCode &&
   (maybeCode[0] === "A" || maybeCode[0] === "I") &&
@@ -427,18 +432,31 @@ export function parseDiet(csvString: string, delimiter = ","): Diet {
   }
 
   const firstNRows = data.slice(0, 10);
-  const codesInFirstCol = firstNRows.every(([_fx2Code, maybeFx1Code]) =>
-    isCode(maybeFx1Code)
+
+  /**
+   * Migration, temporary (introduced 2026-10-23):
+   * FoodEx1 codes used to be in column 1, and foodex2 in column 2. We switched
+   * this for the release of 2.0, but we want to support old versions.
+   */
+  const isOldFormat = firstNRows.every(
+    ([col1, col2]) => isCode(col1) && (!col2 || isFx2Code(col2))
   );
+
+  if (!isOldFormat) {
+    const fx1CodesInSecondCol = firstNRows.every(([_fx2Code, maybeFx1Code]) =>
+      isCode(maybeFx1Code)
+    );
+    if (!fx1CodesInSecondCol) {
+      throw new CsvValidationError(
+        CsvValidationErrorType.Unknown,
+        "The values in the second column do not look like foodex-codes (i.e. starting with A or I)."
+      );
+    }
+  }
+
   const amountsInLastCol = firstNRows.every(([_0, _1, _2, _3, _4, amount]) =>
     isNumber(amount!)
   );
-  if (!codesInFirstCol) {
-    throw new CsvValidationError(
-      CsvValidationErrorType.Unknown,
-      "The values in the first column do not look like foodex-codes (i.e. starting with A or I)."
-    );
-  }
   if (!amountsInLastCol) {
     throw new CsvValidationError(
       CsvValidationErrorType.Unknown,
@@ -451,9 +469,16 @@ export function parseDiet(csvString: string, delimiter = ","): Diet {
   // Collect diet in a map to merge any food items that re-occur.
   const summarizedDiet: Record<string, number> = {};
   data.forEach(([fx2Code, fx1Code, _l1, _l2, _name, amount], i) => {
-    const code = fx2Fx1Map[fx2Code] || fx1Code;
+    let code;
+    if (isOldFormat) {
+      code = fx2Code; // Would then be the FoodEx1 code, directly
+    } else {
+      code = fx2Fx1Map[fx2Code] || fx1Code;
+    }
     if (!code) {
-      console.warn(`Missing diet code for row ${i} (fx2: ${fx2Code})`);
+      console.warn(
+        `Missing diet code for row ${i} (fx2: ${fx2Code}) (oldformat: ${isOldFormat})`
+      );
       return;
     }
     summarizedDiet[code!] = (summarizedDiet[code!] || 0) + asNumber(amount!);
