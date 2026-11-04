@@ -183,9 +183,7 @@ export function parseEmissionsFactorsTransport(
       // Convert all GHG factors to numbers, falling back to 0 if missing
       const ghgs = ghgsStrs.map((x) => asNumber(x, 0));
 
-      if (results[consumptionCountryCode] === undefined) {
-        results[consumptionCountryCode] = {};
-      }
+      results[consumptionCountryCode] ??= {};
 
       results[consumptionCountryCode][productionCountryCode!] = ghgs;
     }
@@ -345,9 +343,7 @@ export function parseFootprintsRpcs(csvString: string, delimiter = ",") {
       ]) => {
         if (!rpcCode || rpcCode.trim() === "NA") return;
 
-        if (rpcFootprints[rpcCode] === undefined) {
-          rpcFootprints[rpcCode] = {};
-        }
+        rpcFootprints[rpcCode] ??= {};
 
         // Handle if someone inputs RoW (or any other case invariant)
         if (originCode!.toLowerCase().trim() === "row") {
@@ -522,9 +518,7 @@ export function parseRpcOriginWaste(csvString: string, delimiter = ",") {
 
       // First time we see this RPC code? Add an empty object, which we will
       // populate with one obj per origin
-      if (acc[rpcCode] === undefined) {
-        acc[rpcCode] = {};
-      }
+      acc[rpcCode] ??= {};
 
       acc[rpcCode][originCode!] = [
         asNumber(originShare!),
@@ -623,11 +617,8 @@ export function parseFoodsRecipes(recipesCsvStr: string, delimiter = ",") {
       ];
 
       const c = code!;
-      if (recipes[c] === undefined) {
-        recipes[c] = [entry];
-      } else {
-        recipes[c]!.push(entry);
-      }
+      recipes[c] ??= [];
+      recipes[c].push(entry);
     }
   );
 

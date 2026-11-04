@@ -242,9 +242,7 @@ export default function reduceDietToRpcs(
     amount: number
   ) => {
     const level1Category = getRpcCodeSubset(code, 1, true);
-    if (processesAmounts[level1Category] === undefined) {
-      processesAmounts[level1Category] = {};
-    }
+    processesAmounts[level1Category] ??= {};
 
     processesAmounts[level1Category][facetCode] =
       (processesAmounts[level1Category][facetCode] || 0) + amount;
