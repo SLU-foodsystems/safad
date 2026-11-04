@@ -1,12 +1,10 @@
 <script lang="ts" setup>
-import { ref, watch, computed, onMounted } from "vue";
+import { ref, watch, computed } from "vue";
 
-import * as DefaultInputFiles from "@/lib/default-input-files";
 import MetaFile from "@/lib/MetaFile";
 import ResultsEngine from "@/lib/ResultsEngine";
 
 import { SAFAD_FILE_NAMES } from "@/lib/constants";
-import { resetFile } from "@/lib/file-interface-utils";
 import { downloadAsCsv, downloadAsXlsx } from "@/lib/io";
 import { debounce, padLeft, stringifyCsvData } from "@/lib/utils";
 import {
@@ -31,13 +29,9 @@ import ImpactsPerRpcCategoryChart from "@/components/ImpactsPerCategoryCharts/Im
 import ImpactsPerFoodCategoryChart from "@/components/ImpactsPerCategoryCharts/ImpactsPerFoodCategoryChart.vue";
 
 import setupCharts from "./charts";
-import initFileInterfaces from "./init-file-interfaces";
 import readableDietName from "./readable-diet-name";
+import useSafadFiles from "./use-safad-files";
 import { extractRpcNamesFromRecipe } from "@/lib/efsa-names";
-import {
-  CsvValidationError,
-  CsvValidationErrorType,
-} from "@/lib/input-files-parsers";
 import {
   DIET_RESULTS_HEADER,
   computeDietFootprints,
@@ -50,7 +44,6 @@ const APP_VERSION = __APP_VERSION__;
 const RE = new ResultsEngine();
 
 const countryCode = ref("SE");
-const isLoading = ref(false);
 
 const {
   diet,
@@ -66,7 +59,9 @@ const {
   emissionsFactorsPackagingFile,
   emissionsFactorsTransportFile,
   sfaRecipesFile,
-} = initFileInterfaces(RE);
+  isLoading,
+  isInitialized,
+} = useSafadFiles(RE, countryCode);
 
 const missingDietPoland = computed(
   () => dietFile.value.state === "default" && countryCode.value === "PL"
@@ -324,51 +319,7 @@ const {
   recompute: updateChartData,
 } = setupCharts(RE, diet, selectedFoodCodes);
 
-/**
- * Whenever the countryCode dropdown is changed, we need to
- * - Update the ResultsEngine
- * - Re-load all country-dependant files
- */
-watch(countryCode, async () => {
-  RE.setCountryCode(countryCode.value);
-
-  const promises = [];
-
-  isLoading.value = true;
-  if (rpcOriginWasteFile.value?.state === "default") {
-    promises.push(resetFile(countryCode.value, rpcOriginWasteFile.value));
-  }
-  if (wasteRetailAndConsumerFile.value?.state === "default") {
-    promises.push(
-      resetFile(countryCode.value, wasteRetailAndConsumerFile.value)
-    );
-  }
-  if (dietFile.value?.state === "default") {
-    const p = resetFile(countryCode.value, dietFile.value).catch((err) => {
-      const fileIsEmpty =
-        err instanceof CsvValidationError &&
-        err.type === CsvValidationErrorType.Empty;
-      const isPolandDiet = countryCode.value === "PL";
-
-      if (fileIsEmpty && isPolandDiet) {
-        diet.value = [];
-      } else {
-        throw err;
-      }
-    });
-
-    promises.push(p);
-  }
-
-  await Promise.all(promises);
-
-  updateChartData();
-
-  isLoading.value = false;
-});
-
 const debouncedUpdateCharts = debounce(updateChartData, 200);
-let isMounted = false;
 // Update chartdata whenever any of the files are changed
 watch(
   [
@@ -385,36 +336,12 @@ watch(
     emissionsFactorsTransportFile.value,
   ],
   () => {
-    if (isMounted) debouncedUpdateCharts();
+    if (isInitialized.value) debouncedUpdateCharts();
   }
 );
 
-onMounted(async () => {
-  isLoading.value = true;
-
-  const setupDefaultDiet =
-    countryCode.value === "PL"
-      ? Promise.resolve(dietFile.value.setter([]))
-      : dietFile.value.getDefault(countryCode.value).then((diet: string) => {
-          dietFile.value?.setter(dietFile.value.parser(diet));
-        });
-
-  const tasks: Promise<any>[] = [
-    DefaultInputFiles.configureResultsEngine(RE, countryCode.value),
-    // SFA Recipes and the Diet needs to be set to initial value, as not handled
-    // by the configureResultsEngine utility.
-    sfaRecipesFile.value.getDefault(countryCode.value).then((data: string) => {
-      sfaRecipesFile.value.setter(sfaRecipesFile.value.parser(data));
-    }),
-    setupDefaultDiet,
-  ];
-
-  await Promise.all(tasks);
-
-  updateChartData();
-
-  isLoading.value = false;
-  isMounted = true;
+watch([isInitialized, isLoading], ([initialized, loading]) => {
+  if (initialized && !loading) updateChartData();
 });
 </script>
 
