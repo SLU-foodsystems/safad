@@ -1,5 +1,14 @@
-type ProcessEnergy = Record<string, number[]>;
-type FoodProcessEnergy = Record<string, ProcessEnergy>;
+export type ProcessEnergy = Record<string, number[]>;
+export type FoodProcessEnergy = Record<string, ProcessEnergy>;
+export type FoodRecipeAmount = {
+  component: string;
+  grossAmount: number;
+  reverseYield: number;
+  netAmount: number;
+  level: number;
+};
+export type FoodRecipeAmounts = Record<string, FoodRecipeAmount[]>;
+export type FoodPreparationYields = Record<string, number | null>;
 
 const cache = new WeakMap<
   FoodsRecipes,
@@ -96,4 +105,55 @@ export function computeFoodProcessEnergy(
     cache.set(recipes, new WeakMap([[processEnergy, result]]));
   }
   return result;
+}
+
+export function computeFoodRecipeAmounts(
+  recipes: FoodsRecipes,
+  amountGram = 1000
+): FoodRecipeAmounts {
+  const result: FoodRecipeAmounts = {};
+  const active = new Set<string>();
+
+  const process = (
+    food: string,
+    amount: number,
+    level: number,
+    rootFood: string
+  ) => {
+    const rows = recipes[food];
+    if (!rows || active.has(food)) return;
+
+    active.add(food);
+    rows.forEach(([component, _facets, share, reverseYield]) => {
+      const grossAmount = amount * (share || 0);
+      const yieldFactor = reverseYield || 1;
+      const netAmount = grossAmount * yieldFactor;
+      result[rootFood]!.push({
+        component,
+        grossAmount,
+        reverseYield: yieldFactor,
+        netAmount,
+        level,
+      });
+      process(component, netAmount, level + 1, rootFood);
+    });
+    active.delete(food);
+  };
+
+  Object.keys(recipes).forEach((food) => {
+    result[food] = [];
+    process(food, amountGram, 0, food);
+  });
+  return result;
+}
+
+export function computeFoodPreparationYields(
+  recipes: FoodsRecipes
+): FoodPreparationYields {
+  return Object.fromEntries(
+    Object.entries(recipes).map(([food, rows]) => [
+      food,
+      rows[0]?.[5] ? rows[0][5] : null,
+    ])
+  );
 }

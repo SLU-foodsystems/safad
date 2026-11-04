@@ -6,6 +6,14 @@ import {
 } from "@/lib/impacts-csv-utils";
 import type ResultsEngine from "@/lib/ResultsEngine";
 import { getRpcCodeSubset, mapValues } from "@/lib/utils";
+import {
+  computeFoodProcessEnergy,
+  computeFoodRecipeAmounts,
+  computeFoodPreparationYields,
+  type FoodProcessEnergy,
+  type FoodPreparationYields,
+  type FoodRecipeAmounts,
+} from "@/lib/food-processing-energy";
 
 export default function setupCharts(
   RE: ResultsEngine,
@@ -13,6 +21,9 @@ export default function setupCharts(
   foodCodes: Ref<string[]>
 ) {
   const carbonFootprints = ref<[string, number[]][]>([]);
+  const foodProcessEnergy = ref<FoodProcessEnergy>({});
+  const foodRecipeAmounts = ref<FoodRecipeAmounts>({});
+  const foodPreparationYields = ref<FoodPreparationYields>({});
   const dietFootprintsTotal = ref<number[]>([]);
   const dietFootprintsPerRpcCategory = ref<{ [key: string]: number[] }>({});
   const dietFootprintsPerFoodsCategory = ref<{ [key: string]: number[] }>({});
@@ -63,6 +74,17 @@ export default function setupCharts(
     return amountsPerCategory;
   };
 
+  const computeFoodProcessEnergyPreview = () => {
+    if (!RE.foodsRecipes || !RE.processesEnergyDemands) return {};
+    const energy = computeFoodProcessEnergy(
+      RE.foodsRecipes,
+      RE.processesEnergyDemands
+    );
+    return Object.fromEntries(
+      foodCodes.value.map((code) => [code, energy[code] || {}])
+    );
+  };
+
   const computeDietFootprintsTotal = () => {
     if (!diet.value) return [];
     const impacts = RE.computeImpacts(diet.value);
@@ -97,6 +119,17 @@ export default function setupCharts(
 
   const recompute = () => {
     carbonFootprints.value = computeCarbonFootprints();
+    foodProcessEnergy.value = computeFoodProcessEnergyPreview();
+    if (RE.foodsRecipes) {
+      const amounts = computeFoodRecipeAmounts(RE.foodsRecipes);
+      foodRecipeAmounts.value = Object.fromEntries(
+        foodCodes.value.map((code) => [code, amounts[code] || []])
+      );
+      const yields = computeFoodPreparationYields(RE.foodsRecipes);
+      foodPreparationYields.value = Object.fromEntries(
+        foodCodes.value.map((code) => [code, yields[code] ?? null])
+      );
+    }
     dietFootprintsTotal.value = computeDietFootprintsTotal();
     dietFootprintsPerRpcCategory.value = computeDietFootprintsPerRpcCategory();
     dietFootprintsPerFoodsCategory.value =
@@ -107,6 +140,9 @@ export default function setupCharts(
   return {
     recompute,
     carbonFootprints,
+    foodProcessEnergy,
+    foodRecipeAmounts,
+    foodPreparationYields,
     dietFootprintsTotal,
     dietFootprintsPerRpcCategory,
     dietFootprintsPerFoodsCategory,

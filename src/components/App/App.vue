@@ -78,7 +78,7 @@ const dietName = computed(() =>
     ? `Custom diet, ${dietFile.value.name}`
     : defaultDietName.value
 );
-const showSfaButtons = computed(() => countryCode.value == "SE")
+const showSfaButtons = computed(() => countryCode.value == "SE");
 
 /**
  * Helper for getting a map matching codes to food names of recipes
@@ -314,6 +314,9 @@ const downloadZip = async () => {
 
 const {
   carbonFootprints,
+  foodProcessEnergy,
+  foodRecipeAmounts,
+  foodPreparationYields,
   dietFootprintsTotal,
   dietFootprintsPerRpcCategory,
   dietFootprintsPerFoodsCategory,
@@ -676,7 +679,12 @@ onMounted(async () => {
         <div class="results-grid-large">
           <div class="results-grid-large__graph">
             <h3>Carbon footprint preview (per kg food)</h3>
-            <CarbonFootprintsChart :data="carbonFootprints" />
+            <CarbonFootprintsChart
+              :data="carbonFootprints"
+              :process-energy="foodProcessEnergy"
+              :recipe-amounts="foodRecipeAmounts"
+              :preparation-yields="foodPreparationYields"
+            />
           </div>
           <div class="results-grid-large__aside stack">
             <div>

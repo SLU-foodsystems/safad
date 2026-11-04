@@ -1,8 +1,14 @@
 import { describe, expect, test } from "vitest";
 import recipesCsv from "@/default-input-files/SAFAD IP Recipes.csv?raw";
 import energyCsv from "@/default-input-files/SAFAD IP Energy Proc.csv?raw";
-import { parseFoodsRecipes, parseProcessesEnergyDemands } from "./input-files-parsers";
-import { computeFoodProcessEnergy } from "./food-processing-energy";
+import {
+  parseFoodsRecipes,
+  parseProcessesEnergyDemands,
+} from "./input-files-parsers";
+import {
+  computeFoodProcessEnergy,
+  computeFoodRecipeAmounts,
+} from "./food-processing-energy";
 
 const recipes = parseFoodsRecipes(recipesCsv);
 const energy = parseProcessesEnergyDemands(energyCsv);
@@ -22,5 +28,29 @@ describe("PDF processing-energy examples", () => {
     expect(sum("A.08.08.120")).toBeCloseTo(2.983, 2);
     expect(sum("I.19.01.002.009")).toBeCloseTo(4.068, 2);
     expect(sum("I.19.01.002.013")).toBeCloseTo(4.578, 2);
+  });
+
+  test("reports gross and net intermediate recipe amounts", () => {
+    const amounts = computeFoodRecipeAmounts({
+      food: [["ingredient", [], 0.5, 0.8, [], 0, 1]],
+      ingredient: [["raw", [], 0.25, 0.5, [], 0, 1]],
+    });
+
+    expect(amounts.food).toEqual([
+      {
+        component: "ingredient",
+        grossAmount: 500,
+        reverseYield: 0.8,
+        netAmount: 400,
+        level: 0,
+      },
+      {
+        component: "raw",
+        grossAmount: 100,
+        reverseYield: 0.5,
+        netAmount: 50,
+        level: 1,
+      },
+    ]);
   });
 });
