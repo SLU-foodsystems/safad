@@ -85,16 +85,12 @@ export default function setupCharts(
     );
   };
 
-  const computeDietFootprintsTotal = () => {
-    if (!diet.value) return [];
-    const impacts = RE.computeImpacts(diet.value);
-    return aggregateNonNullImpacts(impacts);
-  };
+  const computeDietFootprintsTotal = (impacts: ImpactsTuple | null) =>
+    impacts ? aggregateNonNullImpacts(impacts) : [];
 
-  const computeDietFootprintsPerRpcCategory = () =>
-    diet.value
-      ? aggregateImpactsByCategory(...RE.computeImpacts(diet.value))
-      : {};
+  const computeDietFootprintsPerRpcCategory = (
+    impacts: ImpactsTuple | null
+  ) => (impacts ? aggregateImpactsByCategory(...impacts) : {});
 
   const computeDietFootprintsPerFoodsCategory = (): Record<
     string,
@@ -130,8 +126,10 @@ export default function setupCharts(
         foodCodes.value.map((code) => [code, yields[code] ?? null])
       );
     }
-    dietFootprintsTotal.value = computeDietFootprintsTotal();
-    dietFootprintsPerRpcCategory.value = computeDietFootprintsPerRpcCategory();
+    const dietImpacts = diet.value ? RE.computeImpacts(diet.value) : null;
+    dietFootprintsTotal.value = computeDietFootprintsTotal(dietImpacts);
+    dietFootprintsPerRpcCategory.value =
+      computeDietFootprintsPerRpcCategory(dietImpacts);
     dietFootprintsPerFoodsCategory.value =
       computeDietFootprintsPerFoodsCategory();
     dietAmountsPerRpcCategory.value = computedDietAmountsPerRpcCategory();
