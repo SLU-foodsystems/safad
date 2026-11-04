@@ -271,7 +271,7 @@ class ResultsEngine {
 
     const [
       rpcAmounts,
-      processesAmounts,
+      _processingAmounts,
       packagingAmounts,
       transportlessAmounts,
     ] = this.reduceDiet(diet, withWaste);
@@ -301,7 +301,7 @@ class ResultsEngine {
           const emissionsFactors = emissionsFactorsPackaging[packagingId];
           if (!emissionsFactors) {
             throw new Error(
-              "Emissions factors missing for packagagingId ${packagagingId}"
+              `Emissions factors missing for packagingId ${packagingId}`
             );
           }
 

@@ -295,7 +295,7 @@ const downloadZip = async () => {
     detailedDietImpactsCsv
   );
 
-  await Promise.allSettled(addFilePromises);
+  await Promise.all(addFilePromises);
 
   const content = await zip.generateAsync({ type: "blob" });
   const d = new Date();
