@@ -60,7 +60,6 @@ const {
   foodsRecipesFile,
   rpcOriginWasteFile,
   processesEnergyDemandsFile,
-  preparationProcessesFile,
   packagingCodesFile,
   wasteRetailAndConsumerFile,
   emissionsFactorsEnergyFile,
@@ -225,7 +224,6 @@ const metaFileHandler = new MetaFile({
   foodsRecipesFile: foodsRecipesFile.value,
   rpcOriginWasteFile: rpcOriginWasteFile.value,
   processesEnergyDemandsFile: processesEnergyDemandsFile.value,
-  preparationProcessesFile: preparationProcessesFile.value,
   packagingCodesFile: packagingCodesFile.value,
   wasteRetailAndConsumerFile: wasteRetailAndConsumerFile.value,
   footprintsRpcsFile: footprintsRpcsFile.value,
@@ -255,7 +253,6 @@ const downloadZip = async () => {
     emissionsFactorsTransportFile.value,
     foodsRecipesFile.value,
     footprintsRpcsFile.value,
-    preparationProcessesFile.value,
     processesEnergyDemandsFile.value,
     rpcOriginWasteFile.value,
     sfaRecipesFile.value,
@@ -378,7 +375,6 @@ watch(
     foodsRecipesFile.value,
     rpcOriginWasteFile.value,
     processesEnergyDemandsFile.value,
-    preparationProcessesFile.value,
     packagingCodesFile.value,
     wasteRetailAndConsumerFile.value,
     emissionsFactorsEnergyFile.value,
@@ -833,11 +829,6 @@ onMounted(async () => {
           :file-interface="processesEnergyDemandsFile"
         />
 
-        <FileSelector
-          file-label="Preparation Processes"
-          :country-code="countryCode"
-          :file-interface="preparationProcessesFile"
-        />
         <FileSelector
           file-label="Packaging codes for different foods"
           :country-code="countryCode"

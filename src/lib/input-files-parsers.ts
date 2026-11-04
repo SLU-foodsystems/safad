@@ -216,15 +216,14 @@ export function parseProcessesEnergyDemands(
 ): Record<string, number[]> {
   const csv = parseCsvFile(csvString, { delimiter }).slice(1);
 
-  // MaxCols with some margin for comments etc
-  const err = validateCsv(csv, { minCols: 13, maxCols: 18 });
+  const err = validateCsv(csv, { minCols: 12, maxCols: 18 });
   if (err) {
     throw new CsvValidationError(err);
   }
 
   // TODO: ensure length of demandsStrs is correct
   return Object.fromEntries(
-    csv.map(([code, _processName, _totalEnergy, _note, ...demandsStrs]) => {
+    csv.map(([code, _processName, _totalEnergy, ...demandsStrs]) => {
       // Covnert from strings to numbers
       const demands = demandsStrs.map((x) => asNumber(x, 0));
       return [code, demands];
@@ -589,6 +588,10 @@ export function parseFoodsRecipes(recipesCsvStr: string, delimiter = ",") {
       prob,
       yieldFactor,
       allocationFactor,
+      preparationCode,
+      _preparationName,
+      preparationYield,
+      includePreparation,
     ]) => {
       if (code === "") return; // Empty row
       const value = roundToPrecision(
@@ -606,11 +609,17 @@ export function parseFoodsRecipes(recipesCsvStr: string, delimiter = ",") {
         .split("$")
         .filter((f) => f.startsWith("F28.") && f !== PROCESS_UNSPECIFIED);
 
-      const entry: [string, string[], number, number] = [
+      const preparationProcesses = preparationCode
+        ? preparationCode.split("$").filter((f) => f.startsWith("F28."))
+        : [];
+      const entry: FoodsRecipeElement = [
         component!,
         processes,
         value,
         netYieldFactor || 1,
+        preparationProcesses,
+        asNumber(preparationYield!, 0),
+        asNumber(includePreparation!, 1),
       ];
 
       const c = code!;

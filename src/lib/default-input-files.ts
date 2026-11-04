@@ -9,7 +9,6 @@ import emissionsFactorsEnergyUrl from "@/default-input-files/SAFAD IEF Energy.cs
 import emissionsFactorsPackagingUrl from "@/default-input-files/SAFAD IEF Packaging.csv?url";
 import emissionsFactorsTransportUrl from "@/default-input-files/SAFAD IEF Transport.csv?url";
 import processesEnergyDemandsUrl from "@/default-input-files/SAFAD IP Energy Proc.csv?url";
-import preparationProcessesUrl from "@/default-input-files/SAFAD IP Preparation Processes.csv?url";
 import packagingCodesUrl from "@/default-input-files/SAFAD IP Packaging.csv?url";
 import footprintsRpcsUrl from "@/default-input-files/SAFAD ID Footprints RPC.csv?url";
 import foodsRecipesUrl from "@/default-input-files/SAFAD IP Recipes.csv?url";
@@ -68,7 +67,6 @@ export const raw = {
   emissionsFactorsEnergy: () => fetchFile(emissionsFactorsEnergyUrl),
   emissionsFactorsTransport: () => fetchFile(emissionsFactorsTransportUrl),
   processesEnergyDemands: () => fetchFile(processesEnergyDemandsUrl),
-  preparationProcesses: () => fetchFile(preparationProcessesUrl),
   packagingCodes: () => fetchFile(packagingCodesUrl),
   footprintsRpcs: () => fetchFile(footprintsRpcsUrl),
   foodsRecipes: () => fetchFile(foodsRecipesUrl),
@@ -106,9 +104,6 @@ export const parsed = {
     );
   },
 
-  async preparationProcesses() {
-    return Parsers.parsePreparationProcesses(await raw.preparationProcesses());
-  },
 
   async packagingCodes() {
     return Parsers.parsePackagingCodes(await raw.packagingCodes());
@@ -159,7 +154,6 @@ export async function configureResultsEngine(
   resultsEngine.setProcessesEnergyDemands(
     await parsed.processesEnergyDemands()
   );
-  resultsEngine.setPreparationProcesses(await parsed.preparationProcesses());
   resultsEngine.setPackagingCodes(await parsed.packagingCodes());
   resultsEngine.setWasteRetailAndConsumer(
     await parsed.wasteRetailAndConsumer(countryCode)

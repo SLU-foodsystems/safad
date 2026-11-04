@@ -38,7 +38,6 @@ export const SAFAD_FILE_NAMES = {
     RpcOriginWaste: (country: string) =>
       `SAFAD IP Origin and Waste of RPC ${country}.csv`,
     ProcessesEnergyDemands: () => "SAFAD IP Energy Proc.csv",
-    PreparationProcesses: () => "SAFAD IP Preparation Processes.csv",
     PackagingCodes: () => "SAFAD IP Packaging.csv",
     WasteRetailAndConsumer: (country: string) =>
       `SAFAD IP Waste Retail and Cons ${country}.csv`,

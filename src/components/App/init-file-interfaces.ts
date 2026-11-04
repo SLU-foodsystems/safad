@@ -60,14 +60,6 @@ export default function initInputFiles(RE: ResultsEngine) {
         setter: RE.setProcessesEnergyDemands,
       })
     ),
-    preparationProcessesFile: ref(
-      initInputFile<Record<string, string[]>>({
-        defaultName: SAFAD_FILE_NAMES.Input.PreparationProcesses,
-        getDefault: DefaultInputFiles.raw.preparationProcesses,
-        parser: InputFileParsers.parsePreparationProcesses,
-        setter: RE.setPreparationProcesses,
-      })
-    ),
     packagingCodesFile: ref(
       initInputFile<Record<string, string>>({
         defaultName: SAFAD_FILE_NAMES.Input.PackagingCodes,

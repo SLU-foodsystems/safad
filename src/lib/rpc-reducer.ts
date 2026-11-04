@@ -163,7 +163,13 @@ function reduceToRpcs(
   recordSpecialProcessesContributions();
 
   return subcomponents
-    .map(([subcomponentCode, processes, ratio, yieldFactor]): Diet => {
+    .map(
+      ([
+        subcomponentCode,
+        processes = [],
+        ratio = 1,
+        yieldFactor = 1,
+      ]): Diet => {
       // HERE: check if process is one of the 'inverse-transport' processes.
       // If it is, we save the yieldFactor and pass it on to future recursions.
       const netAmount = yieldFactor * ratio * amount;
@@ -205,7 +211,8 @@ function reduceToRpcs(
         updatedRecordedSpecialProcesses,
         newTransportAdjustmentAmount
       );
-    })
+      }
+    )
     .flat(1);
 }
 

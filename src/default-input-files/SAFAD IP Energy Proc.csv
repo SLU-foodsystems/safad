@@ -1,47 +1,51 @@
-﻿"Facet Code","Process","Energy Consumption","Approximation","Electricity","Heating oil","Natural gas","Other fossil energy sources","Bark and chips","Pellets and briquettes","Other renewable energy sources","Diesel fuel","District heating"
-"F28.A07JZ","Bacteria fermentation",0.395,,,,0.395,,,,,,
-"F28.A07GZ","Broiling/grilling",2,,2,,,,,,,,
-"F28.A0BYP","Canning / jarring",5.54778,,0.35488,4.28516,0.90773,,,,,,
-"F28.A0C6E","Cheesemaking",6.33143,,1.2839,5.04753,,,,,,,
-"F28.A07MH","Churning",3.03875,,0.46007,2.57868,,,,,,,
-"F28.A07KF","Concentration / evaporation",4.77375,,1.24875,,3.525,,,,,,
-"F28.A07KM","Condensing milk (concentration + sugars)",4.5,,1.17714,,3.32286,,,,,,
-"F28.A0BA1","Cooking and similar thermal preparation processes",2.97812,,2.42406,,0.55407,,,,,,
-"F28.A07GG","Cooking in water",4.4,,4.4,,,,,,,,
-"F28.A07KD","Curing",1.26,"Drying",0.2959,0.03996,,,,,,,
-"F28.A07GV","Deep frying",9.945,,8.09477,,1.85023,,,,,,
-"F28.A07MF","Distillation",14.435,,0.55519,13.87981,,,,,,,
-"F28.A07KG","Drying (dehydration)",1.26,,0.2959,0.03996,,,0.92414,,,,
-"F28.A07MJ","Extraction",0.81111,,0.20181,0.00582,0.60348,,,,,,
-"F28.A0CQZ","Fermentation",0.395,"Bacteria fermentation",,,0.395,,,,,,
-"F28.A07LG","Flaking",18.4,,0.15,18.25,,,,,,,
-"F28.A07LH","Flattening / rolling",4.01041,"Grain milling",3.985,0.02541,,,,,,,
-"F28.A07KQ","Freezing",1.14889,,0.90918,,0.23971,,,,,,
-"F28.A07GR","Frying",9.945,"Deep frying",8.09477,,1.85023,,,,,,
-"F28.A0C03","Grain milling",4.01041,,3.985,0.02541,,,,,,,
-"F28.A07LA","Grinding / milling / crushing",2,,1.98754,0.01246,,,,,,,
-"F28.A07LN","Juicing",3.035,,0.19,2.845,,,,,,,
-"F28.A0C0L","Malting",2.68,,,,2.68,,,,,,
-"F28.A0C02","Oil production",1.515,,0.25113,0.00618,1.2577,,,,,,
-"F28.A07KC","Pickling",1.6025,,0.3025,,1.3,,,,,,
-"F28.A0BZV","Polishing",0.185,,0.12157,0.06343,,,,,,,
-"F28.A0C0R","Processed",2.97812,"Cooking and similar thermal preparation processes",0.77904,,2.19909,,,,,,
-"F28.A07LL","Puffing / expanding",2.97812,"Cooking and similar thermal preparation processes",2.42406,,0.55407,,,,,,
-"F28.A0C6N","Pulping / mashing",1.83,,0.01,1.82,,,,,,,
-"F28.A07GY","Roasting",6.44975,"Assuming all from electricity for now",6.44975,,,,,,,,
-"F28.A0EKQ","Separation (in liquid phase)",0.09,,0.09,,,,,,,,
-"F28.A0C0B","Starch production",6.67333,,1.77667,4.89667,,,,,,,
-"F28.A07GM","Stewing",4.4,"Cooked in water",4.4,,,,,,,,
-"F28.A0C04","Sugar production",0.88704,,0.04752,0.3096,0.51408,,,,0.01584,,
-"F28.A07HC","Toasting / coffee roasting",2.52,,0.52,2,,,,,,,
-"F28.A0C00","Winemaking",2.95333,,0.81524,2.13809,,,,,,,
-"F28.A07KV","Slicing",0.285,,0.175,0.11,,,,,,,
-"F28.A07KX","Dicing and stripe-cutting",0.285,"Slicing",0.175,0.11,,,,,,,
-"F28.A07LK","Parboiling / pre-gelatinising",1.18375,,0.1125,,1.07125,,,,,,
-"F28.A07MN","Decaffeinating",0.81111,"Extraction",0.20181,0.00582,0.60348,,,,,,
-"F28.A0BZT","Refining",1.80667,,0.07946,0.24256,1.48465,,,,,,
-"F28.NEW01","Protein Isolate, plant-protein",7.236,,7.236,,,,,,,,
-"F28.NEW02","Extrusion, plant-protein",1.3896,,0.648,,0.7416,,,,,,
-"F28.NEW03","Homogenisation",,,,,,,,,,,
-"F28.NEW04","Pasteurization",,,,,,,,,,,
-"F28.NEW05","Boiling Water / Coffe Brewing",0.576,,0.576,,,,,,,,
+﻿"Facet Code","Process","Energy Consumption (MJ/kg raw material)","Electricity","Heating oil","Natural gas","Other fossil energy sources","Bark and chips","Pellets and briquettes","Other renewable energy sources","Diesel fuel","District heating"
+"F28.A07JZ","Bacteria fermentation",3.24,0.648,NA,2.592,NA,NA,NA,NA,NA,NA
+"F28.A07GZ","Broiling/grilling",3.89513513513513,0.473513513513514,NA,3.42162162162162,NA,NA,NA,NA,NA,NA
+"F28.A0BYP","Canning / jarring",0.612,0.1224,NA,0.4896,NA,NA,NA,NA,NA,NA
+"F28.A0C6E","Cheesemaking",0.576,0.11680234272,NA,0.45919765728,NA,NA,NA,NA,NA,NA
+"F28.A07MH","Churning",1.112,0.16835887944,NA,0.94364112056,NA,NA,NA,NA,NA,NA
+"F28.A07KF","Concentration / evaporation",0.1674,0.03348,NA,0.13392,NA,NA,NA,NA,NA,NA
+"F28.A07KM","Condensing milk (concentration + sugars)",0.181447552447552,0.0362895104895105,NA,0.145158041958042,NA,NA,NA,NA,NA,NA
+"F28.A0BA1","Cooking and similar thermal preparation processes",1.10815384615385,0.221630769230769,NA,0.886523076923077,NA,NA,NA,NA,NA,NA
+"F28.A07GG","Cooking in water",1.16805405405405,0.233610810810811,NA,0.934443243243243,NA,NA,NA,NA,NA,NA
+"F28.A07KD","Curing",3.6,1.8,NA,1.8,NA,NA,NA,NA,NA,NA
+"F28.A07GV","Deep frying",1.3179,0.175727419354839,0.0559357819905213,0.858884910564134,0.054131401926311,NA,NA,0.119089084237884,NA,0.054131401926311
+"F28.A07MF","Distillation",9.66702470461869,0.371808642485334,NA,9.29521606213335,NA,NA,NA,NA,NA,NA
+"F28.A07KG","Drying (dehydration)",2.0628,0.275051612903226,0.0875516587677725,1.34434159914386,0.0847274117107476,NA,NA,0.186400305763645,NA,0.0847274117107476
+"F28.A07MJ","Extraction",0.81111111,0.201807550723551,0.0058213687698033,0.603482190506645,NA,NA,NA,NA,NA,NA
+"F28.A0CQZ","Fermentation",3.24,0.648,NA,2.592,NA,NA,NA,NA,NA,NA
+"F28.A07LG","Flaking",0.622568093385214,0.233463035019455,NA,0.389105058365759,NA,NA,NA,NA,NA,NA
+"F28.A07LH","Flattening / rolling",0.622568093385214,0.233463035019455,NA,0.389105058365759,NA,NA,NA,NA,NA,NA
+"F28.A07KQ","Freezing",0.648,0.648,NA,NA,NA,NA,NA,NA,NA,NA
+"F28.A07GR","Frying",1.04207701863354,0.13894946904428,0.0442289953195373,0.679129089422572,0.0428022535350361,NA,NA,0.0941649577770793,NA,0.0428022535350361
+"F28.A0C03","Grain milling",0.311364,0.311364,NA,NA,NA,NA,NA,NA,NA,NA
+"F28.A07LA","Grinding / milling / crushing",0.190782,0.190782,NA,NA,NA,NA,NA,NA,NA,NA
+"F28.A07LN","Juicing",0.424439320897087,0.169775728358835,NA,0.254663592538252,NA,NA,NA,NA,NA,NA
+"F28.A0C0L","Malting",2.00620437956204,0.334367396593674,NA,1.67183698296837,NA,NA,NA,NA,NA,NA
+"F28.A0C02","Oil production",1.02661596958175,0.170172756273764,0.00418457908745247,0.852258634220532,NA,NA,NA,NA,NA,NA
+"F28.A07KC","Pickling",0.612,0.1224,NA,0.4896,NA,NA,NA,NA,NA,NA
+"F28.A0BZV","Polishing",0.0702,0.0702,NA,NA,NA,NA,NA,NA,NA,NA
+"F28.A0C0R","Processed",1.29654,0.259308,NA,1.037232,NA,NA,NA,NA,NA,NA
+"F28.A07LL","Puffing / expanding",1.2005,0.2401,NA,0.9604,NA,NA,NA,NA,NA,NA
+"F28.A0C6N","Pulping / mashing",0.190782,0.190782,NA,NA,NA,NA,NA,NA,NA,NA
+"F28.A07GY","Roasting",2.92135135135135,0.355135135135135,NA,2.56621621621622,NA,NA,NA,NA,NA,NA
+"F28.A0EKQ","Separation (in liquid phase)",0.003888,0.003888,NA,NA,NA,NA,NA,NA,NA,NA
+"F28.A0C0B","Starch production",3.42,0.9105194934,NA,2.5094805066,NA,NA,NA,NA,NA,NA
+"F28.A07GM","Stewing",1.10815384615385,0.221630769230769,NA,0.886523076923077,NA,NA,NA,NA,NA,NA
+"F28.A0C04","Sugar production",0.99,0.0530357157,NA,0.91928571471,NA,NA,NA,0.01767857157,NA,NA
+"F28.A07HC","Toasting / coffee roasting",2.24504672897196,0.219650421974093,NA,2.02539630699787,NA,NA,NA,NA,NA,NA
+"F28.A0C00","Winemaking",2.54826573426573,1.44755244755245,0.195818181818182,0.904895104895105,NA,NA,NA,NA,NA,NA
+"F28.A07KV","Slicing",0.2736,0.2736,NA,NA,NA,NA,NA,NA,NA,NA
+"F28.A07KX","Dicing and stripe-cutting",0.2736,0.2736,NA,NA,NA,NA,NA,NA,NA,NA
+"F28.A07LK","Parboiling / pre-gelatinising",1.18375,0.1125000014,NA,1.0712499986,NA,NA,NA,NA,NA,NA
+"F28.A07MN","Decaffeinating",0.81111111,0.201807550723551,0.0058213687698033,0.603482190506645,NA,NA,NA,NA,NA,NA
+"F28.A0BZT","Refining",0.396,0.0792,NA,0.3168,NA,NA,NA,NA,NA,NA
+"F28.NEW01","Protein Isolate, plant-protein",0.7236,0.7236,NA,NA,NA,NA,NA,NA,NA,NA
+"F28.NEW02","Extrusion, plant-protein",1.3896,0.648,NA,0.7416,NA,NA,NA,NA,NA,NA
+"F28.NEW03","Homogenisation",0.016272,0.016272,NA,NA,NA,NA,NA,NA,NA,NA
+"F28.NEW04","Pasteurization",0.0863052549019608,0.0223146666666667,NA,0.0639905882352941,NA,NA,NA,NA,NA,NA
+"F28.NEW05","Boiling Water / Coffe Brewing",0.576,0.576,NA,NA,NA,NA,NA,NA,NA,NA
+"F28.NEW06","Potato processing (French fries, crisps and other industrial potato products)",3.01621621621622,0.904864864864865,NA,2.11135135135135,NA,NA,NA,NA,NA,NA
+"F28.NEW07","Instant coffee / tea production (extraction, evaporation, drying)",16.8545454545455,3.76363636363636,NA,13.0909090909091,NA,NA,NA,NA,NA,NA
+"F28.NEW08","Brewing (beer, malt drinks)",1.26,0.315,NA,0.945,NA,NA,NA,NA,NA,NA
+"F28.NEW09","Market milk processing (whole dairy: drinking milk, cream)",0.36,0.072,NA,0.288,NA,NA,NA,NA,NA,NA

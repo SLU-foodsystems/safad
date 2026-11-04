@@ -17,8 +17,17 @@ declare global {
   type Diet = FoodEntry[];
 
   // FoodEx2.2 recipes
-  // component, facet(s), % share, yield
-  type FoodsRecipeElement = [string, string[], number, number];
+  // component, facet(s), share, reverse yield × allocation, preparation,
+  // preparation reverse yield, include component preparation
+  type FoodsRecipeElement = [
+    string,
+    string[]?,
+    number?,
+    number?,
+    string[],
+    number,
+    number,
+  ];
   type FoodsRecipeEntry = FoodsRecipeElement[];
   type FoodsRecipes = {
     [foodexCode: string]: FoodsRecipeEntry

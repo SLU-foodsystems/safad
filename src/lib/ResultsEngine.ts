@@ -1,6 +1,6 @@
 import reduceDiet from "@/lib/rpc-reducer";
 import {
-  computeProcessImpacts,
+  computeDietProcessImpacts,
   getProcessEnvFactors,
 } from "@/lib/process-emissions";
 
@@ -36,7 +36,6 @@ class ResultsEngine {
   emissionsFactorsTransport?: NestedRecord<string, number[]>;
 
   processesEnergyDemands?: Record<string, number[]>;
-  preparationProcesses?: Record<string, string[]>;
   packagingCodes?: Record<string, string>;
 
   wasteRetailAndConsumer?: Record<string, number[]>;
@@ -54,7 +53,6 @@ class ResultsEngine {
       this.setEmissionsFactorsPackaging.bind(this);
     this.setEmissionsFactorsTransport =
       this.setEmissionsFactorsTransport.bind(this);
-    this.setPreparationProcesses = this.setPreparationProcesses.bind(this);
     this.setPackagingCodes = this.setPackagingCodes.bind(this);
     this.setWasteRetailAndConsumer = this.setWasteRetailAndConsumer.bind(this);
     this.setFoodsRecipes = this.setFoodsRecipes.bind(this);
@@ -181,12 +179,6 @@ class ResultsEngine {
     this.emissionsFactorsTransport = emissionsFactorsTransport;
   }
 
-  public setPreparationProcesses(
-    preparationProcesses: Record<string, string[]>
-  ) {
-    this.preparationProcesses = preparationProcesses;
-  }
-
   public setPackagingCodes(packagingCodes: Record<string, string>) {
     this.packagingCodes = packagingCodes;
   }
@@ -194,9 +186,6 @@ class ResultsEngine {
   public reduceDiet(diet: Diet, withWaste = true) {
     if (!this.foodsRecipes) {
       throw new Error("RE::reduceDiet called without foodsRecipes.");
-    }
-    if (!this.preparationProcesses) {
-      throw new Error("RE::reduceDiet called without preparationProcesses.");
     }
     if (!this.packagingCodes) {
       throw new Error("RE::reduceDiet called without packagingCodes.");
@@ -214,7 +203,7 @@ class ResultsEngine {
     return reduceDiet(
       dietWithWaste,
       this.foodsRecipes,
-      this.preparationProcesses,
+      {},
       this.packagingCodes
     );
   }
@@ -295,9 +284,12 @@ class ResultsEngine {
     );
 
     // Per-process impacts
-    const processesEnvImpacts = computeProcessImpacts(
-      processesAmounts,
-      this.processEnvFactors
+    const processesEnvImpacts = computeDietProcessImpacts(
+      diet,
+      this.foodsRecipes!,
+      this.processesEnergyDemands!,
+      this.emissionsFactorsEnergy!,
+      this.countryCode!
     );
 
     const emissionsFactorsPackaging = this.emissionsFactorsPackaging;

@@ -6,7 +6,6 @@ import emissionsFactorsEnergyCsv from "@/default-input-files/SAFAD IEF Energy.cs
 import emissionsFactorsPackagingCsv from "@/default-input-files/SAFAD IEF Packaging.csv?raw";
 import emissionsFactorsTransportCsv from "@/default-input-files/SAFAD IEF Transport.csv?raw";
 import processesEnergyDemandsCsv from "@/default-input-files/SAFAD IP Energy Proc.csv?raw";
-import preparationProcessesCsv from "@/default-input-files/SAFAD IP Preparation Processes.csv?raw";
 import packagingCodesCsv from "@/default-input-files/SAFAD IP Packaging.csv?raw";
 import footprintsRpcsCsv from "@/default-input-files/SAFAD ID Footprints RPC.csv?raw";
 import foodsRecipesCsv from "@/default-input-files/SAFAD IP Recipes.csv?raw";
@@ -34,9 +33,6 @@ const emissionsFactorsTransport = Parsers.parseEmissionsFactorsTransport(
 const processesEnergyDemands = Parsers.parseProcessesEnergyDemands(
   processesEnergyDemandsCsv
 );
-const preparationProcesses = Parsers.parsePreparationProcesses(
-  preparationProcessesCsv
-);
 const packagingCodes = Parsers.parsePackagingCodes(packagingCodesCsv);
 const footprintsRpcs = Parsers.parseFootprintsRpcs(footprintsRpcsCsv);
 const foodsRecipes = Parsers.parseFoodsRecipes(foodsRecipesCsv);
@@ -55,7 +51,6 @@ describe("diet-output-generator.ts", async () => {
   RE.setEmissionsFactorsEnergy(emissionsFactorsEnergy);
   RE.setEmissionsFactorsTransport(emissionsFactorsTransport);
   RE.setProcessesEnergyDemands(processesEnergyDemands);
-  RE.setPreparationProcesses(preparationProcesses);
   RE.setPackagingCodes(packagingCodes);
   RE.setFootprintsRpcs(footprintsRpcs);
   RE.setFoodsRecipes(foodsRecipes);

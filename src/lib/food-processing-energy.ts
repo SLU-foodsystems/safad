@@ -1,0 +1,99 @@
+type ProcessEnergy = Record<string, number[]>;
+type FoodProcessEnergy = Record<string, ProcessEnergy>;
+
+const cache = new WeakMap<
+  FoodsRecipes,
+  WeakMap<Record<string, number[]>, FoodProcessEnergy>
+>();
+
+const emptyEnergy = () => Array.from({ length: 9 }, () => 0);
+
+const add = (target: number[], source: number[], multiplier = 1) =>
+  source.forEach((value, index) => {
+    target[index] = (target[index] || 0) + value * multiplier;
+  });
+
+const processCodes = (codes: string[]) =>
+  codes.filter((code) => code.startsWith("F28."));
+
+/**
+ * Calculates process energy per kg of each food, retaining the process that
+ * supplied each energy vector for the existing process breakdown.
+ */
+export function computeFoodProcessEnergy(
+  recipes: FoodsRecipes,
+  processEnergy: Record<string, number[]>
+): FoodProcessEnergy {
+  const cachedByEnergy = cache.get(recipes);
+  const cached = cachedByEnergy?.get(processEnergy);
+  if (cached) return cached;
+
+  const memo = new Map<string, ProcessEnergy>();
+  const active = new Set<string>();
+
+  const process = (food: string): ProcessEnergy => {
+    const cached = memo.get(food);
+    if (cached) return cached;
+    if (active.has(food)) {
+      throw new Error(`Cycle in food processing recipe at ${food}.`);
+    }
+
+    const rows = recipes[food];
+    if (!rows) return {};
+    active.add(food);
+    const result: ProcessEnergy = {};
+    const addProcess = (code: string, multiplier: number) => {
+      const value = processEnergy[code];
+      if (!value) throw new Error(`Missing energy demand for process ${code}.`);
+      if (!result[code]) result[code] = emptyEnergy();
+      add(result[code]!, value, multiplier);
+    };
+
+    const preparation = (entry: FoodsRecipeElement) => {
+      processCodes(entry[4] || []).forEach((code) =>
+        addProcess(code, entry[5] || 0)
+      );
+    };
+
+    rows.forEach((entry) => {
+      const [
+        component,
+        facets,
+        share,
+        reverseYield,
+        _prep,
+        _prepYield,
+        include,
+      ] = entry;
+      const weight = (share || 0) * (reverseYield || 1);
+      processCodes(facets || []).forEach((code) => addProcess(code, weight));
+      if (component !== food && recipes[component]) {
+        const nested = process(component);
+        Object.entries(nested).forEach(([code, value]) => {
+          if (!result[code]) result[code] = emptyEnergy();
+          add(result[code]!, value, weight);
+        });
+        if (include === 0) {
+          const componentPreparation = recipes[component]![0]!;
+          processCodes(componentPreparation[4] || []).forEach((code) =>
+            addProcess(code, -weight * (componentPreparation[5] || 0))
+          );
+        }
+      }
+    });
+
+    preparation(rows[0]!);
+    active.delete(food);
+    memo.set(food, result);
+    return result;
+  };
+
+  Object.keys(recipes).forEach(process);
+  const result = Object.fromEntries(memo);
+  if (cachedByEnergy) {
+    cachedByEnergy.set(processEnergy, result);
+  } else {
+    cache.set(recipes, new WeakMap([[processEnergy, result]]));
+  }
+  return result;
+}
