@@ -118,7 +118,7 @@ function reduceToRpcs(
   preparationProcesses: Record<string, string[]>,
 
   // Modifiers
-  recordTransportSubtractionAmount: (rcpCode: string, amount: number) => void,
+  recordTransportSubtractionAmount: (rpcCode: string, amount: number) => void,
   recordProcessesContribution: (
     code: string,
     facet: string,
