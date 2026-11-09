@@ -303,7 +303,7 @@
 "A.01.04.007.003","Bread stuffing","A.01.04.007.001","Breadcrumbs","To be further disaggregated (d)",NA,50.25,1,1,1,"F28.A07GY","Roasting",0.557,1
 "A.01.04.007.003","Bread stuffing","A.02.02.002","Onions, bulb (Allium cepa)","F28.A07GR","PROCESS=Frying",10.05,1,1.61,1,"F28.A07GY","Roasting",0.557,1
 "A.01.04.007.003","Bread stuffing","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",6.03,1,1,1,"F28.A07GY","Roasting",0.557,1
-"A.01.04.007.003","Bread stuffing","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",4.02,1,1,1,"F28.A07GY","Roasting",0.557,1
+"A.01.04.007.003","Bread stuffing","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",4.02,1,1,1,"F28.A07GY","Roasting",0.557,1
 "A.01.04.007.003","Bread stuffing","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",17.59,1,1,1,"F28.A07GY","Roasting",0.557,1
 "A.01.04.007.003","Bread stuffing","A.16.04.008","Stock cubes (bouillon cube)","To be further disaggregated (d)",NA,12.06,1,1,1,"F28.A07GY","Roasting",0.557,1
 "A.01.05.001","Glass noodle","A.04.02.009","Mung bean (Phaseolus aureus)","F28.A07LA","PROCESS=Grinding / milling / crushing",100,1,1.32,1,"F28.A0C0R","Processed",1,1
@@ -665,7 +665,7 @@
 "A.01.07.001.022","Cheese pie","A.08.08.115","Cheese, Mizithra","To be further disaggregated (d)",NA,3.5,1,1,1,"F28.A07GY","Roasting",0.418,1
 "A.01.07.001.022","Cheese pie","A.09.01.001","Whole egg, chicken","F28.A07XD","PROCESS=Unspecified",4,1,1,1,"F28.A07GY","Roasting",0.418,1
 "A.01.07.001.022","Cheese pie","A.11.04.008","Olive oil","To be further disaggregated (d)",NA,2.5,1,1,1,"F28.A07GY","Roasting",0.418,1
-"A.01.07.001.022","Cheese pie","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.75,1,1,1,"F28.A07GY","Roasting",0.418,1
+"A.01.07.001.022","Cheese pie","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.75,1,1,1,"F28.A07GY","Roasting",0.418,1
 "A.01.07.001.022","Cheese pie","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.75,1,1,1,"F28.A07GY","Roasting",0.418,1
 "A.01.07.001.022","Cheese pie","I.01.07.001.050","Puff pastry","To be further disaggregated (d)",NA,62,1,1,1,"F28.A07GY","Roasting",0.418,1
 "A.01.07.001.022","Cheese pie","I.08.08.187","Cheese, Cottage","To be further disaggregated (d)",NA,7,1,1,1,"F28.A07GY","Roasting",0.418,1
@@ -682,8 +682,8 @@
 "A.01.07.001.024","Gingerbread","A.10.01.002","Brown sugar","To be further disaggregated (d)",NA,18.16,1,1,1,"F28.A07GY","Roasting",1.15,1
 "A.01.07.001.024","Gingerbread","A.10.06.001","Molasses","To be further disaggregated (d)",NA,13.2,1,1,1,"F28.A07GY","Roasting",1.15,1
 "A.01.07.001.024","Gingerbread","A.11.01.001","Butter","To be further disaggregated (d)",NA,18.71,1,1,1,"F28.A07GY","Roasting",1.15,1
-"A.01.07.001.024","Gingerbread","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.22,1,1,1,"F28.A07GY","Roasting",1.15,1
-"A.01.07.001.024","Gingerbread","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.09,1,1,1,"F28.A07GY","Roasting",1.15,1
+"A.01.07.001.024","Gingerbread","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.22,1,1,1,"F28.A07GY","Roasting",1.15,1
+"A.01.07.001.024","Gingerbread","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.09,1,1,1,"F28.A07GY","Roasting",1.15,1
 "A.01.07.001.024","Gingerbread","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.22,1,1,1,"F28.A07GY","Roasting",1.15,1
 "A.01.07.001.024","Gingerbread","A.16.09.002","Vanilla essence","To be further disaggregated (d)",NA,0.55,1,1,1,"F28.A07GY","Roasting",1.15,1
 "A.01.07.001.024","Gingerbread","A.16.10.003","Baking powder","To be further disaggregated (d)",NA,0.55,1,1,1,"F28.A07GY","Roasting",1.15,1
@@ -790,8 +790,8 @@
 "A.01.07.001.044","Lebkuchen","A.10.01.002","Brown sugar","To be further disaggregated (d)",NA,18.16,1,1,1,"F28.A07GY","Roasting",1.15,1
 "A.01.07.001.044","Lebkuchen","A.10.06.001","Molasses","To be further disaggregated (d)",NA,13.2,1,1,1,"F28.A07GY","Roasting",1.15,1
 "A.01.07.001.044","Lebkuchen","A.11.01.001","Butter","To be further disaggregated (d)",NA,18.71,1,1,1,"F28.A07GY","Roasting",1.15,1
-"A.01.07.001.044","Lebkuchen","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.22,1,1,1,"F28.A07GY","Roasting",1.15,1
-"A.01.07.001.044","Lebkuchen","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.09,1,1,1,"F28.A07GY","Roasting",1.15,1
+"A.01.07.001.044","Lebkuchen","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.22,1,1,1,"F28.A07GY","Roasting",1.15,1
+"A.01.07.001.044","Lebkuchen","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.09,1,1,1,"F28.A07GY","Roasting",1.15,1
 "A.01.07.001.044","Lebkuchen","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.22,1,1,1,"F28.A07GY","Roasting",1.15,1
 "A.01.07.001.044","Lebkuchen","A.16.09.002","Vanilla essence","To be further disaggregated (d)",NA,0.55,1,1,1,"F28.A07GY","Roasting",1.15,1
 "A.01.07.001.044","Lebkuchen","A.16.10.003","Baking powder","To be further disaggregated (d)",NA,0.55,1,1,1,"F28.A07GY","Roasting",1.15,1
@@ -815,7 +815,7 @@
 "A.01.07.001.048","Baklava","A.10.07","Honey","F28.A07XD","PROCESS=Unspecified",7.08,1,1,1,"F28.A07GY","Roasting",1.1,1
 "A.01.07.001.048","Baklava","A.11.01.001","Butter","To be further disaggregated (d)",NA,13.27,1,1,1,"F28.A07GY","Roasting",1.1,1
 "A.01.07.001.048","Baklava","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",13.86,1,1,1,"F28.A07GY","Roasting",1.1,1
-"A.01.07.001.048","Baklava","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.12,1,1,1,"F28.A07GY","Roasting",1.1,1
+"A.01.07.001.048","Baklava","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.12,1,1,1,"F28.A07GY","Roasting",1.1,1
 "A.01.07.001.048","Baklava","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.88,1,1,1,"F28.A07GY","Roasting",1.1,1
 "A.01.07.001.048","Baklava","A.16.09.002","Vanilla essence","To be further disaggregated (d)",NA,0.29,1,1,1,"F28.A07GY","Roasting",1.1,1
 "A.01.07.002.001","Biscuits, sweet, plain","A.01.03.001.003","Wheat flour, white","To be further disaggregated (d)",NA,59,1,1,1,"F28.A07GY","Roasting",1.15,1
@@ -851,8 +851,8 @@
 "A.01.07.002.008","Speculaas","A.08.04.002.002","Whey powder","To be further disaggregated (d)",NA,0.3,1,1,1,"F28.A07GY","Roasting",1.15,1
 "A.01.07.002.008","Speculaas","A.10.01.001","White sugar","To be further disaggregated (d)",NA,29,1,1,1,"F28.A07GY","Roasting",1.15,1
 "A.01.07.002.008","Speculaas","A.11.01.001","Butter","To be further disaggregated (d)",NA,20,1,1,1,"F28.A07GY","Roasting",1.15,1
-"A.01.07.002.008","Speculaas","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",1,1,1,1,"F28.A07GY","Roasting",1.15,1
-"A.01.07.002.008","Speculaas","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",1,1,1,1,"F28.A07GY","Roasting",1.15,1
+"A.01.07.002.008","Speculaas","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",1,1,1,1,"F28.A07GY","Roasting",1.15,1
+"A.01.07.002.008","Speculaas","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",1,1,1,1,"F28.A07GY","Roasting",1.15,1
 "A.01.07.002.008","Speculaas","A.16.03.001","Mixed herbs","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07GY","Roasting",1.15,1
 "A.01.07.002.008","Speculaas","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.5,1,1,1,"F28.A07GY","Roasting",1.15,1
 "A.01.07.002.008","Speculaas","A.16.10.003","Baking powder","To be further disaggregated (d)",NA,1,1,1,1,"F28.A07GY","Roasting",1.15,1
@@ -964,8 +964,8 @@
 "A.02.10","Tea and herbs for infusions (Solid)","A.02.10.001","Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis)",NA,NA,100,1,1,1,NA,NA,NA,1
 "A.02.10.001","Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis)","A.02.10.001","Tea (dried leaves and stalks, fermented or otherwise of Camellia sinensis)","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1
 "A.02.10.004","Peppermint (Mentha × piperita)","A.02.10.004","Peppermint (Mentha × piperita)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,7,1,NA,NA,NA,1
-"A.02.10.009","Strawberry leaves (Fragaria × ananassa)","A.02.10.009","Strawberry leaves (Fragaria × ananassa)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,1,1,NA,NA,NA,1
-"A.02.10.013","Ginseng root (Panax ginseng)","A.02.10.013","Ginseng root (Panax ginseng)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,1,1,NA,NA,NA,1
+"A.02.10.009","Strawberry leaves (Fragaria × ananassa)","A.02.10.009","Strawberry leaves (Fragaria × ananassa)","F28.NEW10","PROCESS=Sun drying",100,1,1,1,NA,NA,NA,1
+"A.02.10.013","Ginseng root (Panax ginseng)","A.02.10.013","Ginseng root (Panax ginseng)","F28.NEW10","PROCESS=Sun drying",100,1,1,1,NA,NA,NA,1
 "A.02.11.002","Cocoa powder","A.02.11.001","Cocoa beans (fermented beans) (Theobroma cacao)","F28.A07HC$F28.A07LA$F28.A0C02$F02.A0EYD","PROCESS=Toasting / coffee roasting, PROCESS=Grinding / milling / crushing, PROCESS=Oil production, PART-NATURE=Derivatives of coffee, cocoa, tea and similar RPCs (as part-nature)",100,1,2.36,0.39,NA,NA,NA,1
 "A.02.11.003","Cocoa beverage-preparation, powder","A.02.11.002","Cocoa powder","To be further disaggregated (d)",NA,41,1,1,1,NA,NA,NA,1
 "A.02.11.003","Cocoa beverage-preparation, powder","A.10.01.001","White sugar","To be further disaggregated (d)",NA,59,1,1,1,NA,NA,NA,1
@@ -987,7 +987,7 @@
 "A.02.14.001","Mushy peas (Pisum sativum)","A.04.01.002","Peas, green, without pods (Pisum sativum)","F28.A07GG$F28.A0C6N","PROCESS=Cooking in water, PROCESS=Pulping / mashing",81.2,1,1.1,1,"F28.A0C6N","Pulping / mashing",0.188,1
 "A.02.14.001","Mushy peas (Pisum sativum)","A.08.05.001.004","Cream 40 % fat","To be further disaggregated (d)",NA,14.1,1,1,1,"F28.A0C6N","Pulping / mashing",0.188,1
 "A.02.14.001","Mushy peas (Pisum sativum)","A.11.01.001","Butter","To be further disaggregated (d)",NA,3.5,1,1,1,"F28.A0C6N","Pulping / mashing",0.188,1
-"A.02.14.001","Mushy peas (Pisum sativum)","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.6,1,1,1,"F28.A0C6N","Pulping / mashing",0.188,1
+"A.02.14.001","Mushy peas (Pisum sativum)","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.6,1,1,1,"F28.A0C6N","Pulping / mashing",0.188,1
 "A.02.14.001","Mushy peas (Pisum sativum)","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.6,1,1,1,"F28.A0C6N","Pulping / mashing",0.188,1
 "A.02.14.002","Garlic purée","A.02.02.001","Garlic, bulb (Allium sativum)","F28.A07XD","PROCESS=Unspecified",55.56,1,1,1,"F28.A0C6N","Pulping / mashing",1,1
 "A.02.14.002","Garlic purée","A.11.04.008","Olive oil","To be further disaggregated (d)",NA,35.25,1,1,1,"F28.A0C6N","Pulping / mashing",1,1
@@ -1006,7 +1006,7 @@
 "A.02.14.004","Mixed vegetable purée","I.19.10.011","Vegetable broth","To be further disaggregated (d)",NA,26.82,1,1,1,"F28.A0C6N","Pulping / mashing",0.505,1
 "A.02.14.005","Pickled vegetables","A.02.03.007","Gherkins (Cucumis sativus)","F28.A07KC","PROCESS=Pickling",100,1,1,1,NA,NA,NA,1
 "A.02.14.006","Sauerkraut","A.02.04.004","Head cabbage (Brassica oleracea convar. capitata)","F28.A0CQZ","PROCESS=Fermentation",100,1,1,1,NA,NA,NA,0
-"A.02.14.007","Sun-dried tomatoes","A.02.03.001","Tomatoes (Lycopersicum esculentum)","F28.A07XD","PROCESS=Unspecified",100,1,20,1,NA,NA,NA,1
+"A.02.14.007","Sun-dried tomatoes","A.02.03.001","Tomatoes (Lycopersicum esculentum)","F28.NEW10","PROCESS=Sun drying",100,1,20,1,NA,NA,NA,1
 "A.02.14.008","Mashed vegetables","A.02.01.007","Parsnips (Pastinaca sativa)","F28.A07GG$F28.A0C6N","PROCESS=Cooking in water, PROCESS=Pulping / mashing",100,0.55,1.06,1,NA,NA,NA,1
 "A.02.14.008","Mashed vegetables","A.02.03.002","Peppers, paprika (Capsicum annuum, var. grossum and var. longum)","F28.A07GG$F28.A0C6N","PROCESS=Cooking in water, PROCESS=Pulping / mashing",100,0.45,0.87,1,NA,NA,NA,1
 "A.02.14.009","Coconut milk (Cocos nucifera)","A.04.03.006","Coconuts (Cocos nucifera)","F28.A07MJ","PROCESS=Extraction",100,1,1,1,NA,NA,NA,1
@@ -1037,7 +1037,7 @@
 "A.03.01.007","Potato fried","A.03.01.002","Main-crop potatoes","F28.A07GR","PROCESS=Frying",91.65,1,1.52,1,NA,NA,NA,1
 "A.03.01.007","Potato fried","A.11.04","Vegetable oil","To be further disaggregated (p)",NA,7.15,1,1,1,NA,NA,NA,1
 "A.03.01.007","Potato fried","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,0.24,1,1,1,NA,NA,NA,1
-"A.03.01.007","Potato fried","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.24,1,1,1,NA,NA,NA,1
+"A.03.01.007","Potato fried","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.24,1,1,1,NA,NA,NA,1
 "A.03.01.007","Potato fried","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.48,1,1,1,NA,NA,NA,1
 "A.03.01.007","Potato fried","I.16.02.033","Garlic, dried","To be further disaggregated (d)",NA,0.24,1,1,1,NA,NA,NA,1
 "A.03.01.008","Potato baked","A.03.01.002","Main-crop potatoes","F28.A07GY","PROCESS=Roasting",100,1,1.33,1,NA,NA,NA,1
@@ -1139,7 +1139,7 @@
 "A.05.05.001","Olives for oil production (Olea europaea)","A.05.05.001","Olives for oil production (Olea europaea)","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1
 "A.05.06.001","Dates (Phoenix dactylifera)","A.05.06.001","Dates (Phoenix dactylifera)","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1
 "A.05.06.002","Figs (Ficus carica)","A.05.06.002","Figs (Ficus carica)","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1
-"A.05.06.003","Table olives (Olea europaea)","A.05.06.003","Table olives (Olea europaea)","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1
+"A.05.06.003","Table olives (Olea europaea)","A.05.06.003","Table olives (Olea europaea)","F28.A07KC","PROCESS=Pickling",100,1,1,1,NA,NA,NA,1
 "A.05.06.004","Kumquats (Fortunella species)","A.05.06.004","Kumquats (Fortunella species)","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1
 "A.05.06.005","Carambola (Averrhoa carambola)","A.05.06.005","Carambola (Averrhoa carambola)","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1
 "A.05.06.006","Persimmon (Sharon fruit) (Diospyros kaki)","A.05.06.013","American persimmon (Virginia kaki) (Diospyros virginiana)","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1
@@ -1160,19 +1160,19 @@
 "A.05.06.029","Pawpaw (Asimina)","A.05.06.029","Pawpaw (Asimina)","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1
 "A.05.06.030","Chayote (Sechium edule)","A.05.06.030","Chayote (Sechium edule)","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1
 "A.05.06.034","Longan fruit (Dimocarpus longan)","A.05.06.034","Longan fruit (Dimocarpus longan)","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1
-"A.05.07.001","Dried vine fruits (currants, raisins and sultanas)","A.05.04.001","Table grapes (Vitis euvitis)","F28.A07XD","PROCESS=Unspecified",100,1,4,1,NA,NA,NA,1
+"A.05.07.001","Dried vine fruits (currants, raisins and sultanas)","A.05.04.001","Table grapes (Vitis euvitis)","F28.NEW10","PROCESS=Sun drying",100,1,4,1,NA,NA,NA,1
 "A.05.07.001a","Dried cranberries","A.05.04.009","Cranberries (Vaccinium macrocarpon)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,4,1,NA,NA,NA,1
 "A.05.07.001b","Dried blueberries","A.05.04.008","Blueberries (Vaccinium corymbosum)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,4,1,NA,NA,NA,1
 "A.05.07.001c","Dried pineapple","A.05.06.021","Pineapples (Ananas comosus)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,5.67,1,NA,NA,NA,1
 "A.05.07.001d","Dried papaya","A.05.06.017","Papaya (Carica papaya)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,5.67,1,NA,NA,NA,1
 "A.05.07.001e","Dried strawberries","A.05.04.003","Strawberries (Fragaria × ananassa)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,4,1,NA,NA,NA,1
 "A.05.07.001f","Dried raspberries","A.05.04.006","Raspberries (Rubus idaeus)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,4,1,NA,NA,NA,1
-"A.05.07.002","Dried figs (Ficus carica)","A.05.06.002","Figs (Ficus carica)","F28.A07XD","PROCESS=Unspecified",100,1,2.86,1,NA,NA,NA,1
+"A.05.07.002","Dried figs (Ficus carica)","A.05.06.002","Figs (Ficus carica)","F28.NEW10","PROCESS=Sun drying",100,1,2.86,1,NA,NA,NA,1
 "A.05.07.003","Dried prunes (Prunus domestica)","A.05.03.002","Plums (Prunus domestica)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,2.86,1,NA,NA,NA,1
-"A.05.07.004","Dried apricots (Prunus armeniaca)","A.05.03.001","Apricots (Prunus armeniaca)","F28.A07XD","PROCESS=Unspecified",100,1,3.45,1,NA,NA,NA,1
+"A.05.07.004","Dried apricots (Prunus armeniaca)","A.05.03.001","Apricots (Prunus armeniaca)","F28.NEW10","PROCESS=Sun drying",100,1,3.45,1,NA,NA,NA,1
 "A.05.07.005","Dried pears (Pyrus communis)","A.05.02.002","Pear (Pyrus communis)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,6.31,1,NA,NA,NA,1
 "A.05.07.006","Dried apples (Malus domesticus)","A.05.02.001","Apple (Malus domesticus)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,8.33,1,NA,NA,NA,1
-"A.05.07.007","Dried dates (Phoenix dactylifera)","A.05.06.001","Dates (Phoenix dactylifera)","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1
+"A.05.07.007","Dried dates (Phoenix dactylifera)","A.05.06.001","Dates (Phoenix dactylifera)","F28.NEW10","PROCESS=Sun drying",100,1,1,1,NA,NA,NA,1
 "A.05.07.008","Dried bananas (Musa × paradisica)","A.05.06.015","Bananas (Musa × paradisica)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,3.4,1,NA,NA,NA,1
 "A.05.07.009","Dried mangoes (Mangifera indica)","A.05.06.016","Mangoes (Mangifera indica)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,5.67,1,NA,NA,NA,1
 "A.05.08.001","Jam","A.05.08.001.001","Jam, Strawberries (Fragaria × ananassa)","To be further disaggregated (d)",NA,20,1,1,1,NA,NA,NA,1
@@ -1432,16 +1432,16 @@
 "A.06.09.001.002","Bratwurst","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD","PROCESS=Unspecified",58.7,1,1,1,"F28.A07GG","Cooking in water",1.05,1
 "A.06.09.001.002","Bratwurst","A.09.01.003","Egg white, chicken","To be further disaggregated (d)",NA,5.9,1,1,1,"F28.A07GG","Cooking in water",1.05,1
 "A.06.09.001.002","Bratwurst","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",8.3,1,1,1,"F28.A07GG","Cooking in water",1.05,1
-"A.06.09.001.002","Bratwurst","A.16.02.010","Caraway (Carum carvi)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",1.05,1
-"A.06.09.001.002","Bratwurst","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",1.05,1
-"A.06.09.001.002","Bratwurst","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07GG","Cooking in water",1.05,1
+"A.06.09.001.002","Bratwurst","A.16.02.010","Caraway (Carum carvi)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",1.05,1
+"A.06.09.001.002","Bratwurst","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",1.05,1
+"A.06.09.001.002","Bratwurst","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07GG","Cooking in water",1.05,1
 "A.06.09.001.002","Bratwurst","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.5,1,1,1,"F28.A07GG","Cooking in water",1.05,1
 "A.06.09.001.003","Thuringer-Style Sausage","A.04.04.007","Mustard seed (Brassica nigra)","F28.A07XD","PROCESS=Unspecified",0.2,1,1,1,"F28.A07GG","Cooking in water",1.05,1
 "A.06.09.001.003","Thuringer-Style Sausage","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD","PROCESS=Unspecified",28.9,1,1,1,"F28.A07GG","Cooking in water",1.05,1
 "A.06.09.001.003","Thuringer-Style Sausage","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD","PROCESS=Unspecified",67.3,1,1,1,"F28.A07GG","Cooking in water",1.05,1
 "A.06.09.001.003","Thuringer-Style Sausage","A.10.01.008","Glucose","To be further disaggregated (d)",NA,1,1,1,1,"F28.A07GG","Cooking in water",1.05,1
-"A.06.09.001.003","Thuringer-Style Sausage","A.16.02.004","Allspice (Pimenta dioica)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",1.05,1
-"A.06.09.001.003","Thuringer-Style Sausage","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",1.05,1
+"A.06.09.001.003","Thuringer-Style Sausage","A.16.02.004","Allspice (Pimenta dioica)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",1.05,1
+"A.06.09.001.003","Thuringer-Style Sausage","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",1.05,1
 "A.06.09.001.003","Thuringer-Style Sausage","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.2,1,1,1,"F28.A07GG","Cooking in water",1.05,1
 "A.06.09.001.004","Weisswurst","A.05.01.003","Lemons (Citrus limon)","F28.A07XD$F20.A0F7P","PROCESS=Unspecified, PART-CONSUMED-ANALYSED=Peel only",0.5,1,1,1,"F28.A07GG","Cooking in water",0.789,1
 "A.06.09.001.004","Weisswurst","A.06.01.002","Veal meat","F28.A07GG","PROCESS=Cooking in water",24.9,1,1.1,1,"F28.A07GG","Cooking in water",0.789,1
@@ -1449,7 +1449,7 @@
 "A.06.09.001.004","Weisswurst","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",8.3,1,1,1,"F28.A07GG","Cooking in water",0.789,1
 "A.06.09.001.004","Weisswurst","A.09.01.001","Whole egg, chicken","F28.A07XD","PROCESS=Unspecified",5.2,1,1,1,"F28.A07GG","Cooking in water",0.789,1
 "A.06.09.001.004","Weisswurst","A.16.01.005","Parsley, herb (Petroselinum crispum)","F28.A07XD","PROCESS=Unspecified",0.8,1,1,1,"F28.A07GG","Cooking in water",0.789,1
-"A.06.09.001.004","Weisswurst","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.789,1
+"A.06.09.001.004","Weisswurst","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.789,1
 "A.06.09.001.004","Weisswurst","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.5,1,1,1,"F28.A07GG","Cooking in water",0.789,1
 "A.06.09.001.004","Weisswurst","I.16.02.034","Onions, dried","To be further disaggregated (d)",NA,0.5,1,1,1,"F28.A07GG","Cooking in water",0.789,1
 "A.06.09.001.005","Bockwurst","A.05.01.003","Lemons (Citrus limon)","F28.A07XD$F20.A0F7P","PROCESS=Unspecified, PART-CONSUMED-ANALYSED=Peel only",0.5,1,1,1,"F28.A07GG","Cooking in water",0.789,1
@@ -1458,21 +1458,21 @@
 "A.06.09.001.005","Bockwurst","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",8.3,1,1,1,"F28.A07GG","Cooking in water",0.789,1
 "A.06.09.001.005","Bockwurst","A.09.01.001","Whole egg, chicken","F28.A07XD","PROCESS=Unspecified",5.2,1,1,1,"F28.A07GG","Cooking in water",0.789,1
 "A.06.09.001.005","Bockwurst","A.16.01.005","Parsley, herb (Petroselinum crispum)","F28.A07XD","PROCESS=Unspecified",0.8,1,1,1,"F28.A07GG","Cooking in water",0.789,1
-"A.06.09.001.005","Bockwurst","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07GG","Cooking in water",0.789,1
+"A.06.09.001.005","Bockwurst","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07GG","Cooking in water",0.789,1
 "A.06.09.001.005","Bockwurst","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.5,1,1,1,"F28.A07GG","Cooking in water",0.789,1
 "A.06.09.001.005","Bockwurst","I.16.02.034","Onions, dried","To be further disaggregated (d)",NA,0.5,1,1,1,"F28.A07GG","Cooking in water",0.789,1
-"A.06.09.002.002","Mettwurst, sausage","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD","PROCESS=Unspecified",29.16,1,1,1,"F28.A07KG","Drying, dehydration",1.096,1
-"A.06.09.002.002","Mettwurst, sausage","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD","PROCESS=Unspecified",29.16,1,1,1,"F28.A07KG","Drying, dehydration",1.096,1
-"A.06.09.002.002","Mettwurst, sausage","A.06.08.007","Bacon","To be further disaggregated (d)",NA,38.88,1,1,1,"F28.A07KG","Drying, dehydration",1.096,1
-"A.06.09.002.002","Mettwurst, sausage","A.10.01.008","Glucose","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.096,1
-"A.06.09.002.002","Mettwurst, sausage","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.096,1
-"A.06.09.002.002","Mettwurst, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.096,1
-"A.06.09.002.002","Mettwurst, sausage","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.2,1,1,1,"F28.A07KG","Drying, dehydration",1.096,1
+"A.06.09.002.002","Mettwurst, sausage","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD","PROCESS=Unspecified",29.16,1,1,1,"F28.A07KG","Drying, dehydration",1.097,1
+"A.06.09.002.002","Mettwurst, sausage","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD","PROCESS=Unspecified",29.16,1,1,1,"F28.A07KG","Drying, dehydration",1.097,1
+"A.06.09.002.002","Mettwurst, sausage","A.06.08.007","Bacon","To be further disaggregated (d)",NA,38.88,1,1,1,"F28.A07KG","Drying, dehydration",1.097,1
+"A.06.09.002.002","Mettwurst, sausage","A.10.01.008","Glucose","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.097,1
+"A.06.09.002.002","Mettwurst, sausage","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.097,1
+"A.06.09.002.002","Mettwurst, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.097,1
+"A.06.09.002.002","Mettwurst, sausage","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.2,1,1,1,"F28.A07KG","Drying, dehydration",1.097,1
 "A.06.09.002.003","Kielbasa, sausage","A.02.02.001","Garlic, bulb (Allium sativum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",0.3,1,1,1,"F28.A07KG","Drying, dehydration",1.148,1
 "A.06.09.002.003","Kielbasa, sausage","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD","PROCESS=Unspecified",88.8,1,1,1,"F28.A07KG","Drying, dehydration",1.148,1
 "A.06.09.002.003","Kielbasa, sausage","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.148,1
 "A.06.09.002.003","Kielbasa, sausage","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",8.9,1,1,1,"F28.A07KG","Drying, dehydration",1.148,1
-"A.06.09.002.003","Kielbasa, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.148,1
+"A.06.09.002.003","Kielbasa, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.148,1
 "A.06.09.002.003","Kielbasa, sausage","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,"F28.A07KG","Drying, dehydration",1.148,1
 "A.06.09.003.001","Blood sausage","I.06.09.003.005","Blood sausage, Pork","To be further disaggregated (d)",NA,100,1,1,1,NA,NA,NA,1
 "A.06.09.003.002","Blood and tongue sausage","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG$F02.A06AL","PROCESS=Cooking in water, PART-NATURE=Blood (as part-nature)",19.58,1,1,1,"F28.A07GG","Cooking in water",0.844,1
@@ -1480,9 +1480,9 @@
 "A.06.09.003.002","Blood and tongue sausage","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",29.37,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "A.06.09.003.002","Blood and tongue sausage","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A06AB","PROCESS=Unspecified, PART-NATURE=Tongue (as part-nature)",5,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "A.06.09.003.002","Blood and tongue sausage","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A06AK","PROCESS=Unspecified, PART-NATURE=Skin (as part-nature)",29.37,1,1,1,"F28.A07GG","Cooking in water",0.844,1
-"A.06.09.003.002","Blood and tongue sausage","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",0.844,1
-"A.06.09.003.002","Blood and tongue sausage","A.16.02.015","Cloves (Syzygium aromaticum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.844,1
-"A.06.09.003.002","Blood and tongue sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",0.844,1
+"A.06.09.003.002","Blood and tongue sausage","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",0.844,1
+"A.06.09.003.002","Blood and tongue sausage","A.16.02.015","Cloves (Syzygium aromaticum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.844,1
+"A.06.09.003.002","Blood and tongue sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "A.06.09.003.002","Blood and tongue sausage","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "A.06.09.003.003","Liver sausage, liverwurst","I.06.09.003.007","Liver sausage, Pork","To be further disaggregated (d)",NA,100,0.76,1,1,NA,NA,NA,1
 "A.06.09.003.003","Liver sausage, liverwurst","I.06.09.003.009","Liver sausage, Veal","To be further disaggregated (d)",NA,100,0.24,1,1,NA,NA,NA,1
@@ -1501,18 +1501,18 @@
 "A.06.09.004.002","Bologna, sausage","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.1,1,1,1,"F28.A07GG","Cooking in water",0.159,1
 "A.06.09.004.002","Bologna, sausage","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",12.6,1,1,1,"F28.A07GG","Cooking in water",0.159,1
 "A.06.09.004.002","Bologna, sausage","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07GG","Cooking in water",0.159,1
-"A.06.09.004.002","Bologna, sausage","A.16.02.004","Allspice (Pimenta dioica)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.159,1
-"A.06.09.004.002","Bologna, sausage","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.159,1
-"A.06.09.004.002","Bologna, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.159,1
+"A.06.09.004.002","Bologna, sausage","A.16.02.004","Allspice (Pimenta dioica)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.159,1
+"A.06.09.004.002","Bologna, sausage","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.159,1
+"A.06.09.004.002","Bologna, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.159,1
 "A.06.09.004.002","Bologna, sausage","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.5,1,1,1,"F28.A07GG","Cooking in water",0.159,1
 "A.06.09.004.002","Bologna, sausage","A.16.04.016","Monosodium glutamate","F28.A0C0R","PROCESS=Processed",0.1,1,1,1,"F28.A07GG","Cooking in water",0.159,1
 "A.06.09.004.003","Boterhamworst","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",13.1,1,1,1,"F28.A07GG","Cooking in water",1.05,1
 "A.06.09.004.003","Boterhamworst","A.06.08.001","Ham, pork","To be further disaggregated (d)",NA,78.94,1,1,1,"F28.A07GG","Cooking in water",1.05,1
 "A.06.09.004.003","Boterhamworst","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07GG","Cooking in water",1.05,1
 "A.06.09.004.003","Boterhamworst","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",5.55,1,1,1,"F28.A07GG","Cooking in water",1.05,1
-"A.06.09.004.003","Boterhamworst","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",1.05,1
-"A.06.09.004.003","Boterhamworst","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",1.05,1
-"A.06.09.004.003","Boterhamworst","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",1.05,1
+"A.06.09.004.003","Boterhamworst","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",1.05,1
+"A.06.09.004.003","Boterhamworst","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",1.05,1
+"A.06.09.004.003","Boterhamworst","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",1.05,1
 "A.06.09.004.003","Boterhamworst","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.71,1,1,1,"F28.A07GG","Cooking in water",1.05,1
 "A.06.09.004.005","Frankfurters, sausage","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG","PROCESS=Cooking in water",51,1,1.1,1,"F28.A07GG","Cooking in water",0.336,1
 "A.06.09.004.005","Frankfurters, sausage","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GG","PROCESS=Cooking in water",17,1,1.1,1,"F28.A07GG","Cooking in water",0.336,1
@@ -1520,9 +1520,9 @@
 "A.06.09.004.005","Frankfurters, sausage","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07GG","Cooking in water",0.336,1
 "A.06.09.004.005","Frankfurters, sausage","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",12.6,1,1,1,"F28.A07GG","Cooking in water",0.336,1
 "A.06.09.004.005","Frankfurters, sausage","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07GG","Cooking in water",0.336,1
-"A.06.09.004.005","Frankfurters, sausage","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.336,1
-"A.06.09.004.005","Frankfurters, sausage","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",0.336,1
-"A.06.09.004.005","Frankfurters, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.336,1
+"A.06.09.004.005","Frankfurters, sausage","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.336,1
+"A.06.09.004.005","Frankfurters, sausage","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",0.336,1
+"A.06.09.004.005","Frankfurters, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.336,1
 "A.06.09.004.005","Frankfurters, sausage","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.5,1,1,1,"F28.A07GG","Cooking in water",0.336,1
 "A.06.09.004.006","Knackwurst, sausage","A.02.02.001","Garlic, bulb (Allium sativum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",1.11,1,1,1,"F28.A07GG","Cooking in water",0.161,1
 "A.06.09.004.006","Knackwurst, sausage","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG","PROCESS=Cooking in water",58.52,1,1.1,1,"F28.A07GG","Cooking in water",0.161,1
@@ -1530,10 +1530,10 @@
 "A.06.09.004.006","Knackwurst, sausage","A.08.03.003.003","Milk powder, skimmed","To be further disaggregated (d)",NA,4.42,1,1,1,"F28.A07GG","Cooking in water",0.161,1
 "A.06.09.004.006","Knackwurst, sausage","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",8.85,1,1,1,"F28.A07GG","Cooking in water",0.161,1
 "A.06.09.004.006","Knackwurst, sausage","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,0.28,1,1,1,"F28.A07GG","Cooking in water",0.161,1
-"A.06.09.004.006","Knackwurst, sausage","A.16.02.004","Allspice (Pimenta dioica)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.09,1,1,1,"F28.A07GG","Cooking in water",0.161,1
-"A.06.09.004.006","Knackwurst, sausage","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.09,1,1,1,"F28.A07GG","Cooking in water",0.161,1
-"A.06.09.004.006","Knackwurst, sausage","A.16.02.025","Mace (Myristica fragrans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.18,1,1,1,"F28.A07GG","Cooking in water",0.161,1
-"A.06.09.004.006","Knackwurst, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.83,1,1,1,"F28.A07GG","Cooking in water",0.161,1
+"A.06.09.004.006","Knackwurst, sausage","A.16.02.004","Allspice (Pimenta dioica)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.09,1,1,1,"F28.A07GG","Cooking in water",0.161,1
+"A.06.09.004.006","Knackwurst, sausage","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.09,1,1,1,"F28.A07GG","Cooking in water",0.161,1
+"A.06.09.004.006","Knackwurst, sausage","A.16.02.025","Mace (Myristica fragrans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.18,1,1,1,"F28.A07GG","Cooking in water",0.161,1
+"A.06.09.004.006","Knackwurst, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.83,1,1,1,"F28.A07GG","Cooking in water",0.161,1
 "A.06.09.004.006","Knackwurst, sausage","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.55,1,1,1,"F28.A07GG","Cooking in water",0.161,1
 "A.06.09.004.007","Wiener, sausage","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG","PROCESS=Cooking in water",33.8,1,1.1,1,"F28.A07GG","Cooking in water",0.427,1
 "A.06.09.004.007","Wiener, sausage","A.06.01.002","Veal meat","F28.A07GG","PROCESS=Cooking in water",25.5,1,1.1,1,"F28.A07GG","Cooking in water",0.427,1
@@ -1541,8 +1541,8 @@
 "A.06.09.004.007","Wiener, sausage","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07GG","Cooking in water",0.427,1
 "A.06.09.004.007","Wiener, sausage","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",12.7,1,1,1,"F28.A07GG","Cooking in water",0.427,1
 "A.06.09.004.007","Wiener, sausage","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07GG","Cooking in water",0.427,1
-"A.06.09.004.007","Wiener, sausage","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.427,1
-"A.06.09.004.007","Wiener, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.427,1
+"A.06.09.004.007","Wiener, sausage","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.427,1
+"A.06.09.004.007","Wiener, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.427,1
 "A.06.09.004.007","Wiener, sausage","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.5,1,1,1,"F28.A07GG","Cooking in water",0.427,1
 "A.06.09.004.007","Wiener, sausage","A.16.04.016","Monosodium glutamate","F28.A0C0R","PROCESS=Processed",0.1,1,1,1,"F28.A07GG","Cooking in water",0.427,1
 "A.06.09.004.007","Wiener, sausage","I.16.02.034","Onions, dried","To be further disaggregated (d)",NA,0.1,1,1,1,"F28.A07GG","Cooking in water",0.427,1
@@ -1563,17 +1563,17 @@
 "A.06.09.005.004","Goteborg cervelat","A.06.08.007","Bacon","To be further disaggregated (d)",NA,19.2,1,1.25,1,"F28.A07KG","Drying, dehydration",1.241,1
 "A.06.09.005.004","Goteborg cervelat","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.241,1
 "A.06.09.005.004","Goteborg cervelat","A.10.01.008","Glucose","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.241,1
-"A.06.09.005.004","Goteborg cervelat","A.16.02.011","Cardamom (Elettaria cardamomum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.241,1
-"A.06.09.005.004","Goteborg cervelat","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.241,1
-"A.06.09.005.004","Goteborg cervelat","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07KG","Drying, dehydration",1.241,1
+"A.06.09.005.004","Goteborg cervelat","A.16.02.011","Cardamom (Elettaria cardamomum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.241,1
+"A.06.09.005.004","Goteborg cervelat","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.241,1
+"A.06.09.005.004","Goteborg cervelat","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07KG","Drying, dehydration",1.241,1
 "A.06.09.005.004","Goteborg cervelat","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.7,1,1,1,"F28.A07KG","Drying, dehydration",1.241,1
 "A.06.09.005.006","Landjaeger cervelat","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG","PROCESS=Cooking in water",28.9,1,1.5,1,"F28.A07KG","Drying, dehydration",1.491,1
 "A.06.09.005.006","Landjaeger cervelat","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GG","PROCESS=Cooking in water",47.3,1,1.5,1,"F28.A07KG","Drying, dehydration",1.491,1
 "A.06.09.005.006","Landjaeger cervelat","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",20.3,1,1.5,1,"F28.A07KG","Drying, dehydration",1.491,1
 "A.06.09.005.006","Landjaeger cervelat","A.10.01.008","Glucose","To be further disaggregated (d)",NA,0.3,1,1,1,"F28.A07KG","Drying, dehydration",1.491,1
-"A.06.09.005.006","Landjaeger cervelat","A.16.02.017","Cumin seed (Cuminum cyminum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.491,1
-"A.06.09.005.006","Landjaeger cervelat","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07KG","Drying, dehydration",1.491,1
-"A.06.09.005.006","Landjaeger cervelat","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07KG","Drying, dehydration",1.491,1
+"A.06.09.005.006","Landjaeger cervelat","A.16.02.017","Cumin seed (Cuminum cyminum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.491,1
+"A.06.09.005.006","Landjaeger cervelat","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07KG","Drying, dehydration",1.491,1
+"A.06.09.005.006","Landjaeger cervelat","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07KG","Drying, dehydration",1.491,1
 "A.06.09.005.006","Landjaeger cervelat","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.6,1,1,1,"F28.A07KG","Drying, dehydration",1.491,1
 "A.06.09.005.008","Mortadella","A.04.04.007","Mustard seed (Brassica nigra)","F28.A07XD","PROCESS=Unspecified",0.1,1,1,1,NA,NA,NA,1
 "A.06.09.005.008","Mortadella","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG","PROCESS=Cooking in water",21.6,1,1.1,1,NA,NA,NA,1
@@ -1581,8 +1581,8 @@
 "A.06.09.005.008","Mortadella","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",12.9,1,1.1,1,NA,NA,NA,1
 "A.06.09.005.008","Mortadella","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.2,1,1,1,NA,NA,NA,1
 "A.06.09.005.008","Mortadella","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",12.9,1,1,1,NA,NA,NA,1
-"A.06.09.005.008","Mortadella","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
-"A.06.09.005.008","Mortadella","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
+"A.06.09.005.008","Mortadella","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
+"A.06.09.005.008","Mortadella","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
 "A.06.09.005.008","Mortadella","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.2,1,1,1,NA,NA,NA,1
 "A.06.09.005.009","Vienna Sausage","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG","PROCESS=Cooking in water",33.8,1,1.1,1,NA,NA,NA,1
 "A.06.09.005.009","Vienna Sausage","A.06.01.002","Veal meat","F28.A07GG","PROCESS=Cooking in water",25.5,1,1.1,1,NA,NA,NA,1
@@ -1590,8 +1590,8 @@
 "A.06.09.005.009","Vienna Sausage","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.2,1,1,1,NA,NA,NA,1
 "A.06.09.005.009","Vienna Sausage","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",12.7,1,1,1,NA,NA,NA,1
 "A.06.09.005.009","Vienna Sausage","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,0.2,1,1,1,NA,NA,NA,1
-"A.06.09.005.009","Vienna Sausage","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
-"A.06.09.005.009","Vienna Sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
+"A.06.09.005.009","Vienna Sausage","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
+"A.06.09.005.009","Vienna Sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
 "A.06.09.005.009","Vienna Sausage","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.5,1,1,1,NA,NA,NA,1
 "A.06.09.005.009","Vienna Sausage","A.16.04.016","Monosodium glutamate","F28.A0C0R","PROCESS=Processed",0.1,1,1,1,NA,NA,NA,1
 "A.06.09.005.009","Vienna Sausage","I.16.02.034","Onions, dried","To be further disaggregated (d)",NA,0.1,1,1,1,NA,NA,NA,1
@@ -1605,7 +1605,7 @@
 "A.06.09.006.001","Italian-type salami","A.06.08.001","Ham, pork","To be further disaggregated (d)",NA,48.1,1,1,1,NA,NA,NA,1
 "A.06.09.006.001","Italian-type salami","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.3,1,1,1,NA,NA,NA,1
 "A.06.09.006.001","Italian-type salami","A.10.01.008","Glucose","To be further disaggregated (d)",NA,0.2,1,1,1,NA,NA,NA,1
-"A.06.09.006.001","Italian-type salami","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.3,1,1,1,NA,NA,NA,1
+"A.06.09.006.001","Italian-type salami","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,NA,NA,NA,1
 "A.06.09.006.001","Italian-type salami","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.7,1,1,1,NA,NA,NA,1
 "A.06.09.006.001","Italian-type salami","I.16.02.033","Garlic, dried","To be further disaggregated (d)",NA,0.3,1,1,1,NA,NA,NA,1
 "A.06.09.006.002","Arles","A.06.01.001","Beef meat (Bos spp.)","F28.A07KD","PROCESS=Curing",29.1,1,2.17,1,NA,NA,NA,1
@@ -1618,22 +1618,22 @@
 "A.06.09.006.003","Beerwurst","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD","PROCESS=Unspecified",50.2,1,1,1,NA,NA,NA,1
 "A.06.09.006.003","Beerwurst","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",25.1,1,1,1,NA,NA,NA,1
 "A.06.09.006.003","Beerwurst","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",7.53,1,1,1,NA,NA,NA,1
-"A.06.09.006.003","Beerwurst","A.16.02.025","Mace (Myristica fragrans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
-"A.06.09.006.003","Beerwurst","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
-"A.06.09.006.003","Beerwurst","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.4,1,1,1,NA,NA,NA,1
+"A.06.09.006.003","Beerwurst","A.16.02.025","Mace (Myristica fragrans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
+"A.06.09.006.003","Beerwurst","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
+"A.06.09.006.003","Beerwurst","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.4,1,1,1,NA,NA,NA,1
 "A.06.09.006.003","Beerwurst","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.51,1,1,1,NA,NA,NA,1
 "A.06.09.006.005","Cooked salami","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GG","PROCESS=Cooking in water",77.28,1,1.1,1,NA,NA,NA,1
 "A.06.09.006.005","Cooked salami","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",19.32,1,1.1,1,NA,NA,NA,1
 "A.06.09.006.005","Cooked salami","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.1,1,1,1,NA,NA,NA,1
 "A.06.09.006.005","Cooked salami","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,0.1,1,1,1,NA,NA,NA,1
-"A.06.09.006.005","Cooked salami","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
+"A.06.09.006.005","Cooked salami","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
 "A.06.09.006.005","Cooked salami","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.7,1,1,1,NA,NA,NA,1
 "A.06.09.006.005","Cooked salami","I.16.02.033","Garlic, dried","To be further disaggregated (d)",NA,0.3,1,1,1,NA,NA,NA,1
 "A.06.09.006.008","German salami","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07KD","PROCESS=Curing",77.2,1,1.3,1,NA,NA,NA,1
 "A.06.09.006.008","German salami","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",19.3,1,1,1,NA,NA,NA,1
 "A.06.09.006.008","German salami","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.1,1,1,1,NA,NA,NA,1
 "A.06.09.006.008","German salami","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,0.1,1,1,1,NA,NA,NA,1
-"A.06.09.006.008","German salami","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
+"A.06.09.006.008","German salami","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
 "A.06.09.006.008","German salami","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.8,1,1,1,NA,NA,NA,1
 "A.06.09.006.008","German salami","I.16.02.033","Garlic, dried","To be further disaggregated (d)",NA,0.3,1,1,1,NA,NA,NA,1
 "A.06.09.006.009","Hungarian-type salami","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",18.9,1,1,1,NA,NA,NA,1
@@ -1641,36 +1641,36 @@
 "A.06.09.006.009","Hungarian-type salami","A.10.01.008","Glucose","To be further disaggregated (d)",NA,0.2,1,1,1,NA,NA,NA,1
 "A.06.09.006.009","Hungarian-type salami","A.14.02.003","Wine, red","To be further disaggregated (d)",NA,1.4,1,1,1,NA,NA,NA,1
 "A.06.09.006.009","Hungarian-type salami","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,0.6,1,1,1,NA,NA,NA,1
-"A.06.09.006.009","Hungarian-type salami","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.3,1,1,1,NA,NA,NA,1
+"A.06.09.006.009","Hungarian-type salami","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,NA,NA,NA,1
 "A.06.09.006.009","Hungarian-type salami","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.5,1,1,1,NA,NA,NA,1
 "A.06.09.006.009","Hungarian-type salami","I.16.02.033","Garlic, dried","To be further disaggregated (d)",NA,0.7,1,1,1,NA,NA,NA,1
 "A.06.09.006.010","Chorizo","A.02.03.002","Peppers, paprika (Capsicum annuum, var. grossum and var. longum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",1.9,1,1.15,1,NA,NA,NA,1
 "A.06.09.006.010","Chorizo","A.06.08.001","Ham, pork","To be further disaggregated (d)",NA,94.1,1,1,1,NA,NA,NA,1
 "A.06.09.006.010","Chorizo","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.2,1,1,1,NA,NA,NA,1
 "A.06.09.006.010","Chorizo","A.10.01.008","Glucose","To be further disaggregated (d)",NA,0.5,1,1,1,NA,NA,NA,1
-"A.06.09.006.010","Chorizo","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.6,1,1,1,NA,NA,NA,1
+"A.06.09.006.010","Chorizo","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.6,1,1,1,NA,NA,NA,1
 "A.06.09.006.010","Chorizo","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.5,1,1,1,NA,NA,NA,1
 "A.06.09.006.010","Chorizo","I.16.02.033","Garlic, dried","To be further disaggregated (d)",NA,0.2,1,1,1,NA,NA,NA,1
 "A.06.09.006.012","Cabanos","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07KD","PROCESS=Curing",89,1,1.3,1,NA,NA,NA,1
 "A.06.09.006.012","Cabanos","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.1,1,1,1,NA,NA,NA,1
 "A.06.09.006.012","Cabanos","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",8.9,1,1,1,NA,NA,NA,1
-"A.06.09.006.012","Cabanos","A.16.02.010","Caraway (Carum carvi)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
-"A.06.09.006.012","Cabanos","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
-"A.06.09.006.012","Cabanos","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
+"A.06.09.006.012","Cabanos","A.16.02.010","Caraway (Carum carvi)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
+"A.06.09.006.012","Cabanos","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
+"A.06.09.006.012","Cabanos","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
 "A.06.09.006.012","Cabanos","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,NA,NA,NA,1
 "A.06.10.001","Pork meat loaf","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GY","PROCESS=Roasting",83,1,1.61,1,"F28.A07GY","Roasting",0.187,1
 "A.06.10.001","Pork meat loaf","A.08.03.003.001","Milk powder, whole","To be further disaggregated (d)",NA,5,1,1,1,"F28.A07GY","Roasting",0.187,1
 "A.06.10.001","Pork meat loaf","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",10,1,1,1,"F28.A07GY","Roasting",0.187,1
 "A.06.10.001","Pork meat loaf","A.16.01.006","Sage, herb (Salvia officinalis)","F28.A07XD","PROCESS=Unspecified",0.1,1,1,1,"F28.A07GY","Roasting",0.187,1
-"A.06.10.001","Pork meat loaf","A.16.02.015","Cloves (Syzygium aromaticum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GY","Roasting",0.187,1
-"A.06.10.001","Pork meat loaf","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07GY","Roasting",0.187,1
+"A.06.10.001","Pork meat loaf","A.16.02.015","Cloves (Syzygium aromaticum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GY","Roasting",0.187,1
+"A.06.10.001","Pork meat loaf","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07GY","Roasting",0.187,1
 "A.06.10.001","Pork meat loaf","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.5,1,1,1,"F28.A07GY","Roasting",0.187,1
 "A.06.10.002","Beef loaf","A.06.01.001","Beef meat (Bos spp.)","F28.A07GY","PROCESS=Roasting",83,1,1.61,1,"F28.A07GY","Roasting",0.187,1
 "A.06.10.002","Beef loaf","A.08.03.003.001","Milk powder, whole","To be further disaggregated (d)",NA,5,1,1,1,"F28.A07GY","Roasting",0.187,1
 "A.06.10.002","Beef loaf","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",10,1,1,1,"F28.A07GY","Roasting",0.187,1
 "A.06.10.002","Beef loaf","A.16.01.006","Sage, herb (Salvia officinalis)","F28.A07XD","PROCESS=Unspecified",0.1,1,1,1,"F28.A07GY","Roasting",0.187,1
-"A.06.10.002","Beef loaf","A.16.02.015","Cloves (Syzygium aromaticum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GY","Roasting",0.187,1
-"A.06.10.002","Beef loaf","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07GY","Roasting",0.187,1
+"A.06.10.002","Beef loaf","A.16.02.015","Cloves (Syzygium aromaticum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GY","Roasting",0.187,1
+"A.06.10.002","Beef loaf","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07GY","Roasting",0.187,1
 "A.06.10.002","Beef loaf","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.5,1,1,1,"F28.A07GY","Roasting",0.187,1
 "A.06.10.003","Meat in aspic","A.02.02.002","Onions, bulb (Allium cepa)","F28.A07GM","PROCESS=Stewing",2.5,1,1.17,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.435,1
 "A.06.10.003","Meat in aspic","A.06.02.001","Chicken meat (Gallus domesticus)","F28.A07GM","PROCESS=Stewing",54,1,1.45,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.435,1
@@ -1683,41 +1683,41 @@
 "A.06.10.005","Liver cheese or liver loaf","A.08.03.003.001","Milk powder, whole","To be further disaggregated (d)",NA,5.2,1,1,1,NA,NA,NA,1
 "A.06.10.005","Liver cheese or liver loaf","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",5.1,1,1,1,NA,NA,NA,1
 "A.06.10.005","Liver cheese or liver loaf","A.16.01.006","Sage, herb (Salvia officinalis)","F28.A07XD","PROCESS=Unspecified",0.1,1,1,1,NA,NA,NA,1
-"A.06.10.005","Liver cheese or liver loaf","A.16.02.004","Allspice (Pimenta dioica)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
-"A.06.10.005","Liver cheese or liver loaf","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
-"A.06.10.005","Liver cheese or liver loaf","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.3,1,1,1,NA,NA,NA,1
+"A.06.10.005","Liver cheese or liver loaf","A.16.02.004","Allspice (Pimenta dioica)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
+"A.06.10.005","Liver cheese or liver loaf","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
+"A.06.10.005","Liver cheese or liver loaf","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,NA,NA,NA,1
 "A.06.10.005","Liver cheese or liver loaf","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,NA,NA,NA,1
 "A.06.10.005","Liver cheese or liver loaf","A.16.10.008","Gelatine","F28.A0C0R","PROCESS=Processed",0.9,1,1,1,NA,NA,NA,1
 "A.06.10.008","Head cheese (Brawn)","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG$F02.A06AL","PROCESS=Cooking in water, PART-NATURE=Blood (as part-nature)",2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.804,1
 "A.06.10.008","Head cheese (Brawn)","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GG$F02.A0F2M","PROCESS=Cooking in water, PART-NATURE=Head (as part-nature)",17.6,1,1.37,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.804,1
 "A.06.10.008","Head cheese (Brawn)","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A06AJ","PROCESS=Unspecified, PART-NATURE=Trotter / feet (as part-nature)",78.3,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.804,1
-"A.06.10.008","Head cheese (Brawn)","A.16.02.004","Allspice (Pimenta dioica)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.804,1
-"A.06.10.008","Head cheese (Brawn)","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.804,1
+"A.06.10.008","Head cheese (Brawn)","A.16.02.004","Allspice (Pimenta dioica)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.804,1
+"A.06.10.008","Head cheese (Brawn)","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.804,1
 "A.06.10.008","Head cheese (Brawn)","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.7,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.804,1
 "A.06.10.009","Sulze","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A06AJ","PROCESS=Unspecified, PART-NATURE=Trotter / feet (as part-nature)",95.8,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "A.06.10.009","Sulze","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A06AK","PROCESS=Unspecified, PART-NATURE=Skin (as part-nature)",2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
-"A.06.10.009","Sulze","A.16.02.004","Allspice (Pimenta dioica)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
-"A.06.10.009","Sulze","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
+"A.06.10.009","Sulze","A.16.02.004","Allspice (Pimenta dioica)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
+"A.06.10.009","Sulze","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "A.06.10.009","Sulze","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.8,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "A.06.11.002","Pate, goose liver","A.06.02.004","Goose meat (Anser, Branta, Chen)","F28.A07GG","PROCESS=Cooking in water",27.5,1,1.52,1,NA,NA,NA,1
 "A.06.11.002","Pate, goose liver","A.06.02.004","Goose meat (Anser, Branta, Chen)","F28.A07GG$F02.A069M","PROCESS=Cooking in water, PART-NATURE=Liver (as part-nature)",25,1,1,1,NA,NA,NA,1
 "A.06.11.002","Pate, goose liver","A.06.02.004","Goose meat (Anser, Branta, Chen)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",28,1,1,1,NA,NA,NA,1
 "A.06.11.002","Pate, goose liver","A.08.07.002","Milk protein","To be further disaggregated (d)",NA,2.5,1,1,1,NA,NA,NA,1
-"A.06.11.002","Pate, goose liver","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.4,1,1,1,NA,NA,NA,1
+"A.06.11.002","Pate, goose liver","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.4,1,1,1,NA,NA,NA,1
 "A.06.11.002","Pate, goose liver","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,NA,NA,NA,1
 "A.06.11.002","Pate, goose liver","I.19.10.012","Meat/poultry broth","To be further disaggregated (d)",NA,15,1,1,1,NA,NA,NA,1
 "A.06.11.003","Pate, chicken liver","A.06.02.001","Chicken meat (Gallus domesticus)","F28.A07GG","PROCESS=Cooking in water",27.5,1,1.43,1,NA,NA,NA,1
 "A.06.11.003","Pate, chicken liver","A.06.02.001","Chicken meat (Gallus domesticus)","F28.A07GG$F02.A069M","PROCESS=Cooking in water, PART-NATURE=Liver (as part-nature)",25,1,1,1,NA,NA,NA,1
 "A.06.11.003","Pate, chicken liver","A.06.02.001","Chicken meat (Gallus domesticus)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",28,1,1,1,NA,NA,NA,1
 "A.06.11.003","Pate, chicken liver","A.08.07.002","Milk protein","To be further disaggregated (d)",NA,2.5,1,1,1,NA,NA,NA,1
-"A.06.11.003","Pate, chicken liver","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.4,1,1,1,NA,NA,NA,1
+"A.06.11.003","Pate, chicken liver","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.4,1,1,1,NA,NA,NA,1
 "A.06.11.003","Pate, chicken liver","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,NA,NA,NA,1
 "A.06.11.003","Pate, chicken liver","I.19.10.012","Meat/poultry broth","To be further disaggregated (d)",NA,15,1,1,1,NA,NA,NA,1
 "A.06.11.004","Pate, pork liver","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GG","PROCESS=Cooking in water",27.5,1,1.54,1,NA,NA,NA,1
 "A.06.11.004","Pate, pork liver","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GG$F02.A069M","PROCESS=Cooking in water, PART-NATURE=Liver (as part-nature)",25,1,1,1,NA,NA,NA,1
 "A.06.11.004","Pate, pork liver","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",28,1,1,1,NA,NA,NA,1
 "A.06.11.004","Pate, pork liver","A.08.07.002","Milk protein","To be further disaggregated (d)",NA,2.5,1,1,1,NA,NA,NA,1
-"A.06.11.004","Pate, pork liver","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.4,1,1,1,NA,NA,NA,1
+"A.06.11.004","Pate, pork liver","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.4,1,1,1,NA,NA,NA,1
 "A.06.11.004","Pate, pork liver","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,NA,NA,NA,1
 "A.06.11.004","Pate, pork liver","I.19.10.012","Meat/poultry broth","To be further disaggregated (d)",NA,15,1,1,1,NA,NA,NA,1
 "A.06.12.001","Textured soy protein","A.04.02.013y","Soya beans Protein Isolate","F28.NEW02","PROCESS=Extrusion, plant-protein",33.3,1,1,1,NA,NA,NA,1
@@ -2566,8 +2566,8 @@
 "A.14.03.001","Vermouth","A.10.01.001","White sugar","To be further disaggregated (d)",NA,5,1,1,1,NA,NA,NA,1
 "A.14.03.001","Vermouth","A.14.02.001","Wine, white","To be further disaggregated (d)",NA,90.6,1,1,1,NA,NA,NA,1
 "A.14.03.001","Vermouth","A.16.01.008","Thyme, herb (Thymus spp.)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,7,1,NA,NA,NA,1
-"A.14.03.001","Vermouth","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.02,1,1,1,NA,NA,NA,1
-"A.14.03.001","Vermouth","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.02,1,1,1,NA,NA,NA,1
+"A.14.03.001","Vermouth","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.02,1,1,1,NA,NA,NA,1
+"A.14.03.001","Vermouth","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.02,1,1,1,NA,NA,NA,1
 "A.14.03.001","Vermouth","A.16.09.002","Vanilla essence","To be further disaggregated (d)",NA,0.01,1,1,1,NA,NA,NA,1
 "A.14.03.001","Vermouth","I.14.06.008","Alcohol 90 - 95°","F28.A0C0R","PROCESS=Processed",3.8,1,1,1,NA,NA,NA,1
 "A.14.03.001","Vermouth","I.16.01.015","Coriander leaves","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,13,1,NA,NA,NA,1
@@ -2598,22 +2598,22 @@
 "A.14.05.007","Cream liqueur","A.14.06.002","Whisky","To be further disaggregated (d)",NA,2,1,1,1,NA,NA,NA,1
 "A.14.05.007","Cream liqueur","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",17.43,1,1,1,NA,NA,NA,1
 "A.14.05.007","Cream liqueur","I.14.06.008","Alcohol 90 - 95°","F28.A0C0R","PROCESS=Processed",15.77,1,1,1,NA,NA,NA,1
-"A.14.06.001","Brandy","A.05.04.002","Wine grapes (Vitis euvitis)","F28.A07MF","PROCESS=Distillation",100,1,5.23,0.91,NA,NA,NA,1
-"A.14.06.002","Whisky","A.01.02.001","Wheat grain","F28.A07MF","PROCESS=Distillation",50,0.25,1.47,0.91,NA,NA,NA,1
-"A.14.06.002","Whisky","A.01.02.002.001","Barley grain, whole","F28.A07MF","PROCESS=Distillation",50,0.25,1.96,0.91,NA,NA,NA,1
-"A.14.06.002","Whisky","A.01.02.002.001","Barley grain, whole","F28.A07MF","PROCESS=Distillation",50,1,1.96,0.91,NA,NA,NA,1
-"A.14.06.002","Whisky","A.01.02.003","Corn grain","F28.A07MF","PROCESS=Distillation",50,0.25,1.54,0.91,NA,NA,NA,1
-"A.14.06.002","Whisky","A.01.02.004","Rye grain","F28.A07MF","PROCESS=Distillation",50,0.25,1.55,0.91,NA,NA,NA,1
-"A.14.06.003","Gin","A.01.02.002.001","Barley grain, whole","F28.A07MF","PROCESS=Distillation",32.24,1,1.96,0.91,NA,NA,NA,1
-"A.14.06.003","Gin","A.01.02.003","Corn grain","F28.A07MF","PROCESS=Distillation",32.24,1,1.54,0.91,NA,NA,NA,1
-"A.14.06.003","Gin","A.01.02.004","Rye grain","F28.A07MF","PROCESS=Distillation",32.24,1,1.55,0.91,NA,NA,NA,1
-"A.14.06.003","Gin","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",1.1,1,1,1,NA,NA,NA,1
-"A.14.06.003","Gin","A.16.02.024","Juniper berries (Juniperus communis)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",2.18,1,1,1,NA,NA,NA,1
-"A.14.06.004","Vodka and vodka-like spirits","A.01.02.001","Wheat grain","F28.A07MF","PROCESS=Distillation",100,0.5,1.47,0.91,NA,NA,NA,1
-"A.14.06.004","Vodka and vodka-like spirits","A.03.01.002","Main-crop potatoes","F28.A07MF","PROCESS=Distillation",100,0.5,4.65,0.91,NA,NA,NA,1
-"A.14.06.005","Rum","A.02.08.002","Sugar cane (Saccharum officinarum)","F28.A07MF","PROCESS=Distillation",100,1,5,0.91,NA,NA,NA,1
-"A.14.06.006","Spirits made from fruits","A.05.03.002","Plums (Prunus domestica)","F28.A07MF","PROCESS=Distillation",100,0.57,7.84,0.91,NA,NA,NA,1
-"A.14.06.006","Spirits made from fruits","A.05.04.002","Wine grapes (Vitis euvitis)","F28.A07MF","PROCESS=Distillation",100,0.43,5.23,0.91,NA,NA,NA,1
+"A.14.06.001","Brandy","A.05.04.002","Wine grapes (Vitis euvitis)","F28.A07XD","PROCESS=Unspecified",100,1,5.23,0.91,"F28.A07MF","Distillation",1,1
+"A.14.06.002","Whisky","A.01.02.001","Wheat grain","F28.A07XD","PROCESS=Unspecified",50,0.25,1.47,0.91,"F28.A07MF","Distillation",1,1
+"A.14.06.002","Whisky","A.01.02.002.001","Barley grain, whole","F28.A07XD","PROCESS=Unspecified",50,0.25,1.96,0.91,"F28.A07MF","Distillation",1,1
+"A.14.06.002","Whisky","A.01.02.002.001","Barley grain, whole","F28.A07XD","PROCESS=Unspecified",50,1,1.96,0.91,"F28.A07MF","Distillation",1,1
+"A.14.06.002","Whisky","A.01.02.003","Corn grain","F28.A07XD","PROCESS=Unspecified",50,0.25,1.54,0.91,"F28.A07MF","Distillation",1,1
+"A.14.06.002","Whisky","A.01.02.004","Rye grain","F28.A07XD","PROCESS=Unspecified",50,0.25,1.55,0.91,"F28.A07MF","Distillation",1,1
+"A.14.06.003","Gin","A.01.02.002.001","Barley grain, whole","F28.A07XD","PROCESS=Unspecified",32.24,1,1.96,0.91,"F28.A07MF","Distillation",1,1
+"A.14.06.003","Gin","A.01.02.003","Corn grain","F28.A07XD","PROCESS=Unspecified",32.24,1,1.54,0.91,"F28.A07MF","Distillation",1,1
+"A.14.06.003","Gin","A.01.02.004","Rye grain","F28.A07XD","PROCESS=Unspecified",32.24,1,1.55,0.91,"F28.A07MF","Distillation",1,1
+"A.14.06.003","Gin","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",1.1,1,1,1,"F28.A07MF","Distillation",1,1
+"A.14.06.003","Gin","A.16.02.024","Juniper berries (Juniperus communis)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",2.18,1,1,1,"F28.A07MF","Distillation",1,1
+"A.14.06.004","Vodka and vodka-like spirits","A.01.02.001","Wheat grain","F28.A07XD","PROCESS=Unspecified",100,0.5,1.47,0.91,"F28.A07MF","Distillation",1,1
+"A.14.06.004","Vodka and vodka-like spirits","A.03.01.002","Main-crop potatoes","F28.A07XD","PROCESS=Unspecified",100,0.5,4.65,0.91,"F28.A07MF","Distillation",1,1
+"A.14.06.005","Rum","A.02.08.002","Sugar cane (Saccharum officinarum)","F28.A07XD","PROCESS=Unspecified",100,1,5,0.91,"F28.A07MF","Distillation",1,1
+"A.14.06.006","Spirits made from fruits","A.05.03.002","Plums (Prunus domestica)","F28.A07XD","PROCESS=Unspecified",100,0.57,7.84,0.91,"F28.A07MF","Distillation",1,1
+"A.14.06.006","Spirits made from fruits","A.05.04.002","Wine grapes (Vitis euvitis)","F28.A07XD","PROCESS=Unspecified",100,0.43,5.23,0.91,"F28.A07MF","Distillation",1,1
 "A.14.07.002","Punch","A.10.06.005","Sugar beet syrup","To be further disaggregated (d)",NA,10,1,1,1,NA,NA,NA,1
 "A.14.07.002","Punch","A.12.04","Mixed fruit juice","To be further disaggregated (p)",NA,3,1,1,1,NA,NA,NA,1
 "A.14.07.002","Punch","A.14.06.005","Rum","To be further disaggregated (d)",NA,30.6,1,1,1,NA,NA,NA,1
@@ -2646,14 +2646,15 @@
 "A.16.02","Spices","A.16.02.017","Cumin seed (Cuminum cyminum)",NA,NA,20,1,1,1,NA,NA,NA,1
 "A.16.02","Spices","A.16.02.022","Ginger (Zingiber officinale)",NA,NA,20,1,1,1,NA,NA,NA,1
 "A.16.02","Spices","A.16.02.028","Pepper, black and white (Piper nigrum)",NA,NA,20,1,1,1,NA,NA,NA,1
-"A.16.02.001","Paprika powder","A.02.03.002","Peppers, paprika (Capsicum annuum, var. grossum and var. longum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,20.4,1,NA,NA,NA,1
-"A.16.02.002","Chilli powder","A.02.03.003","Chilli pepper (Capsicum frutescens)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,10,1,NA,NA,NA,1
+"A.16.02.001","Paprika powder","A.02.03.002","Peppers, paprika (Capsicum annuum, var. grossum and var. longum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,0.5,20.4,1,NA,NA,NA,1
+"A.16.02.001","Paprika powder","A.02.03.002","Peppers, paprika (Capsicum annuum, var. grossum and var. longum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",100,0.5,20.4,1,NA,NA,NA,1
+"A.16.02.002","Chilli powder","A.02.03.003","Chilli pepper (Capsicum frutescens)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",100,1,10,1,NA,NA,NA,1
 "A.16.02.004","Allspice (Pimenta dioica)","A.16.02.004","Allspice (Pimenta dioica)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,1,1,NA,NA,NA,1
 "A.16.02.006","Anise seed (Pimpinella anisum)","A.16.02.006","Anise seed (Pimpinella anisum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,1,1,NA,NA,NA,1
 "A.16.02.009","Capers (Capparis spinosa)","A.16.02.009","Capers (Capparis spinosa)","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1
 "A.16.02.010","Caraway (Carum carvi)","A.16.02.010","Caraway (Carum carvi)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,1,1,NA,NA,NA,1
 "A.16.02.011","Cardamom (Elettaria cardamomum)","A.16.02.011","Cardamom (Elettaria cardamomum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,1,1,NA,NA,NA,1
-"A.16.02.012","Cayenne pepper (Capsicum frutescens)","A.02.03.003","Chilli pepper (Capsicum frutescens)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,10,1,NA,NA,NA,1
+"A.16.02.012","Cayenne pepper (Capsicum frutescens)","A.02.03.003","Chilli pepper (Capsicum frutescens)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",100,1,10,1,NA,NA,NA,1
 "A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,1,1,NA,NA,NA,1
 "A.16.02.015","Cloves (Syzygium aromaticum)","A.16.02.015","Cloves (Syzygium aromaticum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,1,1,NA,NA,NA,1
 "A.16.02.016","Coriander seed (Coriandrum sativum)","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,1,1,NA,NA,NA,1
@@ -2666,7 +2667,7 @@
 "A.16.02.025","Mace (Myristica fragrans)","A.16.02.025","Mace (Myristica fragrans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,1,1,NA,NA,NA,1
 "A.16.02.027","Nutmeg (Myristica fragans)","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,1,1,NA,NA,NA,1
 "A.16.02.028","Pepper, black and white (Piper nigrum)","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,1,1,NA,NA,NA,1
-"A.16.02.029","Saffron (Crocus sativus)","A.16.02.029","Saffron (Crocus sativus)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,1,1,NA,NA,NA,1
+"A.16.02.029","Saffron (Crocus sativus)","A.16.02.029","Saffron (Crocus sativus)","F28.NEW10","PROCESS=Sun drying",100,1,1,1,NA,NA,NA,1
 "A.16.02.030","Tamarind (Tamarindus indica)","A.16.02.030","Tamarind (Tamarindus indica)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,1,1,NA,NA,NA,1
 "A.16.02.031","Turmeric (Curcuma) (Curcuma domestica syn. C. longa)","A.16.02.031","Turmeric (Curcuma) (Curcuma domestica syn. C. longa)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",100,1,1,1,NA,NA,NA,1
 "A.16.03","Herb and spice mixtures","A.16.03.001","Mixed herbs",NA,NA,100,1,1,1,NA,NA,NA,1
@@ -2677,29 +2678,29 @@
 "A.16.03.001","Mixed herbs","A.16.01.009","Basil, herb (Ocimum basilicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",20,1,7,1,NA,NA,NA,1
 "A.16.03.002","Curry powder","A.10.01.001","White sugar","To be further disaggregated (d)",NA,4,1,1,1,NA,NA,NA,1
 "A.16.03.002","Curry powder","A.16.02.002","Chilli powder","To be further disaggregated (d)",NA,1,1,1,1,NA,NA,NA,1
-"A.16.03.002","Curry powder","A.16.02.011","Cardamom (Elettaria cardamomum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",2,1,1,1,NA,NA,NA,1
-"A.16.03.002","Curry powder","A.16.02.015","Cloves (Syzygium aromaticum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.5,1,1,1,NA,NA,NA,1
-"A.16.03.002","Curry powder","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",23,1,1,1,NA,NA,NA,1
-"A.16.03.002","Curry powder","A.16.02.017","Cumin seed (Cuminum cyminum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",22,1,1,1,NA,NA,NA,1
-"A.16.03.002","Curry powder","A.16.02.020","Fenugreek (Trigonella foenumgraecum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",5,1,1,1,NA,NA,NA,1
-"A.16.03.002","Curry powder","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",5,1,1,1,NA,NA,NA,1
-"A.16.03.002","Curry powder","A.16.02.031","Turmeric (Curcuma) (Curcuma domestica syn. C. longa)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",12.5,1,1,1,NA,NA,NA,1
+"A.16.03.002","Curry powder","A.16.02.011","Cardamom (Elettaria cardamomum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",2,1,1,1,NA,NA,NA,1
+"A.16.03.002","Curry powder","A.16.02.015","Cloves (Syzygium aromaticum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.5,1,1,1,NA,NA,NA,1
+"A.16.03.002","Curry powder","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",23,1,1,1,NA,NA,NA,1
+"A.16.03.002","Curry powder","A.16.02.017","Cumin seed (Cuminum cyminum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",22,1,1,1,NA,NA,NA,1
+"A.16.03.002","Curry powder","A.16.02.020","Fenugreek (Trigonella foenumgraecum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",5,1,1,1,NA,NA,NA,1
+"A.16.03.002","Curry powder","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",5,1,1,1,NA,NA,NA,1
+"A.16.03.002","Curry powder","A.16.02.031","Turmeric (Curcuma) (Curcuma domestica syn. C. longa)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",12.5,1,1,1,NA,NA,NA,1
 "A.16.03.002","Curry powder","I.16.02.032","Ginger, dried","To be further disaggregated (d)",NA,12.5,1,1,1,NA,NA,NA,1
 "A.16.03.002","Curry powder","I.16.02.033","Garlic, dried","To be further disaggregated (d)",NA,12.5,1,1,1,NA,NA,NA,1
-"A.16.03.005","Garam masala","A.16.02.011","Cardamom (Elettaria cardamomum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",15,1,1,1,NA,NA,NA,1
-"A.16.03.005","Garam masala","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",5,1,1,1,NA,NA,NA,1
-"A.16.03.005","Garam masala","A.16.02.015","Cloves (Syzygium aromaticum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",10,1,1,1,NA,NA,NA,1
-"A.16.03.005","Garam masala","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",5,1,1,1,NA,NA,NA,1
-"A.16.03.005","Garam masala","A.16.02.017","Cumin seed (Cuminum cyminum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",15,1,1,1,NA,NA,NA,1
-"A.16.03.005","Garam masala","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",15,1,1,1,NA,NA,NA,1
-"A.16.03.005","Garam masala","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",35,1,1,1,NA,NA,NA,1
+"A.16.03.005","Garam masala","A.16.02.011","Cardamom (Elettaria cardamomum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",15,1,1,1,NA,NA,NA,1
+"A.16.03.005","Garam masala","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",5,1,1,1,NA,NA,NA,1
+"A.16.03.005","Garam masala","A.16.02.015","Cloves (Syzygium aromaticum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",10,1,1,1,NA,NA,NA,1
+"A.16.03.005","Garam masala","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",5,1,1,1,NA,NA,NA,1
+"A.16.03.005","Garam masala","A.16.02.017","Cumin seed (Cuminum cyminum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",15,1,1,1,NA,NA,NA,1
+"A.16.03.005","Garam masala","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",15,1,1,1,NA,NA,NA,1
+"A.16.03.005","Garam masala","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",35,1,1,1,NA,NA,NA,1
 "A.16.03.006","Pickling spice","A.04.04.007","Mustard seed (Brassica nigra)","F28.A07XD","PROCESS=Unspecified",42,1,1,1,NA,NA,NA,1
 "A.16.03.006","Pickling spice","A.16.01.010","Bay leaves (laurel) (Laurus nobilis)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",1.3,1,7,1,NA,NA,NA,1
-"A.16.03.006","Pickling spice","A.16.02.004","Allspice (Pimenta dioica)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",20,1,1,1,NA,NA,NA,1
+"A.16.03.006","Pickling spice","A.16.02.004","Allspice (Pimenta dioica)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",20,1,1,1,NA,NA,NA,1
 "A.16.03.006","Pickling spice","A.16.02.012","Cayenne pepper (Capsicum frutescens)","To be further disaggregated (d)",NA,6,1,1,1,NA,NA,NA,1
-"A.16.03.006","Pickling spice","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",8.7,1,1,1,NA,NA,NA,1
-"A.16.03.006","Pickling spice","A.16.02.015","Cloves (Syzygium aromaticum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",4,1,1,1,NA,NA,NA,1
-"A.16.03.006","Pickling spice","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",12,1,1,1,NA,NA,NA,1
+"A.16.03.006","Pickling spice","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",8.7,1,1,1,NA,NA,NA,1
+"A.16.03.006","Pickling spice","A.16.02.015","Cloves (Syzygium aromaticum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",4,1,1,1,NA,NA,NA,1
+"A.16.03.006","Pickling spice","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",12,1,1,1,NA,NA,NA,1
 "A.16.03.006","Pickling spice","A.16.02.022","Ginger (Zingiber officinale)","F28.A07XD","PROCESS=Unspecified",6,1,1,1,NA,NA,NA,1
 "A.16.04","Seasoning or extracts","A.16.04.001","Salt",NA,NA,100,1,1,1,NA,NA,NA,1
 "A.16.04.001","Salt","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1
@@ -2718,7 +2719,7 @@
 "A.16.04.008","Stock cubes (bouillon cube)","A.11.03.004","Palm fat","To be further disaggregated (d)",NA,17,1,1,1,NA,NA,NA,1
 "A.16.04.008","Stock cubes (bouillon cube)","A.16.01.005","Parsley, herb (Petroselinum crispum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,10.6,1,NA,NA,NA,1
 "A.16.04.008","Stock cubes (bouillon cube)","A.16.01.007","Rosemary, herb (Rosmarinus officinalis)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,7,1,NA,NA,NA,1
-"A.16.04.008","Stock cubes (bouillon cube)","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
+"A.16.04.008","Stock cubes (bouillon cube)","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
 "A.16.04.008","Stock cubes (bouillon cube)","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",37.5,1,1,1,NA,NA,NA,1
 "A.16.04.008","Stock cubes (bouillon cube)","A.16.04.013","Meat extract","To be further disaggregated (d)",NA,4,0.77,1,1,NA,NA,NA,1
 "A.16.04.008","Stock cubes (bouillon cube)","A.16.04.015","Yeast extract","To be further disaggregated (d)",NA,10.4,1,1,1,NA,NA,NA,1
@@ -2745,7 +2746,7 @@
 "A.16.04.012","Vegetable extracts","A.11.04.010","Palm oil","To be further disaggregated (d)",NA,27,1,1,1,NA,NA,NA,1
 "A.16.04.012","Vegetable extracts","A.16.01.004","Celery leaves (Apium graveolens var. seccalinum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",2.89,1,10,1,NA,NA,NA,1
 "A.16.04.012","Vegetable extracts","A.16.01.005","Parsley, herb (Petroselinum crispum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",2.89,1,10.6,1,NA,NA,NA,1
-"A.16.04.012","Vegetable extracts","A.16.02.031","Turmeric (Curcuma) (Curcuma domestica syn. C. longa)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",2.89,1,1,1,NA,NA,NA,1
+"A.16.04.012","Vegetable extracts","A.16.02.031","Turmeric (Curcuma) (Curcuma domestica syn. C. longa)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",2.89,1,1,1,NA,NA,NA,1
 "A.16.04.012","Vegetable extracts","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",47,1,1,1,NA,NA,NA,1
 "A.16.04.012","Vegetable extracts","A.16.04.015","Yeast extract","To be further disaggregated (d)",NA,2.88,1,1,1,NA,NA,NA,1
 "A.16.04.012","Vegetable extracts","I.16.02.034","Onions, dried","To be further disaggregated (d)",NA,2.89,1,1,1,NA,NA,NA,1
@@ -2773,10 +2774,10 @@
 "A.16.05.002","Mustard, mild","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.33,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "A.16.05.002","Mustard, mild","A.16.05.004","Vinegar, wine","To be further disaggregated (d)",NA,15,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "A.16.05.003","Mustard, hot","A.04.04.007","Mustard seed (Brassica nigra)","F28.A07LA","PROCESS=Grinding / milling / crushing",18.6,1,1.25,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
-"A.16.05.003","Mustard, hot","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.02,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
-"A.16.05.003","Mustard, hot","A.16.02.025","Mace (Myristica fragrans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.02,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
-"A.16.05.003","Mustard, hot","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.07,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
-"A.16.05.003","Mustard, hot","A.16.02.031","Turmeric (Curcuma) (Curcuma domestica syn. C. longa)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.02,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
+"A.16.05.003","Mustard, hot","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.02,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
+"A.16.05.003","Mustard, hot","A.16.02.025","Mace (Myristica fragrans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.02,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
+"A.16.05.003","Mustard, hot","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.07,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
+"A.16.05.003","Mustard, hot","A.16.02.031","Turmeric (Curcuma) (Curcuma domestica syn. C. longa)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.02,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "A.16.05.003","Mustard, hot","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",3,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "A.16.05.003","Mustard, hot","A.16.05.004","Vinegar, wine","To be further disaggregated (d)",NA,78.21,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "A.16.05.003","Mustard, hot","I.04.03.015","Mixed nuts paste","To be further disaggregated (d)",NA,0.06,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
@@ -2915,7 +2916,7 @@
 "A.16.07.008","Lime pickle","A.11.04.013","Rapeseed oil","To be further disaggregated (d)",NA,16.9,0.6,1,1,NA,NA,NA,1
 "A.16.07.008","Lime pickle","A.11.04.017","Sunflower oil","To be further disaggregated (d)",NA,16.9,0.4,1,1,NA,NA,NA,1
 "A.16.07.008","Lime pickle","A.16.02.002","Chilli powder","To be further disaggregated (d)",NA,0.5,1,1,1,NA,NA,NA,1
-"A.16.07.008","Lime pickle","A.16.02.020","Fenugreek (Trigonella foenumgraecum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",1,1,1,1,NA,NA,NA,1
+"A.16.07.008","Lime pickle","A.16.02.020","Fenugreek (Trigonella foenumgraecum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",1,1,1,1,NA,NA,NA,1
 "A.16.07.008","Lime pickle","A.16.03.006","Pickling spice","To be further disaggregated (d)",NA,5.76,1,1,1,NA,NA,NA,1
 "A.16.07.008","Lime pickle","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",8.84,1,1,1,NA,NA,NA,1
 "A.16.07.009","Mango pickle","A.05.06.016","Mangoes (Mangifera indica)","F28.A07KC","PROCESS=Pickling",56.5,1,1,1,NA,NA,NA,1
@@ -2960,7 +2961,7 @@
 "A.16.09","Flavourings or essences","A.16.09.005","Lemon essence",NA,NA,20,1,1,1,NA,NA,NA,1
 "A.16.09.001","Almond essence","A.04.03.001","Almond, sweet (Prunus amygalus dulcis)","F28.A07MJ","PROCESS=Extraction",100,1,1,1,NA,NA,NA,1
 "A.16.09.002","Vanilla essence","A.16.09.003","Vanilla pods (Vanilla fragrans syn. Vanilla planifolia)","F28.A07MJ","PROCESS=Extraction",100,1,1,1,NA,NA,NA,1
-"A.16.09.003","Vanilla pods (Vanilla fragrans syn. Vanilla planifolia)","A.16.09.003","Vanilla pods (Vanilla fragrans syn. Vanilla planifolia)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,1,1,NA,NA,NA,1
+"A.16.09.003","Vanilla pods (Vanilla fragrans syn. Vanilla planifolia)","A.16.09.003","Vanilla pods (Vanilla fragrans syn. Vanilla planifolia)","F28.NEW10","PROCESS=Sun drying",100,1,1,1,NA,NA,NA,1
 "A.16.09.004","Orange essence","A.05.01.002","Oranges (Citrus sinensis)","F28.A07MJ","PROCESS=Extraction",100,1,1,1,NA,NA,NA,1
 "A.16.09.005","Lemon essence","A.05.01.003","Lemons (Citrus limon)","F28.A07MJ","PROCESS=Extraction",100,1,1,1,NA,NA,NA,1
 "A.16.09.006","Rum essence","A.16.09.006","Rum essence","F28.A0C0R","PROCESS=Processed",100,1,1,1,NA,NA,NA,1
@@ -3218,14 +3219,14 @@
 "A.19.03.004","Potatoes and cheese meal","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",31.4,1,1,1,NA,NA,NA,1
 "A.19.03.004","Potatoes and cheese meal","A.08.08.049","Cheese, Cheddar","To be further disaggregated (d)",NA,11.2,1,1,1,NA,NA,NA,1
 "A.19.03.004","Potatoes and cheese meal","A.11.01.001","Butter","To be further disaggregated (d)",NA,3,1,1,1,NA,NA,NA,1
-"A.19.03.004","Potatoes and cheese meal","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
+"A.19.03.004","Potatoes and cheese meal","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
 "A.19.03.004","Potatoes and cheese meal","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.2,1,1,1,NA,NA,NA,1
 "A.19.05.001","Meat burger","A.01.04.007.001","Breadcrumbs","To be further disaggregated (d)",NA,15.11,1,1,1,NA,NA,NA,1
 "A.19.05.001","Meat burger","A.02.02.004","Spring onions, bulb (Allium cepa)","F28.A07XD","PROCESS=Unspecified",6.04,1,1,1,NA,NA,NA,1
 "A.19.05.001","Meat burger","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD","PROCESS=Unspecified",68.58,0.84,1,1,NA,NA,NA,1
 "A.19.05.001","Meat burger","A.06.02.001","Chicken meat (Gallus domesticus)","F28.A07XD","PROCESS=Unspecified",68.58,0.16,1,1,NA,NA,NA,1
 "A.19.05.001","Meat burger","A.09.01.001","Whole egg, chicken","F28.A07XD","PROCESS=Unspecified",8.91,1,1,1,NA,NA,NA,1
-"A.19.05.001","Meat burger","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.45,1,1,1,NA,NA,NA,1
+"A.19.05.001","Meat burger","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.45,1,1,1,NA,NA,NA,1
 "A.19.05.001","Meat burger","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.91,1,1,1,NA,NA,NA,1
 "A.19.05.002","Meat balls","A.01.04.007.001","Breadcrumbs","To be further disaggregated (d)",NA,5.7,1,1,1,NA,NA,NA,1
 "A.19.05.002","Meat balls","A.02.02.001","Garlic, bulb (Allium sativum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",0.7,1,1,1,NA,NA,NA,1
@@ -3244,8 +3245,8 @@
 "A.19.05.003","Goulash","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GR","PROCESS=Frying",39.6,0.59,1.47,1,NA,NA,NA,1
 "A.19.05.003","Goulash","A.11.01.001","Butter","To be further disaggregated (d)",NA,1.3,1,1,1,NA,NA,NA,1
 "A.19.05.003","Goulash","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",20.6,1,1,1,NA,NA,NA,1
-"A.19.05.003","Goulash","A.16.02.008","Black caraway seed (Nigella sativa)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.05,1,1,1,NA,NA,NA,1
-"A.19.05.003","Goulash","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
+"A.19.05.003","Goulash","A.16.02.008","Black caraway seed (Nigella sativa)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.05,1,1,1,NA,NA,NA,1
+"A.19.05.003","Goulash","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
 "A.19.05.003","Goulash","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.1,1,1,1,NA,NA,NA,1
 "A.19.05.003","Goulash","I.16.01.012","Marjoram","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.05,1,7,1,NA,NA,NA,1
 "A.19.05.004","Meat stew","A.01.03.004.003","Corn starch","To be further disaggregated (d)",NA,0.24,1,1,1,NA,NA,NA,1
@@ -3258,7 +3259,7 @@
 "A.19.05.004","Meat stew","A.11.04","Vegetable oil","To be further disaggregated (p)",NA,1.95,1,1,1,NA,NA,NA,1
 "A.19.05.004","Meat stew","A.16.01.005","Parsley, herb (Petroselinum crispum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.03,1,10.6,1,NA,NA,NA,1
 "A.19.05.004","Meat stew","A.16.01.007","Rosemary, herb (Rosmarinus officinalis)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.05,1,7,1,NA,NA,NA,1
-"A.19.05.004","Meat stew","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.05,1,1,1,NA,NA,NA,1
+"A.19.05.004","Meat stew","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.05,1,1,1,NA,NA,NA,1
 "A.19.05.004","Meat stew","A.16.04.008","Stock cubes (bouillon cube)","To be further disaggregated (d)",NA,2.65,1,1,1,NA,NA,NA,1
 "A.19.06.002","Fish and rice meal","A.02.02.002","Onions, bulb (Allium cepa)","F28.A07GR","PROCESS=Frying",4.3,1,1.61,1,NA,NA,NA,1
 "A.19.06.002","Fish and rice meal","A.02.15.001","Cultivated mushroom (syn. Button mushroom) (Agaricus bisporus)","F28.A07GR","PROCESS=Frying",3.2,1,1.92,1,NA,NA,NA,1
@@ -3301,27 +3302,27 @@
 "A.19.07.007","Ratatouille","I.16.08.010.009","Tomato sauce","To be further disaggregated (d)",NA,42,1,1,1,NA,NA,NA,1
 "A.19.08.001","Omelette, plain","A.09.01.001","Whole egg, chicken","F28.A07GR","PROCESS=Frying",96.1,1,1.14,1,NA,NA,NA,1
 "A.19.08.001","Omelette, plain","A.11.01.001","Butter","To be further disaggregated (d)",NA,3.42,1,1,1,NA,NA,NA,1
-"A.19.08.001","Omelette, plain","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.24,1,1,1,NA,NA,NA,1
+"A.19.08.001","Omelette, plain","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.24,1,1,1,NA,NA,NA,1
 "A.19.08.001","Omelette, plain","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.24,1,1,1,NA,NA,NA,1
 "A.19.08.002","Omelette with bacon","A.06.08.007","Bacon","To be further disaggregated (d)",NA,30.7,1,1,1,NA,NA,NA,1
 "A.19.08.002","Omelette with bacon","A.09.01.001","Whole egg, chicken","F28.A07GR","PROCESS=Frying",64.4,1,1.14,1,NA,NA,NA,1
 "A.19.08.002","Omelette with bacon","A.11.01.001","Butter","To be further disaggregated (d)",NA,4.6,1,1,1,NA,NA,NA,1
-"A.19.08.002","Omelette with bacon","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.15,1,1,1,NA,NA,NA,1
+"A.19.08.002","Omelette with bacon","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.15,1,1,1,NA,NA,NA,1
 "A.19.08.002","Omelette with bacon","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.15,1,1,1,NA,NA,NA,1
 "A.19.08.003","Omelette with cheese","A.08.08.084","Cheese, Gruyere","To be further disaggregated (d)",NA,7.1,1,1,1,NA,NA,NA,1
 "A.19.08.003","Omelette with cheese","A.09.01.001","Whole egg, chicken","F28.A07GR","PROCESS=Frying",85.3,1,1.14,1,NA,NA,NA,1
 "A.19.08.003","Omelette with cheese","A.11.01.001","Butter","To be further disaggregated (d)",NA,7.1,1,1,1,NA,NA,NA,1
-"A.19.08.003","Omelette with cheese","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.25,1,1,1,NA,NA,NA,1
+"A.19.08.003","Omelette with cheese","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.25,1,1,1,NA,NA,NA,1
 "A.19.08.003","Omelette with cheese","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.25,1,1,1,NA,NA,NA,1
 "A.19.08.004","Omelette with vegetables","A.03.01.002","Main-crop potatoes","F28.A07GR","PROCESS=Frying",30.7,1,1.52,1,NA,NA,NA,1
 "A.19.08.004","Omelette with vegetables","A.09.01.001","Whole egg, chicken","F28.A07GR","PROCESS=Frying",64.4,1,1.14,1,NA,NA,NA,1
 "A.19.08.004","Omelette with vegetables","A.11.01.001","Butter","To be further disaggregated (d)",NA,4.6,1,1,1,NA,NA,NA,1
-"A.19.08.004","Omelette with vegetables","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.15,1,1,1,NA,NA,NA,1
+"A.19.08.004","Omelette with vegetables","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.15,1,1,1,NA,NA,NA,1
 "A.19.08.004","Omelette with vegetables","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.15,1,1,1,NA,NA,NA,1
 "A.19.08.005","Omelette with mushrooms","A.02.15.001","Cultivated mushroom (syn. Button mushroom) (Agaricus bisporus)","To be further disaggregated (d)",NA,30.7,1,1,1,NA,NA,NA,1
 "A.19.08.005","Omelette with mushrooms","A.09.01.001","Whole egg, chicken","F28.A07GR","PROCESS=Frying",64.4,1,1.14,1,NA,NA,NA,1
 "A.19.08.005","Omelette with mushrooms","A.11.01.001","Butter","To be further disaggregated (d)",NA,4.6,1,1,1,NA,NA,NA,1
-"A.19.08.005","Omelette with mushrooms","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.15,1,1,1,NA,NA,NA,1
+"A.19.08.005","Omelette with mushrooms","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.15,1,1,1,NA,NA,NA,1
 "A.19.08.005","Omelette with mushrooms","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.15,1,1,1,NA,NA,NA,1
 "A.19.08.006","Fried eggs","A.09.01.001","Whole egg, chicken","F28.A07GR","PROCESS=Frying",91.84,1,1.14,1,NA,NA,NA,1
 "A.19.08.006","Fried eggs","A.11.04.007","Oil, frying, blend","To be further disaggregated (d)",NA,8.16,1,1,1,NA,NA,NA,1
@@ -3386,8 +3387,8 @@
 "A.19.10.008","Mushroom soup","A.02.03.008","Courgettes (Zucchini) (Cucurbita pepo var. melopepo)","F28.A07GG","PROCESS=Cooking in water",10.2,1,1.11,1,NA,NA,NA,1
 "A.19.10.008","Mushroom soup","A.02.15.001","Cultivated mushroom (syn. Button mushroom) (Agaricus bisporus)","F28.A07GG","PROCESS=Cooking in water",23.4,1,1.67,1,NA,NA,NA,1
 "A.19.10.008","Mushroom soup","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",61,1,1,1,NA,NA,NA,1
-"A.19.10.008","Mushroom soup","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.5,1,1,1,NA,NA,NA,1
-"A.19.10.008","Mushroom soup","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.5,1,1,1,NA,NA,NA,1
+"A.19.10.008","Mushroom soup","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.5,1,1,1,NA,NA,NA,1
+"A.19.10.008","Mushroom soup","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.5,1,1,1,NA,NA,NA,1
 "A.19.10.008","Mushroom soup","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.5,1,1,1,NA,NA,NA,1
 "A.19.10.008","Mushroom soup","I.16.02.033","Garlic, dried","To be further disaggregated (d)",NA,0.5,1,1,1,NA,NA,NA,1
 "A.19.11.001","Prepared green salad","A.02.03.001","Tomatoes (Lycopersicum esculentum)","F28.A07XD","PROCESS=Unspecified",34.35,1,1,1,NA,NA,NA,1
@@ -3453,7 +3454,7 @@
 "A.19.11.009","Prepared fish salad","A.10.01.001","White sugar","To be further disaggregated (d)",NA,1,1,1,1,NA,NA,NA,1
 "A.19.11.009","Prepared fish salad","A.12.01.010","Juice, Lemon","To be further disaggregated (d)",NA,1,1,1,1,NA,NA,NA,1
 "A.19.11.009","Prepared fish salad","A.16.01.003","Dill, herb (Anethum graveolens)","F28.A07XD","PROCESS=Unspecified",1,1,1,1,NA,NA,NA,1
-"A.19.11.009","Prepared fish salad","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",1,1,1,1,NA,NA,NA,1
+"A.19.11.009","Prepared fish salad","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",1,1,1,1,NA,NA,NA,1
 "A.19.11.009","Prepared fish salad","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.8,1,1,1,NA,NA,NA,1
 "A.19.11.009","Prepared fish salad","A.16.05.002","Mustard, mild","To be further disaggregated (d)",NA,1,1,1,1,NA,NA,NA,1
 "A.19.11.009","Prepared fish salad","A.16.06.005","Mayonnaise, 25 - 50% oil","To be further disaggregated (d)",NA,44.2,1,1,1,NA,NA,NA,1
@@ -3591,7 +3592,7 @@
 "I.01.07.001.057","Carrot cake","A.10.01.001","White sugar","To be further disaggregated (d)",NA,15.41,1,1,1,"F28.A07GY","Roasting",1.1,1
 "I.01.07.001.057","Carrot cake","A.10.03.011","Cooking chocolate","To be further disaggregated (d)",NA,4.24,0.42,1,1,"F28.A07GY","Roasting",1.1,1
 "I.01.07.001.057","Carrot cake","A.11.04","Vegetable oil","To be further disaggregated (p)",NA,11.36,1,1,1,"F28.A07GY","Roasting",1.1,1
-"I.01.07.001.057","Carrot cake","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.19,1,1,1,"F28.A07GY","Roasting",1.1,1
+"I.01.07.001.057","Carrot cake","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.19,1,1,1,"F28.A07GY","Roasting",1.1,1
 "I.01.07.001.057","Carrot cake","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.11,1,1,1,"F28.A07GY","Roasting",1.1,1
 "I.01.07.001.057","Carrot cake","A.16.09.002","Vanilla essence","To be further disaggregated (d)",NA,0.39,1,1,1,"F28.A07GY","Roasting",1.1,1
 "I.01.07.001.057","Carrot cake","A.16.10.002","Sodium bicarbonate","F28.A0C0R","PROCESS=Processed",0.35,1,1,1,"F28.A07GY","Roasting",1.1,1
@@ -3617,7 +3618,7 @@
 "I.01.07.001.064","Flan, nature","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",29.5,1,1,1,"F28.A07GY","Roasting",0.807,1
 "I.01.07.001.064","Flan, nature","A.09.01.001","Whole egg, chicken","F28.A07XD","PROCESS=Unspecified",18.63,1,1,1,"F28.A07GY","Roasting",0.807,1
 "I.01.07.001.064","Flan, nature","A.10.01.001","White sugar","To be further disaggregated (d)",NA,24.65,1,1,1,"F28.A07GY","Roasting",0.807,1
-"I.01.07.001.064","Flan, nature","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.62,1,1,1,"F28.A07GY","Roasting",0.807,1
+"I.01.07.001.064","Flan, nature","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.62,1,1,1,"F28.A07GY","Roasting",0.807,1
 "I.01.07.001.064","Flan, nature","I.01.07.001.051","Shortcrust pastry","To be further disaggregated (d)",NA,26.6,1,1,1,"F28.A07GY","Roasting",0.807,1
 "I.01.07.001.065","Flan, with fruits","A.01.07.001.034","Sponge cake","To be further disaggregated (d)",NA,33.5,1,1,1,"F28.A07GY","Roasting",0.732,1
 "I.01.07.001.065","Flan, with fruits","A.05.02.001","Apple (Malus domesticus)","F28.A07XD","PROCESS=Unspecified",33.5,1,1,1,"F28.A07GY","Roasting",0.732,1
@@ -3696,7 +3697,7 @@
 "I.01.07.002.016","Wafer, plain","A.01.03.001.003","Wheat flour, white","To be further disaggregated (d)",NA,58.01,1,1,1,"F28.A07GY","Roasting",1.15,1
 "I.01.07.002.016","Wafer, plain","A.10.01.001","White sugar","To be further disaggregated (d)",NA,26.84,1,1,1,"F28.A07GY","Roasting",1.15,1
 "I.01.07.002.016","Wafer, plain","A.11.03.002","Coconut fat","To be further disaggregated (d)",NA,14.29,1,1,1,"F28.A07GY","Roasting",1.15,1
-"I.01.07.002.016","Wafer, plain","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.43,1,1,1,"F28.A07GY","Roasting",1.15,1
+"I.01.07.002.016","Wafer, plain","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.43,1,1,1,"F28.A07GY","Roasting",1.15,1
 "I.01.07.002.016","Wafer, plain","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.43,1,1,1,"F28.A07GY","Roasting",1.15,1
 "I.01.07.002.017","Wafer, filled","I.01.07.002.016","Wafer, plain","To be further disaggregated (d)",NA,31,1,1,1,"F28.A07GY","Roasting",0.793,1
 "I.01.07.002.017","Wafer, filled","I.10.03.004.001","Chocolate spread","To be further disaggregated (d)",NA,69,0.66,1,1,"F28.A07GY","Roasting",0.793,1
@@ -3713,7 +3714,7 @@
 "I.03.01.013","Mashed potatoes (fresh)","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",8,1,1,1,NA,NA,NA,1
 "I.03.01.013","Mashed potatoes (fresh)","A.08.05.001.004","Cream 40 % fat","To be further disaggregated (d)",NA,4,1,1,1,NA,NA,NA,1
 "I.03.01.013","Mashed potatoes (fresh)","A.11.01.001","Butter","To be further disaggregated (d)",NA,4,1,1,1,NA,NA,NA,1
-"I.03.01.013","Mashed potatoes (fresh)","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.4,1,1,1,NA,NA,NA,1
+"I.03.01.013","Mashed potatoes (fresh)","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.4,1,1,1,NA,NA,NA,1
 "I.03.01.013","Mashed potatoes (fresh)","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.6,1,1,1,NA,NA,NA,1
 "I.03.01.014","Roesti","A.03.01.002","Main-crop potatoes","F28.A07GR","PROCESS=Frying",92.6,1,1.52,1,NA,NA,NA,1
 "I.03.01.014","Roesti","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",2.7,1,1,1,NA,NA,NA,1
@@ -3725,7 +3726,7 @@
 "I.03.01.015","Potato dumpling, plain","A.03.01.002","Main-crop potatoes","F28.A07GG","PROCESS=Cooking in water",69.3,1,1,1,"F28.A07GG","Cooking in water",1,1
 "I.03.01.015","Potato dumpling, plain","A.09.01.001","Whole egg, chicken","F28.A07XD","PROCESS=Unspecified",7.6,1,1,1,"F28.A07GG","Cooking in water",1,1
 "I.03.01.015","Potato dumpling, plain","A.11.01.001","Butter","To be further disaggregated (d)",NA,10.9,1,1,1,"F28.A07GG","Cooking in water",1,1
-"I.03.01.015","Potato dumpling, plain","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",1,1
+"I.03.01.015","Potato dumpling, plain","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",1,1
 "I.03.01.015","Potato dumpling, plain","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.3,1,1,1,"F28.A07GG","Cooking in water",1,1
 "I.04.02.022","Beans (dry), soaked/boiled/canned","A.04.02.001","Beans (Phaseolus vulgaris)","F28.A07GG","PROCESS=Cooking in water",100,1,0.4,1,NA,NA,NA,1
 "I.04.02.023","Lentils (dry), soaked/boiled/canned","A.04.02.002","Lentils (Lens culinaris syn. L. esculenta)","F28.A07GG","PROCESS=Cooking in water",100,1,0.37,1,NA,NA,NA,1
@@ -3780,62 +3781,62 @@
 "I.06.09.001.006","Salsiccia, Beef","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",20.5,1,1,1,"F28.A07GG","Cooking in water",1.045,1
 "I.06.09.001.006","Salsiccia, Beef","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.4,1,1,1,"F28.A07GG","Cooking in water",1.045,1
 "I.06.09.001.006","Salsiccia, Beef","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,0.3,1,1,1,"F28.A07GG","Cooking in water",1.045,1
-"I.06.09.001.006","Salsiccia, Beef","A.16.02.006","Anise seed (Pimpinella anisum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",1.045,1
-"I.06.09.001.006","Salsiccia, Beef","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.5,1,1,1,"F28.A07GG","Cooking in water",1.045,1
+"I.06.09.001.006","Salsiccia, Beef","A.16.02.006","Anise seed (Pimpinella anisum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",1.045,1
+"I.06.09.001.006","Salsiccia, Beef","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.5,1,1,1,"F28.A07GG","Cooking in water",1.045,1
 "I.06.09.001.006","Salsiccia, Beef","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",3.5,1,1,1,"F28.A07GG","Cooking in water",1.045,1
 "I.06.09.001.007","Salsiccia, Pork","A.02.02.001","Garlic, bulb (Allium sativum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",0.4,1,1,1,"F28.A07GG","Cooking in water",1.046,1
 "I.06.09.001.007","Salsiccia, Pork","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD","PROCESS=Unspecified",74.07,1,1,1,"F28.A07GG","Cooking in water",1.046,1
 "I.06.09.001.007","Salsiccia, Pork","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",20,1,1,1,"F28.A07GG","Cooking in water",1.046,1
 "I.06.09.001.007","Salsiccia, Pork","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.45,1,1,1,"F28.A07GG","Cooking in water",1.046,1
 "I.06.09.001.007","Salsiccia, Pork","A.14.02.003","Wine, red","To be further disaggregated (d)",NA,1,1,1,1,"F28.A07GG","Cooking in water",1.046,1
-"I.06.09.001.007","Salsiccia, Pork","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.04,1,1,1,"F28.A07GG","Cooking in water",1.046,1
-"I.06.09.001.007","Salsiccia, Pork","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.04,1,1,1,"F28.A07GG","Cooking in water",1.046,1
-"I.06.09.001.007","Salsiccia, Pork","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.5,1,1,1,"F28.A07GG","Cooking in water",1.046,1
+"I.06.09.001.007","Salsiccia, Pork","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.04,1,1,1,"F28.A07GG","Cooking in water",1.046,1
+"I.06.09.001.007","Salsiccia, Pork","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.04,1,1,1,"F28.A07GG","Cooking in water",1.046,1
+"I.06.09.001.007","Salsiccia, Pork","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.5,1,1,1,"F28.A07GG","Cooking in water",1.046,1
 "I.06.09.001.007","Salsiccia, Pork","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",3.5,1,1,1,"F28.A07GG","Cooking in water",1.046,1
 "I.06.09.003.004","Blood sausage, Beef","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG$F02.A06AL","PROCESS=Cooking in water, PART-NATURE=Blood (as part-nature)",19.58,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "I.06.09.003.004","Blood sausage, Beef","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD","PROCESS=Unspecified",14.68,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "I.06.09.003.004","Blood sausage, Beef","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",29.37,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "I.06.09.003.004","Blood sausage, Beef","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD$F02.A06AB","PROCESS=Unspecified, PART-NATURE=Tongue (as part-nature)",5,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "I.06.09.003.004","Blood sausage, Beef","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A06AK","PROCESS=Unspecified, PART-NATURE=Skin (as part-nature)",29.37,1,1,1,"F28.A07GG","Cooking in water",0.844,1
-"I.06.09.003.004","Blood sausage, Beef","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",0.844,1
-"I.06.09.003.004","Blood sausage, Beef","A.16.02.015","Cloves (Syzygium aromaticum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.844,1
-"I.06.09.003.004","Blood sausage, Beef","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",0.844,1
+"I.06.09.003.004","Blood sausage, Beef","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",0.844,1
+"I.06.09.003.004","Blood sausage, Beef","A.16.02.015","Cloves (Syzygium aromaticum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.844,1
+"I.06.09.003.004","Blood sausage, Beef","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "I.06.09.003.004","Blood sausage, Beef","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "I.06.09.003.005","Blood sausage, Pork","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GG$F02.A06AL","PROCESS=Cooking in water, PART-NATURE=Blood (as part-nature)",19.58,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "I.06.09.003.005","Blood sausage, Pork","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD","PROCESS=Unspecified",14.68,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "I.06.09.003.005","Blood sausage, Pork","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",29.37,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "I.06.09.003.005","Blood sausage, Pork","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A06AB","PROCESS=Unspecified, PART-NATURE=Tongue (as part-nature)",5,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "I.06.09.003.005","Blood sausage, Pork","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A06AK","PROCESS=Unspecified, PART-NATURE=Skin (as part-nature)",29.37,1,1,1,"F28.A07GG","Cooking in water",0.844,1
-"I.06.09.003.005","Blood sausage, Pork","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",0.844,1
-"I.06.09.003.005","Blood sausage, Pork","A.16.02.015","Cloves (Syzygium aromaticum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.844,1
-"I.06.09.003.005","Blood sausage, Pork","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",0.844,1
+"I.06.09.003.005","Blood sausage, Pork","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",0.844,1
+"I.06.09.003.005","Blood sausage, Pork","A.16.02.015","Cloves (Syzygium aromaticum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07GG","Cooking in water",0.844,1
+"I.06.09.003.005","Blood sausage, Pork","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "I.06.09.003.005","Blood sausage, Pork","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,"F28.A07GG","Cooking in water",0.844,1
 "I.06.09.003.006","Liver sausage, Beef","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG","PROCESS=Cooking in water",27.5,1,1.67,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.006","Liver sausage, Beef","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG$F02.A069M","PROCESS=Cooking in water, PART-NATURE=Liver (as part-nature)",25,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.006","Liver sausage, Beef","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",28,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.006","Liver sausage, Beef","A.08.07.002","Milk protein","To be further disaggregated (d)",NA,2.5,1,1,1,"F28.A07GG","Cooking in water",0.471,1
-"I.06.09.003.006","Liver sausage, Beef","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.4,1,1,1,"F28.A07GG","Cooking in water",0.471,1
+"I.06.09.003.006","Liver sausage, Beef","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.4,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.006","Liver sausage, Beef","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.006","Liver sausage, Beef","I.19.10.012","Meat/poultry broth","To be further disaggregated (d)",NA,15,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.007","Liver sausage, Pork","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GG","PROCESS=Cooking in water",27.5,1,1.54,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.007","Liver sausage, Pork","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GG$F02.A069M","PROCESS=Cooking in water, PART-NATURE=Liver (as part-nature)",25,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.007","Liver sausage, Pork","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",28,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.007","Liver sausage, Pork","A.08.07.002","Milk protein","To be further disaggregated (d)",NA,2.5,1,1,1,"F28.A07GG","Cooking in water",0.471,1
-"I.06.09.003.007","Liver sausage, Pork","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.4,1,1,1,"F28.A07GG","Cooking in water",0.471,1
+"I.06.09.003.007","Liver sausage, Pork","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.4,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.007","Liver sausage, Pork","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.007","Liver sausage, Pork","I.19.10.012","Meat/poultry broth","To be further disaggregated (d)",NA,15,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.008","Liver sausage, Poultry","A.06.02.001","Chicken meat (Gallus domesticus)","F28.A07GG$F02.A069M","PROCESS=Cooking in water, PART-NATURE=Liver (as part-nature)",25,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.008","Liver sausage, Poultry","A.06.02.001","Chicken meat (Gallus domesticus)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",28,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.008","Liver sausage, Poultry","A.06.02.002","Turkey meat (Meleagris gallopavo)","F28.A07GG","PROCESS=Cooking in water",27.5,1,1.3,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.008","Liver sausage, Poultry","A.08.07.002","Milk protein","To be further disaggregated (d)",NA,2.5,1,1,1,"F28.A07GG","Cooking in water",0.471,1
-"I.06.09.003.008","Liver sausage, Poultry","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.4,1,1,1,"F28.A07GG","Cooking in water",0.471,1
+"I.06.09.003.008","Liver sausage, Poultry","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.4,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.008","Liver sausage, Poultry","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.008","Liver sausage, Poultry","I.19.10.012","Meat/poultry broth","To be further disaggregated (d)",NA,15,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.009","Liver sausage, Veal","A.06.01.002","Veal meat","F28.A07GG","PROCESS=Cooking in water",27.5,1,1.43,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.009","Liver sausage, Veal","A.06.01.002","Veal meat","F28.A07GG$F02.A069M","PROCESS=Cooking in water, PART-NATURE=Liver (as part-nature)",25,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.009","Liver sausage, Veal","A.06.01.002","Veal meat","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",28,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.009","Liver sausage, Veal","A.08.07.002","Milk protein","To be further disaggregated (d)",NA,2.5,1,1,1,"F28.A07GG","Cooking in water",0.471,1
-"I.06.09.003.009","Liver sausage, Veal","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.4,1,1,1,"F28.A07GG","Cooking in water",0.471,1
+"I.06.09.003.009","Liver sausage, Veal","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.4,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.009","Liver sausage, Veal","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.09.003.009","Liver sausage, Veal","I.19.10.012","Meat/poultry broth","To be further disaggregated (d)",NA,15,1,1,1,"F28.A07GG","Cooking in water",0.471,1
 "I.06.11.001.001","Meat paste, Poultry","A.06.02.001","Chicken meat (Gallus domesticus)","F28.A07XD","PROCESS=Unspecified",40,1,1,1,"F28.A07GY","Roasting",1.25,1
@@ -3855,7 +3856,7 @@
 "I.06.11.005.001","Terrine, Pork","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD","PROCESS=Unspecified",62.2,1,1,1,"F28.A07GY","Roasting",1.25,1
 "I.06.11.005.001","Terrine, Pork","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A069M","PROCESS=Unspecified, PART-NATURE=Liver (as part-nature)",33,1,1,1,"F28.A07GY","Roasting",1.25,1
 "I.06.11.005.001","Terrine, Pork","A.16.02","Spices","To be further disaggregated (p)",NA,1.6,1,1,1,"F28.A07GY","Roasting",1.25,1
-"I.06.11.005.001","Terrine, Pork","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",1.6,1,1,1,"F28.A07GY","Roasting",1.25,1
+"I.06.11.005.001","Terrine, Pork","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",1.6,1,1,1,"F28.A07GY","Roasting",1.25,1
 "I.06.11.005.001","Terrine, Pork","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,"F28.A07GY","Roasting",1.25,1
 "I.06.11.005.002","Terrine, Rabbit","A.01.04.007.001","Breadcrumbs","To be further disaggregated (d)",NA,2.15,1,1,1,"F28.A07GY","Roasting",1.223,1
 "I.06.11.005.002","Terrine, Rabbit","A.02.01.003","Carrots (Daucus carota)","F28.A07XD","PROCESS=Unspecified",2.15,1,1,1,"F28.A07GY","Roasting",1.223,1
@@ -3873,7 +3874,7 @@
 "I.06.11.005.003","Terrine, Poultry","A.09.01.001","Whole egg, chicken","F28.A07XD","PROCESS=Unspecified",4.58,1,1,1,"F28.A07GY","Roasting",1.25,1
 "I.06.11.005.003","Terrine, Poultry","A.11.01","Animal fat","To be further disaggregated (p)",NA,7.64,1,1,1,"F28.A07GY","Roasting",1.25,1
 "I.06.11.005.003","Terrine, Poultry","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",4.58,1,1,1,"F28.A07GY","Roasting",1.25,1
-"I.06.11.005.003","Terrine, Poultry","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",1.5,1,1,1,"F28.A07GY","Roasting",1.25,1
+"I.06.11.005.003","Terrine, Poultry","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",1.5,1,1,1,"F28.A07GY","Roasting",1.25,1
 "I.06.11.005.003","Terrine, Poultry","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.5,1,1,1,"F28.A07GY","Roasting",1.25,1
 "I.06.11.005.003","Terrine, Poultry","A.16.10.008","Gelatine","F28.A0C0R","PROCESS=Processed",1.5,1,1,1,"F28.A07GY","Roasting",1.25,1
 "I.06.11.005.003","Terrine, Poultry","I.16.02.033","Garlic, dried","To be further disaggregated (d)",NA,1.5,1,1,1,"F28.A07GY","Roasting",1.25,1
@@ -3899,14 +3900,14 @@
 "I.07.02.004.004","Fish paste, Tuna","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",16.7,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.334,1
 "I.07.02.005.001","Fish pâté, Mackerel","A.07.01.013","Mackeral (Scomber)","F28.A07GG","PROCESS=Cooking in water",58,1,1.1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.26,1
 "I.07.02.005.001","Fish pâté, Mackerel","A.08.05.003.004","Sour cream 20 % fat","To be further disaggregated (d)",NA,24,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.26,1
-"I.07.02.005.001","Fish pâté, Mackerel","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",1,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.26,1
+"I.07.02.005.001","Fish pâté, Mackerel","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",1,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.26,1
 "I.07.02.005.001","Fish pâté, Mackerel","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.26,1
 "I.07.02.005.001","Fish pâté, Mackerel","A.16.05.002","Mustard, mild","To be further disaggregated (d)",NA,16,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.26,1
 "I.07.02.005.002","Fish pâté, Salmon","A.01.03.004.001","Corn flour","To be further disaggregated (d)",NA,2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.35,1
 "I.07.02.005.002","Fish pâté, Salmon","A.08.05.001.002","Cream 20% fat","To be further disaggregated (d)",NA,16,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.35,1
 "I.07.02.005.002","Fish pâté, Salmon","A.08.08.001","Quark","To be further disaggregated (d)",NA,12,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.35,1
 "I.07.02.005.002","Fish pâté, Salmon","A.12.01.010","Juice, Lemon","To be further disaggregated (d)",NA,3,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.35,1
-"I.07.02.005.002","Fish pâté, Salmon","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.35,1
+"I.07.02.005.002","Fish pâté, Salmon","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.35,1
 "I.07.02.005.002","Fish pâté, Salmon","I.07.01.006.001","Salmon (Salmo salar)","F28.A07GG","PROCESS=Cooking in water",65,1,1.25,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.35,1
 "I.07.02.005.003","Fish pâté, Shellfish","A.07.04.005","Shrimps (Crangon crangon)","F28.A07GG","PROCESS=Cooking in water",46,1,1.05,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.33,1
 "I.07.02.005.003","Fish pâté, Shellfish","A.07.05.010","Scallop (Pecten spp.)","F28.A07GG","PROCESS=Cooking in water",21,1,1.04,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.33,1
@@ -4095,7 +4096,7 @@
 "I.10.05.001.001","Fruit sauce, Apple","A.05.02.001","Apple (Malus domesticus)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",76.2,1,1.35,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.238,1
 "I.10.05.001.001","Fruit sauce, Apple","A.10.01.001","White sugar","To be further disaggregated (d)",NA,5.2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.238,1
 "I.10.05.001.001","Fruit sauce, Apple","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",18.4,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.238,1
-"I.10.05.001.001","Fruit sauce, Apple","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.238,1
+"I.10.05.001.001","Fruit sauce, Apple","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.238,1
 "I.10.05.001.002","Fruit sauce, Lemon","A.12.01.010","Juice, Lemon","To be further disaggregated (d)",NA,96,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.96,1
 "I.10.05.001.002","Fruit sauce, Lemon","I.16.08.003.001","Cream sauce, basic","To be further disaggregated (d)",NA,4,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.96,1
 "I.10.05.001.003","Fruit sauce, Raspberry","A.05.04.006","Raspberries (Rubus idaeus)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",75,1,1.39,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.25,1
@@ -4246,14 +4247,14 @@
 "I.14.05.001.003","Other fruits liquors","I.14.06.008","Alcohol 90 - 95°","F28.A0C0R","PROCESS=Processed",25.15,1,1,1,NA,NA,NA,1
 "I.14.06.007.001","Anise spirits, undiluted","A.10.01.001","White sugar","To be further disaggregated (d)",NA,10,1,1,1,NA,NA,NA,1
 "I.14.06.007.001","Anise spirits, undiluted","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",43.56,1,1,1,NA,NA,NA,1
-"I.14.06.007.001","Anise spirits, undiluted","A.16.02.006","Anise seed (Pimpinella anisum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",2,1,1,1,NA,NA,NA,1
+"I.14.06.007.001","Anise spirits, undiluted","A.16.02.006","Anise seed (Pimpinella anisum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",2,1,1,1,NA,NA,NA,1
 "I.14.06.007.001","Anise spirits, undiluted","I.14.06.008","Alcohol 90 - 95°","F28.A0C0R","PROCESS=Processed",44.44,1,1,1,NA,NA,NA,1
 "I.14.06.007.002","Anise spirits, diluted 1/1","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",50,1,1,1,NA,NA,NA,1
 "I.14.06.007.002","Anise spirits, diluted 1/1","I.14.06.007.001","Anise spirits, undiluted","To be further disaggregated (d)",NA,50,1,1,1,NA,NA,NA,1
 "I.14.06.007.003","Anise spirits, diluted 1/5","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",83.3,1,1,1,NA,NA,NA,1
 "I.14.06.007.003","Anise spirits, diluted 1/5","I.14.06.007.001","Anise spirits, undiluted","To be further disaggregated (d)",NA,16.7,1,1,1,NA,NA,NA,1
-"I.14.06.007.004","Tequila spirits","A.02.08.002","Sugar cane (Saccharum officinarum)","F28.A07MF","PROCESS=Distillation",20,1,5,1,NA,NA,NA,1
-"I.14.06.007.004","Tequila spirits","I.02.08.004","Agave tequilana","F28.A07MF","PROCESS=Distillation",80,1,7,1,NA,NA,NA,1
+"I.14.06.007.004","Tequila spirits","A.02.08.002","Sugar cane (Saccharum officinarum)","F28.A07XD","PROCESS=Unspecified",20,1,5,1,"F28.A07MF","Distillation",1,1
+"I.14.06.007.004","Tequila spirits","I.02.08.004","Agave tequilana","F28.A07XD","PROCESS=Unspecified",80,1,7,1,"F28.A07MF","Distillation",1,1
 "I.14.06.008","Alcohol 90 - 95°","I.14.06.009","Alcohol 40°","To be further disaggregated (d)",NA,100,1,2.38,1,NA,NA,NA,1
 "I.14.06.009","Alcohol 40°","A.14.06.002","Whisky","To be further disaggregated (d)",NA,25,1,1,1,NA,NA,NA,1
 "I.14.06.009","Alcohol 40°","A.14.06.003","Gin","To be further disaggregated (d)",NA,25,1,1,1,NA,NA,NA,1
@@ -4301,15 +4302,15 @@
 "I.16.03.003.001","Mixed spices, Barbecue","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,31.14,1,1,1,NA,NA,NA,1
 "I.16.03.003.001","Mixed spices, Barbecue","A.16.02.002","Chilli powder","To be further disaggregated (d)",NA,4.55,1,1,1,NA,NA,NA,1
 "I.16.03.003.001","Mixed spices, Barbecue","A.16.02.012","Cayenne pepper (Capsicum frutescens)","To be further disaggregated (d)",NA,0.91,1,1,1,NA,NA,NA,1
-"I.16.03.003.001","Mixed spices, Barbecue","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",3.64,1,1,1,NA,NA,NA,1
+"I.16.03.003.001","Mixed spices, Barbecue","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",3.64,1,1,1,NA,NA,NA,1
 "I.16.03.003.001","Mixed spices, Barbecue","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",10.21,1,1,1,NA,NA,NA,1
 "I.16.03.003.001","Mixed spices, Barbecue","I.16.02.033","Garlic, dried","To be further disaggregated (d)",NA,4.77,1,1,1,NA,NA,NA,1
 "I.16.03.003.001","Mixed spices, Barbecue","I.16.02.034","Onions, dried","To be further disaggregated (d)",NA,3.64,1,1,1,NA,NA,NA,1
-"I.16.03.003.002","Mixed spices, Chinese five spice","A.16.02.006","Anise seed (Pimpinella anisum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",5.08,1,1,1,NA,NA,NA,1
-"I.16.03.003.002","Mixed spices, Chinese five spice","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",23.73,1,1,1,NA,NA,NA,1
-"I.16.03.003.002","Mixed spices, Chinese five spice","A.16.02.015","Cloves (Syzygium aromaticum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",25.42,1,1,1,NA,NA,NA,1
-"I.16.03.003.002","Mixed spices, Chinese five spice","A.16.02.019","Fennel seed (Foeniculum vulgare)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",24.58,1,1,1,NA,NA,NA,1
-"I.16.03.003.002","Mixed spices, Chinese five spice","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",21.19,1,1,1,NA,NA,NA,1
+"I.16.03.003.002","Mixed spices, Chinese five spice","A.16.02.006","Anise seed (Pimpinella anisum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",5.08,1,1,1,NA,NA,NA,1
+"I.16.03.003.002","Mixed spices, Chinese five spice","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",23.73,1,1,1,NA,NA,NA,1
+"I.16.03.003.002","Mixed spices, Chinese five spice","A.16.02.015","Cloves (Syzygium aromaticum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",25.42,1,1,1,NA,NA,NA,1
+"I.16.03.003.002","Mixed spices, Chinese five spice","A.16.02.019","Fennel seed (Foeniculum vulgare)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",24.58,1,1,1,NA,NA,NA,1
+"I.16.03.003.002","Mixed spices, Chinese five spice","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",21.19,1,1,1,NA,NA,NA,1
 "I.16.05.015.001","Cocktail sauce","A.02.14.003","Tomato purée","To be further disaggregated (d)",NA,17,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "I.16.05.015.001","Cocktail sauce","A.08.05.001.004","Cream 40 % fat","To be further disaggregated (d)",NA,5,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "I.16.05.015.001","Cocktail sauce","A.09.01.002","Egg yolk, chicken","To be further disaggregated (d)",NA,4,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
@@ -4322,7 +4323,7 @@
 "I.16.05.015.002","Worcester/Worcestershire sauce","A.04.04.007","Mustard seed (Brassica nigra)","F28.A07LA","PROCESS=Grinding / milling / crushing",1.5,1,1.25,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.85,1
 "I.16.05.015.002","Worcester/Worcestershire sauce","A.10.01.002","Brown sugar","To be further disaggregated (d)",NA,7.65,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.85,1
 "I.16.05.015.002","Worcester/Worcestershire sauce","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",15,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.85,1
-"I.16.05.015.002","Worcester/Worcestershire sauce","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.85,1
+"I.16.05.015.002","Worcester/Worcestershire sauce","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.85,1
 "I.16.05.015.002","Worcester/Worcestershire sauce","A.16.05.005","Vinegar, apple","To be further disaggregated (d)",NA,60,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.85,1
 "I.16.05.015.002","Worcester/Worcestershire sauce","A.16.05.011","Soy sauce","To be further disaggregated (d)",NA,15,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.85,1
 "I.16.05.015.002","Worcester/Worcestershire sauce","I.16.02.033","Garlic, dried","To be further disaggregated (d)",NA,0.3,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.85,1
@@ -4332,7 +4333,7 @@
 "I.16.06.007","Salad dressing, non specified","A.11.04.008","Olive oil","To be further disaggregated (d)",NA,58.31,0.13,1,1,NA,NA,NA,1
 "I.16.06.007","Salad dressing, non specified","A.11.04.013","Rapeseed oil","To be further disaggregated (d)",NA,58.31,0.6,1,1,NA,NA,NA,1
 "I.16.06.007","Salad dressing, non specified","A.11.04.017","Sunflower oil","To be further disaggregated (d)",NA,58.31,0.27,1,1,NA,NA,NA,1
-"I.16.06.007","Salad dressing, non specified","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.25,1,1,1,NA,NA,NA,1
+"I.16.06.007","Salad dressing, non specified","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.25,1,1,1,NA,NA,NA,1
 "I.16.06.007","Salad dressing, non specified","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.47,1,1,1,NA,NA,NA,1
 "I.16.06.007","Salad dressing, non specified","A.16.05.002","Mustard, mild","To be further disaggregated (d)",NA,3.72,1,1,1,NA,NA,NA,1
 "I.16.06.007","Salad dressing, non specified","A.16.05.004","Vinegar, wine","To be further disaggregated (d)",NA,29.78,1,1,1,NA,NA,NA,1
@@ -4358,7 +4359,7 @@
 "I.16.08.001.004","White sauce / Bechamel","A.01.03.004.003","Corn starch","To be further disaggregated (d)",NA,3.48,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "I.16.08.001.004","White sauce / Bechamel","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",88,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "I.16.08.001.004","White sauce / Bechamel","A.08.05.001.004","Cream 40 % fat","To be further disaggregated (d)",NA,7,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
-"I.16.08.001.004","White sauce / Bechamel","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.76,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
+"I.16.08.001.004","White sauce / Bechamel","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.76,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "I.16.08.001.004","White sauce / Bechamel","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.76,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "I.16.08.001.005","Bread sauce","A.01.04.007.001","Breadcrumbs","To be further disaggregated (d)",NA,18,1,1,1,NA,NA,NA,1
 "I.16.08.001.005","Bread sauce","A.02.02.002","Onions, bulb (Allium cepa)","F28.A07GR","PROCESS=Frying",4,1,1.61,1,NA,NA,NA,1
@@ -4418,7 +4419,7 @@
 "I.16.08.005.001","Sauce béarnaise","A.11.04.013","Rapeseed oil","To be further disaggregated (d)",NA,45,1,1,1,NA,NA,NA,1
 "I.16.08.005.001","Sauce béarnaise","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",27.9,1,1,1,NA,NA,NA,1
 "I.16.08.005.001","Sauce béarnaise","A.16.01.011","Tarragon, herb (Artemisia dracunculus)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.9,1,7,1,NA,NA,NA,1
-"I.16.08.005.001","Sauce béarnaise","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
+"I.16.08.005.001","Sauce béarnaise","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
 "I.16.08.005.001","Sauce béarnaise","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.9,1,1,1,NA,NA,NA,1
 "I.16.08.005.001","Sauce béarnaise","A.16.05.002","Mustard, mild","To be further disaggregated (d)",NA,8.7,1,1,1,NA,NA,NA,1
 "I.16.08.005.001","Sauce béarnaise","A.16.05.004","Vinegar, wine","To be further disaggregated (d)",NA,9.6,1,1,1,NA,NA,NA,1
@@ -4430,7 +4431,7 @@
 "I.16.08.005.002","Sauce hollandaise","A.16.05.008","Tabasco sauce","To be further disaggregated (d)",NA,0.54,1,1,1,NA,NA,NA,1
 "I.16.08.006.001","Aioli/Garlic sauce","A.02.02.001","Garlic, bulb (Allium sativum)","F28.A07XD","PROCESS=Unspecified",6.2,1,1,1,"F28.A0C6N","Pulping / mashing",1,1
 "I.16.08.006.001","Aioli/Garlic sauce","A.12.01.010","Juice, Lemon","To be further disaggregated (d)",NA,16.6,1,1,1,"F28.A0C6N","Pulping / mashing",1,1
-"I.16.08.006.001","Aioli/Garlic sauce","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.4,1,1,1,"F28.A0C6N","Pulping / mashing",1,1
+"I.16.08.006.001","Aioli/Garlic sauce","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.4,1,1,1,"F28.A0C6N","Pulping / mashing",1,1
 "I.16.08.006.001","Aioli/Garlic sauce","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.1,1,1,1,"F28.A0C6N","Pulping / mashing",1,1
 "I.16.08.006.001","Aioli/Garlic sauce","A.16.06.004","Mayonnaise, > 50% oil","To be further disaggregated (d)",NA,74.7,1,1,1,"F28.A0C6N","Pulping / mashing",1,1
 "I.16.08.006.002","Pesto sauce, green","A.04.03.010","Pine nuts (Pinus pinea)","F28.A07XD","PROCESS=Unspecified",7.4,1,1,1,"F28.A0C6N","Pulping / mashing",1,1
@@ -4453,7 +4454,7 @@
 "I.16.08.006.003","Pesto sauce, red","A.16.01.009","Basil, herb (Ocimum basilicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",8,1,7,1,"F28.A0C6N","Pulping / mashing",0.7,1
 "I.16.08.006.003","Pesto sauce, red","I.02.14.014","Tomato, paste","To be further disaggregated (d)",NA,30,1,1,1,"F28.A0C6N","Pulping / mashing",0.7,1
 "I.16.08.006.004","Olive based spread","A.02.02.001","Garlic, bulb (Allium sativum)","F28.A07XD","PROCESS=Unspecified",0.06,1,1,1,"F28.A0C6N","Pulping / mashing",1,1
-"I.16.08.006.004","Olive based spread","A.05.06.003","Table olives (Olea europaea)","F28.A0CQZ","PROCESS=Fermentation",73.98,1,1,1,"F28.A0C6N","Pulping / mashing",1,0
+"I.16.08.006.004","Olive based spread","A.05.06.003","Table olives (Olea europaea)","F28.A07XD","PROCESS=Unspecified",73.98,1,1,1,"F28.A0C6N","Pulping / mashing",1,1
 "I.16.08.006.004","Olive based spread","A.11.04.008","Olive oil","To be further disaggregated (d)",NA,2.5,1,1,1,"F28.A0C6N","Pulping / mashing",1,1
 "I.16.08.006.004","Olive based spread","A.11.04.017","Sunflower oil","To be further disaggregated (d)",NA,22.4,1,1,1,"F28.A0C6N","Pulping / mashing",1,1
 "I.16.08.006.004","Olive based spread","A.16.01.010","Bay leaves (laurel) (Laurus nobilis)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.06,1,7,1,"F28.A0C6N","Pulping / mashing",1,1
@@ -4464,7 +4465,7 @@
 "I.16.08.007.001","Cider sauce","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.8,1,1,1,NA,NA,NA,1
 "I.16.08.007.001","Cider sauce","A.11.04.008","Olive oil","To be further disaggregated (d)",NA,0.8,1,1,1,NA,NA,NA,1
 "I.16.08.007.001","Cider sauce","A.14.04.001","Cider","To be further disaggregated (d)",NA,14,1,1,1,NA,NA,NA,1
-"I.16.08.007.001","Cider sauce","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.8,1,1,1,NA,NA,NA,1
+"I.16.08.007.001","Cider sauce","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.8,1,1,1,NA,NA,NA,1
 "I.16.08.007.001","Cider sauce","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.8,1,1,1,NA,NA,NA,1
 "I.16.08.007.001","Cider sauce","A.16.05.002","Mustard, mild","To be further disaggregated (d)",NA,3,1,1,1,NA,NA,NA,1
 "I.16.08.007.001","Cider sauce","I.19.10.012","Meat/poultry broth","To be further disaggregated (d)",NA,24,1,1,1,NA,NA,NA,1
@@ -4511,7 +4512,7 @@
 "I.16.08.008.004","Meat sauce, with sausage","A.14.02.003","Wine, red","To be further disaggregated (d)",NA,5.8,1,1,1,NA,NA,NA,1
 "I.16.08.008.004","Meat sauce, with sausage","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",5.8,1,1,1,NA,NA,NA,1
 "I.16.08.008.004","Meat sauce, with sausage","A.16.01.009","Basil, herb (Ocimum basilicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,7,1,NA,NA,NA,1
-"I.16.08.008.004","Meat sauce, with sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
+"I.16.08.008.004","Meat sauce, with sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
 "I.16.08.008.004","Meat sauce, with sausage","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.2,1,1,1,NA,NA,NA,1
 "I.16.08.008.004","Meat sauce, with sausage","I.02.14.013","Tomato, canned","To be further disaggregated (d)",NA,28.8,1,1,1,NA,NA,NA,1
 "I.16.08.008.004","Meat sauce, with sausage","I.02.14.014","Tomato, paste","To be further disaggregated (d)",NA,19.7,1,1,1,NA,NA,NA,1
@@ -4521,7 +4522,7 @@
 "I.16.08.009.001","Lobster sauce","A.08.05.001.003","Cream 30 % fat","To be further disaggregated (d)",NA,20.5,1,1,1,NA,NA,NA,1
 "I.16.08.009.001","Lobster sauce","A.08.08.129","Cheese, Parmigiano Reggiano","To be further disaggregated (d)",NA,3.5,1,1,1,NA,NA,NA,1
 "I.16.08.009.001","Lobster sauce","A.11.01.001","Butter","To be further disaggregated (d)",NA,4.8,1,1,1,NA,NA,NA,1
-"I.16.08.009.001","Lobster sauce","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
+"I.16.08.009.001","Lobster sauce","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
 "I.16.08.009.001","Lobster sauce","I.19.10.011","Vegetable broth","To be further disaggregated (d)",NA,20.5,1,1,1,NA,NA,NA,1
 "I.16.08.009.002","Oyster sauce","A.01.03.004.003","Corn starch","To be further disaggregated (d)",NA,8.13,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "I.16.08.009.002","Oyster sauce","A.07.05.008","Oyster (Ostrea edulis)","F28.A07MJ","PROCESS=Extraction",4,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
@@ -4581,7 +4582,7 @@
 "I.16.08.010.006","Pepper sauce","A.14.02.001","Wine, white","To be further disaggregated (d)",NA,10,1,1,1,NA,NA,NA,1
 "I.16.08.010.006","Pepper sauce","A.14.06.001","Brandy","To be further disaggregated (d)",NA,2,1,1,1,NA,NA,NA,1
 "I.16.08.010.006","Pepper sauce","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",41,1,1,1,NA,NA,NA,1
-"I.16.08.010.006","Pepper sauce","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",2,1,1,1,NA,NA,NA,1
+"I.16.08.010.006","Pepper sauce","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",2,1,1,1,NA,NA,NA,1
 "I.16.08.010.007","Sweet and sour sauce","A.01.03.004.003","Corn starch","To be further disaggregated (d)",NA,1.8,1,1,1,NA,NA,NA,1
 "I.16.08.010.007","Sweet and sour sauce","A.02.14.003","Tomato purée","To be further disaggregated (d)",NA,12.5,1,1,1,NA,NA,NA,1
 "I.16.08.010.007","Sweet and sour sauce","A.05.06.021","Pineapples (Ananas comosus)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",16.7,1,1.43,1,NA,NA,NA,1
@@ -4598,7 +4599,7 @@
 "I.16.08.010.009","Tomato sauce","A.11.04.017","Sunflower oil","To be further disaggregated (d)",NA,3.4,0.5,1,1,NA,NA,NA,1
 "I.16.08.010.009","Tomato sauce","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",29.5,1,1,1,NA,NA,NA,1
 "I.16.08.010.009","Tomato sauce","A.16.01.009","Basil, herb (Ocimum basilicum)","F28.A07XD","PROCESS=Unspecified",0.2,1,1,1,NA,NA,NA,1
-"I.16.08.010.009","Tomato sauce","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
+"I.16.08.010.009","Tomato sauce","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
 "I.16.08.010.009","Tomato sauce","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.4,1,1,1,NA,NA,NA,1
 "I.16.08.010.009","Tomato sauce","I.02.14.013","Tomato, canned","To be further disaggregated (d)",NA,49.1,1,1,1,NA,NA,NA,1
 "I.16.08.010.009","Tomato sauce","I.02.14.014","Tomato, paste","To be further disaggregated (d)",NA,10.5,1,1,1,NA,NA,NA,1
@@ -4607,7 +4608,7 @@
 "I.16.08.010.010","Guacamole sauce","A.02.03.001","Tomatoes (Lycopersicum esculentum)","F28.A07XD","PROCESS=Unspecified",16.61,1,1,1,NA,NA,NA,1
 "I.16.08.010.010","Guacamole sauce","A.05.06.014","Avocados (Persea americana)","F28.A0C6N","PROCESS=Pulping / mashing",59.4,1,1,1,NA,NA,NA,1
 "I.16.08.010.010","Guacamole sauce","A.12.01.011","Juice, Lime","To be further disaggregated (d)",NA,6.55,1,1,1,NA,NA,NA,1
-"I.16.08.010.010","Guacamole sauce","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.17,1,1,1,NA,NA,NA,1
+"I.16.08.010.010","Guacamole sauce","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.17,1,1,1,NA,NA,NA,1
 "I.16.08.010.010","Guacamole sauce","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.45,1,1,1,NA,NA,NA,1
 "I.17.05.005","Simple cereals reconstituted with milk or other appropriate nutritious liquids","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",85,1,1,1,NA,NA,NA,1
 "I.17.05.005","Simple cereals reconstituted with milk or other appropriate nutritious liquids","A.17.05.001","Simple cereals which are or have to be reconstituted with milk or other appropriate nutritious liquids","F28.A0C0R","PROCESS=Processed",15,1,1,1,NA,NA,NA,1
@@ -4677,7 +4678,7 @@
 "I.19.01.001.018","Pierogi, with vegetables","A.08.05.003.004","Sour cream 20 % fat","To be further disaggregated (d)",NA,13.7,1,1,1,NA,NA,NA,1
 "I.19.01.001.018","Pierogi, with vegetables","A.09.01.001","Whole egg, chicken","F28.A07XD","PROCESS=Unspecified",10.86,1,1,1,NA,NA,NA,1
 "I.19.01.001.018","Pierogi, with vegetables","A.11.01.001","Butter","To be further disaggregated (d)",NA,4.53,1,1,1,NA,NA,NA,1
-"I.19.01.001.018","Pierogi, with vegetables","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.11,1,1,1,NA,NA,NA,1
+"I.19.01.001.018","Pierogi, with vegetables","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.11,1,1,1,NA,NA,NA,1
 "I.19.01.001.018","Pierogi, with vegetables","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.48,1,1,1,NA,NA,NA,1
 "I.19.01.001.018","Pierogi, with vegetables","A.16.10.003","Baking powder","To be further disaggregated (d)",NA,0.91,1,1,1,NA,NA,NA,1
 "I.19.01.002.009","Pizza base, cooked","A.01.03.001.003","Wheat flour, white","To be further disaggregated (d)",NA,65.84,1,1,1,"F28.A07GY","Roasting",1.12,1
@@ -4795,8 +4796,8 @@
 "I.19.01.003.012","Pasta, cooked, with meat and vegetables","A.11.01.001","Butter","To be further disaggregated (d)",NA,1,1,1,1,NA,NA,NA,1
 "I.19.01.003.012","Pasta, cooked, with meat and vegetables","A.11.04.013","Rapeseed oil","To be further disaggregated (d)",NA,2.5,1,1,1,NA,NA,NA,1
 "I.19.01.003.012","Pasta, cooked, with meat and vegetables","A.11.04.017","Sunflower oil","To be further disaggregated (d)",NA,2.5,1,1,1,NA,NA,NA,1
-"I.19.01.003.012","Pasta, cooked, with meat and vegetables","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.5,1,1,1,NA,NA,NA,1
-"I.19.01.003.012","Pasta, cooked, with meat and vegetables","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.5,1,1,1,NA,NA,NA,1
+"I.19.01.003.012","Pasta, cooked, with meat and vegetables","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.5,1,1,1,NA,NA,NA,1
+"I.19.01.003.012","Pasta, cooked, with meat and vegetables","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.5,1,1,1,NA,NA,NA,1
 "I.19.01.003.012","Pasta, cooked, with meat and vegetables","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1,1,1,1,NA,NA,NA,1
 "I.19.01.003.012","Pasta, cooked, with meat and vegetables","I.01.05.016.002","Plain pasta, cooked, with egg","To be further disaggregated (d)",NA,41,1,1,1,NA,NA,NA,1
 "I.19.01.003.013","Pasta, cooked, with tomato sauce and cheese","A.08.08.049","Cheese, Cheddar","To be further disaggregated (d)",NA,1.79,1,1,1,NA,NA,NA,1
@@ -4873,14 +4874,14 @@
 "I.19.03.001.001","Potato cream","A.08.05.003.006","Sour cream 40 % fat","To be further disaggregated (d)",NA,11.55,1,1,1,NA,NA,NA,1
 "I.19.03.001.001","Potato cream","A.08.08.001","Quark","To be further disaggregated (d)",NA,11.4,1,1,1,NA,NA,NA,1
 "I.19.03.001.001","Potato cream","A.11.01.001","Butter","To be further disaggregated (d)",NA,1.5,1,1,1,NA,NA,NA,1
-"I.19.03.001.001","Potato cream","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",1,1,1,1,NA,NA,NA,1
+"I.19.03.001.001","Potato cream","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",1,1,1,1,NA,NA,NA,1
 "I.19.03.001.001","Potato cream","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1,1,1,1,NA,NA,NA,1
 "I.19.03.001.002","Potato vegetable cake","A.01.03.001.003","Wheat flour, white","To be further disaggregated (d)",NA,14.9,1,1,1,NA,NA,NA,1
 "I.19.03.001.002","Potato vegetable cake","A.02.02.002","Onions, bulb (Allium cepa)","F28.A07GR","PROCESS=Frying",13.1,1,1.61,1,NA,NA,NA,1
 "I.19.03.001.002","Potato vegetable cake","A.03.01.002","Main-crop potatoes","F28.A07GG$F28.A0C6N","PROCESS=Cooking in water, PROCESS=Pulping / mashing",50,1,1,1,NA,NA,NA,1
 "I.19.03.001.002","Potato vegetable cake","A.09.01.001","Whole egg, chicken","F28.A07XD","PROCESS=Unspecified",7.2,1,1,1,NA,NA,NA,1
 "I.19.03.001.002","Potato vegetable cake","A.11.04.007","Oil, frying, blend","To be further disaggregated (d)",NA,14.3,1,1,1,NA,NA,NA,1
-"I.19.03.001.002","Potato vegetable cake","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
+"I.19.03.001.002","Potato vegetable cake","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,NA,NA,NA,1
 "I.19.03.001.002","Potato vegetable cake","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.4,1,1,1,NA,NA,NA,1
 "I.19.03.001.003","Potato vegetable fried","A.01.04.007.001","Breadcrumbs","To be further disaggregated (d)",NA,28.05,1,1,1,NA,NA,NA,1
 "I.19.03.001.003","Potato vegetable fried","A.03.01.002","Main-crop potatoes","F28.A07GR","PROCESS=Frying",36.55,1,1.52,1,NA,NA,NA,1
@@ -4996,9 +4997,9 @@
 "I.19.04.001.001","Chili con carne","A.11.04","Vegetable oil","To be further disaggregated (p)",NA,3.6,1,1,1,NA,NA,NA,1
 "I.19.04.001.001","Chili con carne","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,0.7,1,1,1,NA,NA,NA,1
 "I.19.04.001.001","Chili con carne","A.16.02.002","Chilli powder","To be further disaggregated (d)",NA,0.2,1,1,1,NA,NA,NA,1
-"I.19.04.001.001","Chili con carne","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.4,1,1,1,NA,NA,NA,1
-"I.19.04.001.001","Chili con carne","A.16.02.017","Cumin seed (Cuminum cyminum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.5,1,1,1,NA,NA,NA,1
-"I.19.04.001.001","Chili con carne","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.3,1,1,1,NA,NA,NA,1
+"I.19.04.001.001","Chili con carne","A.16.02.014","Cinnamon (Cinnamonum verum syn. C. zeylanicum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.4,1,1,1,NA,NA,NA,1
+"I.19.04.001.001","Chili con carne","A.16.02.017","Cumin seed (Cuminum cyminum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.5,1,1,1,NA,NA,NA,1
+"I.19.04.001.001","Chili con carne","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,NA,NA,NA,1
 "I.19.04.001.001","Chili con carne","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.4,1,1,1,NA,NA,NA,1
 "I.19.04.001.001","Chili con carne","I.02.14.013","Tomato, canned","To be further disaggregated (d)",NA,19.1,1,1,1,NA,NA,NA,1
 "I.19.04.001.001","Chili con carne","I.04.02.022","Beans (dry), soaked/boiled/canned","To be further disaggregated (d)",NA,20.3,1,1,1,NA,NA,NA,1
@@ -5020,9 +5021,9 @@
 "I.19.04.002.002","Falafel","A.11.04.008","Olive oil","To be further disaggregated (d)",NA,1.7,1,1,1,NA,NA,NA,1
 "I.19.04.002.002","Falafel","A.12.01.010","Juice, Lemon","To be further disaggregated (d)",NA,1.9,1,1,1,NA,NA,NA,1
 "I.19.04.002.002","Falafel","A.16.01.005","Parsley, herb (Petroselinum crispum)","F28.A07XD","PROCESS=Unspecified",3.7,1,1,1,NA,NA,NA,1
-"I.19.04.002.002","Falafel","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
-"I.19.04.002.002","Falafel","A.16.02.017","Cumin seed (Cuminum cyminum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.5,1,1,1,NA,NA,NA,1
-"I.19.04.002.002","Falafel","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.4,1,1,1,NA,NA,NA,1
+"I.19.04.002.002","Falafel","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,NA,NA,NA,1
+"I.19.04.002.002","Falafel","A.16.02.017","Cumin seed (Cuminum cyminum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.5,1,1,1,NA,NA,NA,1
+"I.19.04.002.002","Falafel","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.4,1,1,1,NA,NA,NA,1
 "I.19.04.002.002","Falafel","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.6,1,1,1,NA,NA,NA,1
 "I.19.04.002.002","Falafel","A.16.10.003","Baking powder","To be further disaggregated (d)",NA,0.4,1,1,1,NA,NA,NA,1
 "I.19.04.002.003","Soya sausage / pattie","A.01.02.009.001","Rice, brown","To be further disaggregated (d)",NA,15,1,1,1,NA,NA,NA,1
@@ -5041,9 +5042,9 @@
 "I.19.05.005","Pressed meat snacks","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD","PROCESS=Unspecified",10,1,1,1,"F28.A07GY","Roasting",1.25,1
 "I.19.05.005","Pressed meat snacks","A.06.02.001","Chicken meat (Gallus domesticus)","F28.A07XD","PROCESS=Unspecified",63,1,1,1,"F28.A07GY","Roasting",1.25,1
 "I.19.05.005","Pressed meat snacks","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",7.5,1,1,1,"F28.A07GY","Roasting",1.25,1
-"I.19.05.005","Pressed meat snacks","A.16.02.025","Mace (Myristica fragrans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GY","Roasting",1.25,1
-"I.19.05.005","Pressed meat snacks","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GY","Roasting",1.25,1
-"I.19.05.005","Pressed meat snacks","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.4,1,1,1,"F28.A07GY","Roasting",1.25,1
+"I.19.05.005","Pressed meat snacks","A.16.02.025","Mace (Myristica fragrans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GY","Roasting",1.25,1
+"I.19.05.005","Pressed meat snacks","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07GY","Roasting",1.25,1
+"I.19.05.005","Pressed meat snacks","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.4,1,1,1,"F28.A07GY","Roasting",1.25,1
 "I.19.05.005","Pressed meat snacks","A.16.03.001","Mixed herbs","To be further disaggregated (d)",NA,1,1,1,1,"F28.A07GY","Roasting",1.25,1
 "I.19.05.005","Pressed meat snacks","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.8,1,1,1,"F28.A07GY","Roasting",1.25,1
 "I.19.05.006","Schnitzel","A.01.04.007.001","Breadcrumbs","To be further disaggregated (d)",NA,27.3,1,1,1,NA,NA,NA,1
@@ -5056,7 +5057,7 @@
 "I.19.05.007","Cordon bleu","A.06.02.001","Chicken meat (Gallus domesticus)","F28.A07GR","PROCESS=Frying",56.12,0.27,1.25,1,NA,NA,NA,1
 "I.19.05.007","Cordon bleu","A.08.08.065","Cheese, Emmental","To be further disaggregated (d)",NA,7.36,1,1,1,NA,NA,NA,1
 "I.19.05.007","Cordon bleu","A.11.04.007","Oil, frying, blend","To be further disaggregated (d)",NA,8,1,1,1,NA,NA,NA,1
-"I.19.05.007","Cordon bleu","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.28,1,1,1,NA,NA,NA,1
+"I.19.05.007","Cordon bleu","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.28,1,1,1,NA,NA,NA,1
 "I.19.05.007","Cordon bleu","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.28,1,1,1,NA,NA,NA,1
 "I.19.05.007","Cordon bleu","I.06.08.016","Cooked Ham, Pork","To be further disaggregated (d)",NA,7.35,1,1,1,NA,NA,NA,1
 "I.19.05.008","Meat croquettes","A.01.04.007.001","Breadcrumbs","To be further disaggregated (d)",NA,8.5,1,1,1,NA,NA,NA,1
@@ -5219,7 +5220,7 @@
 "I.19.10.003.001","Potato soup, liquid","A.02.07.006","Leek (Allium porrum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",3.33,1,1.02,1,NA,NA,NA,1
 "I.19.10.003.001","Potato soup, liquid","A.03.01.002","Main-crop potatoes","F28.A07GG","PROCESS=Cooking in water",25,1,1,1,NA,NA,NA,1
 "I.19.10.003.001","Potato soup, liquid","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",51.41,1,1,1,NA,NA,NA,1
-"I.19.10.003.001","Potato soup, liquid","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.9,1,1,1,NA,NA,NA,1
+"I.19.10.003.001","Potato soup, liquid","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.9,1,1,1,NA,NA,NA,1
 "I.19.10.003.001","Potato soup, liquid","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.9,1,1,1,NA,NA,NA,1
 "I.19.10.003.001","Potato soup, liquid","I.16.01.012","Marjoram","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.9,1,7,1,NA,NA,NA,1
 "I.19.10.003.001","Potato soup, liquid","I.16.01.016","Lovage leaves","F28.A07XD","PROCESS=Unspecified",0.9,1,1,1,NA,NA,NA,1
@@ -5309,7 +5310,7 @@
 "I.20.02.003.001","Pudding, bread and butter","A.10.01.002","Brown sugar","To be further disaggregated (d)",NA,8.4,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "I.20.02.003.001","Pudding, bread and butter","A.11.01.001","Butter","To be further disaggregated (d)",NA,6.2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "I.20.02.003.001","Pudding, bread and butter","A.16.02.004","Allspice (Pimenta dioica)","To be further disaggregated (d)",NA,0.4,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
-"I.20.02.003.001","Pudding, bread and butter","A.16.02.027","Nutmeg (Myristica fragans)","F28.A07KG$F28.A07LA","PROCESS=Drying (dehydration), PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
+"I.20.02.003.001","Pudding, bread and butter","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1
 "I.20.02.003.002","Pudding, cereal based","A.01.02.009.006","Rice, white","To be further disaggregated (d)",NA,11,0.56,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.996,1
 "I.20.02.003.002","Pudding, cereal based","A.01.03.001.013","Wheat semolina, soft wheat","To be further disaggregated (d)",NA,11,0.44,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.996,1
 "I.20.02.003.002","Pudding, cereal based","A.05.09.007.012","Fruit compote, Mixed fruit","To be further disaggregated (d)",NA,0.5,0.57,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",0.996,1

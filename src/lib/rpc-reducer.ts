@@ -25,6 +25,7 @@ const TRANSPORT_NET_WEIGHT_PROCESSES = [
   "F28.A0C6E", // Cheesemking
   "F28.NEW01", // Protein Isolate, plant-protein
   "F28.NEW02", // Extrusion, plant-protein
+  "F28.NEW10", // Sundried, no energy
 ];
 
 const TRANSPORT_NET_WEIGHT_PROCESS_EXCEPTION = ["F28.A0BZV", "F28.A07GG"];
