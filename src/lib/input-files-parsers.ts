@@ -41,7 +41,7 @@ export enum CsvValidationErrorType {
   MinRows = "MIN_ROWS",
   MaxRows = "MAX_ROWS",
   MinCols = "MIN_COLS",
-  MaxCols = "MIN_ROWS",
+  MaxCols = "MAX_COLS",
   SingleCol = "SINGLE_COL",
   SemiColon = "SEMI_COLON",
   Empty = "EMPTY",
