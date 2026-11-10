@@ -2,7 +2,16 @@ import { describe, expect, test } from "vitest";
 import reduceDiet from "./rpc-reducer";
 
 // Component, Facet, proportion ([0, 1]%), reverse yield
-type FoodsRecipe = [string, string[], number, number][];
+type FoodsRecipe = [
+  string,
+  string[],
+  number,
+  number,
+  string[],
+  number,
+  number,
+  boolean
+][];
 type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };
 
 describe("RPC reducer", () => {
@@ -390,67 +399,71 @@ describe("RPC reducer", () => {
   });
 
   describe("Transportless Amounts", () => {
-    test("A transportless process appears in map", () => {
+    test("A net-weight transport adjustment appears in map", () => {
       const recipes: FoodsRecipes = {
-        "A.01.example": [["A.01.example", ["F28.A07KD"], 1, 5]],
+        "A.01.example": [
+          ["A.01.example", ["F28.NOT_HARDCODED"], 1, 5, [], 0, 1, true],
+        ],
       };
       const diet: Diet = [["A.01.example", 1000]];
 
-      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+      const [_rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
         diet,
         recipes,
         {},
         {}
       );
 
-      expect(transportless).toEqual({ "A.01.example": 4000 });
+      expect(transportAdjustment).toEqual({ "A.01.example": 4000 });
     });
 
-    test("The exception of polished rice does not appear in map", () => {
+    test("A gross-weight transport flag does not appear in map", () => {
       const recipes: FoodsRecipes = {
-        "A.01.example": [["A.01.example", ["F28.A0BZV", "F28.A07GG"], 1, 5]],
+        "A.01.example": [
+          ["A.01.example", ["F28.A07KD"], 1, 5, [], 0, 1, false],
+        ],
       };
       const diet: Diet = [["A.01.example", 1000]];
 
-      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+      const [_rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
         diet,
         recipes,
         {},
         {}
       );
 
-      expect(transportless).not.toHaveProperty("A.01.example");
+      expect(transportAdjustment).not.toHaveProperty("A.01.example");
     });
 
     test("Does not appear in map if yield is 1", () => {
       const recipes: FoodsRecipes = {
-        "A.01.example": [["A.01.example", ["F28.A07KD"], 1, 1]],
+        "A.01.example": [["A.01.example", ["F28.A07KD"], 1, 1, [], 0, 1, true]],
       };
       const diet: Diet = [["A.01.example", 1000]];
 
-      const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+      const [_rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
         diet,
         recipes,
         {},
         {}
       );
 
-      expect(transportless).not.toHaveProperty("A.01.example");
+      expect(transportAdjustment).not.toHaveProperty("A.01.example");
     });
 
-    describe("A transportless process appears in map for complex recipes", () => {
+    describe("Net-weight transport adjustments for complex recipes", () => {
       test("Case A: Three steps, process in the middle", () => {
         const recipes: FoodsRecipes = {
           // No change
           "A.01.foo": [["A.01.bar", [], 1, 1]],
-          // yield is 4x, but transportless: so 3000 should be transportless
-          "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1, 4]],
-          // Yield is 1.5, but not transportless, so should remain 3000
+          // yield is 4x, but transport is on net weight: 3000 is adjusted
+          "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1, 4, [], 0, 1, true]],
+          // Yield is 1.5, but transport is on gross weight, so 3000 remains
           "A.01.baz": [["A.01.qux", [], 1, 1.5]],
         };
         const diet: Diet = [["A.01.foo", 1000]];
 
-        const [rpcs, _processes, _packaging, transportless] = reduceDiet(
+        const [rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
           diet,
           recipes,
           {},
@@ -458,20 +471,20 @@ describe("RPC reducer", () => {
         );
 
         expect(rpcs).toEqual([["A.01.qux", 6000]]);
-        expect(transportless).toEqual({ "A.01.qux": 3000 });
+        expect(transportAdjustment).toEqual({ "A.01.qux": 3000 });
       });
     });
 
-    describe("All steps transportless", () => {
+    describe("All steps use net-weight transport", () => {
       test("Case B: Three steps, with processes on each", () => {
         const recipes: FoodsRecipes = {
-          "A.01.foo": [["A.01.bar", ["F28.A0C00"], 1.0, 1.1]],
-          "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1.0, 4]],
-          "A.01.baz": [["A.01.qux", ["F28.A0C0B"], 1.0, 1.5]],
+          "A.01.foo": [["A.01.bar", ["F28.A0C00"], 1.0, 1.1, [], 0, 1, true]],
+          "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1.0, 4, [], 0, 1, true]],
+          "A.01.baz": [["A.01.qux", ["F28.A0C0B"], 1.0, 1.5, [], 0, 1, true]],
         };
         const diet: Diet = [["A.01.foo", 1000]];
 
-        const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+        const [_rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
           diet,
           recipes,
           {},
@@ -484,21 +497,21 @@ describe("RPC reducer", () => {
         // 1100 -> 4400 = 3300
         // 4400 -> 6600 = 2200 -> total to subtract = 5600
         // OR: despite 6600 in yield, we only transport 1000
-        expect(transportless).toEqual({ "A.01.qux": 5600 });
+        expect(transportAdjustment).toEqual({ "A.01.qux": 5600 });
       });
 
       test("Case B: Three steps, with processes and ratios", () => {
         const recipes: FoodsRecipes = {
           // 1000 transported, of 1100  (delta = 100)
-          "A.01.foo": [["A.01.bar", ["F28.A0C00"], 1.0, 1.1]],
+          "A.01.foo": [["A.01.bar", ["F28.A0C00"], 1.0, 1.1, [], 0, 1, true]],
           // 550 transported, of 2200 (delta = 1650)
-          "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 0.5, 4]],
+          "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 0.5, 4, [], 0, 1, true]],
           // 2200 transported, of 3300 (delta = 1150)
-          "A.01.baz": [["A.01.qux", ["F28.A0C0B"], 1.0, 1.5]],
+          "A.01.baz": [["A.01.qux", ["F28.A0C0B"], 1.0, 1.5, [], 0, 1, true]],
         };
         const diet: Diet = [["A.01.foo", 1000]];
 
-        const [rpcs, _processes, _packaging, transportless] = reduceDiet(
+        const [rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
           diet,
           recipes,
           {},
@@ -509,43 +522,43 @@ describe("RPC reducer", () => {
 
         // The amount from yields is 3300
         // But in each step, some yields are added that should not be transported.
-        expect(transportless).toEqual({ "A.01.qux": 2850 });
+        expect(transportAdjustment).toEqual({ "A.01.qux": 2850 });
       });
     });
 
     describe("Transportless, mixing ratio and yield", () => {
       test("Case C: Ratio but yield is 1, one step", () => {
         const recipes: FoodsRecipes = {
-          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1]],
+          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1, [], 0, 1, true]],
           "A.16.02.028": [["A.16.02.028", [], 1, 1]],
         };
         const diet: Diet = [["I.19.04.002.002", 1000]];
 
-        const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+        const [_rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
           diet,
           recipes,
           {},
           {}
         );
 
-        expect(transportless).toEqual({});
+        expect(transportAdjustment).toEqual({});
       });
 
       test("Case C: Ratio and yield, one step", () => {
         const recipes: FoodsRecipes = {
-          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1.5]],
+          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1.5, [], 0, 1, true]],
           "A.16.02.028": [["A.16.02.028", [], 1, 1]],
         };
         const diet: Diet = [["I.19.04.002.002", 1000]];
 
-        const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+        const [_rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
           diet,
           recipes,
           {},
           {}
         );
 
-        expect(transportless).toEqual({
+        expect(transportAdjustment).toEqual({
           "A.16.02.028": 2,
         });
       });
@@ -555,41 +568,41 @@ describe("RPC reducer", () => {
        *
        * do not want to record/adjust the transport ratio when the yield is 1. For
        * example, we have a falafel recipe that requires 4% (0.004) of paprika.
-       * This paprika had a "transportless" process, but yield was 1 - so it
-       * shouldn't register as transportless
+       * This recipe uses net-weight transport, but yield is 1 - so it
+       * shouldn't register a transport adjustment
        */
       test("Case C: Ratio but yield is 1, multi-step", () => {
         const recipes: FoodsRecipes = {
           // 1000 -> 4, 0 is transportess
-          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1]],
-          // 4 -> 40, = 36 is transportless
-          "A.16.02.028": [["A.16.foo", ["F28.A07KG"], 1, 10]],
+          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1, [], 0, 1, true]],
+          // 4 -> 40, = 36 is adjusted out of transport
+          "A.16.02.028": [["A.16.foo", ["F28.A07KG"], 1, 10, [], 0, 1, true]],
           // out of 40, 20 is needed (ratio = 0.5), which is 22 after yield. So,
-          // 2 is transportless
-          "A.16.foo": [["A.16.bar", ["F28.A07KG"], 0.5, 1.1]],
+          // 2 is adjusted out of transport
+          "A.16.foo": [["A.16.bar", ["F28.A07KG"], 0.5, 1.1, [], 0, 1, true]],
         };
         const diet: Diet = [["I.19.04.002.002", 1000]];
 
-        const [_rpcs, _processes, _packaging, transportless] = reduceDiet(
+        const [_rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
           diet,
           recipes,
           {},
           {}
         );
 
-        expect(transportless).toEqual({
+        expect(transportAdjustment).toEqual({
           "A.16.bar": 38,
         });
       });
 
       test("Case D: Ratio but yield is 1, one step", () => {
         const recipes: FoodsRecipes = {
-          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 10]],
+          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 10, [], 0, 1, true]],
           "A.16.02.028": [["A.16.02.028", [], 1, 1]],
         };
         const diet: Diet = [["I.19.04.002.002", 1000]];
 
-        const [rpcs, _processes, _packaging, transportless] = reduceDiet(
+        const [rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
           diet,
           recipes,
           {},
@@ -598,7 +611,7 @@ describe("RPC reducer", () => {
 
         expect(rpcs).toEqual([["A.16.02.028", 40]]);
 
-        expect(transportless).toEqual({
+        expect(transportAdjustment).toEqual({
           "A.16.02.028": 36,
         });
       });

@@ -47,6 +47,23 @@ describe("default-input-files.ts", () => {
   test("parseFootprintsRpcs", () =>
     Parsers.parseFootprintsRpcs(footprintsRpcsCsv));
   test("parseFoodsRecipes", () => Parsers.parseFoodsRecipes(foodsRecipesCsv));
+  test("parseFoodsRecipes reads transport weight flag", () => {
+    const recipes = Parsers.parseFoodsRecipes(foodsRecipesCsv);
+
+    expect(recipes["A.01.02.002.002"]?.[0]?.[7]).toBe(true);
+  });
+  test("parseFoodsRecipes rejects missing transport weight column", () => {
+    const csvWithoutTransportColumn = parseCsvFile(foodsRecipesCsv)
+      .slice(0, 2)
+      .map((row) => row.slice(0, 14).join(","))
+      .join("\n");
+
+    expect(() => Parsers.parseFoodsRecipes(csvWithoutTransportColumn)).toThrow(
+      expect.objectContaining({
+        type: Parsers.CsvValidationErrorType.MinCols,
+      })
+    );
+  });
   test("parseWasteRetailAndConsumer", () =>
     Parsers.parseWasteRetailAndConsumer(wasteRetailAndConsumerCsv));
   test("parseDiet", () => Parsers.parseDiet(dietCsv));

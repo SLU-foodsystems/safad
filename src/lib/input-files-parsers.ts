@@ -558,7 +558,7 @@ export function parseFoodsRecipes(recipesCsvStr: string, delimiter = ",") {
   // drop header in csv file
   const data = parseCsvFile(recipesCsvStr, { delimiter }).slice(1);
 
-  const err = validateCsv(data, { minCols: 10 });
+  const err = validateCsv(data, { minCols: 15 });
   if (err) {
     throw new CsvValidationError(err);
   }
@@ -586,8 +586,16 @@ export function parseFoodsRecipes(recipesCsvStr: string, delimiter = ",") {
       _preparationName,
       preparationYield,
       includePreparation,
+      transportOnNetWeight,
     ]) => {
       if (code === "") return; // Empty row
+      const transportOnNetWeightValue = asNumber(transportOnNetWeight!, NaN);
+      if (![0, 1].includes(transportOnNetWeightValue)) {
+        throw new CsvValidationError(
+          CsvValidationErrorType.Other,
+          "Transport on net weight must be 0 or 1"
+        );
+      }
       const value = roundToPrecision(
         (asNumber(perc!, 100) * asNumber(prob!, 1)) / 100,
         3
@@ -614,6 +622,7 @@ export function parseFoodsRecipes(recipesCsvStr: string, delimiter = ",") {
         preparationProcesses,
         asNumber(preparationYield!, 0),
         asNumber(includePreparation!, 1),
+        transportOnNetWeightValue === 1,
       ];
 
       const c = code!;

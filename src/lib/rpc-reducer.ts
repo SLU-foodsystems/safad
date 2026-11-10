@@ -5,50 +5,8 @@
 
 import { getRpcCodeLevel, getRpcCodeSubset } from "@/lib/utils";
 
-// We assume that it is the RPCs, rather than the processed products that are
-// transported (e.g. wheat rather than wheat flour or bread) but make exceptions
-// for some type of products which are typically processed locally, including
-// wine-making, juicing and oil extraction.
-const TRANSPORT_NET_WEIGHT_PROCESSES = [
-  "F28.A07KD", // Curing
-  "F28.A07KF", // Concentration
-  "F28.A07KG", // Drying
-  "F28.A07KQ", // Dehydration
-  "F28.A07LN", // Juicing
-  "F28.A07MF", // Destillation
-  "F28.A07MH", // Churning
-  "F28.A0BZV", // Polishing
-  "F28.A0C00", // Winemaking
-  "F28.A0C02", // Oil production
-  "F28.A0C04", // Sugar production
-  "F28.A0C0B", // Starch production
-  "F28.A0C6E", // Cheesemking
-  "F28.NEW01", // Protein Isolate, plant-protein
-  "F28.NEW02", // Extrusion, plant-protein
-  "F28.NEW10", // Sundried, no energy
-];
-
-const TRANSPORT_NET_WEIGHT_PROCESS_EXCEPTION = ["F28.A0BZV", "F28.A07GG"];
-
 const isPackagingCode = (code: string) => code.startsWith("P");
 const isNotPackagingCode = (code: string) => !isPackagingCode(code);
-
-/**
- * Helper function to check if a combination of processes should be considered
- * 'transportless' or not, based on the two constants above.
- */
-const isTransportlessProcess = (processes: string[]): boolean => {
-  if (processes.length === 0) return false;
-  // Handle the exception of polished rice.
-  if (
-    processes.length === TRANSPORT_NET_WEIGHT_PROCESS_EXCEPTION.length &&
-    processes.every((p) => TRANSPORT_NET_WEIGHT_PROCESS_EXCEPTION.includes(p))
-  ) {
-    return false;
-  }
-
-  return processes.some((p) => TRANSPORT_NET_WEIGHT_PROCESSES.includes(p));
-};
 
 function recordPackaging(
   diet: Diet,
@@ -118,7 +76,7 @@ function reduceToRpcs(
   preparationProcesses: Record<string, string[]>,
 
   // Modifiers
-  recordTransportSubtractionAmount: (rpcCode: string, amount: number) => void,
+  recordTransportAdjustment: (rpcCode: string, amount: number) => void,
   recordProcessesContribution: (
     code: string,
     facet: string,
@@ -127,14 +85,14 @@ function reduceToRpcs(
 
   // State variables
   recordedSpecialProcesses: Set<string> = new Set(),
-  transportSubtractionAmount: number = 0
+  transportAdjustmentAmount: number = 0
 ): Diet {
   const subcomponents = recipes[componentCode];
   if (!subcomponents) {
-    if (transportSubtractionAmount !== 0) {
-      recordTransportSubtractionAmount(
+    if (transportAdjustmentAmount !== 0) {
+      recordTransportAdjustment(
         componentCode,
-        transportSubtractionAmount
+        transportAdjustmentAmount
       );
     }
     return [[componentCode, amount]];
@@ -170,12 +128,14 @@ function reduceToRpcs(
         processes = [],
         ratio = 1,
         yieldFactor = 1,
+        ,
+        ,
+        ,
+        transportOnNetWeight = false,
       ]): Diet => {
-      // HERE: check if process is one of the 'inverse-transport' processes.
-      // If it is, we save the yieldFactor and pass it on to future recursions.
       const netAmount = yieldFactor * ratio * amount;
 
-      let newTransportAdjustmentAmount = transportSubtractionAmount;
+      let newTransportAdjustmentAmount = transportAdjustmentAmount;
 
       // Record the output amount for processes
       // This will always be a process, and never a packaging
@@ -184,7 +144,7 @@ function reduceToRpcs(
         recordProcessesContribution(componentCode, processId, preProcessAmount)
       );
 
-      if (isTransportlessProcess(processes)) {
+      if (transportOnNetWeight) {
         newTransportAdjustmentAmount += netAmount - preProcessAmount;
       }
 
@@ -194,7 +154,7 @@ function reduceToRpcs(
       const isSelfReference = subcomponentCode === componentCode;
       if (isSelfReference) {
         if (newTransportAdjustmentAmount !== 0) {
-          recordTransportSubtractionAmount(
+          recordTransportAdjustment(
             subcomponentCode,
             newTransportAdjustmentAmount
           );
@@ -207,7 +167,7 @@ function reduceToRpcs(
         [subcomponentCode, netAmount],
         recipes,
         preparationProcesses,
-        recordTransportSubtractionAmount,
+        recordTransportAdjustment,
         recordProcessesContribution,
         updatedRecordedSpecialProcesses,
         newTransportAdjustmentAmount
@@ -233,7 +193,7 @@ export default function reduceDietToRpcs(
   Record<string, number>,
 ] {
   const processesAmounts: NestedRecord<string, number> = {};
-  const transportlessAmounts: Record<string, number> = {};
+  const transportAdjustments: Record<string, number> = {};
 
   // Helper function  called for all processes found when traversing the
   // recipes, adding to the above map under its L1 code.
@@ -249,9 +209,9 @@ export default function reduceDietToRpcs(
       (processesAmounts[level1Category][facetCode] || 0) + amount;
   };
 
-  const recordTransportless = (rpcCode: string, amount: number) => {
-    transportlessAmounts[rpcCode] =
-      (transportlessAmounts[rpcCode] || 0) + amount;
+  const recordTransportAdjustment = (rpcCode: string, amount: number) => {
+    transportAdjustments[rpcCode] =
+      (transportAdjustments[rpcCode] || 0) + amount;
   };
 
   const rpcAmounts = diet
@@ -260,7 +220,7 @@ export default function reduceDietToRpcs(
         rpcDerivative,
         recipes,
         preparationProcesses,
-        recordTransportless,
+        recordTransportAdjustment,
         recordProcessContribution
       )
     )
@@ -272,6 +232,6 @@ export default function reduceDietToRpcs(
     aggregateDuplicateRpcs(rpcAmounts),
     processesAmounts,
     packagingAmounts,
-    transportlessAmounts,
+    transportAdjustments,
   ];
 }

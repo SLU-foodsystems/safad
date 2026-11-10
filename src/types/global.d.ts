@@ -18,7 +18,8 @@ declare global {
 
   // FoodEx2.2 recipes
   // component, facet(s), share, reverse yield × allocation, preparation,
-  // preparation reverse yield, include component preparation
+  // preparation reverse yield, include component preparation, transport on net
+  // weight
   type FoodsRecipeElement = [
     string,
     string[]?,
@@ -27,6 +28,7 @@ declare global {
     string[],
     number,
     number,
+    boolean,
   ];
   type FoodsRecipeEntry = FoodsRecipeElement[];
   type FoodsRecipes = {

@@ -273,7 +273,7 @@ class ResultsEngine {
       rpcAmounts,
       _processingAmounts,
       packagingAmounts,
-      transportlessAmounts,
+      transportAdjustments,
     ] = this.reduceDiet(diet, withWaste);
 
     const rpcImpacts = Object.fromEntries(
@@ -326,7 +326,7 @@ class ResultsEngine {
         rpcCode,
         computeTransportEmissions(
           rpcCode,
-          amount - (transportlessAmounts[rpcCode] || 0),
+          amount - (transportAdjustments[rpcCode] || 0),
           rpcOriginWasteFull,
           emissionsFactorsTransport
         ),
