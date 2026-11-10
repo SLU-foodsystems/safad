@@ -99,4 +99,20 @@ describe("diet-output-generator.ts", async () => {
       }
     });
   });
+
+  test("Process impacts include retail and consumer waste", () => {
+    const food = "A.01.03.001.008";
+    const process = "F28.A0C03";
+    const withoutWaste = RE.computeImpacts([[food, 1000]], false)[1][
+      "A.01"
+    ]![process]!;
+    const withWaste = RE.computeImpacts([[food, 1000]], true)[1]["A.01"]![
+      process
+    ]!;
+    const wasteFactor = 1 / ((1 - 0.02) * (1 - 0.25));
+
+    withWaste.forEach((impact, index) => {
+      expect(impact / withoutWaste[index]!).toBeCloseTo(wasteFactor, 12);
+    });
+  });
 });

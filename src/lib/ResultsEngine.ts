@@ -269,12 +269,16 @@ class ResultsEngine {
       );
     }
 
+    const dietWithWaste = withWaste
+      ? adjustDietForWaste(diet, this.wasteRetailAndConsumer!)
+      : diet;
+
     const [
       rpcAmounts,
       _processingAmounts,
       packagingAmounts,
       transportAdjustments,
-    ] = this.reduceDiet(diet, withWaste);
+    ] = this.reduceDiet(dietWithWaste, false);
 
     const rpcImpacts = Object.fromEntries(
       rpcAmounts.map(([rpc, amountGram]) => [
@@ -285,7 +289,7 @@ class ResultsEngine {
 
     // Per-process impacts
     const processesEnvImpacts = computeDietProcessImpacts(
-      diet,
+      dietWithWaste,
       this.foodsRecipes!,
       this.processesEnergyDemands!,
       this.emissionsFactorsEnergy!,
