@@ -2040,11 +2040,24 @@ write_excel_csv(
 ############################ SELECT THE FEED DATA  #############################
 ################################################################################
 
+source("./modules/generate-wheat-bran-footprints.R")
+
 add_wheat_bran <- function(df) {
+  wheat_bran_sua_code = "0111b"
+  wheat_bran_process_data <- generate_wheat_bran_footprints() |>
+    transmute(
+      Code = wheat_bran_sua_code,
+      Country_code = `Country code`,
+      Proc_CO2e = `Processing (kg CO2e)`,
+      Proc_CO2 = `Processing (kg CO2)`,
+      Proc_CH4f = `Processing (kg CH4, fossil)`,
+      Proc_N2O = `Processing (kg N2O)`
+    )
+
   wheat_bran <- df |>
     filter(Code == "0111") |>
     mutate(
-      Code = "0111b",
+      Code = wheat_bran_sua_code,
       Name = "Wheat bran",
       Category = "By-products",
       across(
@@ -2059,9 +2072,17 @@ add_wheat_bran <- function(df) {
         )),
         ~ . * 0.09
       )
-    )
+    ) |>
+    left_join(wheat_bran_process_data, by = c("Code", "Country_code"))
 
-  df |> rows_upsert(wheat_bran, by = c("Code", "Country_code"))
+  df |>
+    mutate(
+      Proc_CO2e = 0,
+      Proc_CO2 = 0,
+      Proc_CH4f = 0,
+      Proc_N2O = 0
+    ) |>
+    rows_upsert(wheat_bran, by = c("Code", "Country_code"))
 }
 
 # To use the feed data in the animal files, we need to disaggregate the GHGs
@@ -2135,7 +2156,12 @@ feed_data <- merged_data |>
     Water,
     Pesticides,
     Biodiversity,
-    Ammonia
+    Ammonia,
+
+    Proc_CO2e,
+    Proc_CO2,
+    Proc_CH4f,
+    Proc_N2O
   )
 
 # Write to file
