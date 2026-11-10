@@ -24,7 +24,7 @@
 "A.01.02.009.003","Rice, mixed","A.01.02.009.007","Rice, wild","F28.A07XD","PROCESS=Unspecified",25,1,1,1,NA,NA,NA,1,0
 "A.01.02.009.004","Rice, parboiled","A.01.02.009","Rice","F28.A0BZV$F28.A07LK","PROCESS=Polishing, PROCESS=Parboiling / pre-gelatinising",100,1,1.11,0.91,NA,NA,NA,1,0
 "A.01.02.009.006","Rice, white","A.01.02.009","Rice","F28.A0BZV","PROCESS=Polishing",100,1,1.11,0.91,NA,NA,NA,1,0
-"A.01.02.009.007","Rice, wild","A.01.02.009.007","Rice, wild","F28.A07GG","PROCESS=Cooking in water",100,1,0.34,1,NA,NA,NA,1,0
+"A.01.02.009.007","Rice, wild","A.01.02.009.007","Rice, wild","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1,0
 "A.01.02.010.001","Mixture of grains","A.01.02.001.002","Wheat grain, Durum","F28.A07XD","PROCESS=Unspecified",20,1,1,1,NA,NA,NA,1,0
 "A.01.02.010.001","Mixture of grains","A.01.02.001.003","Wheat grain, soft","F28.A07XD","PROCESS=Unspecified",20,1,1,1,NA,NA,NA,1,0
 "A.01.02.010.001","Mixture of grains","A.01.02.002.001","Barley grain, whole","F28.A07XD","PROCESS=Unspecified",20,1,1,1,NA,NA,NA,1,0
@@ -1461,19 +1461,19 @@
 "A.06.09.001.005","Bockwurst","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07GG","Cooking in water",0.789,1,1
 "A.06.09.001.005","Bockwurst","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.5,1,1,1,"F28.A07GG","Cooking in water",0.789,1,0
 "A.06.09.001.005","Bockwurst","I.16.02.034","Onions, dried","To be further disaggregated (d)",NA,0.5,1,1,1,"F28.A07GG","Cooking in water",0.789,1,0
-"A.06.09.002.002","Mettwurst, sausage","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD","PROCESS=Unspecified",29.16,1,1,1,"F28.A07KG","Drying, dehydration",1.099,1,0
-"A.06.09.002.002","Mettwurst, sausage","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD","PROCESS=Unspecified",29.16,1,1,1,"F28.A07KG","Drying, dehydration",1.099,1,0
-"A.06.09.002.002","Mettwurst, sausage","A.06.08.007","Bacon","To be further disaggregated (d)",NA,38.88,1,1,1,"F28.A07KG","Drying, dehydration",1.099,1,0
-"A.06.09.002.002","Mettwurst, sausage","A.10.01.008","Glucose","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.099,1,0
-"A.06.09.002.002","Mettwurst, sausage","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.099,1,0
-"A.06.09.002.002","Mettwurst, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.099,1,1
-"A.06.09.002.002","Mettwurst, sausage","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.2,1,1,1,"F28.A07KG","Drying, dehydration",1.099,1,0
-"A.06.09.002.003","Kielbasa, sausage","A.02.02.001","Garlic, bulb (Allium sativum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",0.3,1,1,1,"F28.A07KG","Drying, dehydration",1.15,1,0
-"A.06.09.002.003","Kielbasa, sausage","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD","PROCESS=Unspecified",88.8,1,1,1,"F28.A07KG","Drying, dehydration",1.15,1,0
-"A.06.09.002.003","Kielbasa, sausage","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.15,1,0
-"A.06.09.002.003","Kielbasa, sausage","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",8.9,1,1,1,"F28.A07KG","Drying, dehydration",1.15,1,0
-"A.06.09.002.003","Kielbasa, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.15,1,1
-"A.06.09.002.003","Kielbasa, sausage","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,"F28.A07KG","Drying, dehydration",1.15,1,0
+"A.06.09.002.002","Mettwurst, sausage","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD","PROCESS=Unspecified",29.16,1,1,1,"F28.A07KG","Drying (dehydration)",1.099,1,0
+"A.06.09.002.002","Mettwurst, sausage","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD","PROCESS=Unspecified",29.16,1,1,1,"F28.A07KG","Drying (dehydration)",1.099,1,0
+"A.06.09.002.002","Mettwurst, sausage","A.06.08.007","Bacon","To be further disaggregated (d)",NA,38.88,1,1,1,"F28.A07KG","Drying (dehydration)",1.099,1,0
+"A.06.09.002.002","Mettwurst, sausage","A.10.01.008","Glucose","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying (dehydration)",1.099,1,0
+"A.06.09.002.002","Mettwurst, sausage","A.16.02.001","Paprika powder","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying (dehydration)",1.099,1,0
+"A.06.09.002.002","Mettwurst, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying (dehydration)",1.099,1,1
+"A.06.09.002.002","Mettwurst, sausage","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.2,1,1,1,"F28.A07KG","Drying (dehydration)",1.099,1,0
+"A.06.09.002.003","Kielbasa, sausage","A.02.02.001","Garlic, bulb (Allium sativum)","F28.A0BA1","PROCESS=Cooking and similar thermal preparation processes",0.3,1,1,1,"F28.A07KG","Drying (dehydration)",1.15,1,0
+"A.06.09.002.003","Kielbasa, sausage","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD","PROCESS=Unspecified",88.8,1,1,1,"F28.A07KG","Drying (dehydration)",1.15,1,0
+"A.06.09.002.003","Kielbasa, sausage","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying (dehydration)",1.15,1,0
+"A.06.09.002.003","Kielbasa, sausage","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",8.9,1,1,1,"F28.A07KG","Drying (dehydration)",1.15,1,0
+"A.06.09.002.003","Kielbasa, sausage","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying (dehydration)",1.15,1,1
+"A.06.09.002.003","Kielbasa, sausage","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.6,1,1,1,"F28.A07KG","Drying (dehydration)",1.15,1,0
 "A.06.09.003.001","Blood sausage","I.06.09.003.005","Blood sausage, Pork","To be further disaggregated (d)",NA,100,1,1,1,NA,NA,NA,1,0
 "A.06.09.003.002","Blood and tongue sausage","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG$F02.A06AL","PROCESS=Cooking in water, PART-NATURE=Blood (as part-nature)",19.58,1,1,1,"F28.A07GG","Cooking in water",0.844,1,0
 "A.06.09.003.002","Blood and tongue sausage","A.06.01.001","Beef meat (Bos spp.)","F28.A07XD","PROCESS=Unspecified",14.68,1,1,1,"F28.A07GG","Cooking in water",0.844,1,0
@@ -1558,23 +1558,23 @@
 "A.06.09.004.009x","Falukorv (common Swedish sausage)","A.11.01.004","Pork lard (Schmaltz)","F28.A07GG","PROCESS=Cooking in water",10,1,1.1,1,"F28.A07GG","Cooking in water",0.336,1,0
 "A.06.09.004.009x","Falukorv (common Swedish sausage)","A.15.01","Tap water","F28.A07XD","PROCESS=Unspecified",27,1,1,1,"F28.A07GG","Cooking in water",0.336,1,0
 "A.06.09.004.009x","Falukorv (common Swedish sausage)","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2,1,1,1,"F28.A07GG","Cooking in water",0.336,1,0
-"A.06.09.005.004","Goteborg cervelat","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG","PROCESS=Cooking in water",38.5,1,1.25,1,"F28.A07KG","Drying, dehydration",1.25,1,0
-"A.06.09.005.004","Goteborg cervelat","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GG","PROCESS=Cooking in water",38.5,1,1.25,1,"F28.A07KG","Drying, dehydration",1.25,1,0
-"A.06.09.005.004","Goteborg cervelat","A.06.08.007","Bacon","To be further disaggregated (d)",NA,19.2,1,1.25,1,"F28.A07KG","Drying, dehydration",1.25,1,0
-"A.06.09.005.004","Goteborg cervelat","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.25,1,0
-"A.06.09.005.004","Goteborg cervelat","A.10.01.008","Glucose","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.25,1,0
-"A.06.09.005.004","Goteborg cervelat","A.16.02.011","Cardamom (Elettaria cardamomum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.25,1,1
-"A.06.09.005.004","Goteborg cervelat","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.25,1,1
-"A.06.09.005.004","Goteborg cervelat","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07KG","Drying, dehydration",1.25,1,1
-"A.06.09.005.004","Goteborg cervelat","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.7,1,1,1,"F28.A07KG","Drying, dehydration",1.25,1,0
-"A.06.09.005.006","Landjaeger cervelat","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG","PROCESS=Cooking in water",28.9,1,1.5,1,"F28.A07KG","Drying, dehydration",1.5,1,0
-"A.06.09.005.006","Landjaeger cervelat","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GG","PROCESS=Cooking in water",47.3,1,1.5,1,"F28.A07KG","Drying, dehydration",1.5,1,0
-"A.06.09.005.006","Landjaeger cervelat","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",20.3,1,1.5,1,"F28.A07KG","Drying, dehydration",1.5,1,0
-"A.06.09.005.006","Landjaeger cervelat","A.10.01.008","Glucose","To be further disaggregated (d)",NA,0.3,1,1,1,"F28.A07KG","Drying, dehydration",1.5,1,0
-"A.06.09.005.006","Landjaeger cervelat","A.16.02.017","Cumin seed (Cuminum cyminum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying, dehydration",1.5,1,1
-"A.06.09.005.006","Landjaeger cervelat","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07KG","Drying, dehydration",1.5,1,1
-"A.06.09.005.006","Landjaeger cervelat","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07KG","Drying, dehydration",1.5,1,1
-"A.06.09.005.006","Landjaeger cervelat","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.6,1,1,1,"F28.A07KG","Drying, dehydration",1.5,1,0
+"A.06.09.005.004","Goteborg cervelat","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG","PROCESS=Cooking in water",38.5,1,1.25,1,"F28.A07KG","Drying (dehydration)",1.25,1,0
+"A.06.09.005.004","Goteborg cervelat","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GG","PROCESS=Cooking in water",38.5,1,1.25,1,"F28.A07KG","Drying (dehydration)",1.25,1,0
+"A.06.09.005.004","Goteborg cervelat","A.06.08.007","Bacon","To be further disaggregated (d)",NA,19.2,1,1.25,1,"F28.A07KG","Drying (dehydration)",1.25,1,0
+"A.06.09.005.004","Goteborg cervelat","A.10.01.001","White sugar","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying (dehydration)",1.25,1,0
+"A.06.09.005.004","Goteborg cervelat","A.10.01.008","Glucose","To be further disaggregated (d)",NA,0.2,1,1,1,"F28.A07KG","Drying (dehydration)",1.25,1,0
+"A.06.09.005.004","Goteborg cervelat","A.16.02.011","Cardamom (Elettaria cardamomum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying (dehydration)",1.25,1,1
+"A.06.09.005.004","Goteborg cervelat","A.16.02.016","Coriander seed (Coriandrum sativum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying (dehydration)",1.25,1,1
+"A.06.09.005.004","Goteborg cervelat","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07KG","Drying (dehydration)",1.25,1,1
+"A.06.09.005.004","Goteborg cervelat","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.7,1,1,1,"F28.A07KG","Drying (dehydration)",1.25,1,0
+"A.06.09.005.006","Landjaeger cervelat","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG","PROCESS=Cooking in water",28.9,1,1.5,1,"F28.A07KG","Drying (dehydration)",1.5,1,0
+"A.06.09.005.006","Landjaeger cervelat","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GG","PROCESS=Cooking in water",47.3,1,1.5,1,"F28.A07KG","Drying (dehydration)",1.5,1,0
+"A.06.09.005.006","Landjaeger cervelat","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07XD$F02.A069J","PROCESS=Unspecified, PART-NATURE=Fat tissue (as part-nature)",20.3,1,1.5,1,"F28.A07KG","Drying (dehydration)",1.5,1,0
+"A.06.09.005.006","Landjaeger cervelat","A.10.01.008","Glucose","To be further disaggregated (d)",NA,0.3,1,1,1,"F28.A07KG","Drying (dehydration)",1.5,1,0
+"A.06.09.005.006","Landjaeger cervelat","A.16.02.017","Cumin seed (Cuminum cyminum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.2,1,1,1,"F28.A07KG","Drying (dehydration)",1.5,1,1
+"A.06.09.005.006","Landjaeger cervelat","A.16.02.027","Nutmeg (Myristica fragans)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.1,1,1,1,"F28.A07KG","Drying (dehydration)",1.5,1,1
+"A.06.09.005.006","Landjaeger cervelat","A.16.02.028","Pepper, black and white (Piper nigrum)","F28.NEW10$F28.A07LA","PROCESS=Sun drying, PROCESS=Grinding / milling / crushing",0.3,1,1,1,"F28.A07KG","Drying (dehydration)",1.5,1,1
+"A.06.09.005.006","Landjaeger cervelat","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",2.6,1,1,1,"F28.A07KG","Drying (dehydration)",1.5,1,0
 "A.06.09.005.008","Mortadella","A.04.04.007","Mustard seed (Brassica nigra)","F28.A07XD","PROCESS=Unspecified",0.1,1,1,1,NA,NA,NA,1,0
 "A.06.09.005.008","Mortadella","A.06.01.001","Beef meat (Bos spp.)","F28.A07GG","PROCESS=Cooking in water",21.6,1,1.1,1,NA,NA,NA,1,0
 "A.06.09.005.008","Mortadella","A.06.01.003","Pork / piglet meat (Sus scrofa)","F28.A07GG","PROCESS=Cooking in water",51.8,1,1.1,1,NA,NA,NA,1,0
@@ -1827,9 +1827,9 @@
 "A.08.03.002.002","Condensed milk 4% fat","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07KM","PROCESS=Condensing milk (concentration + sugars)",100,1,2.86,1,NA,NA,NA,1,0
 "A.08.03.002.003","Condensed milk 7.5 % fat","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07KM","PROCESS=Condensing milk (concentration + sugars)",100,1,2.86,1,NA,NA,NA,1,0
 "A.08.03.002.004","Condensed milk 10 % fat","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07KM","PROCESS=Condensing milk (concentration + sugars)",100,1,2.86,1,NA,NA,NA,1,0
-"A.08.03.003.001","Milk powder, whole","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,7.86,1,NA,NA,NA,0,1
-"A.08.03.003.002","Milk powder, semi-skimmed","A.08.01.001.003","Cow milk, 1 - 2.9% fat (semi-skimmed milk)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,9.16,1,NA,NA,NA,0,1
-"A.08.03.003.003","Milk powder, skimmed","A.08.01.001.004","Cow milk, < 1% fat (skimmed milk)","F28.A07KG","PROCESS=Drying (dehydration)",100,1,10.36,1,NA,NA,NA,0,1
+"A.08.03.003.001","Milk powder, whole","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A07XD","PROCESS=Unspecified",100,1,7.86,1,"F28.NEW12","Milk powder production (evaporation + spray drying, per kg powder)",1,0,1
+"A.08.03.003.002","Milk powder, semi-skimmed","A.08.01.001.003","Cow milk, 1 - 2.9% fat (semi-skimmed milk)","F28.A07XD","PROCESS=Unspecified",100,1,9.16,1,"F28.NEW12","Milk powder production (evaporation + spray drying, per kg powder)",1,0,1
+"A.08.03.003.003","Milk powder, skimmed","A.08.01.001.004","Cow milk, < 1% fat (skimmed milk)","F28.A07XD","PROCESS=Unspecified",100,1,10.36,1,"F28.NEW12","Milk powder production (evaporation + spray drying, per kg powder)",1,0,1
 "A.08.04.001.001","Whey, plain","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0C6E$F02.A06BB","PROCESS=Cheesemaking, PART-NATURE=Whey (as part-nature)",100,1,1.37,0.06,NA,NA,NA,0,1
 "A.08.04.001.002","Whey, sweet, fluid","A.08.04.001.001","Whey, plain","To be further disaggregated (d)",NA,100,1,1,1,NA,NA,NA,1,0
 "A.08.04.001.003","Whey with cacao/chocolate","A.02.11.002","Cocoa powder","To be further disaggregated (d)",NA,1.5,1,1,1,NA,NA,NA,1,0
@@ -1846,7 +1846,7 @@
 "A.08.04.001.008","Whey with other ingredients","A.10.01.001","White sugar","To be further disaggregated (d)",NA,8,1,1,1,NA,NA,NA,1,0
 "A.08.04.001.008","Whey with other ingredients","A.16.09.002","Vanilla essence","To be further disaggregated (d)",NA,0.4,1,1,1,NA,NA,NA,1,0
 "A.08.04.001.010","Whey, sour","A.08.04.001.001","Whey, plain","To be further disaggregated (d)",NA,100,1,1,1,NA,NA,NA,1,0
-"A.08.04.002.002","Whey powder","A.08.04.001.001","Whey, plain","F28.A07KG","PROCESS=Drying (dehydration)",100,1,6.67,1,NA,NA,NA,0,1
+"A.08.04.002.002","Whey powder","A.08.04.001.001","Whey, plain","F28.A07XD","PROCESS=Unspecified",100,1,14.85,1,"F28.NEW12","Milk powder production (evaporation + spray drying, per kg powder)",1,0,1
 "A.08.05.001.001","Cream 10% fat","A.08.05.001.004","Cream 40 % fat","F28.A0EKQ$F02.A06BA","PROCESS=Separation (in liquid phase), PART-NATURE=Cream (as part-nature)",24.05,1,1,1,"F28.NEW09","Market milk processing (whole dairy: drinking milk, cream)",1,0,0
 "A.08.05.001.001","Cream 10% fat","A.08.01.001.004","Cow milk, < 1% fat (skimmed milk)","F28.A0EKQ$F02.A06BA","PROCESS=Separation (in liquid phase), PART-NATURE=Cream (as part-nature)",75.95,1,1,1,"F28.NEW09","Market milk processing (whole dairy: drinking milk, cream)",1,0,0
 "A.08.05.001.002","Cream 20% fat","A.08.05.001.004","Cream 40 % fat","F28.A0EKQ$F02.A06BA","PROCESS=Separation (in liquid phase), PART-NATURE=Cream (as part-nature)",49.37,1,1,1,"F28.NEW09","Market milk processing (whole dairy: drinking milk, cream)",1,0,0
@@ -1855,7 +1855,7 @@
 "A.08.05.001.003","Cream 30 % fat","A.08.01.001.004","Cow milk, < 1% fat (skimmed milk)","F28.A0EKQ$F02.A06BA","PROCESS=Separation (in liquid phase), PART-NATURE=Cream (as part-nature)",25.32,1,1,1,"F28.NEW09","Market milk processing (whole dairy: drinking milk, cream)",1,0,0
 "A.08.05.001.004","Cream 40 % fat","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0EKQ$F02.A06BA","PROCESS=Separation (in liquid phase), PART-NATURE=Cream (as part-nature)",100,1,13.1667,0.2402,"F28.NEW09","Market milk processing (whole dairy: drinking milk, cream)",1,0,0
 "A.08.05.001.005","Cream, > 50% fat (inc. clotted cream)","A.08.01.001.002","Cow milk, 3 - 4% fat (whole milk)","F28.A0EKQ$F02.A06BA","PROCESS=Separation (in liquid phase), PART-NATURE=Cream (as part-nature)",100,1,16.5,0.2402,"F28.NEW09","Market milk processing (whole dairy: drinking milk, cream)",1,0,0
-"A.08.05.001.006","Cream powder","A.08.05.001.004","Cream 40 % fat","F28.A07KG","PROCESS=Drying (dehydration)",100,1,2.15,1,NA,NA,NA,0,1
+"A.08.05.001.006","Cream powder","A.08.05.001.004","Cream 40 % fat","F28.A07XD","PROCESS=Unspecified",100,1,2.15,1,"F28.NEW12","Milk powder production (evaporation + spray drying, per kg powder)",0.75,0,1
 "A.08.05.002.001","Coffee cream 10 % fat","A.08.05.001.004","Cream 40 % fat","F28.A0EKQ$F02.A06BA","PROCESS=Separation (in liquid phase), PART-NATURE=Cream (as part-nature)",24.05,1,1,1,"F28.NEW09","Market milk processing (whole dairy: drinking milk, cream)",1,0,0
 "A.08.05.002.001","Coffee cream 10 % fat","A.08.01.001.004","Cow milk, < 1% fat (skimmed milk)","F28.A0EKQ$F02.A06BA","PROCESS=Separation (in liquid phase), PART-NATURE=Cream (as part-nature)",75.95,1,1,1,"F28.NEW09","Market milk processing (whole dairy: drinking milk, cream)",1,0,0
 "A.08.05.002.002","Coffee cream 12% fat","A.08.05.001.004","Cream 40 % fat","F28.A0EKQ$F02.A06BA","PROCESS=Separation (in liquid phase), PART-NATURE=Cream (as part-nature)",29.11,1,1,1,"F28.NEW09","Market milk processing (whole dairy: drinking milk, cream)",1,0,0
@@ -3115,7 +3115,7 @@
 "A.18.03.002","Carbohydrate-electrolyte solutions for sports people","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.1,1,1,1,NA,NA,NA,1,0
 "A.18.03.002","Carbohydrate-electrolyte solutions for sports people","I.16.09.009","Citric acid","F28.A0C0R","PROCESS=Processed",0.3,1,1,1,NA,NA,NA,1,0
 "A.18.03.003","Protein and protein components for sports people","A.08.07.002","Milk protein",NA,NA,100,1,1,1,NA,NA,NA,1,0
-"A.18.03.005","Carnitine-based supplement for sports people","A.18.03.005","Carnitine-based supplement for sports people","To be further disaggregated (d)",NA,100,1,1,1,NA,NA,NA,1,0
+"A.18.03.005","Carnitine-based supplement for sports people","A.18.03.005","Carnitine-based supplement for sports people","F28.A07XD","PROCESS=Unspecified",100,1,1,1,NA,NA,NA,1,0
 "A.18.04.001","Fine bakery products for diabetics","A.01.07.002.010","Biscuits, oat meal","To be further disaggregated (d)",NA,100,1,1,1,"F28.A0BA1","Cooking and similar thermal preparation processes",1,1,0
 "A.18.04.003","Chocolate and chocolate products for diabetics","I.10.03.013.002","Dietetic milk chocolate","To be further disaggregated (d)",NA,100,1,1,1,NA,NA,NA,1,0
 "A.18.04.004","Confectionary for diabetics","A.10.04.001","Candies, with sugar","To be further disaggregated (d)",NA,100,1,1,1,NA,NA,NA,1,0
@@ -3468,9 +3468,9 @@
 "A.19.11.010","Prepared mixed egg/meat/fish/vegetable salad","I.01.05.016","Plain pasta, cooked","To be further disaggregated (d)",NA,43,0.44,1,1,NA,NA,NA,1,0
 "A.19.11.010","Prepared mixed egg/meat/fish/vegetable salad","I.06.08.016","Cooked Ham, Pork","To be further disaggregated (d)",NA,10,0.6,1,1,NA,NA,NA,1,0
 "A.19.11.010","Prepared mixed egg/meat/fish/vegetable salad","I.16.06.007","Salad dressing, non specified","To be further disaggregated (d)",NA,16,1,1,1,NA,NA,NA,1,0
-"A.20.01.001","Potato crisps","A.03.01.002","Main-crop potatoes","F28.A07XD","PROCESS=Unspecified",65.5,1,5.2,1,"F28.NEW12","Potato processing – crisps (per kg product)",1,1,0
-"A.20.01.001","Potato crisps","A.11.04.017","Sunflower oil","To be further disaggregated (d)",NA,33,1,1,1,"F28.NEW12","Potato processing – crisps (per kg product)",1,1,0
-"A.20.01.001","Potato crisps","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.5,1,1,1,"F28.NEW12","Potato processing – crisps (per kg product)",1,1,0
+"A.20.01.001","Potato crisps","A.03.01.002","Main-crop potatoes","F28.A07XD","PROCESS=Unspecified",65.5,1,5.2,1,"F28.NEW11","Potato processing – crisps (per kg product)",1,1,0
+"A.20.01.001","Potato crisps","A.11.04.017","Sunflower oil","To be further disaggregated (d)",NA,33,1,1,1,"F28.NEW11","Potato processing – crisps (per kg product)",1,1,0
+"A.20.01.001","Potato crisps","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",1.5,1,1,1,"F28.NEW11","Potato processing – crisps (per kg product)",1,1,0
 "A.20.01.002","Corn chips","A.01.03.004.001","Corn flour","To be further disaggregated (d)",NA,79.1,1,1,1,"F28.A07GR","Frying",1.4,1,0
 "A.20.01.002","Corn chips","A.11.04.009","Palm kernel oil","To be further disaggregated (d)",NA,20,1,1,1,"F28.A07GR","Frying",1.4,1,0
 "A.20.01.002","Corn chips","A.16.04.001","Salt","F28.A07XD","PROCESS=Unspecified",0.9,1,1,1,"F28.A07GR","Frying",1.4,1,0
