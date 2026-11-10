@@ -27,7 +27,7 @@ export function getProcessEnvFactors(
   const result: Record<string, number[]> = {};
   Object.entries(processEnergyDemands).forEach(
     ([processCode, demandPerCarrier]) => {
-      const factors = Array.from({ length: N_PROCESS_GHGS }).map((_) => 0);
+      const factors = Array.from({ length: N_PROCESS_GHGS }).map(() => 0);
       demandPerCarrier.forEach((mjPerKg, carrierIdx) => {
         // Exit early if we're not using this energyType
         if (mjPerKg === 0) return;

@@ -177,7 +177,7 @@ export async function generateSfaResults(
       );
       const totalImpactsVector: string[] =
         missingRpcImpacts.length > 0
-          ? AGGREGATE_HEADERS.map((_) => "NA")
+          ? AGGREGATE_HEADERS.map(() => "NA")
           : aggregateImpacts(
               totalImpacts[0] as Record<string, number[]>,
               addProcesses(totalProcessImpacts, sfaProcesses, RE),

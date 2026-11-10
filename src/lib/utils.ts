@@ -293,8 +293,7 @@ export function parseCsvFile(
   }
 
   if (options.removeTrailingRows) {
-    const isEmptyRow = (row: string[]) =>
-      row.length === 0 || row.every((x) => x === "");
+    const isEmptyRow = (row: string[]) => row.every((x) => x === "");
 
     while (rows.length > 0 && isEmptyRow(rows[rows.length - 1] || [])) {
       rows.pop();
