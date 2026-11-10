@@ -592,7 +592,7 @@ df_LUC_strategy <- read_csv(
   # Clean data: remove OWID aggregates
   filter(!grepl("^OWID_", `Area Code (ISO3)`)) |>
   # Add in total agr. land use
-  left_join(faostat_agr_land_use, by = "Area Code (ISO3)") |>
+  left_join(faostat_agr_land_use, by = c("Area Code (ISO3)", "Year")) |>
   # Note: no NA values in Permanent Agriculture present, very few in
   # FAOSTAT land-use data (small countries)
   mutate(share = `Permanent agriculture` / agr_lu_ha) |>
