@@ -45,8 +45,9 @@
 "F28.NEW03","Homogenisation",0.016272,0.016272,NA,NA,NA,NA,NA,NA,NA,NA
 "F28.NEW04","Pasteurization",0.0863052549019608,0.0223146666666667,NA,0.0639905882352941,NA,NA,NA,NA,NA,NA
 "F28.NEW05","Boiling Water / Coffe Brewing",0.576,0.576,NA,NA,NA,NA,NA,NA,NA,NA
-"F28.NEW06","Potato processing (French fries, crisps and other industrial potato products)",3.01621621621622,0.904864864864865,NA,2.11135135135135,NA,NA,NA,NA,NA,NA
+"F28.NEW06","Potato processing – French fries and similar (per kg product)",3.6,1.08,NA,2.52,NA,NA,NA,NA,NA,NA
 "F28.NEW07","Instant coffee / tea production (extraction, evaporation, drying)",16.8545454545455,3.76363636363636,NA,13.0909090909091,NA,NA,NA,NA,NA,NA
 "F28.NEW08","Brewing (beer, malt drinks)",1.26,0.315,NA,0.945,NA,NA,NA,NA,NA,NA
 "F28.NEW09","Market milk processing (whole dairy: drinking milk, cream)",0.36,0.072,NA,0.288,NA,NA,NA,NA,NA,NA
 "F28.NEW10","Sun drying (and drying at origin without fuel)",0,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"F28.NEW12","Potato processing – crisps (per kg product)",7.56,2.268,NA,5.292,NA,NA,NA,NA,NA,NA
