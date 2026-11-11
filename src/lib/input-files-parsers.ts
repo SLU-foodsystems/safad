@@ -147,9 +147,7 @@ export function parseEmissionsFactorsEnergy(
         `Missing countryCode when parsing energy emissions factors file for row ${idx}.`
       );
     }
-    if (!emissionsFactors[carrier]) {
-      emissionsFactors[carrier] = {};
-    }
+    emissionsFactors[carrier] ??= {}
     emissionsFactors[carrier][countryCode] = ghgs;
   });
 
