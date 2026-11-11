@@ -100,9 +100,9 @@ out <- bind_rows(
   transmute(
     `Energy carrier`,
     `Country code`,
-    `Carbon dioxide` = CO2,
-    `Methane, fossil` = CH4,
-    `Nitrous oxide` = N2O
+    `Carbon dioxide (kg / MJ)` = CO2,
+    `Methane, fossil (kg / MJ)` = CH4,
+    `Nitrous oxide (kg / MJ)` = N2O
   )
 
 write_csv(out, "../src/default-input-files/SAFAD IEF Energy.csv")
