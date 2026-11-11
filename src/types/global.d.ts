@@ -21,14 +21,14 @@ declare global {
   // preparation reverse yield, include component preparation, transport on net
   // weight
   type FoodsRecipeElement = [
-    string,
-    string[]?,
-    number?,
-    number?,
-    string[],
-    number,
-    number,
-    boolean,
+    string, // rpcCode
+    string[], // processFacets
+    number, // share [0,1]
+    number, // reverse yield x allocation factor [0, +inf)
+    string[], // preparationProcessFacets
+    number, // preparationReverseYield
+    boolean, // include component preparation
+    boolean?, // transportOnNetWeight
   ];
   type FoodsRecipeEntry = FoodsRecipeElement[];
   type FoodsRecipes = {

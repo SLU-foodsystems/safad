@@ -32,8 +32,8 @@ describe("PDF processing-energy examples", () => {
 
   test("reports gross and net intermediate recipe amounts", () => {
     const amounts = computeFoodRecipeAmounts({
-      food: [["ingredient", [], 0.5, 0.8, [], 0, 1]],
-      ingredient: [["raw", [], 0.25, 0.5, [], 0, 1]],
+      food: [["ingredient", [], 0.5, 0.8, [], 0, true, false]],
+      ingredient: [["raw", [], 0.25, 0.5, [], 0, true, false]],
     });
 
     expect(amounts.food).toEqual([

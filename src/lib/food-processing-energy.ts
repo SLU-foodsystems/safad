@@ -82,7 +82,7 @@ export function computeFoodProcessEnergy(
           if (!result[code]) result[code] = emptyEnergy();
           add(result[code]!, value, weight);
         });
-        if (include === 0) {
+        if (include === false) {
           const componentPreparation = recipes[component]![0]!;
           processCodes(componentPreparation[4] || []).forEach((code) =>
             addProcess(code, -weight * (componentPreparation[5] || 0))

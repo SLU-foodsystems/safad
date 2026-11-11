@@ -18,9 +18,9 @@ const emissionsFactors = Object.fromEntries(
 );
 
 const recipes: FoodsRecipes = {
-  "A.01.food": [["raw", ["F28.TEST"], 1, 1]],
-  "A.01.other": [["raw", ["F28.TEST"], 1, 1]],
-  "A.02.food": [["raw", ["F28.TEST"], 1, 1]],
+  "A.01.food": [["raw", ["F28.TEST"], 1, 1, [], 1, false, false]],
+  "A.01.other": [["raw", ["F28.TEST"], 1, 1, [], 1, false, false]],
+  "A.02.food": [["raw", ["F28.TEST"], 1, 1, [], 1, false, false]],
 };
 
 describe("computeDietProcessImpacts", () => {

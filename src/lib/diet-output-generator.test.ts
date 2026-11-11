@@ -115,4 +115,19 @@ describe("diet-output-generator.ts", async () => {
       expect(impact / withoutWaste[index]!).toBeCloseTo(wasteFactor, 12);
     });
   });
+
+  test("Milk powder transport remains positive through nested yields", () => {
+    const [rpcAmounts, , , transportAdjustments] = RE.reduceDiet([
+      ["A.08.03.003.002", 1000],
+    ]);
+    const [rpcCode, amount] = rpcAmounts[0]!;
+    const transportedAmount = amount - (transportAdjustments[rpcCode] || 0);
+    const transportImpacts = RE.computeImpacts([
+      ["A.08.03.003.002", 1000],
+    ])[3][rpcCode]!;
+
+    expect(rpcCode).toBe("A.08.01.001.002");
+    expect(transportedAmount).toBeCloseTo(870.4649, 4);
+    expect(transportImpacts.every((impact) => impact > 0)).toBe(true);
+  });
 });

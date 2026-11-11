@@ -1,22 +1,59 @@
 import { describe, expect, test } from "vitest";
-import reduceDiet from "./rpc-reducer";
+import _reduceDiet from "./rpc-reducer";
 
-// Component, Facet, proportion ([0, 1]%), reverse yield
-type FoodsRecipe = [
+type PartialFoodsRecipeEl = [
   string,
-  string[],
-  number,
-  number,
-  string[],
-  number,
-  number,
-  boolean
-][];
-type FoodsRecipes = { [foodexCode: string]: FoodsRecipe };
+  string[]?,
+  number?,
+  number?,
+  string[]?,
+  number?,
+  boolean?,
+  boolean?,
+];
+
+type PartialFoodsRecipe = Record<string, PartialFoodsRecipeEl[]>;
+const conditionalRecipeEntry = ([
+  code,
+  facets,
+  share,
+  revYield,
+  prepProcs,
+  prepRevYield,
+  inclCompPrep,
+  netWeightTransport,
+]: PartialFoodsRecipeEl): FoodsRecipeElement => [
+  code,
+  facets || [],
+  share || 1,
+  revYield || 1,
+  prepProcs || [],
+  prepRevYield || 1,
+  inclCompPrep || false,
+  netWeightTransport || false,
+];
+
+const reduceDiet = (
+  diet: Diet,
+  recipes: PartialFoodsRecipe,
+  preparationProcesses: Record<string, string[]>,
+  packagingCodes: Record<string, string>
+) =>
+  _reduceDiet(
+    diet,
+    Object.fromEntries(
+      Object.entries(recipes).map(([k, v]) => [
+        k,
+        v.map((e) => conditionalRecipeEntry(e)),
+      ])
+    ),
+    preparationProcesses,
+    packagingCodes
+  );
 
 describe("RPC reducer", () => {
   test("Handles direct RPCs", () => {
-    const recipes: FoodsRecipes = {};
+    const recipes: PartialFoodsRecipe = {};
     const diet: Diet = [
       ["foo", 100],
       ["bar", 200],
@@ -33,7 +70,7 @@ describe("RPC reducer", () => {
   });
 
   test("Handles direct RPCs (with facets)", () => {
-    const recipes: FoodsRecipes = {
+    const recipes: PartialFoodsRecipe = {
       "A.01.example": [["A.01.example", ["facetA"], 1, 1]],
     };
     const diet: Diet = [["A.01.example", 100]];
@@ -47,8 +84,26 @@ describe("RPC reducer", () => {
     expect(process!.facetA).toEqual(100);
   });
 
+  test("Scales transport adjustments through nested yields", () => {
+    const recipes: PartialFoodsRecipe = {
+      product: [["ingredient", [], 1, 2, [], 0, true, true]],
+      ingredient: [["raw", [], 1, 0.5, [], 0, true, false]],
+    };
+
+    const [rpcs, _processes, _packaging, transportAdjustments] = reduceDiet(
+      [["product", 1000]],
+      recipes,
+      {},
+      {}
+    );
+
+    expect(rpcs).toEqual([["raw", 1000]]);
+    expect(transportAdjustments).toEqual({ raw: 500 });
+    expect(rpcs[0]![1] - transportAdjustments.raw!).toBe(500);
+  });
+
   test("Facet amounts based on output", () => {
-    const recipes: FoodsRecipes = {
+    const recipes: PartialFoodsRecipe = {
       // Couscous to Wheat Semolina
       "A.01.03.001.007": [["A.01.03.001.012", [""], 1, 1]],
       // Wheat Semolina to Wheat Grain
@@ -74,7 +129,7 @@ describe("RPC reducer", () => {
   });
 
   test("Processes with ratios", () => {
-    const recipes: FoodsRecipes = {
+    const recipes: PartialFoodsRecipe = {
       // Couscous to Wheat Semolina
       "A.01.Pizza": [
         ["A.02.Tomatoes", ["Cooking"], 0.3, 3],
@@ -99,7 +154,7 @@ describe("RPC reducer", () => {
   });
 
   test("Handles nested RPCs", () => {
-    const recipes: FoodsRecipes = {
+    const recipes: PartialFoodsRecipe = {
       "A.01.02.003": [
         ["A.01.01", ["facetA"], 0.2, 10],
         ["A.01.02", ["facetA"], 0.8, 1],
@@ -149,7 +204,7 @@ describe("RPC reducer", () => {
   });
 
   test("Merges reappering RPCs", () => {
-    const recipes: FoodsRecipes = {
+    const recipes: PartialFoodsRecipe = {
       a: [
         ["aa", [], 0.2, 10],
         ["ab", [], 0.8, 1],
@@ -176,7 +231,7 @@ describe("RPC reducer", () => {
   });
 
   test("Handles combined facets", () => {
-    const recipes: FoodsRecipes = {
+    const recipes: PartialFoodsRecipe = {
       "A.01.123.01": [["A.01.123", ["facetA", "facetB", "facetC"], 0.8, 10]],
     };
 
@@ -195,7 +250,7 @@ describe("RPC reducer", () => {
   });
 
   test("Adds processes for self-referencing recipes", () => {
-    const recipes: FoodsRecipes = {
+    const recipes: PartialFoodsRecipe = {
       "A.01": [
         ["A.01", ["facetA"], 0.2, 10],
         ["A.02", ["facetB"], 0.8, 1],
@@ -224,7 +279,7 @@ describe("RPC reducer", () => {
       const preparationProcesses = {
         "A.19.01.002": ["F28.A07GY"],
       };
-      const recipes: FoodsRecipes = {
+      const recipes: PartialFoodsRecipe = {
         "A.19.01.002": [["A.19.01.002", [], 1, 1]],
       };
 
@@ -240,7 +295,7 @@ describe("RPC reducer", () => {
     test("Direct: Adds processes to diet entered > L3 level", () => {
       // pizza derivative
       const diet: Diet = [["A.19.01.002.003", 1234]];
-      const recipes: FoodsRecipes = {
+      const recipes: PartialFoodsRecipe = {
         "A.19.01.002.003": [["A.19.01.002.003", [], 1, 1]],
       };
       const preparationProcesses = { "A.19.01.002": ["F28.A07GY"] };
@@ -260,7 +315,7 @@ describe("RPC reducer", () => {
       const diet: Diet = [["I.20.01.001.001", 1000]];
 
       // Let's pretend this leads to a pizza
-      const recipes: FoodsRecipes = {
+      const recipes: PartialFoodsRecipe = {
         "I.20.01.001.001": [["A.19.01.002.003", [], 0.5, 3]],
         "A.19.01.002.003": [["A.19.01.002.003", [], 1, 1]],
       };
@@ -370,7 +425,7 @@ describe("RPC reducer", () => {
       const diet: Diet = [["A.20.01.001.001", 1000]];
 
       // Let's pretend this translates to a pizza
-      const recipes: FoodsRecipes = {
+      const recipes: PartialFoodsRecipe = {
         "A.20.01.001.001": [
           ["A.19.01.002.003", [], 0.5, 3],
           ["A.19.02.003.004", [], 0.5, 3],
@@ -400,9 +455,9 @@ describe("RPC reducer", () => {
 
   describe("Transportless Amounts", () => {
     test("A net-weight transport adjustment appears in map", () => {
-      const recipes: FoodsRecipes = {
+      const recipes: PartialFoodsRecipe = {
         "A.01.example": [
-          ["A.01.example", ["F28.NOT_HARDCODED"], 1, 5, [], 0, 1, true],
+          ["A.01.example", ["F28.NOT_HARDCODED"], 1, 5, [], 0, true, true],
         ],
       };
       const diet: Diet = [["A.01.example", 1000]];
@@ -418,9 +473,9 @@ describe("RPC reducer", () => {
     });
 
     test("A gross-weight transport flag does not appear in map", () => {
-      const recipes: FoodsRecipes = {
+      const recipes: PartialFoodsRecipe = {
         "A.01.example": [
-          ["A.01.example", ["F28.A07KD"], 1, 5, [], 0, 1, false],
+          ["A.01.example", ["F28.A07KD"], 1, 5, [], 0, true, false],
         ],
       };
       const diet: Diet = [["A.01.example", 1000]];
@@ -436,8 +491,10 @@ describe("RPC reducer", () => {
     });
 
     test("Does not appear in map if yield is 1", () => {
-      const recipes: FoodsRecipes = {
-        "A.01.example": [["A.01.example", ["F28.A07KD"], 1, 1, [], 0, 1, true]],
+      const recipes: PartialFoodsRecipe = {
+        "A.01.example": [
+          ["A.01.example", ["F28.A07KD"], 1, 1, [], 0, true, true],
+        ],
       };
       const diet: Diet = [["A.01.example", 1000]];
 
@@ -453,13 +510,13 @@ describe("RPC reducer", () => {
 
     describe("Net-weight transport adjustments for complex recipes", () => {
       test("Case A: Three steps, process in the middle", () => {
-        const recipes: FoodsRecipes = {
+        const recipes: PartialFoodsRecipe = {
           // No change
-          "A.01.foo": [["A.01.bar", [], 1, 1]],
+          "A.01.foo": [["A.01.bar", [], 1, 1, [], 1, false, false]],
           // yield is 4x, but transport is on net weight: 3000 is adjusted
-          "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1, 4, [], 0, 1, true]],
-          // Yield is 1.5, but transport is on gross weight, so 3000 remains
-          "A.01.baz": [["A.01.qux", [], 1, 1.5]],
+          "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1, 4, [], 1, false, true]],
+          // Gross-weight yield scales the inherited adjustment into child units.
+          "A.01.baz": [["A.01.qux", [], 1, 1.5, [], 1, false, false]],
         };
         const diet: Diet = [["A.01.foo", 1000]];
 
@@ -471,16 +528,20 @@ describe("RPC reducer", () => {
         );
 
         expect(rpcs).toEqual([["A.01.qux", 6000]]);
-        expect(transportAdjustment).toEqual({ "A.01.qux": 3000 });
+        expect(transportAdjustment).toEqual({ "A.01.qux": 4500 });
       });
     });
 
     describe("All steps use net-weight transport", () => {
       test("Case B: Three steps, with processes on each", () => {
-        const recipes: FoodsRecipes = {
-          "A.01.foo": [["A.01.bar", ["F28.A0C00"], 1.0, 1.1, [], 0, 1, true]],
-          "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1.0, 4, [], 0, 1, true]],
-          "A.01.baz": [["A.01.qux", ["F28.A0C0B"], 1.0, 1.5, [], 0, 1, true]],
+        const recipes: PartialFoodsRecipe = {
+          "A.01.foo": [
+            ["A.01.bar", ["F28.A0C00"], 1.0, 1.1, [], 0, true, true],
+          ],
+          "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1.0, 4, [], 0, true, true]],
+          "A.01.baz": [
+            ["A.01.qux", ["F28.A0C0B"], 1.0, 1.5, [], 0, true, true],
+          ],
         };
         const diet: Diet = [["A.01.foo", 1000]];
 
@@ -501,13 +562,17 @@ describe("RPC reducer", () => {
       });
 
       test("Case B: Three steps, with processes and ratios", () => {
-        const recipes: FoodsRecipes = {
+        const recipes: PartialFoodsRecipe = {
           // 1000 transported, of 1100  (delta = 100)
-          "A.01.foo": [["A.01.bar", ["F28.A0C00"], 1.0, 1.1, [], 0, 1, true]],
+          "A.01.foo": [
+            ["A.01.bar", ["F28.A0C00"], 1.0, 1.1, [], 0, true, true],
+          ],
           // 550 transported, of 2200 (delta = 1650)
-          "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 0.5, 4, [], 0, 1, true]],
+          "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 0.5, 4, [], 0, true, true]],
           // 2200 transported, of 3300 (delta = 1150)
-          "A.01.baz": [["A.01.qux", ["F28.A0C0B"], 1.0, 1.5, [], 0, 1, true]],
+          "A.01.baz": [
+            ["A.01.qux", ["F28.A0C0B"], 1.0, 1.5, [], 0, true, true],
+          ],
         };
         const diet: Diet = [["A.01.foo", 1000]];
 
@@ -528,8 +593,10 @@ describe("RPC reducer", () => {
 
     describe("Transportless, mixing ratio and yield", () => {
       test("Case C: Ratio but yield is 1, one step", () => {
-        const recipes: FoodsRecipes = {
-          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1, [], 0, 1, true]],
+        const recipes: PartialFoodsRecipe = {
+          "I.19.04.002.002": [
+            ["A.16.02.028", ["F28.A07KG"], 0.004, 1, [], 0, true, true],
+          ],
           "A.16.02.028": [["A.16.02.028", [], 1, 1]],
         };
         const diet: Diet = [["I.19.04.002.002", 1000]];
@@ -545,8 +612,10 @@ describe("RPC reducer", () => {
       });
 
       test("Case C: Ratio and yield, one step", () => {
-        const recipes: FoodsRecipes = {
-          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1.5, [], 0, 1, true]],
+        const recipes: PartialFoodsRecipe = {
+          "I.19.04.002.002": [
+            ["A.16.02.028", ["F28.A07KG"], 0.004, 1.5, [], 0, true, true],
+          ],
           "A.16.02.028": [["A.16.02.028", [], 1, 1]],
         };
         const diet: Diet = [["I.19.04.002.002", 1000]];
@@ -572,14 +641,20 @@ describe("RPC reducer", () => {
        * shouldn't register a transport adjustment
        */
       test("Case C: Ratio but yield is 1, multi-step", () => {
-        const recipes: FoodsRecipes = {
+        const recipes: PartialFoodsRecipe = {
           // 1000 -> 4, 0 is transportess
-          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 1, [], 0, 1, true]],
+          "I.19.04.002.002": [
+            ["A.16.02.028", ["F28.A07KG"], 0.004, 1, [], 0, true, true],
+          ],
           // 4 -> 40, = 36 is adjusted out of transport
-          "A.16.02.028": [["A.16.foo", ["F28.A07KG"], 1, 10, [], 0, 1, true]],
+          "A.16.02.028": [
+            ["A.16.foo", ["F28.A07KG"], 1, 10, [], 0, true, true],
+          ],
           // out of 40, 20 is needed (ratio = 0.5), which is 22 after yield. So,
           // 2 is adjusted out of transport
-          "A.16.foo": [["A.16.bar", ["F28.A07KG"], 0.5, 1.1, [], 0, 1, true]],
+          "A.16.foo": [
+            ["A.16.bar", ["F28.A07KG"], 0.5, 1.1, [], 0, true, true],
+          ],
         };
         const diet: Diet = [["I.19.04.002.002", 1000]];
 
@@ -596,8 +671,10 @@ describe("RPC reducer", () => {
       });
 
       test("Case D: Ratio but yield is 1, one step", () => {
-        const recipes: FoodsRecipes = {
-          "I.19.04.002.002": [["A.16.02.028", ["F28.A07KG"], 0.004, 10, [], 0, 1, true]],
+        const recipes: PartialFoodsRecipe = {
+          "I.19.04.002.002": [
+            ["A.16.02.028", ["F28.A07KG"], 0.004, 10, [], 0, true, true],
+          ],
           "A.16.02.028": [["A.16.02.028", [], 1, 1]],
         };
         const diet: Diet = [["I.19.04.002.002", 1000]];

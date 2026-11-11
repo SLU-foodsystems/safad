@@ -134,8 +134,12 @@ function reduceToRpcs(
         transportOnNetWeight = false,
       ]): Diet => {
       const netAmount = yieldFactor * ratio * amount;
-
-      let newTransportAdjustmentAmount = transportAdjustmentAmount;
+      // Net-weight transport adjustments accumulate across consecutive
+      // net-weight steps. Gross-weight steps transform the inherited
+      // adjustment into the child units.
+      let newTransportAdjustmentAmount = transportOnNetWeight
+        ? transportAdjustmentAmount
+        : transportAdjustmentAmount * yieldFactor * ratio;
 
       // Record the output amount for processes
       // This will always be a process, and never a packaging

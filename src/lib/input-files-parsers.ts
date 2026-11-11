@@ -596,6 +596,13 @@ export function parseFoodsRecipes(recipesCsvStr: string, delimiter = ",") {
           "Transport on net weight must be 0 or 1"
         );
       }
+      const includePreparationValue = asNumber(includePreparation!, 1);
+      if (![0, 1].includes(includePreparationValue)) {
+        throw new CsvValidationError(
+          CsvValidationErrorType.Other,
+          "Include component preparation must be 0 or 1"
+        );
+      }
       const value = roundToPrecision(
         (asNumber(perc!, 100) * asNumber(prob!, 1)) / 100,
         3
@@ -621,7 +628,7 @@ export function parseFoodsRecipes(recipesCsvStr: string, delimiter = ",") {
         netYieldFactor || 1,
         preparationProcesses,
         asNumber(preparationYield!, 0),
-        asNumber(includePreparation!, 1),
+        includePreparationValue === 1,
         transportOnNetWeightValue === 1,
       ];
 
