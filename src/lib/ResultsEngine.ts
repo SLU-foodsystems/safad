@@ -368,7 +368,7 @@ class ResultsEngine {
     const codesInRecipes = new Set(Object.keys(this.foodsRecipes));
     Object.values(this.foodsRecipes).forEach((recipe: FoodsRecipeEntry) => {
       recipe.forEach((component) => {
-        const code = component[0];
+        const code = component.rpcCode;
         codesInRecipes.add(code);
       });
     });

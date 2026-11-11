@@ -147,7 +147,7 @@ export function parseEmissionsFactorsEnergy(
         `Missing countryCode when parsing energy emissions factors file for row ${idx}.`
       );
     }
-    emissionsFactors[carrier] ??= {}
+    emissionsFactors[carrier] ??= {};
     emissionsFactors[carrier][countryCode] = ghgs;
   });
 
@@ -536,7 +536,7 @@ export function parseFoodsRecipes(recipesCsvStr: string, delimiter = ",") {
       obj[id] = obj[id]!.filter(
         // Remove all cases where the rpc code is "", which can happen for
         // empty rows, etc.
-        ([foodCode]) => foodCode && foodCode !== ""
+        ({ rpcCode: componentCode }) => componentCode && componentCode !== ""
       );
     });
   }
@@ -619,16 +619,16 @@ export function parseFoodsRecipes(recipesCsvStr: string, delimiter = ",") {
       const preparationProcesses = preparationCode
         ? preparationCode.split("$").filter((f) => f.startsWith("F28."))
         : [];
-      const entry: FoodsRecipeElement = [
-        component!,
-        processes,
-        value,
-        netYieldFactor || 1,
-        preparationProcesses,
-        asNumber(preparationYield!, 0),
-        includePreparationValue === 1,
-        transportOnNetWeightValue === 1,
-      ];
+      const entry: FoodsRecipeElement = {
+        rpcCode: component!,
+        processFacets: processes,
+        share: value,
+        reverseYield: netYieldFactor || 1,
+        preparationProcessFacets: preparationProcesses,
+        preparationReverseYield: asNumber(preparationYield!, 0),
+        includeComponentPreparation: includePreparationValue === 1,
+        transportOnNetWeight: transportOnNetWeightValue === 1,
+      };
 
       const c = code!;
       recipes[c] ??= [];

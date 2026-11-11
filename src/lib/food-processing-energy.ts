@@ -1,7 +1,7 @@
 export type ProcessEnergy = Record<string, number[]>;
-export type FoodProcessEnergy = Record<string, ProcessEnergy>;
+export type FoodProcessEnergy = NestedRecord<string, number[]>;
 export type FoodRecipeAmount = {
-  component: string;
+  rpcCode: string;
   grossAmount: number;
   reverseYield: number;
   netAmount: number;
@@ -59,33 +59,29 @@ export function computeFoodProcessEnergy(
     };
 
     const preparation = (entry: FoodsRecipeElement) => {
-      processCodes(entry[4] || []).forEach((code) =>
-        addProcess(code, entry[5] || 0)
+      processCodes(entry.preparationProcessFacets).forEach((code) =>
+        addProcess(code, entry.preparationReverseYield)
       );
     };
 
     rows.forEach((entry) => {
-      const [
-        component,
-        facets,
-        share,
-        reverseYield,
-        _prep,
-        _prepYield,
-        include,
-      ] = entry;
-      const weight = (share || 0) * (reverseYield || 1);
-      processCodes(facets || []).forEach((code) => addProcess(code, weight));
-      if (component !== food && recipes[component]) {
-        const nested = process(component);
+      const { rpcCode, processFacets, share, reverseYield } = entry;
+      const weight = share * reverseYield;
+      processCodes(processFacets).forEach((code) => addProcess(code, weight));
+      if (rpcCode !== food && recipes[rpcCode]) {
+        const nested = process(rpcCode);
         Object.entries(nested).forEach(([code, value]) => {
           if (!result[code]) result[code] = emptyEnergy();
           add(result[code]!, value, weight);
         });
-        if (include === false) {
-          const componentPreparation = recipes[component]![0]!;
-          processCodes(componentPreparation[4] || []).forEach((code) =>
-            addProcess(code, -weight * (componentPreparation[5] || 0))
+        if (!entry.includeComponentPreparation) {
+          const componentPreparation = recipes[rpcCode]![0]!;
+          processCodes(componentPreparation.preparationProcessFacets).forEach(
+            (code) =>
+              addProcess(
+                code,
+                -weight * componentPreparation.preparationReverseYield
+              )
           );
         }
       }
@@ -124,18 +120,18 @@ export function computeFoodRecipeAmounts(
     if (!rows || active.has(food)) return;
 
     active.add(food);
-    rows.forEach(([component, _facets, share, reverseYield]) => {
-      const grossAmount = amount * (share || 0);
-      const yieldFactor = reverseYield || 1;
+    rows.forEach(({ rpcCode, share, reverseYield }) => {
+      const grossAmount = amount * share;
+      const yieldFactor = reverseYield;
       const netAmount = grossAmount * yieldFactor;
       result[rootFood]!.push({
-        component,
+        rpcCode,
         grossAmount,
         reverseYield: yieldFactor,
         netAmount,
         level,
       });
-      process(component, netAmount, level + 1, rootFood);
+      process(rpcCode, netAmount, level + 1, rootFood);
     });
     active.delete(food);
   };
@@ -153,7 +149,7 @@ export function computeFoodPreparationYields(
   return Object.fromEntries(
     Object.entries(recipes).map(([food, rows]) => [
       food,
-      rows[0]?.[5] ? rows[0][5] : null,
+      rows[0]?.preparationReverseYield ? rows[0].preparationReverseYield : null,
     ])
   );
 }

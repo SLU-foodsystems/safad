@@ -14,7 +14,7 @@ type PartialFoodsRecipeEl = [
 
 type PartialFoodsRecipe = Record<string, PartialFoodsRecipeEl[]>;
 const conditionalRecipeEntry = ([
-  code,
+  rpcCode,
   facets,
   share,
   revYield,
@@ -22,16 +22,16 @@ const conditionalRecipeEntry = ([
   prepRevYield,
   inclCompPrep,
   netWeightTransport,
-]: PartialFoodsRecipeEl): FoodsRecipeElement => [
-  code,
-  facets || [],
-  share || 1,
-  revYield || 1,
-  prepProcs || [],
-  prepRevYield || 1,
-  inclCompPrep || false,
-  netWeightTransport || false,
-];
+]: PartialFoodsRecipeEl): FoodsRecipeElement => ({
+  rpcCode,
+  processFacets: facets || [],
+  share: share || 1,
+  reverseYield: revYield || 1,
+  preparationProcessFacets: prepProcs || [],
+  preparationReverseYield: prepRevYield || 1,
+  includeComponentPreparation: inclCompPrep || false,
+  transportOnNetWeight: netWeightTransport || false,
+});
 
 const reduceDiet = (
   diet: Diet,

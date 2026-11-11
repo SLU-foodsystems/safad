@@ -32,20 +32,42 @@ describe("PDF processing-energy examples", () => {
 
   test("reports gross and net intermediate recipe amounts", () => {
     const amounts = computeFoodRecipeAmounts({
-      food: [["ingredient", [], 0.5, 0.8, [], 0, true, false]],
-      ingredient: [["raw", [], 0.25, 0.5, [], 0, true, false]],
+      food: [
+        {
+          rpcCode: "ingredient",
+          processFacets: [],
+          share: 0.5,
+          reverseYield: 0.8,
+          preparationProcessFacets: [],
+          preparationReverseYield: 0,
+          includeComponentPreparation: true,
+          transportOnNetWeight: false,
+        },
+      ],
+      ingredient: [
+        {
+          rpcCode: "raw",
+          processFacets: [],
+          share: 0.25,
+          reverseYield: 0.5,
+          preparationProcessFacets: [],
+          preparationReverseYield: 0,
+          includeComponentPreparation: true,
+          transportOnNetWeight: false,
+        },
+      ],
     });
 
     expect(amounts.food).toEqual([
       {
-        component: "ingredient",
+        rpcCode: "ingredient",
         grossAmount: 500,
         reverseYield: 0.8,
         netAmount: 400,
         level: 0,
       },
       {
-        component: "raw",
+        rpcCode: "raw",
         grossAmount: 100,
         reverseYield: 0.5,
         netAmount: 50,

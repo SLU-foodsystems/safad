@@ -18,9 +18,42 @@ const emissionsFactors = Object.fromEntries(
 );
 
 const recipes: FoodsRecipes = {
-  "A.01.food": [["raw", ["F28.TEST"], 1, 1, [], 1, false, false]],
-  "A.01.other": [["raw", ["F28.TEST"], 1, 1, [], 1, false, false]],
-  "A.02.food": [["raw", ["F28.TEST"], 1, 1, [], 1, false, false]],
+  "A.01.food": [
+    {
+      rpcCode: "raw",
+      processFacets: ["F28.TEST"],
+      share: 1,
+      reverseYield: 1,
+      preparationProcessFacets: [],
+      preparationReverseYield: 1,
+      includeComponentPreparation: false,
+      transportOnNetWeight: false,
+    },
+  ],
+  "A.01.other": [
+    {
+      rpcCode: "raw",
+      processFacets: ["F28.TEST"],
+      share: 1,
+      reverseYield: 1,
+      preparationProcessFacets: [],
+      preparationReverseYield: 1,
+      includeComponentPreparation: false,
+      transportOnNetWeight: false,
+    },
+  ],
+  "A.02.food": [
+    {
+      rpcCode: "raw",
+      processFacets: ["F28.TEST"],
+      share: 1,
+      reverseYield: 1,
+      preparationProcessFacets: [],
+      preparationReverseYield: 1,
+      includeComponentPreparation: false,
+      transportOnNetWeight: false,
+    },
+  ],
 };
 
 describe("computeDietProcessImpacts", () => {

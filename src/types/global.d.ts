@@ -20,16 +20,16 @@ declare global {
   // component, facet(s), share, reverse yield × allocation, preparation,
   // preparation reverse yield, include component preparation, transport on net
   // weight
-  type FoodsRecipeElement = [
-    string, // rpcCode
-    string[], // processFacets
-    number, // share [0,1]
-    number, // reverse yield x allocation factor [0, +inf)
-    string[], // preparationProcessFacets
-    number, // preparationReverseYield
-    boolean, // include component preparation
-    boolean?, // transportOnNetWeight
-  ];
+  interface FoodsRecipeElement {
+    rpcCode: string;
+    processFacets: string[];
+    share: number;
+    reverseYield: number;
+    preparationProcessFacets: string[];
+    preparationReverseYield: number;
+    includeComponentPreparation: boolean;
+    transportOnNetWeight: boolean;
+  }
   type FoodsRecipeEntry = FoodsRecipeElement[];
   type FoodsRecipes = {
     [foodexCode: string]: FoodsRecipeEntry

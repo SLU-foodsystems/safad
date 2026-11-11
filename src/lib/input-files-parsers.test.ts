@@ -50,13 +50,17 @@ describe("default-input-files.ts", () => {
   test("parseFoodsRecipes reads transport weight flag", () => {
     const recipes = Parsers.parseFoodsRecipes(foodsRecipesCsv);
 
-    expect(recipes["A.01.02.002.002"]?.[0]?.[7]).toBe(true);
+    expect(recipes["A.01.02.002.002"]?.[0]?.transportOnNetWeight).toBe(true);
   });
   test("parseFoodsRecipes converts include preparation flag", () => {
     const recipes = Parsers.parseFoodsRecipes(foodsRecipesCsv);
 
-    expect(recipes["A.01.02.002.002"]?.[0]?.[6]).toBe(true);
-    expect(recipes["A.08.01.001.003"]?.[0]?.[6]).toBe(false);
+    expect(recipes["A.01.02.002.002"]?.[0]?.includeComponentPreparation).toBe(
+      true
+    );
+    expect(recipes["A.08.01.001.003"]?.[0]?.includeComponentPreparation).toBe(
+      false
+    );
   });
   test("parseFoodsRecipes rejects missing transport weight column", () => {
     const csvWithoutTransportColumn = parseCsvFile(foodsRecipesCsv)
@@ -101,7 +105,6 @@ describe("default-input-files.ts", () => {
         Parsers.parseProcessesEnergyDemands,
         processesEnergyDemandsCsv
       ));
-
 
     test("parsePackagingCodes", () =>
       expectThrowsForSemicolon(Parsers.parsePackagingCodes, packagingCodesCsv));

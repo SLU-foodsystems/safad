@@ -90,10 +90,7 @@ function reduceToRpcs(
   const subcomponents = recipes[componentCode];
   if (!subcomponents) {
     if (transportAdjustmentAmount !== 0) {
-      recordTransportAdjustment(
-        componentCode,
-        transportAdjustmentAmount
-      );
+      recordTransportAdjustment(componentCode, transportAdjustmentAmount);
     }
     return [[componentCode, amount]];
   }
@@ -123,59 +120,60 @@ function reduceToRpcs(
 
   return subcomponents
     .map(
-      ([
-        subcomponentCode,
-        processes = [],
-        ratio = 1,
-        yieldFactor = 1,
-        ,
-        ,
-        ,
-        transportOnNetWeight = false,
-      ]): Diet => {
-      const netAmount = yieldFactor * ratio * amount;
-      // Net-weight transport adjustments accumulate across consecutive
-      // net-weight steps. Gross-weight steps transform the inherited
-      // adjustment into the child units.
-      let newTransportAdjustmentAmount = transportOnNetWeight
-        ? transportAdjustmentAmount
-        : transportAdjustmentAmount * yieldFactor * ratio;
+      ({
+        rpcCode: subcomponentCode,
+        processFacets: processes,
+        share: ratio,
+        reverseYield: yieldFactor,
+        transportOnNetWeight,
+      }): Diet => {
+        const netAmount = yieldFactor * ratio * amount;
+        // Net-weight transport adjustments accumulate across consecutive
+        // net-weight steps. Gross-weight steps transform the inherited
+        // adjustment into the child units.
+        let newTransportAdjustmentAmount = transportOnNetWeight
+          ? transportAdjustmentAmount
+          : transportAdjustmentAmount * yieldFactor * ratio;
 
-      // Record the output amount for processes
-      // This will always be a process, and never a packaging
-      const preProcessAmount = ratio * amount;
-      processes.forEach((processId) =>
-        recordProcessesContribution(componentCode, processId, preProcessAmount)
-      );
+        // Record the output amount for processes
+        // This will always be a process, and never a packaging
+        const preProcessAmount = ratio * amount;
+        processes.forEach((processId) =>
+          recordProcessesContribution(
+            componentCode,
+            processId,
+            preProcessAmount
+          )
+        );
 
-      if (transportOnNetWeight) {
-        newTransportAdjustmentAmount += netAmount - preProcessAmount;
-      }
-
-      // Some recipes will include references back to themselves, in which
-      // case we do not want to recurse any further additional process.
-      // (otherwise, we'll get an infinite loop).
-      const isSelfReference = subcomponentCode === componentCode;
-      if (isSelfReference) {
-        if (newTransportAdjustmentAmount !== 0) {
-          recordTransportAdjustment(
-            subcomponentCode,
-            newTransportAdjustmentAmount
-          );
+        if (transportOnNetWeight) {
+          newTransportAdjustmentAmount += netAmount - preProcessAmount;
         }
-        return [[subcomponentCode, netAmount]];
-      }
 
-      // Recurse!
-      return reduceToRpcs(
-        [subcomponentCode, netAmount],
-        recipes,
-        preparationProcesses,
-        recordTransportAdjustment,
-        recordProcessesContribution,
-        updatedRecordedSpecialProcesses,
-        newTransportAdjustmentAmount
-      );
+        // Some recipes will include references back to themselves, in which
+        // case we do not want to recurse any further additional process.
+        // (otherwise, we'll get an infinite loop).
+        const isSelfReference = subcomponentCode === componentCode;
+        if (isSelfReference) {
+          if (newTransportAdjustmentAmount !== 0) {
+            recordTransportAdjustment(
+              subcomponentCode,
+              newTransportAdjustmentAmount
+            );
+          }
+          return [[subcomponentCode, netAmount]];
+        }
+
+        // Recurse!
+        return reduceToRpcs(
+          [subcomponentCode, netAmount],
+          recipes,
+          preparationProcesses,
+          recordTransportAdjustment,
+          recordProcessesContribution,
+          updatedRecordedSpecialProcesses,
+          newTransportAdjustmentAmount
+        );
       }
     )
     .flat(1);
