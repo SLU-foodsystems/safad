@@ -49,7 +49,10 @@ function aggregateDuplicateRpcs(rpcs: Diet) {
   rpcs.forEach(([code, amount]) => {
     if (foundRpcs.has(code)) {
       const idx = mergedRpcs.findIndex((pair) => pair[0] === code);
-      if (!mergedRpcs[idx]) return; // TODO: this should not ever occur.
+      if (!mergedRpcs[idx]) {
+        console.error("Unexpected, undefined behaviour in aggregation of RPCs.")
+        return;
+      }
       mergedRpcs[idx][1] += amount;
     } else {
       foundRpcs.add(code);
