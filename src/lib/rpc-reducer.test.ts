@@ -611,4 +611,199 @@ describe("RPC reducer", () => {
       });
     });
   });
+
+  describe("PDF transport examples", () => {
+    test("1. Transports a raw RPC", () => {
+      const recipes: PartialFoodsRecipe = {
+        apple: [["apple", [], 1, 1, [], 0, false, false]],
+      };
+
+      const [rpcs, , , transportAmounts] = reduceDiet(
+        [["apple", 1000]],
+        recipes,
+        {}
+      );
+
+      expect(rpcs).toEqual([["apple", 1000]]);
+      expect(transportAmounts).toEqual({ apple: 1000 });
+    });
+
+    test("2. Net 0 transports the raw amount with yield and allocation", () => {
+      const recipes: PartialFoodsRecipe = {
+        flour: [["wheat", [], 1, 1.43 * 0.86, [], 0, false, false]],
+        wheat: [["wheat", [], 1, 1, [], 0, false, false]],
+      };
+
+      const [rpcs, , , transportAmounts] = reduceDiet(
+        [["flour", 1000]],
+        recipes,
+        {}
+      );
+
+      expect(rpcs).toEqual([["wheat", 1.43 * 0.86 * 1000]]);
+      expect(transportAmounts).toEqual({ wheat: 1.43 * 0.86 * 1000 });
+    });
+
+    test("3. Net 1 transports the whole product before yield", () => {
+      const recipes: PartialFoodsRecipe = {
+        juice: [["apple", [], 1, 1.54, [], 0, false, true]],
+        apple: [["apple", [], 1, 1, [], 0, false, false]],
+      };
+
+      const [rpcs, , , transportAmounts] = reduceDiet(
+        [["juice", 1000]],
+        recipes,
+        {}
+      );
+
+      expect(rpcs).toEqual([["apple", 1540]]);
+      expect(transportAmounts).toEqual({ apple: 1000 });
+    });
+
+    test("4. Consecutive Net 1 rows transport only at the first row", () => {
+      const recipes: PartialFoodsRecipe = {
+        powder: [["milk", [], 1, 9.16, [], 0, false, true]],
+        milk: [["wholeMilk", [], 1, 1.05 * 0.76, [], 0, false, true]],
+        wholeMilk: [["wholeMilk", [], 1, 1, [], 0, false, false]],
+      };
+
+      const [rpcs, , , transportAmounts] = reduceDiet(
+        [["powder", 1000]],
+        recipes,
+        {}
+      );
+
+      expect(rpcs).toEqual([["wholeMilk", 9.16 * 1.05 * 0.76 * 1000]]);
+      expect(transportAmounts).toEqual({ wholeMilk: 1000 });
+    });
+
+    test("5. Mixed branches use their own first transport boundary", () => {
+      const recipes: PartialFoodsRecipe = {
+        compote: [
+          ["apple", [], 0.962, 1.35, [], 0, false, false],
+          ["sugar", [], 0.038, 1, [], 0, false, false],
+        ],
+        apple: [["apple", [], 1, 1, [], 0, false, false]],
+        sugar: [
+          ["beet", [], 0.5, 7.63 * 0.8, [], 0, false, true],
+          ["cane", [], 0.5, 9.7 * 0.8, [], 0, false, true],
+        ],
+        beet: [["beet", [], 1, 1, [], 0, false, false]],
+        cane: [["cane", [], 1, 1, [], 0, false, false]],
+      };
+
+      const [rpcs, , , transportAmounts] = reduceDiet(
+        [["compote", 1000]],
+        recipes,
+        {}
+      );
+
+      expect(rpcs).toEqual([
+        ["apple", 0.962 * 1.35 * 1000],
+        ["beet", 0.038 * 0.5 * 7.63 * 0.8 * 1000],
+        ["cane", 0.038 * 0.5 * 9.7 * 0.8 * 1000],
+      ]);
+      expect(transportAmounts).toEqual({
+        apple: 0.962 * 1.35 * 1000,
+        beet: 0.038 * 0.5 * 1000,
+        cane: 0.038 * 0.5 * 1000,
+      });
+    });
+
+    test("6. Multiple Net 1 branches add their transported amounts", () => {
+      const recipes: PartialFoodsRecipe = {
+        vinegar: [
+          ["whiteWine", [], 0.5, 1, [], 0, false, true],
+          ["redWine", [], 0.5, 1, [], 0, false, true],
+        ],
+        whiteWine: [["grapes", [], 1, 1.43, [], 0, false, true]],
+        redWine: [["grapes", [], 1, 1.43, [], 0, false, true]],
+        grapes: [["grapes", [], 1, 1, [], 0, false, false]],
+      };
+
+      const [rpcs, , , transportAmounts] = reduceDiet(
+        [["vinegar", 1000]],
+        recipes,
+        {}
+      );
+
+      expect(rpcs).toEqual([["grapes", 1430]]);
+      expect(transportAmounts).toEqual({ grapes: 1000 });
+    });
+
+    test("7. Applies the first-boundary rule through a complex recipe", () => {
+      const recipes: PartialFoodsRecipe = {
+        strudel: [
+          ["driedFruit", [], 0.02, 1, [], 0, false, false],
+          ["compote", [], 0.48, 1, [], 0, false, false],
+          ["pastry", [], 0.5, 1, [], 0, false, false],
+        ],
+        driedFruit: [["grapes", [], 1, 4, [], 0, false, true]],
+        grapes: [["grapes", [], 1, 1, [], 0, false, false]],
+        compote: [
+          ["apple", [], 0.962, 1.35, [], 0, false, false],
+          ["sugar", [], 0.038, 1, [], 0, false, false],
+        ],
+        apple: [["apple", [], 1, 1, [], 0, false, false]],
+        sugar: [
+          ["beet", [], 0.5, 7.63 * 0.8, [], 0, false, true],
+          ["cane", [], 0.5, 9.7 * 0.8, [], 0, false, true],
+        ],
+        beet: [["beet", [], 1, 1, [], 0, false, false]],
+        cane: [["cane", [], 1, 1, [], 0, false, false]],
+        pastry: [
+          ["flour", [], 0.3985, 1, [], 0, false, false],
+          ["butter", [], 0.2895, 1, [], 0, false, false],
+          ["water", [], 0.302, 1, [], 0, false, false],
+          ["salt", [], 0.01, 1, [], 0, false, false],
+        ],
+        flour: [["wheat", [], 1, 1.43 * 0.86, [], 0, false, false]],
+        wheat: [["wheat", [], 1, 1, [], 0, false, false]],
+        butter: [["cream", [], 1, 2 * 0.91, [], 0, false, true]],
+        cream: [["milk", [], 1, 13.17 * 0.24, [], 0, false, true]],
+        milk: [["milk", [], 1, 1, [], 0, false, false]],
+        water: [["water", [], 1, 1, [], 0, false, false]],
+        salt: [["salt", [], 1, 1, [], 0, false, false]],
+      };
+
+      const [rpcs, , , transportAmounts] = reduceDiet(
+        [["strudel", 1000]],
+        recipes,
+        {},
+        {}
+      );
+
+      const expectedRpcs: Diet = [
+        ["grapes", 20 * 4],
+        ["apple", 0.48 * 0.962 * 1.35 * 1000],
+        ["beet", 0.48 * 0.038 * 0.5 * 7.63 * 0.8 * 1000],
+        ["cane", 0.48 * 0.038 * 0.5 * 9.7 * 0.8 * 1000],
+        ["wheat", 0.5 * 0.3985 * 1.43 * 0.86 * 1000],
+        ["milk", 0.5 * 0.2895 * 2 * 0.91 * 13.17 * 0.24 * 1000],
+        ["water", 0.5 * 0.302 * 1000],
+        ["salt", 0.5 * 0.01 * 1000],
+      ];
+      expect(rpcs).toHaveLength(expectedRpcs.length);
+      expectedRpcs.forEach(([code, amount], index) => {
+        expect(rpcs[index]?.[0]).toBe(code);
+        expect(rpcs[index]?.[1]).toBeCloseTo(amount);
+      });
+      const expectedTransportAmounts: Record<string, number> = {
+        grapes: 0.02 * 1000,
+        apple: 0.48 * 0.962 * 1.35 * 1000,
+        beet: 0.48 * 0.038 * 0.5 * 1000,
+        cane: 0.48 * 0.038 * 0.5 * 1000,
+        wheat: 0.5 * 0.3985 * 1.43 * 0.86 * 1000,
+        milk: 0.5 * 0.2895 * 1000,
+        water: 0.5 * 0.302 * 1000,
+        salt: 0.5 * 0.01 * 1000,
+      };
+      expect(Object.keys(transportAmounts)).toEqual(
+        Object.keys(expectedTransportAmounts)
+      );
+      Object.entries(expectedTransportAmounts).forEach(([code, amount]) => {
+        expect(transportAmounts[code]).toBeCloseTo(amount);
+      });
+    });
+  });
 });
