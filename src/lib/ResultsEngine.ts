@@ -200,12 +200,7 @@ class ResultsEngine {
       }
       dietWithWaste = adjustDietForWaste(diet, this.wasteRetailAndConsumer);
     }
-    return reduceDiet(
-      dietWithWaste,
-      this.foodsRecipes,
-      {},
-      this.packagingCodes
-    );
+    return reduceDiet(dietWithWaste, this.foodsRecipes, this.packagingCodes);
   }
 
   private getRpcFootprints(

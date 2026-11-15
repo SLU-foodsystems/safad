@@ -5,9 +5,6 @@
 
 import { getRpcCodeLevel, getRpcCodeSubset } from "@/lib/utils";
 
-const isPackagingCode = (code: string) => code.startsWith("P");
-const isNotPackagingCode = (code: string) => !isPackagingCode(code);
-
 function recordPackaging(
   diet: Diet,
   packagingCodes: Record<string, string>
@@ -50,7 +47,9 @@ function aggregateDuplicateRpcs(rpcs: Diet) {
     if (foundRpcs.has(code)) {
       const idx = mergedRpcs.findIndex((pair) => pair[0] === code);
       if (!mergedRpcs[idx]) {
-        console.error("Unexpected, undefined behaviour in aggregation of RPCs.")
+        console.error(
+          "Unexpected, undefined behaviour in aggregation of RPCs."
+        );
         return;
       }
       mergedRpcs[idx][1] += amount;
@@ -77,7 +76,6 @@ function reduceToRpcs(
 
   // Static: same throughout recursion
   recipes: FoodsRecipes,
-  preparationProcesses: Record<string, string[]>,
 
   // Modifiers
   recordTransportAmount: (rpcCode: string, amount: number) => void,
@@ -88,7 +86,6 @@ function reduceToRpcs(
   ) => void,
 
   // State variables
-  recordedSpecialProcesses: Set<string> = new Set(),
   transportAmount?: number,
   hasGrossAfterTransport = false
 ): Diet {
@@ -97,29 +94,6 @@ function reduceToRpcs(
     recordTransportAmount(componentCode, transportAmount ?? amount);
     return [[componentCode, amount]];
   }
-
-  // Copy set to avoid modifying in sub-processes
-  const updatedRecordedSpecialProcesses = new Set(recordedSpecialProcesses);
-
-  // We handle L3 process-contributions here in the base-case, as they are per
-  // RPC-code and not per process (i.e. between codes).
-  const recordSpecialProcessesContributions = () => {
-    if (getRpcCodeLevel(componentCode) < 3) return;
-
-    const levelCode = getRpcCodeSubset(componentCode, 3);
-    if (updatedRecordedSpecialProcesses.has(levelCode)) return;
-
-    const specials = preparationProcesses[levelCode];
-    if (!specials) return;
-    const specialProcesses = specials.filter(isNotPackagingCode);
-    if (specialProcesses.length === 0) return;
-
-    specialProcesses.forEach((special) => {
-      updatedRecordedSpecialProcesses.add(special);
-      recordProcessesContribution(levelCode, special, amount);
-    });
-  };
-  recordSpecialProcessesContributions();
 
   return subcomponents
     .map(
@@ -163,10 +137,8 @@ function reduceToRpcs(
         return reduceToRpcs(
           [subcomponentCode, netAmount],
           recipes,
-          preparationProcesses,
           recordTransportAmount,
           recordProcessesContribution,
-          updatedRecordedSpecialProcesses,
           nextTransportAmount,
           hasGrossAfterTransport ||
             (transportAmount !== undefined && !transportOnNetWeight)
@@ -183,7 +155,6 @@ function reduceToRpcs(
 export default function reduceDietToRpcs(
   diet: Diet,
   recipes: FoodsRecipes,
-  preparationProcesses: Record<string, string[]>,
   packagingCodes: Record<string, string>
 ): [
   Diet,
@@ -217,7 +188,6 @@ export default function reduceDietToRpcs(
       reduceToRpcs(
         rpcDerivative,
         recipes,
-        preparationProcesses,
         recordTransportAmount,
         recordProcessContribution
       )

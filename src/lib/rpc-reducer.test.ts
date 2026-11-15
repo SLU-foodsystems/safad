@@ -36,7 +36,6 @@ const conditionalRecipeEntry = ([
 const reduceDiet = (
   diet: Diet,
   recipes: PartialFoodsRecipe,
-  preparationProcesses: Record<string, string[]>,
   packagingCodes: Record<string, string>
 ) =>
   _reduceDiet(
@@ -47,7 +46,6 @@ const reduceDiet = (
         v.map((e) => conditionalRecipeEntry(e)),
       ])
     ),
-    preparationProcesses,
     packagingCodes
   );
 
@@ -59,7 +57,7 @@ describe("RPC reducer", () => {
       ["bar", 200],
     ];
 
-    const [rpcs, facets] = reduceDiet(diet, recipes, {}, {});
+    const [rpcs, facets] = reduceDiet(diet, recipes, {});
     expect(rpcs).toHaveLength(2);
 
     expect(rpcs[0]).toEqual(["foo", 100]);
@@ -75,7 +73,7 @@ describe("RPC reducer", () => {
     };
     const diet: Diet = [["A.01.example", 100]];
 
-    const [[rpc], processes] = reduceDiet(diet, recipes, {}, {});
+    const [[rpc], processes] = reduceDiet(diet, recipes, {});
     expect(rpc![0]).toEqual("A.01.example");
     expect(rpc![1]).toBeCloseTo(100);
 
@@ -93,7 +91,6 @@ describe("RPC reducer", () => {
     const [rpcs, _processes, _packaging, transportAmounts] = reduceDiet(
       [["product", 1000]],
       recipes,
-      {},
       {}
     );
 
@@ -114,7 +111,7 @@ describe("RPC reducer", () => {
     // Couscous
     const diet: Diet = [["A.01.03.001.007", 1000]];
 
-    const [rpcs, processes] = reduceDiet(diet, recipes, {}, {});
+    const [rpcs, processes] = reduceDiet(diet, recipes, {});
     expect(rpcs).toHaveLength(1);
     const [rpcCode, rpcAmount] = rpcs[0]!;
 
@@ -138,7 +135,7 @@ describe("RPC reducer", () => {
 
     const diet: Diet = [["A.01.Pizza", 1000]];
 
-    const [rpcs, processes] = reduceDiet(diet, recipes, {}, {});
+    const [rpcs, processes] = reduceDiet(diet, recipes, {});
     expect(rpcs).toHaveLength(2);
 
     expect(rpcs![0]![0]).toEqual("A.02.Tomatoes");
@@ -169,7 +166,7 @@ describe("RPC reducer", () => {
 
     const diet: Diet = [["A.01.02.003", baseAmount]];
 
-    const [rpcs, processes] = reduceDiet(diet, recipes, {}, {});
+    const [rpcs, processes] = reduceDiet(diet, recipes, {});
     expect(rpcs).toHaveLength(3);
 
     // RPC 1
@@ -218,7 +215,7 @@ describe("RPC reducer", () => {
 
     const diet: Diet = [["a", baseAmount]];
 
-    const [rpcs, _facets] = reduceDiet(diet, recipes, {}, {});
+    const [rpcs, _facets] = reduceDiet(diet, recipes, {});
     // RPC 1
     expect(rpcs).toEqual([
       [
@@ -236,7 +233,7 @@ describe("RPC reducer", () => {
 
     const diet: Diet = [["A.01.123.01", 100]];
 
-    const [rpcs, processes] = reduceDiet(diet, recipes, {}, {});
+    const [rpcs, processes] = reduceDiet(diet, recipes, {});
     expect(rpcs).toHaveLength(1);
     // RPC 1
     expect(rpcs).toEqual([["A.01.123", 100 * 0.8 * 10]]);
@@ -258,7 +255,7 @@ describe("RPC reducer", () => {
 
     const diet: Diet = [["A.01", 100]];
 
-    const [rpcs, processes] = reduceDiet(diet, recipes, {}, {});
+    const [rpcs, processes] = reduceDiet(diet, recipes, {});
     expect(rpcs).toEqual([
       ["A.01", 100 * 0.2 * 10],
       ["A.02", 100 * 0.8 * 1],
@@ -272,65 +269,6 @@ describe("RPC reducer", () => {
     });
   });
 
-  describe("Preparation processes", () => {
-    test("Direct: Adds processes to diet on L3 level", () => {
-      const pizza: Diet = [["A.19.01.002", 1000]];
-      const preparationProcesses = {
-        "A.19.01.002": ["F28.A07GY"],
-      };
-      const recipes: PartialFoodsRecipe = {
-        "A.19.01.002": [["A.19.01.002", [], 1, 1]],
-      };
-
-      const [_rpcs, processes] = reduceDiet(
-        pizza,
-        recipes,
-        preparationProcesses,
-        {}
-      );
-
-      expect(processes).toEqual({ "A.19": { "F28.A07GY": 1000 } });
-    });
-    test("Direct: Adds processes to diet entered > L3 level", () => {
-      // pizza derivative
-      const diet: Diet = [["A.19.01.002.003", 1234]];
-      const recipes: PartialFoodsRecipe = {
-        "A.19.01.002.003": [["A.19.01.002.003", [], 1, 1]],
-      };
-      const preparationProcesses = { "A.19.01.002": ["F28.A07GY"] };
-
-      const [_rpcs, processes] = reduceDiet(
-        diet,
-        recipes,
-        preparationProcesses,
-        {}
-      );
-
-      expect(processes).toEqual({ "A.19": { "F28.A07GY": 1234 } });
-    });
-
-    test("Indirect: Adds processes to diet entered > L3 level", () => {
-      // Dummy product
-      const diet: Diet = [["I.20.01.001.001", 1000]];
-
-      // Let's pretend this leads to a pizza
-      const recipes: PartialFoodsRecipe = {
-        "I.20.01.001.001": [["A.19.01.002.003", [], 0.5, 3]],
-        "A.19.01.002.003": [["A.19.01.002.003", [], 1, 1]],
-      };
-      const preparationProcesses = { "A.19.01.002": ["F28.A07GY"] };
-
-      const [_rpcs, processes] = reduceDiet(
-        diet,
-        recipes,
-        preparationProcesses,
-        {}
-      );
-
-      expect(processes).toEqual({ "A.19": { "F28.A07GY": 1000 * 0.5 * 3 } });
-    });
-  });
-
   describe("Packaging", () => {
     test("Direct: Adds packaging to diet on L3 level", () => {
       const diet: Diet = [["A.19.01.001", 1000]];
@@ -340,7 +278,6 @@ describe("RPC reducer", () => {
 
       const [_rpcs, _processes, packaging] = reduceDiet(
         diet,
-        {},
         {},
         packagingCodes
       );
@@ -370,7 +307,6 @@ describe("RPC reducer", () => {
       const [_rpcs, _processes, packaging] = reduceDiet(
         diet,
         {},
-        {},
         packagingCodes
       );
 
@@ -395,7 +331,6 @@ describe("RPC reducer", () => {
       const [_rpcs, _processes, packaging] = reduceDiet(
         diet,
         {},
-        {},
         packagingCodes
       );
 
@@ -411,7 +346,6 @@ describe("RPC reducer", () => {
 
       const [_rpcs, _processes, packaging] = reduceDiet(
         diet,
-        {},
         {},
         preparationProcesses
       );
@@ -440,7 +374,6 @@ describe("RPC reducer", () => {
       const [_rpcs, _processes, packaging] = reduceDiet(
         diet,
         recipes,
-        {},
         packagingCodes
       );
 
@@ -460,7 +393,7 @@ describe("RPC reducer", () => {
         raw: [["source", [], 1, 1, [], 0, false, true]],
       };
 
-      expect(() => reduceDiet([["product", 1000]], recipes, {}, {})).toThrow(
+      expect(() => reduceDiet([["product", 1000]], recipes, {})).toThrow(
         "Invalid transport path"
       );
     });
@@ -476,7 +409,6 @@ describe("RPC reducer", () => {
       const [_rpcs, _processes, _packaging, transportAmount] = reduceDiet(
         diet,
         recipes,
-        {},
         {}
       );
 
@@ -494,7 +426,6 @@ describe("RPC reducer", () => {
       const [_rpcs, _processes, _packaging, transportAmount] = reduceDiet(
         diet,
         recipes,
-        {},
         {}
       );
 
@@ -512,7 +443,6 @@ describe("RPC reducer", () => {
       const [_rpcs, _processes, _packaging, transportAmount] = reduceDiet(
         diet,
         recipes,
-        {},
         {}
       );
 
@@ -534,7 +464,6 @@ describe("RPC reducer", () => {
         const [rpcs, _processes, _packaging, transportAmount] = reduceDiet(
           diet,
           recipes,
-          {},
           {}
         );
 
@@ -559,7 +488,6 @@ describe("RPC reducer", () => {
         const [_rpcs, _processes, _packaging, transportAmount] = reduceDiet(
           diet,
           recipes,
-          {},
           {}
         );
 
@@ -584,7 +512,6 @@ describe("RPC reducer", () => {
         const [rpcs, _processes, _packaging, transportAmount] = reduceDiet(
           diet,
           recipes,
-          {},
           {}
         );
 
@@ -608,7 +535,6 @@ describe("RPC reducer", () => {
         const [_rpcs, _processes, _packaging, transportAmount] = reduceDiet(
           diet,
           recipes,
-          {},
           {}
         );
 
@@ -627,7 +553,6 @@ describe("RPC reducer", () => {
         const [_rpcs, _processes, _packaging, transportAmount] = reduceDiet(
           diet,
           recipes,
-          {},
           {}
         );
 
@@ -657,7 +582,6 @@ describe("RPC reducer", () => {
         const [_rpcs, _processes, _packaging, transportAmount] = reduceDiet(
           diet,
           recipes,
-          {},
           {}
         );
 
@@ -676,7 +600,6 @@ describe("RPC reducer", () => {
         const [rpcs, _processes, _packaging, transportAmount] = reduceDiet(
           diet,
           recipes,
-          {},
           {}
         );
 
