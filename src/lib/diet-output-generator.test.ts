@@ -103,9 +103,9 @@ describe("diet-output-generator.ts", async () => {
   test("Process impacts include retail and consumer waste", () => {
     const food = "A.01.03.001.008";
     const process = "F28.A0C03";
-    const withoutWaste = RE.computeImpacts([[food, 1000]], false)[1][
-      "A.01"
-    ]![process]!;
+    const withoutWaste = RE.computeImpacts([[food, 1000]], false)[1]["A.01"]![
+      process
+    ]!;
     const withWaste = RE.computeImpacts([[food, 1000]], true)[1]["A.01"]![
       process
     ]!;
@@ -117,17 +117,17 @@ describe("diet-output-generator.ts", async () => {
   });
 
   test("Milk powder transport remains positive through nested yields", () => {
-    const [rpcAmounts, , , transportAdjustments] = RE.reduceDiet([
+    const [rpcAmounts, , , transportAmounts] = RE.reduceDiet([
       ["A.08.03.003.002", 1000],
     ]);
     const [rpcCode, amount] = rpcAmounts[0]!;
-    const transportedAmount = amount - (transportAdjustments[rpcCode] || 0);
-    const transportImpacts = RE.computeImpacts([
-      ["A.08.03.003.002", 1000],
-    ])[3][rpcCode]!;
+    const transportedAmount = transportAmounts[rpcCode] || 0;
+    const transportImpacts = RE.computeImpacts([["A.08.03.003.002", 1000]])[3][
+      rpcCode
+    ]!;
 
     expect(rpcCode).toBe("A.08.01.001.002");
-    expect(transportedAmount).toBeCloseTo(870.4649, 4);
+    expect(transportedAmount).toBeCloseTo(1086.1301, 4);
     expect(transportImpacts.every((impact) => impact > 0)).toBe(true);
   });
 });

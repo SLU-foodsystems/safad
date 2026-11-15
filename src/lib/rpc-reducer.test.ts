@@ -84,13 +84,13 @@ describe("RPC reducer", () => {
     expect(process!.facetA).toEqual(100);
   });
 
-  test("Scales transport adjustments through nested yields", () => {
+  test("Carries first-boundary transport through nested yields", () => {
     const recipes: PartialFoodsRecipe = {
       product: [["ingredient", [], 1, 2, [], 0, true, true]],
       ingredient: [["raw", [], 1, 0.5, [], 0, true, false]],
     };
 
-    const [rpcs, _processes, _packaging, transportAdjustments] = reduceDiet(
+    const [rpcs, _processes, _packaging, transportAmounts] = reduceDiet(
       [["product", 1000]],
       recipes,
       {},
@@ -98,8 +98,7 @@ describe("RPC reducer", () => {
     );
 
     expect(rpcs).toEqual([["raw", 1000]]);
-    expect(transportAdjustments).toEqual({ raw: 500 });
-    expect(rpcs[0]![1] - transportAdjustments.raw!).toBe(500);
+    expect(transportAmounts).toEqual({ raw: 1000 });
   });
 
   test("Facet amounts based on output", () => {
@@ -453,8 +452,20 @@ describe("RPC reducer", () => {
     });
   });
 
-  describe("Transportless Amounts", () => {
-    test("A net-weight transport adjustment appears in map", () => {
+  describe("Transport amounts", () => {
+    test("Rejects a second net boundary after gross transport", () => {
+      const recipes: PartialFoodsRecipe = {
+        product: [["processed", [], 1, 1, [], 0, false, true]],
+        processed: [["raw", [], 1, 2, [], 0, false, false]],
+        raw: [["source", [], 1, 1, [], 0, false, true]],
+      };
+
+      expect(() => reduceDiet([["product", 1000]], recipes, {}, {})).toThrow(
+        "Invalid transport path"
+      );
+    });
+
+    test("A first net-weight boundary records the row amount", () => {
       const recipes: PartialFoodsRecipe = {
         "A.01.example": [
           ["A.01.example", ["F28.NOT_HARDCODED"], 1, 5, [], 0, true, true],
@@ -462,17 +473,17 @@ describe("RPC reducer", () => {
       };
       const diet: Diet = [["A.01.example", 1000]];
 
-      const [_rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
+      const [_rpcs, _processes, _packaging, transportAmount] = reduceDiet(
         diet,
         recipes,
         {},
         {}
       );
 
-      expect(transportAdjustment).toEqual({ "A.01.example": 4000 });
+      expect(transportAmount).toEqual({ "A.01.example": 5000 });
     });
 
-    test("A gross-weight transport flag does not appear in map", () => {
+    test("A gross-weight-only branch transports the terminal amount", () => {
       const recipes: PartialFoodsRecipe = {
         "A.01.example": [
           ["A.01.example", ["F28.A07KD"], 1, 5, [], 0, true, false],
@@ -480,17 +491,17 @@ describe("RPC reducer", () => {
       };
       const diet: Diet = [["A.01.example", 1000]];
 
-      const [_rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
+      const [_rpcs, _processes, _packaging, transportAmount] = reduceDiet(
         diet,
         recipes,
         {},
         {}
       );
 
-      expect(transportAdjustment).not.toHaveProperty("A.01.example");
+      expect(transportAmount).toEqual({ "A.01.example": 5000 });
     });
 
-    test("Does not appear in map if yield is 1", () => {
+    test("A net boundary with yield 1 still records transport", () => {
       const recipes: PartialFoodsRecipe = {
         "A.01.example": [
           ["A.01.example", ["F28.A07KD"], 1, 1, [], 0, true, true],
@@ -498,29 +509,29 @@ describe("RPC reducer", () => {
       };
       const diet: Diet = [["A.01.example", 1000]];
 
-      const [_rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
+      const [_rpcs, _processes, _packaging, transportAmount] = reduceDiet(
         diet,
         recipes,
         {},
         {}
       );
 
-      expect(transportAdjustment).not.toHaveProperty("A.01.example");
+      expect(transportAmount).toEqual({ "A.01.example": 1000 });
     });
 
-    describe("Net-weight transport adjustments for complex recipes", () => {
+    describe("First-boundary transport for complex recipes", () => {
       test("Case A: Three steps, process in the middle", () => {
         const recipes: PartialFoodsRecipe = {
           // No change
           "A.01.foo": [["A.01.bar", [], 1, 1, [], 1, false, false]],
-          // yield is 4x, but transport is on net weight: 3000 is adjusted
+          // The first net boundary transports the pre-yield amount.
           "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 1, 4, [], 1, false, true]],
-          // Gross-weight yield scales the inherited adjustment into child units.
+          // Later gross processing does not change the transported amount.
           "A.01.baz": [["A.01.qux", [], 1, 1.5, [], 1, false, false]],
         };
         const diet: Diet = [["A.01.foo", 1000]];
 
-        const [rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
+        const [rpcs, _processes, _packaging, transportAmount] = reduceDiet(
           diet,
           recipes,
           {},
@@ -528,7 +539,7 @@ describe("RPC reducer", () => {
         );
 
         expect(rpcs).toEqual([["A.01.qux", 6000]]);
-        expect(transportAdjustment).toEqual({ "A.01.qux": 4500 });
+        expect(transportAmount).toEqual({ "A.01.qux": 1000 });
       });
     });
 
@@ -545,38 +556,32 @@ describe("RPC reducer", () => {
         };
         const diet: Diet = [["A.01.foo", 1000]];
 
-        const [_rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
+        const [_rpcs, _processes, _packaging, transportAmount] = reduceDiet(
           diet,
           recipes,
           {},
           {}
         );
 
-        // The amount from yields is 6600
-        // But in each step, some yields are added that should not be transported.
-        // 1000 -> 1100 = 100
-        // 1100 -> 4400 = 3300
-        // 4400 -> 6600 = 2200 -> total to subtract = 5600
-        // OR: despite 6600 in yield, we only transport 1000
-        expect(transportAdjustment).toEqual({ "A.01.qux": 5600 });
+        // Despite the downstream yields, only the first row amount is
+        // transported.
+        expect(transportAmount).toEqual({ "A.01.qux": 1000 });
       });
 
       test("Case B: Three steps, with processes and ratios", () => {
         const recipes: PartialFoodsRecipe = {
-          // 1000 transported, of 1100  (delta = 100)
+          // 1000 transported; later yields do not alter it.
           "A.01.foo": [
             ["A.01.bar", ["F28.A0C00"], 1.0, 1.1, [], 0, true, true],
           ],
-          // 550 transported, of 2200 (delta = 1650)
           "A.01.bar": [["A.01.baz", ["F28.A0C0B"], 0.5, 4, [], 0, true, true]],
-          // 2200 transported, of 3300 (delta = 1150)
           "A.01.baz": [
             ["A.01.qux", ["F28.A0C0B"], 1.0, 1.5, [], 0, true, true],
           ],
         };
         const diet: Diet = [["A.01.foo", 1000]];
 
-        const [rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
+        const [rpcs, _processes, _packaging, transportAmount] = reduceDiet(
           diet,
           recipes,
           {},
@@ -585,9 +590,8 @@ describe("RPC reducer", () => {
 
         expect(rpcs).toEqual([["A.01.qux", 3300]]);
 
-        // The amount from yields is 3300
-        // But in each step, some yields are added that should not be transported.
-        expect(transportAdjustment).toEqual({ "A.01.qux": 2850 });
+        // The amount from yields is 3300, but only the first row amount moves.
+        expect(transportAmount).toEqual({ "A.01.qux": 1000 });
       });
     });
 
@@ -601,14 +605,14 @@ describe("RPC reducer", () => {
         };
         const diet: Diet = [["I.19.04.002.002", 1000]];
 
-        const [_rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
+        const [_rpcs, _processes, _packaging, transportAmount] = reduceDiet(
           diet,
           recipes,
           {},
           {}
         );
 
-        expect(transportAdjustment).toEqual({});
+        expect(transportAmount).toEqual({ "A.16.02.028": 4 });
       });
 
       test("Case C: Ratio and yield, one step", () => {
@@ -620,54 +624,44 @@ describe("RPC reducer", () => {
         };
         const diet: Diet = [["I.19.04.002.002", 1000]];
 
-        const [_rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
+        const [_rpcs, _processes, _packaging, transportAmount] = reduceDiet(
           diet,
           recipes,
           {},
           {}
         );
 
-        expect(transportAdjustment).toEqual({
-          "A.16.02.028": 2,
-        });
+        expect(transportAmount).toEqual({ "A.16.02.028": 4 });
       });
 
       /**
        * This one took me quite some time to wrap my head around.
        *
-       * do not want to record/adjust the transport ratio when the yield is 1. For
-       * example, we have a falafel recipe that requires 4% (0.004) of paprika.
-       * This recipe uses net-weight transport, but yield is 1 - so it
-       * shouldn't register a transport adjustment
+       * A first net boundary transports the selected ingredient amount, even
+       * when its yield is 1.
        */
       test("Case C: Ratio but yield is 1, multi-step", () => {
         const recipes: PartialFoodsRecipe = {
-          // 1000 -> 4, 0 is transportess
           "I.19.04.002.002": [
             ["A.16.02.028", ["F28.A07KG"], 0.004, 1, [], 0, true, true],
           ],
-          // 4 -> 40, = 36 is adjusted out of transport
           "A.16.02.028": [
             ["A.16.foo", ["F28.A07KG"], 1, 10, [], 0, true, true],
           ],
-          // out of 40, 20 is needed (ratio = 0.5), which is 22 after yield. So,
-          // 2 is adjusted out of transport
           "A.16.foo": [
             ["A.16.bar", ["F28.A07KG"], 0.5, 1.1, [], 0, true, true],
           ],
         };
         const diet: Diet = [["I.19.04.002.002", 1000]];
 
-        const [_rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
+        const [_rpcs, _processes, _packaging, transportAmount] = reduceDiet(
           diet,
           recipes,
           {},
           {}
         );
 
-        expect(transportAdjustment).toEqual({
-          "A.16.bar": 38,
-        });
+        expect(transportAmount).toEqual({ "A.16.bar": 4 });
       });
 
       test("Case D: Ratio but yield is 1, one step", () => {
@@ -679,7 +673,7 @@ describe("RPC reducer", () => {
         };
         const diet: Diet = [["I.19.04.002.002", 1000]];
 
-        const [rpcs, _processes, _packaging, transportAdjustment] = reduceDiet(
+        const [rpcs, _processes, _packaging, transportAmount] = reduceDiet(
           diet,
           recipes,
           {},
@@ -688,8 +682,8 @@ describe("RPC reducer", () => {
 
         expect(rpcs).toEqual([["A.16.02.028", 40]]);
 
-        expect(transportAdjustment).toEqual({
-          "A.16.02.028": 36,
+        expect(transportAmount).toEqual({
+          "A.16.02.028": 4,
         });
       });
     });

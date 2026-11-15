@@ -273,12 +273,8 @@ class ResultsEngine {
       ? adjustDietForWaste(diet, this.wasteRetailAndConsumer!)
       : diet;
 
-    const [
-      rpcAmounts,
-      _processingAmounts,
-      packagingAmounts,
-      transportAdjustments,
-    ] = this.reduceDiet(dietWithWaste, false);
+    const [rpcAmounts, _processingAmounts, packagingAmounts, transportAmounts] =
+      this.reduceDiet(dietWithWaste, false);
 
     const rpcImpacts = Object.fromEntries(
       rpcAmounts.map(([rpc, amountGram]) => [
@@ -330,7 +326,7 @@ class ResultsEngine {
         rpcCode,
         computeTransportEmissions(
           rpcCode,
-          amount - (transportAdjustments[rpcCode] || 0),
+          transportAmounts[rpcCode] || 0,
           rpcOriginWasteFull,
           emissionsFactorsTransport
         ),

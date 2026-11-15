@@ -65,7 +65,8 @@ function aggregateDuplicateRpcs(rpcs: Diet) {
  * sub-components that constitute it, respecting the amount, yield, and waste.
  * Ensures each RPC only occures once.
  *
- * It will also record any preparation processes.
+ * It also records process contributions and the first transport amount for
+ * each terminal RPC branch.
  */
 function reduceToRpcs(
   // Main input: Code and amount of the food to reduce
@@ -76,7 +77,7 @@ function reduceToRpcs(
   preparationProcesses: Record<string, string[]>,
 
   // Modifiers
-  recordTransportAdjustment: (rpcCode: string, amount: number) => void,
+  recordTransportAmount: (rpcCode: string, amount: number) => void,
   recordProcessesContribution: (
     code: string,
     facet: string,
@@ -85,13 +86,12 @@ function reduceToRpcs(
 
   // State variables
   recordedSpecialProcesses: Set<string> = new Set(),
-  transportAdjustmentAmount: number = 0
+  transportAmount?: number,
+  hasGrossAfterTransport = false
 ): Diet {
   const subcomponents = recipes[componentCode];
   if (!subcomponents) {
-    if (transportAdjustmentAmount !== 0) {
-      recordTransportAdjustment(componentCode, transportAdjustmentAmount);
-    }
+    recordTransportAmount(componentCode, transportAmount ?? amount);
     return [[componentCode, amount]];
   }
 
@@ -128,12 +128,6 @@ function reduceToRpcs(
         transportOnNetWeight,
       }): Diet => {
         const netAmount = yieldFactor * ratio * amount;
-        // Net-weight transport adjustments accumulate across consecutive
-        // net-weight steps. Gross-weight steps transform the inherited
-        // adjustment into the child units.
-        let newTransportAdjustmentAmount = transportOnNetWeight
-          ? transportAdjustmentAmount
-          : transportAdjustmentAmount * yieldFactor * ratio;
 
         // Record the output amount for processes
         // This will always be a process, and never a packaging
@@ -146,33 +140,33 @@ function reduceToRpcs(
           )
         );
 
-        if (transportOnNetWeight) {
-          newTransportAdjustmentAmount += netAmount - preProcessAmount;
-        }
-
-        // Some recipes will include references back to themselves, in which
-        // case we do not want to recurse any further additional process.
-        // (otherwise, we'll get an infinite loop).
         const isSelfReference = subcomponentCode === componentCode;
         if (isSelfReference) {
-          if (newTransportAdjustmentAmount !== 0) {
-            recordTransportAdjustment(
-              subcomponentCode,
-              newTransportAdjustmentAmount
-            );
-          }
+          recordTransportAmount(subcomponentCode, transportAmount ?? netAmount);
           return [[subcomponentCode, netAmount]];
         }
+
+        if (transportOnNetWeight && hasGrossAfterTransport) {
+          throw new Error(
+            `Invalid transport path: Net=1 -> Net=0 -> Net=1 at ${componentCode} -> ${subcomponentCode}.`
+          );
+        }
+
+        const nextTransportAmount =
+          transportAmount ??
+          (transportOnNetWeight ? preProcessAmount : undefined);
 
         // Recurse!
         return reduceToRpcs(
           [subcomponentCode, netAmount],
           recipes,
           preparationProcesses,
-          recordTransportAdjustment,
+          recordTransportAmount,
           recordProcessesContribution,
           updatedRecordedSpecialProcesses,
-          newTransportAdjustmentAmount
+          nextTransportAmount,
+          hasGrossAfterTransport ||
+            (transportAmount !== undefined && !transportOnNetWeight)
         );
       }
     )
@@ -195,7 +189,7 @@ export default function reduceDietToRpcs(
   Record<string, number>,
 ] {
   const processesAmounts: NestedRecord<string, number> = {};
-  const transportAdjustments: Record<string, number> = {};
+  const transportAmounts: Record<string, number> = {};
 
   // Helper function  called for all processes found when traversing the
   // recipes, adding to the above map under its L1 code.
@@ -211,9 +205,8 @@ export default function reduceDietToRpcs(
       (processesAmounts[level1Category][facetCode] || 0) + amount;
   };
 
-  const recordTransportAdjustment = (rpcCode: string, amount: number) => {
-    transportAdjustments[rpcCode] =
-      (transportAdjustments[rpcCode] || 0) + amount;
+  const recordTransportAmount = (rpcCode: string, amount: number) => {
+    transportAmounts[rpcCode] = (transportAmounts[rpcCode] || 0) + amount;
   };
 
   const rpcAmounts = diet
@@ -222,7 +215,7 @@ export default function reduceDietToRpcs(
         rpcDerivative,
         recipes,
         preparationProcesses,
-        recordTransportAdjustment,
+        recordTransportAmount,
         recordProcessContribution
       )
     )
@@ -234,6 +227,6 @@ export default function reduceDietToRpcs(
     aggregateDuplicateRpcs(rpcAmounts),
     processesAmounts,
     packagingAmounts,
-    transportAdjustments,
+    transportAmounts,
   ];
 }
