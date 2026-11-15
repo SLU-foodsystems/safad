@@ -576,9 +576,9 @@ export function parseFoodsRecipes(recipesCsvStr: string, delimiter = ",") {
       _componentName,
       facetStr,
       _facetDescr,
-      perc,
-      prob,
-      yieldFactor,
+      sharePercentage,
+      probability,
+      reverseYieldFactor,
       allocationFactor,
       preparationCode,
       _preparationName,
@@ -601,15 +601,15 @@ export function parseFoodsRecipes(recipesCsvStr: string, delimiter = ",") {
           "Include component preparation must be 0 or 1"
         );
       }
-      const value = roundToPrecision(
-        (asNumber(perc!, 100) * asNumber(prob!, 1)) / 100,
+      const share = roundToPrecision(
+        (asNumber(sharePercentage!, 100) * asNumber(probability!, 1)) / 100,
         3
       );
 
       const netYieldFactor =
-        asNumber(yieldFactor!, 1) * asNumber(allocationFactor!, 1);
+        asNumber(reverseYieldFactor!, 1) * asNumber(allocationFactor!, 1);
 
-      if (value === 0) return;
+      if (share === 0) return;
 
       const PROCESS_UNSPECIFIED = "F28.A07XD";
       const processes = facetStr!
@@ -622,7 +622,7 @@ export function parseFoodsRecipes(recipesCsvStr: string, delimiter = ",") {
       const entry: FoodsRecipeElement = {
         rpcCode: component!,
         processFacets: processes,
-        share: value,
+        share,
         reverseYield: netYieldFactor || 1,
         preparationProcessFacets: preparationProcesses,
         preparationReverseYield: asNumber(preparationYield!, 0),
