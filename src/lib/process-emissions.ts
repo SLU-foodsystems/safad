@@ -1,6 +1,5 @@
 import { N_PROCESS_GHGS } from "@/lib/constants";
-import { getRpcCodeSubset, mapValues } from "@/lib/utils";
-import { computeFoodProcessEnergy } from "@/lib/food-processing-energy";
+import { mapValues } from "@/lib/utils";
 
 // Hard-coded to match the order of columns in IP Energy Proc.csv
 const CARRIER_ORDER = [
@@ -94,66 +93,83 @@ export const computeProcessImpacts = (
     )
   );
 
-export function computeFoodProcessImpacts(
-  food: string,
-  amountGram: number,
-  recipes: FoodsRecipes,
-  processEnergy: Record<string, number[]>,
-  emissionsFactorsEnergy: Record<string, Record<string, number[]>>,
-  countryCode: string
-): Record<string, number[]> {
-  const carrierFactors = CARRIER_ORDER.map((carrier) => {
-    const factors =
-      emissionsFactorsEnergy[carrier]?.[countryCode] ??
-      emissionsFactorsEnergy[carrier]?.RoW;
-    if (!factors) throw new Error(`Missing energy factors for ${carrier}.`);
-    return factors;
+function addProcessImpacts(
+  target: NestedRecord<string, number[]>,
+  source: Record<string, { [k: string]: number[] }>
+) {
+  Object.entries(source).forEach(([category, processes]) => {
+    target[category] ??= {};
+    Object.entries(processes).forEach(([process, values]) => {
+      target[category]![process] ??= values.map(() => 0);
+      values.forEach(
+        (value, index) =>
+          (target[category]![process]![index] =
+            (target[category]![process]![index] || 0) + value)
+      );
+    });
   });
-  const energy = computeFoodProcessEnergy(recipes, processEnergy)[food] || {};
-  return Object.fromEntries(
-    Object.entries(energy).map(([processCode, carriers]) => [
-      processCode,
-      carriers
-        .reduce(
-          (impacts, mj, index) =>
-            impacts.map(
-              (impact, ghg) => impact + mj * (carrierFactors[index]?.[ghg] || 0)
-            ),
-          Array.from({ length: N_PROCESS_GHGS }, () => 0)
-        )
-        .map((impact) => (impact * amountGram) / 1000),
-    ])
-  );
+}
+
+function getOriginWeightedProcessEnvFactors(
+  originFactors: RpcOriginWaste[string],
+  processEnergyDemands: Record<string, number[]>,
+  emissionsFactors: Record<string, Record<string, number[]>>
+) {
+  const result: Record<string, number[]> = {};
+
+  Object.entries(originFactors).forEach(([origin, [share]]) => {
+    const factors = getProcessEnvFactors(
+      origin,
+      processEnergyDemands,
+      emissionsFactors
+    );
+    Object.entries(factors).forEach(([process, values]) => {
+      result[process] ??= values.map(() => 0);
+      values.forEach(
+        (value, index) => (result[process]![index] += value * share)
+      );
+    });
+  });
+
+  return result;
 }
 
 export function computeDietProcessImpacts(
-  diet: Diet,
-  recipes: FoodsRecipes,
-  processEnergy: Record<string, number[]>,
+  processLocationAmounts: ProcessLocationAmounts,
+  processEnergyDemands: Record<string, number[]>,
   emissionsFactorsEnergy: Record<string, Record<string, number[]>>,
-  countryCode: string
+  consumerCountry: string,
+  rpcOriginWaste: RpcOriginWaste
 ): NestedRecord<string, number[]> {
   const result: NestedRecord<string, number[]> = {};
+  const consumerFactors = getProcessEnvFactors(
+    consumerCountry,
+    processEnergyDemands,
+    emissionsFactorsEnergy
+  );
 
-  diet.forEach(([food, amount]) => {
-    const category = getRpcCodeSubset(food, 1, true);
-    const impacts = computeFoodProcessImpacts(
-      food,
-      amount,
-      recipes,
-      processEnergy,
-      emissionsFactorsEnergy,
-      countryCode
+  Object.entries(processLocationAmounts).forEach(([terminalRpc, locations]) => {
+    addProcessImpacts(
+      result,
+      computeProcessImpacts(locations.consumer, consumerFactors)
     );
-    result[category] ??= {};
-    Object.entries(impacts).forEach(([process, values]) => {
-      result[category]![process] ??= values.map(() => 0);
-      values.forEach(
-        (value, index) =>
-          (result[category]![process]![index] =
-            (result[category]![process]![index] || 0) + value)
-      );
-    });
+
+    const originFactors = rpcOriginWaste[terminalRpc];
+    if (!originFactors) {
+      throw new Error(`Missing origin shares for terminal RPC ${terminalRpc}.`);
+    }
+
+    addProcessImpacts(
+      result,
+      computeProcessImpacts(
+        locations.producer,
+        getOriginWeightedProcessEnvFactors(
+          originFactors,
+          processEnergyDemands,
+          emissionsFactorsEnergy
+        )
+      )
+    );
   });
 
   return result;

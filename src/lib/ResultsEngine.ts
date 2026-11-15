@@ -248,6 +248,10 @@ class ResultsEngine {
       throw new Error("Compute called when no rpcParameters were set.");
     }
 
+    if (!this.rpcOriginWaste) {
+      throw new Error("Compute called when no rpc origin shares were set.");
+    }
+
     if (!this.countryCode || !this.processEnvFactors) {
       throw new Error("Compute called when no country or process was set.");
     }
@@ -268,7 +272,7 @@ class ResultsEngine {
       ? adjustDietForWaste(diet, this.wasteRetailAndConsumer!)
       : diet;
 
-    const [rpcAmounts, _processingAmounts, packagingAmounts, transportAmounts] =
+    const [rpcAmounts, processAmounts, packagingAmounts, transportAmounts] =
       this.reduceDiet(dietWithWaste, false);
 
     const rpcImpacts = Object.fromEntries(
@@ -280,29 +284,26 @@ class ResultsEngine {
 
     // Per-process impacts
     const processesEnvImpacts = computeDietProcessImpacts(
-      dietWithWaste,
-      this.foodsRecipes!,
+      processAmounts,
       this.processesEnergyDemands!,
       this.emissionsFactorsEnergy!,
-      this.countryCode!
+      this.countryCode!,
+      this.rpcOriginWaste
     );
 
     const emissionsFactorsPackaging = this.emissionsFactorsPackaging;
-
     // Map the packagingAmounts to their respective emission factors
     const packagingEnvImpacts = mapValues(packagingAmounts, (amounts) =>
-      Object.fromEntries(
-        Object.entries(amounts).map(([packagingId, amount]) => {
-          const emissionsFactors = emissionsFactorsPackaging[packagingId];
-          if (!emissionsFactors) {
-            throw new Error(
-              `Emissions factors missing for packagingId ${packagingId}`
-            );
-          }
+      mapValues(amounts, (amount, packagingId) => {
+        const emissionsFactors = emissionsFactorsPackaging[packagingId];
+        if (!emissionsFactors) {
+          throw new Error(
+            `Emissions factors missing for packagingId ${packagingId}`
+          );
+        }
 
-          return [packagingId, emissionsFactors.map((x) => (x * amount) / 1e3)];
-        })
-      )
+        return emissionsFactors.map((x) => (x * amount) / 1e3);
+      })
     );
 
     const { rpcOriginWasteFull, countryCode } = this;
@@ -316,12 +317,12 @@ class ResultsEngine {
     }
 
     // Transport impacts
-    const transportEnvImpactsEntries = rpcAmounts
+    const transportEnvImpactsEntries = Object.entries(transportAmounts)
       .map(([rpcCode, amount]) => [
         rpcCode,
         computeTransportEmissions(
           rpcCode,
-          transportAmounts[rpcCode] || 0,
+          amount || 0,
           rpcOriginWasteFull,
           emissionsFactorsTransport
         ),

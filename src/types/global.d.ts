@@ -35,6 +35,12 @@ declare global {
     [foodexCode: string]: FoodsRecipeEntry
   };
 
+  type ProcessLocation = "consumer" | "producer";
+  type ProcessLocationAmounts = Record<
+    string,
+    Record<ProcessLocation, NestedRecord<string, number>>
+  >;
+
   // Factors are multiples of impact per kg of food per day.
   interface RpcFootprintsByOrigin {
     [rpcCode: string]: { [originCode: string]: number[] };

@@ -79,7 +79,9 @@ function reduceToRpcs(
 
   // Modifiers
   recordTransportAmount: (rpcCode: string, amount: number) => void,
-  recordProcessesContribution: (
+  recordProcessLocationContribution: (
+    terminalRpc: string,
+    location: ProcessLocation,
     code: string,
     facet: string,
     amount: number
@@ -87,13 +89,49 @@ function reduceToRpcs(
 
   // State variables
   transportAmount?: number,
-  hasGrossAfterTransport = false
+  hasGrossAfterTransport = false,
+  pendingProcessContributions: {
+    location: ProcessLocation;
+    code: string;
+    facet: string;
+    amount: number;
+  }[] = [],
+  includePreparation = true
 ): Diet {
   const subcomponents = recipes[componentCode];
   if (!subcomponents) {
     recordTransportAmount(componentCode, transportAmount ?? amount);
+    pendingProcessContributions.forEach((contribution) =>
+      recordProcessLocationContribution(
+        componentCode,
+        contribution.location,
+        contribution.code,
+        contribution.facet,
+        contribution.amount
+      )
+    );
     return [[componentCode, amount]];
   }
+
+  const firstRow = subcomponents[0];
+  const preparationLocation: ProcessLocation =
+    transportAmount !== undefined || firstRow?.transportOnNetWeight
+      ? "producer"
+      : "consumer";
+  const processContributions = includePreparation
+    ? firstRow?.preparationProcessFacets.reduce(
+        (contributions, facet) => [
+          ...contributions,
+          {
+            location: preparationLocation,
+            code: getRpcCodeSubset(componentCode, 1, true),
+            facet,
+            amount: amount * firstRow.preparationReverseYield,
+          },
+        ],
+        pendingProcessContributions
+      ) || pendingProcessContributions
+    : pendingProcessContributions;
 
   return subcomponents
     .map(
@@ -103,23 +141,46 @@ function reduceToRpcs(
         share: ratio,
         reverseYield: yieldFactor,
         transportOnNetWeight,
+        includeComponentPreparation,
       }): Diet => {
         const netAmount = yieldFactor * ratio * amount;
 
-        // Record the output amount for processes
-        // This will always be a process, and never a packaging
+        // Net 1 transport uses the row amount before yield or allocation.
         const preProcessAmount = ratio * amount;
-        processes.forEach((processId) =>
-          recordProcessesContribution(
-            componentCode,
-            processId,
-            preProcessAmount
-          )
+        const location: ProcessLocation =
+          transportAmount !== undefined || transportOnNetWeight
+            ? "producer"
+            : "consumer";
+        const branchProcessContributions = processContributions.map(
+          (contribution) => ({
+            ...contribution,
+            amount: contribution.amount * ratio,
+          })
         );
-
+        const nextProcessContributions = processes.reduce(
+          (contributions, facet) => [
+            ...contributions,
+            {
+              location,
+              code: getRpcCodeSubset(componentCode, 1, true),
+              facet,
+              amount: netAmount,
+            },
+          ],
+          branchProcessContributions
+        );
         const isSelfReference = subcomponentCode === componentCode;
         if (isSelfReference) {
           recordTransportAmount(subcomponentCode, transportAmount ?? netAmount);
+          nextProcessContributions.forEach((contribution) =>
+            recordProcessLocationContribution(
+              subcomponentCode,
+              contribution.location,
+              contribution.code,
+              contribution.facet,
+              contribution.amount
+            )
+          );
           return [[subcomponentCode, netAmount]];
         }
 
@@ -138,10 +199,12 @@ function reduceToRpcs(
           [subcomponentCode, netAmount],
           recipes,
           recordTransportAmount,
-          recordProcessesContribution,
+          recordProcessLocationContribution,
           nextTransportAmount,
           hasGrossAfterTransport ||
-            (transportAmount !== undefined && !transportOnNetWeight)
+            (transportAmount !== undefined && !transportOnNetWeight),
+          nextProcessContributions,
+          includeComponentPreparation
         );
       }
     )
@@ -158,29 +221,32 @@ export default function reduceDietToRpcs(
   packagingCodes: Record<string, string>
 ): [
   Diet,
-  NestedRecord<string, number>,
+  ProcessLocationAmounts,
   NestedRecord<string, number>,
   Record<string, number>,
 ] {
-  const processesAmounts: NestedRecord<string, number> = {};
   const transportAmounts: Record<string, number> = {};
-
-  // Helper function  called for all processes found when traversing the
-  // recipes, adding to the above map under its L1 code.
-  const recordProcessContribution = (
-    code: string,
-    facetCode: string,
-    amount: number
-  ) => {
-    const level1Category = getRpcCodeSubset(code, 1, true);
-    processesAmounts[level1Category] ??= {};
-
-    processesAmounts[level1Category][facetCode] =
-      (processesAmounts[level1Category][facetCode] || 0) + amount;
-  };
+  const processLocationAmounts: ProcessLocationAmounts = {};
 
   const recordTransportAmount = (rpcCode: string, amount: number) => {
     transportAmounts[rpcCode] = (transportAmounts[rpcCode] || 0) + amount;
+  };
+
+  const recordProcessLocationContribution = (
+    terminalRpc: string,
+    location: ProcessLocation,
+    code: string,
+    facet: string,
+    amount: number
+  ) => {
+    processLocationAmounts[terminalRpc] ??= {
+      consumer: {},
+      producer: {},
+    };
+    processLocationAmounts[terminalRpc][location][code] ??= {};
+    processLocationAmounts[terminalRpc][location][code]![facet] =
+      (processLocationAmounts[terminalRpc][location][code]![facet] || 0) +
+      amount;
   };
 
   const rpcAmounts = diet
@@ -189,7 +255,7 @@ export default function reduceDietToRpcs(
         rpcDerivative,
         recipes,
         recordTransportAmount,
-        recordProcessContribution
+        recordProcessLocationContribution
       )
     )
     .flat(1);
@@ -198,7 +264,7 @@ export default function reduceDietToRpcs(
 
   return [
     aggregateDuplicateRpcs(rpcAmounts),
-    processesAmounts,
+    processLocationAmounts,
     packagingAmounts,
     transportAmounts,
   ];

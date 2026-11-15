@@ -17,62 +17,24 @@ const emissionsFactors = Object.fromEntries(
   carriers.map((carrier) => [carrier, { SE: [1, 0, 0] }])
 );
 
-const recipes: FoodsRecipes = {
-  "A.01.food": [
-    {
-      rpcCode: "raw",
-      processFacets: ["F28.TEST"],
-      share: 1,
-      reverseYield: 1,
-      preparationProcessFacets: [],
-      preparationReverseYield: 1,
-      includeComponentPreparation: false,
-      transportOnNetWeight: false,
-    },
-  ],
-  "A.01.other": [
-    {
-      rpcCode: "raw",
-      processFacets: ["F28.TEST"],
-      share: 1,
-      reverseYield: 1,
-      preparationProcessFacets: [],
-      preparationReverseYield: 1,
-      includeComponentPreparation: false,
-      transportOnNetWeight: false,
-    },
-  ],
-  "A.02.food": [
-    {
-      rpcCode: "raw",
-      processFacets: ["F28.TEST"],
-      share: 1,
-      reverseYield: 1,
-      preparationProcessFacets: [],
-      preparationReverseYield: 1,
-      includeComponentPreparation: false,
-      transportOnNetWeight: false,
-    },
-  ],
-};
-
 describe("computeDietProcessImpacts", () => {
-  test("aggregates process impacts by food category", () => {
+  test("weights producer-country process impacts by terminal RPC origins", () => {
     const impacts = computeDietProcessImpacts(
-      [
-        ["A.01.food", 1000],
-        ["A.01.other", 500],
-        ["A.02.food", 1000],
-      ],
-      recipes,
+      {
+        raw: {
+          consumer: { "A.01": { "F28.TEST": 500 } },
+          producer: { "A.01": { "F28.TEST": 500 } },
+        },
+      },
       { "F28.TEST": [2, 0, 0, 0, 0, 0, 0, 0, 0] },
-      emissionsFactors,
-      "SE"
+      {
+        ...emissionsFactors,
+        Electricity: { SE: [1, 0, 0], DK: [3, 0, 0] },
+      },
+      "SE",
+      { raw: { DK: [0.25, 0], SE: [0.75, 0] } }
     );
 
-    expect(impacts).toEqual({
-      "A.01": { "F28.TEST": [3, 0, 0] },
-      "A.02": { "F28.TEST": [2, 0, 0] },
-    });
+    expect(impacts).toEqual({ "A.01": { "F28.TEST": [2.5, 0, 0] } });
   });
 });
