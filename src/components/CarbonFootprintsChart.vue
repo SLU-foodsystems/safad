@@ -282,11 +282,11 @@ onMounted(drawChart);
         <template v-for="(amounts, foodCode) in recipeAmounts" :key="foodCode">
           <tr
             v-for="(entry, index) in amounts"
-            :key="`${foodCode}-${entry.component}-${index}`"
+            :key="`${foodCode}-${entry.rpcCode}-${index}`"
           >
             <td>{{ foodCode }}</td>
             <td>{{ entry.level }}</td>
-            <td>{{ entry.component }}</td>
+            <td>{{ entry.rpcCode }}</td>
             <td>{{ entry.grossAmount.toFixed(3) }}</td>
             <td>{{ entry.reverseYield.toFixed(3) }}</td>
             <td>{{ entry.netAmount.toFixed(3) }}</td>
