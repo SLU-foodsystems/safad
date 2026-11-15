@@ -88,9 +88,6 @@ EF_country_specific <- read_excel(
     values_from = "Value",
     names_from = "Gas"
   ) |>
-  # The process energy factors are only used for the LL countries, and we're
-  # thus only interested in these country rows. Exclude any others.
-  filter(`Country code` %in% c(LL_countries, "RoW")) |>
   arrange(`Energy carrier`, `Country code`)
 
 out <- bind_rows(
